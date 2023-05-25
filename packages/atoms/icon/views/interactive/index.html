@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  <doc-controller>
+    <div>
+      <o-icon>
+        Hello World
+      </o-icon>
+  </div>
+
+    <section class="control" slot="setting">
+      <doc-input label="HTML" variant="textarea" name="html" value="Hello World"></doc-input>
+    <h3 data-subtitle="Icon Properties">Icon Properties</h3><div data-name="Icon Properties" class="properties">
+        <doc-input data-prop-name="name" variant="select" value="circle" name="name" label="name" options='["circle_empty","circle","clock_loader_10","clock_loader_20","clock_loader_40","clock_loader_60","clock_loader_80","clock_loader_90","create_new_folder","shopping_cart_checkout"]'></doc-input>
+      
+            <color-picker-input data-prop-name="color" name="color" label="color" value=""></color-picker-input>
+          
+        <doc-input data-prop-name="size" variant="select" value="medium" name="size" label="size" options='["small","medium","large"]'></doc-input>
+      
+          <doc-input data-prop-name="customSize" variant="number" value="" name="customSize" label="customSize"></doc-input>
+        </div><h3 data-subtitle="AssetTemplate Properties">AssetTemplate Properties</h3><div data-name="AssetTemplate Properties" class="properties">
+          <doc-radio name="cache" data-prop-name="cache" label="cache" value=""></doc-radio>
+        </div></section>
+  </doc-controller>
+</body>
+</html>

@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+}
+
+section.control {
+  padding: 0 4rem;
+}
+
+div.properties {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}

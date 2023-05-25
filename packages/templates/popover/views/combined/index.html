@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PopoverTemplate Component</title>
+
+    <link rel="stylesheet" href="style.css" >
+    <script src="main.js" defer type="module"></script>
+<link rel="stylesheet" href="sources/demo/templates_popover_demo-style.css" ><link rel="stylesheet" href="sources/variations/templates_popover_variations-style.css" ><link rel="stylesheet" href="sources/interactive/templates_popover_interactive-style.css" ><link rel="stylesheet" href="sources/doc/templates_popover_doc-style.css" ></head>
+<body>
+    <header>
+        <doc-title title="awesome component" type="atom"></doc-title>
+        <ul class="tabs"><li data-tab="doc" class="selected">Documentation</li><li data-tab="demo">Demo</li><li data-tab="interactive">Interactive</li><li data-tab="variations">Variations</li></ul>
+    </header>
+<section data-tab="demo">
+    
+
+    <doc-card>
+        <code-block lang="html" display="both">
+            <o-popover-template hideonoutsideclick="true" revealby="click" target="#popover1b">
+                <div slot="target">
+                    <button>TARGET BUTTON</button>
+                    <br>
+                    <button>TARGET BUTTON 2</button>
+                </div>
+                <div class="card">
+                <header>
+                    <h5>Im the header!</h5>
+                    <button>X</button>
+                </header>
+                <div>
+                    <p>Some body content with some "fruits"!</p>
+                    <ul>
+                    <li>bananas (actually a berry)</li>
+                    <li>apples</li>
+                    <li>pears</li>
+                    </ul>
+                </div>
+                <footer>
+                    Im a footer yay!
+                </footer>
+                </div>
+            </o-popover-template>
+        </code-block>
+    </doc-card>
+</section><section data-tab="variations">
+  
+<h1 data-title="class">PopoverTemplate Properties</h1>
+        <doc-card class="property" data-name="revealby">
+            <h2 slot="header"><span class="deemphasize">Property: </span>revealby</h2>
+
+            <div class="property-info">
+              <p>type: Reveal</p>
+              <p>default-value: hover</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="hover">
+                    <h4><span class="deemphasize">Property-Value: </span>hover</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        revealby="hover"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="click">
+                    <h4><span class="deemphasize">Property-Value: </span>click</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        revealby="click"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="placement">
+            <h2 slot="header"><span class="deemphasize">Property: </span>placement</h2>
+
+            <div class="property-info">
+              <p>type: Placement</p>
+              <p>default-value: bottom-center</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="top-left">
+                    <h4><span class="deemphasize">Property-Value: </span>top-left</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        placement="top-left"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="top-right">
+                    <h4><span class="deemphasize">Property-Value: </span>top-right</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        placement="top-right"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="top-center">
+                    <h4><span class="deemphasize">Property-Value: </span>top-center</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        placement="top-center"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="bottom-left">
+                    <h4><span class="deemphasize">Property-Value: </span>bottom-left</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        placement="bottom-left"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="bottom-right">
+                    <h4><span class="deemphasize">Property-Value: </span>bottom-right</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        placement="bottom-right"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="bottom-center">
+                    <h4><span class="deemphasize">Property-Value: </span>bottom-center</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        placement="bottom-center"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="left-top">
+                    <h4><span class="deemphasize">Property-Value: </span>left-top</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        placement="left-top"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="left-bottom">
+                    <h4><span class="deemphasize">Property-Value: </span>left-bottom</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        placement="left-bottom"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="left-center">
+                    <h4><span class="deemphasize">Property-Value: </span>left-center</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        placement="left-center"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="right-top">
+                    <h4><span class="deemphasize">Property-Value: </span>right-top</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        placement="right-top"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="right-bottom">
+                    <h4><span class="deemphasize">Property-Value: </span>right-bottom</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        placement="right-bottom"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="right-center">
+                    <h4><span class="deemphasize">Property-Value: </span>right-center</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        placement="right-center"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="hideonoutsideclick">
+            <h2 slot="header"><span class="deemphasize">Property: </span>hideonoutsideclick</h2>
+
+            <div class="property-info">
+              <p>type: boolean</p>
+              <p>default-value: false</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="true">
+                    <h4><span class="deemphasize">Property-Value: </span>true</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        hideonoutsideclick="true"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="false">
+                    <h4><span class="deemphasize">Property-Value: </span>false</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        hideonoutsideclick="false"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="open">
+            <h2 slot="header"><span class="deemphasize">Property: </span>open</h2>
+
+            <div class="property-info">
+              <p>type: boolean</p>
+              <p>default-value: false</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="true">
+                    <h4><span class="deemphasize">Property-Value: </span>true</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        open="true"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="false">
+                    <h4><span class="deemphasize">Property-Value: </span>false</h4>
+                    <code-block lang="html" display="both">
+                      <o-popover-template 
+                        open="false"
+                        
+                      >
+                        <button slot='target'>TARGET BUTTON</button><div style='border:2px solid black;background:white'><h1>Hello</h1><p>World</p></div>
+                      </o-popover-template>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    <h1 data-title="inherit">Inherited Properties</h1></section><section data-tab="interactive">
+  <doc-controller>
+    <div>
+      <o-popover-template>
+        Hello World
+      </o-popover-template>
+  </div>
+
+    <section class="control" slot="setting">
+      <doc-input label="HTML" variant="textarea" name="html" value="Hello World"></doc-input>
+    <h3 data-subtitle="PopoverTemplate Properties">PopoverTemplate Properties</h3><div data-name="PopoverTemplate Properties" class="properties">
+        <doc-input data-prop-name="revealby" variant="select" value="hover" name="revealby" label="revealby" options='["hover","click"]'></doc-input>
+      
+        <doc-input data-prop-name="placement" variant="select" value="bottom-center" name="placement" label="placement" options='["top-left","top-right","top-center","bottom-left","bottom-right","bottom-center","left-top","left-bottom","left-center","right-top","right-bottom","right-center"]'></doc-input>
+      
+          <doc-radio name="hideonoutsideclick" data-prop-name="hideonoutsideclick" label="hideonoutsideclick" value=""></doc-radio>
+        
+          <doc-radio name="open" data-prop-name="open" label="open" value=""></doc-radio>
+        </div></section>
+  </doc-controller>
+</section><section data-tab="doc" class="selected">
+    <doc-card>
+        <doc-markdown file="o-popover-template-document.md"></doc-markdown>
+    </doc-card>
+</section></body>
+</html>

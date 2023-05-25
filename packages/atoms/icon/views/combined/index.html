@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Component</title>
+
+    <link rel="stylesheet" href="style.css" >
+    <script src="main.js" defer type="module"></script>
+<link rel="stylesheet" href="sources/demo/atoms_icon_demo-style.css" ><link rel="stylesheet" href="sources/variations/atoms_icon_variations-style.css" ><link rel="stylesheet" href="sources/interactive/atoms_icon_interactive-style.css" ><link rel="stylesheet" href="sources/doc/atoms_icon_doc-style.css" ></head>
+<body>
+    <header>
+        <doc-title title="awesome component" type="atom"></doc-title>
+        <ul class="tabs"><li data-tab="doc" class="selected">Documentation</li><li data-tab="demo">Demo</li><li data-tab="interactive">interactive</li><li data-tab="variations">variations</li></ul>
+    </header>
+<section data-tab="demo">
+    <doc-card>
+        <code-block lang="html" display="both">
+            <o-icon 
+                assetbase="public/icons"
+                name="circle"
+                cache="false"
+            ></o-icon>
+        </code-block>
+    </doc-card>
+
+    <doc-card>
+        <code-block lang="html" display="both">
+            <o-icon customSize="200" id="atoms_icon_demo_animation" cache="true" color="orange" name="circle">
+            </o-icon>
+        </code-block>
+    </doc-card>
+</section><section data-tab="variations">
+  
+<h1 data-title="class">Icon Properties</h1>
+        <doc-card class="property" data-name="name">
+            <h2 slot="header"><span class="deemphasize">Property: </span>name</h2>
+
+            <div class="property-info">
+              <p>type: string</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="circle_empty">
+                    <h4><span class="deemphasize">Property-Value: </span>circle_empty</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        name="circle_empty"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="circle">
+                    <h4><span class="deemphasize">Property-Value: </span>circle</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        name="circle"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="create_new_folder">
+                    <h4><span class="deemphasize">Property-Value: </span>create_new_folder</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        name="create_new_folder"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="shopping_cart_checkout">
+                    <h4><span class="deemphasize">Property-Value: </span>shopping_cart_checkout</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        name="shopping_cart_checkout"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="color">
+            <h2 slot="header"><span class="deemphasize">Property: </span>color</h2>
+
+            <div class="property-info">
+              <p>type: string</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="coral">
+                    <h4><span class="deemphasize">Property-Value: </span>coral</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        color="coral"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="cornflowerblue">
+                    <h4><span class="deemphasize">Property-Value: </span>cornflowerblue</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        color="cornflowerblue"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="darkorange">
+                    <h4><span class="deemphasize">Property-Value: </span>darkorange</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        color="darkorange"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="sandybrown">
+                    <h4><span class="deemphasize">Property-Value: </span>sandybrown</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        color="sandybrown"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="size">
+            <h2 slot="header"><span class="deemphasize">Property: </span>size</h2>
+
+            <div class="property-info">
+              <p>type: Size</p>
+              <p>default-value: medium</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="small">
+                    <h4><span class="deemphasize">Property-Value: </span>small</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        size="small"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="medium">
+                    <h4><span class="deemphasize">Property-Value: </span>medium</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        size="medium"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="large">
+                    <h4><span class="deemphasize">Property-Value: </span>large</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        size="large"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="customSize">
+            <h2 slot="header"><span class="deemphasize">Property: </span>customSize</h2>
+
+            <div class="property-info">
+              <p>type: number</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="10">
+                    <h4><span class="deemphasize">Property-Value: </span>10</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        customSize="10"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="25">
+                    <h4><span class="deemphasize">Property-Value: </span>25</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        customSize="25"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="40">
+                    <h4><span class="deemphasize">Property-Value: </span>40</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        customSize="40"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    <h1 data-title="inherit">Inherited Properties</h1><h3 data-subtitle="from AssetTemplate">from AssetTemplate</h3>
+        <doc-card class="property" data-name="assetBase">
+            <h2 slot="header"><span class="deemphasize">Property: </span>assetBase</h2>
+
+            <div class="property-info">
+              <p>type: string</p>
+              <p>default-value: /public</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="/public/icons">
+                    <h4><span class="deemphasize">Property-Value: </span>/public/icons</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        assetBase="/public/icons"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="/public/icons2">
+                    <h4><span class="deemphasize">Property-Value: </span>/public/icons2</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        assetBase="/public/icons2"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="cache">
+            <h2 slot="header"><span class="deemphasize">Property: </span>cache</h2>
+
+            <div class="property-info">
+              <p>type: boolean</p>
+              <p>default-value: false</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="true">
+                    <h4><span class="deemphasize">Property-Value: </span>true</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        cache="true"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="false">
+                    <h4><span class="deemphasize">Property-Value: </span>false</h4>
+                    <code-block lang="html" display="both">
+                      <o-icon 
+                        cache="false"
+                        name="circle"
+                      >
+                        Hello World
+                      </o-icon>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    </section><section data-tab="interactive">
+  <doc-controller>
+    <div>
+      <o-icon>
+        Hello World
+      </o-icon>
+  </div>
+
+    <section class="control" slot="setting">
+      <doc-input label="HTML" variant="textarea" name="html" value="Hello World"></doc-input>
+    <h3 data-subtitle="Icon Properties">Icon Properties</h3><div data-name="Icon Properties" class="properties">
+            <doc-input data-prop-name="name" value="" name="name" label="name"></doc-input>
+          
+            <color-picker-input data-prop-name="color" name="color" label="color" value=""></color-picker-input>
+          
+        <doc-input data-prop-name="size" variant="select" value="medium" name="size" label="size" options='["small","medium","large"]'></doc-input>
+      
+          <doc-input data-prop-name="customSize" variant="number" value="" name="customSize" label="customSize"></doc-input>
+        </div><h3 data-subtitle="AssetTemplate Properties">AssetTemplate Properties</h3><div data-name="AssetTemplate Properties" class="properties">
+            <doc-input data-prop-name="assetBase" value="/public" name="assetBase" label="assetBase"></doc-input>
+          
+          <doc-radio name="cache" data-prop-name="cache" label="cache" value=""></doc-radio>
+        </div></section>
+  </doc-controller>
+</section><section data-tab="doc" class="selected">
+    <doc-card>
+        <doc-markdown file="o-icon-document.md"></doc-markdown>
+    </doc-card>
+</section></body>
+</html>

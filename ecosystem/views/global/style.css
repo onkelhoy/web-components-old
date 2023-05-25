@@ -1,0 +1,188 @@
+:root {
+  --globla-background: #ffffff;
+  --globla-sidebar-label-hover: #f7f7f7;
+  --globla-sidebar-item-hover: #303030;
+  --globla-sidebar-item-selected: black;
+  --globla-color: black;
+  --globla-header-size: 4rem;
+  --globla-inverse-color: white;
+  --globla-colored: coral;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --globla-background: #303030;
+    --globla-sidebar-label-hover: #535353;
+    --globla-sidebar-item-selected: white;
+    --globla-color: white;
+    --globla-inverse-color: black;
+    --globla-colored: cornflowerblue;
+
+
+    --globla-sidebar-label-hover: #363636;
+    --globla-sidebar-item-hover: #dadada;
+  }
+}
+
+@font-face {
+  font-family: 'Soehne Buch';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://cdn.openai.com/common/fonts/soehne/soehne-buch.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Soehne Halbfett';
+  font-style: normal;
+  font-weight: 600;
+  src: url('https://cdn.openai.com/common/fonts/soehne/soehne-halbfett.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Soehne Mono Buch';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://cdn.openai.com/common/fonts/soehne/soehne-mono-buch.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Soehne Mono Halbfett';
+  font-style: normal;
+  font-weight: 600;
+  src: url('https://cdn.openai.com/common/fonts/soehne/soehne-mono-halbfett.woff2') format('woff2');
+}
+
+
+body {
+  font-family: 'Soehne Buch', sans-serif;
+  margin: 0;
+  background-color: var(--globla-background);
+  color: var(--globla-color);
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+/***** MAIN *********************/
+main.designsystem {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+main.designsystem > div {
+  position: relative;
+  display: none;
+}
+main.designsystem > div.selected {
+  display: block;
+}
+
+
+/***** SIDEBAR ******************/
+section.sidebar {
+  user-select: none;
+}
+section.sidebar > header {
+  background-color: var(--globla-color);
+  height: var(--globla-header-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section.sidebar > header > o-icon.logo {
+  width: 200px;
+  color: var(--globla-inverse-color);
+  height: calc(var(--globla-header-size) - 15px);
+}
+section.sidebar > header > o-icon.logo::part(svg) {
+  stroke: none;
+}
+section.sidebar ul {
+  list-style: none;
+  padding-inline-start: 0;
+  overflow: hidden;
+  padding-top: 0.5rem;
+}
+section.sidebar > ul {
+  max-height: calc(100vh - var(--globla-header-size));
+  overflow-y: auto;
+}
+section.sidebar li:has(label) {
+  min-height: 2rem;
+  position: relative;
+  padding-top: 1rem;
+  /* margin: 1rem 0; */
+  padding-inline-start: 1rem;
+  transition: height 150ms ease;
+}
+section.sidebar li:has(> label:hover) {
+  background-color: var(--globla-sidebar-label-hover);
+}
+section.sidebar li:not(:has(label)) {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+section.sidebar li:not(:has(label)):hover {
+  background-color: var(--globla-sidebar-item-hover);
+  color: var(--globla-inverse-color);
+}
+section.sidebar li:has(label)::after {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  transform: translate(-50%, -50%);
+}
+section.sidebar o-icon.nofill::part(svg) {
+  fill: none;
+}
+section.sidebar o-icon.nostroke::part(svg) {
+  stroke: none;
+}
+section.sidebar li > label {
+  position: absolute;
+  cursor: pointer;
+  left: 0;
+  padding: 0.2rem 0.5rem;
+  box-sizing: border-box;
+  top: 0;
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  font-size: 8pt;
+  justify-content: space-between;
+}
+section.sidebar li > label:hover {
+  border-bottom: 4px solid var(--globla-sidebar-item-hover);
+  background-color: var(--globla-background);
+}
+section.sidebar li > label > span {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+section.sidebar o-icon[name="caret"] {
+  transform: rotate(-180deg);
+}
+section.sidebar li.collapsed {
+  height: 0;
+  min-height: 1rem;
+}
+section.sidebar li.collapsed > label {
+  padding-bottom: 1rem;
+}
+section.sidebar li.collapsed > label:hover {
+  border-bottom: none;
+  background-color: var(--globla-sidebar-label-hover);
+}
+section.sidebar li.collapsed > label > o-icon[name="caret"] {
+  transform: rotate(0deg);
+}
+section.sidebar li.collapsed > ul {
+  height: 0;
+}
+section.sidebar li.selected {
+  background-color: var(--globla-sidebar-item-selected);
+  color: var(--globla-inverse-color);
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocTool Component</title>
+
+    <link rel="stylesheet" href="style.css" >
+    <script src="main.js" defer type="module"></script>
+<link rel="stylesheet" href="sources/Radio/tools_doc_Radio-style.css" ><link rel="stylesheet" href="sources/card/tools_doc_card-style.css" ><link rel="stylesheet" href="sources/CodeBlock/tools_doc_CodeBlock-style.css" ><link rel="stylesheet" href="sources/input/tools_doc_input-style.css" ><link rel="stylesheet" href="sources/markdown/tools_doc_markdown-style.css" ><link rel="stylesheet" href="sources/ColorPickerInput/tools_doc_ColorPickerInput-style.css" ><link rel="stylesheet" href="sources/AtomicChip/tools_doc_AtomicChip-style.css" ><link rel="stylesheet" href="sources/controller/tools_doc_controller-style.css" ><link rel="stylesheet" href="sources/ColorPicker/tools_doc_ColorPicker-style.css" ></head>
+<body>
+    <header>
+        <doc-title title="awesome component" type="atom"></doc-title>
+        <ul class="tabs"><li data-tab="markdown" class="selected">Markdown</li><li data-tab="card">Card</li><li data-tab="controller">Controller</li><li data-tab="Radio">Radio</li><li data-tab="CodeBlock">Code Block</li><li data-tab="input">Input</li><li data-tab="ColorPickerInput">Color Picker Input</li><li data-tab="AtomicChip">Atomic Chip</li><li data-tab="ColorPicker">Color Picker</li></ul>
+    </header>
+<section data-tab="Radio">
+    <doc-card>
+        <code-block lang="html" display="both">
+            <doc-radio name="default"></doc-radio>
+        </code-block>
+    </doc-card>
+</section><section data-tab="card">
+    <doc-card>
+        <code-block lang="html" display="both">
+            <doc-card>
+                Hello World
+            </doc-card>
+        </code-block>
+    </doc-card>
+</section><section data-tab="CodeBlock">
+    <doc-card>
+        <code-block lang="html" display="both">
+            <code-block display="both">
+                hello = {
+                    foo: "bar"
+                }
+            </code-block>
+    
+            <code-block>
+                hello = {
+                    foo: "bar"
+                }
+            </code-block>
+        </code-block>
+    </doc-card>
+</section><section data-tab="input">
+    <doc-card>
+        <code-block lang="html" display="both">
+            <doc-input name="default"></doc-input>
+        </code-block>
+    </doc-card>
+
+    <doc-card>
+        <code-block lang="html" display="both">
+            <doc-input name="custom" label="Custom Label" placeholder="placeholder"></doc-input>
+        </code-block>
+    </doc-card>
+
+    <doc-card>
+        <code-block lang="html" display="both">
+            <doc-input name="textarea" variant="textarea"></doc-input>
+        </code-block>
+    </doc-card>
+
+    <doc-card>
+        <code-block lang="html" display="both">
+            <doc-input 
+                name="select"
+                variant="select" 
+                value="b" 
+                options='[{"text":"hello","value":"a"},{"text":"world","value":"b"}]'
+            ></doc-input>
+        </code-block>
+    </doc-card>
+</section><section data-tab="markdown" class="selected">
+    <doc-card>
+        <code-block lang="html" display="both">
+            <doc-markdown file="example.md"></doc-markdown>
+        </code-block>
+    </doc-card>
+</section><section data-tab="ColorPickerInput">
+    <doc-card>
+        <code-block lang="html" display="both">
+            <color-picker-input value="cornflowerblue"></color-picker-input>
+        </code-block>
+    </doc-card>
+</section><section data-tab="AtomicChip">
+    <doc-card>
+        <code-block lang="html" display="both">
+            <atomic-chip name="atoms"></atomic-chip>
+            <atomic-chip name="molecules"></atomic-chip>
+            <atomic-chip name="organisms"></atomic-chip>
+            <atomic-chip name="pages"></atomic-chip>
+            <atomic-chip name="templates"></atomic-chip>
+        </code-block>
+    </doc-card>
+</section><section data-tab="controller">
+    <code-block lang="html" display="both">
+        <doc-controller>
+            <p>Hello world</p>
+            
+            <section slot="setting" class="control">
+                <div>
+                    <label>A label</label>
+                    <input>
+                </div>
+                <div>
+                    <label>A label</label>
+                    <input>
+                </div>
+                <div>
+                    <label>A label</label>
+                    <input>
+                </div>
+                <div>
+                    <label>A label</label>
+                    <input>
+                </div>
+                <div>
+                    <label>A label</label>
+                    <input>
+                </div>
+            </section>
+        </doc-controller>
+    </code-block>
+</section><section data-tab="ColorPicker">
+    <doc-card>
+        <code-block lang="html" display="both">
+            <color-picker></color-picker>
+        </code-block>
+
+        <code-block lang="html" display="both">
+            <color-picker color="cornflowerblue"></color-picker>
+        </code-block>
+    </doc-card>
+</section></body>
+</html>

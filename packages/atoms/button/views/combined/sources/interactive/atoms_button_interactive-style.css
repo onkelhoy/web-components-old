@@ -1,0 +1,13 @@
+body section[data-tab="interactive"]  {
+  margin: 0;
+}
+
+ section[data-tab="interactive"] section.control {
+  padding: 0 4rem;
+}
+
+ section[data-tab="interactive"] div.properties {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}

@@ -1,0 +1,1 @@
+import '@circular-tools/doc/wc';

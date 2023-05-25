@@ -1,0 +1,39 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore build output directory
+dist/
+build/
+.devserver-temp/
+
+# Ignore package lock file
+package-lock.json
+
+# Ignore npm cache
+.npmrc
+.npm/
+.npmignore
+
+# Ignore editor files
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore OS-specific files
+Thumbs.db
+.DS_Store
+
+# Ignore any configuration files that may contain sensitive data
+*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore Python virtual environment files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+lib/

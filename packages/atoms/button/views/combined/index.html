@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Component</title>
+
+    <link rel="stylesheet" href="style.css" >
+    <script src="main.js" defer type="module"></script>
+<link rel="stylesheet" href="sources/demo/atoms_button_demo-style.css" ><link rel="stylesheet" href="sources/variations/atoms_button_variations-style.css" ><link rel="stylesheet" href="sources/interactive/atoms_button_interactive-style.css" ><link rel="stylesheet" href="sources/doc/atoms_button_doc-style.css" ></head>
+<body>
+    <header>
+        <doc-title title="awesome component" type="atom"></doc-title>
+        <ul class="tabs"><li data-tab="doc" class="selected">Documentation</li><li data-tab="demo">Demo</li><li data-tab="interactive">Interactive</li><li data-tab="variations">Variations</li></ul>
+    </header>
+<section data-tab="demo">
+    <doc-card>
+        <code-block lang="html" display="both">
+            <o-button id="atoms_button_demo_demo-target">Hello</o-button>
+        </code-block>
+    </doc-card>
+</section><section data-tab="variations">
+  
+<h1 data-title="class">Button Properties</h1>
+        <doc-card class="property" data-name="size">
+            <h2 slot="header"><span class="deemphasize">Property: </span>size</h2>
+
+            <div class="property-info">
+              <p>type: Size</p>
+              <p>default-value: medium</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="small">
+                    <h4><span class="deemphasize">Property-Value: </span>small</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        size="small"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="medium">
+                    <h4><span class="deemphasize">Property-Value: </span>medium</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        size="medium"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="large">
+                    <h4><span class="deemphasize">Property-Value: </span>large</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        size="large"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="mode">
+            <h2 slot="header"><span class="deemphasize">Property: </span>mode</h2>
+
+            <div class="property-info">
+              <p>type: ButtonMode</p>
+              <p>default-value: hug</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="hug">
+                    <h4><span class="deemphasize">Property-Value: </span>hug</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        mode="hug"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="fill">
+                    <h4><span class="deemphasize">Property-Value: </span>fill</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        mode="fill"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="variant">
+            <h2 slot="header"><span class="deemphasize">Property: </span>variant</h2>
+
+            <div class="property-info">
+              <p>type: ButtonVariant</p>
+              <p>default-value: filled</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="filled">
+                    <h4><span class="deemphasize">Property-Value: </span>filled</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        variant="filled"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="outlined">
+                    <h4><span class="deemphasize">Property-Value: </span>outlined</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        variant="outlined"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="underlined">
+                    <h4><span class="deemphasize">Property-Value: </span>underlined</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        variant="underlined"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="clear">
+                    <h4><span class="deemphasize">Property-Value: </span>clear</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        variant="clear"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="tabIndex">
+            <h2 slot="header"><span class="deemphasize">Property: </span>tabIndex</h2>
+
+            <div class="property-info">
+              <p>type: number</p>
+              <p>default-value: 1</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="1">
+                    <h4><span class="deemphasize">Property-Value: </span>1</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        tabIndex="1"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="10">
+                    <h4><span class="deemphasize">Property-Value: </span>10</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        tabIndex="10"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="1000">
+                    <h4><span class="deemphasize">Property-Value: </span>1000</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        tabIndex="1000"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    <h1 data-title="inherit">Inherited Properties</h1><h3 data-subtitle="from BoxTemplate">from BoxTemplate</h3>
+        <doc-card class="property" data-name="radius">
+            <h2 slot="header"><span class="deemphasize">Property: </span>radius</h2>
+
+            <div class="property-info">
+              <p>type: Radius</p>
+              <p>default-value: circular</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="none">
+                    <h4><span class="deemphasize">Property-Value: </span>none</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        radius="none"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="small">
+                    <h4><span class="deemphasize">Property-Value: </span>small</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        radius="small"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="medium">
+                    <h4><span class="deemphasize">Property-Value: </span>medium</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        radius="medium"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="large">
+                    <h4><span class="deemphasize">Property-Value: </span>large</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        radius="large"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="circular">
+                    <h4><span class="deemphasize">Property-Value: </span>circular</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        radius="circular"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="elevation">
+            <h2 slot="header"><span class="deemphasize">Property: </span>elevation</h2>
+
+            <div class="property-info">
+              <p>type: Elevation</p>
+              <p>default-value: none</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="none">
+                    <h4><span class="deemphasize">Property-Value: </span>none</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        elevation="none"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="small">
+                    <h4><span class="deemphasize">Property-Value: </span>small</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        elevation="small"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="medium">
+                    <h4><span class="deemphasize">Property-Value: </span>medium</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        elevation="medium"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="large">
+                    <h4><span class="deemphasize">Property-Value: </span>large</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        elevation="large"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    <h3 data-subtitle="from ColorTemplate">from ColorTemplate</h3>
+        <doc-card class="property" data-name="color">
+            <h2 slot="header"><span class="deemphasize">Property: </span>color</h2>
+
+            <div class="property-info">
+              <p>type: string</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="coral">
+                    <h4><span class="deemphasize">Property-Value: </span>coral</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        color="coral"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="cornflowerblue">
+                    <h4><span class="deemphasize">Property-Value: </span>cornflowerblue</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        color="cornflowerblue"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="darkorange">
+                    <h4><span class="deemphasize">Property-Value: </span>darkorange</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        color="darkorange"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="sandybrown">
+                    <h4><span class="deemphasize">Property-Value: </span>sandybrown</h4>
+                    <code-block lang="html" display="both">
+                      <o-button 
+                        color="sandybrown"
+                        
+                      >
+                        hello world
+                      </o-button>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    </section><section data-tab="interactive">
+  <doc-controller>
+    <div>
+      <o-button>
+        Hello World
+      </o-button>
+  </div>
+
+    <section class="control" slot="setting">
+      <doc-input label="HTML" variant="textarea" name="html" value="Hello World"></doc-input>
+    <h3 data-subtitle="Button Properties">Button Properties</h3><div data-name="Button Properties" class="properties"></div><h3 data-subtitle="BoxTemplate Properties">BoxTemplate Properties</h3><div data-name="BoxTemplate Properties" class="properties"></div><h3 data-subtitle="ColorTemplate Properties">ColorTemplate Properties</h3><div data-name="ColorTemplate Properties" class="properties"></div></section>
+  </doc-controller>
+</section><section data-tab="doc" class="selected">
+    <doc-card>
+        <doc-markdown file="o-button-document.md"></doc-markdown>
+    </doc-card>
+</section></body>
+</html>

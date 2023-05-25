@@ -1,0 +1,43 @@
+{
+    "name": "@circular-tools/doc",
+    "version": "1.0.0",
+    "scripts": {
+        "init": "sh .scripts/init.sh",
+        "test": ".scripts/test.sh",
+        "build": ".scripts/build.sh",
+        "watch": ".scripts/watch.sh",
+        "combine": ".scripts/combine.sh && .scripts/start.sh combined",
+        "start": ".scripts/start.sh"
+    },
+    "main": "dist/src/index.js",
+    "exports": {
+        ".": "./dist/src/index.js",
+        "./wc": "./dist/src/register.js",
+        "./esm": "./dist/index.mjs",
+        "./bundle-wc": "./dist/register.bundle.mjs"
+    },
+    "author": "Henry Pap",
+    "license": "ISC",
+    "dependencies": {
+        "@circular-templates/base": "^1.0.0",
+        "@circular-templates/color": "^1.0.0",
+        "@circular-templates/popover": "^1.0.0",
+        "@circular-tools/utils": "^1.0.0"
+    },
+    "devDependencies": {
+        "@circular/icon": "^1.0.0",
+        "esbuild": "^0.17.18",
+        "node-html-parser": "^6.1.5",
+        "node-sass": "^8.0.0",
+        "tslib": "^2.5.0",
+        "typescript": "^5.0.4"
+    },
+    "keywords": [
+        "web-component",
+        "typescript",
+        "demoing",
+        "testing",
+        "sass"
+    ],
+    "description": ""
+}

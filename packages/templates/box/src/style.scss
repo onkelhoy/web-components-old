@@ -1,0 +1,36 @@
+:host {
+    --shadow-color: var(--box-shadow-light-color, rgba(0, 0, 0, 0.1));
+}
+
+@media (prefers-color-scheme: dark) {
+    :host {
+        --shadow-color: var(--box-shadow-dark-color, rgb(0, 0, 0));
+    }
+}
+
+$radius-map: (
+    none: 0px,
+    small: 4px,
+    medium: 8px,
+    large: 16px,
+    circular: 1000px,
+);
+
+$elevation-map: (
+    none: none,
+    small: 0 2px 4px var(--shadow-color),
+    medium: 0 2px 8px 2px var(--shadow-color),
+    large: 0 2px 15px 5px var(--shadow-color),
+);
+
+@each $name, $value in $radius-map {
+    :host([radius="#{$name}"]) {
+        border-radius: var(--box-radius-#{$name}, var(--radius-#{$name}, $value));
+    }
+}
+
+@each $name, $value in $elevation-map {
+    :host([elevation="#{$name}"]) {
+        box-shadow: var(--box-shadow-#{$name}, var(--shadow-#{$name}, $value));
+    }
+} 

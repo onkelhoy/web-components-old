@@ -1,0 +1,19 @@
+:host {
+    --background: #fafafa;
+    --color: black;
+
+    display: inline-block;
+    background-color: var(--background);
+    color: var(--color);
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    border-radius: 0.4rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    :host {
+        --background: rgb(48 48 48);
+        --color: white;
+    }
+}

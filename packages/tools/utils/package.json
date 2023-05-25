@@ -1,0 +1,26 @@
+{
+    "name": "@circular-tools/utils",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc --watch"
+    },
+    "main": "dist/src/index.js",
+    "exports": {
+        ".": "./dist/src/index.js"
+    },
+    "author": "Henry Pap",
+    "license": "ISC",
+    "devDependencies": {
+        "typescript": "^5.0.4"
+    },
+    "dependencies": {},
+    "keywords": [
+        "web-component",
+        "typescript",
+        "demoing",
+        "testing",
+        "sass"
+    ],
+    "description": ""
+}

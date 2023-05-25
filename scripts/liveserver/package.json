@@ -1,0 +1,22 @@
+{
+  "name": "liveserver",
+  "version": "1.0.0",
+  "description": "a simple live server that hosts html files with a live reload, and can serve node-modules ",
+  "main": "server.js",
+  "dependencies": {
+    "esbuild": "^0.17.18",
+    "express": "^4.18.2",
+    "node-html-parser": "^6.1.5",
+    "ws": "^8.13.0"
+  },
+  "scripts": {
+    "start": "sh run.sh"
+  },
+  "keywords": [
+    "websocket",
+    "http",
+    "hot"
+  ],
+  "author": "Henry Pap",
+  "license": "ISC"
+}

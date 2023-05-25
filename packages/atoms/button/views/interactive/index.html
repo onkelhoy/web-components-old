@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  <doc-controller>
+    <div>
+      <o-button>
+        Hello World
+      </o-button>
+  </div>
+
+    <section class="control" slot="setting">
+      <doc-input label="HTML" variant="textarea" name="html" value="Hello World"></doc-input>
+    <h3 data-subtitle="Button Properties">Button Properties</h3><div data-name="Button Properties" class="properties"></div><h3 data-subtitle="BoxTemplate Properties">BoxTemplate Properties</h3><div data-name="BoxTemplate Properties" class="properties"></div><h3 data-subtitle="ColorTemplate Properties">ColorTemplate Properties</h3><div data-name="ColorTemplate Properties" class="properties"></div></section>
+  </doc-controller>
+</body>
+</html>

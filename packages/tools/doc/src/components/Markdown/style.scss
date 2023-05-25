@@ -1,0 +1,113 @@
+:host {
+    --background: var(--markdown-dark-background, rgb(48, 48, 48));
+    --block-background: var(--markdown-dark-block-background, rgb(68, 68, 68));
+    --block-ribbon: var(--markdown-dark-block-ribbon, rgb(100, 149, 237));
+    --border: var(--markdown-dark-border, rgb(255, 255, 255));
+    --color: var(--markdown-dark-color, rgb(255, 255, 255));
+    --link: var(--markdown-dark-link, rgb(156, 156, 255));
+    --link-hover: var(--markdown-dark-link-hover, rgb(138, 138, 253));
+
+    display: block;
+    color: var(--color);
+    background-color: var(--background);
+    padding: 1rem 10%;
+    font-family: inherit;
+    border-radius: 4px;
+}
+
+@media (prefers-color-scheme: light) {
+    :host {
+        --background: var(--markdown-light-background, #fafafa);
+        --block-background: var(--markdown-light-block-background, #ededed);
+        --block-ribbon: var(--markdown-light-block-ribbon, cornflowerblue);
+        --border: var(--markdown-light-border, #000000);
+        --color: var(--markdown-light-color, rgb(0, 0, 0));
+        --link: var(--markdown-light-link, rgb(84, 84, 213));
+        --link-hover: var(--markdown-light-link-hover, rgb(37, 37, 137));
+    }
+}
+
+@mixin table_border($type) {
+    border-#{$type}-width: 1px;
+    border-#{$type}-color: var(--border);
+    border-#{$type}-style: solid;
+}
+
+table {
+    color: inherit;
+    width: 100%;
+    
+    thead {
+        @include table_border(bottom);
+        
+        th {
+            background-color: rgba(236,236,241,.2);
+            @include table_border(top);
+            @include table_border(left);
+            @include table_border(bottom);
+            padding: 0.25rem 0.75rem;
+        
+            &:first-child {
+                border-top-left-radius: 0.375rem;
+            }
+            &:last-child {
+                @include table_border(right);
+                border-top-right-radius: 0.375rem;
+            }
+        }
+    }
+
+    tbody {
+        td {
+            @include table_border(left);
+            @include table_border(bottom);
+            padding: 0.25rem 0.75rem;
+
+            &:last-child {
+                @include table_border(right);
+            }
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 0.375rem;
+        }
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 0.375rem;
+        }
+    }
+}
+
+a {
+    color: var(--link);
+    &:hover {
+        text-decoration-thickness: 2px;
+        color: var(--link-hover);
+    }
+}
+
+h1 {
+    border-bottom: var(--border) 1px solid;
+}
+
+div.blockquote {
+    background-color: var(--block-background);
+    padding: 0.6rem;
+    position: relative;
+    padding-left: 1.2rem;
+
+    &::after {
+        width: 0.3rem;
+        height: 100%;
+        position: absolute;
+        left: 0.3rem;
+        top: 0;
+        content: '';
+        background-color: var(--block-ribbon);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    :host {
+        padding: 1rem 20%;
+    }
+}

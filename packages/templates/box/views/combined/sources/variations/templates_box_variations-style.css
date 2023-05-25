@@ -1,0 +1,73 @@
+:root {
+  --color-secondary: #363636;
+  --line-color: cornflowerblue;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-secondary: #d9d9d9;
+    --line-color: hsl(52, 79%, 60%);
+  }
+}
+
+ section[data-tab="variations"] .chip {
+  padding: 0.5rem;
+}
+
+ section[data-tab="variations"] .chip[data-variant="primary"] {
+  background-color: rgb(237, 160, 135);
+}
+ section[data-tab="variations"] .chip[data-variant="secondary"] {
+  background-color: rgb(135, 174, 237);
+}
+
+ section[data-tab="variations"] .property-info {
+  position: relative;
+  padding-left: 0.7rem;
+  margin-left: 0.15rem;
+  margin-bottom: 2rem;
+}
+ section[data-tab="variations"] .property-info::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0.2rem;
+  background-color: var(--line-color);
+  height: 100%;
+  content: '';
+}
+ section[data-tab="variations"] .property-info p {
+  margin: 0;
+}
+ section[data-tab="variations"] .deemphasize {
+  font-weight: 400;
+  color: var(--color-secondary);
+}
+ section[data-tab="variations"] doc-card h2 {
+  margin: 0;
+  margin-bottom: 0.3rem;
+  font-size: 22pt;
+}
+
+ section[data-tab="variations"] h1 {
+  font-size: 25pt;
+}
+
+ section[data-tab="variations"] doc-card h4 {
+  font-size: 16pt;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+ section[data-tab="variations"] code-block::part(code) {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+ section[data-tab="variations"] .variant {
+  margin-bottom: 2rem;
+}
+
+ section[data-tab="variations"] .property {
+  margin-bottom: 1rem;
+}

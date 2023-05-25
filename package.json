@@ -1,0 +1,25 @@
+{
+  "name": "@circular/web-components",
+  "version": "1.0.0",
+  "description": "web-component library",
+  "private": true,
+  "scripts": {
+    "init": "sh ./scripts/init.sh",
+    "create": "sh ./scripts/generator/copy.sh",
+    "clean": "sh ./scripts/clean.sh",
+    "start": "cd ./ecosystem && npm run combine",
+    "document": ""
+  },
+  "keywords": [
+    "web-component",
+    "interzero",
+    "typescript",
+    "sass"
+  ],
+  "author": "Henry Pap",
+  "license": "ISC",
+  "workspaces": [
+    "ecosystem",
+    "packages/**/*"
+  ]
+}
