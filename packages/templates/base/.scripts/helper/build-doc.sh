@@ -26,7 +26,7 @@ if [ "$force_mode" = true ]; then
     dir=$(pwd)
 
     # cd into auto-doc script
-    cd $ROOTDIR/scripts/chatgtp/documentation/
+    cd $ROOTDIR/scripts/auto-doc/
 
     # auto document 
     sh auto.sh "styles" $dir
@@ -40,7 +40,7 @@ else
     dir=$(pwd)
 
     # CD into auto-doc script
-    cd $ROOTDIR/scripts/chatgtp/documentation/
+    cd $ROOTDIR/scripts/auto-doc/
 
     # Auto document if files do not exist
     if [ ! -f "$dir/views/doc/auto/styles.md" ]; then

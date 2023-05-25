@@ -1,4 +1,5 @@
 import "@circular/icon/wc";
+import "@circular-tools/doc/wc";
 import "@circular/ecosystem/wc";
 
 window.onload = () => {

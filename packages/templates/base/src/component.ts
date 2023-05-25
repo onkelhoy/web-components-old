@@ -1,12 +1,22 @@
-import { suspense, html } from "@circular-tools/utils";
+import { suspense } from "@circular-tools/utils";
 
 import { FunctionCallback } from "./types";
+
+// NOTE this does not work for some reason..
+// declare global {
+//     interface HTMLElement {
+//         connectedCallback(): void;
+//         disconnectedCallback(): void;
+//         attributeChangedCallback(name:string, oldValue:string|null, newValue:string|null): void;
+//     }
+// }
 
 export class BaseTemplate extends HTMLElement {
     public static style?:string;
     public static styles?:string[];
 
     protected callAfterUpdate:(Function|FunctionCallback)[] = [];
+    private attributeObserver!: MutationObserver;
 
     constructor() {
         super();
@@ -18,9 +28,27 @@ export class BaseTemplate extends HTMLElement {
 
     connectedCallback() {
         this.debouncedRequestUpdate();
+        // Create an observer instance linked to a callback function
+        this.attributeObserver = new MutationObserver((mutationsList, observer) => {
+            // Look through all mutations that just occured
+            for(let mutation of mutationsList) {
+                // If the attribute modified is one we are tracking
+                if (mutation.type === 'attributes' && mutation.attributeName) {
+                    this.attributeChangedCallback(mutation.attributeName, mutation.oldValue, this.getAttribute(mutation.attributeName))
+                }
+            }
+        });
+
+        // Start observing the node with configured parameters
+        // attributes: true indicates we want to observe attribute changes
+        this.attributeObserver.observe(this, { attributes: true });
     }
 
     disconnectedCallback() {
+        this.attributeObserver.disconnect();
+    }
+
+    attributeChangedCallback(name:string, oldValue:string|null, newValue:string|null) {
         // implement something
     }
 
