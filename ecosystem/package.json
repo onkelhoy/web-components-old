@@ -7,7 +7,7 @@
         "build": ".scripts/build.sh",
         "watch": ".scripts/watch.sh",
         "combine": ".scripts/combine.sh",
-        "start": ".scripts/start.sh global"
+        "start": ".scripts/start.sh"
     },
     "main": "dist/src/index.js",
     "exports": {

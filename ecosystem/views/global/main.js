@@ -1,16 +1,11 @@
 import "@circular/icon/wc";
+import "@circular/ecosystem/wc";
 
 window.onload = () => {
-  document.querySelectorAll('section.sidebar li > label').forEach(label => {
-    label.onclick = () => {
-      label.parentElement.classList.toggle('collapsed')
-    }
-  })
-
-  document.querySelectorAll('section.sidebar li[data-target]').forEach(elm => {
+  document.querySelectorAll('side-menu menu-item[data-target]').forEach(elm => {
     elm.onclick = () => {
       // disable the others first 
-      document.querySelector('section.sidebar li[data-target].selected')?.classList.remove('selected');
+      document.querySelector('side-menu menu-item[data-target].selected')?.classList.remove('selected');
       document.querySelector('main.designsystem div[data-target].selected')?.classList.remove('selected');
   
       // add the curent 

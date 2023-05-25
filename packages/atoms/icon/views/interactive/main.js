@@ -2,7 +2,7 @@ import '@circular-tools/doc/wc';
 
 let TARGET_ELEMENT = null;
 window.onload = () => {
-  TARGET_ELEMENT = document.querySelector('doc-controller > div > *');
+  TARGET_ELEMENT = document.querySelector('#target > *');
 
   document.querySelectorAll('section.control *[name]').forEach(element => {
     const name = element.name;

@@ -25,10 +25,14 @@ export class CodeBlock extends BaseTemplate {
     private formatContent!: string;
 
     handleSlotChange = (e:Event) => {
-        const slot = e.currentTarget as HTMLSlotElement;
-        const nodes = slot.assignedElements();
+        // const slot = e.currentTarget as HTMLSlotElement;
+        // const nodes = slot.assignedElements();
 
-        this.format(nodes.reduce((p, c) => p + c.outerHTML, ""));
+        // this.format(nodes.reduce((p, c) => p + c.outerHTML, ""));
+        if (this.codeValue)
+        {
+            this.format(this.codeValue);
+        }
     }
 
     public format(slotcontent: string) {

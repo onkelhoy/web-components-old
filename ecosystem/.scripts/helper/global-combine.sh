@@ -16,8 +16,6 @@ for subfolder in $subfolders; do
   cd $ECODIR
 done
 
-# wait
-
 # now each combine has finished
 for subfolder in $subfolders; do
   package_folder=$(dirname "$subfolder")

@@ -34,6 +34,11 @@ body {
   color: var(--color);
   overflow-y: auto;
   overflow-x: hidden;
+  height: auto !important;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 2rem 4rem 1fr;
+  grid-template-columns: 100%;
 }
 
 :root {
@@ -52,14 +57,32 @@ body {
   }
 }
 
+nav {
+  display: flex;
+  background-color: var(--foreground);
+  justify-content: flex-end;
+  align-items: center;
+  height: 2rem;
+  user-select: none;
+  /* border-bottom: 2px solid var(--foreground); */
+}
+nav > ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+nav > ul > li {
+  padding-inline: 1rem;
+}
+
 header {
   height: 4rem;
   display: flex;
   background-color: var(--background);
   overflow-x: auto;
-}   
-header > atomic-chip {
-  margin: 0.7rem;
 }   
 
 header > ul {
@@ -88,7 +111,8 @@ section[data-tab] {
   display: none;
   /* padding: 2rem; */
   margin: 1rem;
-  min-height: calc(100vh - 6rem);
+  height: auto !important;
+  /* min-height: calc(100vh - 6rem); */
   /* box-sizing: border-box;
   background-color: var(--background);
   border-radius: 4px; */

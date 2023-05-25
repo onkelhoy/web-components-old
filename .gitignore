@@ -4,6 +4,7 @@ node_modules/
 # Ignore build output directory
 dist/
 build/
+combined/
 .devserver-temp/
 
 # Ignore package lock file
