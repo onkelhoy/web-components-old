@@ -12,129 +12,32 @@
 </head>
 <body>
   <doc-controller>
-    <div>
+    <div id="target">
       <o-box-template>
-        Hello World
+        
+      <div  data-slotname="default">
+        <p>Hello World</p>
+      </div>
+    
       </o-box-template>
   </div>
 
     <section class="control" slot="setting">
-      <doc-input label="HTML" variant="textarea" name="html" value="Hello World"></doc-input>
-    <h3 data-subtitle="BoxTemplate Properties">BoxTemplate Properties</h3><div data-name="BoxTemplate Properties" class="properties">
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+      <o-tabs>
+        <o-tab id="html">HTML</o-tab>
+        <o-tab class="selected" id="properties">Properties</o-tab>
+        <o-tab id="css">CSS</o-tab>
+        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="<p>Hello World</p>"></doc-input></div></o-tab-content>
+        <o-tab-content id="properties"><h3 data-subtitle="BoxTemplate Properties">BoxTemplate Properties</h3><div data-name="BoxTemplate Properties" class="properties">
         <doc-input data-prop-name="radius" variant="select" value="circular" name="radius" label="radius" options='["none","small","medium","large","circular"]'></doc-input>
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <doc-input data-prop-name="elevation" variant="select" value="none" name="elevation" label="elevation" options='["none","small","medium","large"]'></doc-input>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       </div><h3 data-subtitle="ColorTemplate Properties">ColorTemplate Properties</h3><div data-name="ColorTemplate Properties" class="properties">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             <color-picker-input data-prop-name="color" name="color" label="color" value=""></color-picker-input>
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          </div></section>
+          </div></o-tab-content>
+        <o-tab-content id="css"></o-tab-content>
+      </o-tabs>
+    </section>
   </doc-controller>
 </body>
 </html>

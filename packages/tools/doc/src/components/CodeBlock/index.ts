@@ -75,6 +75,8 @@ export class CodeBlock extends BaseTemplate {
         let content:string[] = [];
         let indent = 0;
 
+        const selfclosing = ["input", "br", "hr"];
+
         for (let i=0; i<lines.length; i++) {
             const trimmedLine = lines[i].trim();
             let line = trimmedLine
@@ -100,19 +102,19 @@ export class CodeBlock extends BaseTemplate {
                 .replace(/&gt;/g, match => `<span class="tag">${match}</span>`)
                             
             const match = trimmedLine.match(/<\/?([\w-]+).*>$/);
-
             
             let later = 0;
             let className = "content";
 
             if (match)
             {
+
                 className = "tag-name"
                 if (trimmedLine.startsWith("</"))
                 {
                     indent -= 1;
                 }
-                else if (trimmedLine.startsWith("<") && !(match[1] === "input" && trimmedLine.endsWith(">")))
+                else if (trimmedLine.startsWith("<") && !(selfclosing.includes(match[1]) && trimmedLine.endsWith(">")))
                 {
                     if (!trimmedLine.endsWith(`</${match[1]}>`))
                     {

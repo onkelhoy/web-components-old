@@ -14,12 +14,19 @@
   <doc-controller>
     <div id="target">
       <o-translator>
-        Hello World
+        
       </o-translator>
   </div>
 
     <section class="control" slot="setting">
-      <doc-input label="HTML" variant="textarea" name="html" value="Hello World"></doc-input>
+      <o-tabs>
+        <o-tab id="html">HTML</o-tab>
+        <o-tab class="selected" id="properties">Properties</o-tab>
+        <o-tab id="css">CSS</o-tab>
+        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br></div></o-tab-content>
+        <o-tab-content id="properties"></o-tab-content>
+        <o-tab-content id="css"></o-tab-content>
+      </o-tabs>
     </section>
   </doc-controller>
 </body>

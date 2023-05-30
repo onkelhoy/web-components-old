@@ -22,11 +22,10 @@ const combinedIndex_path = path.join("views", "combined", "index.html");
 const combinedIndexSRC = fs.readFileSync(combinedIndex_path, 'utf-8');
 const document = parse(combinedIndexSRC);
 
-const tabs = document.querySelector('ul.tabs')
-    .childNodes
+const tabs = document.querySelectorAll('body > o-tabs > o-tab')
     .sort((a, b) => {
-        let aIndex = config.tabs.order.indexOf(a.getAttribute('data-tab'));
-        let bIndex = config.tabs.order.indexOf(b.getAttribute('data-tab'));
+        let aIndex = config.tabs.order.indexOf(a.getAttribute('id'));
+        let bIndex = config.tabs.order.indexOf(b.getAttribute('id'));
 
         // if a is not in order, set its index high to sort at the end
         if (aIndex === -1) aIndex = Number.MAX_SAFE_INTEGER;
@@ -38,9 +37,13 @@ const tabs = document.querySelector('ul.tabs')
     });
 
 tabs[0].setAttribute('class', 'selected');
-document.querySelector(`section[data-tab="${tabs[0].getAttribute('data-tab')}"]`).setAttribute('class', 'selected');
 document.querySelector('title').set_content(`${CLASSNAME} Component`);
 
-document.querySelector('ul.tabs').childNodes = tabs;
+const tabcontainer = document.querySelector('o-tabs');
+tabs.forEach(element => {
+    element.parentNode.removeChild(element);
+    tabcontainer.appendChild(element);
+})
+
 fs.writeFileSync(combinedIndex_path, document.toString(), "utf-8");
 

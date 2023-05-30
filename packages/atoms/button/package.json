@@ -8,7 +8,6 @@
         "watch": ".scripts/watch.sh",
         "combine": ".scripts/combine.sh && .scripts/start.sh combined",
         "start": ".scripts/start.sh",
-
         "interactive": "sh .scripts/helper/build-interactive.sh",
         "variations": "sh .scripts/helper/build-variations.sh"
     },
@@ -32,6 +31,7 @@
         "esbuild": "^0.17.18",
         "node-html-parser": "^6.1.5",
         "node-sass": "^8.0.0",
+        "playwright": "^1.34.3",
         "tslib": "^2.5.0",
         "typescript": "^5.0.4"
     },

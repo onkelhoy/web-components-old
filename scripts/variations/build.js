@@ -28,7 +28,7 @@ const CONFIG = deepMerge(GLOBAL_CONFIG, LOCAL_CONFIG);
 
 root.querySelector('title').set_content(`${CLASSNAME} - Variations`);
 
-const propinfo = JSON.parse(fs.readFileSync(path.join(PACKAGE_DIR, 'dist/propinfo.json')));
+const propinfo = JSON.parse(fs.readFileSync(path.join(PACKAGE_DIR, 'custom-elements.json')));
 const body = root.querySelector('body');
 
 const title = parse(`<h1 data-title="class">${propinfo.className} Properties</h1>`);

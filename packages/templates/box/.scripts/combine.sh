@@ -7,7 +7,7 @@ npm run build
 source .env 
 
 # extract the types 
-sh $ROOTDIR/scripts/extract_types/run.sh $(pwd)
+sh $ROOTDIR/scripts/analyse/run.sh $(pwd)
 
 # run the necessary scripts 
 sh .scripts/helper/build-doc.sh

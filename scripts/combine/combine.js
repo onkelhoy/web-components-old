@@ -42,7 +42,7 @@ const IDNAME = `${ATOMICTYPE}_${PACKAGENAME}_${SUBFOLDER}`;
 
 // helper function
 function fixCSS(css, ids) {
-    const section = `${GLOBAL ? `div#${IDNAME}` : '' }section[data-tab="${SUBFOLDER}"]`;
+    const section = `${GLOBAL ? `div#${IDNAME}` : '' }o-tab-content[data-tab-id="${SUBFOLDER}"]`;
     const idselector = new RegExp(`#(${ids.join('|')})`);
 
     const lines = css.split(/\n/);
@@ -68,7 +68,7 @@ function fixCSS(css, ids) {
 
 }
 function fixJS(js, ids) {
-    const section = `${GLOBAL ? `div#${IDNAME}` : '' }section[data-tab="${SUBFOLDER}"]`;
+    const section = `${GLOBAL ? `div#${IDNAME}` : '' }o-tab-content[data-tab-id="${SUBFOLDER}"]`;
     const idsjoin = ids.join('|');
     const windowIdSelector = new RegExp(`window.(${idsjoin})\\W?`);
     const windowInsideIdSelector = new RegExp(`window\\[(['"])(${idsjoin})['"]\\]\\W?`);
@@ -140,12 +140,6 @@ function fixJS(js, ids) {
     }
     return lines.join('\n');
 }
-// function jsimportfix(src) {
-//     const filepath = path.resolve(FOLDER, src);
-//     const content = fixJS(fs.readFileSync(filepath, 'utf-8'));
-  
-//     fs.writeFileSync(filepath, content, 'utf-8');
-// }
 
 function add_script(js, src) {
     const name = src.split('/').pop();
@@ -231,10 +225,14 @@ document.querySelectorAll('style').forEach(style => {
 });
 
 // append the tab 
-combinedDOM.querySelector('ul.tabs').appendChild(parse(`<li data-tab="${SUBFOLDER}">${config.name}</li>`))
+const tabs = combinedDOM.querySelector('o-tabs');
+tabs.appendChild(parse(`
+    <o-tab id="${SUBFOLDER}" heading="${config.name}"></o-tab>
+`));
+tabs.appendChild(parse(`
+    <o-tab-content id="${SUBFOLDER}">${document.querySelector('body').innerHTML}</o-tab-content>
+`));
 
-// append the 
-combinedDOM.querySelector('body').appendChild(parse(`<section data-tab="${SUBFOLDER}">${document.querySelector('body').innerHTML}</section>`))
 
 fs.writeFileSync(combinedindex_path, combinedDOM.toString(), "utf-8");
 fs.writeFileSync(combinedmain_path, combinemainjs, 'utf-8');

@@ -6,25 +6,38 @@ window.onload = () => {
 
   document.querySelectorAll('section.control *[name]').forEach(element => {
     const name = element.name;
-    
     const defaultvalue = element.value;
 
-    if (defaultvalue !== "")
+    if (defaultvalue !== "" && !element.hasAttribute('data-css-input'))
     {
-      update(name, defaultvalue);
+      update(name, defaultvalue, element);
     }
 
     element.addEventListener('change', event => {
-      update(name, event.detail.value);
+      update(name, event.detail.value, element);
     })
   });
 }
 
-function update(name, value) {
-
-  if (/html/i.test(name))
+function update(name, value, element) {
+  if (element.hasAttribute('data-css-input'))
   {
-    TARGET_ELEMENT.innerHTML = value;
+    if (element.hasAttribute('data-init'))
+    {
+      TARGET_ELEMENT.style.setProperty(name, value);
+    }
+    else 
+    {
+      element.setAttribute('data-init', 'true');
+    }
+  }
+  else if (/slot-/i.test(name))
+  {
+    const targetslot = TARGET_ELEMENT.querySelector(`div[data-slotname="${element.getAttribute("data-slotname")}"]`);
+    if (targetslot)
+    {
+      targetslot.innerHTML = value;
+    }
   }
   else 
   {

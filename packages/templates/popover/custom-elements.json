@@ -1,0 +1,106 @@
+{
+  "className": "PopoverTemplate",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/templates/popover",
+  "properties": [
+    {
+      "name": "revealby",
+      "type": "Reveal",
+      "default_value": "hover",
+      "type_value": [
+        "hover",
+        "click"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "placement",
+      "type": "Placement",
+      "default_value": "bottom-center",
+      "type_value": [
+        "top-left",
+        "top-right",
+        "top-center",
+        "bottom-left",
+        "bottom-right",
+        "bottom-center",
+        "left-top",
+        "left-bottom",
+        "left-center",
+        "right-top",
+        "right-bottom",
+        "right-center"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "hideonoutsideclick",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    }
+  ],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/templates/popover": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "property",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@circular-templates/base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [],
+    "parts": []
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/popover",
+    "sources": [],
+    "variables": {
+      "--popover-gap": {
+        "usecases": [
+          "--gap"
+        ],
+        "fallbacks": [
+          "1rem"
+        ]
+      },
+      "--gap": {
+        "usecases": [
+          "padding-bottom",
+          "padding-top",
+          "padding-right",
+          "padding-left"
+        ],
+        "fallbacks": []
+      }
+    }
+  }
+}

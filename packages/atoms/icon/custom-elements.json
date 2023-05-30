@@ -1,0 +1,141 @@
+{
+  "className": "Icon",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/icon",
+  "properties": [
+    {
+      "name": "name",
+      "type": "string",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    },
+    {
+      "name": "size",
+      "type": "Size",
+      "default_value": "medium",
+      "type_value": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "customSize",
+      "type": "number",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    }
+  ],
+  "extend_class": {
+    "className": "AssetTemplate",
+    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/asset",
+    "properties": [
+      {
+        "name": "assetBase",
+        "type": "string",
+        "default_value": "/public",
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "name": "cache",
+        "type": "boolean",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      }
+    ],
+    "extend_class": null
+  },
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/templates/asset": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@circular-templates/base"
+      },
+      {
+        "name": "property",
+        "from": "@circular-tools/utils"
+      }
+    ],
+    "/Users/henry/Developer/projects/web-components/packages/atoms/icon": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "property",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "html",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "AssetTemplate",
+        "from": "@circular-templates/asset"
+      },
+      {
+        "name": "style",
+        "from": "./style.js"
+      }
+    ]
+  },
+  "html": {
+    "slots": [],
+    "parts": []
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/icon",
+    "sources": [],
+    "variables": {
+      "--icon-custom-size": {
+        "usecases": [
+          "width",
+          "height"
+        ],
+        "fallbacks": []
+      },
+      "--icon-size-small": {
+        "usecases": [
+          "--icon-custom-size"
+        ],
+        "fallbacks": [
+          "30px"
+        ]
+      },
+      "--icon-size-medium": {
+        "usecases": [
+          "--icon-custom-size"
+        ],
+        "fallbacks": [
+          "48px"
+        ]
+      },
+      "--icon-size-large": {
+        "usecases": [
+          "--icon-custom-size"
+        ],
+        "fallbacks": [
+          "60px"
+        ]
+      }
+    }
+  }
+}

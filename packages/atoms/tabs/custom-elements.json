@@ -1,0 +1,48 @@
+{
+  "className": "Tabs",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/tabs",
+  "properties": [],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/atoms/tabs": [
+      {
+        "name": "html",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@circular-templates/base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      },
+      {
+        "name": "Tab",
+        "from": "./components/tab"
+      },
+      {
+        "name": "TabContent",
+        "from": "./components/content"
+      }
+    ]
+  },
+  "html": {
+    "slots": [],
+    "parts": []
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/tabs",
+    "sources": [],
+    "variables": {
+      "--tabs-height": {
+        "usecases": [
+          "grid-template-rows"
+        ],
+        "fallbacks": [
+          "3rem) 1f"
+        ]
+      }
+    }
+  }
+}
