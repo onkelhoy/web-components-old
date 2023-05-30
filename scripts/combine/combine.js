@@ -70,9 +70,10 @@ function fixCSS(css, ids) {
 function fixJS(js, ids) {
     const section = `${GLOBAL ? `div#${IDNAME}` : '' }section[data-tab="${SUBFOLDER}"]`;
     const idsjoin = ids.join('|');
-    const windowIdSelector = new RegExp(`window.(${idsjoin})\W?`);
+    const windowIdSelector = new RegExp(`window.(${idsjoin})\\W?`);
+    const windowInsideIdSelector = new RegExp(`window\\[(['"])(${idsjoin})['"]\\]\\W?`);
     const queryIdSelector = new RegExp(`#(${idsjoin})`);
-    const documentIdSelector = new RegExp(`\.getElementById\((${idsjoin})\)`);
+    const documentIdSelector = new RegExp(`\.getElementById\\((${idsjoin})\\)`);
 
     const lines = js.split(/\n/);
     for (let i=0; i<lines.length; i++) {
@@ -83,6 +84,11 @@ function fixJS(js, ids) {
             if (windowidselector_match)
             {
                 lines[i] = lines[i].replace(`window.${windowidselector_match[1]}`, `window.${IDNAME}_${windowidselector_match[1]}`);
+            }
+            const windowidinsideselector_match = lines[i].match(windowInsideIdSelector);
+            if (windowidinsideselector_match)
+            {
+                lines[i] = lines[i].replace(`window[${windowidinsideselector_match[1]}${windowidinsideselector_match[2]}${windowidinsideselector_match[1]}]`, `window['${IDNAME}_${windowidinsideselector_match[2]}']`);
             }
             const queryidselector_match = lines[i].match(queryIdSelector);
             if (queryidselector_match)
@@ -115,6 +121,14 @@ function fixJS(js, ids) {
             lines[i] = lines[i].replace(relativeimport_match[1], relativeimport_match[1]+"/../..")
         }
 
+        // local imports (inside view folder I )
+        // const directrelativeimport_macth = lines[i].match(/^import\s+(.*from\s+)?["'](\.\/[^"']*)["'];?$/);
+        // if (directrelativeimport_macth) 
+        // {
+        //     // we need to fix it 
+        //     jsimportfix(directrelativeimport_macth[2]);
+        // }
+
         // replace direct window events
         const windowfunction_match = lines[i].match(/window\.on(\w+)/);
         if (windowfunction_match)
@@ -126,6 +140,13 @@ function fixJS(js, ids) {
     }
     return lines.join('\n');
 }
+// function jsimportfix(src) {
+//     const filepath = path.resolve(FOLDER, src);
+//     const content = fixJS(fs.readFileSync(filepath, 'utf-8'));
+  
+//     fs.writeFileSync(filepath, content, 'utf-8');
+// }
+
 function add_script(js, src) {
     const name = src.split('/').pop();
     const url = generate_file(js, name);

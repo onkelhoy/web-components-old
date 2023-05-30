@@ -93,7 +93,7 @@ read -p "Do you wish to init with git also?: (y/n) " git_ans
 git_ans=$(echo "$git_ans" | tr '[:upper:]' '[:lower:]')
 if [[ "$git_ans" == "y" || "$git_ans" == "yes" ]]; then
   git add $destination
-  git commit -m ""
+  git commit -m "feat: new $atomic_type component : $name"
 fi
 
 # goto destination to run init

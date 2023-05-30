@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TranslatorTool demo</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <script defer src="main.js"></script>
+    <script defer src="demo.js"></script>
+</head>
+<body>
+    <doc-card>
+        <button id="toggle-translation">Toggle Translation</button>
+    </doc-card>
+
+    <doc-card>
+        <code-block lang="html" display="both">
+            <o-translator>Hello World</o-translator>
+            <br />
+            <o-translator name="Henry">Hello {name}</o-translator>
+        </code-block>
+    </doc-card>
+
+    <doc-card>
+        <code-block lang="javascript" display="code">
+            class InsideDemo extends BaseTemplate {
+                render() {
+                    return html`
+                        <o-translator>${this.getAttribute('text')}</o-translator>
+                    `
+                }
+            }
+        </code-block>
+        <code-block lang="html" display="both">
+            <translate-insidedemo text="bajs"></translate-insidedemo>
+        </code-block>
+    </doc-card>
+
+    <doc-card>
+        <code-block lang="javascript" display="code">
+            class ExtendDemo extends Translator {
+                render() {
+                    return html`
+                        <label>${this.translateKey('bajs')}</label>
+                    `
+                }
+            }
+        </code-block>
+        <code-block lang="html" display="both">
+            <translate-extenddemo></translate-extenddemo>
+        </code-block>
+    </doc-card>
+</body>
+</html>

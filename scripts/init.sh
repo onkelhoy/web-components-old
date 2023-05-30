@@ -17,7 +17,7 @@ npm install
 echo ""
 
 echo "### init the python chatgtp documentation"
-cd ./scripts/chatgtp/documentation/
+cd ./scripts/auto-doc/documentation/
 sh init.sh
 echo ""
 
