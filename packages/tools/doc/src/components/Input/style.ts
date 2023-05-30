@@ -13,7 +13,8 @@ export const style = `:host {
 label, input, textarea, select {
   color: var(--color);
   display: block;
-  width: 100%; }
+  width: 100%;
+  box-sizing: border-box; }
 
 input, textarea, select {
   padding: 0.5rem;

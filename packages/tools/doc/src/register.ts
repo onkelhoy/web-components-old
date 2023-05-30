@@ -1,4 +1,3 @@
-import { AtomicChip } from './components/AtomicChip';
 import { CodeBlock } from './components/CodeBlock';
 import { Markdown } from './components/Markdown';
 import { Card } from './components/Card';
@@ -13,10 +12,6 @@ const cElements = customElements ?? window?.customElements;
 
 if (!cElements) {
   throw new Error('Custom Elements not supported');
-}
-
-if (!cElements.get('atomic-chip')) {
-  cElements.define('atomic-chip', AtomicChip);
 }
 
 if (!cElements.get('code-block')) {

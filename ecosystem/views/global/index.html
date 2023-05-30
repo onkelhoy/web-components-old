@@ -10,89 +10,55 @@
   <script defer src="main.js"></script>
 </head>
 <body>
-  <section class="sidebar">
-    <header>
-      <o-icon class="logo" name="circular"></o-icon>
-    </header>
+  <side-menu>
+    <o-icon slot="header" class="logo" name="circular"></o-icon>
 
-    <ul>
-      <li>
-        <label>
-          foundations
-          <o-icon customSize="10" name="caret"></o-icon>
-        </label>
-        <ul></ul>
-      </li>
-      <li>
-        <label>
-          components
-          <o-icon customSize="10" name="caret"></o-icon>
-        </label>
-        <ul>
-          <li>
-            <label>
-              <span>
-                <o-icon customSize="15" name="atoms"></o-icon>
-                atoms
-                </span>
-                <o-icon customSize="10" name="caret"></o-icon>
-              </label>
-            <ul class="atoms"></ul>
-          </li>
-          <li>
-            <label>
-              <span>
-                <o-icon customSize="15" name="molecules"></o-icon>
-                molecules
-              </span>
-              <o-icon customSize="10" name="caret"></o-icon>
-            </label>
-            <ul class="molecules"></ul>
-          </li>
-          <li>
-            <label>
-              <span>
-                <o-icon customSize="15" name="organisms"></o-icon>
-                organisms
-              </span>
-              <o-icon customSize="10" name="caret"></o-icon>
-            </label>
-            <ul class="organisms"></ul>
-          </li>
-          <li>
-            <label>
-              <span>
-                <o-icon customSize="15" name="pages"></o-icon>
-                pages
-              </span>
-              <o-icon customSize="10" name="caret"></o-icon>
-            </label>
-            <ul class="pages"></ul>
-          </li>
-          <li>
-            <label>
-              <span>
-                <o-icon customSize="15" name="templates"></o-icon>
-                templates
-              </span>
-              <o-icon customSize="10" name="caret"></o-icon>
-            </label>
-            <ul class="templates"></ul>
-          </li>
-          <li>
-            <label>
-              <span>
-                <o-icon customSize="15" name="tools"></o-icon>
-                tools
-              </span>
-              <o-icon customSize="10" name="caret"></o-icon>
-            </label>
-            <ul class="tools"></ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </section>
+    <menu-item haschild="true">
+      <span slot="collapsed">F</span>
+      <span>foundations</span>
+    </menu-item>
+    
+    <menu-item>
+      <span slot="collapsed">C</span>
+      <span>components</span>
+
+      <menu-item haschild="true" data-sidemenu-name="atoms" slot="sub">
+        <o-icon slot="collapsed" customSize="15" name="atoms"></o-icon>
+        <o-icon customSize="15" name="atoms"></o-icon>
+        <span>atoms</span>
+      </menu-item>
+
+      <menu-item haschild="true" data-sidemenu-name="molecules" slot="sub">
+        <o-icon slot="collapsed" customSize="15" name="molecules"></o-icon>
+        <o-icon customSize="15" name="molecules"></o-icon>
+        <span>molecules</span>
+      </menu-item>
+      
+      <menu-item haschild="true" data-sidemenu-name="organisms" slot="sub">
+        <o-icon slot="collapsed" customSize="15" name="organisms"></o-icon>
+        <o-icon customSize="15" name="organisms"></o-icon>
+        <span>organisms</span>
+      </menu-item>
+
+      <menu-item haschild="true" data-sidemenu-name="pages" slot="sub">
+        <o-icon slot="collapsed" customSize="15" name="pages"></o-icon>
+        <o-icon customSize="15" name="pages"></o-icon>
+        <span>pages</span>
+      </menu-item>
+
+      <menu-item haschild="true" data-sidemenu-name="templates" slot="sub">
+        <o-icon slot="collapsed" customSize="15" name="templates"></o-icon>
+        <o-icon customSize="15" name="templates"></o-icon>
+        <span>templates</span>
+      </menu-item>
+
+      <menu-item haschild="true" data-sidemenu-name="tools" slot="sub">
+        <o-icon slot="collapsed" customSize="15" name="tools"></o-icon>
+        <o-icon customSize="15" name="tools"></o-icon>
+        <span>tools</span>
+      </menu-item>
+    </menu-item>
+  </side-menu>
 
   <main class="designsystem"></main>
 </body>

@@ -32,5 +32,8 @@ body {
 
 section.control {
     width: 100%;
-    background-color: coral;
+}
+
+code-block::part(fieldset) {
+    height: 30rem;
 }

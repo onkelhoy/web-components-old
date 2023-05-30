@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/henry/Developer/web-components/scripts/chatgtp/documentation"
+VIRTUAL_ENV="/Users/henry/Developer/projects/web-components/scripts/chatgtp/documentation"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

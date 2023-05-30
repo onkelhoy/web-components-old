@@ -10,7 +10,7 @@ const FOLDERNAME = `${ATOMICTYPE}-${PACKAGENAME}`;
 const IDNAME = `${ATOMICTYPE}_${PACKAGENAME}`;
 
 // helper function
-function fixCSS(css, ids) {
+function fixCSS(css) {
   const section = `div[data-target="${IDNAME}"]`;
   // const idselector = new RegExp(`#(${ids.join('|')})`);
 
@@ -22,53 +22,16 @@ function fixCSS(css, ids) {
       {
           const startline_match = lines[i].match(/^(body)?([^\{,]*)(\{|,)\W*$/);
           if (startline_match) lines[i] = lines[i].replace(startline_match[2], ` ${section} ${startline_match[2]}`);
-
-          // if (ids.length > 0)
-          // {
-          //     const idselector_match = lines[i].match(idselector);
-          //     if (idselector_match)
-          //     {
-          //         lines[i] = lines[i].replace(idselector_match[1], `${IDNAME}_${idselector_match[1]}`)
-          //     }
-          // }
       }
   }
   return lines.join('\n');
 
 }
-function fixJS(js, ids) {
+function fixJS(js, folder_path) {
   const section = `div[data-target="${IDNAME}"]`;
-  const idsjoin = ids.join('|');
-  // const windowIdSelector = new RegExp(`window\.(${idsjoin})`);
-  // const queryIdSelector = new RegExp(`#(${idsjoin})`);
-  // const documentIdSelector = new RegExp(`\.getElementById\((${idsjoin})\)`);
-
-  // console.log(idsjoin, windowIdSelector)
 
   const lines = js.split(/\n/);
   for (let i=0; i<lines.length; i++) {
-    // checking for ID selectors
-    // if (ids.length > 0)
-    // {
-    //   const windowidselector_match = lines[i].match(windowIdSelector);
-    //   console.log('checking line', lines[i])
-    //   if (windowidselector_match)
-    //   {
-    //     console.log('we found one', windowidselector_match[1])
-    //     lines[i] = lines[i].replace(`window${windowidselector_match[1]}`, `window.${IDNAME}_${windowidselector_match[1]}`);
-    //   }
-    //   const queryidselector_match = lines[i].match(queryIdSelector);
-    //   if (queryidselector_match)
-    //   {
-    //     lines[i] = lines[i].replace(`#${queryidselector_match[1]}`, `#${IDNAME}_${queryidselector_match[1]}`);
-    //   }
-    //   const documentidselector_match = lines[i].match(documentIdSelector);
-    //   if (documentidselector_match)
-    //   {
-    //     lines[i] = lines[i].replace(`.getElementById(${documentidselector_match[1]}`, `.getElementById(${IDNAME}_${documentidselector_match[1]}`);
-    //   }
-    // }
-  
     // checking for all other query selectors (not !ID)
     const queryselector_match = lines[i].match(/querySelector(All)?\([\'\"\`]?/);
     if (queryselector_match)
@@ -83,6 +46,13 @@ function fixJS(js, ids) {
       lines[i] = lines[i].replace(relativeimport_match[1], relativeimport_match[1]+"/../..")
     }
 
+    const directrelativeimport_macth = lines[i].match(/^import\s+(.*from\s+)?["'](\.\/[^"']*)["'];?$/);
+    if (directrelativeimport_macth) 
+    {
+      // we need to fix it 
+      jsimportfix(directrelativeimport_macth[2]);
+    }
+
     // replace direct window events
     const windowfunction_match = lines[i].match(/window\.on(\w+)/);
     if (windowfunction_match)
@@ -94,19 +64,19 @@ function fixJS(js, ids) {
   }
   return lines.join('\n');
 }
+function jsimportfix(src) {
+  const filepath = path.resolve(FOLDER, src);
+  const content = fixJS(fs.readFileSync(filepath, 'utf-8'));
+
+  fs.writeFileSync(filepath, content, 'utf-8');
+}
 
 // main 
 let mainjs = fs.readFileSync("views/combined/main.js", "utf-8");
 const document = parse(fs.readFileSync("views/combined/index.html", "utf-8"));
 const targetdoc = parse(fs.readFileSync(path.join("views/combined", FOLDERNAME, "index.html"), "utf-8"));
 const combinedHEAD = document.querySelector('head');
-const ids = [];
-
-// extracting info from HTML
-// targetdoc.querySelectorAll('*[id]').forEach(element => {
-//   ids.push(element.getAttribute('id'));
-//   element.setAttribute('id', `${IDNAME}_${element.getAttribute('id')}`);
-// });
+const FOLDER = path.resolve("views/combined", FOLDERNAME);
 
 // append the body 
 document
@@ -117,9 +87,9 @@ document
 
 // add the link in the sidebar 
 document
-  .querySelector(`section.sidebar ul.${ATOMICTYPE}`)
+  .querySelector(`side-menu menu-item[data-sidemenu-name="${ATOMICTYPE}"]`)
   .appendChild(
-    parse(`<li data-target="${IDNAME}">${CLASSNAME}</li>`)
+    parse(`<menu-item slot="sub" data-target="${IDNAME}">${CLASSNAME}</menu-item>`)
   )
 
 // fix the links 
@@ -128,7 +98,7 @@ targetdoc
   .forEach(link => {
     
     let url = `${FOLDERNAME}/${link.getAttribute('href')}`;
-    const css = fixCSS(fs.readFileSync(path.resolve("views/combined", url), 'utf-8'), ids);
+    const css = fixCSS(fs.readFileSync(path.resolve("views/combined", url), 'utf-8'));
     
     let name = link.getAttribute('href').split('/').pop();
     let href = link.getAttribute('href').replace(name, IDNAME+name);
@@ -145,7 +115,7 @@ targetdoc
   .querySelectorAll("script[src]")
   .forEach(script => {
     const url = `${FOLDERNAME}/${script.getAttribute('src')}`;
-    const js = fixJS(fs.readFileSync(path.resolve("views/combined", url), 'utf-8'), ids);
+    const js = fixJS(fs.readFileSync(path.resolve("views/combined", url), 'utf-8'));
     
     fs.writeFileSync(path.join("views/combined", url), js, 'utf-8');
     mainjs += `\nimport "./${url}";`

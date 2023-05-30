@@ -12,7 +12,7 @@
 </head>
 <body>
   <doc-controller>
-    <div>
+    <div id="target">
       <o-button>
         Hello World
       </o-button>
@@ -20,7 +20,77 @@
 
     <section class="control" slot="setting">
       <doc-input label="HTML" variant="textarea" name="html" value="Hello World"></doc-input>
-    <h3 data-subtitle="Button Properties">Button Properties</h3><div data-name="Button Properties" class="properties"></div><h3 data-subtitle="BoxTemplate Properties">BoxTemplate Properties</h3><div data-name="BoxTemplate Properties" class="properties"></div><h3 data-subtitle="ColorTemplate Properties">ColorTemplate Properties</h3><div data-name="ColorTemplate Properties" class="properties"></div></section>
+    <h3 data-subtitle="Button Properties">Button Properties</h3><div data-name="Button Properties" class="properties">
+        
+        
+        
+        
+        <doc-input data-prop-name="size" variant="select" value="medium" name="size" label="size" options='["small","medium","large"]'></doc-input>
+      
+      
+      
+      
+      
+        
+        
+        
+        
+        <doc-input data-prop-name="mode" variant="select" value="hug" name="mode" label="mode" options='["hug","fill"]'></doc-input>
+      
+      
+      
+      
+      
+        
+        
+        
+        
+        <doc-input data-prop-name="variant" variant="select" value="filled" name="variant" label="variant" options='["filled","outlined","underlined","clear"]'></doc-input>
+      
+      
+      
+      
+      
+          
+          
+          
+          
+          <doc-input data-prop-name="tabIndex" variant="number" value="1" name="tabIndex" label="tabIndex"></doc-input>
+        
+        
+        
+        
+        </div><h3 data-subtitle="BoxTemplate Properties">BoxTemplate Properties</h3><div data-name="BoxTemplate Properties" class="properties">
+        
+        
+        
+        
+        <doc-input data-prop-name="radius" variant="select" value="circular" name="radius" label="radius" options='["none","small","medium","large","circular"]'></doc-input>
+      
+      
+      
+      
+      
+        
+        
+        
+        
+        <doc-input data-prop-name="elevation" variant="select" value="none" name="elevation" label="elevation" options='["none","small","medium","large"]'></doc-input>
+      
+      
+      
+      
+      </div><h3 data-subtitle="ColorTemplate Properties">ColorTemplate Properties</h3><div data-name="ColorTemplate Properties" class="properties">
+            
+            
+            
+            
+            <color-picker-input data-prop-name="color" name="color" label="color" value=""></color-picker-input>
+          
+          
+          
+          
+          </div></section>
   </doc-controller>
 </body>
 </html>

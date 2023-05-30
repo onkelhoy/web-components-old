@@ -1,16 +1,18 @@
 export const style = `:host {
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: var(--icon-custom-size);
   height: var(--icon-custom-size); }
 
 :host([size="small"]) {
-  --icon-custom-size: var(--icon-size-small, 30); }
+  --icon-custom-size: var(--icon-size-small, 30px); }
 
 :host([size="medium"]) {
-  --icon-custom-size: var(--icon-size-medium, 48); }
+  --icon-custom-size: var(--icon-size-medium, 48px); }
 
 :host([size="large"]) {
-  --icon-custom-size: var(--icon-size-large, 60); }
+  --icon-custom-size: var(--icon-size-large, 60px); }
 
 svg {
   width: inherit;

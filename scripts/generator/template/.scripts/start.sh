@@ -6,15 +6,12 @@ SUBFOLDER=${1:-demo} # default to "demo"
 
 # Function to clean up background processes when the script is terminated
 function cleanup() {
+    clear
     echo "[start] clean-up"
     kill $watcher_pid 
     kill $watch_server_pid 
-    # kill -INT ${watcher_pid} 
-    # kill -INT ${watch_server_pid}
 
-    clear
     echo "$SUBFOLDER terminated" 
-
     exit 0
 }
 

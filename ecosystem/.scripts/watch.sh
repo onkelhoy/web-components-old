@@ -15,13 +15,13 @@ trap cleanup SIGINT
 trap cleanup EXIT
 
 # then we watch css
-fswatch src/style.scss | while read; do sh ./.scripts/helper/compile-css.sh; done &
+fswatch src/components/$1/style.scss | while read; do sh ./.scripts/helper/compile-css-individual.sh $1; done &
 watch_css_pid=$!
 
 tsc -w --preserveWatchOutput &
 tsc_pid=$!
 
-esbuild src/register.ts --bundle --outfile=dist/register.bundle.mjs --format=esm --platform=browser --watch=forever &
+(esbuild src/register.ts --bundle --outfile=dist/register.bundle.mjs --format=esm --platform=browser --watch=forever) &
 watch_esm_pid=$!
 
 # wait for all background processes to complete

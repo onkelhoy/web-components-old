@@ -7,7 +7,8 @@ export const style = `:host {
   width: 100%;
   padding: 2rem;
   box-sizing: border-box;
-  border-radius: 0.4rem; }
+  border-radius: 0.4rem;
+  margin-bottom: 1rem; }
 
 @media (prefers-color-scheme: dark) {
   :host {
