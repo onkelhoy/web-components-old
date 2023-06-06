@@ -81,7 +81,7 @@ export class Icon extends AssetTemplate {
         this.style.removeProperty("--icon-custom-size");    
     }
     private updateCustomSize() {
-        if (this.customSize !== undefined) this.style.setProperty("--icon-custom-size", this.customSize.toString());
+        if (this.customSize !== undefined) this.style.setProperty("--icon-custom-size", this.customSize + "px");
     }
 
     // helper functions

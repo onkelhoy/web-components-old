@@ -9,7 +9,8 @@
         "combine": ".scripts/combine.sh && .scripts/start.sh combined",
         "start": ".scripts/start.sh",
         "interactive": "sh .scripts/helper/build-interactive.sh",
-        "variations": "sh .scripts/helper/build-variations.sh"
+        "variations": "sh .scripts/helper/build-variations.sh",
+        "component:add": "sh .scripts/helper/add-component.sh"
     },
     "main": "dist/src/index.js",
     "exports": {

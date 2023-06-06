@@ -50,6 +50,7 @@ section.control o-tabs::part(header) {
 div.slot {
   display: grid;
   gap: 1rem;
+  row-gap: 3rem;
 }
 div.properties {
   display: grid;
@@ -57,3 +58,17 @@ div.properties {
   grid-template-columns: 1fr 1fr;
 }
 
+
+.style-source {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.style-source > h3 {
+  grid-column: 1/3;
+}
+
+.style-group > .info {
+  display: flex;
+}

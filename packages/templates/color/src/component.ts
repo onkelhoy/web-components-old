@@ -43,3 +43,9 @@ export class ColorTemplate extends BaseTemplate {
         })
     }
 }
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-color-template": ColorTemplate;
+    }
+}

@@ -22,3 +22,14 @@ svg {
     fill: currentColor;
     stroke: currentColor;
 }
+
+:host([data-hide-slot="true"]) {
+    &::part(fallback) {
+        display: none;
+    }
+}
+:host([data-hide-slot="false"]) {
+    svg {
+        display: none;
+    }
+}

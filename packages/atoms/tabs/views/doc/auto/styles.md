@@ -13,14 +13,15 @@ import { BaseTemplate } from "@circular-templates/base";
 
 // local 
 import { style } from "./style";
-import { ClickEvent, Tab } from "./components/tab";
+import { Tab } from "./components/tab";
+import { TabContent } from "./components/content";
+import { SelectEvent } from "./types";
 
 export class Tabs extends BaseTemplate {
     static style = style;
 
-    private tabs: Tab[] = [];
-
-    @property({ type: Boolean }) updateHeight: boolean = true;
+    private tabs = 0;
+    private contents = 0;
 
     // event handlers
     private handleslotchange = (e:Event) => {
@@ -28,13 +29,34 @@ export class Tabs extends BaseTemplate {
         {
             e.target
                 .assignedElements()
-                .forEach(element => {
-                    if (element instanceof Tab)
+                .forEach((element, index) => {
+                    const isContent = element instanceof TabContent;
+                    const isTab = element instanceof Tab;
+
+                    let id = index.toString();
+                    if (isContent) 
+                    {
+                        id = this.contents.toString();
+                        this.contents++;
+                    }
+                    if (isTab) 
+                    {
+                        id = this.tabs.toString();
+                        element.addEventListener('click', this.handletabclick);
+                        this.tabs++;
+                    }
+
+                    if (element.hasAttribute('id'))
+                    {
+                        id = element.getAttribute('id') as string;
+                    }
+
+                    if (isContent || isTab)
                     {
                         if (!element.hasAttribute('tabs-pass'))
                         {
-                            this.tabs.push(element);
-                            element.addEventListener('tab-click', this.handletabclick);
+                            element.init(this);
+                            element.setAttribute('data-tab-id', id);
                             element.setAttribute('tabs-pass', 'true');
                         }
                     }
@@ -42,29 +64,34 @@ export class Tabs extends BaseTemplate {
         }
     }
     private handletabclick = (e:Event) => {
-        if (e instanceof CustomEvent<ClickEvent> && e.target instanceof Tab)
+        if (e.target instanceof Tab)
         {
-            if (this.updateHeight)
-            {
-                this.style.height = `calc(${e.detail.sectionHeight}px + var(--tab-height, 3rem))`;
-            }
-            this.tabs.forEach(t => t.classList.remove('selected'));
-            e.target.classList.add('selected');
+            this.dispatchEvent(new CustomEvent<SelectEvent>("tab-select", { 
+                detail: { 
+                    id: e.target.getAttribute('data-tab-id') as string 
+                } 
+            }))
         }
     }
 
     render() {
         return html`
-            <slot @slotchange="${this.handleslotchange}"></slot>
+            <header part="header">
+                <slot @slotchange="${this.handleslotchange}" name="tab"></slot>
+            </header>
+            <main part="content">
+                <slot @slotchange="${this.handleslotchange}" name="content"></slot>
+            </main>
         `
     }
 }
 ## STYLE-CODE:
 :host {
-    display: flex;
-    position: relative;
-}
-
-::slotted(o-tab) {
-    --tab-height: var(--tabs-height, 3rem);
+    display: grid;
+    grid-template-rows: var(--tabs-height, 3rem) 1fr;
+    
+    header {
+        display: flex;
+        overflow-x: auto;
+    }
 }

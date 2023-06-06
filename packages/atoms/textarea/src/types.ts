@@ -1,0 +1,1 @@
+export type Resize = "none" | "verical" | "auto"

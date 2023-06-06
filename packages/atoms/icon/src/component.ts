@@ -37,34 +37,51 @@ export class Icon extends AssetTemplate {
     // update functions
     private async updateName(): Promise<void> {
         const file = `${this.name}.svg`;
-        const response = await this.loadAsset(file);
-        if (response) {
-            let content, viewbox = "0 96 960 960"; // default google icon's
-            if (typeof response === "string")
-            {
-                content = response;
+        try {
+            const response = await this.loadAsset(file);
+
+            if (response) {
+                let content, viewbox = "0 96 960 960"; // default google icon's
+                if (typeof response === "string")
+                {
+                    content = response;
+                }
+                else 
+                {
+                    content = await response.text();
+                    const [parsed_content, parsed_viewbox] = this.extractSvgContent(content);
+    
+                    if (parsed_viewbox) {
+                        viewbox = parsed_viewbox;
+                    }
+                    if (parsed_content) 
+                    {
+                        content = `SVG:${viewbox}##${parsed_content.trim()}`;
+                        this.cacheData(file, content);
+                    }
+                }
+
+    
+                if (content.startsWith("SVG:"))
+                {
+                    this.setAttribute('data-hide-slot', 'true');
+                    this.content = content;
+                    if (this.getAttribute("show")) console.log(content)
+                    this.setSVG();
+                }
+                else 
+                {
+                    this.setAttribute('data-hide-slot', 'false');
+                }
             }
             else 
             {
-                content = await response.text();
-                const [parsed_content, parsed_viewbox] = this.extractSvgContent(content);
-
-                if (parsed_viewbox) {
-                    viewbox = parsed_viewbox;
-                }
-                if (parsed_content) 
-                {
-                    content = `SVG:${viewbox}##${parsed_content.trim()}`;
-                    this.cacheData(file, content);
-                }
+                this.setAttribute('data-hide-slot', 'false');
             }
-
-            if (content.startsWith("SVG:"))
-            {
-                this.content = content;
-                if (this.getAttribute("show")) console.log(content)
-                this.setSVG();
-            }
+        }
+        catch {
+            console.log('im hidden')
+            this.setAttribute('data-hide-slot', 'false');
         }
     }
     private updateColor() {
@@ -104,6 +121,7 @@ export class Icon extends AssetTemplate {
 
     render() {
         return html`
+            <slot part="fallback"></slot>
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 viewBox="0 96 960 960"
@@ -112,5 +130,11 @@ export class Icon extends AssetTemplate {
                 ${this.content}
             </svg>
         `
+    }
+}
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-icon": Icon;
     }
 }

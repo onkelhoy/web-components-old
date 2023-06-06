@@ -9,6 +9,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 1000;
   }
 }
 
@@ -33,7 +34,7 @@
 :host([placement="top-left"]) div.wrapper {
   padding-bottom: var(--gap);
   left: 100%;
-  transform: translateY(-100%);
+  transform: translate(-100%, -100%);
 }
 
 // placement:: BOTTOM
@@ -51,6 +52,7 @@
   padding-top: var(--gap);
   top: 100%;
   left: 100%;
+  transform: translateX(-100%);
 }
 
 // placement:: LEFT
@@ -66,7 +68,7 @@
 :host([placement="left-bottom"]) div.wrapper {
   padding-right: var(--gap);
   top: 100%;
-  transform: translateX(-100%);
+  transform: translate(-100%, -100%);
 }
 
 // placement:: RIGHT
@@ -84,5 +86,5 @@
   padding-left: var(--gap);
   left: 100%;
   top: 100%;
-  transform: translateX(-100%);
+  transform: translateY(-100%);
 }

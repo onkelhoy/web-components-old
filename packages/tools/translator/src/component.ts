@@ -131,3 +131,9 @@ export class Translator extends BaseTemplate {
         `
     }
 }
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-translator": Translator;
+    }
+}

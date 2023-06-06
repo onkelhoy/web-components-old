@@ -22,8 +22,8 @@ trap cleanup SIGINT
 trap cleanup EXIT
 
 # Run the watch.sh script in the same shell
-# sh .scripts/watch.sh &
-# watcher_pid=$!
+sh .scripts/watch.sh $SUBFOLDER &
+watcher_pid=$!
 
 # watch demo project
 sh $ROOTDIR/scripts/liveserver/run.sh $SUBFOLDER &

@@ -22,20 +22,20 @@ export const style = `:host {
 :host([size="small"]) {
   font-size: var(--button-font-size-small, var(--font-size-small, 0.8rem));
   height: var(--button-height-small, var(--height-small, 20px));
-  padding: var(--button-padding, var(--padding-small, 0.5rem));
-  border-width: var(--button-border-width, var(--border-width-small, 2px)); }
+  padding: var(--button-padding-small, var(--padding-small, 0.5rem));
+  border-width: var(--button-border-width-small, var(--border-width-small, 2px)); }
 
 :host([size="medium"]) {
   font-size: var(--button-font-size-medium, var(--font-size-medium, 1rem));
   height: var(--button-height-medium, var(--height-medium, 32px));
-  padding: var(--button-padding, var(--padding-medium, 1rem));
-  border-width: var(--button-border-width, var(--border-width-medium, 3px)); }
+  padding: var(--button-padding-medium, var(--padding-medium, 1rem));
+  border-width: var(--button-border-width-medium, var(--border-width-medium, 3px)); }
 
 :host([size="large"]) {
   font-size: var(--button-font-size-large, var(--font-size-large, 1.2rem));
   height: var(--button-height-large, var(--height-large, 48px));
-  padding: var(--button-padding, var(--padding-large, 1rem));
-  border-width: var(--button-border-width, var(--border-width-large, 4px)); }
+  padding: var(--button-padding-large, var(--padding-large, 1rem));
+  border-width: var(--button-border-width-large, var(--border-width-large, 4px)); }
 
 :host([variant="clear"]) {
   background-color: var(--button-background-color-clear, transparent);

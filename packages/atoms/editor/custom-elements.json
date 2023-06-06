@@ -1,0 +1,151 @@
+{
+  "className": "Editor",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/editor",
+  "properties": [
+    {
+      "name": "foo",
+      "type": "Foo",
+      "default_value": "bar",
+      "type_value": [
+        "bar",
+        "hello world"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "bajs",
+      "type": "number",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    },
+    {
+      "name": "fooLaa",
+      "type": "boolean",
+      "default_value": true,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    }
+  ],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/atoms/editor": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "property",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@circular-templates/base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "header",
+        "html": "\n                    <h1>llama drama trauma</h1>\n                "
+      },
+      {
+        "name": "default",
+        "html": "\n                    <p>Why did the llama go to therapy? Because it had a lot of spitting issues!</p>\n                "
+      },
+      {
+        "name": "footer",
+        "html": "\n                    <p>Why did the llama enter the door? To attend the llamazing party inside!</p>\n                "
+      }
+    ],
+    "parts": [
+      {
+        "name": "header",
+        "tag": "HEADER"
+      },
+      {
+        "name": "footer",
+        "tag": "FOOTER"
+      }
+    ]
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/editor",
+    "sources": [],
+    "variables": {
+      "--editor-light-background-color": {
+        "usecases": [
+          "--background"
+        ],
+        "fallbacks": [
+          "var(--colors-netural-white, white)"
+        ]
+      },
+      "--colors-netural-white": {
+        "usecases": [
+          "--background",
+          "--color"
+        ],
+        "fallbacks": [
+          "white"
+        ]
+      },
+      "--editor-light-text-color": {
+        "usecases": [
+          "--color"
+        ],
+        "fallbacks": [
+          "var(--colors-netural-black, black)"
+        ]
+      },
+      "--colors-netural-black": {
+        "usecases": [
+          "--color",
+          "--background"
+        ],
+        "fallbacks": [
+          "black"
+        ]
+      },
+      "--background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--color": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--editor-dark-background-color": {
+        "usecases": [
+          "--background"
+        ],
+        "fallbacks": [
+          "var(--colors-netural-black, black)"
+        ]
+      },
+      "--editor-dark-text-color": {
+        "usecases": [
+          "--color"
+        ],
+        "fallbacks": [
+          "var(--colors-netural-white, white)"
+        ]
+      }
+    }
+  }
+}
