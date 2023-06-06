@@ -1,0 +1,51 @@
+{
+  "className": "Translator",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/tools/translator",
+  "properties": [],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/tools/translator": [
+      {
+        "name": "html",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@circular-templates/base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      },
+      {
+        "name": "load",
+        "from": "./translator"
+      },
+      {
+        "name": "loadAll",
+        "from": "./translator"
+      },
+      {
+        "name": "change",
+        "from": "./translator"
+      },
+      {
+        "name": "subscribe",
+        "from": "./translator"
+      },
+      {
+        "name": "unsubscribe",
+        "from": "./translator"
+      }
+    ]
+  },
+  "html": {
+    "slots": [],
+    "parts": []
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/tools/translator",
+    "sources": [],
+    "variables": {}
+  }
+}

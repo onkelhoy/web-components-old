@@ -45,7 +45,7 @@ export class Controller extends BaseTemplate {
     {
       const box = this.section.getBoundingClientRect();
       this.original_y = e.pageY;
-      this.original_height = box.height - 120; // padding
+      this.original_height = box.height - 80; // padding
       this.pressed = true;
       this.handlemousemove(e);
     }

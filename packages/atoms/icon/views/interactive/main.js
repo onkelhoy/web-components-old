@@ -2,7 +2,7 @@ import '@circular-tools/doc/wc';
 
 let TARGET_ELEMENT = null;
 window.onload = () => {
-  TARGET_ELEMENT = document.querySelector('#target > *');
+  TARGET_ELEMENT = document.querySelector('doc-controller > div > *');
 
   document.querySelectorAll('section.control *[name]').forEach(element => {
     const name = element.name;
@@ -11,20 +11,24 @@ window.onload = () => {
 
     if (defaultvalue !== "")
     {
-      update(name, defaultvalue);
+      update(name, defaultvalue, element);
     }
 
     element.addEventListener('change', event => {
-      update(name, event.detail.value);
+      update(name, event.detail.value, element);
     })
   });
 }
 
-function update(name, value) {
+function update(name, value, element) {
 
-  if (/html/i.test(name))
+  if (/slot-/i.test(name))
   {
-    TARGET_ELEMENT.innerHTML = value;
+    const targetslot = TARGET_ELEMENT.querySelector(`div[data-slotname="${element.getAttribute("data-slotname")}"]`);
+    if (targetslot)
+    {
+      targetslot.innerHTML = value;
+    }
   }
   else 
   {

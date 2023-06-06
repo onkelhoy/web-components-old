@@ -8,7 +8,7 @@ if [ "$1" != "--child" ]; then
   npm run build
 
   # extract the types 
-  sh $ROOTDIR/scripts/extract_types/run.sh $(pwd)
+  sh $ROOTDIR/scripts/analyse/run.sh $(pwd)
 fi
 
 # build interactive

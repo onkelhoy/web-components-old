@@ -1,0 +1,166 @@
+PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
+ Based on the source code and style code probided. Can you create a documentation that includes titles, short descrition and the table for each tables: css-variables, parts, slots.
+css-variables should be a table with columns: (name, default-value, type - ex. CSS unit, description).
+parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
+slots should include columns: (name, default-value, description)
+
+## SOURCE-CODE:
+import { property, Size } from '@circular-tools/utils';
+import { BoxTemplate } from '@circular-templates/box';
+
+import { style } from './style.js';
+
+import type { ButtonMode, ButtonVariant, ButtonType } from './types';
+
+export class Button extends BoxTemplate {
+    static styles = [BoxTemplate.style, style];
+    
+    @property() size: Size = "medium";
+    @property() mode: ButtonMode = "hug";
+    @property() variant: ButtonVariant = "filled";
+    @property() tabIndex: number = 1;
+
+    constructor() {
+        super();
+
+        setTimeout(() => {
+            if (!this.color) this.color = "primary";
+        }, 1)
+    }
+
+    render() {
+        return `
+            <slot name="left"><span> </span></slot>
+            <slot></slot>
+            <slot name="right"><span> </span></slot>
+        `;
+    }
+}
+## STYLE-CODE:
+// value maps
+$size-map: (
+  small: (
+    font-size: 0.8rem,
+    height: 20px,
+    padding: 0.5rem,
+    border-width: 2px,
+  ),
+  medium: (
+    font-size: 1rem,
+    height: 32px,
+    padding: 1rem,
+    border-width: 3px,
+  ),
+  large: (
+    font-size: 1.2rem,
+    height: 48px,
+    padding: 1rem,
+    border-width: 4px,
+  ),
+);
+
+:host {
+    cursor: var(--button-cursor, pointer);
+    align-items: center;
+    font-family: var(--button-font-family, var(--font-family, inherit));
+
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    box-sizing: border-box;
+    position: relative;
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+:host([mode="hug"]) {
+    display: inline-flex;
+}
+:host([mode="fill"]) {
+    display: flex;
+}
+
+@each $name, $value in $size-map {
+    :host([size="#{$name}"]) {
+        font-size: var(--button-font-size-#{$name}, var(--font-size-#{$name}, #{map-get($value, font-size)}));
+        height: var(--button-height-#{$name}, var(--height-#{$name}, #{map-get($value, height)}));
+        padding: var(--button-padding, var(--padding-#{$name}, #{map-get($value, padding)}));
+        border-width: var(--button-border-width, var(--border-width-#{$name}, #{map-get($value, border-width)}));
+    }
+}  
+
+$clear-variants: clear, underlined, outlined;
+@each $name in $clear-variants {
+    :host([variant="#{$name}"]) {
+        background-color: var(--button-background-color-#{$name}, transparent);
+        color: var(--button-text-color-#{$name}, var(--color500));
+    }
+    :host([variant="#{$name}"]:hover) {
+        background-color: var(--button-background-color-#{$name}-hover, transparent);
+        color: var(--button-text-color-#{$name}-hover, var(--color600));
+    }
+    :host([variant="#{$name}"]:active) {
+        background-color: var(--button-background-color-#{$name}-active, var(--color3000));
+        color: var(--button-background-text-color-#{$name}-active, var(--color700));
+    }
+    :host([variant="#{$name}"][disabled]) {
+        background-color: var(--button-background-color-#{$name}-disabled, transparent);
+        color: var(--button-text-color-#{$name}-disabled, var(--disabled-text-color, var(--color3100)));
+    }
+}
+
+:host([disabled]) {
+    cursor: var(--button-cursor-disabled, not-allowed);
+}
+
+
+
+// filled
+:host([variant="filled"]) {
+    background-color: var(--button-background-color-filled, var(--color500));
+    color: var(--button-text-color-filled, var(--text-color500));
+}
+:host([variant="filled"]:hover) {
+    background-color: var(--button-background-color-filled-hover, var(--color600));
+    color: var(--button-text-color-filled-hover, var(--text-color600));
+}
+:host([variant="filled"]:active) {
+    background-color: var(--button-background-color-filled-active, var(--color700));
+    color: var(--button-text-color-filled-active, var(--text-color700));
+}
+:host([variant="filled"][disabled]) {
+    background-color: var(--button-background-color-filled-disabled, var(--color1400));
+    color: var(--button-text-color-filled-disabled, var(--disabled-text-color, var(--color3000)));
+}
+
+// outlined
+:host([variant="outlined"]) {
+    border-color: var(--button-border-color-outlined, var(--color500));
+    border-style: var(--button-border-style, solid);
+}
+:host([variant="outlined"]:hover) {
+    border-color: var(--button-border-color-outlined-hover, var(--color600));
+}
+:host([variant="outlined"]:active) {
+    border-color: var(--button-border-color-outlined-active, var(--color700));
+}
+:host([variant="outlined"][disabled]) {
+    border-color: var(--button-border-color-outlined-disabled, var(--color1400));
+}
+
+// underlined
+:host([variant="underlined"]) {
+    text-decoration: underline;
+    text-decoration-thickness: var(--button-underlined-thickness, 1px);
+}
+:host([variant="underlined"]:hover) {
+    text-decoration-thickness: var(--button-underlined-hover-thickness, 2px);
+}
+:host([variant="underlined"]:active) {
+    text-decoration-thickness: var(--button-underlined-active-thickness, 2px);
+}
+:host([variant="underlined"][disabled]) {
+    text-decoration-thickness: var(--button-underlined-disabled-thickness, 1px);
+}

@@ -1,3 +1,40 @@
+:root {
+  --background: #fafafa;
+  --foreground: #e8e8e8;
+  --hover: #d5d5d5;
+  --color: black;
+  --border: black;
+
+  --tab-light-selected-background-color: var(--foreground);
+  --tab-light-selected-text-color: var(--color);
+  --tab-light-background-color: transparent;
+  --tab-light-text-color: var(--color);
+  --tab-light-hover-background-color: var(--hover);
+  --tab-light-hover-text-color: var(--color);
+  --tab-light-active-background-color:var(--foreground);
+  --tab-light-active-text-color: var(--color);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+      --background: rgb(48 48 48);
+      --foreground: rgb(0, 0, 0);
+      --hover: #535353;
+      --color: white;
+      --border: white;
+
+      --tab-dark-selected-background-color: var(--foreground);
+      --tab-dark-selected-text-color: var(--color);
+      --tab-dark-background-color: transparent;
+      --tab-dark-text-color: var(--color);
+      --tab-dark-hover-background-color: var(--hover);
+      --tab-dark-hover-text-color: var(--color);
+      --tab-dark-active-background-color:var(--foreground);
+      --tab-dark-active-text-color: var(--color);
+  }
+}
+
+
 body {
   margin: 0;
   height: 100vh;
@@ -6,9 +43,32 @@ body {
 section.control {
   padding: 0 4rem;
 }
+section.control o-tabs::part(header) {
+  border-bottom: 2px solid var(--border);
+}
 
+div.slot {
+  display: grid;
+  gap: 1rem;
+  row-gap: 3rem;
+}
 div.properties {
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr 1fr;
+}
+
+
+.style-source {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.style-source > h3 {
+  grid-column: 1/3;
+}
+
+.style-group > .info {
+  display: flex;
 }

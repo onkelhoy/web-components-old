@@ -22,7 +22,8 @@
         "@circular-templates/base": "^1.0.0",
         "@circular-templates/color": "^1.0.0",
         "@circular-templates/popover": "^1.0.0",
-        "@circular-tools/utils": "^1.0.0"
+        "@circular-tools/utils": "^1.0.0",
+        "@circular/tabs": "^1.0.0"
     },
     "devDependencies": {
         "@circular/icon": "^1.0.0",

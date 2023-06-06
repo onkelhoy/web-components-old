@@ -25,17 +25,15 @@ main {
 
 section {
   background-color: var(--background);
-  width: calc(100% - 1rem);
+  width: 100%;
   position: absolute;
   user-select: none;
   bottom: 0;
   min-height: 5rem;
   max-height: calc(100vh - 10rem);
   border-top: 4px solid var(--border);
-  padding: 0.5rem;
   overflow-y: auto;
   height: 50%;
-  padding-top: 40px;
   padding-bottom: 80px; }
   section span.resize {
     position: sticky;
@@ -45,7 +43,6 @@ section {
     width: 100%;
     height: 1rem;
     content: '';
-    transform: translateY(-40px);
     cursor: row-resize; }
   section:has(span.resize:hover) {
     border-top-color: cornflowerblue; }`;

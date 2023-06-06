@@ -12,167 +12,30 @@
 </head>
 <body>
   <doc-controller>
-    <div>
+    <div id="target">
       <o-popover-template>
-        Hello World
+        
       </o-popover-template>
   </div>
 
     <section class="control" slot="setting">
-      <doc-input label="HTML" variant="textarea" name="html" value="Hello World"></doc-input>
-    <h3 data-subtitle="PopoverTemplate Properties">PopoverTemplate Properties</h3><div data-name="PopoverTemplate Properties" class="properties">
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+      <o-tabs>
+        <o-tab id="html">HTML</o-tab>
+        <o-tab class="selected" id="properties">Properties</o-tab>
+        <o-tab id="css">CSS</o-tab>
+        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br></div></o-tab-content>
+        <o-tab-content id="properties"><h3 data-subtitle="PopoverTemplate Properties">PopoverTemplate Properties</h3><div data-name="PopoverTemplate Properties" class="properties">
         <doc-input data-prop-name="revealby" variant="select" value="hover" name="revealby" label="revealby" options='["hover","click"]'></doc-input>
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <doc-input data-prop-name="placement" variant="select" value="bottom-center" name="placement" label="placement" options='["top-left","top-right","top-center","bottom-left","bottom-right","bottom-center","left-top","left-bottom","left-center","right-top","right-bottom","right-center"]'></doc-input>
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
           <doc-radio name="hideonoutsideclick" data-prop-name="hideonoutsideclick" label="hideonoutsideclick" value=""></doc-radio>
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
           <doc-radio name="open" data-prop-name="open" label="open" value=""></doc-radio>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        </div></section>
+        </div></o-tab-content>
+        <o-tab-content id="css"></o-tab-content>
+      </o-tabs>
+    </section>
   </doc-controller>
 </body>
 </html>
