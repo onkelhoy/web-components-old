@@ -40,3 +40,10 @@ export class TEMPLATE_CLASSNAME extends BaseTemplate {
         `
     }
 }
+
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "TEMPLATE_PREFIXNAME": TEMPLATE_CLASSNAME;
+    }
+}

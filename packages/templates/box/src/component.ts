@@ -20,3 +20,9 @@ export class BoxTemplate extends ColorTemplate {
         `
     }
 }
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-box-template": BoxTemplate;
+    }
+}

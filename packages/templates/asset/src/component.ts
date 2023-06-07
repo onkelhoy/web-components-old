@@ -51,5 +51,8 @@ export class AssetTemplate extends BaseTemplate {
     }
 }
 
-
-
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-asset-template": AssetTemplate;
+    }
+}

@@ -40,3 +40,9 @@ export class TabContent extends BaseTemplate {
     `
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "o-tab-content": TabContent;
+  }
+}

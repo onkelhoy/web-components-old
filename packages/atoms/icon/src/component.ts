@@ -114,3 +114,9 @@ export class Icon extends AssetTemplate {
         `
     }
 }
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-icon": Icon;
+    }
+}

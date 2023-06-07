@@ -86,3 +86,9 @@ export class PopoverTemplate extends BaseTemplate {
     `
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+      "o-popover-template": PopoverTemplate;
+  }
+}

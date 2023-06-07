@@ -29,3 +29,9 @@ export class Button extends BoxTemplate {
         `;
     }
 }
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-button": Button;
+    }
+}

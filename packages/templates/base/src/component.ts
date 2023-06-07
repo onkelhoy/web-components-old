@@ -96,7 +96,14 @@ export class BaseTemplate extends HTMLElement {
     public debouncedRequestUpdate() {}
     public firstUpdate() {}
 
-    public render():DocumentFragment|string {
+    public render(child?:DocumentFragment|string):DocumentFragment|string {
         return 'Hello From Base Class'
+    }
+}
+
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-base-template": BaseTemplate;
     }
 }

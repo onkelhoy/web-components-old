@@ -78,3 +78,9 @@ export class Tabs extends BaseTemplate {
         `
     }
 }
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-tabs": Tabs;
+    }
+}
