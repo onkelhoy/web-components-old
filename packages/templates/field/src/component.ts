@@ -25,19 +25,19 @@ export class FieldTemplate extends BaseTemplate {
     }
 
     // event handlers 
-    private handleinvalid = (e:Event) => {
+    private handleinvalid_field = (e:Event) => {
         console.log('invalid')
     }
-    private handlevalid = (e:Event) => {
+    private handlevalid_field = (e:Event) => {
         console.log('valid');
     }
-    private handleblur = () => {
+    private handleblur_field = () => {
         this.isfocus = false;
     }
-    private handlefocus = () => {
+    private handlefocus_field = () => {
         this.isfocus = true;
     }
-    private handlechange = (e:Event) => {
+    private handlechange_field = (e:Event) => {
         if (e.target instanceof HTMLElement)
         {
             if (this.name)
@@ -61,12 +61,12 @@ export class FieldTemplate extends BaseTemplate {
         const input = element.querySelector(selector);
         if (input && !input.hasAttribute('data-field-init'))
         {
-            input.addEventListener('invalid', this.handleinvalid);
-            input.addEventListener('valid', this.handlevalid);
-            input.addEventListener('input', this.handlechange);
-            input.addEventListener('change', this.handlechange);
-            input.addEventListener('blur', this.handleblur);
-            input.addEventListener('focus', this.handlefocus);
+            input.addEventListener('invalid', this.handleinvalid_field);
+            input.addEventListener('valid', this.handlevalid_field);
+            input.addEventListener('input', this.handlechange_field);
+            input.addEventListener('change', this.handlechange_field);
+            input.addEventListener('blur', this.handleblur_field);
+            input.addEventListener('focus', this.handlefocus_field);
             
             const type = input.getAttribute('type')
             if (type === "radio" || type === "checkbox")
