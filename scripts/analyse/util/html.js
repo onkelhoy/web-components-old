@@ -17,7 +17,12 @@ function build_html(package_dir, component_name, script_dir) {
 
           window.COMPONENT_HTML_EXTRACTOR_FUNCTION = () => {
             const temp_component = new ${component_name}();
-            return temp_component.render();
+            const html = temp_component.render();
+
+            
+            if ('children' in html) return Array.from(html.children).map(node => node.outerHTML).join(' ')
+            
+            return html;
           }
         </script>
       </head>
