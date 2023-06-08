@@ -20,6 +20,7 @@ const GLOBAL_CONFIG = {
   components: {
     default: 'src/component.ts'
   },
+  slot: {},
   html: 'Hello World',
 };
 let LOCAL_CONFIG = {};
@@ -74,6 +75,10 @@ CUSTOMELEMENTS.html.slots.forEach(slot => {
     {
       value = CONFIG.html;
       name = 'HTML'
+    }
+    else if (!value && CONFIG.slot[slot.name])
+    {
+      value = CONFIG.slot[slot.name];
     }
 
     slotdiv.appendChild(parse(`<doc-input label="${name}" variant="textarea" name="slot-${slot.name}" data-slotname="${slot.name}" value="${value}"></doc-input>`))
