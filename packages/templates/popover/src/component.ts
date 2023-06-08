@@ -12,7 +12,7 @@ export class PopoverTemplate extends BaseTemplate {
 
   @property() revealby: Reveal = 'hover';
   @property() placement: Placement = 'bottom-center';
-  @property({ type: Boolean }) hideonoutsideclick: boolean = false;
+  @property({ type: Boolean }) hideonoutsideclick: boolean = true;
   @property({ type: Boolean }) open: boolean = false;
 
   private outside = false;

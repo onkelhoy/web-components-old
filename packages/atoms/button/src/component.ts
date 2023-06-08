@@ -6,7 +6,7 @@ import { style } from './style.js';
 import type { ButtonMode, ButtonVariant, ButtonType } from './types';
 
 export class Button extends BoxTemplate {
-    static styles = [BoxTemplate.style, style];
+    static style = style;
     
     @property() size: Size = "medium";
     @property() mode: ButtonMode = "hug";

@@ -1,42 +1,41 @@
 // utils 
 import { html, property } from "@circular-tools/utils";
+import "@circular-tools/translator/wc";
+
+// atoms 
+import "@circular/button/wc";
+import "@circular/icon/wc";
+import "@circular/input/wc";
 
 // templates
 import { BaseTemplate } from "@circular-templates/base";
 
 // local 
 import { style } from "./style";
-import { Foo, ClickEvent } from "./types";
 
 export class Chat extends BaseTemplate {
     static style = style;
 
-    @property() foo:Foo = "bar";
-    @property({ type: Number }) bajs?:number;
-    @property({ type: Boolean }) fooLaa:boolean = true;
-
     // event handlers
-    private handleMainClick() {
-        this.dispatchEvent(new CustomEvent<ClickEvent>("main-click", { detail: { foo: this.foo } }));
-    }
 
     render() {
         return html`
-            <header part="header">
-                <slot name="header">
-                    <h1>llama drama trauma</h1>
-                </slot>
-            </header>
-            <main onclick=${this.handleMainClick}>
-                <slot>
-                    <p>Why did the llama go to therapy? Because it had a lot of spitting issues!</p>
-                </slot>
-            </main>
-            <footer part="footer">
-                <slot name="footer">
-                    <p>Why did the llama enter the door? To attend the llamazing party inside!</p>
-                </slot>
-            </footer
+            <main></main>
+
+            <o-input>
+                <span slot="suffix">
+                    <o-button>
+                        <o-icon name="send">send</o-icon>
+                    </o-button>
+                </span>
+            </o-input>
         `
+    }
+}
+
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-chat": Chat;
     }
 }

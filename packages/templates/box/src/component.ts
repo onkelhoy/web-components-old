@@ -9,12 +9,12 @@ import { style } from "./style";
 import { Elevation, Radius } from "./types";
 
 export class BoxTemplate extends ColorTemplate {
-    static style = style;
+    static styles = [style];
 
     @property() radius: Radius = "circular";
     @property() elevation: Elevation = "none";
 
-    render() {
+    render():string|DocumentFragment {
         return `
             <slot></slot>
         `
