@@ -22,6 +22,11 @@ main {
   width: calc(100% - 2rem);
   height: 100%;
   padding: 1rem; }
+  main doc-card {
+    display: flex;
+    justify-content: center;
+    min-height: 10rem;
+    align-items: center; }
 
 section {
   background-color: var(--background);

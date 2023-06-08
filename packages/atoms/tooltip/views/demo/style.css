@@ -29,3 +29,9 @@
 body {
     font-family: 'Soehne Buch', sans-serif;
 }
+
+code-block::part(fieldset) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

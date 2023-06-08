@@ -1,3 +1,47 @@
+PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
+ Based on the source code and style code probided. Can you create a documentation that includes titles, short descrition and the table for each tables: css-variables, parts, slots.
+css-variables should be a table with columns: (name, default-value, type - ex. CSS unit, description).
+parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
+slots should include columns: (name, default-value, description)
+
+## SOURCE-CODE:
+// utils 
+import { html, property } from "@circular-tools/utils";
+
+// templates
+import { BaseTemplate } from "@circular-templates/base";
+import { Placement } from "@circular-templates/popover";
+import "@circular-templates/popover/wc";
+import "@circular-templates/box/wc";
+
+// local 
+import { style } from "./style";
+// import { Foo, ClickEvent } from "./types";
+
+export class Tooltip extends BaseTemplate {
+    static style = style;
+
+    @property() placement:Placement = "top-center";
+
+    render() {
+        return html`
+            <o-popover-template revealby="hover" placement="${this.placement}">
+                <slot slot="target" name="target"></slot>
+                <o-box-template elevation="small"  part="card" radius="medium">
+                    <slot></slot>
+                </o-box-template>
+            </o-popover-template>
+        `
+    }
+}
+
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-tooltip": Tooltip;
+    }
+}
+## STYLE-CODE:
 :host {
     --background: var(--tooltip-light-background-color, var(--colors-netural-white, rgb(0, 0, 0)));
     --color: var(--tooltip-light-text-color, var(--colors-netural-black, rgb(255, 255, 255)));

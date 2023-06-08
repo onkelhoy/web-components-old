@@ -8,7 +8,7 @@ import { style } from "./style";
 import { Reveal, Placement } from './types';
 
 export class PopoverTemplate extends BaseTemplate {
-  static style = style;
+  static styles = [style];
 
   @property() revealby: Reveal = 'hover';
   @property() placement: Placement = 'bottom-center';

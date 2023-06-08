@@ -1,0 +1,190 @@
+{
+  "className": "Tooltip",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/tooltip",
+  "properties": [
+    {
+      "name": "placement",
+      "type": "Placement",
+      "default_value": "top-center",
+      "type_value": [
+        "top-left",
+        "top-right",
+        "top-center",
+        "bottom-left",
+        "bottom-right",
+        "bottom-center",
+        "left-top",
+        "left-bottom",
+        "left-center",
+        "right-top",
+        "right-bottom",
+        "right-center"
+      ],
+      "primitive": false,
+      "conditional": false
+    }
+  ],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/atoms/tooltip": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "property",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@circular-templates/base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      },
+      {
+        "name": "Foo",
+        "from": "./types"
+      },
+      {
+        "name": "ClickEvent",
+        "from": "./types"
+      }
+    ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "target",
+        "html": ""
+      },
+      {
+        "name": "default",
+        "html": ""
+      }
+    ],
+    "parts": [
+      {
+        "name": "card",
+        "tag": "O-BOX-TEMPLATE"
+      }
+    ]
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/tooltip",
+    "sources": [],
+    "variables": {
+      "--tooltip-light-background-color": {
+        "usecases": [
+          "--background"
+        ],
+        "fallbacks": [
+          "var(--colors-netural-white, rgb(0, 0, 0))"
+        ]
+      },
+      "--colors-netural-white": {
+        "usecases": [
+          "--background",
+          "--color"
+        ],
+        "fallbacks": [
+          "rgb(0, 0, 0)"
+        ]
+      },
+      "--tooltip-light-text-color": {
+        "usecases": [
+          "--color"
+        ],
+        "fallbacks": [
+          "var(--colors-netural-black, rgb(255, 255, 255))"
+        ]
+      },
+      "--colors-netural-black": {
+        "usecases": [
+          "--color",
+          "--background"
+        ],
+        "fallbacks": [
+          "rgb(255, 255, 255)"
+        ]
+      },
+      "--tooltip-popover-gap": {
+        "usecases": [
+          "--popover-gap"
+        ],
+        "fallbacks": [
+          "0.5rem"
+        ]
+      },
+      "--tooltip-card-padding": {
+        "usecases": [
+          "padding"
+        ],
+        "fallbacks": [
+          "0.5rem"
+        ]
+      },
+      "--background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--color": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--tooltip-card-minwidth": {
+        "usecases": [
+          "min-width"
+        ],
+        "fallbacks": [
+          "3rem"
+        ]
+      },
+      "--tooltip-arrow-size": {
+        "usecases": [
+          "width",
+          "height"
+        ],
+        "fallbacks": [
+          "0.5rem"
+        ]
+      },
+      "--tooltip-arrow-offset": {
+        "usecases": [
+          "right",
+          "left",
+          "top",
+          "bottom"
+        ],
+        "fallbacks": [
+          "0.5rem"
+        ]
+      },
+      "--tooltip-dark-background-color": {
+        "usecases": [
+          "--background"
+        ],
+        "fallbacks": [
+          "var(--colors-netural-black, rgb(255, 255, 255))"
+        ]
+      },
+      "--tooltip-dark-text-color": {
+        "usecases": [
+          "--color"
+        ],
+        "fallbacks": [
+          "var(--colors-netural-white, rgb(0, 0, 0))"
+        ]
+      }
+    }
+  }
+}

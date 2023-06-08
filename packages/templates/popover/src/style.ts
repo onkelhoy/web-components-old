@@ -1,12 +1,15 @@
 export const style = `:host {
   position: relative;
-  display: block;
+  display: inline-block;
   height: fit-content;
   --gap: var(--popover-gap, 1rem); }
   :host div.wrapper {
     position: absolute;
     top: 0;
-    left: 0; }
+    left: 0;
+    z-index: 1000; }
+  :host div.target {
+    display: inline-block; }
 
 :host([open="true"]) div.wrapper {
   display: block; }
@@ -26,7 +29,7 @@ export const style = `:host {
 :host([placement="top-left"]) div.wrapper {
   padding-bottom: var(--gap);
   left: 100%;
-  transform: translateY(-100%); }
+  transform: translate(-100%, -100%); }
 
 :host([placement="bottom-right"]) div.wrapper {
   padding-top: var(--gap);
@@ -41,7 +44,8 @@ export const style = `:host {
 :host([placement="bottom-left"]) div.wrapper {
   padding-top: var(--gap);
   top: 100%;
-  left: 100%; }
+  left: 100%;
+  transform: translateX(-100%); }
 
 :host([placement="left-top"]) div.wrapper {
   padding-right: var(--gap);
@@ -55,7 +59,7 @@ export const style = `:host {
 :host([placement="left-bottom"]) div.wrapper {
   padding-right: var(--gap);
   top: 100%;
-  transform: translateX(-100%); }
+  transform: translate(-100%, -100%); }
 
 :host([placement="right-top"]) div.wrapper {
   padding-left: var(--gap);
@@ -71,4 +75,4 @@ export const style = `:host {
   padding-left: var(--gap);
   left: 100%;
   top: 100%;
-  transform: translateX(-100%); }`;
+  transform: translateY(-100%); }`;

@@ -15,6 +15,14 @@
     <div id="target">
       <o-popover-template>
         
+      <div slot="target" data-slotname="target">
+        
+      </div>
+     
+      <div  data-slotname="default">
+        Hello World
+      </div>
+    
       </o-popover-template>
   </div>
 
@@ -23,13 +31,13 @@
         <o-tab id="html">HTML</o-tab>
         <o-tab class="selected" id="properties">Properties</o-tab>
         <o-tab id="css">CSS</o-tab>
-        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br></div></o-tab-content>
+        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: target" variant="textarea" name="slot-target" data-slotname="target" value=""></doc-input><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="Hello World"></doc-input></div></o-tab-content>
         <o-tab-content id="properties"><h3 data-subtitle="PopoverTemplate Properties">PopoverTemplate Properties</h3><div data-name="PopoverTemplate Properties" class="properties">
         <doc-input data-prop-name="revealby" variant="select" value="hover" name="revealby" label="revealby" options='["hover","click"]'></doc-input>
       
         <doc-input data-prop-name="placement" variant="select" value="bottom-center" name="placement" label="placement" options='["top-left","top-right","top-center","bottom-left","bottom-right","bottom-center","left-top","left-bottom","left-center","right-top","right-bottom","right-center"]'></doc-input>
       
-          <doc-radio name="hideonoutsideclick" data-prop-name="hideonoutsideclick" label="hideonoutsideclick" value=""></doc-radio>
+          <doc-radio name="hideonoutsideclick" data-prop-name="hideonoutsideclick" label="hideonoutsideclick" value="true"></doc-radio>
         
           <doc-radio name="open" data-prop-name="open" label="open" value=""></doc-radio>
         </div></o-tab-content>
