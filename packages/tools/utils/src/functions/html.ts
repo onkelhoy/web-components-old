@@ -11,13 +11,12 @@ export function html(strings: TemplateStringsArray, ...values: any[]) {
                 {
                     arr.push(`<doc-frag index="${i}" subindex="${j}"></doc-frag>`)
                 }
-                else 
-                {
-                    arr.push(values[i][j])
-                }
             }
-            result += strings[i] + arr.join(' ')
-            continue;
+            if (arr.length > 0)
+            {
+                result += strings[i] + arr.join(' ')
+                continue;
+            }
         }
         if (values[i] instanceof DocumentFragment)
         {

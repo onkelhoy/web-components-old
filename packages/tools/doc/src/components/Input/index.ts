@@ -23,7 +23,7 @@ export class Input extends BaseTemplate {
     this.debouncedInput = suspense(this.debouncedInput, 250);
   }
   
-  @property() label: string = "Label";
+  @property() label: string = "";
   @property() placeholder: string = "";
   @property({ onUpdate: "updatevalue" }) value: string = "";
   @property() name: string = "";
