@@ -7,6 +7,7 @@ import { ColorTemplate } from "@circular-templates/color";
 // local 
 import { style } from "./style";
 import { Elevation, Radius } from "./types";
+import { RenderType } from "@circular-templates/base";
 
 export class BoxTemplate extends ColorTemplate {
     static styles = [style];
@@ -14,7 +15,7 @@ export class BoxTemplate extends ColorTemplate {
     @property() radius: Radius = "circular";
     @property() elevation: Elevation = "none";
 
-    render():string|DocumentFragment {
+    render():RenderType {
         return `
             <slot></slot>
         `

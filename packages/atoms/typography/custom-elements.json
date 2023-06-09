@@ -63,44 +63,6 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/typography",
     "sources": [],
     "variables": {
-      "--typography-light-text-color": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "var(--colors-netural-black, black)"
-        ]
-      },
-      "--colors-netural-black": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "black"
-        ]
-      },
-      "--color": {
-        "usecases": [
-          "color"
-        ],
-        "fallbacks": []
-      },
-      "--typography-dark-text-color": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "var(--colors-netural-white, white)"
-        ]
-      },
-      "--colors-netural-white": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "white"
-        ]
-      },
       "--typography-h1-fontfamily": {
         "usecases": [
           "font-family"

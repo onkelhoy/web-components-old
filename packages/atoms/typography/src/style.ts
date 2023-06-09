@@ -1,13 +1,7 @@
 export const style = `:host {
-  --color: var(--typography-light-text-color, var(--colors-netural-black, black));
   --default-fontfamily: 'Poppins', sans-serif;
   text-align: left;
-  display: block;
-  color: var(--color); }
-
-@media (prefers-color-scheme: dark) {
-  :host {
-    --color: var(--typography-dark-text-color, var(--colors-netural-white, white)); } }
+  display: block; }
 
 :host([variant="heading1"]),
 :host([variant="h1"]) {

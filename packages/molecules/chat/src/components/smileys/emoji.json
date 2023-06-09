@@ -1330,13 +1330,8 @@
         "slug": "zzz",
         "unicode_version": "0.6",
         "emoji_version": "0.6"
-      }
-    ]
-  },
-  {
-    "name": "People & Body",
-    "slug": "people_body",
-    "emojis": [
+      },
+
       {
         "emoji": "👋",
         "skin_tone_support": true,

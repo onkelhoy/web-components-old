@@ -1,15 +1,6 @@
 import { suspense } from "@circular-tools/utils";
 
-import { FunctionCallback } from "./types";
-
-// NOTE this does not work for some reason..
-// declare global {
-//     interface HTMLElement {
-//         connectedCallback(): void;
-//         disconnectedCallback(): void;
-//         attributeChangedCallback(name:string, oldValue:string|null, newValue:string|null): void;
-//     }
-// }
+import { FunctionCallback, RenderType } from "./types";
 
 export class BaseTemplate extends HTMLElement {
     public static style?:string;
@@ -77,6 +68,12 @@ export class BaseTemplate extends HTMLElement {
                 ${typeof content === "string" ? content : ""}
             `;
             if (content instanceof DocumentFragment) this.shadowRoot.appendChild(content);
+            if (content instanceof Array)
+            {
+                content.forEach(item => {
+                    if (item instanceof DocumentFragment && this.shadowRoot) this.shadowRoot.appendChild(item);
+                })
+            }
 
             let info;
             const reverse = this.callAfterUpdate.reverse();
@@ -96,7 +93,7 @@ export class BaseTemplate extends HTMLElement {
     public debouncedRequestUpdate() {}
     public firstUpdate() {}
 
-    public render(child?:DocumentFragment|string):DocumentFragment|string {
+    public render(child?:RenderType):RenderType {
         return 'Hello From Base Class'
     }
 }

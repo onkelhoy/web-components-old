@@ -7,4 +7,5 @@ o-button {
   gap: 0;
   padding: 0;
   width: 40px;
-  height: 40px; }`;
+  height: 40px;
+  font-size: 20pt; }`;
