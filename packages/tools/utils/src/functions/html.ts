@@ -48,9 +48,10 @@ export function html(strings: TemplateStringsArray, ...values: any[]) {
 
     content.querySelectorAll('doc-frag').forEach(element => {
         const index = Number(element.getAttribute('index'));
-        const subindex = Number(element.getAttribute('subindex'));
-        if (typeof subindex === "number")
+        
+        if (element.hasAttribute('subindex'))
         {
+            const subindex = Number(element.getAttribute('subindex'));
             Array
                 .from((values[index][subindex] as DocumentFragment).children)
                 .reverse()
