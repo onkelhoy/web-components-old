@@ -32,7 +32,6 @@ section {
   background-color: var(--background);
   width: 100%;
   position: absolute;
-  user-select: none;
   bottom: 0;
   min-height: 5rem;
   max-height: calc(100vh - 10rem);

@@ -23,12 +23,16 @@
         <o-tab id="html">HTML</o-tab>
         <o-tab class="selected" id="properties">Properties</o-tab>
         <o-tab id="css">CSS</o-tab>
-        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br></div></o-tab-content>
-        <o-tab-content id="properties"></o-tab-content>
+        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: tab" variant="textarea" name="slot-tab" data-slotname="tab" value=""></doc-input><doc-input label="HTML slot: content" variant="textarea" name="slot-content" data-slotname="content" value=""></doc-input></div></o-tab-content>
+        <o-tab-content id="properties"><h3 data-subtitle="Tabs Properties">Tabs Properties</h3><div data-name="Tabs Properties" class="properties">
+          <doc-radio name="indicator" data-prop-name="indicator" label="indicator" value=""></doc-radio>
+        
+          <doc-radio name="scrolling" data-prop-name="scrolling" label="scrolling" value=""></doc-radio>
+        </div></o-tab-content>
         <o-tab-content id="css">
       <div data-css-part="/Users/henry/Developer/projects/web-components/packages/atoms/tabs" class="style-source">
         <h3>tabs styles</h3>
-      <div class="style-group" data-style-name="--tabs-height"><h4>--tabs-height</h4><doc-input label="" data-css-input="true" name="--tabs-height" value="3rem) 1f"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>grid-template-rows</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>3rem) 1f</li></ul></div></div></div></div>
+      <div class="style-group" data-style-name="--tabs-height"><doc-input data-css-input="true" name="--tabs-height" label="--tabs-height" value="3rem) 1f"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>grid-template-rows</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>3rem) 1f</li></ul></div></div></div><div class="style-group" data-style-name="--tabs-maxheight"><doc-input data-css-input="true" name="--tabs-maxheight" label="--tabs-maxheight" value="15rem"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>max-height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>15rem</li></ul></div></div></div></div>
     </o-tab-content>
       </o-tabs>
     </section>

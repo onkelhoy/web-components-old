@@ -44,13 +44,18 @@ export class Smileys extends BoxTemplate  {
 
   render() {
 
-
+    console.log('render')
 
     return html`
-      <o-tabs indicator="true">
+      <o-tabs indicator="true" scrolling="true">
+        <div>
+          <o-input placeholder="Search Emoji">
+            <o-icon name="search" slot="suffix"></o-icon>
+          </o-input>
+        </div>
         ${emojidata.map((info:Emoji) => html`
           <o-tab title="${info.name}">
-            <o-icon size="small" name="${info.slug}"></o-icon>
+            <o-icon customSize="20" name="${info.slug}"></o-icon>
           </o-tab>
           
           <o-tab-content>

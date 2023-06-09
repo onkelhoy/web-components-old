@@ -3,3 +3,7 @@
 body {
   font-family: Poppins, sans-serif;
 }
+
+.tabs-scrolling-indicator > o-tab-content {
+  min-height: 20rem;
+}

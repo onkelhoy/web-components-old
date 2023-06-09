@@ -13,8 +13,18 @@ import { SelectEvent } from "./types";
 export class Tabs extends BaseTemplate {
     static style = style;
 
-    private tabs = 0;
-    private contents = 0;
+    private tabs:Tab[] = [];
+    private contents:TabContent[] = [];
+    private contentHeights:number[] = []
+    private currentlyscrolling: boolean = false;
+
+    // elements 
+    private indicatorElement!: HTMLSpanElement;
+    private headerElement!: HTMLElement;
+    private mainElement!: HTMLElement;
+
+    @property({ type: Boolean }) indicator: boolean = false;
+    @property({ rerender: false, type: Boolean }) scrolling: boolean = false;
 
     // event handlers
     private handleslotchange = (e:Event) => {
@@ -23,47 +33,126 @@ export class Tabs extends BaseTemplate {
             e.target
                 .assignedElements()
                 .forEach((element, index) => {
-                    const isContent = element instanceof TabContent;
-                    const isTab = element instanceof Tab;
+                    if (!element.hasAttribute('data-tabs-pass'))
+                    {
+                        const isContent = element instanceof TabContent;
+                        const isTab = element instanceof Tab;
 
-                    let id = index.toString();
-                    if (isContent) 
-                    {
-                        id = this.contents.toString();
-                        this.contents++;
-                    }
-                    if (isTab) 
-                    {
-                        id = this.tabs.toString();
-                        element.addEventListener('click', this.handletabclick);
-                        this.tabs++;
-                    }
+                        let id = index.toString();
+                        if (isContent) 
+                        {
+                            id = this.contents.length.toString();
+                            this.contents.push(element);
+                        }
+                        if (isTab) 
+                        {
+                            id = this.tabs.length.toString();
+                            element.addEventListener('click', this.handletabclick);
+                            this.tabs.push(element);
+                        }
 
-                    if (element.hasAttribute('id'))
-                    {
-                        id = element.getAttribute('id') as string;
-                    }
+                        if (element.hasAttribute('id'))
+                        {
+                            id = element.getAttribute('id') as string;
+                        }
 
-                    if (isContent || isTab)
-                    {
-                        if (!element.hasAttribute('tabs-pass'))
+                        if (isContent || isTab)
                         {
                             element.init(this);
                             element.setAttribute('data-tab-id', id);
-                            element.setAttribute('tabs-pass', 'true');
+                            element.setAttribute('data-tabs-pass', 'true');
                         }
                     }
                 });
+        }
+
+        if (this.scrolling)
+        {
+            setTimeout(() => {
+                this.contents.forEach(content => {
+                    if (!content.hasAttribute('data-content-height'))
+                    {
+                        const height = content.getBoundingClientRect().height;
+                        this.contentHeights.push(height);
+                        content.setAttribute('data-content-height', 'true');
+                    }
+                });
+            }, 1)
         }
     }
     private handletabclick = (e:Event) => {
         if (e.target instanceof Tab)
         {
-            this.dispatchEvent(new CustomEvent<SelectEvent>("tab-select", { 
-                detail: { 
-                    id: e.target.getAttribute('data-tab-id') as string 
-                } 
-            }))
+            const id = e.target.getAttribute('data-tab-id') as string
+            this.dispatchEvent(new CustomEvent<SelectEvent>("tab-select", { detail: { id } }));
+
+            if (this.headerElement)
+            {
+                const SX = e.target.offsetLeft - this.headerElement.offsetLeft;
+                const SXE = SX + e.target.clientWidth;
+
+                // check if the current view can show it (so we dont do unecessary scrolls)
+                if (SXE > this.headerElement.scrollLeft + this.headerElement.clientWidth || SX < this.headerElement.scrollLeft)
+                {
+                    this.headerElement.scrollTo({
+                        left: SX,
+                        behavior: "smooth"
+                    })
+                }
+                if (this.indicator && this.indicatorElement)
+                {
+                    this.indicatorElement.style.left = SX+"px";
+                    this.indicatorElement.style.width = e.target.clientWidth+"px";
+                }
+            }
+
+
+            if (this.scrolling && this.mainElement && !this.currentlyscrolling)
+            {
+                const content = this.contents.find(c => c.getAttribute('data-tab-id') === id);
+                if (content)
+                {
+                    this.mainElement.scrollTo({
+                        top: content.offsetTop - this.mainElement.offsetTop,
+                        behavior: 'smooth'
+                    })
+                }
+            }
+        }
+    }
+    private handlescroll = (e:Event) => {
+        if (this.scrolling && this.mainElement)
+        {
+            this.currentlyscrolling = true;
+            const ST = this.mainElement.scrollTop;
+            let accumulated = 0;
+            for (let i=0; i<this.contentHeights.length; i++)
+            {
+                accumulated += this.contentHeights[i];
+                if (ST < accumulated)
+                {
+                    if (!this.tabs[i].classList.contains('selected')) {
+                        this.tabs[i].click()
+                    }
+                    break;
+                }
+            }
+        }
+    }
+    private handlescrollend = (e:Event) => {
+        this.currentlyscrolling = false;
+    }
+
+    // class functions
+    firstUpdate(): void {
+        if (this.shadowRoot)
+        {
+            const header = this.shadowRoot.querySelector('header');
+            if (header) this.headerElement = header;
+            const main = this.shadowRoot.querySelector('main');
+            if (main) this.mainElement = main;
+            const span = this.shadowRoot.querySelector<HTMLSpanElement>('span.indicator');
+            if (span) this.indicatorElement = span;
         }
     }
 
@@ -71,8 +160,9 @@ export class Tabs extends BaseTemplate {
         return html`
             <header part="header">
                 <slot @slotchange="${this.handleslotchange}" name="tab"></slot>
+                <span class='indicator'></span>
             </header>
-            <main part="content">
+            <main @scroll="${this.handlescroll}" @scrollend="${this.handlescrollend}" part="content">
                 <slot @slotchange="${this.handleslotchange}" name="content"></slot>
             </main>
         `

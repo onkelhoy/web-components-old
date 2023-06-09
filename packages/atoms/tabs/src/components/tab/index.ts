@@ -22,6 +22,7 @@ export class Tab extends BaseTemplate {
         if (this.getAttribute('data-tab-id') === e.detail.id)
         {
           this.classList.add('selected');
+          // this.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'center' });
         }
         else 
         {

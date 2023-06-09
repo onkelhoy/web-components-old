@@ -25,6 +25,11 @@ export class TabContent extends BaseTemplate {
         if (this.getAttribute('data-tab-id') === e.detail.id)
         {
           this.classList.add('selected');
+
+          // if (e.detail.scrolling)
+          // {
+          //   this.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          // }
         }
         else 
         {
