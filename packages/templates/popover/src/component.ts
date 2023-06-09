@@ -76,11 +76,12 @@ export class PopoverTemplate extends BaseTemplate {
     return html`
       <div 
         class="target" 
+        part="target"
         @mousedown="${this.handlemousedown}"
       >
         <slot name="target"></slot>
       </div>
-      <div class="wrapper">
+      <div class="wrapper" part="wrapper">
         <slot></slot>
       </div>
     `

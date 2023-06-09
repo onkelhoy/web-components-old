@@ -1,6 +1,6 @@
 :host {
   position: relative;
-  display: inline-block;
+  display: block;
   height: fit-content;
 
   --gap: var(--popover-gap, 1rem);
@@ -10,9 +10,6 @@
     top: 0;
     left: 0;
     z-index: 1000;
-  }
-  div.target {
-    display: inline-block;
   }
 }
 

@@ -4,6 +4,10 @@
 
     --popover-gap: var(--tooltip-popover-gap, 0.5rem);
 
+    o-popover-template {
+        display: inline-block;
+    }
+
     o-box-template {
         display: block;
         padding: var(--tooltip-card-padding, 0.5rem);
@@ -11,6 +15,7 @@
         color: var(--color);
         min-width: var(--tooltip-card-minwidth, 3rem);
         position: relative;
+        white-space: nowrap;
 
         &::after {
             position: absolute;

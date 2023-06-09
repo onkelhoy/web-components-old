@@ -2,13 +2,16 @@ export const style = `:host {
   --background: var(--tooltip-light-background-color, var(--colors-netural-white, rgb(0, 0, 0)));
   --color: var(--tooltip-light-text-color, var(--colors-netural-black, rgb(255, 255, 255)));
   --popover-gap: var(--tooltip-popover-gap, 0.5rem); }
+  :host o-popover-template {
+    display: inline-block; }
   :host o-box-template {
     display: block;
     padding: var(--tooltip-card-padding, 0.5rem);
     background-color: var(--background);
     color: var(--color);
     min-width: var(--tooltip-card-minwidth, 3rem);
-    position: relative; }
+    position: relative;
+    white-space: nowrap; }
     :host o-box-template::after {
       position: absolute;
       z-index: 2;

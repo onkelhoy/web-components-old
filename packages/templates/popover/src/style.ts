@@ -1,6 +1,6 @@
 export const style = `:host {
   position: relative;
-  display: inline-block;
+  display: block;
   height: fit-content;
   --gap: var(--popover-gap, 1rem); }
   :host div.wrapper {
@@ -8,8 +8,6 @@ export const style = `:host {
     top: 0;
     left: 0;
     z-index: 1000; }
-  :host div.target {
-    display: inline-block; }
 
 :host([open="true"]) div.wrapper {
   display: block; }
