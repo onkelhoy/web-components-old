@@ -16,6 +16,8 @@ export class Tabs extends BaseTemplate {
     private tabs:Tab[] = [];
     private contents:TabContent[] = [];
     private currentlyscrolling: boolean = false;
+    private scrollclick = false;
+    private internalclick = false;
 
     // elements 
     private indicatorElement!: HTMLSpanElement;
@@ -68,6 +70,11 @@ export class Tabs extends BaseTemplate {
     private handletabclick = (e:Event) => {
         if (e.target instanceof Tab)
         {
+            if (!this.scrollclick)
+            {
+                this.internalclick = true;
+            }
+
             const id = e.target.getAttribute('data-tab-id') as string
             this.dispatchEvent(new CustomEvent<SelectEvent>("tab-select", { detail: { id } }));
 
@@ -117,7 +124,8 @@ export class Tabs extends BaseTemplate {
                 if (ST < accumulated)
                 {
                     if (!this.tabs[i].classList.contains('selected')) {
-                        this.tabs[i].click()
+                        this.scrollclick = true;
+                        if (!this.internalclick) this.tabs[i].click()
                     }
                     break;
                 }
@@ -126,6 +134,8 @@ export class Tabs extends BaseTemplate {
     }
     private handlescrollend = (e:Event) => {
         this.currentlyscrolling = false;
+        this.internalclick = false;
+        this.scrollclick = false;
     }
 
     // class functions
