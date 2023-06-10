@@ -47,8 +47,8 @@ $size-map: (
     :host([size="#{$name}"]) {
         font-size: var(--button-font-size-#{$name}, var(--font-size-#{$name}, #{map-get($value, font-size)}));
         height: var(--button-height-#{$name}, var(--height-#{$name}, #{map-get($value, height)}));
-        padding: var(--button-padding, var(--padding-#{$name}, #{map-get($value, padding)}));
-        border-width: var(--button-border-width, var(--border-width-#{$name}, #{map-get($value, border-width)}));
+        padding: var(--button-padding-#{$name}, var(--padding-#{$name}, #{map-get($value, padding)}));
+        border-width: var(--button-border-width-#{$name}, var(--border-width-#{$name}, #{map-get($value, border-width)}));
     }
 }  
 

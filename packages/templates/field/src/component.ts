@@ -1,5 +1,5 @@
 // utils 
-import { html, property, suspense, Radius } from "@circular-tools/utils";
+import { html, property, suspense, Radius, Size } from "@circular-tools/utils";
 
 // atoms
 import "@circular/typography/wc";
@@ -18,7 +18,8 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
     @property() name?: string;
     @property({ type: Object }) message?: Message;
     @property() label?: string;
-    @property() radius: Radius = "small";
+    @property({ rerender: false }) size: Size = "medium";
+    @property({ rerender: false }) radius: Radius = "small";
     @property({ rerender: false }) value?: string;
     @property({ rerender: false, type: Boolean }) checked?: boolean;
     @property({ rerender: false, type: Number }) tabIndex = 1;

@@ -3,3 +3,12 @@
 body {
   font-family: Poppins, sans-serif;
 }
+
+div.flex {
+  display: flex;
+  align-items: center;
+}
+
+div.flex o-field-template {
+  flex-grow: 1;
+}

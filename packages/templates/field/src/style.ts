@@ -1,4 +1,13 @@
-export const style = `:host {
+export const style = `:host([size="small"]) o-box-template.wrapper {
+  height: var(--field-height-small, var(--height-small, 20px)); }
+
+:host([size="medium"]) o-box-template.wrapper {
+  height: var(--field-height-medium, var(--height-medium, 32px)); }
+
+:host([size="large"]) o-box-template.wrapper {
+  height: var(--field-height-large, var(--height-large, 48px)); }
+
+:host {
   --border: var(--field-light-background-color, var(--colors-netural-black, rgb(0, 0, 0)));
   --outline: var(--field-light-background-color, rgb(90, 46, 250));
   --color: var(--field-light-text-color, var(--colors-netural-white, rgb(0, 0, 0)));
@@ -6,6 +15,7 @@ export const style = `:host {
   display: block;
   color: var(--color); }
   :host o-box-template.wrapper {
+    box-sizing: border-box;
     position: relative;
     display: flex;
     align-items: center;
@@ -22,7 +32,6 @@ export const style = `:host {
       letter-spacing: var(--input-letterspacing, var(--typography-c3-letterspacing, 0.01em));
       flex-grow: 1;
       display: block;
-      padding-block: 0.5rem;
       border: none;
       background-color: transparent;
       outline: none !important; }

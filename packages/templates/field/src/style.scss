@@ -1,3 +1,27 @@
+$size-map: (
+  small: (
+    height: 20px,
+    padding: 0.5rem,
+  ),
+  medium: (
+    height: 32px,
+    padding: 1rem,
+  ),
+  large: (
+    height: 48px,
+    padding: 1rem,
+  ),
+);
+
+@each $name, $value in $size-map {
+    :host([size="#{$name}"]) {
+        o-box-template.wrapper {
+            height: var(--field-height-#{$name}, var(--height-#{$name}, #{map-get($value, height)}));
+            // padding: var(--field-padding-#{$name}, var(--padding-#{$name}, #{map-get($value, padding)}));
+        }
+    }
+} 
+
 :host {
     --border: var(--field-light-background-color, var(--colors-netural-black, rgb(0, 0, 0)));
     --outline: var(--field-light-background-color, rgb(90, 46, 250));
@@ -8,6 +32,7 @@
     color: var(--color);
 
     o-box-template.wrapper {
+        box-sizing: border-box;
         position: relative;
         display: flex;
         align-items: center;
@@ -27,7 +52,7 @@
             
             flex-grow: 1;
             display: block;
-            padding-block: 0.5rem;
+            // padding-block: 0.5rem;
             border: none;
             background-color: transparent;
             outline: none !important;
