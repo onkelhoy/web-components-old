@@ -1,5 +1,8 @@
-:host {
-    
+:host(:not([resize="none"])) {
+    o-box-template.wrapper {
+        // very important 
+        height: auto;
+    }
 }
 
 :host(:not([resize="vertical"]))

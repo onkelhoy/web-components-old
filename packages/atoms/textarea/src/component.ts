@@ -18,8 +18,10 @@ export class Textarea extends TextinputTemplate<HTMLTextAreaElement> {
     private handleinput = (e:Event) => {
         if (this.resize === "auto" && e.target instanceof HTMLTextAreaElement)
         {
+            // dont know why fully this works but it does 
             e.target.style.height = "auto";
-            e.target.style.height = `calc(${e.target.scrollHeight}px - 1rem)`;
+            // the -4 is also weird but it works - maybe border ? im not sure 
+            e.target.style.height = `calc(${e.target.scrollHeight}px - 4px)`;
         }
     }
 
