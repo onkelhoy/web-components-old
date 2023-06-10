@@ -2,42 +2,39 @@
 import { html, property } from "@circular-tools/utils";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { FieldTemplate } from '@circular-templates/field';
 
-// local 
-import { style } from "./style";
-import { Foo, ClickEvent } from "./types";
+export class TextinputTemplate<T extends HTMLElement = HTMLInputElement> extends FieldTemplate<T> {
+    @property() placeholder?: string;
 
-export class TextinputTemplate extends BaseTemplate {
-    static style = style;
+    private lastselection_position = 0;
 
-    @property() foo:Foo = "bar";
-    @property({ type: Number }) bajs?:number;
-    @property({ type: Boolean }) fooLaa:boolean = true;
-
-    // event handlers
-    private handleMainClick() {
-        this.dispatchEvent(new CustomEvent<ClickEvent>("main-click", { detail: { foo: this.foo } }));
+    // event functions
+    protected handlekeyup = () => {
+        const ss = (this.inputElement as any).selectionStart;
+        if (typeof ss === "number")
+        {
+            this.lastselection_position = ss;
+        }
+        else this.lastselection_position = (this.inputElement as any).value.length;
     }
 
-    render() {
-        return html`
-            <header part="header">
-                <slot name="header">
-                    <h1>llama drama trauma</h1>
-                </slot>
-            </header>
-            <main onclick=${this.handleMainClick}>
-                <slot>
-                    <p>Why did the llama go to therapy? Because it had a lot of spitting issues!</p>
-                </slot>
-            </main>
-            <footer part="footer">
-                <slot name="footer">
-                    <p>Why did the llama enter the door? To attend the llamazing party inside!</p>
-                </slot>
-            </footer
-        `
+    // public functions
+    public insert(text:string) {
+        let newvalue = '';
+        if (this.lastselection_position < (this.inputElement as any).value.length)
+        {
+            const v = (this.inputElement as any).value;
+            newvalue = [v.slice(0, this.lastselection_position), text, v.slice(this.lastselection_position, v.length)].join('');
+        }
+        else 
+        {
+            newvalue = (this.inputElement as any).value + text;
+        }
+
+        this.value = newvalue;
+        (this.inputElement as any).value = newvalue;
+        this.lastselection_position += text.length;
     }
 }
 

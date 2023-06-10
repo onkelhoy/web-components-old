@@ -2,13 +2,13 @@
 import { html, property } from "@circular-tools/utils";
 
 // templates
-import { FieldTemplate } from '@circular-templates/field';
+import { TextinputTemplate } from '@circular-templates/textinput';
 
 // local 
 import { style } from "./style";
 import { Resize } from './types';
 
-export class Textarea extends FieldTemplate {
+export class Textarea extends TextinputTemplate<HTMLTextAreaElement> {
     static style = style;
 
     @property({ type: Number }) rows:number = 4;
@@ -25,7 +25,14 @@ export class Textarea extends FieldTemplate {
 
     render() {
         return super.render(html`
-            <textarea @input="${this.handleinput}" rows="${this.rows}"></textarea>
+            <textarea 
+                @click="${this.handlekeyup}" 
+                @keyup="${this.handlekeyup}" 
+                @input="${this.handleinput}" 
+                placeholder="${this.placeholder || ""}" 
+                value="${this.value || ""}"
+                rows="${this.rows}"
+            ></textarea>
         `, 'textarea')
     }
 }
