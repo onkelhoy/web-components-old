@@ -1,11 +1,12 @@
 // utils 
-import { html, property } from "@circular-tools/utils";
+import { html, property, suspense, Radius } from "@circular-tools/utils";
 
 // atoms
 import "@circular/typography/wc";
 
 // templates
 import { BaseTemplate } from "@circular-templates/base";
+import "@circular-templates/box/wc";
 
 // local 
 import { style } from "./style";
@@ -17,6 +18,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
     @property() name?: string;
     @property({ type: Object }) message?: Message;
     @property() label?: string;
+    @property() radius: Radius = "small";
     @property({ rerender: false }) value?: string;
     @property({ rerender: false, type: Boolean }) checked?: boolean;
     @property({ rerender: false, type: Number }) tabIndex = 1;
@@ -33,6 +35,12 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
     }
     private handlevalid_field = (e:Event) => {
         console.log('valid');
+    }
+    private handleinput_field = (e:Event) => {
+        this.handlechange_field(e);
+
+        this.dispatchEvent(new Event('input'));
+        this.debouncedInput();
     }
     private handlechange_field = (e:Event) => {
         if (e.target instanceof HTMLElement)
@@ -54,16 +62,29 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
         }
     }
 
-    connectedCallback(): void {
-        super.connectedCallback();
-        this.addEventListener('focus', this.handlefocus);
+    // private functions ¨
+    private debouncedInput = () => {
+        this.dispatchEvent(new Event('suspended-input'));
     }
+
+    // public functions
     handlefocus = () => {
         // this.hasFocus = true;
         if (this.inputElement)
         {
             this.inputElement.focus();
         }
+    }
+
+    // class functions
+    constructor(delay = 150) {
+        super();
+
+        this.debouncedInput = suspense(this.debouncedInput, delay);
+    }
+    connectedCallback(): void {
+        super.connectedCallback();
+        this.addEventListener('focus', this.handlefocus);
     }
 
     render(element:DocumentFragment, selector = "input") {
@@ -74,7 +95,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
             {
                 input.addEventListener('invalid', this.handleinvalid_field);
                 input.addEventListener('valid', this.handlevalid_field);
-                input.addEventListener('input', this.handlechange_field);
+                input.addEventListener('input', this.handleinput_field);
                 input.addEventListener('change', this.handlechange_field);
                 
                 const type = input.getAttribute('type')
@@ -100,11 +121,11 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
         }
         return html`
             <slot part="label" name="label"><o-typography>${this.label || ""}</o-typography></slot>
-            <div class="input" part="wrapper">
+            <o-box-template radius="${this.radius}" class="wrapper" part="wrapper">
                 <slot name="prefix"><span></span></slot>
                 ${element ? element : '<slot></slot>'}
                 <slot name="suffix"><span></span></slot>
-            </div>
+            </o-box-template>
             <div class="message">
                 <o-typography class="${this.message?.type || "hidden"}">${this.message?.message || ""}</o-typography>
                 <o-typography></o-typography>
