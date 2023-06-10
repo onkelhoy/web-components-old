@@ -16,12 +16,9 @@ export class Button extends BoxTemplate {
     // class functions
     constructor() {
         super();
-
         setTimeout(() => {
             if (!this.color) this.color = "black";
         }, 1);
-
-        this.addEventListener('keyup', this.handlekeyup);
     }
     connectedCallback(): void {
         super.connectedCallback();
