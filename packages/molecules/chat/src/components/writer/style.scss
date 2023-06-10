@@ -1,0 +1,48 @@
+:host {
+  --button-background-color-clear-hover: var(--smiley-hover-backgroun, rgba(0, 0, 0, 0.05));
+
+  div.accordion {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows ease 500ms;
+    overflow: hidden;
+
+    o-chat-smileys {
+      overflow: hidden;
+    }
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+  
+    o-input {
+      flex-grow: 1;
+      &::part(wrapper) {
+        gap: 0;
+      }
+    }
+  
+    o-button {
+      padding: 0.4rem;
+      gap: 0;
+
+      &.smiley-close {
+        display: none;
+      }
+    }
+  }
+}
+
+:host([smileyopen="true"]) {
+  
+  div.accordion {
+    grid-template-rows: 1fr;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid grey;
+  }
+
+  o-button.smiley-close {
+    display: block;
+  }
+}

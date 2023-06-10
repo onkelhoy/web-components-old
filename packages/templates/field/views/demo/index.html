@@ -16,7 +16,11 @@
 <body>
     <doc-card>
         <code-block lang="html" display="both">
-            <o-field-template id="demo-target"></o-field-template>
+            <o-field-template label="Label">
+                <span slot="prefix">PRE</span>
+                <o-box-template></o-box-template>
+                <span slot="suffix">SUF</span>
+            </o-field-template>
         </code-block>
     </doc-card>
 </body>

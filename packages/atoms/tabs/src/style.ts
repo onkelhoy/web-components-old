@@ -14,7 +14,7 @@ export const style = `:host {
       transform: translateY(-100%);
       height: var(--tabs-indicator-height, 0.3rem);
       background-color: var(--tabs-indicator-color, black);
-      transition: all ease 300ms; }
+      transition: all var(--tabs-indicator-animation-easing, ease) var(--tabs-indicator-animation-duration, 200ms); }
 
 :host([scrolling="true"]) main {
   max-height: var(--tabs-maxheight, 15rem);

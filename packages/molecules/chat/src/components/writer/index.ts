@@ -1,39 +1,72 @@
 // utils 
-import { html, property } from "@circular-tools/utils";
+import { html, property, query } from "@circular-tools/utils";
 
 // atoms
+import { Input } from "@circular/input";
 import '@circular/input/wc';
 import '@circular/button/wc';
 import '@circular/icon/wc';
 
 // templates 
 import { BoxTemplate } from '@circular-templates/box';
-import { PopoverTemplate } from '@circular-templates/popover';
-
 
 // local 
 import { style } from "./style";
+import { EmojiEvent } from "../smileys";
+
+// types & interfaces 
+export type SendEvent = { text: string };
 
 export class Writer extends BoxTemplate  {
     static style = style;
 
+    @property({ type: Boolean, rerender: false }) smileyopen = false;
+    @query('o-input') inputElement!: Input;
+
     // event handlers
+    private handlesmileyclick = () => {
+      this.smileyopen = true;
+    }
+    private handlecloseclick = () => {
+      this.smileyopen = false;
+    }
+    private handlesmileyselect = (e:CustomEvent<EmojiEvent>) => {
+      this.inputElement.insert(e.detail.emoji.emoji);
+    }
+    private handlefileclick = () => {
+      this.smileyopen = false;
+      console.log('open file')
+    }
+    private handlesendclick = () => {
+      this.smileyopen = false;
+      this.dispatchEvent(new CustomEvent<SendEvent>('send', { detail: { text: this.inputElement.value || "" } }));
+    }
 
-    override render() {
-        return html`
-          <o-input>
-            <o-button slot="prefix">
-              <o-icon name="plus">+</o-icon>
-            </o-button>
-            <o-popover-template revealby="click" placement="top-right" slot="suffix">
-              <o-button slot="target">
-                <o-icon name="smiley">smiley</o-icon>
-              </o-button>
+    render() {
+      return html`
+        <div class="accordion">
+          <o-chat-smileys @select="${this.handlesmileyselect}"></o-chat-smileys>
+        </div>
+        <div>
+          <o-button class="smiley-close" radius="none" @click="${this.handlecloseclick}" variant="clear">
+            <o-icon customSize="20" name="close">close</o-icon>
+          </o-button>
 
-              hejsan svejsnan
-            </o-popover-template>
-          </o-input>
-        `
+          <o-button radius="none" @click="${this.handlesmileyclick}" variant="clear">
+            <o-icon customSize="20" name="smileys_emotion">smiley</o-icon>
+          </o-button>
+  
+          <o-button radius="none" @click="${this.handlefileclick}" variant="clear">
+            <o-icon customSize="20" name="file">file</o-icon>
+          </o-button>
+          
+          <o-input name="input" size="medium"></o-input>
+  
+          <o-button variant="clear" @click="${this.handlesendclick}" radius="none">
+            <o-icon customSize="23" name="send">send</o-icon>
+          </o-button>
+        </div>
+      `
     }
 }
 

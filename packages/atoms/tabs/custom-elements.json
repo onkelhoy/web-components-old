@@ -59,6 +59,10 @@
         "html": ""
       },
       {
+        "name": "between",
+        "html": ""
+      },
+      {
         "name": "content",
         "html": ""
       }
@@ -84,6 +88,22 @@
         ],
         "fallbacks": [
           "3rem) 1f"
+        ]
+      },
+      "--tabs-indicator-height": {
+        "usecases": [
+          "height"
+        ],
+        "fallbacks": [
+          "0.3rem"
+        ]
+      },
+      "--tabs-indicator-color": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "black"
         ]
       },
       "--tabs-maxheight": {

@@ -9,7 +9,7 @@ import '@circular/icon/wc';
 import '@circular/tooltip/wc';
 
 // templates 
-import { BoxTemplate } from '@circular-templates/box';
+import { BaseTemplate } from '@circular-templates/base';
 
 // local 
 import { style } from "./style";
@@ -31,30 +31,26 @@ interface Emoji {
 
 export type EmojiEvent = { emoji: Emojicon }
 
-export class Smileys extends BoxTemplate  {
+export class Smileys extends BaseTemplate  {
   static style = style;
 
   // event handlers
   private handleclick(emoji:Emojicon) {
     return () => {
-      console.log('clicked', emoji);
       this.dispatchEvent(new CustomEvent<EmojiEvent>("select", { detail: { emoji } }))
     }
   }
 
   render() {
-
-    console.log('render')
-
     return html`
       <o-tabs indicator="true" scrolling="true">
-        <div>
+        <div class="search" slot="between">
           <o-input placeholder="Search Emoji">
-            <o-icon name="search" slot="suffix"></o-icon>
+            <o-icon size="small" name="search" slot="suffix"></o-icon>
           </o-input>
         </div>
-        ${emojidata.map((info:Emoji) => html`
-          <o-tab title="${info.name}">
+        ${emojidata.map((info:Emoji, index) => html`
+          <o-tab class="${index === 0 ? "selected" : ""}" title="${info.name}">
             <o-icon customSize="20" name="${info.slug}"></o-icon>
           </o-tab>
           

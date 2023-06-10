@@ -6,6 +6,7 @@ export const style = `:host {
     grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 0.2rem;
+    padding-inline: 0.5rem;
     border: 1px solid black; }
     :host div.input input, :host div.input select, :host div.input textarea {
       display: block;
@@ -14,9 +15,15 @@ export const style = `:host {
       background-color: transparent; }
       :host div.input input:focus, :host div.input select:focus, :host div.input textarea:focus {
         outline: none; }
+  :host:focus {
+    outline: none; }
 
-:host([isfocus="true"]) div.input {
-  outline: 1px solid blue; }
+:host([hasfocus="true"]),
+:host(:focus) {
+  outline: none; }
+  :host([hasfocus="true"]) div.input,
+  :host(:focus) div.input {
+    outline: 1px solid blue; }
 
 @media (prefers-color-scheme: dark) {
   :host {

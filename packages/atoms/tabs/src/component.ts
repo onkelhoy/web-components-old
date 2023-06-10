@@ -15,7 +15,6 @@ export class Tabs extends BaseTemplate {
 
     private tabs:Tab[] = [];
     private contents:TabContent[] = [];
-    private contentHeights:number[] = []
     private currentlyscrolling: boolean = false;
 
     // elements 
@@ -65,20 +64,6 @@ export class Tabs extends BaseTemplate {
                     }
                 });
         }
-
-        if (this.scrolling)
-        {
-            setTimeout(() => {
-                this.contents.forEach(content => {
-                    if (!content.hasAttribute('data-content-height'))
-                    {
-                        const height = content.getBoundingClientRect().height;
-                        this.contentHeights.push(height);
-                        content.setAttribute('data-content-height', 'true');
-                    }
-                });
-            }, 1)
-        }
     }
     private handletabclick = (e:Event) => {
         if (e.target instanceof Tab)
@@ -126,9 +111,9 @@ export class Tabs extends BaseTemplate {
             this.currentlyscrolling = true;
             const ST = this.mainElement.scrollTop;
             let accumulated = 0;
-            for (let i=0; i<this.contentHeights.length; i++)
+            for (let i=0; i<this.contents.length; i++)
             {
-                accumulated += this.contentHeights[i];
+                accumulated += this.contents[i].clientHeight;
                 if (ST < accumulated)
                 {
                     if (!this.tabs[i].classList.contains('selected')) {
@@ -162,6 +147,7 @@ export class Tabs extends BaseTemplate {
                 <slot @slotchange="${this.handleslotchange}" name="tab"></slot>
                 <span class='indicator'></span>
             </header>
+            <slot name="between"></slot>
             <main @scroll="${this.handlescroll}" @scrollend="${this.handlescrollend}" part="content">
                 <slot @slotchange="${this.handleslotchange}" name="content"></slot>
             </main>
