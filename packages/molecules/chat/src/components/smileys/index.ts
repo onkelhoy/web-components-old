@@ -1,8 +1,10 @@
 // utils 
-import { html, property } from "@circular-tools/utils";
+import { html, property, query } from "@circular-tools/utils";
 import '@circular-tools/translator/wc';
 
 // atoms
+import { Input } from "@circular/input";
+import { Button } from "@circular/button";
 import '@circular/button/wc';
 import '@circular/typography/wc';
 import '@circular/icon/wc';
@@ -34,10 +36,41 @@ export type EmojiEvent = { emoji: Emojicon }
 export class Smileys extends BaseTemplate  {
   static style = style;
 
+  @property({ rerender: false }) private search: string = "";
+  @query('o-input') inputElement!: Input;
+  @query('div.search-results') searchResults!: HTMLDivElement;
+
   // event handlers
   private handleclick(emoji:Emojicon) {
     return () => {
       this.dispatchEvent(new CustomEvent<EmojiEvent>("select", { detail: { emoji } }))
+    }
+  }
+  private handleinput = (e:Event) => {
+    this.search = (e.target as HTMLInputElement).value;
+
+    this.searchResults.innerHTML = ""
+
+    if (this.search !== "")
+    {
+      emojidata.forEach(category => {
+        category.emojis.forEach(emoji => {
+          if (emoji.name.startsWith(this.search))
+          {
+            this.searchResults.appendChild(html`
+              <o-button variant="clear" size="small" class="emoji" title="${emoji.name}" @click="${this.handleclick(emoji)}">${emoji.emoji}</o-button>
+            `);
+          }
+        })
+      })
+    }
+    
+    
+  }
+  private handleclear = () => {
+    if (this.inputElement)
+    {
+      this.inputElement.Value = '';
     }
   }
 
@@ -45,9 +78,14 @@ export class Smileys extends BaseTemplate  {
     return html`
       <o-tabs indicator="true" scrolling="true">
         <div class="search" slot="between">
-          <o-input placeholder="Search Emoji">
-            <o-icon size="small" name="search" slot="suffix"></o-icon>
+          <o-input placeholder="Search Emoji" @suspended-input="${this.handleinput}">
+            <o-icon size="small" name="search" slot="suffix">search</o-icon>
+            <o-button @click="${this.handleclear}" class="clear" size="small" variant="clear" slot="suffix">
+              <o-icon size="small" name="close">clear</o-icon>
+            </o-button>
           </o-input>
+
+          <div class="search-results"></div>
         </div>
         ${emojidata.map((info:Emoji, index) => html`
           <o-tab class="${index === 0 ? "selected" : ""}" title="${info.name}">
@@ -60,7 +98,7 @@ export class Smileys extends BaseTemplate  {
             </o-typography>
             <div>
               ${info.emojis.map((emoji:Emojicon) => html`
-                  <o-button variant="clear" title="${emoji.name}" slot="target" @click="${this.handleclick(emoji)}">${emoji.emoji}</o-button>
+                  <o-button class="emoji" variant="clear" title="${emoji.name}" slot="target" @click="${this.handleclick(emoji)}">${emoji.emoji}</o-button>
               `)}
             </div>
           </o-tab-content>
