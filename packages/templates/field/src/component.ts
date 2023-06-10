@@ -75,9 +75,32 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
             this.inputElement.focus();
         }
     }
+    public set Value(value:string|boolean) {
+        this.value = value.toString();
+
+        const type = this.inputElement.getAttribute('type')
+        if ('checked' in this.inputElement && (type === "radio" || type === "checkbox"))
+        {
+            this.inputElement.checked = value;
+            this.setAttribute('checked', this.value);
+        }
+        else if ('value' in this.inputElement)
+        {
+            this.inputElement.value = this.value;
+        }
+
+        if (type === "radio" || type === "checkbox" || this.inputElement.tagName.toLowerCase() === "select")
+        {
+            this.inputElement.dispatchEvent(new Event('change'));
+        }
+        else 
+        {
+            this.inputElement.dispatchEvent(new Event('input'));
+        }
+    }
 
     // class functions
-    constructor(delay = 150) {
+    constructor(delay = 100) {
         super();
 
         this.debouncedInput = suspense(this.debouncedInput, delay);
