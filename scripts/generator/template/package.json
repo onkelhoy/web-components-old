@@ -12,6 +12,9 @@
         "variations": "sh .scripts/helper/build-variations.sh"
     },
     "main": "dist/src/index.js",
+    "files": [
+        "asset"
+    ],
     "exports": {
         ".": "./dist/src/index.js",
         "./wc": "./dist/src/register.js",
