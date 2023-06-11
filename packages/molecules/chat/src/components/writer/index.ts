@@ -2,8 +2,8 @@
 import { html, property, query } from "@circular-tools/utils";
 
 // atoms
-import { Input } from "@circular/input";
-import '@circular/input/wc';
+import { Textarea } from "@circular/textarea";
+import '@circular/textarea/wc';
 import '@circular/button/wc';
 import '@circular/icon/wc';
 
@@ -17,11 +17,20 @@ import { EmojiEvent } from "../smileys";
 // types & interfaces 
 export type SendEvent = { text: string };
 
+// TODO move this class into its own component .. its a godamn edit at this point
 export class Writer extends BoxTemplate  {
     static style = style;
 
+    // properties
+    // TODO have them in a nicer format like setting
+    // @property({ type: Boolean }) smileys = true;
+    // @property({ type: Boolean }) file = true;
+    // @property({ type: Boolean }) editor = true;
     @property({ type: Boolean, rerender: false }) smileyopen = false;
-    @query('o-input') inputElement!: Input;
+
+    // queries
+    @query('o-textarea') textareaElement!: Textarea;
+    @query('#file-manager') fileElement!: HTMLInputElement;
 
     // event handlers
     private handlesmileyclick = () => {
@@ -31,19 +40,29 @@ export class Writer extends BoxTemplate  {
       this.smileyopen = false;
     }
     private handlesmileyselect = (e:CustomEvent<EmojiEvent>) => {
-      this.inputElement.insert(e.detail.emoji.emoji);
+      this.textareaElement.insert(e.detail.emoji.emoji);
+    }
+    private handleformatclick = () => {
+      console.log('format mode')
     }
     private handlefileclick = () => {
       this.smileyopen = false;
-      console.log('open file')
+      if (this.fileElement)
+      {
+        this.fileElement.click();
+      }
+    }
+    private handlefileselect = (e:Event) => {
+      console.log(this.fileElement.files)
     }
     private handlesendclick = () => {
       this.smileyopen = false;
-      this.dispatchEvent(new CustomEvent<SendEvent>('send', { detail: { text: this.inputElement.value || "" } }));
+      this.dispatchEvent(new CustomEvent<SendEvent>('send', { detail: { text: this.textareaElement.value || "" } }));
     }
 
     render() {
       return html`
+        <input hidden type="file" multiple id="file-manager" @change="${this.handlefileselect}" />
         <div class="accordion">
           <o-chat-smileys @select="${this.handlesmileyselect}"></o-chat-smileys>
         </div>
@@ -55,15 +74,19 @@ export class Writer extends BoxTemplate  {
           <o-button radius="none" @click="${this.handlesmileyclick}" variant="clear">
             <o-icon customSize="20" name="smileys_emotion">smiley</o-icon>
           </o-button>
-  
-          <o-button radius="none" @click="${this.handlefileclick}" variant="clear">
+
+            <o-button radius="none" @click="${this.handlefileclick}" variant="clear">
             <o-icon customSize="20" name="file">file</o-icon>
           </o-button>
+
+          <o-button radius="none" @click="${this.handleformatclick}" variant="clear">
+            <o-icon customSize="20" name="format">format</o-icon>
+          </o-button>
           
-          <o-input name="input" size="medium"></o-input>
+          <o-textarea rows="1" size="medium"></o-textarea>
   
           <o-button variant="clear" @click="${this.handlesendclick}" radius="none">
-            <o-icon customSize="23" name="send">send</o-icon>
+            <o-icon customSize="24" name="send">send</o-icon>
           </o-button>
         </div>
       `

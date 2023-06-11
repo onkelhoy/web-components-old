@@ -1,5 +1,6 @@
 :host {
   --button-background-color-clear-hover: var(--smiley-hover-backgroun, rgba(0, 0, 0, 0.05));
+  --color: var(--chat-writer-light-text-color, var(--colors-netural-black, black));
 
   div.accordion {
     display: grid;
@@ -18,6 +19,7 @@
   
     o-input {
       flex-grow: 1;
+      margin-inline: 0.5rem;
       &::part(wrapper) {
         gap: 0;
       }
@@ -27,10 +29,20 @@
       padding: 0.4rem;
       gap: 0;
 
+      o-icon {
+        color: var(--color);
+      }
+
       &.smiley-close {
         display: none;
       }
     }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :host {
+    --color: var(--chat-writer-dark-text-color, var(--colors-netural-white, white));
   }
 }
 

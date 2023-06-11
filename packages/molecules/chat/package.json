@@ -28,6 +28,7 @@
         "@circular-tools/utils": "^1.0.0",
         "@circular/button": "^1.0.0",
         "@circular/input": "^1.0.0",
+        "@circular/textarea": "^1.0.0",
         "@circular/tooltip": "^1.0.0",
         "@circular/typography": "^1.0.0"
     },

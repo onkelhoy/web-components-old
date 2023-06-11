@@ -1,0 +1,40 @@
+{
+  "className": "Chat",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/chat",
+  "properties": [],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/molecules/chat": [
+      {
+        "name": "html",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@circular-templates/base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [],
+    "parts": []
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/chat",
+    "sources": [],
+    "variables": {
+      "--smiley-hover-backgroun": {
+        "usecases": [
+          "--button-background-color-clear-hover"
+        ],
+        "fallbacks": [
+          "rgba(0, 0, 0, 0.05)"
+        ]
+      }
+    }
+  }
+}
