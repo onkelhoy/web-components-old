@@ -73,7 +73,6 @@ mkdir -p "$destination"
 rsync -a --exclude='*DS_Store' ./scripts/generator/template/ "$destination/"
 # cp $SCRIPT_DIR/icons/$atomic_type.svg $destination/
 
-
 # Replace occurrences in all files
 find "$destination" -type f -not -name ".DS_Store" -not -name "*.svg" -not -name "*.ico" -exec sed -i '' "s/TEMPLATE_PACKAGENAME/${package_name}/g" {} \;
 find "$destination" -type f -not -name ".DS_Store" -not -name "*.svg" -not -name "*.ico" -exec sed -i '' "s/ATOMIC_TYPE/${atomic_type}/g" {} \;
@@ -91,6 +90,9 @@ npm install
 # goto destination to run init
 cd "$destination"
 npm run init
+
+# go back
+cd "$ROOTDIR"
 
 echo ""
 read -p "Do you wish to init with git also?: (y/n) " git_ans
