@@ -10,16 +10,17 @@ import { BaseTemplate } from "@circular-templates/base";
 
 import { style } from "./style";
 import { GroupSelection } from "./Group";
+import { basic_modify } from "./utils";
 
 export type Modifier = "bold"|"italic"|"underline"|"strikethrough"
 
 // this is used to check nodes whom parent is of target type
 type ExtendedNode = { node: Node, parent: Node|null };
 const ModifierMap = {
-  bold: "strong",
-  italic: "i",
-  strikethrough: "s",
-  underline: "u"
+  bold: "STRONG",
+  italic: "I",
+  strikethrough: "S",
+  underline: "U"
 }
 
 export class Input extends BaseTemplate {
@@ -35,13 +36,15 @@ export class Input extends BaseTemplate {
 
       if (selection && selection.type !== "None")
       {
-        const info = GroupSelection(selection);
-        console.log(info)
+        basic_modify(selection, ModifierMap[modifier], this.editorElement);
+
+        // const info = GroupSelection(selection, ModifierMap[modifier], this.editorElement);
+        // console.log(info)
 
         // this is the mode to tell if we globally need to insert or remove (remove only if no nodes with insert)
-        let mode = 'remove';
+        // let mode = 'remove';
         // individual level of info for nodes, if parent then it means remove (from the parent)
-        const extendedNodes: ExtendedNode[] = [];
+        // const extendedNodes: ExtendedNode[] = [];
 
         // // first we need to check if 1 node is not already inside the type
         // for (let i=0; i<info.leafnodes.length; i++)
@@ -189,10 +192,9 @@ export class Input extends BaseTemplate {
         </o-button>
       </div>
       <div id="editor" contenteditable="true">
-        <i><strong><em>HE</em><u>L<s>L</s></u>O</strong></i>
-        <br/>
-        <p>PAP<b>A</b><i>LA</i>PAP</p>
-        <i>W<i>ORL</i>D</i>
+        <u>He</u><i>l</i>lo
+        <strong>World Bajs</strong>
+        <p><i><u>BA</u>AA</i>AA</p>
       </div>
       <slot name="under"></slot>
     `
