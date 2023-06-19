@@ -36,7 +36,7 @@ export class TEMPLATE_CLASSNAME extends BaseTemplate {
                 <slot name="footer">
                     <p>Why did the llama enter the door? To attend the llamazing party inside!</p>
                 </slot>
-            </footer
+            </footer>
         `
     }
 }

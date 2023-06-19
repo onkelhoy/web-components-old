@@ -82,12 +82,14 @@ export interface PropertyOption {
   attribute: boolean;
   rerender: boolean;
   onUpdate?: string;
+  verbose?: boolean;
 }
 
 const DefaultOptions:PropertyOption = {
   type: String,
   attribute: true,
   rerender: true,
+  verbose: false,
 }
 
 export function property(options?: Partial<PropertyOption>) {

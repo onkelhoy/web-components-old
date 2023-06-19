@@ -66,9 +66,11 @@ export class PopoverTemplate extends BaseTemplate {
 
   // public functions
   public show() {
+    this.dispatchEvent(new Event('show'));
     this.open = true;
   }
   public hide() {
+    this.dispatchEvent(new Event('hide'));
     this.open = false;
   }
 
