@@ -20,7 +20,9 @@
                 assetbase="public/icons"
                 name="circle"
                 cache="false"
-            ></o-icon>
+            >
+                fallback
+            </o-icon>
         </code-block>
     </doc-card>
 
@@ -31,8 +33,16 @@
                 id="animation" 
                 cache="true" 
                 color="orange" 
-                name="circle">
+                name="circle"
+            >
+                fallback
             </o-icon>
+        </code-block>
+    </doc-card>
+
+    <doc-card>
+        <code-block lang="html" display="both">
+            <o-icon name="notfoundicon">fallback</o-icon>
         </code-block>
     </doc-card>
 </body>

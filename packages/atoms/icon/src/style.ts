@@ -18,4 +18,10 @@ svg {
   width: inherit;
   height: inherit;
   fill: currentColor;
-  stroke: currentColor; }`;
+  stroke: currentColor; }
+
+:host([data-hide-slot="true"])::part(fallback) {
+  display: none; }
+
+:host([data-hide-slot="false"]) svg {
+  display: none; }`;

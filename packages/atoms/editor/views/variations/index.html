@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor - Variations</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  
+<h1 data-title="class">Editor Properties</h1>
+        <doc-card class="property" data-name="foo">
+            <h2 slot="header"><span class="deemphasize">Property: </span>foo</h2>
+
+            <div class="property-info">
+              <p>type: Foo</p>
+              <p>default-value: bar</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="bar">
+                    <h4><span class="deemphasize">Property-Value: </span>bar</h4>
+                    <code-block lang="html" display="both">
+                      <o-editor 
+                        foo="bar"
+                        
+                      >
+                        <p>Hello World</p>
+                      </o-editor>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="hello world">
+                    <h4><span class="deemphasize">Property-Value: </span>hello world</h4>
+                    <code-block lang="html" display="both">
+                      <o-editor 
+                        foo="hello world"
+                        
+                      >
+                        <p>Hello World</p>
+                      </o-editor>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="bajs">
+            <h2 slot="header"><span class="deemphasize">Property: </span>bajs</h2>
+
+            <div class="property-info">
+              <p>type: number</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="1">
+                    <h4><span class="deemphasize">Property-Value: </span>1</h4>
+                    <code-block lang="html" display="both">
+                      <o-editor 
+                        bajs="1"
+                        
+                      >
+                        <p>Hello World</p>
+                      </o-editor>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="10">
+                    <h4><span class="deemphasize">Property-Value: </span>10</h4>
+                    <code-block lang="html" display="both">
+                      <o-editor 
+                        bajs="10"
+                        
+                      >
+                        <p>Hello World</p>
+                      </o-editor>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="1000">
+                    <h4><span class="deemphasize">Property-Value: </span>1000</h4>
+                    <code-block lang="html" display="both">
+                      <o-editor 
+                        bajs="1000"
+                        
+                      >
+                        <p>Hello World</p>
+                      </o-editor>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="fooLaa">
+            <h2 slot="header"><span class="deemphasize">Property: </span>fooLaa</h2>
+
+            <div class="property-info">
+              <p>type: boolean</p>
+              <p>default-value: true</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="true">
+                    <h4><span class="deemphasize">Property-Value: </span>true</h4>
+                    <code-block lang="html" display="both">
+                      <o-editor 
+                        fooLaa="true"
+                        
+                      >
+                        <p>Hello World</p>
+                      </o-editor>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="false">
+                    <h4><span class="deemphasize">Property-Value: </span>false</h4>
+                    <code-block lang="html" display="both">
+                      <o-editor 
+                        fooLaa="false"
+                        
+                      >
+                        <p>Hello World</p>
+                      </o-editor>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    <h1 data-title="inherit">Inherited Properties</h1></body>
+</html>

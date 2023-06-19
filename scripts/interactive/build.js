@@ -20,6 +20,7 @@ const GLOBAL_CONFIG = {
   components: {
     default: 'src/component.ts'
   },
+  slot: {},
   html: 'Hello World',
 };
 let LOCAL_CONFIG = {};
@@ -74,6 +75,10 @@ CUSTOMELEMENTS.html.slots.forEach(slot => {
     {
       value = CONFIG.html;
       name = 'HTML'
+    }
+    else if (!value && CONFIG.slot[slot.name])
+    {
+      value = CONFIG.slot[slot.name];
     }
 
     slotdiv.appendChild(parse(`<doc-input label="${name}" variant="textarea" name="slot-${slot.name}" data-slotname="${slot.name}" value="${value}"></doc-input>`))
@@ -219,7 +224,7 @@ function build_css(data, level = 0) {
     {
       // color picket 
       const value = info.fallbacks.length === 1 ? info.fallbacks[0] : "";
-      input = parse(`<color-picker-input label="" data-css-input="true" name="${key}" value="${value}"></color-picker-input>`)
+      input = parse(`<color-picker-input data-css-input="true" name="${key}" label="${key}" value="${value}"></color-picker-input>`)
     }
     else if (key.includes("cursor"))
     {
@@ -263,13 +268,13 @@ function build_css(data, level = 0) {
         'zoom-out'
       ];
     
-      input = parse(`<doc-input data-css-input="true" variant="select" options='${JSON.stringify(cursorOptions)}' label="" name="${key}" value="${value}"></doc-input>`)
+      input = parse(`<doc-input data-css-input="true" variant="select" options='${JSON.stringify(cursorOptions)}' name="${key}" label="${key}" value="${value}"></doc-input>`)
     }
     else 
     {
       // TODO need to correct the analyzer as it now includes too many variables - variables that are just fallbacks - should only take the first! 
       const value = info.fallbacks.length === 1 ? info.fallbacks[0] : "";
-      input = parse(`<doc-input label="" data-css-input="true" name="${key}" value="${value}"></doc-input>`);
+      input = parse(`<doc-input data-css-input="true" name="${key}" label="${key}" value="${value}"></doc-input>`);
     }
     
     divgroup.appendChild(parse('<div class="info"></div>'));
@@ -284,19 +289,8 @@ function build_css(data, level = 0) {
     const fallbacks = infodiv.querySelector('ul.fallbacks');
     info.fallbacks.forEach(fallback => fallbacks.appendChild(parse(`<li>${fallback}</li>`)))
 
-    divgroup.appendChild(parse(`<h4>${key}</h4>`))
     divgroup.appendChild(input);
     divgroup.appendChild(infodiv);
-
-
-    // const prevelement = div.querySelector(`div[data-style-name="${key}"]`)
-    // if (prevelement)
-    // {
-    //   prevelement.replaceWith(divgroup);
-    // }
-    // else {
-    //   div.appendChild(divgroup);
-    // }
   }
 
   data.sources.forEach(source => build_css(source, level + 1))

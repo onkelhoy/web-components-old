@@ -24,6 +24,7 @@ export class ColorPickerInput extends BaseTemplate {
   private manual = false;
 
   @property() name:string = "Color"
+  @property() label:string = ""
   @property({ onUpdate: "onvalueupdate" }) value:string = "red";
 
 
@@ -119,7 +120,7 @@ export class ColorPickerInput extends BaseTemplate {
         revealby="click" 
         placement="bottom-right"
       >
-        <doc-input slot="target" value="${this.value}" @change=${this.handleinputchange} label="${this.name}" placeholder="Choose a color"></doc-input>
+        <doc-input slot="target" value="${this.value}" @change=${this.handleinputchange} label="${this.label}" placeholder="Choose a color"></doc-input>
         <color-picker @change=${this.handlecolorchange}></color-picker>
       </o-popover-template>
     `

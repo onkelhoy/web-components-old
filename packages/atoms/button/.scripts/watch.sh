@@ -15,7 +15,7 @@ trap cleanup SIGINT
 trap cleanup EXIT
 
 # then we watch css
-fswatch src/style.scss | while read; do sh ./.scripts/helper/compile-css.sh; done &
+fswatch src/style.scss | while read; do sh ./.scripts/helper/build-sass.sh; done &
 watch_css_pid=$!
 
 tsc -w &

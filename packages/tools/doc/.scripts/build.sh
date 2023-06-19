@@ -7,7 +7,7 @@ rm -rf dist
 mkdir dist
 
 # compile css
-sh .scripts/helper/compile-css.sh
+sh .scripts/helper/build-sass.sh
 
 # output the typescript 
 tsc

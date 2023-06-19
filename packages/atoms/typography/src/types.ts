@@ -1,0 +1,1 @@
+export type Variant = `${'C'|'T'|'H'}${1|2|3|4}`|'H5';

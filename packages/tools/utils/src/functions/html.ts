@@ -2,6 +2,22 @@ export function html(strings: TemplateStringsArray, ...values: any[]) {
     let result = "";
 
     for (let i = 0; i < values.length; i++) {
+        if (values[i] instanceof Array)
+        {
+            let arr = [];
+            for (let j=0; j<values[i].length; j++)
+            {
+                if (values[i][j] instanceof DocumentFragment)
+                {
+                    arr.push(`<doc-frag index="${i}" subindex="${j}"></doc-frag>`)
+                }
+            }
+            if (arr.length > 0)
+            {
+                result += strings[i] + arr.join(' ')
+                continue;
+            }
+        }
         if (values[i] instanceof DocumentFragment)
         {
             result += strings[i] + `<doc-frag index="${i}"></doc-frag>`
@@ -31,10 +47,22 @@ export function html(strings: TemplateStringsArray, ...values: any[]) {
 
     content.querySelectorAll('doc-frag').forEach(element => {
         const index = Number(element.getAttribute('index'));
-        Array
-            .from((values[index] as DocumentFragment).children)
-            .reverse()
-            .forEach(item => element.insertAdjacentElement('afterend', item))
+        
+        if (element.hasAttribute('subindex'))
+        {
+            const subindex = Number(element.getAttribute('subindex'));
+            Array
+                .from((values[index][subindex] as DocumentFragment).children)
+                .reverse()
+                .forEach(item => element.insertAdjacentElement('afterend', item))
+        }
+        else 
+        {
+            Array
+                .from((values[index] as DocumentFragment).children)
+                .reverse()
+                .forEach(item => element.insertAdjacentElement('afterend', item))
+        }
 
         element.parentElement?.removeChild(element);
     })

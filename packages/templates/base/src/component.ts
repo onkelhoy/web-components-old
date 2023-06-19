@@ -1,15 +1,6 @@
-import { suspense } from "@circular-tools/utils";
+import { property, suspense } from "@circular-tools/utils";
 
-import { FunctionCallback } from "./types";
-
-// NOTE this does not work for some reason..
-// declare global {
-//     interface HTMLElement {
-//         connectedCallback(): void;
-//         disconnectedCallback(): void;
-//         attributeChangedCallback(name:string, oldValue:string|null, newValue:string|null): void;
-//     }
-// }
+import { FunctionCallback, RenderType } from "./types";
 
 export class BaseTemplate extends HTMLElement {
     public static style?:string;
@@ -17,15 +8,19 @@ export class BaseTemplate extends HTMLElement {
 
     protected callAfterUpdate:(Function|FunctionCallback)[] = [];
     private attributeObserver!: MutationObserver;
+    @property({ rerender: false, type: Boolean }) hasFocus: boolean = false;
 
+    // class functions
     constructor() {
         super();
+
+        this.addEventListener('blur', this.handleblur);
+        this.addEventListener('focus', this.handlefocus);
 
         this.debouncedRequestUpdate = suspense(this.requestUpdate, 100);
         this.attachShadow({mode:'open'});
         this.callAfterUpdate.push(this.firstUpdate);
     }
-
     connectedCallback() {
         this.debouncedRequestUpdate();
         // Create an observer instance linked to a callback function
@@ -43,13 +38,19 @@ export class BaseTemplate extends HTMLElement {
         // attributes: true indicates we want to observe attribute changes
         this.attributeObserver.observe(this, { attributes: true });
     }
-
     disconnectedCallback() {
         this.attributeObserver.disconnect();
     }
-
     attributeChangedCallback(name:string, oldValue:string|null, newValue:string|null) {
         // implement something
+    }
+
+    // event handlers
+    protected handleblur = () => {
+        this.hasFocus = false;
+    }
+    protected handlefocus = () => {
+        this.hasFocus = true;
     }
 
     protected getStyle():string {
@@ -77,6 +78,12 @@ export class BaseTemplate extends HTMLElement {
                 ${typeof content === "string" ? content : ""}
             `;
             if (content instanceof DocumentFragment) this.shadowRoot.appendChild(content);
+            if (content instanceof Array)
+            {
+                content.forEach(item => {
+                    if (item instanceof DocumentFragment && this.shadowRoot) this.shadowRoot.appendChild(item);
+                })
+            }
 
             let info;
             const reverse = this.callAfterUpdate.reverse();
@@ -96,7 +103,14 @@ export class BaseTemplate extends HTMLElement {
     public debouncedRequestUpdate() {}
     public firstUpdate() {}
 
-    public render():DocumentFragment|string {
+    public render(child?:RenderType):RenderType {
         return 'Hello From Base Class'
+    }
+}
+
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-base-template": BaseTemplate;
     }
 }

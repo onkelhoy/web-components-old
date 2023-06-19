@@ -8,11 +8,11 @@ import { style } from "./style";
 import { Reveal, Placement } from './types';
 
 export class PopoverTemplate extends BaseTemplate {
-  static style = style;
+  static styles = [style];
 
   @property() revealby: Reveal = 'hover';
   @property() placement: Placement = 'bottom-center';
-  @property({ type: Boolean }) hideonoutsideclick: boolean = false;
+  @property({ type: Boolean }) hideonoutsideclick: boolean = true;
   @property({ type: Boolean }) open: boolean = false;
 
   private outside = false;
@@ -76,13 +76,20 @@ export class PopoverTemplate extends BaseTemplate {
     return html`
       <div 
         class="target" 
+        part="target"
         @mousedown="${this.handlemousedown}"
       >
         <slot name="target"></slot>
       </div>
-      <div class="wrapper">
+      <div class="wrapper" part="wrapper">
         <slot></slot>
       </div>
     `
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+      "o-popover-template": PopoverTemplate;
   }
 }

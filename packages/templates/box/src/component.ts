@@ -7,16 +7,23 @@ import { ColorTemplate } from "@circular-templates/color";
 // local 
 import { style } from "./style";
 import { Elevation, Radius } from "./types";
+import { RenderType } from "@circular-templates/base";
 
 export class BoxTemplate extends ColorTemplate {
-    static style = style;
+    static styles = [style];
 
     @property() radius: Radius = "circular";
     @property() elevation: Elevation = "none";
 
-    render() {
+    render():RenderType {
         return `
             <slot></slot>
         `
+    }
+}
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-box-template": BoxTemplate;
     }
 }

@@ -37,7 +37,7 @@
     {
       "name": "hideonoutsideclick",
       "type": "boolean",
-      "default_value": false,
+      "default_value": true,
       "type_value": null,
       "primitive": true,
       "conditional": false
@@ -77,7 +77,16 @@
     ]
   },
   "html": {
-    "slots": [],
+    "slots": [
+      {
+        "name": "target",
+        "html": ""
+      },
+      {
+        "name": "default",
+        "html": ""
+      }
+    ],
     "parts": []
   },
   "css": {
