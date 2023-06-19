@@ -11,7 +11,7 @@ export class Button extends BoxTemplate {
     @property({ rerender: false }) size: Size = "medium";
     @property({ rerender: false }) mode: ButtonMode = "hug";
     @property({ rerender: false }) variant: ButtonVariant = "filled";
-    @property({ rerender: false }) tabIndex: number = 1;
+    @property({ rerender: false, type: Number }) tabIndex: number = 1;
 
     // class functions
     constructor() {

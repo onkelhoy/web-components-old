@@ -1,0 +1,27 @@
+export const style = `:host {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: var(--option-padding, 0.3rem 0.5rem);
+  cursor: pointer;
+  user-select: none;
+  --option-background-hover: var(--option-background-hover-light, rgba(0,0,0,0.03));
+  --option-background-active: var(--option-background-active-light, rgba(0,0,0,0.1)); }
+
+:host(:hover) {
+  background-color: var(--option-background-hover); }
+
+:host(:active) {
+  background-color: var(--option-background-active); }
+
+::slotted(*) {
+  font-family: var(--typography-c3-fontfamily);
+  font-size: var(--typography-c3-fontsize);
+  font-weight: var(--typography-c3-fontweight);
+  line-height: var(--typography-c3-lineheight);
+  letter-spacing: var(--typography-c3-letterspacing); }
+
+@media (prefers-color-scheme: dark) {
+  :host {
+    --option-background-hover: var(--option-background-hover-dark, rgba(255, 255, 255, 0.03));
+    --option-background-active: var(--option-background-active-dark, rgba(255, 255, 255, 0.1)); } }`;

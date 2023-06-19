@@ -70,7 +70,7 @@ export class Smileys extends BaseTemplate  {
   private handleclear = () => {
     if (this.inputElement)
     {
-      this.inputElement.Value = '';
+      this.inputElement.value = '';
     }
   }
 

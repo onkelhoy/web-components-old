@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  <doc-controller>
+    <div id="target">
+      <o-accordion>
+        
+      <div  data-slotname="default">
+        <p>Hello World</p>
+      </div>
+    
+      </o-accordion>
+  </div>
+
+    <section class="control" slot="setting">
+      <o-tabs>
+        <o-tab id="html">HTML</o-tab>
+        <o-tab class="selected" id="properties">Properties</o-tab>
+        <o-tab id="css">CSS</o-tab>
+        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="<p>Hello World</p>"></doc-input></div></o-tab-content>
+        <o-tab-content id="properties"></o-tab-content>
+        <o-tab-content id="css">
+      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/atoms/accordion" class="style-source">
+        <h3>accordion styles</h3>
+      </div>
+    </o-tab-content>
+      </o-tabs>
+    </section>
+  </doc-controller>
+</body>
+</html>

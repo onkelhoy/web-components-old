@@ -1,0 +1,12 @@
+export const style = `:host {
+  display: block; }
+  :host o-typography {
+    height: 56px;
+    line-height: 56px;
+    text-indent: 0.7rem; }
+
+:host([mode="edit"]) o-typography {
+  display: none; }
+
+:host([mode="view"]) o-input {
+  display: none; }`;

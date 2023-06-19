@@ -1,6 +1,6 @@
 // query
 export interface QueryOption<T> {
-  onload?(element:T):void;
+  onload?: string;
   selector: string;
 }
 type queryParam<T> = string|QueryOption<T>;
@@ -23,8 +23,6 @@ export function query<T extends Element = HTMLElement>(options:queryParam<T>) {
       // init the search
       initsearch.call(this);
     };
-
-
     function initsearch(this:any) {
       if (!search.call(this)) 
       {
@@ -64,7 +62,10 @@ export function query<T extends Element = HTMLElement>(options:queryParam<T>) {
 
           if (typeof options === "object" && options.onload)
           {
-            options.onload(element);
+            if ((this as any)[options.onload])
+            {
+              (this as any)[options.onload].call(this, element);
+            }
           }
 
           return true;
@@ -83,6 +84,8 @@ export interface PropertyOption {
   rerender: boolean;
   onUpdate?: string;
   verbose?: boolean;
+  set?: (value:any)=>any;
+  get?: (value:any)=>any;
 }
 
 const DefaultOptions:PropertyOption = {
@@ -109,7 +112,7 @@ export function property(options?: Partial<PropertyOption>) {
     (target as any).attributeChangedCallback = function (name: string, oldValue: any, newValue: any) {
       attributeChanged.call(this, name, oldValue, newValue);
 
-      if (name === attributeName && !internal) {
+      if (name === attributeName && !internal && newValue !== oldValue) {
         this[propertyKey] = convertFromString(newValue, _options.type);
       }
     };
@@ -117,39 +120,28 @@ export function property(options?: Partial<PropertyOption>) {
     // Define property getter and setter
     Object.defineProperty(target, propertyKey, {
       get() {
-        return this[`_${propertyKey}`];
+        const data:any = this[`_${propertyKey}`];
+        return options?.get ? options.get(data) : data;
       },
       set(value: any) {
-        if (this[`_${propertyKey}`] === value) {
+        const valuestring = convertToString(value, _options.type);
+        const oldvaluestring = convertToString(this[`_${propertyKey}`], _options.type)
+        if (oldvaluestring === valuestring) {
           return;
-        }
-        if (_options.type === String && this[`_${propertyKey}`] && this[`_${propertyKey}`].toLowerCase() === value.toLowerCase())
-        {
-          return;
-        }
-        if (_options.verbose) 
-        {
-          // console.log({
-          //   message: 'not the same', 
-          //   property: this[`_${propertyKey}`], 
-          //   value, 
-          //   equal: this[`_${propertyKey}`] === value
-          // })
         }
 
         const old = this[`_${propertyKey}`];
-        this[`_${propertyKey}`] = value;
+        this[`_${propertyKey}`] = options?.set ? options.set(value) : value;
 
         if (_options.attribute) {
           internal = true;
-          this.setAttribute(attributeName, convertToString(value, _options.type).toLowerCase());
+          this.setAttribute(attributeName, valuestring);
           internal = false;
         }
 
         if (_options.onUpdate)
         {
           this[_options.onUpdate+"_attempts"] = 0;
-          
           tryupdate.call(this, _options.onUpdate, value, old, !!_options.verbose);
         }
 
@@ -195,7 +187,7 @@ function convertFromString(value:string, type:Function) {
   switch (type.name) 
   {
     case "Boolean":
-      return value.toLowerCase() === "true" ? true : false;
+      return value === "" || value.toLowerCase() === "true" ? true : false;
     case "Number":
       return Number(value);
     case "Object":

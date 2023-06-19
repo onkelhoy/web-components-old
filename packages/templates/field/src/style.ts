@@ -5,7 +5,7 @@ export const style = `:host([size="small"]) o-box-template.wrapper {
   height: var(--field-height-medium, var(--height-medium, 32px)); }
 
 :host([size="large"]) o-box-template.wrapper {
-  height: var(--field-height-large, var(--height-large, 48px)); }
+  height: var(--field-height-large, var(--height-large, 56px)); }
 
 :host {
   --border: var(--field-light-background-color, var(--colors-netural-black, rgb(0, 0, 0)));

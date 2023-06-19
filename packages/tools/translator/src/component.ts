@@ -21,9 +21,14 @@ export class Translator extends BaseTemplate {
         return this.key;
     }
     set Key(value: string | null) {
-        if (typeof value === 'string') {
-        this.key = value.replace(/<!--\?lit.*?>(.*)/, '$1');
-        } else this.key = '';
+        if (typeof value === 'string') 
+        {
+            this.key = value.replace(/<!--\?lit.*?>(.*)/, '$1');
+        } 
+        else 
+        {
+            this.key = '';
+        }
     
         this.updateText();
     }

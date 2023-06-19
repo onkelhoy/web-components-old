@@ -15,6 +15,13 @@ export function suspense<T extends (...args: any[]) => any>(
     }, delay);
   };
 }
+
+export function NextParent<T=HTMLElement>(element:HTMLElement) {
+  if (element.parentElement) return element.parentElement;
+  const root = element.getRootNode();
+  if (root) return (root as any).host as T;
+  return null;
+}
   
 export function CumulativeOffset(element:HTMLElement) {
   let top = 0, left = 0;

@@ -92,7 +92,8 @@ export const style = `:host {
   :host o-button span[slot="prefix"] {
     display: none !important; }
   :host o-button span.group {
-    justify-content: center; }
+    justify-content: center;
+    width: 100%; }
   :host o-accordion {
     display: none; } }
 

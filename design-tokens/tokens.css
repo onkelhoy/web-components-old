@@ -1,85 +1,119 @@
 :root {
+  /* FONT SIZE*/
+  --o-font-size-100: .625rem;
+  --o-font-size-200: .75rem;
+  --o-font-size-300: .875rem;
+  --o-font-size-400: 1rem;
+  --o-font-size-500: 1.5rem;
+  --o-font-size-600: 2rem;
+  --o-font-size-700: 2.5rem;
+  --o-font-size-800: 3rem;
+  --o-font-size-900: 3.5rem;
+  --o-font-size-1000: 4rem;
+  --o-font-size-1100: 4.5rem;
+  --o-font-size-1200: 5.5rem;
+  --o-font-size-1300: 8.75rem;
+
+  /* FONT SIZE - DESIGN NAMES */
+  --o-font-size-2x-small: var(--o-font-size-100);
+  --o-font-size-x-small: var(--o-font-size-200);
+  --o-font-size-small: var(--o-font-size-300);
+  --o-font-size-medium: var(--o-font-size-400);
+  --o-font-size-large: var(--o-font-size-500);
+  --o-font-size-x-large: var(--o-font-size-600);
+  --o-font-size-2x-large: var(--o-font-size-700);
+  --o-font-size-3x-large: var(--o-font-size-800);
+  --o-font-size-4x-large: var(--o-font-size-900);
+  --o-font-size-5x-large: var(--o-font-size-1000);
+  --o-font-size-6x-large: var(--o-font-size-1100);
+  --o-font-size-7x-large: var(--o-font-size-1200);
+  --o-font-size-8x-large: var(--o-font-size-1300);
+
+  /* FONT FAMILY */
   --default-fontfamily: 'Poppins', sans-serif;
 
+  /* TYPOGRAPHY VARIABLES  */
   --typography-h1-fontfamily: var(--default-fontfamily);
-  --typography-h1-fontsize: 140px;
+  --typography-h1-fontsize: var(--o-font-size-8x-large);
   --typography-h1-fontweight: 800;
   --typography-h1-lineheight: 168px;
   --typography-h1-letterspacing: 0em;
 
   --typography-h2-fontfamily: var(--default-fontfamily);
-  --typography-h2-fontsize: 88px;
+  --typography-h2-fontsize: var(--o-font-size-7x-large);
   --typography-h2-fontweight: 800;
   --typography-h2-lineheight: 106px;
   --typography-h2-letterspacing: 0em;
 
   --typography-h3-fontfamily: var(--default-fontfamily);
-  --typography-h3-fontsize: 72px;
+  --typography-h3-fontsize: var(--o-font-size-6x-large);
   --typography-h3-fontweight: 700;
   --typography-h3-lineheight: 86px;
   --typography-h3-letterspacing: 0em;
 
   --typography-h4-fontfamily: var(--default-fontfamily);
-  --typography-h4-fontsize: 64px;
+  --typography-h4-fontsize: var(--o-font-size-5x-large);
   --typography-h4-fontweight: 700;
   --typography-h4-lineheight: 77px;
   --typography-h4-letterspacing: 0em;
 
   --typography-h5-fontfamily: var(--default-fontfamily);
-  --typography-h5-fontsize: 56px;
+  --typography-h5-fontsize: var(--o-font-size-4x-large);
   --typography-h5-fontweight: 700;
   --typography-h5-lineheight: 67px;
   --typography-h5-letterspacing: 0em;
 
   --typography-t1-fontfamily: var(--default-fontfamily);
-  --typography-t1-fontsize: 48px;
+  --typography-t1-fontsize: var(--o-font-size-3x-large);
   --typography-t1-fontweight: 700;
   --typography-t1-lineheight: 58px;
   --typography-t1-letterspacing: 0em;
 
   --typography-t2-fontfamily: var(--default-fontfamily);
-  --typography-t2-fontsize: 40px;
+  --typography-t2-fontsize: var(--o-font-size-2x-large);
   --typography-t2-fontweight: 700;
   --typography-t2-lineheight: 56px;
   --typography-t2-letterspacing: 0em;
 
   --typography-t3-fontfamily: var(--default-fontfamily);
-  --typography-t3-fontsize: 32px;
+  --typography-t3-fontsize: var(--o-font-size-x-large);
   --typography-t3-fontweight: 600;
   --typography-t3-lineheight: 38px;
   --typography-t3-letterspacing: 0em;
 
   --typography-t4-fontfamily: var(--default-fontfamily);
-  --typography-t4-fontsize: 24px;
+  --typography-t4-fontsize: var(--o-font-size-large);
   --typography-t4-fontweight: 600;
   --typography-t4-lineheight: 34px;
   --typography-t4-letterspacing: 0em;
 
   --typography-c1-fontfamily: var(--default-fontfamily);
-  --typography-c1-fontsize: 24px;
+  --typography-c1-fontsize: var(--o-font-size-large);
   --typography-c1-fontweight: 500;
   --typography-c1-lineheight: 34px;
   --typography-c1-letterspacing: 0.01em;
 
   --typography-c2-fontfamily: var(--default-fontfamily);
-  --typography-c2-fontsize: 16px;
+  --typography-c2-fontsize: var(--o-font-size-medium);
   --typography-c2-fontweight: 600;
   --typography-c2-lineheight: 22px;
   --typography-c2-letterspacing: 0.01em;
 
   --typography-c3-fontfamily: var(--default-fontfamily);
-  --typography-c3-fontsize: 16px;
+  --typography-c3-fontsize: var(--o-font-size-medium);
   --typography-c3-fontweight: 400;
   --typography-c3-lineheight: 24px;
   --typography-c3-letterspacing: 0.01em;
 
   --typography-c4-fontfamily: var(--default-fontfamily);
-  --typography-c4-fontsize: 14px;
+  --typography-c4-fontsize: var(--o-font-size-small);
   --typography-c4-fontweight: 400;
   --typography-c4-lineheight: 20px;
   --typography-c4-letterspacing: 0.01em;
 }
 
+/** CLASSES *******************/
+/******************************/
 /* HEADINGS */
 .typography-heading1,
 .typography-h1 {
@@ -285,4 +319,8 @@
   --margin-small: 8px;
   --margin-medium: 16px;
   --margin-large: 24px;
+
+  --gap-small: 8px;
+  --gap-medium: 16px;
+  --gap-large: 24px;
 }

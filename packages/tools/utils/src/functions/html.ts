@@ -1,15 +1,46 @@
+function findComments(element:Node) {
+    let arr = [];
+    for(let i = 0; i < element.childNodes.length; i++) {
+        let node = element.childNodes[i];
+        if(node.nodeType === 8) { // Check if node is a comment
+            arr.push(node);
+        } else {
+            arr.push.apply(arr, findComments(node));
+        }
+    }
+    return arr;
+}
+function insertElement(parent:Node, comment:Node, indexes: RegExpMatchArray | null, values:any[]) {
+    if (indexes === null) return;
+
+    let target:any = values;
+    for (let i=0; i<indexes.length; i++) {
+        const index = Number(indexes[i]);
+        target = target[index];
+    }
+    try {
+        parent.insertBefore(target as DocumentFragment, comment);
+    }
+    catch (e) 
+    {
+        console.error(e);
+        console.log('what is going on here', parent);
+    }
+}
+
 export function html(strings: TemplateStringsArray, ...values: any[]) {
     let result = "";
 
     for (let i = 0; i < values.length; i++) {
+        // NOTE the reason why td is because the tr would move it outside, its anyway just temp so should work in all cases
         if (values[i] instanceof Array)
         {
-            let arr = [];
+            let arr = []; // NOTE not supporting deep nested arrays now..
             for (let j=0; j<values[i].length; j++)
             {
                 if (values[i][j] instanceof DocumentFragment)
                 {
-                    arr.push(`<doc-frag index="${i}" subindex="${j}"></doc-frag>`)
+                    arr.push(`<!-- circular-comment-${i}.${j} -->`)
                 }
             }
             if (arr.length > 0)
@@ -20,7 +51,7 @@ export function html(strings: TemplateStringsArray, ...values: any[]) {
         }
         if (values[i] instanceof DocumentFragment)
         {
-            result += strings[i] + `<doc-frag index="${i}"></doc-frag>`
+            result += strings[i] + `<!-- circular-comment-${i} -->`;
             continue;
         }
         const trimmed = strings[i].trim();
@@ -45,27 +76,21 @@ export function html(strings: TemplateStringsArray, ...values: any[]) {
 
     const content = template.content;
 
-    content.querySelectorAll('doc-frag').forEach(element => {
-        const index = Number(element.getAttribute('index'));
-        
-        if (element.hasAttribute('subindex'))
-        {
-            const subindex = Number(element.getAttribute('subindex'));
-            Array
-                .from((values[index][subindex] as DocumentFragment).children)
-                .reverse()
-                .forEach(item => element.insertAdjacentElement('afterend', item))
-        }
-        else 
-        {
-            Array
-                .from((values[index] as DocumentFragment).children)
-                .reverse()
-                .forEach(item => element.insertAdjacentElement('afterend', item))
-        }
-
-        element.parentElement?.removeChild(element);
-    })
+    findComments(content)
+        .forEach(comment => {
+            const parent = comment.parentNode;
+            if (parent)
+            {
+                if (comment.textContent)
+                {
+                    const indexes = comment.textContent.match(/\d+/g)
+                    insertElement(parent, comment, indexes, values);
+                }
+    
+                // NOTE could investigate to keep it for performance caching or something to determine which have been updating 
+                parent.removeChild(comment);
+            }
+        })
 
     content.querySelectorAll<HTMLElement>("*").forEach(element => {
         Array.from(element.attributes).forEach((attr) => {
