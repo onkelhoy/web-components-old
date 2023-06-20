@@ -6,13 +6,13 @@ export const style = `:host {
   height: var(--icon-custom-size); }
 
 :host([size="small"]) {
-  --icon-custom-size: var(--icon-size-small, 30px); }
+  --icon-custom-size: var(--icon-size-small, 16px); }
 
 :host([size="medium"]) {
-  --icon-custom-size: var(--icon-size-medium, 48px); }
+  --icon-custom-size: var(--icon-size-medium, 20px); }
 
 :host([size="large"]) {
-  --icon-custom-size: var(--icon-size-large, 60px); }
+  --icon-custom-size: var(--icon-size-large, 40px); }
 
 svg {
   width: inherit;
@@ -23,5 +23,7 @@ svg {
 :host([data-hide-slot="true"])::part(fallback) {
   display: none; }
 
-:host([data-hide-slot="false"]) svg {
-  display: none; }`;
+:host([data-hide-slot="false"]) {
+  width: fit-content; }
+  :host([data-hide-slot="false"]) svg {
+    display: none; }`;

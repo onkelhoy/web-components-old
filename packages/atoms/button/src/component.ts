@@ -42,9 +42,9 @@ export class Button extends BoxTemplate {
 
     render() {
         return `
-            <slot name="left"><span> </span></slot>
+            <slot name="prefix"><span> </span></slot>
             <slot></slot>
-            <slot name="right"><span> </span></slot>
+            <slot name="suffix"><span> </span></slot>
         `;
     }
 }

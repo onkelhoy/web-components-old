@@ -98,8 +98,22 @@
     ]
   },
   "html": {
-    "slots": [],
-    "parts": []
+    "slots": [
+      {
+        "name": "default",
+        "html": ""
+      }
+    ],
+    "parts": [
+      {
+        "name": "fallback",
+        "tag": "SLOT"
+      },
+      {
+        "name": "svg",
+        "tag": "SVG"
+      }
+    ]
   },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/icon",
@@ -117,7 +131,7 @@
           "--icon-custom-size"
         ],
         "fallbacks": [
-          "30px"
+          "16px"
         ]
       },
       "--icon-size-medium": {
@@ -125,7 +139,7 @@
           "--icon-custom-size"
         ],
         "fallbacks": [
-          "48px"
+          "20px"
         ]
       },
       "--icon-size-large": {
@@ -133,7 +147,7 @@
           "--icon-custom-size"
         ],
         "fallbacks": [
-          "60px"
+          "40px"
         ]
       }
     }

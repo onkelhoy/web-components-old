@@ -27,7 +27,7 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/chat",
     "sources": [],
     "variables": {
-      "--smiley-hover-backgroun": {
+      "--smiley-hover-background": {
         "usecases": [
           "--button-background-color-clear-hover"
         ],

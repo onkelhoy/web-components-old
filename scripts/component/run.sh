@@ -47,3 +47,4 @@ sed -i '' "s/COMPONENT_CLASSNAME/${classname}/g" $view_destination/index.html &>
 sed -i '' "s/COMPONENT_PREFIXNAME/${prefixname}/g" $view_destination/index.html &> /dev/null
 sed -i '' "s/TEMPLATE_PACKAGENAME/${TEMPLATENAME}/g" $view_destination/main.js &> /dev/null
 sed -i '' "s/COMPONENT_NAME/${name}/g" $view_destination/main.js &> /dev/null
+sed -i '' "s/TEMPLATE_NAME/${NAME}/g" $view_destination/main.js &> /dev/null

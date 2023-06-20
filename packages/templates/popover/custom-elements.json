@@ -87,7 +87,16 @@
         "html": ""
       }
     ],
-    "parts": []
+    "parts": [
+      {
+        "name": "target",
+        "tag": "DIV"
+      },
+      {
+        "name": "wrapper",
+        "tag": "DIV"
+      }
+    ]
   },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/templates/popover",

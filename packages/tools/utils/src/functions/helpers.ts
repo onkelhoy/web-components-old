@@ -50,3 +50,18 @@ function appendLeafValue(node:Node, L:Array<string>) {
     L.push(node.textContent);
   }
 }
+
+export function FormatNumber(num:number) {
+  if (Math.abs(num) < 1_000) {
+    return num.toString();
+  } 
+  else if (Math.abs(num) < 1_000_000) {
+    return Math.round(num / 1_000) + 'K';
+  } 
+  else if (Math.abs(num) < 1_000_000_000) {
+    return Math.round(num / 1_000_000) + 'M';
+  } 
+  else {
+    return Math.round(num / 1_000_000_000) + 'B';
+  }
+}

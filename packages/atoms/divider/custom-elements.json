@@ -1,0 +1,94 @@
+{
+  "className": "Divider",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/divider",
+  "properties": [
+    {
+      "name": "mode",
+      "type": "Mode",
+      "default_value": "horizontal",
+      "type_value": [
+        "vertical",
+        "horizontal"
+      ],
+      "primitive": false,
+      "conditional": false
+    }
+  ],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/atoms/divider": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "property",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@circular-templates/base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [],
+    "parts": []
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/divider",
+    "sources": [],
+    "variables": {
+      "--divider-light-color": {
+        "usecases": [
+          "--color"
+        ],
+        "fallbacks": [
+          "var(--colors-netural-grey300, #F1F1F4)"
+        ]
+      },
+      "--colors-netural-grey300": {
+        "usecases": [
+          "--color"
+        ],
+        "fallbacks": [
+          "#F1F1F4"
+        ]
+      },
+      "--color": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--divider-dark-color": {
+        "usecases": [
+          "--color"
+        ],
+        "fallbacks": [
+          "var(--colors-netural-grey700, #101010)"
+        ]
+      },
+      "--colors-netural-grey700": {
+        "usecases": [
+          "--color"
+        ],
+        "fallbacks": [
+          "#101010"
+        ]
+      },
+      "--divider-margin": {
+        "usecases": [
+          "margin-inline"
+        ],
+        "fallbacks": [
+          "8px"
+        ]
+      }
+    }
+  }
+}

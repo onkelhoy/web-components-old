@@ -12,7 +12,8 @@ function padWithZeros(number:number) {
 export class ColorTemplate extends BaseTemplate {
 
     @property({
-        onUpdate: 'onColorUpdate'
+        onUpdate: 'onColorUpdate',
+        rerender: false
     }) color?: string;
 
     private onColorUpdate(color:string, prev:string) {

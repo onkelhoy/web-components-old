@@ -1,0 +1,160 @@
+:host {
+    --background: var(--navbar-light-background-color, var(--neutral-100, white));
+
+    --hamburger-background: var(--navbar-light-hamburger-background-color, transparent);
+    --hamburger-background-hover: var(--navbar-light-hamburger-background-color-hover, var(--neutral-300, #F1F1F4));
+    --hamburger-background-active: var(--navbar-light-hamburger-background-color-active, var(--neutral-500, #C7CBD4));
+}
+
+// @media (prefers-color-scheme: dark) {
+//     :host {
+//         --background: var(--navbar-dark-background-color, var(--colors-netural-black, black));
+//         --color: var(--navbar-dark-text-color, var(--colors-netural-white, white));
+//     }
+// }
+
+:host {    
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: grid;
+    height: 100vh;
+    // min-height: 100vh;
+    grid-template-rows: 1fr;
+    
+    o-box-template {
+        container-type: inline-size;
+        display: block;
+        background-color: var(--background);
+        padding: var(--padding-small, 8px);
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: var(--margin-small, 8px);
+            padding-block: var(--padding-small, 8px);
+
+            o-icon.logo {
+                margin-left: var(--margin-medium, 16px);
+            }
+
+            o-button {
+                gap: 0;
+                padding: 0;
+                width: 40px;
+                height: 40px;
+
+                background-color: var(--hamburger-background);
+                color: var(--primary-600, black);
+                &:hover {
+                    background-color: var(--hamburger-background-hover);
+                }
+                &:active {
+                    background-color: var(--hamburger-background-active);
+                }
+            }
+        }
+    
+        o-divider {
+            margin-block: var(--margin-small, 8px);
+        }
+    
+        div.body {
+            ::slotted(o-navbar-item) {
+                margin-bottom: var(--margin-small, 8px);
+            }
+        }
+    }
+}
+
+:host([mode="open"]) {
+    width: 310px;
+}
+:host([mode="collapsed"]) {
+    width: 72px;
+}
+
+:host([mode="hover"]) {    
+    width: 72px;
+    --hamburger-background-hover: var(--navbar-light-hamburger-hover-background-color-hover, var(--neutral-100, #FFFFFF));
+    
+    o-box-template {
+        position: absolute;
+
+        &:hover {
+            width: 310px;
+            transition: width 60ms ease-in;
+        }
+
+        header {
+            o-button {
+                o-icon.open {
+                    display: none;
+                }
+                o-icon.collapsed {
+                    display: block;
+                }
+                o-icon.hover {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@container (min-width: 72px) {
+    :host {
+        o-box-template {
+            transition: width 60ms ease-in;
+            
+            header {
+                o-button {
+                    o-icon.open {
+                        display: block;
+                    }
+                    o-icon.collapsed {
+                        display: none;
+                    }
+                    o-icon.hover {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+@container (max-width: 72px) {
+    :host {
+        o-box-template {
+            transition: width 150ms ease-in;
+            background-color: red;
+
+            header {
+                justify-content: center;
+
+                ::slotted(*) {
+                    display: none;
+                }
+                o-icon.logo {
+                    display: none;
+                }
+                o-button {
+                    o-icon.open {
+                        display: none;
+                    }
+                    o-icon.collapsed {
+                        display: none !important;
+                    }
+                    o-icon.hover {
+                        display: block !important;
+                    }
+                }
+            }
+        }
+    }
+}
