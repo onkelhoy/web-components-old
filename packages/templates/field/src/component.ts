@@ -23,8 +23,12 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
     @property({ rerender: false }) value?: string;
     @property({ rerender: false, type: Boolean }) checked?: boolean;
     @property({ rerender: false, type: Number }) tabIndex = 1;
+    @property({ type: Boolean }) readonly: boolean = false;
 
-    protected inputElement!: T;
+    @property() protected _suffix?: DocumentFragment|string = "<span> </span>";
+    @property() protected _prefix?: DocumentFragment|string = "<span> </span>";
+
+    public inputElement!: T;
 
     private updateHidden(value:string) {
 
@@ -38,12 +42,12 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
         console.log('valid');
     }
     private handleinput_field = (e:Event) => {
-        this.handlechange_field(e);
-
+        this.handlechange_field(e, false);
+        
         this.dispatchEvent(new Event('input'));
         this.debouncedInput();
     }
-    private handlechange_field = (e:Event) => {
+    private handlechange_field = (e:Event, dispatch = true) => {
         if (e.target instanceof HTMLElement)
         {
             if (this.name)
@@ -59,6 +63,11 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
             else if ('value' in e.target)
             {
                 this.value = e.target.value as string;
+            }
+
+            if (dispatch) 
+            {
+                this.dispatchEvent(new Event('change'))
             }
         }
     }
@@ -90,7 +99,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
             this.inputElement.value = this.value;
         }
 
-        if (type === "radio" || type === "checkbox" || this.inputElement.tagName.toLowerCase() === "select")
+        if (type === "radio" || type === "checkbox" || this.inputElement.getAttribute('data-tagname') === "select" || this.inputElement.tagName === "select")
         {
             this.inputElement.dispatchEvent(new Event('change'));
         }
@@ -137,7 +146,8 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
                         input.setAttribute('value', this.value);
                     }
                 }
-    
+
+                if (this.readonly) input.setAttribute('readonly', 'true');
                 
                 input.setAttribute('data-field-init', 'true');
                 this.inputElement = input;
@@ -146,11 +156,11 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
         return html`
             <slot part="label" name="label"><o-typography>${this.label || ""}</o-typography></slot>
             <o-box-template radius="${this.radius}" class="wrapper" part="wrapper">
-                <slot name="prefix"><span></span></slot>
+                <slot name="prefix">${this._prefix}</slot>
                 ${element ? element : '<slot></slot>'}
-                <slot name="suffix"><span></span></slot>
+                <slot name="suffix">${this._suffix}</slot>
             </o-box-template>
-            <div class="message">
+            <div part="message" class="message">
                 <o-typography class="${this.message?.type || "hidden"}">${this.message?.message || ""}</o-typography>
                 <o-typography></o-typography>
             </div>

@@ -29,3 +29,24 @@ export function CumulativeOffset(element:HTMLElement) {
     left: left
   };
 };
+
+export function ExtractSlotValue(slot:HTMLSlotElement) {
+  const nodes = slot.assignedNodes();
+
+  const values:Array<string> = [];
+  nodes.forEach(node => appendLeafValue(node, values))
+
+  return values;
+}
+
+function appendLeafValue(node:Node, L:Array<string>) {
+  if (node.hasChildNodes()) 
+  {
+    node.childNodes.forEach(child => appendLeafValue(child, L));
+  }
+  else if (node.textContent)
+  {
+    if (node.textContent.trim() === "") return;
+    L.push(node.textContent);
+  }
+}

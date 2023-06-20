@@ -28,7 +28,7 @@ rsync -a --exclude='*DS_Store' $SCRIPT_DIR/view/ "$view_destination/"
 TEMPFILE="$SCRIPT_DIR/temp"
 
 # update register
-echo "import { $classname } from './src/components/$name';" >> $TEMPFILE
+echo "import { $classname } from './components/$name';" >> $TEMPFILE
 cat $1/src/register.ts >> $TEMPFILE
 echo "if (!cElements.get('$prefixname')) {" >> $TEMPFILE
 echo "  cElements.define('$prefixname', $classname);" >> $TEMPFILE
