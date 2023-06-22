@@ -12,8 +12,8 @@ import { RenderType } from "@circular-templates/base";
 export class BoxTemplate extends ColorTemplate {
     static styles = [style];
 
-    @property() radius: Radius = "circular";
-    @property() elevation: Elevation = "none";
+    @property({ rerender: false }) radius: Radius = "circular";
+    @property({ rerender: false }) elevation: Elevation = "none";
 
     render():RenderType {
         return `

@@ -1,0 +1,264 @@
+{
+  "className": "Textarea",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/textarea",
+  "properties": [
+    {
+      "name": "rows",
+      "type": "number",
+      "default_value": 4,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "resize",
+      "type": "Resize",
+      "default_value": "none",
+      "type_value": [
+        "none",
+        "verical",
+        "auto"
+      ],
+      "primitive": false,
+      "conditional": false
+    }
+  ],
+  "extend_class": {
+    "className": "TextinputTemplate",
+    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/textinput",
+    "properties": [
+      {
+        "name": "placeholder",
+        "type": "string",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      }
+    ],
+    "extend_class": {
+      "className": "FieldTemplate",
+      "folder": "/Users/henry/Developer/projects/web-components/packages/templates/field",
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "message",
+          "type": "Message",
+          "type_value": {
+            "type": null,
+            "message": null
+          },
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "size",
+          "type": "Size",
+          "default_value": "medium",
+          "type_value": [
+            "small",
+            "medium",
+            "large"
+          ],
+          "primitive": false,
+          "conditional": false
+        },
+        {
+          "name": "radius",
+          "type": "Radius",
+          "default_value": "small",
+          "type_value": [
+            "small",
+            "medium",
+            "large",
+            "none",
+            "circular"
+          ],
+          "primitive": false,
+          "conditional": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "default_value": false,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "name": "_suffix",
+          "default_value": "<span> </span>",
+          "type_value": null,
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "name": "_prefix",
+          "default_value": "<span> </span>",
+          "type_value": null,
+          "primitive": false,
+          "conditional": true
+        }
+      ],
+      "extend_class": null
+    }
+  },
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/templates/field": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "property",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "suspense",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@circular-templates/base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ],
+    "/Users/henry/Developer/projects/web-components/packages/templates/textinput": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "property",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "FieldTemplate",
+        "from": "@circular-templates/field"
+      }
+    ],
+    "/Users/henry/Developer/projects/web-components/packages/atoms/textarea": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "property",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "TextinputTemplate",
+        "from": "@circular-templates/textinput"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "label",
+        "html": "<o-typography></o-typography>"
+      },
+      {
+        "name": "prefix",
+        "html": "<span> </span>"
+      },
+      {
+        "name": "suffix",
+        "html": "<span> </span>"
+      }
+    ],
+    "parts": [
+      {
+        "name": "label",
+        "tag": "SLOT"
+      },
+      {
+        "name": "wrapper",
+        "tag": "O-BOX-TEMPLATE"
+      },
+      {
+        "name": "message",
+        "tag": "DIV"
+      }
+    ]
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/textarea",
+    "sources": [],
+    "variables": {
+      "--textarea-dark-background-color": {
+        "usecases": [
+          "--background"
+        ],
+        "fallbacks": [
+          "var(--colors-netural-black, black)"
+        ]
+      },
+      "--colors-netural-black": {
+        "usecases": [
+          "--background"
+        ],
+        "fallbacks": [
+          "black"
+        ]
+      },
+      "--textarea-dark-text-color": {
+        "usecases": [
+          "--color"
+        ],
+        "fallbacks": [
+          "var(--colors-netural-white, white)"
+        ]
+      },
+      "--colors-netural-white": {
+        "usecases": [
+          "--color"
+        ],
+        "fallbacks": [
+          "white"
+        ]
+      }
+    }
+  }
+}

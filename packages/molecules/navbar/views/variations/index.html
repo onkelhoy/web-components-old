@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar - Variations</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  
+<h1 data-title="class">Navbar Properties</h1>
+        <doc-card class="property" data-name="open">
+            <h2 slot="header"><span class="deemphasize">Property: </span>open</h2>
+
+            <div class="property-info">
+              <p>type: boolean</p>
+              <p>default-value: true</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="true">
+                    <h4><span class="deemphasize">Property-Value: </span>true</h4>
+                    <code-block lang="html" display="both">
+                      <o-navbar 
+                        open="true"
+                        
+                      >
+                        <p>Hello World</p>
+                      </o-navbar>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="false">
+                    <h4><span class="deemphasize">Property-Value: </span>false</h4>
+                    <code-block lang="html" display="both">
+                      <o-navbar 
+                        open="false"
+                        
+                      >
+                        <p>Hello World</p>
+                      </o-navbar>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    <h1 data-title="inherit">Inherited Properties</h1></body>
+</html>

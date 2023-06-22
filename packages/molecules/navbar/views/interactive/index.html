@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  <doc-controller>
+    <div id="target">
+      <o-navbar>
+        
+      <div slot="header" data-slotname="header">
+        
+                        <o-icon style="width:124px" size="large" name="interzero-logo"></o-icon>
+                        <o-icon customsize="32" name="circular-logo"></o-icon>
+                    
+      </div>
+     
+      <div  data-slotname="default">
+        <p>Hello World</p>
+      </div>
+    
+      </o-navbar>
+  </div>
+
+    <section class="control" slot="setting">
+      <o-tabs>
+        <o-tab id="html">HTML</o-tab>
+        <o-tab class="selected" id="properties">Properties</o-tab>
+        <o-tab id="css">CSS</o-tab>
+        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: header" variant="textarea" name="slot-header" data-slotname="header" value="
+                        <o-icon style="width:124px" size="large" name="interzero-logo">
+                        <o-icon customsize="32" name="circular-logo"></o-icon>
+                    "></doc-input><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="<p>Hello World</p>"></doc-input></div></o-tab-content>
+        <o-tab-content id="properties"><h3 data-subtitle="Navbar Properties">Navbar Properties</h3><div data-name="Navbar Properties" class="properties">
+          <doc-radio name="open" data-prop-name="open" label="open" value="true"></doc-radio>
+        </div></o-tab-content>
+        <o-tab-content id="css">
+      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/molecules/navbar" class="style-source">
+        <h3>navbar styles</h3>
+      <div class="style-group" data-style-name="--colors-netural-black"><color-picker-input data-css-input="true" name="--colors-netural-black" label="--colors-netural-black" value="black"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--background</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>black</li></ul></div></div></div><div class="style-group" data-style-name="--colors-netural-white"><color-picker-input data-css-input="true" name="--colors-netural-white" label="--colors-netural-white" value="white"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>white</li></ul></div></div></div><div class="style-group" data-style-name="--navbar-dark-background-color"><color-picker-input data-css-input="true" name="--navbar-dark-background-color" label="--navbar-dark-background-color" value="var(--colors-netural-black, black)"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--background</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>var(--colors-netural-black, black)</li></ul></div></div></div><div class="style-group" data-style-name="--navbar-dark-text-color"><color-picker-input data-css-input="true" name="--navbar-dark-text-color" label="--navbar-dark-text-color" value="var(--colors-netural-white, white)"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>var(--colors-netural-white, white)</li></ul></div></div></div></div>
+    </o-tab-content>
+      </o-tabs>
+    </section>
+  </doc-controller>
+</body>
+</html>

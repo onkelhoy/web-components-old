@@ -33,7 +33,7 @@ export const style = `:host {
 
 :host([size="large"]) {
   font-size: var(--button-font-size-large, var(--font-size-large, 1.2rem));
-  height: var(--button-height-large, var(--height-large, 48px));
+  height: var(--button-height-large, var(--height-large, 56px));
   padding: var(--button-padding-large, var(--padding-large, 1rem));
   border-width: var(--button-border-width-large, var(--border-width-large, 4px)); }
 

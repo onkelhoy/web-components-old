@@ -1,5 +1,5 @@
 export const style = `:host {
-  --shadow-color: var(--box-shadow-light-color, rgba(0, 0, 0, 0.1)); }
+  --shadow-color: var(--box-shadow-light-color, #00000029); }
 
 @media (prefers-color-scheme: dark) {
   :host {
@@ -27,7 +27,7 @@ export const style = `:host {
   box-shadow: var(--box-shadow-small, var(--shadow-small, 0 2px 4px var(--shadow-color))); }
 
 :host([elevation="medium"]) {
-  box-shadow: var(--box-shadow-medium, var(--shadow-medium, 0 2px 8px 2px var(--shadow-color))); }
+  box-shadow: var(--box-shadow-medium, var(--shadow-medium, 4px 0px 32px 0px var(--shadow-color))); }
 
 :host([elevation="large"]) {
   box-shadow: var(--box-shadow-large, var(--shadow-large, 0 2px 15px 5px var(--shadow-color))); }`;

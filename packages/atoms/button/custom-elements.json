@@ -153,7 +153,7 @@
   "html": {
     "slots": [
       {
-        "name": "left",
+        "name": "prefix",
         "html": "<span> </span>"
       },
       {
@@ -161,7 +161,7 @@
         "html": ""
       },
       {
-        "name": "right",
+        "name": "suffix",
         "html": "<span> </span>"
       }
     ],
@@ -227,14 +227,12 @@
           "20px"
         ]
       },
-      "--button-padding": {
+      "--button-padding-small": {
         "usecases": [
           "padding"
         ],
         "fallbacks": [
-          "var(--padding-small, 0.5rem)",
-          "var(--padding-medium, 1rem)",
-          "var(--padding-large, 1rem)"
+          "var(--padding-small, 0.5rem)"
         ]
       },
       "--padding-small": {
@@ -245,14 +243,12 @@
           "0.5rem"
         ]
       },
-      "--button-border-width": {
+      "--button-border-width-small": {
         "usecases": [
           "border-width"
         ],
         "fallbacks": [
-          "var(--border-width-small, 2px)",
-          "var(--border-width-medium, 3px)",
-          "var(--border-width-large, 4px)"
+          "var(--border-width-small, 2px)"
         ]
       },
       "--border-width-small": {
@@ -295,12 +291,28 @@
           "32px"
         ]
       },
+      "--button-padding-medium": {
+        "usecases": [
+          "padding"
+        ],
+        "fallbacks": [
+          "var(--padding-medium, 1rem)"
+        ]
+      },
       "--padding-medium": {
         "usecases": [
           "padding"
         ],
         "fallbacks": [
           "1rem"
+        ]
+      },
+      "--button-border-width-medium": {
+        "usecases": [
+          "border-width"
+        ],
+        "fallbacks": [
+          "var(--border-width-medium, 3px)"
         ]
       },
       "--border-width-medium": {
@@ -332,7 +344,7 @@
           "height"
         ],
         "fallbacks": [
-          "var(--height-large, 48px)"
+          "var(--height-large, 56px)"
         ]
       },
       "--height-large": {
@@ -340,7 +352,15 @@
           "height"
         ],
         "fallbacks": [
-          "48px"
+          "56px"
+        ]
+      },
+      "--button-padding-large": {
+        "usecases": [
+          "padding"
+        ],
+        "fallbacks": [
+          "var(--padding-large, 1rem)"
         ]
       },
       "--padding-large": {
@@ -349,6 +369,14 @@
         ],
         "fallbacks": [
           "1rem"
+        ]
+      },
+      "--button-border-width-large": {
+        "usecases": [
+          "border-width"
+        ],
+        "fallbacks": [
+          "var(--border-width-large, 4px)"
         ]
       },
       "--border-width-large": {

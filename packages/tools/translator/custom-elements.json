@@ -40,7 +40,12 @@
     ]
   },
   "html": {
-    "slots": [],
+    "slots": [
+      {
+        "name": "default",
+        "html": ""
+      }
+    ],
     "parts": []
   },
   "css": {

@@ -123,6 +123,20 @@ export function property(options?: Partial<PropertyOption>) {
         if (this[`_${propertyKey}`] === value) {
           return;
         }
+        if (_options.type === String && this[`_${propertyKey}`] && this[`_${propertyKey}`].toLowerCase() === value.toLowerCase())
+        {
+          return;
+        }
+        if (_options.verbose) 
+        {
+          // console.log({
+          //   message: 'not the same', 
+          //   property: this[`_${propertyKey}`], 
+          //   value, 
+          //   equal: this[`_${propertyKey}`] === value
+          // })
+        }
+
         const old = this[`_${propertyKey}`];
         this[`_${propertyKey}`] = value;
 
@@ -134,7 +148,9 @@ export function property(options?: Partial<PropertyOption>) {
 
         if (_options.onUpdate)
         {
-          this[_options.onUpdate].call(this, value, old);
+          this[_options.onUpdate+"_attempts"] = 0;
+          
+          tryupdate.call(this, _options.onUpdate, value, old, !!_options.verbose);
         }
 
         if (_options.rerender)
@@ -144,6 +160,35 @@ export function property(options?: Partial<PropertyOption>) {
       },
     });
   };
+}
+
+async function tryupdate(this:any, update:string, value:any, old:any, verbose:boolean) {
+  if (verbose) 
+  {
+    console.log({
+      message: 'calling update', 
+      property: update, 
+      value: this[update],
+      attempt: this[update+"_attempts"]
+    })
+  }
+
+  let ans:number|undefined = 10;
+  if (this[update])
+  {
+    ans = await this[update](value, old);
+  }
+
+  if (typeof ans === "number")
+  {
+    if (this[update+"_attempts"] < ans)
+    {
+      this[update+"_attempts"]++;
+      setTimeout(() => {
+        tryupdate.call(this, update, value, old, verbose);
+      }, 100)
+    }
+  }
 }
 
 function convertFromString(value:string, type:Function) {

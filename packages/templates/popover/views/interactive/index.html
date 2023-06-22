@@ -33,18 +33,26 @@
         <o-tab id="css">CSS</o-tab>
         <o-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: target" variant="textarea" name="slot-target" data-slotname="target" value=""></doc-input><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="Hello World"></doc-input></div></o-tab-content>
         <o-tab-content id="properties"><h3 data-subtitle="PopoverTemplate Properties">PopoverTemplate Properties</h3><div data-name="PopoverTemplate Properties" class="properties">
+        
         <doc-input data-prop-name="revealby" variant="select" value="hover" name="revealby" label="revealby" options='["hover","click"]'></doc-input>
       
+      
+        
         <doc-input data-prop-name="placement" variant="select" value="bottom-center" name="placement" label="placement" options='["top-left","top-right","top-center","bottom-left","bottom-right","bottom-center","left-top","left-bottom","left-center","right-top","right-bottom","right-center"]'></doc-input>
       
+      
+          
           <doc-radio name="hideonoutsideclick" data-prop-name="hideonoutsideclick" label="hideonoutsideclick" value="true"></doc-radio>
         
+        
+          
           <doc-radio name="open" data-prop-name="open" label="open" value=""></doc-radio>
+        
         </div></o-tab-content>
         <o-tab-content id="css">
       <div data-css-part="/Users/henry/Developer/projects/web-components/packages/templates/popover" class="style-source">
         <h3>popover styles</h3>
-      <div class="style-group" data-style-name="--gap"><h4>--gap</h4><doc-input label="" data-css-input="true" name="--gap" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding-bottom</li><li>padding-top</li><li>padding-right</li><li>padding-left</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--popover-gap"><h4>--popover-gap</h4><doc-input label="" data-css-input="true" name="--popover-gap" value="1rem"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--gap</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>1rem</li></ul></div></div></div></div>
+      <div class="style-group" data-style-name="--gap"><doc-input data-css-input="true" name="--gap" label="--gap" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding-bottom</li><li>padding-top</li><li>padding-right</li><li>padding-left</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--popover-gap"><doc-input data-css-input="true" name="--popover-gap" label="--popover-gap" value="1rem"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--gap</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>1rem</li></ul></div></div></div></div>
     </o-tab-content>
       </o-tabs>
     </section>

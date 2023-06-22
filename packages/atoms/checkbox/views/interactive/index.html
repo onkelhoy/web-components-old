@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  <doc-controller>
+    <div id="target">
+      <o-checkbox>
+        
+      <div slot="label" data-slotname="label">
+        <o-typography></o-typography>
+      </div>
+     
+      <div slot="prefix" data-slotname="prefix">
+        <span> </span>
+      </div>
+     
+      <div slot="suffix" data-slotname="suffix">
+        <span> </span>
+      </div>
+    
+      </o-checkbox>
+  </div>
+
+    <section class="control" slot="setting">
+      <o-tabs>
+        <o-tab id="html">HTML</o-tab>
+        <o-tab class="selected" id="properties">Properties</o-tab>
+        <o-tab id="css">CSS</o-tab>
+        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: label" variant="textarea" name="slot-label" data-slotname="label" value="<o-typography></o-typography>"></doc-input><doc-input label="HTML slot: prefix" variant="textarea" name="slot-prefix" data-slotname="prefix" value="<span> </span>"></doc-input><doc-input label="HTML slot: suffix" variant="textarea" name="slot-suffix" data-slotname="suffix" value="<span> </span>"></doc-input></div></o-tab-content>
+        <o-tab-content id="properties"><h3 data-subtitle="Checkbox Properties">Checkbox Properties</h3><div data-name="Checkbox Properties" class="properties">
+            <color-picker-input data-prop-name="color" name="color" label="color" value="blue"></color-picker-input>
+          </div><h3 data-subtitle="FieldTemplate Properties">FieldTemplate Properties</h3><div data-name="FieldTemplate Properties" class="properties">
+            <doc-input data-prop-name="name" value="" name="name" label="name"></doc-input>
+          
+        <doc-input data-prop-name="message" variant="textarea" value="" name="message" label="message - Message"></doc-input>
+      
+            <doc-input data-prop-name="label" value="" name="label" label="label"></doc-input>
+          
+        <doc-input data-prop-name="size" variant="select" value="medium" name="size" label="size" options='["small","medium","large"]'></doc-input>
+      
+        <doc-input data-prop-name="radius" variant="select" value="small" name="radius" label="radius" options='["small","medium","large","none","circular"]'></doc-input>
+      
+            <doc-input data-prop-name="value" value="" name="value" label="value"></doc-input>
+          
+          <doc-radio name="checked" data-prop-name="checked" label="checked" value=""></doc-radio>
+        
+          <doc-radio name="readonly" data-prop-name="readonly" label="readonly" value=""></doc-radio>
+        </div></o-tab-content>
+        <o-tab-content id="css">
+      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/atoms/checkbox" class="style-source">
+        <h3>checkbox styles</h3>
+      <div class="style-group" data-style-name="--checkbox-size-large"><doc-input data-css-input="true" name="--checkbox-size-large" label="--checkbox-size-large" value="var(--size-large, 28px)"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>var(--size-large, 28px)</li></ul></div></div></div><div class="style-group" data-style-name="--checkbox-size-medium"><doc-input data-css-input="true" name="--checkbox-size-medium" label="--checkbox-size-medium" value="var(--size-medium, 20px)"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>var(--size-medium, 20px)</li></ul></div></div></div><div class="style-group" data-style-name="--checkbox-size-small"><doc-input data-css-input="true" name="--checkbox-size-small" label="--checkbox-size-small" value="var(--size-small, 15px)"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>var(--size-small, 15px)</li></ul></div></div></div><div class="style-group" data-style-name="--size-large"><doc-input data-css-input="true" name="--size-large" label="--size-large" value="28px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>28px</li></ul></div></div></div><div class="style-group" data-style-name="--size-medium"><doc-input data-css-input="true" name="--size-medium" label="--size-medium" value="20px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>20px</li></ul></div></div></div><div class="style-group" data-style-name="--size-small"><doc-input data-css-input="true" name="--size-small" label="--size-small" value="15px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>15px</li></ul></div></div></div></div>
+    </o-tab-content>
+      </o-tabs>
+    </section>
+  </doc-controller>
+</body>
+</html>

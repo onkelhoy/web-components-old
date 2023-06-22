@@ -6,7 +6,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source $PACKAGE_DIR/.env 
 
 # clear the file first
-if [[ -z $2 ]]: then 
+if [[ -z $2 ]]; then 
   rm $PACKAGE_DIR/custom-elements.json
 else 
   rm $PACKAGE_DIR/custom-elements.$2.json
