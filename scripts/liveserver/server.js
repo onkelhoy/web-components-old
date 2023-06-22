@@ -147,6 +147,11 @@ async function getFile(url) {
             const file = fs.readFileSync(path.join(outputfolder, url), 'utf-8');
             return [200, file];
         }
+        if (url.endsWith('circular-design-tokens.css'))
+        {
+            const file = fs.readFileSync(path.resolve(SCRIPT_DIR, '../../design-tokens/tokens.css'))
+            return [200, file]
+        }
         if (!url.endsWith('.js') && !url.endsWith('.css'))
         {
             const file = fs.readFileSync(path.join(viewfolder, url), 'utf-8');
