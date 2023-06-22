@@ -8,6 +8,7 @@
     "create": "sh ./scripts/generator/copy.sh",
     "clean": "sh ./scripts/clean.sh",
     "start": "cd ./ecosystem && npm run combine",
+    "tokens": "sh ./design-tokens/combine.sh",
     "document": ""
   },
   "keywords": [
