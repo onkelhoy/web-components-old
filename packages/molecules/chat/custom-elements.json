@@ -19,10 +19,6 @@
       }
     ]
   },
-  "html": {
-    "slots": [],
-    "parts": []
-  },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/chat",
     "sources": [],

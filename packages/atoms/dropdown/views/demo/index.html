@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown demo</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <doc-card>
+        <code-block lang="html" display="both">
+            <o-dropdown placeholder="select something"></o-dropdown>
+        </code-block>
+    </doc-card>
+
+    <doc-card>
+        <code-block lang="html" display="both">
+            <o-dropdown label="Single Value" placeholder="select something">
+                <o-option>Hello</o-option>
+                <o-option>Apa</o-option>
+                <o-option>Bajs</o-option>
+                <o-option>Snoskeposke</o-option>
+            </o-dropdown>
+        </code-block>
+    </doc-card>
+
+    <doc-card>
+        <code-block lang="html" display="both">
+            <o-dropdown label="Multiple Values" multiple="true" placeholder="select something">
+                <o-option value="1">Hello</o-option>
+                <o-option value="2">Apa</o-option>
+                <o-option value="3">Bajs</o-option>
+                <o-option value="4">Snoskeposke</o-option>
+                <o-option value="5">Hello</o-option>
+                <o-option value="6">Apa</o-option>
+                <o-option value="7">Bajs</o-option>
+                <o-option value="8">Snoskeposke</o-option>
+                <o-option value="9">Hello</o-option>
+                <o-option value="10">Snoskeposke</o-option>
+                <o-option value="11">Hello</o-option>
+                <o-option value="12">Apa</o-option>
+                <o-option value="13">Bajs</o-option>
+                <o-option value="14">Snoskeposke</o-option>
+                <o-option value="15">Hello</o-option>
+                <o-option value="16">Apa</o-option>
+                <o-option value="17">Bajs</o-option>
+                <o-option value="18">Snoskeposke</o-option>
+                <o-option value="19">Hello</o-option>
+            </o-dropdown>
+        </code-block>
+    </doc-card>
+
+    <doc-card>
+        <code-block lang="html" display="both">
+            <o-dropdown value="4" label="With Value" placeholder="select something">
+                <o-option value="1">Hello</o-option>
+                <o-option value="2">Apa</o-option>
+                <o-option value="3">Bajs</o-option>
+                <o-option value="4">Snoskeposke</o-option>
+                <o-option value="5">Hello</o-option>
+            </o-dropdown>
+        </code-block>
+    </doc-card>
+
+    <doc-card>
+        <code-block lang="html" display="both">
+            <o-dropdown value="4, 1, 5" multiple label="With Value (multiple)" placeholder="select something">
+                <o-option value="1">Hello</o-option>
+                <o-option value="2">Apa</o-option>
+                <o-option value="3">Bajs</o-option>
+                <o-option value="4">Snoskeposke</o-option>
+                <o-option value="5">Hello</o-option>
+            </o-dropdown>
+        </code-block>
+    </doc-card>
+
+    <doc-card>
+        <code-block lang="html" display="both">
+            <o-dropdown value="4" search label="Search" placeholder="select something">
+                <o-option value="1">Hello</o-option>
+                <o-option value="2">Apa</o-option>
+                <o-option value="3">Bajs</o-option>
+                <o-option value="4">Snoskeposke</o-option>
+                <o-option value="5">Hello</o-option>
+            </o-dropdown>
+        </code-block>
+    </doc-card>
+
+    <doc-card> 
+        <o-typography slot="header">Dynamic Content</o-typography>
+        <button slot="header" id="dynamic_content_btn">Toggle</button>
+        <code-block lang="html" display="both">
+            <o-dropdown multiple name="dynamic-content"></o-dropdown>
+        </code-block>
+    </doc-card>
+</body>
+</html>

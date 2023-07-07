@@ -8,4 +8,8 @@
   --margin-small: 8px;
   --margin-medium: 16px;
   --margin-large: 24px;
+
+  --gap-small: 8px;
+  --gap-medium: 16px;
+  --gap-large: 24px;
 }

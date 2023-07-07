@@ -1,5 +1,5 @@
 <script defer>
-    const ws = new WebSocket('ws://localhost:PORT');
+    const ws = new WebSocket('ws://localhost:PORT'); // NOTE port is probably a misstake but browser is smart and defaults to same origin..
     ws.onerror = (error) => {
         console.error('live-server socket error:', error);
     }

@@ -8,45 +8,28 @@ Version: 1.0.0
 Development servers can be started and should all exist inside `"views"` folder
 
 ## Scripts 
-PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
+## Introduction to the Button Component
 
-## SOURCE-CODE:
-import { property, Size } from '@circular-tools/utils';
-import { BoxTemplate } from '@circular-templates/box';
+The Button component is a versatile and customizable UI element that can be easily integrated into your web applications. It provides a consistent and interactive way for users to trigger actions or navigate through your application.
 
-import { style } from './style.js';
+To use the Button component in your HTML code, follow these simple steps:
 
-import type { ButtonMode, ButtonVariant, ButtonType } from './types';
+1. Make sure you have the necessary dependencies installed. The Button component relies on the Circular Tools and Circular Templates libraries. You can install them using a package manager like npm:
 
-export class Button extends BoxTemplate {
-    static styles = [BoxTemplate.style, style];
-    
-    @property() size: Size = "medium";
-    @property() mode: ButtonMode = "hug";
-    @property() variant: ButtonVariant = "filled";
-    @property() tabIndex: number = 1;
+```bash
+npm install @circular-tools/utils @circular-templates/box
+```
 
-    constructor() {
-        super();
+2. Import the Button component and its required styles into your JavaScript file:
 
-        setTimeout(() => {
-            if (!this.color) this.color = "primary";
-        }, 1)
-    }
-
-    render() {
-        return `
-            <slot name="left"><span> </span></slot>
-            <slot></slot>
-            <slot name="right"><span> </span></slot>
-        `;
-    }
-}
-## REGISTER-CODE:
+```javascript
 import { Button } from './component.js';
+import { style } from './style.js';
+```
 
-// Register the element with the browser
+3. Register the Button element with the browser's custom elements:
+
+```javascript
 const cElements = customElements ?? window?.customElements;
 
 if (!cElements) {
@@ -56,211 +39,111 @@ if (!cElements) {
 if (!cElements.get('o-button')) {
   cElements.define('o-button', Button);
 }
-PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
-3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
+```
 
-## SOURCE-CODE:
- import { property, Size } from '@circular-tools/utils';
-import { BoxTemplate } from '@circular-templates/box';
+4. In your HTML code, you can now use the `<o-button>` element as follows:
 
-import { style } from './style.js';
+```html
+<o-button></o-button>
+```
 
-import type { ButtonMode, ButtonVariant, ButtonType } from './types';
+You can customize the Button component by using its available properties. Here are some examples:
 
-export class Button extends BoxTemplate {
-    static styles = [BoxTemplate.style, style];
-    
-    @property() size: Size = "medium";
-    @property() mode: ButtonMode = "hug";
-    @property() variant: ButtonVariant = "filled";
-    @property() tabIndex: number = 1;
+- `size`: Sets the size of the button. Possible values are "small", "medium" (default), and "large".
+- `mode`: Specifies the button's mode. It can be "hug" (default) or "stretch".
+- `variant`: Defines the button's variant. Available options include "filled" (default), "outlined", and "text".
+- `tabIndex`: Specifies the tab order of the button within the document.
 
-    constructor() {
-        super();
+Additionally, you can provide content within the button using named slots. The slots available are "left", "right", and the default slot.
 
-        setTimeout(() => {
-            if (!this.color) this.color = "primary";
-        }, 1)
-    }
+Here's an example of a customized Button component:
 
-    render() {
-        return `
-            <slot name="left"><span> </span></slot>
-            <slot></slot>
-            <slot name="right"><span> </span></slot>
-        `;
-    }
-}
+```html
+<o-button size="large" mode="stretch" variant="outlined" tabindex="2">
+    <span slot="left">Left Content</span>
+    Button Text
+    <span slot="right">Right Content</span>
+</o-button>
+```
 
-## TYPE-CODE: 
-export type ButtonVariant = 'filled'|'outlined'|'underlined'|'clear';
-export type ButtonType = 'button' | 'reset' | 'submit';
-export type ButtonMode = 'hug' | 'fill'PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and style code probided. Can you create a documentation that includes titles, short descrition and the table for each tables: css-variables, parts, slots.
-css-variables should be a table with columns: (name, default-value, type - ex. CSS unit, description).
-parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
-slots should include columns: (name, default-value, description)
+With the Button component, you can create interactive and visually appealing buttons that seamlessly fit into your web application's design.properties:
 
-## SOURCE-CODE:
-import { property, Size } from '@circular-tools/utils';
-import { BoxTemplate } from '@circular-templates/box';
-
-import { style } from './style.js';
-
-import type { ButtonMode, ButtonVariant, ButtonType } from './types';
-
-export class Button extends BoxTemplate {
-    static styles = [BoxTemplate.style, style];
-    
-    @property() size: Size = "medium";
-    @property() mode: ButtonMode = "hug";
-    @property() variant: ButtonVariant = "filled";
-    @property() tabIndex: number = 1;
-
-    constructor() {
-        super();
-
-        setTimeout(() => {
-            if (!this.color) this.color = "primary";
-        }, 1)
-    }
-
-    render() {
-        return `
-            <slot name="left"><span> </span></slot>
-            <slot></slot>
-            <slot name="right"><span> </span></slot>
-        `;
-    }
-}
-## STYLE-CODE:
-// value maps
-$size-map: (
-  small: (
-    font-size: 0.8rem,
-    height: 20px,
-    padding: 0.5rem,
-    border-width: 2px,
-  ),
-  medium: (
-    font-size: 1rem,
-    height: 32px,
-    padding: 1rem,
-    border-width: 3px,
-  ),
-  large: (
-    font-size: 1.2rem,
-    height: 48px,
-    padding: 1rem,
-    border-width: 4px,
-  ),
-);
-
-:host {
-    cursor: var(--button-cursor, pointer);
-    align-items: center;
-    font-family: var(--button-font-family, var(--font-family, inherit));
-
-    justify-content: space-between;
-    gap: 0.5rem;
-
-    box-sizing: border-box;
-    position: relative;
-
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
-}
-
-:host([mode="hug"]) {
-    display: inline-flex;
-}
-:host([mode="fill"]) {
-    display: flex;
-}
-
-@each $name, $value in $size-map {
-    :host([size="#{$name}"]) {
-        font-size: var(--button-font-size-#{$name}, var(--font-size-#{$name}, #{map-get($value, font-size)}));
-        height: var(--button-height-#{$name}, var(--height-#{$name}, #{map-get($value, height)}));
-        padding: var(--button-padding, var(--padding-#{$name}, #{map-get($value, padding)}));
-        border-width: var(--button-border-width, var(--border-width-#{$name}, #{map-get($value, border-width)}));
-    }
-}  
-
-$clear-variants: clear, underlined, outlined;
-@each $name in $clear-variants {
-    :host([variant="#{$name}"]) {
-        background-color: var(--button-background-color-#{$name}, transparent);
-        color: var(--button-text-color-#{$name}, var(--color500));
-    }
-    :host([variant="#{$name}"]:hover) {
-        background-color: var(--button-background-color-#{$name}-hover, transparent);
-        color: var(--button-text-color-#{$name}-hover, var(--color600));
-    }
-    :host([variant="#{$name}"]:active) {
-        background-color: var(--button-background-color-#{$name}-active, var(--color3000));
-        color: var(--button-background-text-color-#{$name}-active, var(--color700));
-    }
-    :host([variant="#{$name}"][disabled]) {
-        background-color: var(--button-background-color-#{$name}-disabled, transparent);
-        color: var(--button-text-color-#{$name}-disabled, var(--disabled-text-color, var(--color3100)));
-    }
-}
-
-:host([disabled]) {
-    cursor: var(--button-cursor-disabled, not-allowed);
-}
+| name    | default-value | type           | description                  |
+|---------|---------------|----------------|------------------------------|
+| size    | "medium"      | Size           | Size of the button           |
+| mode    | "hug"         | ButtonMode     | Button mode                  |
+| variant | "filled"      | ButtonVariant  | Button variant               |
+| tabIndex| 1             | number         | Tab index of the button      |
 
 
+events:
 
-// filled
-:host([variant="filled"]) {
-    background-color: var(--button-background-color-filled, var(--color500));
-    color: var(--button-text-color-filled, var(--text-color500));
-}
-:host([variant="filled"]:hover) {
-    background-color: var(--button-background-color-filled-hover, var(--color600));
-    color: var(--button-text-color-filled-hover, var(--text-color600));
-}
-:host([variant="filled"]:active) {
-    background-color: var(--button-background-color-filled-active, var(--color700));
-    color: var(--button-text-color-filled-active, var(--text-color700));
-}
-:host([variant="filled"][disabled]) {
-    background-color: var(--button-background-color-filled-disabled, var(--color1400));
-    color: var(--button-text-color-filled-disabled, var(--disabled-text-color, var(--color3000)));
-}
+| name   | type                          | description                   |
+|--------|-------------------------------|-------------------------------|
+| N/A    | N/A                           | No specific events mentioned  |
 
-// outlined
-:host([variant="outlined"]) {
-    border-color: var(--button-border-color-outlined, var(--color500));
-    border-style: var(--button-border-style, solid);
-}
-:host([variant="outlined"]:hover) {
-    border-color: var(--button-border-color-outlined-hover, var(--color600));
-}
-:host([variant="outlined"]:active) {
-    border-color: var(--button-border-color-outlined-active, var(--color700));
-}
-:host([variant="outlined"][disabled]) {
-    border-color: var(--button-border-color-outlined-disabled, var(--color1400));
-}
 
-// underlined
-:host([variant="underlined"]) {
-    text-decoration: underline;
-    text-decoration-thickness: var(--button-underlined-thickness, 1px);
-}
-:host([variant="underlined"]:hover) {
-    text-decoration-thickness: var(--button-underlined-hover-thickness, 2px);
-}
-:host([variant="underlined"]:active) {
-    text-decoration-thickness: var(--button-underlined-active-thickness, 2px);
-}
-:host([variant="underlined"][disabled]) {
-    text-decoration-thickness: var(--button-underlined-disabled-thickness, 1px);
-}
+public functions:
+
+| name   | arguments                          | description                    |
+|--------|-----------------------------------|--------------------------------|
+| render | N/A                               | Renders the button component   |# Documentation
+
+## Table of Contents
+- [css-variables](#css-variables)
+- [parts](#parts)
+- [slots](#slots)
+
+## `Button` Class
+
+### Description
+The `Button` class is a custom button element that extends the `BoxTemplate` class. It provides customizable properties and styling options for buttons.
+
+### Usage
+```html
+<button is="circular-button"></button>
+```
+
+### Properties
+| Name      | Type           | Default Value | Description                                                      |
+| --------- | -------------- | ------------- | ---------------------------------------------------------------- |
+| `size`    | `Size`         | `"medium"`    | The size of the button. Possible values: `"small"`, `"medium"`, `"large"`. |
+| `mode`    | `ButtonMode`   | `"hug"`       | The mode of the button. Possible values: `"hug"`, `"fill"`.      |
+| `variant` | `ButtonVariant`| `"filled"`    | The variant style of the button. Possible values: `"filled"`, `"underlined"`, `"outlined"`. |
+| `tabIndex`| `number`       | `1`           | The tab index of the button.                                     |
+
+### CSS Variables
+#### `css-variables` Table
+| Name                 | Default Value | Type          | Description                                               |
+| -------------------- | ------------- | ------------- | --------------------------------------------------------- |
+| `--button-cursor`    | `pointer`     |               | The cursor style for the button.                          |
+| `--button-font-family`| `var(--font-family, inherit)`|       | The font family for the button.                      |
+| `--button-padding`   |               | CSS unit      | The padding for the button.                                |
+| `--button-border-width` |          | CSS unit      | The border width for the button.                           |
+| `--button-background-color-<variant>` |  |           | The background color for the specified variant.           |
+| `--button-text-color-<variant>` |        |               | The text color for the specified variant.                 |
+| `--button-background-color-<variant>-hover` | |         | The background color for the specified variant when hovered.   |
+| `--button-text-color-<variant>-hover` |   |              | The text color for the specified variant when hovered.         |
+| `--button-background-color-<variant>-active` | |      | The background color for the specified variant when active.    |
+| `--button-text-color-<variant>-active` |    |             | The text color for the specified variant when active.          |
+| `--button-background-color-<variant>-disabled` | |   | The background color for the specified variant when disabled.  |
+| `--button-text-color-<variant>-disabled` |  |              | The text color for the specified variant when disabled.        |
+| `--button-cursor-disabled` | `not-allowed` |            | The cursor style for the disabled button.                   |
+
+### Parts
+#### `parts` Table
+| Name | Description |
+| ---- | ----------- |
+| `left` | The left slot of the button. |
+| `right` | The right slot of the button. |
+
+### Slots
+#### `slots` Table
+| Name | Default Value | Description |
+| ---- | ------------- | ----------- |
+| `left` | `<span> </span>` | The content placed in the left slot of the button. |
+|        |               | 
+|        |               | 
+| `right` | `<span> </span>` | The content placed in the right slot of the button. |
+
+Note: The

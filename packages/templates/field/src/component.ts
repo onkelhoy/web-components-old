@@ -20,18 +20,39 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
     @property() label?: string;
     @property({ rerender: false }) size: Size = "medium";
     @property({ rerender: false }) radius: Radius = "small";
-    @property({ rerender: false }) value?: string;
     @property({ rerender: false, type: Boolean }) checked?: boolean;
     @property({ rerender: false, type: Number }) tabIndex = 1;
     @property({ type: Boolean }) readonly: boolean = false;
+    @property({ rerender: false, onUpdate: "onvalueupdate" }) value: string = "";
 
-    @property() protected _suffix?: DocumentFragment|string = "<span> </span>";
-    @property() protected _prefix?: DocumentFragment|string = "<span> </span>";
-
+    @property({ type: Object, attribute: false }) protected _suffix?: DocumentFragment|string = "<span> </span>";
+    @property({ type: Object, attribute: false }) protected _prefix?: DocumentFragment|string = "<span> </span>";
     public inputElement!: T;
 
-    private updateHidden(value:string) {
+    // on update functions
+    private onvalueupdate = (value:string) => {
+        // if (!this.inputElement) return 10;
+        if (!this.inputElement) return;
 
+        const type = this.inputElement.getAttribute('type')
+        if ('checked' in this.inputElement && (type === "radio" || type === "checkbox"))
+        {
+            this.inputElement.checked = value === "true";
+            this.setAttribute('checked', this.value);
+        }
+        else if ('value' in this.inputElement)
+        {
+            this.inputElement.value = this.value;
+        }
+
+        if (type === "radio" || type === "checkbox" || this.inputElement.getAttribute('data-tagname') === "select" || this.inputElement.tagName === "select")
+        {
+            this.inputElement.dispatchEvent(new Event('change'));
+        }
+        else 
+        {
+            this.inputElement.dispatchEvent(new Event('input'));
+        }
     }
 
     // event handlers 
@@ -76,36 +97,16 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
     private debouncedInput = () => {
         this.dispatchEvent(new Event('suspended-input'));
     }
+    private updateHidden(value:string) {
+
+    }
 
     // public functions
-    handlefocus = () => {
+    public handlefocus = () => {
         // this.hasFocus = true;
         if (this.inputElement)
         {
             this.inputElement.focus();
-        }
-    }
-    public set Value(value:string|boolean) {
-        this.value = value.toString();
-
-        const type = this.inputElement.getAttribute('type')
-        if ('checked' in this.inputElement && (type === "radio" || type === "checkbox"))
-        {
-            this.inputElement.checked = value;
-            this.setAttribute('checked', this.value);
-        }
-        else if ('value' in this.inputElement)
-        {
-            this.inputElement.value = this.value;
-        }
-
-        if (type === "radio" || type === "checkbox" || this.inputElement.getAttribute('data-tagname') === "select" || this.inputElement.tagName === "select")
-        {
-            this.inputElement.dispatchEvent(new Event('change'));
-        }
-        else 
-        {
-            this.inputElement.dispatchEvent(new Event('input'));
         }
     }
 
@@ -151,6 +152,11 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
                 
                 input.setAttribute('data-field-init', 'true');
                 this.inputElement = input;
+
+                if (this.value !== "")
+                {
+                    this.onvalueupdate(this.value);
+                }
             }
         }
         return html`

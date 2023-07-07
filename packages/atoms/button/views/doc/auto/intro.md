@@ -1,42 +1,25 @@
-PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
+## Introduction to the Button Component
 
-## SOURCE-CODE:
-import { property, Size } from '@circular-tools/utils';
-import { BoxTemplate } from '@circular-templates/box';
+The Button component is a versatile and customizable UI element that can be easily integrated into your web applications. It provides a consistent and interactive way for users to trigger actions or navigate through your application.
 
-import { style } from './style.js';
+To use the Button component in your HTML code, follow these simple steps:
 
-import type { ButtonMode, ButtonVariant, ButtonType } from './types';
+1. Make sure you have the necessary dependencies installed. The Button component relies on the Circular Tools and Circular Templates libraries. You can install them using a package manager like npm:
 
-export class Button extends BoxTemplate {
-    static styles = [BoxTemplate.style, style];
-    
-    @property() size: Size = "medium";
-    @property() mode: ButtonMode = "hug";
-    @property() variant: ButtonVariant = "filled";
-    @property() tabIndex: number = 1;
+```bash
+npm install @circular-tools/utils @circular-templates/box
+```
 
-    constructor() {
-        super();
+2. Import the Button component and its required styles into your JavaScript file:
 
-        setTimeout(() => {
-            if (!this.color) this.color = "primary";
-        }, 1)
-    }
-
-    render() {
-        return `
-            <slot name="left"><span> </span></slot>
-            <slot></slot>
-            <slot name="right"><span> </span></slot>
-        `;
-    }
-}
-## REGISTER-CODE:
+```javascript
 import { Button } from './component.js';
+import { style } from './style.js';
+```
 
-// Register the element with the browser
+3. Register the Button element with the browser's custom elements:
+
+```javascript
 const cElements = customElements ?? window?.customElements;
 
 if (!cElements) {
@@ -46,3 +29,31 @@ if (!cElements) {
 if (!cElements.get('o-button')) {
   cElements.define('o-button', Button);
 }
+```
+
+4. In your HTML code, you can now use the `<o-button>` element as follows:
+
+```html
+<o-button></o-button>
+```
+
+You can customize the Button component by using its available properties. Here are some examples:
+
+- `size`: Sets the size of the button. Possible values are "small", "medium" (default), and "large".
+- `mode`: Specifies the button's mode. It can be "hug" (default) or "stretch".
+- `variant`: Defines the button's variant. Available options include "filled" (default), "outlined", and "text".
+- `tabIndex`: Specifies the tab order of the button within the document.
+
+Additionally, you can provide content within the button using named slots. The slots available are "left", "right", and the default slot.
+
+Here's an example of a customized Button component:
+
+```html
+<o-button size="large" mode="stretch" variant="outlined" tabindex="2">
+    <span slot="left">Left Content</span>
+    Button Text
+    <span slot="right">Right Content</span>
+</o-button>
+```
+
+With the Button component, you can create interactive and visually appealing buttons that seamlessly fit into your web application's design.

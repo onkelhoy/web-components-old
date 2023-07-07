@@ -1,4 +1,4 @@
-import { property, suspense } from "@circular-tools/utils";
+import { NextParent, property, suspense } from "@circular-tools/utils";
 
 import { FunctionCallback, RenderType } from "./types";
 
@@ -64,6 +64,27 @@ export class BaseTemplate extends HTMLElement {
         ];
 
         return styles.join(' ');
+    }
+
+    public querySelector(selector:string) {
+        if (this.shadowRoot) return this.shadowRoot.querySelector(selector);
+        return null;
+    }
+    public shadow_closest(selector: string) {
+        let parent = NextParent(this);
+        
+        while (parent)
+        {
+            // check if parent is our selector
+            const closest = parent.closest(selector);
+            if (closest) return closest;
+
+            const target = parent.querySelector(selector);
+            if (target) return target;
+
+            if (parent === document.documentElement) break;
+            parent = NextParent(parent);
+        }
     }
 
     public requestUpdate() {

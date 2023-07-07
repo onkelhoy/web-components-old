@@ -9,7 +9,19 @@ export class TextinputTemplate<T extends HTMLElement = HTMLInputElement> extends
 
     private lastselection_position = 0;
 
-    // event functions
+    public set selectionStart (value:number) {
+        if (this.inputElement instanceof HTMLInputElement || this.inputElement instanceof HTMLTextAreaElement)
+        {
+            this.inputElement.selectionStart = value;
+        }
+    }
+    public set selectionEnd (value:number) {
+        if (this.inputElement instanceof HTMLInputElement || this.inputElement instanceof HTMLTextAreaElement)
+        {
+            this.inputElement.selectionEnd = value;
+        }
+    }
+
     protected handlekeyup = () => {
         const ss = (this.inputElement as any).selectionStart;
         if (typeof ss === "number")
