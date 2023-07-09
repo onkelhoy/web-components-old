@@ -1,0 +1,24 @@
+
+@media (prefers-color-scheme: light) {
+  :root {
+
+  --o-color-canvas-50: orange;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+
+  --o-color-canvas-50: rgb(85, 69, 0);
+  }
+}
+:root,
+.theme-light {
+
+  --o-color-canvas-50: orange;
+}
+
+.theme-dark {
+
+  --o-color-canvas-50: rgb(85, 69, 0);
+}
+

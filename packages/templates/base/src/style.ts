@@ -1,4 +1,4 @@
 export const style = `:host {
   display: inline-block;
-  background-color: var(--base-background-color, var(--colors-netural-white, white));
-  color: var(--base-text-color, var(--colors-netural-black, black)); }`;
+  background-color: var(--base-background-color, var(--o-color-white, white));
+  color: var(--base-text-color, var(--o-color-black, black)); }`;

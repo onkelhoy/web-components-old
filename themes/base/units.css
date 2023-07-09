@@ -1,0 +1,41 @@
+:root {
+  /* UNITS */ 
+  --unit-size1: 4px;
+  --unit-size2: 8px;
+  --unit-size3: 16px;
+  --unit-size4: 24px;
+
+  /* PADDINGS */ 
+  --padding-smaller: var(--unit-size1);
+  --padding-small: var(--unit-size2);
+  --padding-medium: var(--unit-size3);
+  --padding-large: var(--unit-size4);
+
+  /* MARGINS */
+  --margin-smaller: var(--unit-size1);
+  --margin-small: var(--unit-size2);
+  --margin-medium: var(--unit-size3);
+  --margin-large: var(--unit-size4);
+
+  /* GAPS */
+  --gap-smaller: var(--unit-size1);
+  --gap-small: var(--unit-size2);
+  --gap-medium: var(--unit-size3);
+  --gap-large: var(--unit-size4);
+
+  /* CONTAINERS */
+  --container-size-small: var(--unit-size4);
+  --container-size-medium: 40px;
+  --container-size-large: 60px;
+
+  /* TIMINGS */
+  --timing-fast: 80ms;
+  --timing-normal: 120ms;
+  --timing-slow: 180ms;
+
+  /* BORDER RADIUS */
+  --radius-small: var(--unit-size1);
+  --radius-medium: var(--unit-size2);
+  --radius-large: var(--unit-size3);
+  --radius-max: 1000px;
+}

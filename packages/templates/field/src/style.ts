@@ -8,10 +8,9 @@ export const style = `:host([size="small"]) o-box-template.wrapper {
   height: var(--field-height-large, var(--height-large, 56px)); }
 
 :host {
-  --border: var(--field-light-background-color, var(--colors-netural-black, rgb(0, 0, 0)));
-  --outline: var(--field-light-background-color, rgb(90, 46, 250));
-  --color: var(--field-light-text-color, var(--colors-netural-white, rgb(0, 0, 0)));
-  --default-fontfamily: 'Poppins', sans-serif;
+  --border: var(--o-field-background-color-light, var(--o-color-black, black));
+  --outline: var(--o-field-background-color-light, rgb(90, 46, 250));
+  --color: var(--o-field-text-color-light, var(--o-color-black, black));
   display: block;
   color: var(--color); }
   :host o-box-template.wrapper {
@@ -25,7 +24,7 @@ export const style = `:host([size="small"]) o-box-template.wrapper {
     :host o-box-template.wrapper ::slotted(*:not([slot])),
     :host o-box-template.wrapper input, :host o-box-template.wrapper select, :host o-box-template.wrapper textarea {
       color: inherit;
-      font-family: var(--input-fontfamily, var(--typography-c3-fontfamily, var(--default-fontfamily)));
+      font-family: var(--input-fontfamily, var(--typography-c3-fontfamily));
       font-size: var(--input-fontsize, var(--typography-c3-fontsize, 16px));
       font-weight: var(--input-fontweight, var(--typography-c3-fontweight, 400));
       line-height: var(--input-lineheight, var(--typography-c3-lineheight, 24px));
@@ -47,6 +46,6 @@ export const style = `:host([size="small"]) o-box-template.wrapper {
 
 @media (prefers-color-scheme: dark) {
   :host {
-    --border: var(--field-dark-background-color, var(--colors-netural-white, rgb(255, 255, 255)));
-    --outline: var(--field-dark-background-color, rgb(195, 211, 255));
-    --color: var(--field-dark-text-color, var(--colors-netural-white, white)); } }`;
+    --border: var(--o-field-background-color-dark, var(--o-color-black, white));
+    --outline: var(--o-field-background-color-dark, rgb(195, 211, 255));
+    --color: var(--o-field-text-color-dark, var(--o-color-black, white)); } }`;

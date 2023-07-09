@@ -1,9 +1,9 @@
 export const style = `:host {
-  --background: var(--dropdown-background-light, white); }
+  --background: var(--dropdown-background-light, var(--o-color-white)); }
 
 @media (prefers-color-scheme: dark) {
   :host {
-    --background: var(--dropdown-background-dark, black); } }
+    --background: var(--dropdown-background-dark, var(--o-color-white)); } }
 
 :host o-popover-template {
   --popover-gap: 0.5rem;

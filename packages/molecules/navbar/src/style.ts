@@ -1,8 +1,8 @@
 export const style = `:host {
-  --background: var(--navbar-light-background-color, var(--neutral-100, white));
-  --hamburger-background: var(--navbar-light-hamburger-background-color, transparent);
-  --hamburger-background-hover: var(--navbar-light-hamburger-background-color-hover, var(--neutral-300, #F1F1F4));
-  --hamburger-background-active: var(--navbar-light-hamburger-background-color-active, var(--neutral-500, #C7CBD4)); }
+  --background: var(--o-navbar-background-color-light, var(--neutral-100, white));
+  --hamburger-background: var(--o-navbar-hamburger-background-color-light, transparent);
+  --hamburger-background-hover: var(--o-navbar-hamburger-background-color-hover-light, var(--neutral-300, #F1F1F4));
+  --hamburger-background-active: var(--o-navbar-hamburger-background-color-active-light, var(--neutral-500, #C7CBD4)); }
 
 :host {
   position: sticky;
@@ -52,7 +52,7 @@ export const style = `:host {
 
 :host([mode="hover"]) {
   width: 72px;
-  --hamburger-background-hover: var(--navbar-light-hamburger-hover-background-color-hover, var(--neutral-100, #FFFFFF)); }
+  --hamburger-background-hover: var(--o-navbar-hamburger-hover-background-color-hover-light, var(--neutral-100, #FFFFFF)); }
   :host([mode="hover"]) o-box-template {
     position: absolute; }
     :host([mode="hover"]) o-box-template:hover {

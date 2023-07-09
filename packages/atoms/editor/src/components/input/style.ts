@@ -1,10 +1,10 @@
 export const style = `:host {
-  --color: var(--editor-input-light-text-color, var(--colors-netural-black, black));
+  --color: var(--o-editor-input-text-color-light, var(--o-color-black, black));
   display: block; }
 
 @media (prefers-color-scheme: dark) {
   :host {
-    --color: var(--editor-input-dark-text-color, var(--colors-netural-white, white)); } }
+    --color: var(--o-editor-input-text-color-dark, var(--o-color-black, white)); } }
 
 .controls {
   display: flex;

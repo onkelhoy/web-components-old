@@ -21,7 +21,7 @@
 
 @media (prefers-color-scheme: dark) {
     :host {
-        --background: var(--pagination-dark-background-color, var(--colors-netural-black, black));
-        --color: var(--pagination-dark-text-color, var(--colors-netural-white, white));
+        --background: var(--pagination-dark-background-color, var(--o-color-black, black));
+        --color: var(--pagination-dark-text-color, var(--o-color-white, white));
     }
 }

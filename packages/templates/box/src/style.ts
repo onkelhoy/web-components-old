@@ -1,24 +1,24 @@
 export const style = `:host {
-  --shadow-color: var(--box-shadow-light-color, #00000029); }
+  --shadow-color: var(--o-box-shadow-color-light, var(--o-color-shadow-500)); }
 
 @media (prefers-color-scheme: dark) {
   :host {
-    --shadow-color: var(--box-shadow-dark-color, rgb(0, 0, 0)); } }
+    --shadow-color: var(--o-box-shadow-color-dark, var(--o-color-shadow-500)); } }
 
 :host([radius="none"]) {
   border-radius: var(--box-radius-none, var(--radius-none, 0px)); }
 
 :host([radius="small"]) {
-  border-radius: var(--box-radius-small, var(--radius-small, 4px)); }
+  border-radius: var(--box-radius-small, var(--radius-small, var(--radius-small))); }
 
 :host([radius="medium"]) {
-  border-radius: var(--box-radius-medium, var(--radius-medium, 8px)); }
+  border-radius: var(--box-radius-medium, var(--radius-medium, var(--radius-medium))); }
 
 :host([radius="large"]) {
-  border-radius: var(--box-radius-large, var(--radius-large, 16px)); }
+  border-radius: var(--box-radius-large, var(--radius-large, var(--radius-large))); }
 
 :host([radius="circular"]) {
-  border-radius: var(--box-radius-circular, var(--radius-circular, 1000px)); }
+  border-radius: var(--box-radius-circular, var(--radius-circular, var(--radius-max))); }
 
 :host([elevation="none"]) {
   box-shadow: var(--box-shadow-none, var(--shadow-none, none)); }
