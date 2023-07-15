@@ -1,6 +1,6 @@
 export const style = `:host {
-  --button-background-color-clear-hover: var(--smiley-hover-backgroun, rgba(0, 0, 0, 0.05));
-  --color: var(--chat-writer-light-text-color, var(--colors-netural-black, black)); }
+  --button-background-color-clear-hover: var(--o-smiley-hover-background, var(--o-color-hover-200));
+  --color: var(--o-chat-writer-text-color-light, var(--o-color-black, black)); }
   :host div.accordion {
     display: grid;
     grid-template-rows: 0fr;
@@ -26,7 +26,7 @@ export const style = `:host {
 
 @media (prefers-color-scheme: dark) {
   :host {
-    --color: var(--chat-writer-dark-text-color, var(--colors-netural-white, white)); } }
+    --color: var(--o-chat-writer-text-color-dark, var(--o-color-black, white)); } }
 
 :host([smileyopen="true"]) div.accordion {
   grid-template-rows: 1fr;

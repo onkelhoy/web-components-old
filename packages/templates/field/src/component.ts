@@ -38,7 +38,8 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
         if ('checked' in this.inputElement && (type === "radio" || type === "checkbox"))
         {
             this.inputElement.checked = value === "true";
-            this.setAttribute('checked', this.value);
+            // this.setAttribute('checked', this.value);
+            this.checked = !!this.value;
         }
         else if ('value' in this.inputElement)
         {
@@ -79,7 +80,8 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends Bas
             const type = e.target.getAttribute('type')
             if ('checked' in e.target && (type === "radio" || type === "checkbox"))
             {
-                this.setAttribute('checked', e.target.checked as string);
+                // this.setAttribute('checked', e.target.checked as string);
+                this.checked = !!e.target.checked;
             }
             else if ('value' in e.target)
             {

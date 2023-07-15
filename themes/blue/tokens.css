@@ -1,0 +1,24 @@
+
+@media (prefers-color-scheme: light) {
+  :root {
+
+  --o-color-canvas-50: cornflowerblue;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+
+  --o-color-canvas-50: rgb(21, 32, 53);
+  }
+}
+:root,
+.theme-light {
+
+  --o-color-canvas-50: cornflowerblue;
+}
+
+.theme-dark {
+
+  --o-color-canvas-50: rgb(21, 32, 53);
+}
+

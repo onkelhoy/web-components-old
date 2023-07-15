@@ -1,7 +1,7 @@
 export const style = `:host {
   --size: var(--colorpicker-size, 300px);
-  --border-outer: #000;
-  --border-inner: #fff;
+  --border-outer: var(--o-color-black);
+  --border-inner: var(--o-color-white);
   width: calc(var(--size) + 2.5rem);
   height: calc(var(--size) + 2.5rem);
   display: grid;
@@ -10,11 +10,6 @@ export const style = `:host {
   grid-template-areas: "area slide" "output output";
   column-gap: 0.5rem;
   row-gap: 0.5rem; }
-
-@media (prefers-color-scheme: dark) {
-  :host {
-    --border-outer: #fff;
-    --border-inner: #000; } }
 
 div {
   grid-area: area; }

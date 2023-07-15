@@ -5,8 +5,8 @@ export const style = `:host {
   padding: var(--option-padding, 0.3rem 0.5rem);
   cursor: pointer;
   user-select: none;
-  --option-background-hover: var(--option-background-hover-light, rgba(0,0,0,0.03));
-  --option-background-active: var(--option-background-active-light, rgba(0,0,0,0.1)); }
+  --option-background-hover: var(--o-option-background-hover-light, var(--o-color-hover-100));
+  --option-background-active: var(--o-option-background-active-light, var(--o-color-hover-400)); }
 
 :host(:hover) {
   background-color: var(--option-background-hover); }
@@ -14,7 +14,7 @@ export const style = `:host {
 :host(:active) {
   background-color: var(--option-background-active); }
 
-::slotted(*) {
+::slotted(*:not(o-typography)) {
   font-family: var(--typography-c3-fontfamily);
   font-size: var(--typography-c3-fontsize);
   font-weight: var(--typography-c3-fontweight);
@@ -23,5 +23,5 @@ export const style = `:host {
 
 @media (prefers-color-scheme: dark) {
   :host {
-    --option-background-hover: var(--option-background-hover-dark, rgba(255, 255, 255, 0.03));
-    --option-background-active: var(--option-background-active-dark, rgba(255, 255, 255, 0.1)); } }`;
+    --option-background-hover: var(--o-option-background-hover-dark, rgba(255, 255, 255, 0.03));
+    --option-background-active: var(--o-option-background-active-dark, rgba(255, 255, 255, 0.1)); } }`;

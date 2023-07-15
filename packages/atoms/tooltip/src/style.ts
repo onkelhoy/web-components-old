@@ -1,29 +1,29 @@
 export const style = `:host {
-  --background: var(--tooltip-light-background-color, var(--colors-netural-white, rgb(0, 0, 0)));
-  --color: var(--tooltip-light-text-color, var(--colors-netural-black, rgb(255, 255, 255)));
-  --popover-gap: var(--tooltip-popover-gap, 0.5rem); }
+  --background: var(--o-tooltip-background-color-light, var(--o-color-black, black));
+  --color: var(--o-tooltip-text-color-light, var(--o-color-white, white));
+  --popover-gap: var(--o-tooltip-popover-gap, 0.5rem); }
   :host o-popover-template {
     display: inline-block; }
   :host o-box-template {
     display: block;
-    padding: var(--tooltip-card-padding, 0.5rem);
+    padding: var(--o-tooltip-card-padding, 0.5rem);
     background-color: var(--background);
     color: var(--color);
-    min-width: var(--tooltip-card-minwidth, 3rem);
+    min-width: var(--o-tooltip-card-minwidth, 3rem);
     position: relative;
     white-space: nowrap; }
     :host o-box-template::after {
       position: absolute;
       z-index: 2;
       content: '';
-      width: var(--tooltip-arrow-size, 0.5rem);
-      height: var(--tooltip-arrow-size, 0.5rem);
+      width: var(--o-tooltip-arrow-size, 0.5rem);
+      height: var(--o-tooltip-arrow-size, 0.5rem);
       background-image: linear-gradient(var(--background), var(--background));
       clip-path: polygon(50% 0, 100% 100%, 0 100%); }
 
 :host([placement="top-left"]) o-box-template::after {
   top: calc(100% - 1px);
-  right: var(--tooltip-arrow-offset, 0.5rem);
+  right: var(--o-tooltip-arrow-offset, 0.5rem);
   transform: rotate(180deg); }
 
 :host([placement="top-center"]) o-box-template::after {
@@ -33,12 +33,12 @@ export const style = `:host {
 
 :host([placement="top-right"]) o-box-template::after {
   top: calc(100% - 1px);
-  left: var(--tooltip-arrow-offset, 0.5rem);
+  left: var(--o-tooltip-arrow-offset, 0.5rem);
   transform: rotate(180deg); }
 
 :host([placement="bottom-left"]) o-box-template::after {
   top: 1px;
-  right: var(--tooltip-arrow-offset, 0.5rem);
+  right: var(--o-tooltip-arrow-offset, 0.5rem);
   transform: translateY(-100%); }
 
 :host([placement="bottom-center"]) o-box-template::after {
@@ -48,11 +48,11 @@ export const style = `:host {
 
 :host([placement="bottom-right"]) o-box-template::after {
   top: 1px;
-  left: var(--tooltip-arrow-offset, 0.5rem);
+  left: var(--o-tooltip-arrow-offset, 0.5rem);
   transform: translateY(-100%); }
 
 :host([placement="left-top"]) o-box-template::after {
-  top: var(--tooltip-arrow-offset, 0.5rem);
+  top: var(--o-tooltip-arrow-offset, 0.5rem);
   right: 1px;
   transform: translateX(100%) rotate(90deg); }
 
@@ -63,11 +63,11 @@ export const style = `:host {
 
 :host([placement="left-bottom"]) o-box-template::after {
   right: 1px;
-  bottom: var(--tooltip-arrow-offset, 0.5rem);
+  bottom: var(--o-tooltip-arrow-offset, 0.5rem);
   transform: translateX(100%) rotate(90deg); }
 
 :host([placement="right-top"]) o-box-template::after {
-  top: var(--tooltip-arrow-offset, 0.5rem);
+  top: var(--o-tooltip-arrow-offset, 0.5rem);
   left: 1px;
   transform: translateX(-100%) rotate(-90deg); }
 
@@ -77,11 +77,11 @@ export const style = `:host {
   transform: translate(-100%, -50%) rotate(-90deg); }
 
 :host([placement="right-bottom"]) o-box-template::after {
-  bottom: var(--tooltip-arrow-offset, 0.5rem);
+  bottom: var(--o-tooltip-arrow-offset, 0.5rem);
   left: 1px;
   transform: translateX(-100%) rotate(-90deg); }
 
 @media (prefers-color-scheme: dark) {
   :host {
-    --background: var(--tooltip-dark-background-color, var(--colors-netural-black, rgb(255, 255, 255)));
-    --color: var(--tooltip-dark-text-color, var(--colors-netural-white, rgb(0, 0, 0))); } }`;
+    --background: var(--o-tooltip-background-color-dark, var(--o-color-black, white));
+    --color: var(--o-tooltip-text-color-dark, var(--o-color-white, black)); } }`;

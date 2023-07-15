@@ -1,12 +1,12 @@
 export const style = `:host {
-  --color: var(--divider-light-color, var(--colors-netural-grey300, #F1F1F4)); }
+  --color: var(--o-divider-color-light, var(--o-color-netural-200)); }
   :host div {
     background-color: var(--color);
     content: ''; }
 
 @media (prefers-color-scheme: dark) {
   :host {
-    --color: var(--divider-dark-color, var(--colors-netural-grey700, #101010)); } }
+    --color: var(--o-divider-color-dark, var(--o-color-netural-200)); } }
 
 :host([mode="horizontal"]) {
   display: flex;

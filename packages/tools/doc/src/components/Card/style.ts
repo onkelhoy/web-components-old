@@ -1,6 +1,6 @@
 export const style = `:host {
-  --background: #fafafa;
-  --color: black;
+  --background: var(--o-color-canvas-100);
+  --color: var(--o-color-black, black);
   display: inline-block;
   background-color: var(--background);
   color: var(--color);
@@ -8,9 +8,4 @@ export const style = `:host {
   padding: 2rem;
   box-sizing: border-box;
   border-radius: 0.4rem;
-  margin-bottom: 1rem; }
-
-@media (prefers-color-scheme: dark) {
-  :host {
-    --background: rgb(48 48 48);
-    --color: white; } }`;
+  margin-bottom: 1rem; }`;
