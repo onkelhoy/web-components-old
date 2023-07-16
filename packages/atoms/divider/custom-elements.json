@@ -43,21 +43,19 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/divider",
     "sources": [],
     "variables": {
-      "--divider-light-color": {
+      "--o-divider-color-light": {
         "usecases": [
           "--color"
         ],
         "fallbacks": [
-          "var(--colors-netural-grey300, #F1F1F4)"
+          "var(--o-color-netural-200)"
         ]
       },
-      "--colors-netural-grey300": {
+      "--o-color-netural-200": {
         "usecases": [
           "--color"
         ],
-        "fallbacks": [
-          "#F1F1F4"
-        ]
+        "fallbacks": []
       },
       "--color": {
         "usecases": [
@@ -65,20 +63,12 @@
         ],
         "fallbacks": []
       },
-      "--divider-dark-color": {
+      "--o-divider-color-dark": {
         "usecases": [
           "--color"
         ],
         "fallbacks": [
-          "var(--colors-netural-grey700, #101010)"
-        ]
-      },
-      "--colors-netural-grey700": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "#101010"
+          "var(--o-color-netural-200)"
         ]
       },
       "--divider-margin": {

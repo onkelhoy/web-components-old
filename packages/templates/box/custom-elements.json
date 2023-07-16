@@ -30,39 +30,8 @@
       "conditional": false
     }
   ],
-  "extend_class": {
-    "className": "ColorTemplate",
-    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/color",
-    "properties": [
-      {
-        "name": "color",
-        "type": "string",
-        "type_value": null,
-        "primitive": true,
-        "conditional": true
-      }
-    ],
-    "extend_class": null
-  },
+  "extend_class": null,
   "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/templates/color": [
-      {
-        "name": "__decorate",
-        "from": "tslib"
-      },
-      {
-        "name": "BaseTemplate",
-        "from": "@circular-templates/base"
-      },
-      {
-        "name": "property",
-        "from": "@circular-tools/utils"
-      },
-      {
-        "name": "Color",
-        "from": "./Color"
-      }
-    ],
     "/Users/henry/Developer/projects/web-components/packages/templates/box": [
       {
         "name": "__decorate",
@@ -73,8 +42,8 @@
         "from": "@circular-tools/utils"
       },
       {
-        "name": "ColorTemplate",
-        "from": "@circular-templates/color"
+        "name": "BaseTemplate",
+        "from": "@circular-templates/base"
       },
       {
         "name": "style",
@@ -95,20 +64,26 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/templates/box",
     "sources": [],
     "variables": {
-      "--box-shadow-light-color": {
+      "--o-box-shadow-color-light": {
         "usecases": [
           "--shadow-color"
         ],
         "fallbacks": [
-          "rgba(0, 0, 0, 0.1)"
+          "var(--o-color-shadow-500)"
         ]
       },
-      "--box-shadow-dark-color": {
+      "--o-color-shadow-500": {
+        "usecases": [
+          "--shadow-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-box-shadow-color-dark": {
         "usecases": [
           "--shadow-color"
         ],
         "fallbacks": [
-          "rgb(0, 0, 0)"
+          "var(--o-color-shadow-500)"
         ]
       },
       "--box-radius-none": {
@@ -132,7 +107,7 @@
           "border-radius"
         ],
         "fallbacks": [
-          "var(--radius-small, 4px)"
+          "var(--radius-small, var(--radius-small))"
         ]
       },
       "--radius-small": {
@@ -140,7 +115,7 @@
           "border-radius"
         ],
         "fallbacks": [
-          "4px"
+          "var(--radius-small)"
         ]
       },
       "--box-radius-medium": {
@@ -148,7 +123,7 @@
           "border-radius"
         ],
         "fallbacks": [
-          "var(--radius-medium, 8px)"
+          "var(--radius-medium, var(--radius-medium))"
         ]
       },
       "--radius-medium": {
@@ -156,7 +131,7 @@
           "border-radius"
         ],
         "fallbacks": [
-          "8px"
+          "var(--radius-medium)"
         ]
       },
       "--box-radius-large": {
@@ -164,7 +139,7 @@
           "border-radius"
         ],
         "fallbacks": [
-          "var(--radius-large, 16px)"
+          "var(--radius-large, var(--radius-large))"
         ]
       },
       "--radius-large": {
@@ -172,7 +147,7 @@
           "border-radius"
         ],
         "fallbacks": [
-          "16px"
+          "var(--radius-large)"
         ]
       },
       "--box-radius-circular": {
@@ -180,7 +155,7 @@
           "border-radius"
         ],
         "fallbacks": [
-          "var(--radius-circular, 1000px)"
+          "var(--radius-circular, var(--radius-max))"
         ]
       },
       "--radius-circular": {
@@ -188,8 +163,14 @@
           "border-radius"
         ],
         "fallbacks": [
-          "1000px"
+          "var(--radius-max)"
         ]
+      },
+      "--radius-max": {
+        "usecases": [
+          "border-radius"
+        ],
+        "fallbacks": []
       },
       "--box-shadow-none": {
         "usecases": [
@@ -234,7 +215,7 @@
           "box-shadow"
         ],
         "fallbacks": [
-          "var(--shadow-medium, 0 2px 8px 2px var(--shadow-color))"
+          "var(--shadow-medium, 4px 0px 32px 0px var(--shadow-color))"
         ]
       },
       "--shadow-medium": {
@@ -242,7 +223,7 @@
           "box-shadow"
         ],
         "fallbacks": [
-          "0 2px 8px 2px var(--shadow-color)"
+          "4px 0px 32px 0px var(--shadow-color)"
         ]
       },
       "--box-shadow-large": {

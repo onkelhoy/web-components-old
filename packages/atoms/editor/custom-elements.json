@@ -84,38 +84,38 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/editor",
     "sources": [],
     "variables": {
-      "--editor-light-background-color": {
+      "--o-editor-background-color-light": {
         "usecases": [
           "--background"
         ],
         "fallbacks": [
-          "var(--colors-netural-white, white)"
+          "var(--o-color-white, white)"
         ]
       },
-      "--colors-netural-white": {
+      "--o-color-white": {
         "usecases": [
-          "--background",
-          "--color"
-        ],
-        "fallbacks": [
-          "white"
-        ]
-      },
-      "--editor-light-text-color": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "var(--colors-netural-black, black)"
-        ]
-      },
-      "--colors-netural-black": {
-        "usecases": [
-          "--color",
           "--background"
         ],
         "fallbacks": [
+          "white",
           "black"
+        ]
+      },
+      "--o-editor-text-color-light": {
+        "usecases": [
+          "--color"
+        ],
+        "fallbacks": [
+          "var(--o-color-black, black)"
+        ]
+      },
+      "--o-color-black": {
+        "usecases": [
+          "--color"
+        ],
+        "fallbacks": [
+          "black",
+          "white"
         ]
       },
       "--background": {
@@ -130,20 +130,20 @@
         ],
         "fallbacks": []
       },
-      "--editor-dark-background-color": {
+      "--o-editor-background-color-dark": {
         "usecases": [
           "--background"
         ],
         "fallbacks": [
-          "var(--colors-netural-black, black)"
+          "var(--o-color-white, black)"
         ]
       },
-      "--editor-dark-text-color": {
+      "--o-editor-text-color-dark": {
         "usecases": [
           "--color"
         ],
         "fallbacks": [
-          "var(--colors-netural-white, white)"
+          "var(--o-color-black, white)"
         ]
       }
     }

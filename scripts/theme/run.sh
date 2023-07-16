@@ -21,11 +21,7 @@ for mode in "light" "dark"; do
     ROOT_CONTENT=$(sed -n '/:root {/,/}/p' $FILE_PATH | sed 's/:root {//g' | sed 's/}//g')
 
     # generate new content
-    if [ $mode == "light" ]; then 
-      CLASS_CONTENT=":root,\n.theme-$mode {\n$ROOT_CONTENT\n}"
-    else 
-      CLASS_CONTENT=".theme-$mode {\n$ROOT_CONTENT\n}"
-    fi
+    CLASS_CONTENT="\n.theme-$mode {\n$ROOT_CONTENT\n}\n"
       
     MEDIA_QUERY_CONTENT="@media (prefers-color-scheme: $mode) {\n  :root {\n$ROOT_CONTENT\n  }\n}"
     NEW_CONTENT="$MEDIA_QUERY_CONTENT"

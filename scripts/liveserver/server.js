@@ -12,18 +12,64 @@ const app = express();
 
 const SCRIPT_DIR = process.argv[2];
 const PACKAGE_DIR = process.argv[3];
-// const ROOT_DIR = process.argv[4];
+const ROOT_DIR = process.argv[4];
 const SUBFOLDER = process.argv[5];
 const HTMLFILE = process.argv[6];
 
 const htmlfilename = HTMLFILE.split('/').pop()
 
 const viewfolder = path.join(PACKAGE_DIR, "views", SUBFOLDER);
+const localAssetFolder = path.join(PACKAGE_DIR, "asset");
+const globalAssetFolder = path.join(ROOT_DIR, "asset");
+
 const outputfolder = path.join(viewfolder, '.devserver-temp');
 
 process.on('EXIT', cleanup);
 process.on('SIGINT', cleanup);
 process.on('SIGTERM', cleanup);
+
+const LOCKFILE = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'package-lock.json')));
+const PACKAGE_JSON = JSON.parse(fs.readFileSync(path.join(PACKAGE_DIR, "package.json")));
+
+const DEPENDENCY = {}
+
+function build_dependency(name) {
+    let packagejson = null;
+    try {
+        packagejson = LOCKFILE.packages[LOCKFILE.packages[`node_modules/${name}`].resolved];
+    }
+    catch (e) {
+        throw e;
+    }
+
+    const destinations = ["dependencies", "devDependencies"];
+    for (let destination of destinations)
+    {
+        for (let packagename in packagejson[destination])
+        {
+            if (packagename.startsWith("@circular"))
+            {
+                if (!DEPENDENCY[packagename]) {
+                    DEPENDENCY[packagename] = getLocalModule(packagename);
+
+                    build_dependency(packagename);
+                }
+            }
+        }
+    }
+}
+build_dependency(PACKAGE_JSON.name);
+
+function getLocalModule(name) {
+    if (!name.startsWith('@circular')) return null;
+
+    const data = LOCKFILE.packages[`node_modules/${name}`];
+    if (!data) return null;
+    if (!data.resolved) return null;
+
+    return path.join(ROOT_DIR, data.resolved);
+}
+
 
 let cleanupcalls = 0;
 function cleanup() {
@@ -119,7 +165,48 @@ async function getFile(url) {
             url = htmlfilename;
         }
 
-        const file_path = path.join(viewfolder, url);
+        let file_path = path.join(viewfolder, url);
+
+        // check if file exists in other places (local & global asset folder)
+        // then individually the dependency packages's asset folder
+        if (!fs.existsSync(file_path))
+            if (/public/.test(url)) {
+            {
+                const urlwithoutpublic = url.replace("/public", "");
+                const localurl = path.join(localAssetFolder, urlwithoutpublic);
+                const globalurl = path.join(globalAssetFolder, urlwithoutpublic);
+
+                let target = null;
+                
+                if (fs.existsSync(localurl))
+                {
+                    target = localurl;
+                }
+                else if (fs.existsSync(globalurl))
+                {
+                    target = globalurl;
+                }
+                else // search individually dependencies  
+                {
+                    for (let dep in DEPENDENCY) 
+                    {
+                        const filepath = path.join(DEPENDENCY[dep], "asset", urlwithoutpublic);
+                        if (fs.existsSync(filepath))
+                        {
+                            target = filepath;
+                            break;
+                        }
+                    }
+                }
+
+                if (target) 
+                {
+                    const file = fs.readFileSync(target);
+                    return [200, file];
+                }
+            }
+        }
+
         if (url.includes('favicon')) {
             // Check if file exists
             if (fs.existsSync(file_path)) {

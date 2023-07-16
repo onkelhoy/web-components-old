@@ -65,13 +65,6 @@
         "conditional": false
       },
       {
-        "name": "value",
-        "type": "string",
-        "type_value": null,
-        "primitive": true,
-        "conditional": true
-      },
-      {
         "name": "checked",
         "type": "boolean",
         "type_value": null,
@@ -82,6 +75,14 @@
         "name": "readonly",
         "type": "boolean",
         "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "default_value": "",
         "type_value": null,
         "primitive": true,
         "conditional": false
@@ -142,6 +143,10 @@
       {
         "name": "FieldTemplate",
         "from": "@circular-templates/field"
+      },
+      {
+        "name": "style",
+        "from": "./style"
       }
     ]
   },
@@ -181,7 +186,192 @@
   },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/templates/textinput",
-    "sources": [],
+    "sources": [
+      {
+        "folder": "/Users/henry/Developer/projects/web-components/packages/templates/field",
+        "sources": [],
+        "variables": {
+          "--field-height-small": {
+            "usecases": [
+              "height"
+            ],
+            "fallbacks": [
+              "var(--height-small, 20px)"
+            ]
+          },
+          "--height-small": {
+            "usecases": [
+              "height"
+            ],
+            "fallbacks": [
+              "20px"
+            ]
+          },
+          "--field-height-medium": {
+            "usecases": [
+              "height"
+            ],
+            "fallbacks": [
+              "var(--height-medium, 32px)"
+            ]
+          },
+          "--height-medium": {
+            "usecases": [
+              "height"
+            ],
+            "fallbacks": [
+              "32px"
+            ]
+          },
+          "--field-height-large": {
+            "usecases": [
+              "height"
+            ],
+            "fallbacks": [
+              "var(--height-large, 56px)"
+            ]
+          },
+          "--height-large": {
+            "usecases": [
+              "height"
+            ],
+            "fallbacks": [
+              "56px"
+            ]
+          },
+          "--o-field-background-color-light": {
+            "usecases": [
+              "--border",
+              "--outline"
+            ],
+            "fallbacks": [
+              "var(--o-color-black, black)",
+              "rgb(90, 46, 250)"
+            ]
+          },
+          "--o-color-black": {
+            "usecases": [
+              "--border",
+              "--color"
+            ],
+            "fallbacks": [
+              "black",
+              "white"
+            ]
+          },
+          "--o-field-text-color-light": {
+            "usecases": [
+              "--color"
+            ],
+            "fallbacks": [
+              "var(--o-color-black, black)"
+            ]
+          },
+          "--color": {
+            "usecases": [
+              "color"
+            ],
+            "fallbacks": []
+          },
+          "--input-fontfamily": {
+            "usecases": [
+              "font-family"
+            ],
+            "fallbacks": [
+              "var(--typography-c3-fontfamily)"
+            ]
+          },
+          "--typography-c3-fontfamily": {
+            "usecases": [
+              "font-family"
+            ],
+            "fallbacks": []
+          },
+          "--input-fontsize": {
+            "usecases": [
+              "font-size"
+            ],
+            "fallbacks": [
+              "var(--typography-c3-fontsize, 16px)"
+            ]
+          },
+          "--typography-c3-fontsize": {
+            "usecases": [
+              "font-size"
+            ],
+            "fallbacks": [
+              "16px"
+            ]
+          },
+          "--input-fontweight": {
+            "usecases": [
+              "font-weight"
+            ],
+            "fallbacks": [
+              "var(--typography-c3-fontweight, 400)"
+            ]
+          },
+          "--typography-c3-fontweight": {
+            "usecases": [
+              "font-weight"
+            ],
+            "fallbacks": [
+              "400"
+            ]
+          },
+          "--input-lineheight": {
+            "usecases": [
+              "line-height"
+            ],
+            "fallbacks": [
+              "var(--typography-c3-lineheight, 24px)"
+            ]
+          },
+          "--typography-c3-lineheight": {
+            "usecases": [
+              "line-height"
+            ],
+            "fallbacks": [
+              "24px"
+            ]
+          },
+          "--input-letterspacing": {
+            "usecases": [
+              "letter-spacing"
+            ],
+            "fallbacks": [
+              "var(--typography-c3-letterspacing, 0.01em)"
+            ]
+          },
+          "--typography-c3-letterspacing": {
+            "usecases": [
+              "letter-spacing"
+            ],
+            "fallbacks": [
+              "0.01em"
+            ]
+          },
+          "--o-field-background-color-dark": {
+            "usecases": [
+              "--border",
+              "--outline"
+            ],
+            "fallbacks": [
+              "var(--o-color-black, white)",
+              "rgb(195, 211, 255)"
+            ]
+          },
+          "--o-field-text-color-dark": {
+            "usecases": [
+              "--color"
+            ],
+            "fallbacks": [
+              "var(--o-color-black, white)"
+            ]
+          }
+        }
+      }
+    ],
     "variables": {}
   }
 }

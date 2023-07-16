@@ -1,5 +1,36 @@
 # Henry's Ecosystem
 
+## IDEAS
+
+### system into other projects
+make a way where you can pass a config file for a component and name it accordingly like so:
+"{name}.project"
+with this we could use it to map out the convertion file where whatever could be passed - I think its best to do this in javascript. 
+
+##### idea playground 
+{component-name} (button as example)
+{property} function () - (to manipulate property by return function)
+{property_add} function () - (self explained) [probably more to come]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# OLD:::
+
 ## Starting
 To create a new package you run the command `"create"` like:
 ```bash

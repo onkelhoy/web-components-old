@@ -13,21 +13,39 @@
 <body>
   
 <h1 data-title="class">Form Properties</h1>
-        <doc-card class="property" data-name="foo">
-            <h2 slot="header"><span class="deemphasize">Property: </span>foo</h2>
+        
+    
+        
+    
+        
+    <h1 data-title="inherit">Inherited Properties</h1>
+        <doc-card class="property" data-name="error">
+            <h2 slot="header"><span class="deemphasize">Property: </span>error</h2>
 
             <div class="property-info">
-              <p>type: Foo</p>
-              <p>default-value: bar</p>
-              <p>required: true</p>
+              <p>type: string</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
             </div>
             <div class="variations">
                 
+                  <div class="variant" data-variant="foo">
+                    <h4><span class="deemphasize">Property-Value: </span>foo</h4>
+                    <code-block lang="html" display="both">
+                      <o-form 
+                        error="foo"
+                        
+                      >
+                        <p>Hello World</p>
+                      </o-form>
+                    </code-block>
+                  </div>
+                 
                   <div class="variant" data-variant="bar">
                     <h4><span class="deemphasize">Property-Value: </span>bar</h4>
                     <code-block lang="html" display="both">
                       <o-form 
-                        foo="bar"
+                        error="bar"
                         
                       >
                         <p>Hello World</p>
@@ -39,7 +57,7 @@
                     <h4><span class="deemphasize">Property-Value: </span>hello world</h4>
                     <code-block lang="html" display="both">
                       <o-form 
-                        foo="hello world"
+                        error="hello world"
                         
                       >
                         <p>Hello World</p>
@@ -50,21 +68,21 @@
             </div>
         </doc-card>
     
-        <doc-card class="property" data-name="bajs">
-            <h2 slot="header"><span class="deemphasize">Property: </span>bajs</h2>
+        <doc-card class="property" data-name="warning">
+            <h2 slot="header"><span class="deemphasize">Property: </span>warning</h2>
 
             <div class="property-info">
-              <p>type: number</p>
+              <p>type: string</p>
               <p>default-value: undefined</p>
               <p>required: false</p>
             </div>
             <div class="variations">
                 
-                  <div class="variant" data-variant="1">
-                    <h4><span class="deemphasize">Property-Value: </span>1</h4>
+                  <div class="variant" data-variant="foo">
+                    <h4><span class="deemphasize">Property-Value: </span>foo</h4>
                     <code-block lang="html" display="both">
                       <o-form 
-                        bajs="1"
+                        warning="foo"
                         
                       >
                         <p>Hello World</p>
@@ -72,11 +90,11 @@
                     </code-block>
                   </div>
                  
-                  <div class="variant" data-variant="10">
-                    <h4><span class="deemphasize">Property-Value: </span>10</h4>
+                  <div class="variant" data-variant="bar">
+                    <h4><span class="deemphasize">Property-Value: </span>bar</h4>
                     <code-block lang="html" display="both">
                       <o-form 
-                        bajs="10"
+                        warning="bar"
                         
                       >
                         <p>Hello World</p>
@@ -84,11 +102,11 @@
                     </code-block>
                   </div>
                  
-                  <div class="variant" data-variant="1000">
-                    <h4><span class="deemphasize">Property-Value: </span>1000</h4>
+                  <div class="variant" data-variant="hello world">
+                    <h4><span class="deemphasize">Property-Value: </span>hello world</h4>
                     <code-block lang="html" display="both">
                       <o-form 
-                        bajs="1000"
+                        warning="hello world"
                         
                       >
                         <p>Hello World</p>
@@ -99,21 +117,21 @@
             </div>
         </doc-card>
     
-        <doc-card class="property" data-name="fooLaa">
-            <h2 slot="header"><span class="deemphasize">Property: </span>fooLaa</h2>
+        <doc-card class="property" data-name="success">
+            <h2 slot="header"><span class="deemphasize">Property: </span>success</h2>
 
             <div class="property-info">
-              <p>type: boolean</p>
-              <p>default-value: true</p>
-              <p>required: true</p>
+              <p>type: string</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
             </div>
             <div class="variations">
                 
-                  <div class="variant" data-variant="true">
-                    <h4><span class="deemphasize">Property-Value: </span>true</h4>
+                  <div class="variant" data-variant="foo">
+                    <h4><span class="deemphasize">Property-Value: </span>foo</h4>
                     <code-block lang="html" display="both">
                       <o-form 
-                        fooLaa="true"
+                        success="foo"
                         
                       >
                         <p>Hello World</p>
@@ -121,11 +139,23 @@
                     </code-block>
                   </div>
                  
-                  <div class="variant" data-variant="false">
-                    <h4><span class="deemphasize">Property-Value: </span>false</h4>
+                  <div class="variant" data-variant="bar">
+                    <h4><span class="deemphasize">Property-Value: </span>bar</h4>
                     <code-block lang="html" display="both">
                       <o-form 
-                        fooLaa="false"
+                        success="bar"
+                        
+                      >
+                        <p>Hello World</p>
+                      </o-form>
+                    </code-block>
+                  </div>
+                 
+                  <div class="variant" data-variant="hello world">
+                    <h4><span class="deemphasize">Property-Value: </span>hello world</h4>
+                    <code-block lang="html" display="both">
+                      <o-form 
+                        success="hello world"
                         
                       >
                         <p>Hello World</p>
@@ -135,5 +165,30 @@
                 
             </div>
         </doc-card>
-    <h1 data-title="inherit">Inherited Properties</h1></body>
+    
+        <doc-card class="property" data-name="messageElement">
+            <h2 slot="header"><span class="deemphasize">Property: </span>messageElement</h2>
+
+            <div class="property-info">
+              <p>type: Message</p>
+              <p>default-value: undefined</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="[object Object]">
+                    <h4><span class="deemphasize">Property-Value: </span>[object Object]</h4>
+                    <code-block lang="html" display="both">
+                      <o-form 
+                        messageElement="[object Object]"
+                        
+                      >
+                        <p>Hello World</p>
+                      </o-form>
+                    </code-block>
+                  </div>
+                
+            </div>
+        </doc-card>
+    </body>
 </html>

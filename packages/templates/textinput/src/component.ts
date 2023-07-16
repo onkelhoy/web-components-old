@@ -4,7 +4,12 @@ import { html, property } from "@circular-tools/utils";
 // templates
 import { FieldTemplate } from '@circular-templates/field';
 
+// local
+import { style } from "./style";
+
 export class TextinputTemplate<T extends HTMLElement = HTMLInputElement> extends FieldTemplate<T> {
+    static styles = [FieldTemplate.styles[0], style];
+
     @property() placeholder?: string;
 
     private lastselection_position = 0;

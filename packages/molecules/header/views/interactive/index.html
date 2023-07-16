@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  <doc-controller>
+    <div id="target">
+      <o-header>
+        
+      <div slot="prefix" data-slotname="prefix">
+        
+      </div>
+     
+      <div  data-slotname="default">
+        <p>Hello World</p>
+      </div>
+    
+      </o-header>
+  </div>
+
+    <section class="control" slot="setting">
+      <o-tabs>
+        <o-tab id="html">HTML</o-tab>
+        <o-tab class="selected" id="properties">Properties</o-tab>
+        <o-tab id="css">CSS</o-tab>
+        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: prefix" variant="textarea" name="slot-prefix" data-slotname="prefix" value=""></doc-input><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="<p>Hello World</p>"></doc-input></div></o-tab-content>
+        <o-tab-content id="properties"><h3 data-subtitle="Header Properties">Header Properties</h3><div data-name="Header Properties" class="properties">
+        <doc-input data-prop-name="user" variant="textarea" value="" name="user" label="user - UserModel"></doc-input>
+      </div></o-tab-content>
+        <o-tab-content id="css">
+      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/molecules/header" class="style-source">
+        <h3>header styles</h3>
+      <div class="style-group" data-style-name="--container-size-medium"><doc-input data-css-input="true" name="--container-size-medium" label="--container-size-medium" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>width</li><li>height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div></div>
+    </o-tab-content>
+      </o-tabs>
+    </section>
+  </doc-controller>
+</body>
+</html>

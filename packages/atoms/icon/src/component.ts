@@ -2,6 +2,7 @@ import { property, html, Size } from '@circular-tools/utils';
 import { AssetTemplate } from '@circular-templates/asset';
 
 import { style } from './style.js';
+import { ContainerTypes } from './types.js';
 
 export class Icon extends AssetTemplate {
     static style = style;
@@ -9,10 +10,11 @@ export class Icon extends AssetTemplate {
     private content: string = "";
     private svgElement!: SVGSVGElement;
 
+    @property({ rerender: false }) container?: ContainerTypes;
     @property({ onUpdate: "updateName", rerender: false }) name?: string;
     @property({ onUpdate: "updateColor", rerender: false }) color?: string;
     @property({ onUpdate: "updateSize", rerender: false }) size: Size = "medium";
-    @property({ onUpdate: "updateCustomSize", rerender: false }) customSize?: number;
+    @property({ onUpdate: "updateCustomSize", rerender: false, type: Number }) customSize?: number;
 
     // class functions
     constructor() {

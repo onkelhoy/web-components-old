@@ -1,8 +1,8 @@
 export const style = `:host([size="small"]) o-box-template.wrapper {
-  height: var(--field-height-small, var(--height-small, 20px)); }
+  height: var(--field-height-small, var(--height-small, 32px)); }
 
 :host([size="medium"]) o-box-template.wrapper {
-  height: var(--field-height-medium, var(--height-medium, 32px)); }
+  height: var(--field-height-medium, var(--height-medium, 40px)); }
 
 :host([size="large"]) o-box-template.wrapper {
   height: var(--field-height-large, var(--height-large, 56px)); }

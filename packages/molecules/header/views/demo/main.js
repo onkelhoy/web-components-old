@@ -9,6 +9,7 @@ window.onload = () => {
 
     window.oTheme.add({ name: "Blue", href: "blue", representColor: "cornflowerblue" });
     window.oTheme.add({ name: "Orange", href: "orange", representColor: "orange" });
+    window.oTheme.add({ name: "Aziz", href: "aziz", representColor: "green" });
 
     setTimeout(() => {
         window.oTranslation.loadAll([

@@ -1,12 +1,7 @@
 export const style = `:host {
-  display: block;
-  padding: 1rem;
-  --background: var(--o-form-background-color-light, var(--o-color-white, white));
-  --color: var(--o-form-text-color-light, var(--o-color-black, black));
-  background-color: var(--background);
-  color: var(--color); }
-
-@media (prefers-color-scheme: dark) {
-  :host {
-    --background: var(--o-form-background-color-dark, var(--o-color-black, black));
-    --color: var(--o-form-text-color-dark, var(--o-color-white, white)); } }`;
+  display: block; }
+  :host form div {
+    display: flex;
+    justify-content: center; }
+    :host form div o-message {
+      flex-grow: 1; }`;

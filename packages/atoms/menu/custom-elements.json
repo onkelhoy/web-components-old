@@ -1,0 +1,134 @@
+{
+  "className": "Menu",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/menu",
+  "properties": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "placement",
+      "type": "Placement",
+      "default_value": "bottom-center",
+      "type_value": [
+        "top-left",
+        "top-right",
+        "top-center",
+        "bottom-left",
+        "bottom-right",
+        "bottom-center",
+        "left-top",
+        "left-bottom",
+        "left-center",
+        "right-top",
+        "right-bottom",
+        "right-center"
+      ],
+      "primitive": false,
+      "conditional": false
+    }
+  ],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/atoms/menu": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "property",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@circular-templates/base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      },
+      {
+        "name": "MenuItem",
+        "from": "./components/menu-item"
+      }
+    ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "button-prefix",
+        "html": ""
+      },
+      {
+        "name": "button-content",
+        "html": ""
+      },
+      {
+        "name": "button-suffix",
+        "html": "\n                        <span class=\"caret-wrapper\">\n                            <o-icon customsize=\"15\" name=\"caret\">v</o-icon>\n                        </span>\n                    "
+      },
+      {
+        "name": "default",
+        "html": "\n                        <o-menu-item>Missing Items</o-menu-item>\n                    "
+      }
+    ],
+    "parts": [
+      {
+        "name": "button",
+        "tag": "O-BUTTON"
+      },
+      {
+        "name": "box",
+        "tag": "O-BOX-TEMPLATE"
+      }
+    ]
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/menu",
+    "sources": [],
+    "variables": {
+      "--o-color-white": {
+        "usecases": [
+          "--background"
+        ],
+        "fallbacks": []
+      },
+      "--o-color-black": {
+        "usecases": [
+          "--color"
+        ],
+        "fallbacks": []
+      },
+      "--background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--color": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--padding-small": {
+        "usecases": [
+          "padding",
+          "gap",
+          "padding-block"
+        ],
+        "fallbacks": [
+          "8px"
+        ]
+      }
+    }
+  }
+}

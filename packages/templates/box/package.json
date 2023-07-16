@@ -23,7 +23,6 @@
     "license": "ISC",
     "dependencies": {
         "@circular-templates/base": "^1.0.0",
-        "@circular-templates/color": "^1.0.0",
         "@circular-tools/utils": "^1.0.0"
     },
     "devDependencies": {

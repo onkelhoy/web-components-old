@@ -1,9 +1,9 @@
 export const style = `:host {
-  --background: var(--o-color-white);
-  --color: var(--o-color-black); }
+  --menu-background: var(--o-color-white);
+  --menu-color: var(--o-color-black); }
   :host o-button {
-    background-color: var(--background);
-    color: var(--color);
+    background-color: var(--menu-background);
+    color: var(--menu-color);
     padding: var(--padding-small, 8px);
     gap: var(--padding-small, 8px); }
     :host o-button span.caret-wrapper {
@@ -18,7 +18,7 @@ export const style = `:host {
     display: block;
     padding-block: var(--padding-small);
     min-width: 180px;
-    background-color: var(--background);
+    background-color: var(--menu-background);
     max-height: 20rem;
     overflow-y: auto; }
 

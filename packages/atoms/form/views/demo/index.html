@@ -15,9 +15,38 @@
 </head>
 <body>
     <doc-card>
+        <h4 slot="header">With Error</h4>
         <code-block lang="html" display="both">
-            <o-form id="demo-target"></o-form>
+            <o-form id="form_error" error="Hello Im an error?">
+                <o-input label="AA" name="a.a"></o-input>
+                <o-input label="AB" name="a.b" type="number"></o-input>
+                <o-textarea label="AC" name="a.c"></o-textarea>
+                <o-checkbox label="AD" name="a.d"></o-checkbox>
+                <o-dropdown label="AE" name="a.e">
+                    <o-option value="1">first</o-option>
+                    <o-option value="2">second</o-option>
+                    <o-option value="3">third</o-option>
+                </o-dropdown>
+            </o-form>
         </code-block>
+
+        <button id="show_error">show error</button>
+    </doc-card>
+    <doc-card>
+        <h4 slot="header">With Warning</h4>
+        <code-block lang="html" display="both">
+            <o-form id="form_warning" warning="Hello Im an warning?"></o-form>
+        </code-block>
+
+        <button id="show_warning">show warning</button>
+    </doc-card>
+    <doc-card>
+        <h4 slot="header">With Success</h4>
+        <code-block lang="html" display="both">
+            <o-form id="form_success" success="Hello Im an success?"></o-form>
+        </code-block>
+
+        <button id="show_success">show success</button>
     </doc-card>
 </body>
 </html>

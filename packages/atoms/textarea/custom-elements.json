@@ -13,7 +13,7 @@
     {
       "name": "resize",
       "type": "Resize",
-      "default_value": "none",
+      "default_value": "auto",
       "type_value": [
         "none",
         "verical",
@@ -90,13 +90,6 @@
           "conditional": false
         },
         {
-          "name": "value",
-          "type": "string",
-          "type_value": null,
-          "primitive": true,
-          "conditional": true
-        },
-        {
           "name": "checked",
           "type": "boolean",
           "type_value": null,
@@ -107,6 +100,14 @@
           "name": "readonly",
           "type": "boolean",
           "default_value": false,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "default_value": "",
           "type_value": null,
           "primitive": true,
           "conditional": false
@@ -168,6 +169,10 @@
       {
         "name": "FieldTemplate",
         "from": "@circular-templates/field"
+      },
+      {
+        "name": "style",
+        "from": "./style"
       }
     ],
     "/Users/henry/Developer/projects/web-components/packages/atoms/textarea": [
@@ -226,39 +231,6 @@
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/textarea",
     "sources": [],
-    "variables": {
-      "--textarea-dark-background-color": {
-        "usecases": [
-          "--background"
-        ],
-        "fallbacks": [
-          "var(--colors-netural-black, black)"
-        ]
-      },
-      "--colors-netural-black": {
-        "usecases": [
-          "--background"
-        ],
-        "fallbacks": [
-          "black"
-        ]
-      },
-      "--textarea-dark-text-color": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "var(--colors-netural-white, white)"
-        ]
-      },
-      "--colors-netural-white": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "white"
-        ]
-      }
-    }
+    "variables": {}
   }
 }

@@ -19,6 +19,17 @@ class ExtendDemo extends Translator {
   }
 }
 
+class ExtendDemo2 extends Translator {
+  render() {
+    const label = this.translateKey('Your email address');
+    const placeholder = this.translateKey('Type here');
+    return html`
+      <p>${label}</p>
+      <p>${placeholder}</p>
+    `
+  }
+}
+
 const cElements = customElements ?? window?.customElements;
 
 if (!cElements) {
@@ -31,4 +42,8 @@ if (!cElements.get('translate-insidedemo')) {
 
 if (!cElements.get('translate-extenddemo')) {
   cElements.define('translate-extenddemo', ExtendDemo);
+}
+
+if (!cElements.get('translate-extenddemo2')) {
+  cElements.define('translate-extenddemo2', ExtendDemo2);
 }

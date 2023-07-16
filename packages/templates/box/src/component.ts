@@ -2,14 +2,13 @@
 import { property } from "@circular-tools/utils";
 
 // templates
-import { ColorTemplate } from "@circular-templates/color";
+import { BaseTemplate, RenderType } from "@circular-templates/base";
 
 // local 
 import { style } from "./style";
 import { Elevation, Radius } from "./types";
-import { RenderType } from "@circular-templates/base";
 
-export class BoxTemplate extends ColorTemplate {
+export class BoxTemplate extends BaseTemplate {
     static styles = [style];
 
     @property({ rerender: false }) radius: Radius = "circular";

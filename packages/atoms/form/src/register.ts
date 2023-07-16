@@ -1,3 +1,4 @@
+import { Message } from './components/message';
 import { Form } from './component.js';
 
 // Register the element with the browser
@@ -9,4 +10,7 @@ if (!cElements) {
 
 if (!cElements.get('o-form')) {
   cElements.define('o-form', Form);
+}
+if (!cElements.get('o-message')) {
+  cElements.define('o-message', Message);
 }

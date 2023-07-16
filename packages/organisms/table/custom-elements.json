@@ -1,12 +1,81 @@
 {
   "className": "Table",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/table",
-  "properties": [],
+  "folder": "/Users/henry/Developer/projects/web-components/packages/organisms/table",
+  "properties": [
+    {
+      "name": "config",
+      "type": "Config",
+      "default_value": {},
+      "type_value": {},
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "rows",
+      "type_value": null,
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "tableElement",
+      "type": "HTMLTableElement",
+      "type_value": {
+        "align": null,
+        "bgColor": null,
+        "border": null,
+        "caption": [
+          null,
+          null
+        ],
+        "cellPadding": null,
+        "cellSpacing": null,
+        "frame": null,
+        "rows": null,
+        "rules": null,
+        "summary": null,
+        "tBodies": null,
+        "tFoot": [
+          null,
+          null
+        ],
+        "tHead": [
+          null,
+          null
+        ],
+        "width": null,
+        "createCaption": null,
+        "createTBody": null,
+        "createTFoot": null,
+        "createTHead": null,
+        "deleteCaption": null,
+        "deleteRow": null,
+        "deleteTFoot": null,
+        "deleteTHead": null,
+        "insertRow": null,
+        "addEventListener": null,
+        "removeEventListener": null
+      },
+      "primitive": false,
+      "conditional": false
+    }
+  ],
   "extend_class": null,
   "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/molecules/table": [
+    "/Users/henry/Developer/projects/web-components/packages/organisms/table": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
       {
         "name": "html",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "property",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "query",
         "from": "@circular-tools/utils"
       },
       {
@@ -16,6 +85,14 @@
       {
         "name": "style",
         "from": "./style"
+      },
+      {
+        "name": "Cell as CellElement",
+        "from": "./components/cell"
+      },
+      {
+        "name": "CellTitle",
+        "from": "./components/cell-title"
       }
     ]
   },
@@ -24,69 +101,113 @@
     "parts": []
   },
   "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/table",
+    "folder": "/Users/henry/Developer/projects/web-components/packages/organisms/table",
     "sources": [],
     "variables": {
-      "--table-light-background-color": {
+      "--o-table-row-color-light": {
+        "usecases": [
+          "--table-row-color"
+        ],
+        "fallbacks": [
+          "var(--color-neutral-200, #FFF)"
+        ]
+      },
+      "--color-neutral-200": {
+        "usecases": [
+          "--table-row-color"
+        ],
+        "fallbacks": [
+          "#FFF"
+        ]
+      },
+      "--o-table-background-color-light": {
+        "usecases": [
+          "--table-background-color"
+        ],
+        "fallbacks": [
+          "var(--color-neutral-100, #F8F8F8)"
+        ]
+      },
+      "--color-neutral-100": {
+        "usecases": [
+          "--table-background-color"
+        ],
+        "fallbacks": [
+          "#F8F8F8"
+        ]
+      },
+      "--o-table-border-color-light": {
+        "usecases": [
+          "--table-border-color"
+        ],
+        "fallbacks": [
+          "var(--color-neutral-600, #A6ADBA)"
+        ]
+      },
+      "--color-neutral-600": {
+        "usecases": [
+          "--table-border-color"
+        ],
+        "fallbacks": [
+          "#A6ADBA"
+        ]
+      },
+      "--o-table-background-color": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-table-border-color": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-table-row-color": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--margin-small": {
+        "usecases": [
+          "margin-top"
+        ],
+        "fallbacks": [
+          "8px"
+        ]
+      },
+      "--o-table-dark-background-color": {
         "usecases": [
           "--background"
         ],
         "fallbacks": [
-          "var(--colors-netural-white, white)"
+          "var(--o-color-black, black)"
         ]
       },
-      "--colors-netural-white": {
+      "--o-color-black": {
         "usecases": [
-          "--background",
-          "--color"
-        ],
-        "fallbacks": [
-          "white"
-        ]
-      },
-      "--table-light-text-color": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "var(--colors-netural-black, black)"
-        ]
-      },
-      "--colors-netural-black": {
-        "usecases": [
-          "--color",
           "--background"
         ],
         "fallbacks": [
           "black"
         ]
       },
-      "--background": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": []
-      },
-      "--color": {
-        "usecases": [
-          "color"
-        ],
-        "fallbacks": []
-      },
-      "--table-dark-background-color": {
-        "usecases": [
-          "--background"
-        ],
-        "fallbacks": [
-          "var(--colors-netural-black, black)"
-        ]
-      },
-      "--table-dark-text-color": {
+      "--o-table-dark-text-color": {
         "usecases": [
           "--color"
         ],
         "fallbacks": [
-          "var(--colors-netural-white, white)"
+          "var(--o-color-white, white)"
+        ]
+      },
+      "--o-color-white": {
+        "usecases": [
+          "--color"
+        ],
+        "fallbacks": [
+          "white"
         ]
       }
     }

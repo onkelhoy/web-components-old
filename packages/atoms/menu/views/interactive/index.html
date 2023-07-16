@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  <doc-controller>
+    <div id="target">
+      <o-menu>
+        
+      <div slot="button-prefix" data-slotname="button-prefix">
+        
+      </div>
+     
+      <div slot="button-content" data-slotname="button-content">
+        
+      </div>
+     
+      <div slot="button-suffix" data-slotname="button-suffix">
+        
+                        <span class="caret-wrapper">
+                            <o-icon customsize="15" name="caret">v</o-icon>
+                        </span>
+                    
+      </div>
+     
+      <div  data-slotname="default">
+        
+                        <o-menu-item>Missing Items</o-menu-item>
+                    
+      </div>
+    
+      </o-menu>
+  </div>
+
+    <section class="control" slot="setting">
+      <o-tabs>
+        <o-tab id="html">HTML</o-tab>
+        <o-tab class="selected" id="properties">Properties</o-tab>
+        <o-tab id="css">CSS</o-tab>
+        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: button-prefix" variant="textarea" name="slot-button-prefix" data-slotname="button-prefix" value=""></doc-input><doc-input label="HTML slot: button-content" variant="textarea" name="slot-button-content" data-slotname="button-content" value=""></doc-input><doc-input label="HTML slot: button-suffix" variant="textarea" name="slot-button-suffix" data-slotname="button-suffix" value="
+                        <span class="caret-wrapper">
+                            <o-icon customsize="15" name="caret">v</o-icon>
+                        
+                    "></doc-input><doc-input label="HTML slot: default" variant="textarea" name="slot-default" data-slotname="default" value="
+                        <o-menu-item>Missing Items</o-menu-item>
+                    "></doc-input></div></o-tab-content>
+        <o-tab-content id="properties"><h3 data-subtitle="Menu Properties">Menu Properties</h3><div data-name="Menu Properties" class="properties">
+          <doc-radio name="open" data-prop-name="open" label="open" value=""></doc-radio>
+        
+        <doc-input data-prop-name="placement" variant="select" value="bottom-center" name="placement" label="placement" options='["top-left","top-right","top-center","bottom-left","bottom-right","bottom-center","left-top","left-bottom","left-center","right-top","right-bottom","right-center"]'></doc-input>
+      </div></o-tab-content>
+        <o-tab-content id="css">
+      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/atoms/menu" class="style-source">
+        <h3>menu styles</h3>
+      <div class="style-group" data-style-name="--background"><doc-input data-css-input="true" name="--background" label="--background" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--color"><color-picker-input data-css-input="true" name="--color" label="--color" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--o-color-black"><color-picker-input data-css-input="true" name="--o-color-black" label="--o-color-black" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--o-color-white"><color-picker-input data-css-input="true" name="--o-color-white" label="--o-color-white" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--background</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--padding-small"><doc-input data-css-input="true" name="--padding-small" label="--padding-small" value="8px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding</li><li>gap</li><li>padding-block</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>8px</li></ul></div></div></div></div>
+    </o-tab-content>
+      </o-tabs>
+    </section>
+  </doc-controller>
+</body>
+</html>

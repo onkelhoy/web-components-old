@@ -85,13 +85,6 @@
           "conditional": false
         },
         {
-          "name": "value",
-          "type": "string",
-          "type_value": null,
-          "primitive": true,
-          "conditional": true
-        },
-        {
           "name": "checked",
           "type": "boolean",
           "type_value": null,
@@ -102,6 +95,14 @@
           "name": "readonly",
           "type": "boolean",
           "default_value": false,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "default_value": "",
           "type_value": null,
           "primitive": true,
           "conditional": false
@@ -163,6 +164,10 @@
       {
         "name": "FieldTemplate",
         "from": "@circular-templates/field"
+      },
+      {
+        "name": "style",
+        "from": "./style"
       }
     ],
     "/Users/henry/Developer/projects/web-components/packages/atoms/input": [
