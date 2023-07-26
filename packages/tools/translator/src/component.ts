@@ -1,5 +1,5 @@
 // utils 
-import { html } from "@circular-tools/utils";
+import { ExtractSlotValue, html } from "@circular-tools/utils";
 
 // templates
 import { BaseTemplate } from "@circular-templates/base";
@@ -23,7 +23,8 @@ export class Translator extends BaseTemplate {
     set Key(value: string | null) {
         if (typeof value === 'string') 
         {
-            this.key = value.replace(/<!--\?lit.*?>(.*)/, '$1');
+            this.key = value;
+            // this.key = value.replace(/<!--\?lit.*?>(.*)/, '$1');
         } 
         else 
         {
@@ -33,6 +34,7 @@ export class Translator extends BaseTemplate {
         this.updateText();
     }
     private dynamicAttributes:Set<string> = new Set<string>();
+    private noupdate = false;
 
     // class functions 
     connectedCallback(): void {
@@ -69,7 +71,7 @@ export class Translator extends BaseTemplate {
     private handletranslateslotchange = (e:Event) => {
         if (e.target instanceof HTMLSlotElement)
         {
-            const nodetext = e.target.assignedNodes()?.[0]?.textContent;
+            const nodetext = ExtractSlotValue(e.target).join(' ');
             this.Key = nodetext;
         }
     }
@@ -78,6 +80,7 @@ export class Translator extends BaseTemplate {
     public translateKey(key:string) {
         if (this.key !== key)
         {
+            this.noupdate = true;
             this.Key = key;
         }
 
@@ -114,10 +117,12 @@ export class Translator extends BaseTemplate {
         {
             this.spanElement.innerText = text;
         }
-        else 
+        else if (!this.noupdate)
         {
-            this.requestUpdate();
+            this.debouncedRequestUpdate();
         }
+        
+        this.noupdate = false;
     };
 
     render() {

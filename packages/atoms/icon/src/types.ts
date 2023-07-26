@@ -1,1 +1,1 @@
-export {}
+export type ContainerTypes = "small" | "medium" | "large";

@@ -3,7 +3,7 @@ import { BoxTemplate } from '@circular-templates/box';
 
 import { style } from './style.js';
 
-import type { ButtonMode, ButtonVariant, ButtonType } from './types';
+import type { ButtonMode, ButtonVariant, ButtonColorVariant } from './types';
 
 export class Button extends BoxTemplate {
     static style = style;
@@ -12,14 +12,9 @@ export class Button extends BoxTemplate {
     @property({ rerender: false }) mode: ButtonMode = "hug";
     @property({ rerender: false }) variant: ButtonVariant = "filled";
     @property({ rerender: false, type: Number }) tabIndex: number = 1;
+    @property({ rerender: false }) color: ButtonColorVariant = "secondary";
 
     // class functions
-    constructor() {
-        super();
-        setTimeout(() => {
-            if (!this.color) this.color = "black";
-        }, 1);
-    }
     connectedCallback(): void {
         super.connectedCallback();
         window.addEventListener('keyup', this.handlekeyup);

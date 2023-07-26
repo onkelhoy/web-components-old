@@ -6,6 +6,10 @@
   "imports": {
     "/Users/henry/Developer/projects/web-components/packages/tools/translator": [
       {
+        "name": "ExtractSlotValue",
+        "from": "@circular-tools/utils"
+      },
+      {
         "name": "html",
         "from": "@circular-tools/utils"
       },
@@ -18,23 +22,7 @@
         "from": "./style"
       },
       {
-        "name": "load",
-        "from": "./translator"
-      },
-      {
-        "name": "loadAll",
-        "from": "./translator"
-      },
-      {
-        "name": "change",
-        "from": "./translator"
-      },
-      {
-        "name": "subscribe",
-        "from": "./translator"
-      },
-      {
-        "name": "unsubscribe",
+        "name": "InitTranslations",
         "from": "./translator"
       }
     ]

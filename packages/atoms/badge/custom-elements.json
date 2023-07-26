@@ -1,0 +1,77 @@
+{
+  "className": "Badge",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/badge",
+  "properties": [
+    {
+      "name": "count",
+      "type": "number",
+      "default_value": 0,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    }
+  ],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/atoms/badge": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "property",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "FormatNumber",
+        "from": "@circular-tools/utils"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@circular-templates/base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [],
+    "parts": []
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/badge",
+    "sources": [],
+    "variables": {
+      "--o-color-neutral-200": {
+        "usecases": [
+          "--background"
+        ],
+        "fallbacks": []
+      },
+      "--o-color-neutral-300": {
+        "usecases": [
+          "--border"
+        ],
+        "fallbacks": []
+      },
+      "--background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-color-black": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      }
+    }
+  }
+}

@@ -1,42 +1,54 @@
 // utils 
-import { html, property } from "@circular-tools/utils";
+import { html, property, query } from "@circular-tools/utils";
 
 // templates
 import { BaseTemplate } from "@circular-templates/base";
 
 // local 
 import { style } from "./style";
-import { Foo, ClickEvent } from "./types";
+import { Message, Variant as MessageType } from "./components/message";
 
 export class Form extends BaseTemplate {
     static style = style;
 
-    @property() foo:Foo = "bar";
-    @property({ type: Number }) bajs?:number;
-    @property({ type: Boolean }) fooLaa:boolean = true;
+    @property({ rerender: false, onUpdate: "onerrorupdate" }) error?:string;
+    @property({ rerender: false, onUpdate: "onwarningupdate" }) warning?:string;
+    @property({ rerender: false, onUpdate: "onsuccessupdate" }) success?:string;
 
-    // event handlers
-    private handleMainClick() {
-        this.dispatchEvent(new CustomEvent<ClickEvent>("main-click", { detail: { foo: this.foo } }));
+    @query('o-message') messageElement!: Message;
+
+    // update handlers
+    private onerrorupdate = () => {
+        if (!this.messageElement) return 10;
+        if (this.error) this.showMessage(this.error, "error");
+    }   
+    private onwarningupdate = () => {
+        if (!this.messageElement) return 10;
+        if (this.warning) this.showMessage(this.warning, "warning");
+    }
+    private onsuccessupdate = () => {
+        if (!this.messageElement) return 10;
+        if (this.success) this.showMessage(this.success, "success");
+    }
+
+    // public functions 
+    public showMessage(message: string, type: MessageType) {
+        this.messageElement.innerHTML = message;
+        this.messageElement.variant = type;
+        this.messageElement.open = true;
+    }
+    public hideMessage() {
+        this.messageElement.open = false;
     }
 
     render() {
         return html`
-            <header part="header">
-                <slot name="header">
-                    <h1>llama drama trauma</h1>
-                </slot>
-            </header>
-            <main onclick=${this.handleMainClick}>
-                <slot>
-                    <p>Why did the llama go to therapy? Because it had a lot of spitting issues!</p>
-                </slot>
-            </main>
-            <footer part="footer">
-                <slot name="footer">
-                    <p>Why did the llama enter the door? To attend the llamazing party inside!</p>
-                </slot>
-            </footer
+            <form>
+                <div>
+                    <o-message></o-message>
+                </div>
+                <slot></slot>
+            </form>
         `
     }
 }

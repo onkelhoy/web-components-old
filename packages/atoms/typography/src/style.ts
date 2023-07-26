@@ -3,6 +3,42 @@ export const style = `:host {
   text-align: left;
   display: block; }
 
+:host([alignment="center"]),
+:host([align="center"]) {
+  text-align: center; }
+
+:host([alignment="justify"]),
+:host([align="justify"]) {
+  text-align: justify; }
+
+:host([alignment="start"]),
+:host([align="start"]) {
+  text-align: start; }
+
+:host([alignment="end"]),
+:host([align="end"]) {
+  text-align: end; }
+
+:host([alignment="left"]),
+:host([align="left"]) {
+  text-align: left; }
+
+:host([alignment="right"]),
+:host([align="right"]) {
+  text-align: right; }
+
+:host([alignment="unset"]),
+:host([align="unset"]) {
+  text-align: unset; }
+
+:host([alignment="inherit"]),
+:host([align="inherit"]) {
+  text-align: inherit; }
+
+:host([alignment="initial"]),
+:host([align="initial"]) {
+  text-align: initial; }
+
 :host([variant="heading1"]),
 :host([variant="h1"]) {
   font-family: var(--typography-h1-fontfamily, var(--default-fontfamily));

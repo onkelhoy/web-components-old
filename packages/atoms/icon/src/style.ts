@@ -14,11 +14,30 @@ export const style = `:host {
 :host([size="large"]) {
   --icon-custom-size: var(--icon-size-large, 40px); }
 
-svg {
+:host(:not([container])) svg {
   width: inherit;
-  height: inherit;
-  fill: currentColor;
-  stroke: currentColor; }
+  height: inherit; }
+
+:host([container]) {
+  display: flex; }
+  :host([container]) svg {
+    width: var(--icon-custom-size);
+    height: var(--icon-custom-size); }
+
+:host([container="small"]) {
+  width: var(--container-size-small);
+  height: var(--container-size-small); }
+
+:host([container="medium"]) {
+  width: var(--container-size-medium);
+  height: var(--container-size-medium); }
+
+:host([container="large"]) {
+  width: var(--container-size-large);
+  height: var(--container-size-large); }
+
+svg {
+  fill: currentColor; }
 
 :host([data-hide-slot="true"])::part(fallback) {
   display: none; }

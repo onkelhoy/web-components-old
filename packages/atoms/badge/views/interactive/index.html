@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  <doc-controller>
+    <div id="target">
+      <o-badge>
+        
+      </o-badge>
+  </div>
+
+    <section class="control" slot="setting">
+      <o-tabs>
+        <o-tab id="html">HTML</o-tab>
+        <o-tab class="selected" id="properties">Properties</o-tab>
+        <o-tab id="css">CSS</o-tab>
+        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br></div></o-tab-content>
+        <o-tab-content id="properties"><h3 data-subtitle="Badge Properties">Badge Properties</h3><div data-name="Badge Properties" class="properties">
+          <doc-input data-prop-name="count" variant="number" value="" name="count" label="count"></doc-input>
+        </div></o-tab-content>
+        <o-tab-content id="css">
+      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/atoms/badge" class="style-source">
+        <h3>badge styles</h3>
+      <div class="style-group" data-style-name="--background"><doc-input data-css-input="true" name="--background" label="--background" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--o-color-black"><color-picker-input data-css-input="true" name="--o-color-black" label="--o-color-black" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--o-color-neutral-200"><color-picker-input data-css-input="true" name="--o-color-neutral-200" label="--o-color-neutral-200" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--background</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--o-color-neutral-300"><color-picker-input data-css-input="true" name="--o-color-neutral-300" label="--o-color-neutral-300" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--border</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div></div>
+    </o-tab-content>
+      </o-tabs>
+    </section>
+  </doc-controller>
+</body>
+</html>

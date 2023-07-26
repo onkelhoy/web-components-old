@@ -2,6 +2,7 @@ export const style = `:host {
   cursor: var(--button-cursor, pointer);
   align-items: center;
   font-family: var(--button-font-family, var(--font-family, inherit));
+  font-weight: var(--o-font-weight-semibold);
   justify-content: space-between;
   gap: 0.5rem;
   box-sizing: border-box;
@@ -11,7 +12,9 @@ export const style = `:host {
   -ms-user-select: none;
   /* IE 10 and IE 11 */
   user-select: none;
-  /* Standard syntax */ }
+  /* Standard syntax */
+  background-color: var(--background);
+  color: var(--color); }
 
 :host([mode="hug"]) {
   display: inline-flex; }
@@ -37,95 +40,137 @@ export const style = `:host {
   padding: var(--button-padding-large, var(--padding-large, 1rem));
   border-width: var(--button-border-width-large, var(--border-width-large, 1px)); }
 
-:host([variant="clear"]) {
-  background-color: var(--button-background-color-clear, transparent);
-  color: var(--button-text-color-clear, var(--color500)); }
+:host([color="primary"]) {
+  --button-background: var(--o-color-primary-500);
+  --button-color: var(--o-color-white);
+  --button-background-hover: var(--o-color-primary-700);
+  --button-color-hover: var(--o-color-white);
+  --button-background-active: var(--o-color-primary-600);
+  --button-color-active: var(--o-color-white);
+  --button-background-disabled: var(--o-color-neutral-300);
+  --button-color-disabled: var(--o-color-neutral-700); }
 
-:host([variant="clear"]:hover) {
-  background-color: var(--button-background-color-clear-hover, transparent);
-  color: var(--button-text-color-clear-hover, var(--color600)); }
+:host([color="danger"]) {
+  --button-background: var(--o-color-danger-500);
+  --button-color: var(--o-color-white);
+  --button-background-hover: var(--o-color-danger-700);
+  --button-color-hover: var(--o-color-white);
+  --button-background-active: var(--o-color-danger-600);
+  --button-color-active: var(--o-color-white);
+  --button-background-disabled: var(--o-color-neutral-300);
+  --button-color-disabled: var(--o-color-neutral-700); }
 
-:host([variant="clear"]:active) {
-  background-color: var(--button-background-color-clear-active, var(--color3000));
-  color: var(--button-background-text-color-clear-active, var(--color700)); }
+:host([color="success"]) {
+  --button-background: var(--o-color-success-500);
+  --button-color: var(--o-color-white);
+  --button-background-hover: var(--o-color-success-700);
+  --button-color-hover: var(--o-color-white);
+  --button-background-active: var(--o-color-success-600);
+  --button-color-active: var(--o-color-white);
+  --button-background-disabled: var(--o-color-neutral-300);
+  --button-color-disabled: var(--o-color-neutral-700); }
 
-:host([variant="clear"][disabled]) {
-  background-color: var(--button-background-color-clear-disabled, transparent);
-  color: var(--button-text-color-clear-disabled, var(--disabled-text-color, var(--color3100))); }
+:host([color="warning"]) {
+  --button-background: var(--o-color-warning-500);
+  --button-color: var(--o-color-white);
+  --button-background-hover: var(--o-color-warning-700);
+  --button-color-hover: var(--o-color-white);
+  --button-background-active: var(--o-color-warning-600);
+  --button-color-active: var(--o-color-white);
+  --button-background-disabled: var(--o-color-neutral-300);
+  --button-color-disabled: var(--o-color-neutral-700); }
 
-:host([variant="underlined"]) {
-  background-color: var(--button-background-color-underlined, transparent);
-  color: var(--button-text-color-underlined, var(--color500)); }
+:host([color="secondary"]) {
+  --button-background: var(--o-color-neutral-500);
+  --button-color: var(--o-color-black);
+  --button-background-hover: var(--o-color-neutral-700);
+  --button-color-hover: var(--o-color-black);
+  --button-background-active: var(--o-color-neutral-600);
+  --button-color-active: var(--o-color-black);
+  --button-background-disabled: var(--o-color-neutral-300);
+  --button-color-disabled: var(--o-color-neutral-700); }
 
-:host([variant="underlined"]:hover) {
-  background-color: var(--button-background-color-underlined-hover, transparent);
-  color: var(--button-text-color-underlined-hover, var(--color600)); }
+:host([color="brand"]) {
+  --button-background: var(--o-color-neutral-500);
+  --button-color: var(--o-color-black);
+  --button-background-hover: var(--o-color-neutral-700);
+  --button-color-hover: var(--o-color-black);
+  --button-background-active: var(--o-color-neutral-600);
+  --button-color-active: var(--o-color-black);
+  --button-background-disabled: var(--o-color-neutral-300);
+  --button-color-disabled: var(--o-color-neutral-700); }
 
-:host([variant="underlined"]:active) {
-  background-color: var(--button-background-color-underlined-active, var(--color3000));
-  color: var(--button-background-text-color-underlined-active, var(--color700)); }
-
-:host([variant="underlined"][disabled]) {
-  background-color: var(--button-background-color-underlined-disabled, transparent);
-  color: var(--button-text-color-underlined-disabled, var(--disabled-text-color, var(--color3100))); }
-
-:host([variant="outlined"]) {
-  background-color: var(--button-background-color-outlined, transparent);
-  color: var(--button-text-color-outlined, var(--color500)); }
-
-:host([variant="outlined"]:hover) {
-  background-color: var(--button-background-color-outlined-hover, transparent);
-  color: var(--button-text-color-outlined-hover, var(--color600)); }
-
-:host([variant="outlined"]:active) {
-  background-color: var(--button-background-color-outlined-active, var(--color3000));
-  color: var(--button-background-text-color-outlined-active, var(--color700)); }
-
-:host([variant="outlined"][disabled]) {
-  background-color: var(--button-background-color-outlined-disabled, transparent);
-  color: var(--button-text-color-outlined-disabled, var(--disabled-text-color, var(--color3100))); }
+:host([color="secondary"]) {
+  --button-background: var(--o-color-neutral-100);
+  --button-color: var(--o-color-black);
+  --button-background-hover: var(--o-color-neutral-300);
+  --button-color-hover: var(--o-color-black);
+  --button-background-active: var(--o-color-neutral-200);
+  --button-color-active: var(--o-color-black); }
 
 :host([disabled]) {
   cursor: var(--button-cursor-disabled, not-allowed); }
 
 :host([variant="filled"]) {
-  background-color: var(--button-background-color-filled, var(--color500));
-  color: var(--button-text-color-filled, var(--text-color500)); }
+  --background: var(--button-background-color-filled, var(--button-background));
+  --color: var(--button-text-color-filled, var(--button-color)); }
 
 :host([variant="filled"]:hover) {
-  background-color: var(--button-background-color-filled-hover, var(--color600));
-  color: var(--button-text-color-filled-hover, var(--text-color600)); }
+  --background: var(--button-background-color-filled-hover, var(--button-background-hover));
+  --color: var(--button-text-color-filled-hover, var(--button-color-hover)); }
 
 :host([variant="filled"]:active) {
-  background-color: var(--button-background-color-filled-active, var(--color700));
-  color: var(--button-text-color-filled-active, var(--text-color700)); }
+  --background: var(--button-background-color-filled-active, var(--button-background-active));
+  --color: var(--button-text-color-filled-active, var(--button-color-active)); }
 
 :host([variant="filled"][disabled]) {
-  background-color: var(--button-background-color-filled-disabled, var(--color1400));
-  color: var(--button-text-color-filled-disabled, var(--disabled-text-color, var(--color3000))); }
+  --background: var(--button-background-color-filled-disabled, var(--button-background-disabled));
+  --color: var(--button-text-color-filled-disabled, var(--button-color-disabled)); }
 
 :host([variant="outlined"]) {
-  border-color: var(--button-border-color-outlined, var(--color500));
-  border-style: var(--button-border-style, solid); }
+  border-color: var(--button-border-color-outlined, var(--button-background));
+  border-style: var(--button-border-style, solid);
+  --background: transparent; }
 
 :host([variant="outlined"]:hover) {
-  border-color: var(--button-border-color-outlined-hover, var(--color600)); }
+  border-color: var(--button-border-color-outlined-hover, var(--button-background-hover));
+  --background: var(--o-button-outlined-hover-background, var(--o-color-hover-200)); }
 
 :host([variant="outlined"]:active) {
-  border-color: var(--button-border-color-outlined-active, var(--color700)); }
+  border-color: var(--button-border-color-outlined-active, var(--button-background-active));
+  --background: var(--o-button-outlined-active-background, var(--o-color-hover-400)); }
 
 :host([variant="outlined"][disabled]) {
-  border-color: var(--button-border-color-outlined-disabled, var(--color1400)); }
+  border-color: var(--button-border-color-outlined-disabled, var(--button-background-disabled));
+  --color: var(--o-button-outlined-disabled-text-color, var(--button-color-disabled));
+  --background: transparent; }
+
+:host([variant="clear"]) {
+  --background: transparent; }
+
+:host([variant="clear"]:hover) {
+  --background: var(--o-button-clear-hover-background, var(--o-color-hover-200)); }
+
+:host([variant="clear"]:active) {
+  --background: var(--o-button-clear-active-background, var(--o-color-hover-400)); }
+
+:host([variant="clear"][disabled]) {
+  --color: var(--o-button-clear-disabled-text-color, var(--button-color-disabled));
+  --background: transparent; }
 
 :host([variant="underlined"]) {
+  --background: transparent;
   text-decoration: underline;
+  text-underline-offset: var(--gap-smaller);
   text-decoration-thickness: var(--button-underlined-thickness, 1px); }
 
 :host([variant="underlined"]:hover) {
   text-decoration-thickness: var(--button-underlined-hover-thickness, 2px); }
 
 :host([variant="underlined"]:active) {
-  text-decoration-thickness: var(--button-underlined-active-thickness, 2px); }
+  text-decoration-thickness: var(--button-underlined-active-thickness, 3px); }
 
 :host([variant="underlined"][disabled]) {
-  text-decoration-thickness: var(--button-underlined-disabled-thickness, 1px); }`;
+  text-decoration-thickness: var(--button-underlined-disabled-thickness, 1px);
+  --color: var(--o-button-underlined-disabled-text-color, var(--button-color-disabled));
+  --background: transparent; }`;

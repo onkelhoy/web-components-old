@@ -3,6 +3,17 @@
   "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/icon",
   "properties": [
     {
+      "name": "container",
+      "type": "ContainerTypes",
+      "type_value": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "primitive": false,
+      "conditional": true
+    },
+    {
       "name": "name",
       "type": "string",
       "type_value": null,
@@ -149,6 +160,27 @@
         "fallbacks": [
           "40px"
         ]
+      },
+      "--container-size-small": {
+        "usecases": [
+          "width",
+          "height"
+        ],
+        "fallbacks": []
+      },
+      "--container-size-medium": {
+        "usecases": [
+          "width",
+          "height"
+        ],
+        "fallbacks": []
+      },
+      "--container-size-large": {
+        "usecases": [
+          "width",
+          "height"
+        ],
+        "fallbacks": []
       }
     }
   }

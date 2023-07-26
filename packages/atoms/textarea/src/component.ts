@@ -12,7 +12,7 @@ export class Textarea extends TextinputTemplate<HTMLTextAreaElement> {
     static style = style;
 
     @property({ type: Number }) rows:number = 4;
-    @property({ rerender: false }) resize:Resize = "none";
+    @property({ rerender: false }) resize:Resize = "auto";
 
     // event functions
     private handleinput = (e:Event) => {

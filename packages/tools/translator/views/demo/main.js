@@ -13,7 +13,7 @@ window.onload = () => {
                 translations: {
                     "Hello World": "Translated Hello World",
                     "Hello {name}": "Translated Hello {name}",
-                    "bajs": "BAAAAAJS"
+                    "bajs": "BAAAAAJS",
                 }
             },
             {
@@ -22,7 +22,9 @@ window.onload = () => {
                 translations: {
                     "Hello World": "Translated 2 Hello World",
                     "Hello {name}": "Translated 2 Hello {name}",
-                    "bajs": "BAAAAAJS 2"
+                    "bajs": "BAAAAAJS 2",
+                    "Type here": "Type here then",
+                    "Your email address": "screw your email address",
                 }
             }
         ]
