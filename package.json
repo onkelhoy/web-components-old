@@ -1,8 +1,12 @@
 {
-  "name": "@circular/web-components",
-  "version": "1.0.0",
+  "name": "@onkelhoy/web-components",
+  "version": "1.0.1",
   "description": "web-component library",
-  "private": true,
+  "private": false,
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/onkelhoy/web-components.git"
+  },
   "scripts": {
     "init": "sh ./scripts/init.sh",
     "build": "npm run build --workspaces",

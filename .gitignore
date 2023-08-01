@@ -7,9 +7,6 @@ build/
 combined/
 .devserver-temp/
 
-# Ignore package lock file
-package-lock.json
-
 # Ignore npm cache
 .npmrc
 .npm/
