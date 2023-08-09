@@ -1,35 +1,80 @@
 :host {
     --background: var(--dropdown-background-light, var(--o-color-white));
+
+    o-popover-template {
+        --popover-gap: var(--gap-small);
+        
+        flex-grow: 1;
+        width: 100%;
+    
+        input {
+            width: 100%;
+        }
+    
+        &::part(wrapper) {
+            width: 100%;
+        }
+        o-box-template.options {
+            box-sizing: border-box;
+            padding: var(--padding-small);
+            width: 100%;
+            display: block;
+            background-color: var(--background);
+            border: 1px solid grey;
+    
+            max-height: 15rem;
+            overflow-y: auto;
+        }
+    }
 }
+
+
+// for now its only for bottom cases... 
+$size-map: (
+  small: (
+    height: var(--field-size-small),
+    blockheight: var(--field-size-small),
+    padding: var(--padding-small),
+  ),
+  medium: (
+    height: var(--field-size-medium),
+    blockheight: var(--field-size-small),
+    padding: var(--padding-medium),
+  ),
+  large: (
+    height: var(--field-size-large),
+    blockheight: var(--field-size-small),
+    padding: var(--padding-medium),
+  ),
+);
+
+@each $name, $value in $size-map {
+    :host([size="#{$name}"]) {
+        o-box-template.wrapper {
+            height: var(--o-field-height-#{$name}, #{map-get($value, height)});
+        }
+        footer,
+        header {
+            height: var(--o-field-block-height-#{$name}, #{map-get($value, blockheight)});
+        }
+    }
+}
+
+@each $name in (small, medium, large) {
+    :host([placement="bottom-left"][size="#{$name}"]),
+    :host([placement="bottom-center"][size="#{$name}"]),
+    :host([placement="bottom-right"][size="#{$name}"]) {
+        o-popover-template::part(wrapper) {
+            top: calc(var(--field-size-small) + var(--field-size-#{$name}));
+        }
+    }
+}
+
+
 
 @media (prefers-color-scheme: dark) {
     :host {
         --background: var(--dropdown-background-dark, var(--o-color-white)); // NOTE in dark this is black
-    }
-}
-:host o-popover-template {
-    --popover-gap: 0.5rem;
-    
-    flex-grow: 1;
-    width: 100%;
-
-    input {
-        width: 100%;
-    }
-
-    &::part(wrapper) {
-        width: 100%;
-    }
-    o-box-template.options {
-        box-sizing: border-box;
-        padding: 0.5rem;
-        width: 100%;
-        display: block;
-        background-color: var(--background);
-        border: 1px solid grey;
-
-        max-height: 15rem;
-        overflow-y: auto;
     }
 }
 

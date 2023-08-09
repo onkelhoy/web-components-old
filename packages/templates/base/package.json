@@ -1,6 +1,6 @@
 {
     "name": "@henry2/templates-base",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "scripts": {
         "init": "sh .scripts/init.sh",
         "test": ".scripts/test.sh",
@@ -10,11 +10,13 @@
         "start": ".scripts/start.sh"
     },
     "main": "dist/src/index.js",
+    "files": [
+        "asset/",
+        "dist/"
+    ],
     "exports": {
         ".": "./dist/src/index.js",
-        "./wc": "./dist/src/register.js",
-        "./esm": "./dist/index.mjs",
-        "./bundle-wc": "./dist/register.bundle.mjs"
+        "./wc": "./dist/register.bundle.mjs"
     },
     "author": "Henry Pap",
     "private": false,

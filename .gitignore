@@ -9,7 +9,6 @@ combined/
 # Ignore npm cache
 .npmrc
 .npm/
-.npmignore
 
 # Ignore editor files
 .idea/
@@ -21,7 +20,6 @@ Thumbs.db
 .DS_Store
 
 # Ignore any configuration files that may contain sensitive data
-*.env
 .env.local
 .env.development.local
 .env.test.local

@@ -44,6 +44,14 @@ $size-map: (
         padding-inline: var(--padding-small);
     }
 
+    footer {
+        div {
+            display: none;
+            align-items: center;
+            gap: var(--gap-small);
+        }
+    }
+
     o-box-template.wrapper {
         box-sizing: border-box;
         position: relative;
@@ -79,6 +87,36 @@ $size-map: (
 
     &:focus {
         outline: none;
+    }
+}
+// :host([isSuccess="true"]) {
+//     footer {
+//         div:not(.error) {
+//             display: none;
+//         }
+//         div.error {
+//             display: flex;
+//         }
+//     }
+// }
+:host([isWarning="true"]) {
+    footer {
+        div:not(.warning) {
+            display: none;
+        }
+        div.warning {
+            display: flex;
+        }
+    }
+}
+:host([isError="true"]) {
+    footer {
+        div:not(.error) {
+            display: none;
+        }
+        div.error {
+            display: flex;
+        }
     }
 }
 

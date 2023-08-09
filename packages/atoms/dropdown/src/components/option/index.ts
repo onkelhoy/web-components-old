@@ -1,10 +1,6 @@
 // utils 
 import { html, property, query, ExtractSlotValue } from "@henry2/tools-utils";
 
-// atoms 
-import { Checkbox } from "@henry2/checkbox";
-import "@henry2/checkbox/wc";
-
 // templates
 import { BaseTemplate } from "@henry2/templates-base";
 
@@ -17,8 +13,8 @@ export type OptionClick = Partial<IOption>;
 export class Option extends BaseTemplate {
   static style = style;
 
-  @property() value?: string;
-  @query({ selector: 'o-checkbox', onload: "oncheckboxload" }) private checkboxElement!: Checkbox;
+  @property({ rerender: false }) value?: string;
+  @query({ selector: 'input[type="checkbox"]', onload: "oncheckboxload" }) private checkboxElement!: HTMLInputElement;
 
   private text?: string;
 
@@ -32,6 +28,13 @@ export class Option extends BaseTemplate {
   private oncheckboxload = () => {
     if (this.hasAttribute('data-dropdown-option')) return;
 
+    this.checkboxElement.addEventListener('change', (e:Event) => {
+      console.log('well?')
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }, true);
+
     setTimeout(() => {
       const dropdown = this.shadow_closest('o-dropdown');
       if (dropdown instanceof Dropdown)
@@ -42,11 +45,11 @@ export class Option extends BaseTemplate {
   
         if (dropdown.values.includes(this.getValue())) 
         {
-          this.checkboxElement.value = 'true';
+          this.checkboxElement.checked = true;
         }
         else 
         {
-          this.checkboxElement.value = 'false';
+          this.checkboxElement.removeAttribute('checked');
         }
       }
       else 
@@ -87,11 +90,11 @@ export class Option extends BaseTemplate {
     {
       if (e.target.values.includes(this.getValue())) 
       {
-        this.checkboxElement.value = 'true';
+        this.checkboxElement.checked = true;
       }
       else 
       {
-        this.checkboxElement.value = 'false';
+        this.checkboxElement.checked = false;
       }
     }
   }
@@ -104,8 +107,8 @@ export class Option extends BaseTemplate {
 
   render() {
     return html`
-      <o-checkbox size="small"></o-checkbox>
-      <slot @slotchange="${this.handleslotchange}">${this.value}</slot>
+      <input part="checkbox" readonly type="checkbox" />
+      <slot @slotchange="${this.handleslotchange}">${this.getText()}</slot>
     `
   }
 }

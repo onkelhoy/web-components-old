@@ -23,6 +23,16 @@ window.onload = () => {
         window.form_warning.showMessage("Im the warning now!", "warning");
     }
 
+    document.querySelector('o-input[name="a.a"]').setAttribute('customWarning', JSON.stringify({
+        valueMissing: 'Hey fool im missing!'
+    }))
+
+    document.querySelectorAll('o-form').forEach(form => {
+        form.addEventListener('submit', (e) => {
+            console.log('submitted', e)
+        })
+    })
+
     // document.querySelector('form#test-form').addEventListener('submit', (e) => {
     //     e.preventDefault();
     //     const data = Array.from(new FormData(e.target));

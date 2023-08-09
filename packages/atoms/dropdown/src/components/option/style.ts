@@ -1,7 +1,7 @@
 export const style = `:host {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--gap-small);
   padding: var(--option-padding, 0.3rem 0.5rem);
   cursor: pointer;
   user-select: none;

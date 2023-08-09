@@ -18,13 +18,13 @@
         <h4 slot="header">With Error</h4>
         <code-block lang="html" display="both">
             <o-form id="form_error" error="Hello Im an error?">
-                <o-input required label="AA" name="a.a"></o-input>
-                <o-input required label="AAA" name="a.a.a"></o-input>
-                <o-input required label="AAB" name="a.a.b"></o-input>
-                <o-input required label="AB" name="a.b" type="number"></o-input>
-                <o-textarea required label="AC" name="a.c"></o-textarea>
-                <o-checkbox required label="AD" name="a.d"></o-checkbox>
-                <o-dropdown required label="AE" name="a.e">
+                <o-input required="true" label="AA" name="a.a"></o-input>
+                <o-input required="true" label="AAA" name="a.a.a"></o-input>
+                <o-input required="true" label="AAB" name="a.a.b"></o-input>
+                <o-input required="true" label="AB" name="a.b" type="number"></o-input>
+                <o-textarea required="true" label="AC" name="a.c"></o-textarea>
+                <o-checkbox required="true" label="AD" name="a.d"></o-checkbox>
+                <o-dropdown required="true" label="AE" name="a.e">
                     <o-option value="1">first</o-option>
                     <o-option value="2">second</o-option>
                     <o-option value="3">third</o-option>
@@ -41,8 +41,8 @@
         <h4 slot="header">Testing</h4>
         <code-block lang="html" display="both">
             <form id="test-form">
-                <input placeholder="hello" required name="hello" />
-                <input placeholder="foo" required name="foo" />
+                <input placeholder="hello" required="true" name="hello" />
+                <input placeholder="foo" required="true" name="foo" />
                 <button type="submit">submit</button>
             </form>
         </code-block>

@@ -1,6 +1,6 @@
 {
     "name": "@henry2/menu",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "scripts": {
         "init": "sh .scripts/init.sh",
         "test": ".scripts/test.sh",
@@ -14,13 +14,12 @@
     },
     "main": "dist/src/index.js",
     "files": [
-        "asset"
+        "asset/",
+        "dist/"
     ],
     "exports": {
         ".": "./dist/src/index.js",
-        "./wc": "./dist/src/register.js",
-        "./esm": "./dist/index.mjs",
-        "./bundle-wc": "./dist/register.bundle.mjs"
+        "./wc": "./dist/register.bundle.mjs"
     },
     "author": "Henry Pap",
     "private": false,
@@ -29,9 +28,9 @@
         "registry": "https://registry.npmjs.org/"
     },
     "license": "ISC",
-    "repository" : {
-        "type" : "git",
-        "url" : "https://github.com/onkelhoy/web-components.git"
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/onkelhoy/web-components.git"
     },
     "dependencies": {
         "@henry2/templates-base": "^1.0.0",
