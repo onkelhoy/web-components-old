@@ -1,16 +1,16 @@
 // utils 
-import { html } from "@onkelhoy/tools-utils";
-import "@onkelhoy/tools-translator/wc";
+import { html } from "@henry2/tools-utils";
+import "@henry2/tools-translator/wc";
 
 // atoms 
-import "@onkelhoy/button/wc";
-import "@onkelhoy/typography/wc";
-import "@onkelhoy/icon/wc";
-import "@onkelhoy/input/wc";
-import "@onkelhoy/form/wc";
+import "@henry2/button/wc";
+import "@henry2/typography/wc";
+import "@henry2/icon/wc";
+import "@henry2/input/wc";
+import "@henry2/form/wc";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
+import { BaseTemplate } from "@henry2/templates-base";
 
 // local 
 import { style } from "./style";

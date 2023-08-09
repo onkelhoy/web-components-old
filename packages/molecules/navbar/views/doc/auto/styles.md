@@ -6,17 +6,17 @@ slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@onkelhoy/tools-utils";
-import "@onkelhoy/tools-translator/wc";
+import { html, property } from "@henry2/tools-utils";
+import "@henry2/tools-translator/wc";
 
 // atoms 
-import "@onkelhoy/button/wc";
-import "@onkelhoy/icon/wc";
-import "@onkelhoy/divider/wc";
-import "@onkelhoy/typography/wc";
+import "@henry2/button/wc";
+import "@henry2/icon/wc";
+import "@henry2/divider/wc";
+import "@henry2/typography/wc";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
+import { BaseTemplate } from "@henry2/templates-base";
 
 // local 
 import { style } from "./style";

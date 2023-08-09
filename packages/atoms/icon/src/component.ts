@@ -1,5 +1,5 @@
-import { property, html, Size } from '@onkelhoy/tools-utils';
-import { AssetTemplate } from '@onkelhoy/templates-asset';
+import { property, html, Size } from '@henry2/tools-utils';
+import { AssetTemplate } from '@henry2/templates-asset';
 
 import { style } from './style.js';
 import { ContainerTypes } from './types.js';

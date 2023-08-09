@@ -1,18 +1,18 @@
 // utils 
-import { ExtractSlotValue, FormatNumber, html, property, query } from "@onkelhoy/tools-utils";
-import "@onkelhoy/tools-translator/wc";
+import { ExtractSlotValue, FormatNumber, html, property, query } from "@henry2/tools-utils";
+import "@henry2/tools-translator/wc";
 
 // atoms 
-import { Accordion } from "@onkelhoy/accordion";
-import "@onkelhoy/button/wc";
-import "@onkelhoy/icon/wc";
-import "@onkelhoy/divider/wc";
-import "@onkelhoy/typography/wc";
-import "@onkelhoy/accordion/wc";
+import { Accordion } from "@henry2/accordion";
+import "@henry2/button/wc";
+import "@henry2/icon/wc";
+import "@henry2/divider/wc";
+import "@henry2/typography/wc";
+import "@henry2/accordion/wc";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
-import '@onkelhoy/templates-box/wc'
+import { BaseTemplate } from "@henry2/templates-base";
+import '@henry2/templates-box/wc'
 
 import { style } from "./style";
 

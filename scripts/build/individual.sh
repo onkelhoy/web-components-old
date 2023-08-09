@@ -3,6 +3,7 @@
 # init variables
 PACKAGE=$1
 VERSION=$2
+CICD_NODE_TOKEN=$3
 
 # execute logic
 cd $PACKAGE 
@@ -22,4 +23,4 @@ elif [[ $VERSION == 4 ]]; then
   npm version major
 fi
 
-npm publish 
+npm publish --access public --registry https://registry.npmjs.org/ --//registry.npmjs.org/:_authToken=${CICD_NODE_TOKEN}

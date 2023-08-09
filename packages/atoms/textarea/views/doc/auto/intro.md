@@ -3,10 +3,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@onkelhoy/tools-utils";
+import { html, property } from "@henry2/tools-utils";
 
 // templates
-import { TextinputTemplate } from '@onkelhoy/templates-textinput';
+import { TextinputTemplate } from '@henry2/templates-textinput';
 
 // local 
 import { style } from "./style";

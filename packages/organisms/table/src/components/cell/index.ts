@@ -1,14 +1,14 @@
 // utils 
-import { html, property, query } from "@onkelhoy/tools-utils";
+import { html, property, query } from "@henry2/tools-utils";
 
 // atoms 
-import { Input } from "@onkelhoy/input";
-import { Typography } from "@onkelhoy/typography";
-import "@onkelhoy/input/wc";
-import "@onkelhoy/typography/wc";
+import { Input } from "@henry2/input";
+import { Typography } from "@henry2/typography";
+import "@henry2/input/wc";
+import "@henry2/typography/wc";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
+import { BaseTemplate } from "@henry2/templates-base";
 
 import { style } from "./style";
 

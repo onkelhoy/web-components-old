@@ -1,7 +1,7 @@
-import { html } from "@onkelhoy/tools-utils";
-import { BaseTemplate } from "@onkelhoy/templates-base";
+import { html } from "@henry2/tools-utils";
+import { BaseTemplate } from "@henry2/templates-base";
 
-import { Translator } from '@onkelhoy/tools-translator';
+import { Translator } from '@henry2/tools-translator';
 
 class InsideDemo extends BaseTemplate {
   render() {

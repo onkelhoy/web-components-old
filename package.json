@@ -1,5 +1,5 @@
 {
-  "name": "@onkelhoy/web-components",
+  "name": "@henry2/web-components",
   "version": "1.0.0",
   "description": "web-component library",
   "private": true,
@@ -10,7 +10,7 @@
   "scripts": {
     "init": "sh ./scripts/init.sh",
     "build:workspaces": "npm run build --workspaces",
-    "build": "sh ./scripts/build/run.sh",
+    "build": "bash ./scripts/build/run.sh",
     "create": "sh ./scripts/generator/copy.sh",
     "clean": "sh ./scripts/clean.sh",
     "start": "cd ./ecosystem && npm run combine",

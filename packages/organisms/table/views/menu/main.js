@@ -1,8 +1,8 @@
 // tools
-import '@onkelhoy/tools-doc/wc';
+import '@henry2/tools-doc/wc';
 
 // component
-import '@onkelhoy/table/wc';
+import '@henry2/table/wc';
 
 window.onload = () => {
     console.log('[menu]: window loaded');

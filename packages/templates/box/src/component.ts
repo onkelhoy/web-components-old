@@ -1,8 +1,8 @@
 // utils 
-import { property } from "@onkelhoy/tools-utils";
+import { property } from "@henry2/tools-utils";
 
 // templates
-import { BaseTemplate, RenderType } from "@onkelhoy/templates-base";
+import { BaseTemplate, RenderType } from "@henry2/templates-base";
 
 // local 
 import { style } from "./style";

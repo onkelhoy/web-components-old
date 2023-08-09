@@ -1,13 +1,13 @@
 // utils 
-import { html, property } from "@onkelhoy/tools-utils";
+import { html, property } from "@henry2/tools-utils";
 
 // atoms
-import "@onkelhoy/button/wc";
-import "@onkelhoy/icon/wc";
+import "@henry2/button/wc";
+import "@henry2/icon/wc";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
-import "@onkelhoy/templates-box/wc";
+import { BaseTemplate } from "@henry2/templates-base";
+import "@henry2/templates-box/wc";
 
 import { style } from "./style";
 

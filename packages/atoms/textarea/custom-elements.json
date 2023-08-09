@@ -138,19 +138,19 @@
       },
       {
         "name": "html",
-        "from": "@onkelhoy/tools-utils"
+        "from": "@henry2/tools-utils"
       },
       {
         "name": "property",
-        "from": "@onkelhoy/tools-utils"
+        "from": "@henry2/tools-utils"
       },
       {
         "name": "suspense",
-        "from": "@onkelhoy/tools-utils"
+        "from": "@henry2/tools-utils"
       },
       {
         "name": "BaseTemplate",
-        "from": "@onkelhoy/templates-base"
+        "from": "@henry2/templates-base"
       },
       {
         "name": "style",
@@ -164,11 +164,11 @@
       },
       {
         "name": "property",
-        "from": "@onkelhoy/tools-utils"
+        "from": "@henry2/tools-utils"
       },
       {
         "name": "FieldTemplate",
-        "from": "@onkelhoy/templates-field"
+        "from": "@henry2/templates-field"
       },
       {
         "name": "style",
@@ -182,15 +182,15 @@
       },
       {
         "name": "html",
-        "from": "@onkelhoy/tools-utils"
+        "from": "@henry2/tools-utils"
       },
       {
         "name": "property",
-        "from": "@onkelhoy/tools-utils"
+        "from": "@henry2/tools-utils"
       },
       {
         "name": "TextinputTemplate",
-        "from": "@onkelhoy/templates-textinput"
+        "from": "@henry2/templates-textinput"
       },
       {
         "name": "style",

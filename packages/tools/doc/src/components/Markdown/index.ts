@@ -1,8 +1,8 @@
 // utils 
-import { html, property } from "@onkelhoy/tools-utils";
+import { html, property } from "@henry2/tools-utils";
 
 // templates
-import { AssetTemplate } from "@onkelhoy/templates-asset";
+import { AssetTemplate } from "@henry2/templates-asset";
 
 import { style } from './style';
 import { CodeBlock } from "../CodeBlock";

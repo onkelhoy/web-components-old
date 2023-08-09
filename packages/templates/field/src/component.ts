@@ -1,12 +1,12 @@
 // utils 
-import { html, query, property, suspense, Radius, Size } from "@onkelhoy/tools-utils";
+import { html, query, property, suspense, Radius, Size } from "@henry2/tools-utils";
 
 // atoms
-import "@onkelhoy/typography/wc";
+import "@henry2/typography/wc";
 
 // templates
-import { FormElementTemplate } from "@onkelhoy/templates-form-element";
-import "@onkelhoy/templates-box/wc";
+import { FormElementTemplate } from "@henry2/templates-form-element";
+import "@henry2/templates-box/wc";
 
 // local 
 import { style } from "./style";

@@ -1,17 +1,17 @@
 // utils 
-import { html, property, query } from "@onkelhoy/tools-utils";
-import { Translator } from "@onkelhoy/tools-translator";
-import "@onkelhoy/tools-translator/wc";
+import { html, property, query } from "@henry2/tools-utils";
+import { Translator } from "@henry2/tools-translator";
+import "@henry2/tools-translator/wc";
 
 // atoms 
-import { Dropdown } from "@onkelhoy/dropdown";
-import "@onkelhoy/icon/wc";
-import "@onkelhoy/typography/wc";
-import "@onkelhoy/button/wc";
-import "@onkelhoy/dropdown/wc";
+import { Dropdown } from "@henry2/dropdown";
+import "@henry2/icon/wc";
+import "@henry2/typography/wc";
+import "@henry2/button/wc";
+import "@henry2/dropdown/wc";
 
 // templates
-// import { BaseTemplate } from "@onkelhoy/templates-base";
+// import { BaseTemplate } from "@henry2/templates-base";
 
 // local 
 import { style } from "./style";

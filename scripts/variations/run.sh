@@ -15,7 +15,7 @@ if [ ! -f $PACKAGE_DIR/views/variations/style.css ]; then
 fi
 if [ ! -f $PACKAGE_DIR/views/variations/main.js ]; then 
   cp $SCRIPT_DIR/template/main.js $PACKAGE_DIR/views/variations
-  echo "\nimport \"@onkelhoy$PACKAGENAME/$NAME/wc\";" >> $PACKAGE_DIR/views/variations/main.js
+  echo "\nimport \"@henry2$PACKAGENAME/$NAME/wc\";" >> $PACKAGE_DIR/views/variations/main.js
 fi
 
 # run the build

@@ -1,10 +1,10 @@
 // tools
-import '@onkelhoy/tools-doc/wc';
-import '@onkelhoy/templates-box/wc'
-import '@onkelhoy/button/wc'
+import '@henry2/tools-doc/wc';
+import '@henry2/templates-box/wc'
+import '@henry2/button/wc'
 
 // component
-import '@onkelhoy/templates-field/wc';
+import '@henry2/templates-field/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');

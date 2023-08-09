@@ -8,9 +8,12 @@ const packagelock = JSON.parse(fs.readFileSync(path.join(__dirname, "../../packa
 const map = {};
 const set = new Set();
 
+const SEMANTIC_VERSION = process.argv[2];
+const CICD_NODE_TOKEN = process.argv[3];
+
 for (const name in packagelock.packages) 
 {
-  if (name.startsWith("node_modules/@onkelhoy") && name !== "node_modules/@onkelhoy/ecosystem")
+  if (name.startsWith("node_modules/@henry2") && name !== "node_modules/@henry2/ecosystem")
   {
     const mapname = name.split("node_modules/")[1];
     if (!map[mapname]) map[mapname] = { dep: [], has: [] };
@@ -24,7 +27,7 @@ for (const name in packagelock.packages)
 
     for (const dep in package.dependencies) 
     {
-      if (dep.startsWith("@onkelhoy") && dep !== mapname)
+      if (dep.startsWith("@henry2") && dep !== mapname)
       {
         if (!map[dep]) map[dep] = { dep: [], has: [] };
         map[dep].has.push(mapname);
@@ -41,46 +44,30 @@ function execute(list) {
   for (let name of list) 
   {
     i++;
-    console.log('\t', i, name);
     executions.push(new Promise((res, rej) => {
-      exec(path.join(__dirname, `individual.sh ${map[name].location} ${process.argv[2]}`), (error, stdout, stderr) => {
+      console.log('\t', i, name);
+      exec(path.join(__dirname, `individual.sh ${map[name].location} ${SEMANTIC_VERSION} ${CICD_NODE_TOKEN}`), (error, stdout, stderr) => {
         if (error) {
-          rej(error);
-          return;
+          // console.log("ERROR", error);
+          console.log('\t\t', name, '\t[failed]');
         }
-        if (stderr) {
-          console.error(`Standard Error: ${stderr}`);
-          rej(stderr);
-          return;
-        }
+        
+        // it prints warnings we dont want this
+        // else if (stderr) {
+        //   console.log("ST-ERROR", stderr);
+        // }
 
-        if (stdout) {
-          // console.log(stdout)
-          res();
-        }
+        // if (stdout) {
+        //   console.log(stdout)
+        //   // res();
+        // }
+
+        res();
       })
     }))
   }
 
   return Promise.all(executions);
-}
-
-function install() {
-  return new Promise((res, rej) => {
-    exec('npm install', (error, stdout, stderr) => {
-      if (error) {
-        return rej(error);
-      }
-      if (stderr) {
-        console.error(`Standard Error: ${stderr}`);
-        return rej(stderr);
-      }
-
-      if (stdout) {
-        return res(stdout);
-      }
-    })
-  });
 }
 
 let attempts = 0;
@@ -106,9 +93,10 @@ async function run() {
     // else if (latestjson[name] && latestjson[name] !== )
   }
 
+  console.log(`batch install, size=${list.length} ::`)
   // this is a batch that could all be run in parallel 
   await execute(list);
-  // await install();
+  console.log('');
 
   for (const name of list) 
   {

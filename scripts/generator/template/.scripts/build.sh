@@ -10,7 +10,7 @@ rm -rf dist
 mkdir dist
 
 # compile css
-sh .scripts/helper/build-sass.sh
+bash .scripts/helper/build-sass.sh
 
 # create bundles 
 esbuild src/register.ts --bundle --minify --outfile=dist/register.bundle.mjs --format=esm --platform=browser &> /dev/null

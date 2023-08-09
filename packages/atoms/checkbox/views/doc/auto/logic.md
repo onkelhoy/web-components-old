@@ -6,10 +6,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
  // utils 
-import { html, property } from "@onkelhoy/tools-utils";
+import { html, property } from "@henry2/tools-utils";
 
 // templates
-import { FieldTemplate } from "@onkelhoy/templates-field";
+import { FieldTemplate } from "@henry2/templates-field";
 
 // local 
 import { style } from "./style";

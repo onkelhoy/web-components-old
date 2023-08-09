@@ -1,8 +1,8 @@
 // tools
-import '@onkelhoy/tools-doc/wc';
+import '@henry2/tools-doc/wc';
 
 // component
-import '@onkelhoy/dropdown/wc';
+import '@henry2/dropdown/wc';
 
 window.onload = () => {
     console.log('[option]: window loaded');

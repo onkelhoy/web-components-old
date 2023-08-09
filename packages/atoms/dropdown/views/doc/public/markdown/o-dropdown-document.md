@@ -13,16 +13,16 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-import { html, property, query, suspense } from "@onkelhoy/tools-utils";
+import { html, property, query, suspense } from "@henry2/tools-utils";
 
 // atoms
-import '@onkelhoy/icon/wc';
+import '@henry2/icon/wc';
 
 // templates
-import { TextinputTemplate } from '@onkelhoy/templates-textinput';
-import { Placement, PopoverTemplate } from "@onkelhoy/templates-popover";
-import '@onkelhoy/templates-popover/wc';
-import '@onkelhoy/templates-box/wc';
+import { TextinputTemplate } from '@henry2/templates-textinput';
+import { Placement, PopoverTemplate } from "@henry2/templates-popover";
+import '@henry2/templates-popover/wc';
+import '@henry2/templates-box/wc';
 
 // local 
 import { style } from "./style";
@@ -217,16 +217,16 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
  // utils 
-import { html, property, query, suspense } from "@onkelhoy/tools-utils";
+import { html, property, query, suspense } from "@henry2/tools-utils";
 
 // atoms
-import '@onkelhoy/icon/wc';
+import '@henry2/icon/wc';
 
 // templates
-import { TextinputTemplate } from '@onkelhoy/templates-textinput';
-import { Placement, PopoverTemplate } from "@onkelhoy/templates-popover";
-import '@onkelhoy/templates-popover/wc';
-import '@onkelhoy/templates-box/wc';
+import { TextinputTemplate } from '@henry2/templates-textinput';
+import { Placement, PopoverTemplate } from "@henry2/templates-popover";
+import '@henry2/templates-popover/wc';
+import '@henry2/templates-box/wc';
 
 // local 
 import { style } from "./style";
@@ -410,16 +410,16 @@ slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
 // utils 
-import { html, property, query, suspense } from "@onkelhoy/tools-utils";
+import { html, property, query, suspense } from "@henry2/tools-utils";
 
 // atoms
-import '@onkelhoy/icon/wc';
+import '@henry2/icon/wc';
 
 // templates
-import { TextinputTemplate } from '@onkelhoy/templates-textinput';
-import { Placement, PopoverTemplate } from "@onkelhoy/templates-popover";
-import '@onkelhoy/templates-popover/wc';
-import '@onkelhoy/templates-box/wc';
+import { TextinputTemplate } from '@henry2/templates-textinput';
+import { Placement, PopoverTemplate } from "@henry2/templates-popover";
+import '@henry2/templates-popover/wc';
+import '@henry2/templates-box/wc';
 
 // local 
 import { style } from "./style";

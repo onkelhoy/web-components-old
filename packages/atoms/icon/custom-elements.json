@@ -78,11 +78,11 @@
       },
       {
         "name": "BaseTemplate",
-        "from": "@onkelhoy/templates-base"
+        "from": "@henry2/templates-base"
       },
       {
         "name": "property",
-        "from": "@onkelhoy/tools-utils"
+        "from": "@henry2/tools-utils"
       }
     ],
     "/Users/henry/Developer/projects/web-components/packages/atoms/icon": [
@@ -92,15 +92,15 @@
       },
       {
         "name": "property",
-        "from": "@onkelhoy/tools-utils"
+        "from": "@henry2/tools-utils"
       },
       {
         "name": "html",
-        "from": "@onkelhoy/tools-utils"
+        "from": "@henry2/tools-utils"
       },
       {
         "name": "AssetTemplate",
-        "from": "@onkelhoy/templates-asset"
+        "from": "@henry2/templates-asset"
       },
       {
         "name": "style",

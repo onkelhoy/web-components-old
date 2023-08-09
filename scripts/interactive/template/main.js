@@ -1,4 +1,4 @@
-import '@onkelhoy/tools-doc/wc';
+import '@henry2/tools-doc/wc';
 
 let TARGET_ELEMENT = null;
 window.onload = () => {

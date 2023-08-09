@@ -1,9 +1,9 @@
 // utils 
-import { html, property } from "@onkelhoy/tools-utils";
+import { html, property } from "@henry2/tools-utils";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
-import "@onkelhoy/icon/wc";
+import { BaseTemplate } from "@henry2/templates-base";
+import "@henry2/icon/wc";
 
 // local 
 import { style } from "./style";
