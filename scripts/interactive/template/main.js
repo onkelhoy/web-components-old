@@ -1,4 +1,4 @@
-import '@circular-tools/doc/wc';
+import '@onkelhoy/tools-doc/wc';
 
 let TARGET_ELEMENT = null;
 window.onload = () => {

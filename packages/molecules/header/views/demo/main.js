@@ -1,15 +1,17 @@
 // tools
-import '@circular-tools/doc/wc';
+import '@onkelhoy/tools-doc/wc';
 
 // component
-import '@circular/header/wc';
+import '@onkelhoy/header/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');
 
-    window.oTheme.add({ name: "Blue", href: "blue", representColor: "cornflowerblue" });
-    window.oTheme.add({ name: "Orange", href: "orange", representColor: "orange" });
-    window.oTheme.add({ name: "Aziz", href: "aziz", representColor: "green" });
+    // window.oTheme.add({ name: "Blue", href: "blue", representColor: "cornflowerblue" });
+    // window.oTheme.add({ name: "Orange", href: "orange", representColor: "orange" });
+
+    window.oTheme.add({ name: "KTV", href: "ktv", representColor: "cornflowerblue" });
+    window.oTheme.add({ name: "PMP", href: "pmp", representColor: "coral" });
 
     setTimeout(() => {
         window.oTranslation.loadAll([
@@ -380,7 +382,7 @@ window.onload = () => {
         ])
         
     }, 1000);
-    document.querySelector('o-header').user = {
+    document.querySelector('o-header.with').user = {
         firstname: 'Oskar'
     }
 }

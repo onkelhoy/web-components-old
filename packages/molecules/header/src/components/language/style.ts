@@ -5,7 +5,7 @@ export const style = `.flag {
   border-radius: 1000px;
   line-height: 28px;
   overflow: hidden; }
-  .flag span {
+  .flag:not(.globe) span {
     left: -2rem;
     margin-left: -40%;
     font-size: 33pt; }

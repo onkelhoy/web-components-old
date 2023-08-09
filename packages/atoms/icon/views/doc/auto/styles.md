@@ -5,8 +5,8 @@ parts should include all elements that have been exposed with the part attribute
 slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
-import { property, html, Size } from '@circular-tools/utils';
-import { AssetTemplate } from '@circular-templates/asset';
+import { property, html, Size } from '@onkelhoy/tools-utils';
+import { AssetTemplate } from '@onkelhoy/templates-asset';
 
 import { style } from './style.js';
 

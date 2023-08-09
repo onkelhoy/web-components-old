@@ -1,10 +1,10 @@
 // utils 
-import { html, property, suspense } from "@circular-tools/utils";
-import "@circular-templates/popover/wc";
+import { html, property, suspense } from "@onkelhoy/tools-utils";
+import "@onkelhoy/templates-popover/wc";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
-import { Color } from "@circular-templates/color";
+import { BaseTemplate } from "@onkelhoy/templates-base";
+import { Color } from "@onkelhoy/templates-color";
 
 import { style } from "./style";
 import { ChangeEvent, Input } from "../Input";

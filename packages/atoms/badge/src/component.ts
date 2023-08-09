@@ -1,12 +1,12 @@
 // utils 
-import { html, property, FormatNumber } from "@circular-tools/utils";
+import { html, property, FormatNumber } from "@onkelhoy/tools-utils";
 
 // atoms
-import "@circular/typography/wc"
+import "@onkelhoy/typography/wc"
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
-import "@circular-templates/box/wc"
+import { BaseTemplate } from "@onkelhoy/templates-base";
+import "@onkelhoy/templates-box/wc"
 
 // local 
 import { style } from './style';

@@ -3,10 +3,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-import { property } from "@circular-tools/utils";
+import { property } from "@onkelhoy/tools-utils";
 
 // templates
-import { ColorTemplate } from "@circular-templates/color";
+import { ColorTemplate } from "@onkelhoy/templates-color";
 
 // local 
 import { style } from "./style";

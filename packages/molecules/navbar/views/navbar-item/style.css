@@ -10,7 +10,9 @@
     --html-background: black;
     --html-color: white;
   }
-}body {
+}
+
+body {
   background-color: var(--o-color-canvas-50);
   color: var(--o-color-black);
 }

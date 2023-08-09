@@ -40,7 +40,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla justo ege
 ### Public Functions Table:
 | name         | arguments                                     | description                                                                                                                         |
 |--------------|------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| render       | None                                           | This function renders the `TestPage` component using `html` function from "@circular-tools/utils" and returns the rendered HTML as a string. |
+| render       | None                                           | This function renders the `TestPage` component using `html` function from "@onkelhoy/tools-utils" and returns the rendered HTML as a string. |
 | handleMainClick | None                                           | This function dispatches a `CustomEvent` with type `ClickEvent` and detail `{foo: this.foo}` when the main section is clicked.          |
 
 

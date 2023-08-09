@@ -1,5 +1,5 @@
-import { BaseTemplate } from '@circular-templates/base';
-import { property } from '@circular-tools/utils';
+import { BaseTemplate } from '@onkelhoy/templates-base';
+import { property } from '@onkelhoy/tools-utils';
 
 // locals
 import { Color } from './Color';

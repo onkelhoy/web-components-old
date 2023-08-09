@@ -117,11 +117,11 @@
       },
       {
         "name": "BaseTemplate",
-        "from": "@circular-templates/base"
+        "from": "@onkelhoy/templates-base"
       },
       {
         "name": "property",
-        "from": "@circular-tools/utils"
+        "from": "@onkelhoy/tools-utils"
       },
       {
         "name": "Color",
@@ -135,11 +135,11 @@
       },
       {
         "name": "property",
-        "from": "@circular-tools/utils"
+        "from": "@onkelhoy/tools-utils"
       },
       {
         "name": "ColorTemplate",
-        "from": "@circular-templates/color"
+        "from": "@onkelhoy/templates-color"
       },
       {
         "name": "style",
@@ -153,11 +153,11 @@
       },
       {
         "name": "property",
-        "from": "@circular-tools/utils"
+        "from": "@onkelhoy/tools-utils"
       },
       {
         "name": "BoxTemplate",
-        "from": "@circular-templates/box"
+        "from": "@onkelhoy/templates-box"
       },
       {
         "name": "style",

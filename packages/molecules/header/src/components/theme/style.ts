@@ -9,8 +9,8 @@ export const style = `:host {
 .theme-color {
   display: block;
   content: '';
-  width: var(--container-size-small);
-  height: var(--container-size-small);
+  width: var(--field-size-small);
+  height: var(--field-size-small);
   border-radius: 50%; }
 
 o-toggle::part(indicator) {

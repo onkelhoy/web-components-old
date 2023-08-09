@@ -1,8 +1,9 @@
 export const style = `:host {
+  container-type: inline-size;
   display: grid;
-  grid-template-rows: auto minmax(76px, auto) 57px 1fr 89px;
-  grid-template-columns: 4fr 2fr 50% 2fr 4fr;
-  grid-template-areas: "t t logo t2 t2" "z welcome welcome welcome z2" "k k note k2 k2" "k k form k2 k2" "k k footer k2 k2";
+  grid-template-rows: auto minmax(80px, auto) 55px 1fr 89px;
+  grid-template-columns: 2fr 4fr 50% 4fr 2fr;
+  grid-template-areas: "t t logo t2 t2" "z welcome welcome welcome z2" "k k note k2 k2" "k k form k2 k2" "k3 footer footer footer k4";
   justify-content: center;
   background-color: var(--o-color-white);
   position: relative;
@@ -13,7 +14,8 @@ export const style = `:host {
     grid-area: welcome; }
   :host div.note {
     grid-area: note;
-    margin-bottom: var(--margin-large); }
+    display: flex;
+    align-items: center; }
   :host div.form {
     grid-area: form; }
   :host div.footer {
@@ -26,4 +28,8 @@ export const style = `:host {
   :host ::slotted(o-button),
   :host o-button {
     gap: 0;
-    padding: 0; }`;
+    padding: 0; }
+
+@container (max-width: 40em) {
+  :host {
+    grid-template-columns: 2fr 4fr 50% 4fr 2fr; } }`;

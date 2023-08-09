@@ -1,18 +1,18 @@
 // utils 
-import { html, property, query } from "@circular-tools/utils";
-import { change as ChangeTheme, THEMECHANGE_NAME, THEMEADD_NAME } from "@circular-tools/theme";
-import "@circular-tools/translator/wc";
+import { html, property, query } from "@onkelhoy/tools-utils";
+import { change as ChangeTheme, THEMECHANGE_NAME, THEMEADD_NAME } from "@onkelhoy/tools-theme";
+import "@onkelhoy/tools-translator/wc";
 
 // atoms 
-import { Menu, MenuItem } from '@circular/menu';
-import { Toggle } from '@circular/toggle';
-import "@circular/menu/wc";
-import "@circular/typography/wc";
-import "@circular/toggle/wc";
-import "@circular/icon/wc";
+import { Menu, MenuItem } from '@onkelhoy/menu';
+import { Toggle } from '@onkelhoy/toggle';
+import "@onkelhoy/menu/wc";
+import "@onkelhoy/typography/wc";
+import "@onkelhoy/toggle/wc";
+import "@onkelhoy/icon/wc";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
 import { style } from "./style";
 type LightDarkTheme = "light" | "dark";

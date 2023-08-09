@@ -1,14 +1,14 @@
 // utils 
-import { html, property, query } from "@circular-tools/utils";
-import { TRANSLATION_ADDED, TRANSLATION_CHANGE_EVENTNAME, InitTranslations } from "@circular-tools/translator";
-import "@circular-tools/translator/wc";
+import { html, query } from "@onkelhoy/tools-utils";
+import { TRANSLATION_ADDED, TRANSLATION_CHANGE_EVENTNAME, InitTranslations } from "@onkelhoy/tools-translator";
+import "@onkelhoy/tools-translator/wc";
 
 // atoms
-import "@circular/menu/wc";
-import { Menu, MenuItem } from "@circular/menu";
+import "@onkelhoy/menu/wc";
+import { Menu, MenuItem } from "@onkelhoy/menu";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
 // local imports
 import { style } from "./style";
@@ -117,8 +117,10 @@ export class Language extends BaseTemplate {
 
       <o-menu placement="bottom-right" @select="${this.handlelanguageselect}">
         <span slot="button-prefix" class="wrapper">
-          <span class="flag">
-            <span class="display">-</span>
+          <span class="flag globe">
+            <span class="display">
+              <o-icon name="globe">g</o-icon>
+            </span>
           </span>
         </span>
         <o-menu-item value="init"><o-translator>No Languages Available</o-translator></o-menu-item>

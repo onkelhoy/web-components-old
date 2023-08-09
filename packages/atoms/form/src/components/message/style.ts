@@ -24,8 +24,8 @@ export const style = `:host {
       top: 0;
       gap: 0;
       padding: 0;
-      width: var(--container-size-medium);
-      height: var(--container-size-medium); }
+      width: var(--field-size-medium);
+      height: var(--field-size-medium); }
 
 :host([variant="error"]) o-box-template div.left {
   background-color: var(--o-color-danger-500); }

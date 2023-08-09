@@ -1,16 +1,16 @@
 // utils 
-import { html } from "@circular-tools/utils";
-import "@circular-tools/translator/wc";
+import { html } from "@onkelhoy/tools-utils";
+import "@onkelhoy/tools-translator/wc";
 
 // atoms 
-import "@circular/button/wc";
-import "@circular/typography/wc";
-import "@circular/icon/wc";
-import "@circular/input/wc";
-import "@circular/form/wc";
+import "@onkelhoy/button/wc";
+import "@onkelhoy/typography/wc";
+import "@onkelhoy/icon/wc";
+import "@onkelhoy/input/wc";
+import "@onkelhoy/form/wc";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
 // local 
 import { style } from "./style";
@@ -28,8 +28,8 @@ export class AuthTemplate extends BaseTemplate {
             </div>
             <div class="note flex">
                 <slot name="note">
-                    <o-typography><o-translator>Don't have an account?</o-translator></o-typography>
-                    <o-button variant="underlined"><o-translator>Register here</o-translator></o-button>
+                    <o-typography nowrap><o-translator>Don't have an account?</o-translator></o-typography>
+                    <o-button variant="underlined"><o-typography nowrap><o-translator>Register here</o-translator></o-typography></o-button>
                 </slot>
             </div>
             <div class="form form-wrapper">

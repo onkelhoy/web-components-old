@@ -13,10 +13,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@circular-tools/utils";
+import { html, property } from "@onkelhoy/tools-utils";
 
 // templates
-import { FieldTemplate } from "@circular-templates/field";
+import { FieldTemplate } from "@onkelhoy/templates-field";
 
 // local 
 import { style } from "./style";
@@ -68,10 +68,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
  // utils 
-import { html, property } from "@circular-tools/utils";
+import { html, property } from "@onkelhoy/tools-utils";
 
 // templates
-import { FieldTemplate } from "@circular-templates/field";
+import { FieldTemplate } from "@onkelhoy/templates-field";
 
 // local 
 import { style } from "./style";
@@ -111,10 +111,10 @@ slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@circular-tools/utils";
+import { html, property } from "@onkelhoy/tools-utils";
 
 // templates
-import { FieldTemplate } from "@circular-templates/field";
+import { FieldTemplate } from "@onkelhoy/templates-field";
 
 // local 
 import { style } from "./style";

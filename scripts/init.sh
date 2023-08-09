@@ -19,6 +19,9 @@ fi
 echo ""
 echo ""
 
+# init bash script executions 
+chmod +x ./scripts/build/individual.sh
+
 echo "### install node dependancies"
 npm install
 echo ""
@@ -27,7 +30,6 @@ echo "### init the python chatgtp documentation"
 cd ./scripts/auto-doc/documentation/
 sh init.sh
 echo ""
-
-cd ../../../
+# cd ../
 
 echo "project initialized"

@@ -13,16 +13,16 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@circular-tools/utils";
-import "@circular-tools/translator/wc";
+import { html, property } from "@onkelhoy/tools-utils";
+import "@onkelhoy/tools-translator/wc";
 
 // atoms 
-import "@circular/button/wc";
-import "@circular/icon/wc";
-import "@circular/input/wc";
+import "@onkelhoy/button/wc";
+import "@onkelhoy/icon/wc";
+import "@onkelhoy/input/wc";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
 // local 
 import { style } from "./style";
@@ -96,16 +96,16 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
  // utils 
-import { html, property } from "@circular-tools/utils";
-import "@circular-tools/translator/wc";
+import { html, property } from "@onkelhoy/tools-utils";
+import "@onkelhoy/tools-translator/wc";
 
 // atoms 
-import "@circular/button/wc";
-import "@circular/icon/wc";
-import "@circular/input/wc";
+import "@onkelhoy/button/wc";
+import "@onkelhoy/icon/wc";
+import "@onkelhoy/input/wc";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
 // local 
 import { style } from "./style";
@@ -155,16 +155,16 @@ slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@circular-tools/utils";
-import "@circular-tools/translator/wc";
+import { html, property } from "@onkelhoy/tools-utils";
+import "@onkelhoy/tools-translator/wc";
 
 // atoms 
-import "@circular/button/wc";
-import "@circular/icon/wc";
-import "@circular/input/wc";
+import "@onkelhoy/button/wc";
+import "@onkelhoy/icon/wc";
+import "@onkelhoy/input/wc";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
 // local 
 import { style } from "./style";

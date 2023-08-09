@@ -1,2 +1,2 @@
-import '@circular-tools/doc/wc';
-import "@circular/editor/wc";
+import '@onkelhoy/tools-doc/wc';
+import "@onkelhoy/editor/wc";

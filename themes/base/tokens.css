@@ -863,6 +863,8 @@
   --o-color-hover-950: rgba(0,0,0,0.7);
 }
 
+
+
 .theme-dark {
 
   color-scheme: dark;
@@ -1238,91 +1240,147 @@
   --o-color-hover-950: rgba(255, 255, 255, 0.7);
 }
 
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 :root {
   /* FONT RELATED */
+
+  /* Font sizes */
+  --o-font-size-2x-small: 0.625rem; /* 10px */
+  --o-font-size-x-small: 0.75rem; /* 12px */
+  --o-font-size-small: 0.875rem; /* 14px */
+  --o-font-size-medium: 1rem; /* 16px */
+  --o-font-size-large: 1.5rem; /* 24px */
+  --o-font-size-x-large: 2rem; /* 32px */
+  --o-font-size-2x-large: 2.5rem; /* 40px */
+  --o-font-size-3x-large: 3rem; /* 48px */
+  --o-font-size-4x-large: 3.5rem; /* 56px */
+  --o-font-size-5x-large: 4rem; /* 64px */
+  --o-font-size-6x-large: 4.5rem; /* 72px */
+  --o-font-size-7x-large: 5.5rem; /* 88px */
+  --o-font-size-8x-large: clamp(8.75rem, 15vw + 1rem, 15rem); /* 140px */
+
+  /* Font weights */
+  --o-font-weight-light: 300;
+  --o-font-weight-normal: 400;
+  --o-font-weight-medium: 500;
+  --o-font-weight-semibold: 600;
+  --o-font-weight-bold: 700;
+  --o-font-weight-extrabold: 800;
+
+  /* Letter spacings */
+  --o-letter-spacing-denser: -0.03em;
+  --o-letter-spacing-dense: -0.015em;
+  --o-letter-spacing-normal: normal;
+  --o-letter-spacing-loose: 0.075em;
+  --o-letter-spacing-looser: 0.15em;
+
+  /* Line heights */
+  --o-line-height-denser: 1;
+  --o-line-height-dense: 1.2;
+  --o-line-height-normal: 1.4;
+  --o-line-height-loose: 1.5;
+  --o-line-height-looser: 2;
+
   /* --default-fontfamily: 'Poppins', sans-serif; */
-  --o-font-family: 'Poppins', sans-serif;
-  
+  --o-font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
   --typography-h1-fontfamily: var(--o-font-family);
-  --typography-h1-fontsize: 140px;
-  --typography-h1-fontweight: 800;
+  --typography-h1-fontsize: var(--o-font-size-8x-large);
+  --typography-h1-fontweight: var(--o-font-weight-extrabold);
   --typography-h1-lineheight: 168px;
-  --typography-h1-letterspacing: 0em;
+  --typography-h1-letterspacing: var(--o-letter-spacing-normal);
 
   --typography-h2-fontfamily: var(--o-font-family);
-  --typography-h2-fontsize: 88px;
-  --typography-h2-fontweight: 800;
+  --typography-h2-fontsize: var(--o-font-size-7x-large);
+  --typography-h2-fontweight: var(--o-font-weight-extrabold);
   --typography-h2-lineheight: 106px;
-  --typography-h2-letterspacing: 0em;
+  --typography-h2-letterspacing: var(--o-letter-spacing-normal);
 
   --typography-h3-fontfamily: var(--o-font-family);
-  --typography-h3-fontsize: 72px;
-  --typography-h3-fontweight: 700;
+  --typography-h3-fontsize: var(--o-font-size-6x-large);
+  --typography-h3-fontweight: var(--o-font-weight-bold);
   --typography-h3-lineheight: 86px;
-  --typography-h3-letterspacing: 0em;
+  --typography-h3-letterspacing: var(--o-letter-spacing-normal);
 
   --typography-h4-fontfamily: var(--o-font-family);
-  --typography-h4-fontsize: 64px;
-  --typography-h4-fontweight: 700;
+  --typography-h4-fontsize: var(--o-font-size-5x-large);
+  --typography-h4-fontweight: var(--o-font-weight-bold);
   --typography-h4-lineheight: 77px;
-  --typography-h4-letterspacing: 0em;
+  --typography-h4-letterspacing: var(--o-letter-spacing-normal);
 
   --typography-h5-fontfamily: var(--o-font-family);
-  --typography-h5-fontsize: 56px;
-  --typography-h5-fontweight: 700;
+  --typography-h5-fontsize: var(--o-font-size-4x-large);
+  --typography-h5-fontweight: var(--o-font-weight-bold);
   --typography-h5-lineheight: 67px;
-  --typography-h5-letterspacing: 0em;
+  --typography-h5-letterspacing: var(--o-letter-spacing-normal);
 
   --typography-t1-fontfamily: var(--o-font-family);
-  --typography-t1-fontsize: 48px;
-  --typography-t1-fontweight: 700;
+  --typography-t1-fontsize: var(--o-font-size-3x-large);
+  --typography-t1-fontweight: var(--o-font-weight-bold);
   --typography-t1-lineheight: 58px;
-  --typography-t1-letterspacing: 0em;
+  --typography-t1-letterspacing: var(--o-letter-spacing-normal);
 
   --typography-t2-fontfamily: var(--o-font-family);
-  --typography-t2-fontsize: 40px;
-  --typography-t2-fontweight: 700;
+  --typography-t2-fontsize: var(--o-font-size-2x-large);
+  --typography-t2-fontweight: var(--o-font-weight-bold);
   --typography-t2-lineheight: 56px;
-  --typography-t2-letterspacing: 0em;
+  --typography-t2-letterspacing: var(--o-letter-spacing-normal);
 
   --typography-t3-fontfamily: var(--o-font-family);
-  --typography-t3-fontsize: 32px;
-  --typography-t3-fontweight: 600;
+  --typography-t3-fontsize: var(--o-font-size-x-large);
+  --typography-t3-fontweight: var(--o-font-weight-semibold);
   --typography-t3-lineheight: 38px;
-  --typography-t3-letterspacing: 0em;
+  --typography-t3-letterspacing: var(--o-letter-spacing-normal);
 
   --typography-t4-fontfamily: var(--o-font-family);
-  --typography-t4-fontsize: 24px;
-  --typography-t4-fontweight: 600;
+  --typography-t4-fontsize: var(--o-font-size-large);
+  --typography-t4-fontweight: var(--o-font-weight-semibold);
   --typography-t4-lineheight: 34px;
-  --typography-t4-letterspacing: 0em;
+  --typography-t4-letterspacing: var(--o-letter-spacing-normal);
 
   --typography-c1-fontfamily: var(--o-font-family);
-  --typography-c1-fontsize: 24px;
-  --typography-c1-fontweight: 500;
+  --typography-c1-fontsize: var(--o-font-size-large);
+  --typography-c1-fontweight: var(--o-font-weight-medium);
   --typography-c1-lineheight: 34px;
   --typography-c1-letterspacing: 0.01em;
 
   --typography-c2-fontfamily: var(--o-font-family);
-  --typography-c2-fontsize: 16px;
-  --typography-c2-fontweight: 600;
+  --typography-c2-fontsize: var(--o-font-size-medium);
+  --typography-c2-fontweight: var(--o-font-weight-semibold);
   --typography-c2-lineheight: 22px;
   --typography-c2-letterspacing: 0.01em;
 
   --typography-c3-fontfamily: var(--o-font-family);
-  --typography-c3-fontsize: 16px;
-  --typography-c3-fontweight: 400;
+  --typography-c3-fontsize: var(--o-font-size-medium);
+  --typography-c3-fontweight: var(--o-font-weight-normal);
   --typography-c3-lineheight: 24px;
   --typography-c3-letterspacing: 0.01em;
 
   --typography-c4-fontfamily: var(--o-font-family);
-  --typography-c4-fontsize: 14px;
-  --typography-c4-fontweight: 400;
+  --typography-c4-fontsize: var(--o-font-size-small);
+  --typography-c4-fontweight: var(--o-font-weight-normal);
   --typography-c4-lineheight: 20px;
   --typography-c4-letterspacing: 0.01em;
 }
+
+/* @media (max-width: 40em) {
+  :root {
+    --o-font-size-2x-small: 0.625rem;
+    --o-font-size-x-small: 0.75rem;
+    --o-font-size-small: 0.875rem;
+    --o-font-size-medium: 1.25rem;
+    --o-font-size-large: 1.75rem;
+    --o-font-size-x-large: 2.25rem;
+    --o-font-size-2x-large: 2.75rem;
+    --o-font-size-3x-large: 3.25rem;
+    --o-font-size-4x-large: 3.75rem;
+    --o-font-size-5x-large: 4.25rem;
+    --o-font-size-6x-large: 4.75rem;
+    --o-font-size-7x-large: 5.75rem;
+  }
+} */
 
 /* HEADINGS */
 .typography-heading1,
@@ -1468,6 +1526,9 @@
   --unit-size2: 8px;
   --unit-size3: 16px;
   --unit-size4: 24px;
+  --unit-size5: 32px;
+  --unit-size6: 40px;
+  --unit-size7: 56px;
 
   /* PADDINGS */ 
   --padding-smaller: var(--unit-size1);
@@ -1488,9 +1549,10 @@
   --gap-large: var(--unit-size4);
 
   /* CONTAINERS */
-  --container-size-small: var(--unit-size4);
-  --container-size-medium: 40px;
-  --container-size-large: 60px;
+  --field-size-smaller: var(--unit-size4);
+  --field-size-small: var(--unit-size5);
+  --field-size-medium: var(--unit-size6);
+  --field-size-large: var(--unit-size7);
 
   /* TIMINGS */
   --timing-fast: 80ms;

@@ -13,14 +13,14 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-import { html, property, suspense, Radius, Size } from "@circular-tools/utils";
+import { html, property, suspense, Radius, Size } from "@onkelhoy/tools-utils";
 
 // atoms
-import "@circular/typography/wc";
+import "@onkelhoy/typography/wc";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
-import "@circular-templates/box/wc";
+import { BaseTemplate } from "@onkelhoy/templates-base";
+import "@onkelhoy/templates-box/wc";
 
 // local 
 import { style } from "./style";
@@ -208,14 +208,14 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
  // utils 
-import { html, property, suspense, Radius, Size } from "@circular-tools/utils";
+import { html, property, suspense, Radius, Size } from "@onkelhoy/tools-utils";
 
 // atoms
-import "@circular/typography/wc";
+import "@onkelhoy/typography/wc";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
-import "@circular-templates/box/wc";
+import { BaseTemplate } from "@onkelhoy/templates-base";
+import "@onkelhoy/templates-box/wc";
 
 // local 
 import { style } from "./style";
@@ -395,14 +395,14 @@ slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
 // utils 
-import { html, property, suspense, Radius, Size } from "@circular-tools/utils";
+import { html, property, suspense, Radius, Size } from "@onkelhoy/tools-utils";
 
 // atoms
-import "@circular/typography/wc";
+import "@onkelhoy/typography/wc";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
-import "@circular-templates/box/wc";
+import { BaseTemplate } from "@onkelhoy/templates-base";
+import "@onkelhoy/templates-box/wc";
 
 // local 
 import { style } from "./style";

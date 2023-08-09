@@ -18,20 +18,37 @@
         <h4 slot="header">With Error</h4>
         <code-block lang="html" display="both">
             <o-form id="form_error" error="Hello Im an error?">
-                <o-input label="AA" name="a.a"></o-input>
-                <o-input label="AB" name="a.b" type="number"></o-input>
-                <o-textarea label="AC" name="a.c"></o-textarea>
-                <o-checkbox label="AD" name="a.d"></o-checkbox>
-                <o-dropdown label="AE" name="a.e">
+                <o-input required label="AA" name="a.a"></o-input>
+                <o-input required label="AAA" name="a.a.a"></o-input>
+                <o-input required label="AAB" name="a.a.b"></o-input>
+                <o-input required label="AB" name="a.b" type="number"></o-input>
+                <o-textarea required label="AC" name="a.c"></o-textarea>
+                <o-checkbox required label="AD" name="a.d"></o-checkbox>
+                <o-dropdown required label="AE" name="a.e">
                     <o-option value="1">first</o-option>
                     <o-option value="2">second</o-option>
                     <o-option value="3">third</o-option>
                 </o-dropdown>
+
+                <o-button color="danger" type="submit">submit</o-button>
+                <o-button color="primary" type="reset">reset</o-button>
             </o-form>
         </code-block>
 
         <button id="show_error">show error</button>
     </doc-card>
+    <!-- <doc-card>
+        <h4 slot="header">Testing</h4>
+        <code-block lang="html" display="both">
+            <form id="test-form">
+                <input placeholder="hello" required name="hello" />
+                <input placeholder="foo" required name="foo" />
+                <button type="submit">submit</button>
+            </form>
+        </code-block>
+
+        <button id="show_warning">show warning</button>
+    </doc-card> -->
     <doc-card>
         <h4 slot="header">With Warning</h4>
         <code-block lang="html" display="both">

@@ -1,4 +1,4 @@
-import { fixture } from '@circular-tools/test';
+import { fixture } from '@onkelhoy/tools-test';
 
 describe('BoxTemplate', function () {
   describe('base tests', function () {

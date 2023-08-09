@@ -1,8 +1,8 @@
 // utils 
-import { ExtractSlotValue, html } from "@circular-tools/utils";
+import { ExtractSlotValue, html } from "@onkelhoy/tools-utils";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
 // local 
 import { style } from "./style";

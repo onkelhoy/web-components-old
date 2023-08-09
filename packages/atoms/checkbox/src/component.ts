@@ -1,10 +1,10 @@
-// utils 
-import { html, property } from "@circular-tools/utils";
+// utils
+import { html, property } from "@onkelhoy/tools-utils";
 
 // templates
-import { FieldTemplate } from "@circular-templates/field";
+import { FieldTemplate } from "@onkelhoy/templates-field";
 
-// local 
+// local
 import { style } from "./style";
 
 export class Checkbox extends FieldTemplate {
@@ -12,17 +12,27 @@ export class Checkbox extends FieldTemplate {
 
     @property({ rerender: false, onUpdate: "checkboxColorUpdate" }) color: string = "blue";
 
+    constructor() {
+        super();
+
+        this.addEventListener("click", this.handleclick, true);
+    }
+
     // update functions
-    private checkboxColorUpdate () {
+    private checkboxColorUpdate = () => {
         if (this.inputElement)
         {
             this.inputElement.style.accentColor = this.color;
         }
     }
+    private handleclick = (e:Event) => {
+        e.stopPropagation();
+        this.checked = !this.checked;
+    }
 
     render() {
         return super.render(html`
-            <input type="checkbox" ${this.checked ? 'checked="true"' : ""} />
+            <input readonly type="checkbox" />
         `)
     }
 }

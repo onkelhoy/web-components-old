@@ -5,8 +5,8 @@ PRE: just start the task given, dont include any starting lines so I can just co
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
 ## SOURCE-CODE:
- import { property, html, Size } from '@circular-tools/utils';
-import { AssetTemplate } from '@circular-templates/asset';
+ import { property, html, Size } from '@onkelhoy/tools-utils';
+import { AssetTemplate } from '@onkelhoy/templates-asset';
 
 import { style } from './style.js';
 

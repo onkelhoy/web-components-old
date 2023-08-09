@@ -42,6 +42,10 @@
     text-align: initial;
 }
 
+:host([nowrap="true"]) {
+    white-space: nowrap;
+}
+
 // HEADING
 :host([variant="heading1"]),
 :host([variant="h1"]) {

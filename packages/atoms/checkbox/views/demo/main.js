@@ -1,15 +1,15 @@
 // tools
-import '@circular-tools/doc/wc';
+import '@onkelhoy/tools-doc/wc';
 
 // component
-import '@circular/checkbox/wc';
+import '@onkelhoy/checkbox/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');
     window.checked_btn.onclick = () => {
-        window.checkbox_readonly.value = true;
+        window.checkbox_readonly.checked = true;
     }
     window.unchecked_btn.onclick = () => {
-        window.checkbox_readonly.value = false;
+        window.checkbox_readonly.checked = false;
     }
 }

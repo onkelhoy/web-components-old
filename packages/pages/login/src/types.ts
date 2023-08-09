@@ -1,1 +1,1 @@
-export type Project = "KTV" | "PMP"
+export type Project = "KTV" | "PMP" | "pfandportal"

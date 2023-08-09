@@ -1,8 +1,8 @@
 // utils 
-import { html, property } from "@circular-tools/utils";
+import { html, property } from "@onkelhoy/tools-utils";
 
 // templates
-import { TextinputTemplate } from '@circular-templates/textinput';
+import { TextinputTemplate } from '@onkelhoy/templates-textinput';
 
 // local 
 import { style } from "./style";
@@ -20,8 +20,15 @@ export class Textarea extends TextinputTemplate<HTMLTextAreaElement> {
         {
             // dont know why fully this works but it does 
             e.target.style.height = "auto";
-            // the -4 is also weird but it works - maybe border ? im not sure 
-            e.target.style.height = `calc(${e.target.scrollHeight}px - 4px)`;
+            if (e.target.scrollHeight) // because it was 0 on intial case 
+            {
+                // the -4 is also weird but it works - maybe border ? im not sure 
+                e.target.style.height = `calc(${e.target.scrollHeight}px - 4px)`;
+            }
+            else 
+            {
+                e.target.style.height = 'auto'; // so we make sure we are auto initially
+            }
         }
     }
 

@@ -1,8 +1,8 @@
 // utils 
-import { html, property } from "@circular-tools/utils";
+import { html, property } from "@onkelhoy/tools-utils";
 
 // templates
-import { AssetTemplate } from "@circular-templates/asset";
+import { AssetTemplate } from "@onkelhoy/templates-asset";
 
 import { style } from './style';
 import { CodeBlock } from "../CodeBlock";

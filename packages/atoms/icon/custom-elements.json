@@ -78,11 +78,11 @@
       },
       {
         "name": "BaseTemplate",
-        "from": "@circular-templates/base"
+        "from": "@onkelhoy/templates-base"
       },
       {
         "name": "property",
-        "from": "@circular-tools/utils"
+        "from": "@onkelhoy/tools-utils"
       }
     ],
     "/Users/henry/Developer/projects/web-components/packages/atoms/icon": [
@@ -92,15 +92,15 @@
       },
       {
         "name": "property",
-        "from": "@circular-tools/utils"
+        "from": "@onkelhoy/tools-utils"
       },
       {
         "name": "html",
-        "from": "@circular-tools/utils"
+        "from": "@onkelhoy/tools-utils"
       },
       {
         "name": "AssetTemplate",
-        "from": "@circular-templates/asset"
+        "from": "@onkelhoy/templates-asset"
       },
       {
         "name": "style",
@@ -161,21 +161,21 @@
           "40px"
         ]
       },
-      "--container-size-small": {
+      "--field-size-small": {
         "usecases": [
           "width",
           "height"
         ],
         "fallbacks": []
       },
-      "--container-size-medium": {
+      "--field-size-medium": {
         "usecases": [
           "width",
           "height"
         ],
         "fallbacks": []
       },
-      "--container-size-large": {
+      "--field-size-large": {
         "usecases": [
           "width",
           "height"

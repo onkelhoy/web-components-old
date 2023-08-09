@@ -12,12 +12,12 @@ export const style = `:host,
     display: flex;
     justify-content: center;
     align-items: center;
-    width: var(--container-size-medium);
-    height: var(--container-size-medium); }
+    width: var(--field-size-medium);
+    height: var(--field-size-medium); }
 
 img.avatar {
-  width: var(--container-size-medium);
-  height: var(--container-size-medium);
+  width: var(--field-size-medium);
+  height: var(--field-size-medium);
   border-radius: 50%; }
 
 @media (prefers-color-scheme: light) {

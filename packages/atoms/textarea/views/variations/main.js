@@ -1,2 +1,2 @@
-import '@circular-tools/doc/wc';
-import "@circular/textarea/wc";
+import '@onkelhoy/tools-doc/wc';
+import "@onkelhoy/textarea/wc";

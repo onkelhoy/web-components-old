@@ -1,13 +1,13 @@
 export const style = `:host {
-  --button-color: var(--o-navbaritem-text-color-light, var(--primary-100, #8A8D96));
-  --button-color-selected: var(--o-navbaritem-text-color-selected-light, var(--primary-600, #000000));
-  --button-background: var(--o-navbaritem-background-light, var(--neutral-100, white));
-  --button-background-selected: var(--o-navbaritem-background-selected-light, var(--neutral-300, #F1F1F4));
-  --button-background-hover: var(--o-navbaritem-background-hover-light, var(--neutral-300, #F1F1F4));
-  --button-background-active: var(--o-navbaritem-background-active-light, var(--neutral-300, #F1F1F4));
+  --button-color: var(--o-navbaritem-text-color-light, var(--o-color-neutral-600, #8A8D96));
+  --button-color-selected: var(--o-navbaritem-text-color-selected-light, var(--o-color-black, #000000));
+  --button-background: var(--o-navbaritem-background-light, var(--o-color-white, white));
+  --button-background-selected: var(--o-navbaritem-background-selected-light, var(--o-color-neutral-100, #F1F1F4));
+  --button-background-hover: var(--o-navbaritem-background-hover-light, var(--o-color-neutral-100, #F1F1F4));
+  --button-background-active: var(--o-navbaritem-background-active-light, var(--o-color-neutral-100, #F1F1F4));
   --indicator: var(--button-background);
-  --indicator-selected: var(--o-navbaritem-indicator-selected-light, var(--b1-300, #009DD3));
-  --count-border: var(--o-navbaritem-count-border-color-light, var(--neutral-300, #F1F1F4));
+  --indicator-selected: var(--o-navbaritem-indicator-selected-light, var(--o-color-primary-600, #009DD3));
+  --count-border: var(--o-navbaritem-count-border-color-light, var(--o-color-neutral-100, #F1F1F4));
   --count-background: var(--o-navbaritem-count-background-color-light, var(--neutral-100, #ffffff));
   --count-background-selected: var(--o-navbaritem-count-background-color-selected-light, var(--neutral-200, #F8F8F8)); }
 

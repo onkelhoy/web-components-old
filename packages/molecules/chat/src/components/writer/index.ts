@@ -1,14 +1,14 @@
 // utils 
-import { html, property, query } from "@circular-tools/utils";
+import { html, property, query } from "@onkelhoy/tools-utils";
 
 // atoms
-import { Textarea } from "@circular/textarea";
-import '@circular/textarea/wc';
-import '@circular/button/wc';
-import '@circular/icon/wc';
+import { Textarea } from "@onkelhoy/textarea";
+import '@onkelhoy/textarea/wc';
+import '@onkelhoy/button/wc';
+import '@onkelhoy/icon/wc';
 
 // templates 
-import { BoxTemplate } from '@circular-templates/box';
+import { BoxTemplate } from '@onkelhoy/templates-box';
 
 // local 
 import { style } from "./style";

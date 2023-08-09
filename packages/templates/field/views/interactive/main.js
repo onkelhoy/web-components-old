@@ -1,4 +1,4 @@
-import '@circular-tools/doc/wc';
+import '@onkelhoy/tools-doc/wc';
 
 let TARGET_ELEMENT = null;
 window.onload = () => {
@@ -44,4 +44,4 @@ function update(name, value, element) {
     TARGET_ELEMENT.setAttribute(name, value);
   }
 }
-import "@circular-templates/field/wc";
+import "@onkelhoy/templates-field/wc";

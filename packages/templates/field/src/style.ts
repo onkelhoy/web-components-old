@@ -1,11 +1,23 @@
 export const style = `:host([size="small"]) o-box-template.wrapper {
-  height: var(--field-height-small, var(--height-small, 32px)); }
+  height: var(--o-field-height-small, var(--field-size-small)); }
+
+:host([size="small"]) footer,
+:host([size="small"]) header {
+  height: var(--o-field-block-height-small, var(--field-size-small)); }
 
 :host([size="medium"]) o-box-template.wrapper {
-  height: var(--field-height-medium, var(--height-medium, 40px)); }
+  height: var(--o-field-height-medium, var(--field-size-medium)); }
+
+:host([size="medium"]) footer,
+:host([size="medium"]) header {
+  height: var(--o-field-block-height-medium, var(--field-size-small)); }
 
 :host([size="large"]) o-box-template.wrapper {
-  height: var(--field-height-large, var(--height-large, 56px)); }
+  height: var(--o-field-height-large, var(--field-size-large)); }
+
+:host([size="large"]) footer,
+:host([size="large"]) header {
+  height: var(--o-field-block-height-large, var(--field-size-small)); }
 
 :host {
   --border: var(--o-field-background-color-light, var(--o-color-black, black));
@@ -13,13 +25,18 @@ export const style = `:host([size="small"]) o-box-template.wrapper {
   --color: var(--o-field-text-color-light, var(--o-color-black, black));
   display: block;
   color: var(--color); }
+  :host footer,
+  :host header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: var(--padding-small); }
   :host o-box-template.wrapper {
     box-sizing: border-box;
     position: relative;
     display: flex;
     align-items: center;
-    gap: 0.2rem;
-    padding-inline: 0.5rem;
+    padding-inline: var(--padding-medium);
     border: 1px solid var(--border); }
     :host o-box-template.wrapper ::slotted(*:not([slot])),
     :host o-box-template.wrapper input, :host o-box-template.wrapper select, :host o-box-template.wrapper textarea {
@@ -34,6 +51,10 @@ export const style = `:host([size="small"]) o-box-template.wrapper {
       border: none;
       background-color: transparent;
       outline: none !important; }
+    :host o-box-template.wrapper ::slotted(*[slot="prefix"]) {
+      margin-right: var(--gap-small); }
+    :host o-box-template.wrapper ::slotted(*[slot="suffix"]) {
+      margin-left: var(--gap-small); }
   :host:focus {
     outline: none; }
 

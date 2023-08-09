@@ -1,10 +1,10 @@
 // tools
-import '@circular-tools/doc/wc';
-import '@circular-templates/box/wc'
-import '@circular/button/wc'
+import '@onkelhoy/tools-doc/wc';
+import '@onkelhoy/templates-box/wc'
+import '@onkelhoy/button/wc'
 
 // component
-import '@circular-templates/field/wc';
+import '@onkelhoy/templates-field/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');

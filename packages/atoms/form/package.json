@@ -1,5 +1,5 @@
 {
-    "name": "@circular/form",
+    "name": "@onkelhoy/form",
     "version": "1.0.0",
     "scripts": {
         "init": "sh .scripts/init.sh",
@@ -21,23 +21,27 @@
     },
     "author": "Henry Pap",
     "license": "ISC",
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/onkelhoy/web-components.git"
+    },
     "dependencies": {
-        "@circular-templates/base": "^1.0.0",
-        "@circular-templates/box": "^1.0.0",
-        "@circular-tools/translator": "^1.0.0",
-        "@circular-tools/utils": "^1.0.0",
-        "@circular/accordion": "^1.0.0",
-        "@circular/button": "^1.0.0",
-        "@circular/typography": "^1.0.0"
+        "@onkelhoy/templates-base": "^1.0.0",
+        "@onkelhoy/templates-box": "^1.0.0",
+        "@onkelhoy/tools-translator": "^1.0.0",
+        "@onkelhoy/tools-utils": "^1.0.0",
+        "@onkelhoy/accordion": "^1.0.0",
+        "@onkelhoy/typography": "^1.0.0"
     },
     "devDependencies": {
-        "@circular-tools/doc": "^1.0.0",
-        "@circular/checkbox": "^1.0.0",
-        "@circular/dropdown": "^1.0.0",
-        "@circular/icon": "^1.0.0",
-        "@circular/input": "^1.0.0",
-        "@circular/textarea": "^1.0.0",
-        "@circular/toggle": "^1.0.0",
+        "@onkelhoy/tools-doc": "^1.0.0",
+        "@onkelhoy/button": "^1.0.0",
+        "@onkelhoy/checkbox": "^1.0.0",
+        "@onkelhoy/dropdown": "^1.0.0",
+        "@onkelhoy/icon": "^1.0.0",
+        "@onkelhoy/input": "^1.0.0",
+        "@onkelhoy/textarea": "^1.0.0",
+        "@onkelhoy/toggle": "^1.0.0",
         "esbuild": "^0.17.18",
         "node-html-parser": "^6.1.5",
         "node-sass": "^8.0.0",

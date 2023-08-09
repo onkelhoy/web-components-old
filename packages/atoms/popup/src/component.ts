@@ -1,15 +1,15 @@
 // utils 
-import { html, property, query } from "@circular-tools/utils";
+import { html, property, query } from "@onkelhoy/tools-utils";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
 // local 
 import { style } from "./style";
 import { State, Variant } from "./types";
 
 export class Popup extends BaseTemplate {
-  static styles = style;
+  static style = style;
 
   @query('iz-card') private cardElement!: HTMLDivElement;
 

@@ -1,10 +1,10 @@
 // utils 
-import { html, property } from "@circular-tools/utils";
+import { html, property } from "@onkelhoy/tools-utils";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
-import { FieldTemplate } from "@circular-templates/field";
-import "@circular-templates/box/wc";
+import { BaseTemplate } from "@onkelhoy/templates-base";
+import { FieldTemplate } from "@onkelhoy/templates-field";
+import "@onkelhoy/templates-box/wc";
 
 // local 
 import { style } from "./style";
@@ -20,10 +20,13 @@ export class Toggle extends FieldTemplate {
     }
     
     // event handlers
-    private handlekeyup = (e:Event) => {
-        if (this.hasFocus) 
+    private handlekeyup = (e:KeyboardEvent) => {
+        if ((e.key || e.code).toLowerCase() === "enter")
         {
-            console.log('activate')
+            if (this.hasFocus)
+            {
+                this.value = (!this.checked).toString();
+            }
         }
     }
     private handleclick = () => {

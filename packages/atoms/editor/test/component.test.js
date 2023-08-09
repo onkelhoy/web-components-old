@@ -1,4 +1,4 @@
-import { fixture } from '@circular-tools/test';
+import { fixture } from '@onkelhoy/tools-test';
 
 describe('Editor', function () {
   describe('base tests', function () {
