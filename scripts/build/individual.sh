@@ -7,6 +7,9 @@ VERSION=$2
 # execute logic
 cd $PACKAGE 
 
+# install 
+npm ci 
+
 # run build 
 npm run build 
 
