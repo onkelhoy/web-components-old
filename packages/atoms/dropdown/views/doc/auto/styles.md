@@ -6,16 +6,16 @@ slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
 // utils 
-import { html, property, query, suspense } from "@circular-tools/utils";
+import { html, property, query, suspense } from "@onkelhoy/tools-utils";
 
 // atoms
-import '@circular/icon/wc';
+import '@onkelhoy/icon/wc';
 
 // templates
-import { TextinputTemplate } from '@circular-templates/textinput';
-import { Placement, PopoverTemplate } from "@circular-templates/popover";
-import '@circular-templates/popover/wc';
-import '@circular-templates/box/wc';
+import { TextinputTemplate } from '@onkelhoy/templates-textinput';
+import { Placement, PopoverTemplate } from "@onkelhoy/templates-popover";
+import '@onkelhoy/templates-popover/wc';
+import '@onkelhoy/templates-box/wc';
 
 // local 
 import { style } from "./style";

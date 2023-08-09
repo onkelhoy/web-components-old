@@ -1,13 +1,14 @@
 // tools
-import '@circular-tools/doc/wc';
-import '@circular/input/wc';
-import '@circular/checkbox/wc';
-import '@circular/textarea/wc';
-import '@circular/toggle/wc';
-import '@circular/dropdown/wc';
+import '@onkelhoy/tools-doc/wc';
+import '@onkelhoy/input/wc';
+import '@onkelhoy/checkbox/wc';
+import '@onkelhoy/textarea/wc';
+import '@onkelhoy/toggle/wc';
+import '@onkelhoy/button/wc';
+import '@onkelhoy/dropdown/wc';
 
 // component
-import '@circular/form/wc';
+import '@onkelhoy/form/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');
@@ -21,4 +22,10 @@ window.onload = () => {
     window.show_warning.onclick = () => {
         window.form_warning.showMessage("Im the warning now!", "warning");
     }
+
+    // document.querySelector('form#test-form').addEventListener('submit', (e) => {
+    //     e.preventDefault();
+    //     const data = Array.from(new FormData(e.target));
+    //     console.log('form submitted', data);
+    // })
 }

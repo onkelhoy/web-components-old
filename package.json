@@ -1,6 +1,6 @@
 {
   "name": "@onkelhoy/web-components",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "web-component library",
   "private": false,
   "repository" : {
@@ -9,7 +9,8 @@
   },
   "scripts": {
     "init": "sh ./scripts/init.sh",
-    "build": "npm run build --workspaces",
+    "build:workspaces": "npm run build --workspaces",
+    "build": "sh ./scripts/build/run.sh",
     "create": "sh ./scripts/generator/copy.sh",
     "clean": "sh ./scripts/clean.sh",
     "start": "cd ./ecosystem && npm run combine",

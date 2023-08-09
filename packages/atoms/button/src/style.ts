@@ -24,19 +24,19 @@ export const style = `:host {
 
 :host([size="small"]) {
   font-size: var(--button-font-size-small, var(--font-size-small, 0.8rem));
-  height: var(--button-height-small, var(--height-small, 20px));
+  height: var(--button-height-small, var(--height-small, var(--field-size-small)));
   padding: var(--button-padding-small, var(--padding-small, 0.5rem));
   border-width: var(--button-border-width-small, var(--border-width-small, 1px)); }
 
 :host([size="medium"]) {
   font-size: var(--button-font-size-medium, var(--font-size-medium, 1rem));
-  height: var(--button-height-medium, var(--height-medium, 32px));
+  height: var(--button-height-medium, var(--height-medium, var(--field-size-medium)));
   padding: var(--button-padding-medium, var(--padding-medium, 1rem));
   border-width: var(--button-border-width-medium, var(--border-width-medium, 1px)); }
 
 :host([size="large"]) {
   font-size: var(--button-font-size-large, var(--font-size-large, 1.2rem));
-  height: var(--button-height-large, var(--height-large, 56px));
+  height: var(--button-height-large, var(--height-large, var(--field-size-large)));
   padding: var(--button-padding-large, var(--padding-large, 1rem));
   border-width: var(--button-border-width-large, var(--border-width-large, 1px)); }
 

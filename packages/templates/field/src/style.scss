@@ -1,23 +1,29 @@
 $size-map: (
   small: (
-    height: 32px,
-    padding: 0.5rem,
+    height: var(--field-size-small),
+    blockheight: var(--field-size-small),
+    padding: var(--padding-small),
   ),
   medium: (
-    height: 40px,
-    padding: 1rem,
+    height: var(--field-size-medium),
+    blockheight: var(--field-size-small),
+    padding: var(--padding-medium),
   ),
   large: (
-    height: 56px,
-    padding: 1rem,
+    height: var(--field-size-large),
+    blockheight: var(--field-size-small),
+    padding: var(--padding-medium),
   ),
 );
 
 @each $name, $value in $size-map {
     :host([size="#{$name}"]) {
         o-box-template.wrapper {
-            height: var(--field-height-#{$name}, var(--height-#{$name}, #{map-get($value, height)}));
-            // padding: var(--field-padding-#{$name}, var(--padding-#{$name}, #{map-get($value, padding)}));
+            height: var(--o-field-height-#{$name}, #{map-get($value, height)});
+        }
+        footer,
+        header {
+            height: var(--o-field-block-height-#{$name}, #{map-get($value, blockheight)});
         }
     }
 } 
@@ -30,13 +36,20 @@ $size-map: (
     display: block;
     color: var(--color);
 
+    footer,
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-inline: var(--padding-small);
+    }
+
     o-box-template.wrapper {
         box-sizing: border-box;
         position: relative;
         display: flex;
         align-items: center;
-        gap: 0.2rem;
-        padding-inline: 0.5rem;
+        padding-inline: var(--padding-medium);
         border: 1px solid var(--border);
 
         ::slotted(*:not([slot])),        
@@ -51,10 +64,16 @@ $size-map: (
             
             flex-grow: 1;
             display: block;
-            // padding-block: 0.5rem;
             border: none;
             background-color: transparent;
             outline: none !important;
+        }
+
+        ::slotted(*[slot="prefix"]) {
+            margin-right: var(--gap-small);
+        }
+        ::slotted(*[slot="suffix"]) {
+            margin-left: var(--gap-small);
         }
     }
 

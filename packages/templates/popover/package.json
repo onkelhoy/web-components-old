@@ -1,5 +1,5 @@
 {
-    "name": "@circular-templates/popover",
+    "name": "@onkelhoy/templates-popover",
     "version": "1.0.0",
     "scripts": {
         "init": "sh .scripts/init.sh",
@@ -8,7 +8,6 @@
         "watch": ".scripts/watch.sh",
         "combine": ".scripts/combine.sh && .scripts/start.sh combined",
         "start": ".scripts/start.sh",
-        
         "interactive": "sh .scripts/helper/build-interactive.sh",
         "variations": "sh .scripts/helper/build-variations.sh",
         "component:add": "sh .scripts/helper/add-component.sh"
@@ -22,13 +21,17 @@
     },
     "author": "Henry Pap",
     "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/onkelhoy/web-components.git"
+    },
     "dependencies": {
-        "@circular-tools/utils": "^1.0.0",
-        "@circular-templates/base": "^1.0.0"
+        "@onkelhoy/tools-utils": "^1.0.0",
+        "@onkelhoy/templates-base": "^1.0.0"
     },
     "devDependencies": {
-        "@circular-tools/doc": "^1.0.0",
-        "@circular/icon": "^1.0.0",
+        "@onkelhoy/tools-doc": "^1.0.0",
+        "@onkelhoy/icon": "^1.0.0",
         "esbuild": "^0.17.18",
         "tslib": "^2.5.0",
         "node-sass": "^8.0.0",

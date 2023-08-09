@@ -1,0 +1,18 @@
+:host {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+
+    grid-template-areas: 
+        'sidebar header'
+        'sidebar body'
+        'footer footer';
+
+    div.header { grid-area: header; }
+    div.sidebar { grid-area: sidebar; }
+    div.footer { grid-area: footer; }
+    div.body { 
+        grid-area: body; 
+        padding: var(--padding-small);
+    }
+}

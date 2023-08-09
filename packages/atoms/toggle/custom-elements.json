@@ -104,19 +104,19 @@
       },
       {
         "name": "html",
-        "from": "@circular-tools/utils"
+        "from": "@onkelhoy/tools-utils"
       },
       {
         "name": "property",
-        "from": "@circular-tools/utils"
+        "from": "@onkelhoy/tools-utils"
       },
       {
         "name": "suspense",
-        "from": "@circular-tools/utils"
+        "from": "@onkelhoy/tools-utils"
       },
       {
         "name": "BaseTemplate",
-        "from": "@circular-templates/base"
+        "from": "@onkelhoy/templates-base"
       },
       {
         "name": "style",
@@ -126,11 +126,11 @@
     "/Users/henry/Developer/projects/web-components/packages/atoms/toggle": [
       {
         "name": "html",
-        "from": "@circular-tools/utils"
+        "from": "@onkelhoy/tools-utils"
       },
       {
         "name": "FieldTemplate",
-        "from": "@circular-templates/field"
+        "from": "@onkelhoy/templates-field"
       },
       {
         "name": "style",
@@ -192,7 +192,7 @@
         ],
         "fallbacks": []
       },
-      "--container-size-small": {
+      "--field-size-small": {
         "usecases": [
           "height",
           "width"

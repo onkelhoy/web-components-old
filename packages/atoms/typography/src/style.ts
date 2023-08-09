@@ -39,6 +39,9 @@ export const style = `:host {
 :host([align="initial"]) {
   text-align: initial; }
 
+:host([nowrap="true"]) {
+  white-space: nowrap; }
+
 :host([variant="heading1"]),
 :host([variant="h1"]) {
   font-family: var(--typography-h1-fontfamily, var(--default-fontfamily));

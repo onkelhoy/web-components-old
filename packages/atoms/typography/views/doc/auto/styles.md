@@ -6,10 +6,10 @@ slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@circular-tools/utils";
+import { html, property } from "@onkelhoy/tools-utils";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
 // local 
 import { style } from "./style";

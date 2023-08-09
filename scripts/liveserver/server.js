@@ -47,7 +47,7 @@ function build_dependency(name) {
     {
         for (let packagename in packagejson[destination])
         {
-            if (packagename.startsWith("@circular"))
+            if (packagename.startsWith("@onkelhoy"))
             {
                 if (!DEPENDENCY[packagename]) {
                     DEPENDENCY[packagename] = getLocalModule(packagename);
@@ -61,7 +61,7 @@ function build_dependency(name) {
 build_dependency(PACKAGE_JSON.name);
 
 function getLocalModule(name) {
-    if (!name.startsWith('@circular')) return null;
+    if (!name.startsWith('@onkelhoy')) return null;
 
     const data = LOCKFILE.packages[`node_modules/${name}`];
     if (!data) return null;
@@ -239,6 +239,12 @@ async function getFile(url) {
         if (themematch)
         {
             const file = fs.readFileSync(path.resolve(SCRIPT_DIR, '../../themes/', themematch[1], 'tokens.css'))
+            return [200, file]
+        }
+        const translationmatch = url.match(/\/?translation\/(\w+)/);
+        if (translationmatch)
+        {
+            const file = fs.readFileSync(path.resolve(SCRIPT_DIR, '../../translations/', translationmatch[1] + '.json'))
             return [200, file]
         }
         if (/\.(jpe?g|png|gif)$/i.test(url))

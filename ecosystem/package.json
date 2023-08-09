@@ -1,5 +1,5 @@
 {
-    "name": "@circular/ecosystem",
+    "name": "@onkelhoy/ecosystem",
     "version": "1.0.0",
     "scripts": {
         "init": "sh .scripts/init.sh",
@@ -18,17 +18,21 @@
     },
     "author": "Henry Pap",
     "license": "ISC",
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/onkelhoy/web-components.git"
+    },
     "devDependencies": {
-        "@circular-tools/doc": "^1.0.0",
-        "@circular/icon": "^1.0.0",
+        "@onkelhoy/tools-doc": "^1.0.0",
+        "@onkelhoy/icon": "^1.0.0",
         "esbuild": "^0.17.18",
         "node-html-parser": "^6.1.5",
         "node-sass": "^8.0.0",
         "typescript": "^5.0.4"
     },
     "dependencies": {
-        "@circular-templates/base": "^1.0.0",
-        "@circular-tools/utils": "^1.0.0"
+        "@onkelhoy/templates-base": "^1.0.0",
+        "@onkelhoy/tools-utils": "^1.0.0"
     },
     "keywords": [
         "web-component",

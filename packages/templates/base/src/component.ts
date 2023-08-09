@@ -1,4 +1,4 @@
-import { NextParent, property, suspense } from "@circular-tools/utils";
+import { NextParent, property, suspense } from "@onkelhoy/tools-utils";
 
 import { FunctionCallback, RenderType } from "./types";
 
@@ -70,16 +70,16 @@ export class BaseTemplate extends HTMLElement {
         if (this.shadowRoot) return this.shadowRoot.querySelector(selector);
         return null;
     }
-    public shadow_closest(selector: string) {
+    public shadow_closest<T extends Element = HTMLElement>(selector: string) {
         let parent = NextParent(this);
         
         while (parent)
         {
             // check if parent is our selector
-            const closest = parent.closest(selector);
+            const closest = parent.closest<T>(selector);
             if (closest) return closest;
 
-            const target = parent.querySelector(selector);
+            const target = parent.querySelector<T>(selector);
             if (target) return target;
 
             if (parent === document.documentElement) break;

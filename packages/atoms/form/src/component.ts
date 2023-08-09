@@ -1,11 +1,12 @@
 // utils 
-import { html, property, query } from "@circular-tools/utils";
+import { html, property, query } from "@onkelhoy/tools-utils";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
 // local 
 import { style } from "./style";
+import { OSubmitEvent } from './types'
 import { Message, Variant as MessageType } from "./components/message";
 
 export class Form extends BaseTemplate {
@@ -31,6 +32,27 @@ export class Form extends BaseTemplate {
         if (this.success) this.showMessage(this.success, "success");
     }
 
+    // event handlers
+    private handlesubmit = (e:Event) => {
+        e.preventDefault();
+        // e.stopPropagation();
+        
+        if (e.target instanceof HTMLFormElement)
+        {
+            let data:any = new FormData(e.target);
+            if (data) data = Array.from(data as any);
+
+            this.dispatchEvent(new CustomEvent<OSubmitEvent>("o-submit", {
+                detail: {
+                    data,
+                    element: e.target
+                }
+            }));
+        }
+
+        return false;
+    }
+
     // public functions 
     public showMessage(message: string, type: MessageType) {
         this.messageElement.innerHTML = message;
@@ -43,7 +65,7 @@ export class Form extends BaseTemplate {
 
     render() {
         return html`
-            <form>
+            <form @submit="${this.handlesubmit}">
                 <div>
                     <o-message></o-message>
                 </div>

@@ -2,7 +2,10 @@ export const style = `:host {
   display: inline-grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr auto;
-  grid-template-areas: "label input" "message message"; }
+  grid-template-areas: "label input" "message message";
+  align-items: center;
+  column-gap: var(--gap-small);
+  cursor: pointer; }
   :host::part(label) {
     grid-area: label; }
   :host::part(wrapper) {

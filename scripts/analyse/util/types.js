@@ -158,7 +158,10 @@ function extract_object(checker, node) {
     if (node.symbol?.members) {
         const object = {}
         node.symbol.members.forEach(member => {
-            object[member.valueDeclaration.name.escapedText] = extract_type(checker, member.valueDeclaration.type);
+            if (member.valueDeclaration)
+            {
+                object[member.valueDeclaration.name.escapedText] = extract_type(checker, member.valueDeclaration.type);
+            }
         })
         return object;
     }

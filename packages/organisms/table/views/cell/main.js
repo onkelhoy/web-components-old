@@ -1,8 +1,8 @@
 // tools
-import '@circular-tools/doc/wc';
+import '@onkelhoy/tools-doc/wc';
 
 // component
-import '@circular/table/wc';
+import '@onkelhoy/table/wc';
 
 window.onload = () => {
     console.log('[cell]: window loaded');

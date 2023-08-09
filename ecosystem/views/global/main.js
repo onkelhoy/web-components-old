@@ -1,6 +1,6 @@
-import "@circular/icon/wc";
-import "@circular-tools/doc/wc";
-import "@circular/ecosystem/wc";
+import "@onkelhoy/icon/wc";
+import "@onkelhoy/tools-doc/wc";
+import "@onkelhoy/ecosystem/wc";
 
 window.onload = () => {
   document.querySelectorAll('side-menu menu-item[data-target]').forEach(elm => {

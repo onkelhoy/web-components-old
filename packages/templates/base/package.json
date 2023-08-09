@@ -1,5 +1,5 @@
 {
-    "name": "@circular-templates/base",
+    "name": "@onkelhoy/templates-base",
     "version": "1.0.0",
     "scripts": {
         "init": "sh .scripts/init.sh",
@@ -18,8 +18,12 @@
     },
     "author": "Henry Pap",
     "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/onkelhoy/web-components.git"
+    },
     "dependencies": {
-        "@circular-tools/utils": "^1.0.0"
+        "@onkelhoy/tools-utils": "^1.0.0"
     },
     "devDependencies": {
         "esbuild": "^0.17.18",

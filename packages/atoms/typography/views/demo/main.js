@@ -1,8 +1,8 @@
 // tools
-import '@circular-tools/doc/wc';
+import '@onkelhoy/tools-doc/wc';
 
 // component
-import '@circular/typography/wc';
+import '@onkelhoy/typography/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');

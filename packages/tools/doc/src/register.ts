@@ -8,7 +8,7 @@ import { Input } from './components/Input';
 import { Radio } from './components/Radio';
 
 // include packages
-import '@circular/tabs/wc';
+import '@onkelhoy/tabs/wc';
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;

@@ -22,10 +22,10 @@
 		"description": "A simple skeleton code for new web-components",
 		"body": [
 			"// utils ",
-			"import { html, property } from \"@circular-tools/utils\";",
+			"import { html, property } from \"@onkelhoy/tools-utils\";",
 			"",
 			"// templates",
-			"import { BaseTemplate } from \"@circular-templates/base\";",
+			"import { BaseTemplate } from \"@onkelhoy/templates-base\";",
 			"",
 			"import { style } from \"./style\";",
 			"",

@@ -1,8 +1,8 @@
 // utils 
-import { html, property } from "@circular-tools/utils";
+import { html, property } from "@onkelhoy/tools-utils";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
 // local 
 import { style } from "./style";
@@ -13,6 +13,7 @@ export class Typography extends BaseTemplate {
 
     @property({ rerender: false }) variant: Variant = "C3";
     @property({ rerender: false }) align: Alignment = "initial";
+    @property({ rerender: false, type: Boolean }) nowrap = false;
 
     render() {
         return html`

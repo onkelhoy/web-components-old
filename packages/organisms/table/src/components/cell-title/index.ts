@@ -1,12 +1,12 @@
 // utils 
-import { html, property, query } from "@circular-tools/utils";
+import { html, property, query } from "@onkelhoy/tools-utils";
 
 // atoms 
-import "@circular/typography/wc";
-import "@circular/icon/wc";
+import "@onkelhoy/typography/wc";
+import "@onkelhoy/icon/wc";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
 import { style } from "./style";
 

@@ -1,0 +1,259 @@
+{
+  "className": "Navbar",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/navbar",
+  "properties": [
+    {
+      "name": "mode",
+      "type": "Mode",
+      "default_value": "open",
+      "type_value": [
+        "open",
+        "collapsed",
+        "hover"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "selected",
+      "type": "string",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    },
+    {
+      "name": "boxtemplateElement",
+      "type": "BoxTemplate",
+      "type_value": {
+        "radius": [
+          "none",
+          "small",
+          "medium",
+          "large",
+          "circular"
+        ],
+        "elevation": [
+          "none",
+          "small",
+          "medium",
+          "large"
+        ],
+        "render": [
+          false,
+          {
+            "length": null,
+            "toString": null,
+            "toLocaleString": null,
+            "pop": [
+              null,
+              null
+            ],
+            "push": null,
+            "concat": null,
+            "join": null,
+            "reverse": null,
+            "shift": [
+              null,
+              null
+            ],
+            "slice": null,
+            "sort": null,
+            "splice": null,
+            "unshift": null,
+            "indexOf": null,
+            "lastIndexOf": null,
+            "every": null,
+            "some": null,
+            "forEach": null,
+            "map": null,
+            "filter": null,
+            "reduce": null,
+            "reduceRight": null
+          },
+          {
+            "ownerDocument": null,
+            "getElementById": [
+              null,
+              null
+            ]
+          }
+        ]
+      },
+      "primitive": false,
+      "conditional": false
+    }
+  ],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/molecules/navbar": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@onkelhoy/tools-utils"
+      },
+      {
+        "name": "property",
+        "from": "@onkelhoy/tools-utils"
+      },
+      {
+        "name": "query",
+        "from": "@onkelhoy/tools-utils"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@onkelhoy/templates-base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      },
+      {
+        "name": "NavbarItem",
+        "from": "./components/navbar-item"
+      }
+    ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "default",
+        "html": ""
+      }
+    ],
+    "parts": []
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/navbar",
+    "sources": [],
+    "variables": {
+      "--o-navbar-background-color-light": {
+        "usecases": [
+          "--background"
+        ],
+        "fallbacks": [
+          "var(--neutral-100, white)"
+        ]
+      },
+      "--neutral-100": {
+        "usecases": [
+          "--background",
+          "--hamburger-background-hover"
+        ],
+        "fallbacks": [
+          "white",
+          "#FFFFFF"
+        ]
+      },
+      "--o-navbar-hamburger-background-color-light": {
+        "usecases": [
+          "--hamburger-background"
+        ],
+        "fallbacks": [
+          "transparent"
+        ]
+      },
+      "--o-navbar-hamburger-background-color-hover-light": {
+        "usecases": [
+          "--hamburger-background-hover"
+        ],
+        "fallbacks": [
+          "var(--neutral-300, #F1F1F4)"
+        ]
+      },
+      "--neutral-300": {
+        "usecases": [
+          "--hamburger-background-hover"
+        ],
+        "fallbacks": [
+          "#F1F1F4"
+        ]
+      },
+      "--o-navbar-hamburger-background-color-active-light": {
+        "usecases": [
+          "--hamburger-background-active"
+        ],
+        "fallbacks": [
+          "var(--neutral-500, #C7CBD4)"
+        ]
+      },
+      "--neutral-500": {
+        "usecases": [
+          "--hamburger-background-active"
+        ],
+        "fallbacks": [
+          "#C7CBD4"
+        ]
+      },
+      "--background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--padding-small": {
+        "usecases": [
+          "padding",
+          "padding-block"
+        ],
+        "fallbacks": [
+          "8px"
+        ]
+      },
+      "--margin-small": {
+        "usecases": [
+          "margin-top",
+          "margin-block",
+          "margin-bottom"
+        ],
+        "fallbacks": [
+          "8px"
+        ]
+      },
+      "--margin-medium": {
+        "usecases": [
+          "margin-left"
+        ],
+        "fallbacks": [
+          "16px"
+        ]
+      },
+      "--hamburger-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--primary-600": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "black"
+        ]
+      },
+      "--hamburger-background-hover": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--hamburger-background-active": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-navbar-hamburger-hover-background-color-hover-light": {
+        "usecases": [
+          "--hamburger-background-hover"
+        ],
+        "fallbacks": [
+          "var(--neutral-100, #FFFFFF)"
+        ]
+      }
+    }
+  }
+}

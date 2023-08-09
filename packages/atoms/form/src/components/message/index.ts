@@ -1,17 +1,17 @@
 // utils 
-import { html, property, query } from "@circular-tools/utils";
-import "@circular-tools/translator/wc";
+import { html, property, query } from "@onkelhoy/tools-utils";
+import "@onkelhoy/tools-translator/wc";
 
 // atoms 
-import { Accordion } from "@circular/accordion";
-import "@circular/icon/wc";
-import "@circular/button/wc";
-import "@circular/accordion/wc";
-import "@circular/typography/wc";
+import { Accordion } from "@onkelhoy/accordion";
+import "@onkelhoy/icon/wc";
+import "@onkelhoy/button/wc";
+import "@onkelhoy/accordion/wc";
+import "@onkelhoy/typography/wc";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
-import "@circular-templates/box/wc";
+import { BaseTemplate } from "@onkelhoy/templates-base";
+import "@onkelhoy/templates-box/wc";
 
 import { style } from "./style";
 

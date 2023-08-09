@@ -6,17 +6,17 @@ slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
 // utils 
-import { html, property, query } from "@circular-tools/utils";
-import "@circular-tools/translator/wc";
+import { html, property, query } from "@onkelhoy/tools-utils";
+import "@onkelhoy/tools-translator/wc";
 
 // atoms
-import "@circular/badge/wc";
-import "@circular/typography/wc";
-import "@circular/menu/wc";
-import { Menu } from "@circular/menu";
+import "@onkelhoy/badge/wc";
+import "@onkelhoy/typography/wc";
+import "@onkelhoy/menu/wc";
+import { Menu } from "@onkelhoy/menu";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
 // local 
 import { style } from "./style";
@@ -97,14 +97,14 @@ declare global {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: var(--container-size-medium);
-        height: var(--container-size-medium);
+        width: var(--field-size-medium);
+        height: var(--field-size-medium);
     }
 }
 
 img.avatar {
-    width: var(--container-size-medium);
-    height: var(--container-size-medium);
+    width: var(--field-size-medium);
+    height: var(--field-size-medium);
     border-radius: 50%;
 }
 

@@ -1,12 +1,12 @@
 // utils 
-import { html, property, query, ExtractSlotValue } from "@circular-tools/utils";
+import { html, property, query, ExtractSlotValue } from "@onkelhoy/tools-utils";
 
 // atoms 
-import { Checkbox } from "@circular/checkbox";
-import "@circular/checkbox/wc";
+import { Checkbox } from "@onkelhoy/checkbox";
+import "@onkelhoy/checkbox/wc";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
 import { style } from "./style";
 import { Dropdown } from "../../component";

@@ -31,16 +31,16 @@
     }
 }
 :host([container="small"]) {
-    width: var(--container-size-small);
-    height: var(--container-size-small);
+    width: var(--field-size-small);
+    height: var(--field-size-small);
 }
 :host([container="medium"]) {
-    width: var(--container-size-medium);
-    height: var(--container-size-medium);
+    width: var(--field-size-medium);
+    height: var(--field-size-medium);
 }
 :host([container="large"]) {
-    width: var(--container-size-large);
-    height: var(--container-size-large);
+    width: var(--field-size-large);
+    height: var(--field-size-large);
 }
 svg {
     fill: currentColor;

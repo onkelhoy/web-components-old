@@ -1,8 +1,8 @@
 // utils 
-import { property } from "@circular-tools/utils";
+import { property } from "@onkelhoy/tools-utils";
 
 // templates
-import { BaseTemplate, RenderType } from "@circular-templates/base";
+import { BaseTemplate, RenderType } from "@onkelhoy/templates-base";
 
 // local 
 import { style } from "./style";

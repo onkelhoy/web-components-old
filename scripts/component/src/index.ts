@@ -1,8 +1,8 @@
 // utils 
-import { html, property, query } from "@circular-tools/utils";
+import { html, property, query } from "@onkelhoy/tools-utils";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
 import { style } from "./style";
 

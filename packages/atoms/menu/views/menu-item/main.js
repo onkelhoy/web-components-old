@@ -1,8 +1,8 @@
 // tools
-import '@circular-tools/doc/wc';
+import '@onkelhoy/tools-doc/wc';
 
 // component
-import '@circular/menu/wc';
+import '@onkelhoy/menu/wc';
 
 window.onload = () => {
     console.log('[menu-item]: window loaded');

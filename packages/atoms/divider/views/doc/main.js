@@ -1,8 +1,8 @@
 // tools
-import '@circular-tools/doc/wc';
+import '@onkelhoy/tools-doc/wc';
 
 // component
-import '@circular/divider/wc';
+import '@onkelhoy/divider/wc';
 
 window.onload = () => {
     console.log('[doc]: window loaded');

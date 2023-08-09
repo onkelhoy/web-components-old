@@ -6,12 +6,12 @@ slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@circular-tools/utils";
+import { html, property } from "@onkelhoy/tools-utils";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
-import { FieldTemplate } from "@circular-templates/field";
-import "@circular-templates/box/wc";
+import { BaseTemplate } from "@onkelhoy/templates-base";
+import { FieldTemplate } from "@onkelhoy/templates-field";
+import "@onkelhoy/templates-box/wc";
 
 // local 
 import { style } from "./style";
@@ -76,8 +76,8 @@ declare global {
     o-box-template.toggle {
         content: '';
         display: inline-block;
-        height: var(--container-size-small);
-        width: calc(var(--container-size-large) - var(--unit-size2));
+        height: var(--field-size-small);
+        width: calc(var(--field-size-large) - var(--unit-size2));
         background-color: var(--o-color-white);
         padding: var(--padding-smaller);
 
@@ -91,8 +91,8 @@ declare global {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: var(--container-size-small);
-                height: var(--container-size-small);
+                width: var(--field-size-small);
+                height: var(--field-size-small);
                 border-radius: 50%;
                 background-color: var(--o-color-neutral-500);
             }
@@ -102,7 +102,7 @@ declare global {
 
 :host([checked="true"]) {
     span[part="indicator"] {
-        left: calc(100% - var(--container-size-small));
+        left: calc(100% - var(--field-size-small));
     }
 }
 :host([checked="false"]) {

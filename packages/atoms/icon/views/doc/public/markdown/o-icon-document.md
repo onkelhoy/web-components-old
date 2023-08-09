@@ -12,8 +12,8 @@ PRE: just start the task given, dont include any starting lines so I can just co
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
 ## SOURCE-CODE:
-import { property, html, Size } from '@circular-tools/utils';
-import { AssetTemplate } from '@circular-templates/asset';
+import { property, html, Size } from '@onkelhoy/tools-utils';
+import { AssetTemplate } from '@onkelhoy/templates-asset';
 
 import { style } from './style.js';
 
@@ -148,8 +148,8 @@ PRE: just start the task given, dont include any starting lines so I can just co
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
 ## SOURCE-CODE:
- import { property, html, Size } from '@circular-tools/utils';
-import { AssetTemplate } from '@circular-templates/asset';
+ import { property, html, Size } from '@onkelhoy/tools-utils';
+import { AssetTemplate } from '@onkelhoy/templates-asset';
 
 import { style } from './style.js';
 
@@ -272,8 +272,8 @@ parts should include all elements that have been exposed with the part attribute
 slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
-import { property, html, Size } from '@circular-tools/utils';
-import { AssetTemplate } from '@circular-templates/asset';
+import { property, html, Size } from '@onkelhoy/tools-utils';
+import { AssetTemplate } from '@onkelhoy/templates-asset';
 
 import { style } from './style.js';
 

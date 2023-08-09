@@ -1,7 +1,7 @@
-import { html } from "@circular-tools/utils";
-import { BaseTemplate } from "@circular-templates/base";
+import { html } from "@onkelhoy/tools-utils";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
-import { Translator } from '@circular-tools/translator';
+import { Translator } from '@onkelhoy/tools-translator';
 
 class InsideDemo extends BaseTemplate {
   render() {

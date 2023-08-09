@@ -5,6 +5,9 @@
     grid-template-areas: 
         "label input"
         "message message";
+    align-items: center;
+    column-gap: var(--gap-small);
+    cursor: pointer;
 
     &::part(label) {
         grid-area: label;

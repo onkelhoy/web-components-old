@@ -1,15 +1,15 @@
 // utils 
-import { html, property, query } from "@circular-tools/utils";
-import "@circular-tools/translator/wc";
+import { html, property, query } from "@onkelhoy/tools-utils";
+import "@onkelhoy/tools-translator/wc";
 
 // atoms
-import "@circular/badge/wc";
-import "@circular/typography/wc";
-import "@circular/menu/wc";
-import { Menu } from "@circular/menu";
+import "@onkelhoy/badge/wc";
+import "@onkelhoy/typography/wc";
+import "@onkelhoy/menu/wc";
+import { Menu } from "@onkelhoy/menu";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
+import { BaseTemplate } from "@onkelhoy/templates-base";
 
 // local 
 import { style } from "./style";
@@ -48,7 +48,8 @@ export class Header extends BaseTemplate {
             <div class="suffix">
                 <o-theme></o-theme>
                 <o-language></o-language>
-                <o-menu placement="bottom-left" @select="${this.handleuserselect}">
+
+                ${this.user ? html`<o-menu placement="bottom-left" @select="${this.handleuserselect}">
                     <img class="avatar" slot="button-prefix" src="${avatarlink}" alt="${this.user?.firstname || "no-name"} profile picture" />
                     <o-typography slot="button-content">${this.user?.firstname || "no-name"}</o-typography>
 
@@ -58,7 +59,7 @@ export class Header extends BaseTemplate {
                     <o-menu-item value="logout">
                         <o-typography><o-translator>Logout</o-translator></o-typography>
                     </o-menu-item>
-                </o-menu>
+                </o-menu>` : ''}
             </div>
             
         `

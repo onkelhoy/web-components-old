@@ -16,7 +16,16 @@
 <body>
     <doc-card>
         <code-block lang="html" display="both">
-            <o-input placeholder="write something" name="demo">
+            <o-input label="label" counter placeholder="write something" name="demo">
+                <span slot="suffix">SUF</span>
+                <span slot="prefix">PRE</span>
+            </o-input>
+        </code-block>
+    </doc-card>
+
+    <doc-card>
+        <code-block lang="html" display="both">
+            <o-input counter="10" label="label" counter placeholder="write something" name="demo">
                 <span slot="suffix">SUF</span>
             </o-input>
         </code-block>

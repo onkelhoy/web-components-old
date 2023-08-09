@@ -1,1 +1,1 @@
-import '@circular-tools/doc/wc';
+import '@onkelhoy/tools-doc/wc';

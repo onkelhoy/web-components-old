@@ -1,8 +1,8 @@
 // tools
-import '@circular-tools/doc/wc';
+import '@onkelhoy/tools-doc/wc';
 
 // component
-import '@circular/navbar/wc';
+import '@onkelhoy/navbar/wc';
 
 window.onload = () => {
     console.log('[navbar-item]: window loaded');

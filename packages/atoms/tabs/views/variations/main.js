@@ -1,2 +1,2 @@
-import '@circular-tools/doc/wc';
-import "@circular/tabs/wc";
+import '@onkelhoy/tools-doc/wc';
+import "@onkelhoy/tabs/wc";

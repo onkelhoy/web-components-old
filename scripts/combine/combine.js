@@ -38,7 +38,9 @@ const ids = [];
 let addedscripts = 0;
 let addedlinks = 0;
 
-const IDNAME = `${ATOMICTYPE}_${PACKAGENAME}_${SUBFOLDER}`;
+const IDNAME = `${ATOMICTYPE}_${PACKAGENAME}_${SUBFOLDER}`
+    .replace('.', '_')
+    .replace('-', '_');
 
 // helper function
 function fixCSS(css, ids) {
@@ -83,7 +85,7 @@ function fixJS(js, ids) {
             const windowidselector_match = lines[i].match(windowIdSelector);
             if (windowidselector_match)
             {
-                lines[i] = lines[i].replace(`window.${windowidselector_match[1]}`, `window.${IDNAME}_${windowidselector_match[1]}`);
+                lines[i] = lines[i].replace(`window.${windowidselector_match[1]}`, `window['${IDNAME}_${windowidselector_match[1]}']`);
             }
             const windowidinsideselector_match = lines[i].match(windowInsideIdSelector);
             if (windowidinsideselector_match)

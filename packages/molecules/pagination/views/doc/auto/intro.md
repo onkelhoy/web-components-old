@@ -3,19 +3,19 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-import { html, property, query } from "@circular-tools/utils";
-import { Translator } from "@circular-tools/translator";
-import "@circular-tools/translator/wc";
+import { html, property, query } from "@onkelhoy/tools-utils";
+import { Translator } from "@onkelhoy/tools-translator";
+import "@onkelhoy/tools-translator/wc";
 
 // atoms 
-import { Dropdown } from "@circular/dropdown";
-import "@circular/icon/wc";
-import "@circular/typography/wc";
-import "@circular/button/wc";
-import "@circular/dropdown/wc";
+import { Dropdown } from "@onkelhoy/dropdown";
+import "@onkelhoy/icon/wc";
+import "@onkelhoy/typography/wc";
+import "@onkelhoy/button/wc";
+import "@onkelhoy/dropdown/wc";
 
 // templates
-// import { BaseTemplate } from "@circular-templates/base";
+// import { BaseTemplate } from "@onkelhoy/templates-base";
 
 // local 
 import { style } from "./style";

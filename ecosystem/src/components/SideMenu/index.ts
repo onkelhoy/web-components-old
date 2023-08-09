@@ -1,10 +1,10 @@
 // utils 
-import { html, property } from "@circular-tools/utils";
+import { html, property } from "@onkelhoy/tools-utils";
 
 // templates
-import { BaseTemplate } from "@circular-templates/base";
-import "@circular/icon/wc";
-import "@circular/button/wc";
+import { BaseTemplate } from "@onkelhoy/templates-base";
+import "@onkelhoy/icon/wc";
+import "@onkelhoy/button/wc";
 
 // local 
 import { style } from "./style";

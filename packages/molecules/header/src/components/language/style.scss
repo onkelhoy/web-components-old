@@ -6,10 +6,12 @@
   line-height: 28px;
   overflow: hidden;
 
-  span {
-    left: -2rem;
-    margin-left: -40%;
-    font-size: 33pt;
+  &:not(.globe) {
+    span {
+      left: -2rem;
+      margin-left: -40%;
+      font-size: 33pt;
+    }
   }
 }
 

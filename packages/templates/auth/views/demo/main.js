@@ -1,8 +1,8 @@
 // tools
-import '@circular-tools/doc/wc';
+import '@onkelhoy/tools-doc/wc';
 
 // component
-import '@circular-templates/auth/wc';
+import '@onkelhoy/templates-auth/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');

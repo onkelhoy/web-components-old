@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# variant (?)
+VARIANT=${1:-basic} # default to "basic"
+
 # Remove the dist directory
 rm -rf dist
 

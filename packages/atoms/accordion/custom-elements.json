@@ -11,15 +11,15 @@
       },
       {
         "name": "html",
-        "from": "@circular-tools/utils"
+        "from": "@onkelhoy/tools-utils"
       },
       {
         "name": "property",
-        "from": "@circular-tools/utils"
+        "from": "@onkelhoy/tools-utils"
       },
       {
         "name": "BaseTemplate",
-        "from": "@circular-templates/base"
+        "from": "@onkelhoy/templates-base"
       },
       {
         "name": "style",

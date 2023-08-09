@@ -1,8 +1,8 @@
 // utils 
-import { html, property } from "@circular-tools/utils";
+import { html, property } from "@onkelhoy/tools-utils";
 
 // templates
-import { BoxTemplate } from "@circular-templates/box";
+import { BoxTemplate } from "@onkelhoy/templates-box";
 
 // local 
 import { style } from "./style";

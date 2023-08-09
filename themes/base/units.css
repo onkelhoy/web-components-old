@@ -4,6 +4,9 @@
   --unit-size2: 8px;
   --unit-size3: 16px;
   --unit-size4: 24px;
+  --unit-size5: 32px;
+  --unit-size6: 40px;
+  --unit-size7: 56px;
 
   /* PADDINGS */ 
   --padding-smaller: var(--unit-size1);
@@ -23,10 +26,11 @@
   --gap-medium: var(--unit-size3);
   --gap-large: var(--unit-size4);
 
-  /* CONTAINERS */
-  --container-size-small: var(--unit-size4);
-  --container-size-medium: 40px;
-  --container-size-large: 60px;
+  /* box */
+  --field-size-smaller: var(--unit-size4);
+  --field-size-small: var(--unit-size5);
+  --field-size-medium: var(--unit-size6);
+  --field-size-large: var(--unit-size7);
 
   /* TIMINGS */
   --timing-fast: 80ms;
