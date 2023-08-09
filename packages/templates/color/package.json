@@ -1,6 +1,6 @@
 {
     "name": "@onkelhoy/templates-color",
-    "version": "1.0.2",
+    "version": "1.0.0",
     "scripts": {
         "init": "sh .scripts/init.sh",
         "test": ".scripts/test.sh",
