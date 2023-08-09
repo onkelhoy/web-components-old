@@ -20,8 +20,8 @@ jobs:
         registry-url: https://npm.pkg.github.com/
         scope: '@onkelhoy'
 
-    - name: Install dependencies
-      run: npm ci
+    # - name: Install dependencies
+      # run: npm ci
 
     # - name: Run tests
     #   run: npm test
