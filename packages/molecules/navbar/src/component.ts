@@ -1,17 +1,17 @@
 // utils 
-import { html, property, query } from "@onkelhoy/tools-utils";
-import "@onkelhoy/tools-translator/wc";
+import { html, property, query } from "@henry2/tools-utils";
+import "@henry2/tools-translator/wc";
 
 // atoms 
-import "@onkelhoy/button/wc";
-import "@onkelhoy/icon/wc";
-import "@onkelhoy/divider/wc";
-import "@onkelhoy/typography/wc";
+import "@henry2/button/wc";
+import "@henry2/icon/wc";
+import "@henry2/divider/wc";
+import "@henry2/typography/wc";
 
 // templates
-import { BoxTemplate } from "@onkelhoy/templates-box";
-import { BaseTemplate } from "@onkelhoy/templates-base";
-import '@onkelhoy/templates-box/wc'
+import { BoxTemplate } from "@henry2/templates-box";
+import { BaseTemplate } from "@henry2/templates-base";
+import '@henry2/templates-box/wc'
 
 // local 
 import { style } from "./style";

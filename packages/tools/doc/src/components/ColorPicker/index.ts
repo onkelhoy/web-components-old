@@ -1,8 +1,8 @@
 // utils 
-import { html } from "@onkelhoy/tools-utils";
+import { html } from "@henry2/tools-utils";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
+import { BaseTemplate } from "@henry2/templates-base";
 
 import { style } from "./style.js";
 

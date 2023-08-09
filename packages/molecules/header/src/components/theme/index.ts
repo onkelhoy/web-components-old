@@ -1,18 +1,18 @@
 // utils 
-import { html, property, query } from "@onkelhoy/tools-utils";
-import { change as ChangeTheme, THEMECHANGE_NAME, THEMEADD_NAME } from "@onkelhoy/tools-theme";
-import "@onkelhoy/tools-translator/wc";
+import { html, property, query } from "@henry2/tools-utils";
+import { change as ChangeTheme, THEMECHANGE_NAME, THEMEADD_NAME } from "@henry2/tools-theme";
+import "@henry2/tools-translator/wc";
 
 // atoms 
-import { Menu, MenuItem } from '@onkelhoy/menu';
-import { Toggle } from '@onkelhoy/toggle';
-import "@onkelhoy/menu/wc";
-import "@onkelhoy/typography/wc";
-import "@onkelhoy/toggle/wc";
-import "@onkelhoy/icon/wc";
+import { Menu, MenuItem } from '@henry2/menu';
+import { Toggle } from '@henry2/toggle';
+import "@henry2/menu/wc";
+import "@henry2/typography/wc";
+import "@henry2/toggle/wc";
+import "@henry2/icon/wc";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
+import { BaseTemplate } from "@henry2/templates-base";
 
 import { style } from "./style";
 type LightDarkTheme = "light" | "dark";

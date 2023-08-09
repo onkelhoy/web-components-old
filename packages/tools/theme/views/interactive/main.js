@@ -1,4 +1,4 @@
-import '@onkelhoy/tools-doc/wc';
+import '@henry2/tools-doc/wc';
 
 let TARGET_ELEMENT = null;
 window.onload = () => {
@@ -44,4 +44,4 @@ function update(name, value, element) {
     TARGET_ELEMENT.setAttribute(name, value);
   }
 }
-import "@onkelhoy/tools-theme/wc";
+import "@henry2/tools-theme/wc";

@@ -1,6 +1,6 @@
-import "@onkelhoy/icon/wc";
-import "@onkelhoy/tools-doc/wc";
-import "@onkelhoy/ecosystem/wc";
+import "@henry2/icon/wc";
+import "@henry2/tools-doc/wc";
+import "@henry2/ecosystem/wc";
 
 window.onload = () => {
   document.querySelectorAll('side-menu menu-item[data-target]').forEach(elm => {

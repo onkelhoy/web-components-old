@@ -18,5 +18,6 @@
     "hot"
   ],
   "author": "Henry Pap",
+  "private": false,
   "license": "ISC"
 }

@@ -1,4 +1,4 @@
-import { fixture } from '@onkelhoy/tools-test';
+import { fixture } from '@henry2/tools-test';
 
 describe('TEMPLATE_CLASSNAME', function () {
   describe('base tests', function () {

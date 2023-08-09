@@ -1,8 +1,8 @@
 // tools
-import '@onkelhoy/tools-doc/wc';
+import '@henry2/tools-doc/wc';
 
 // component
-import '@onkelhoy/templates-color/wc';
+import '@henry2/templates-color/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');

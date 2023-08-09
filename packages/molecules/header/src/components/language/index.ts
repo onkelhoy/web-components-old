@@ -1,14 +1,14 @@
 // utils 
-import { html, query } from "@onkelhoy/tools-utils";
-import { TRANSLATION_ADDED, TRANSLATION_CHANGE_EVENTNAME, InitTranslations } from "@onkelhoy/tools-translator";
-import "@onkelhoy/tools-translator/wc";
+import { html, query } from "@henry2/tools-utils";
+import { TRANSLATION_ADDED, TRANSLATION_CHANGE_EVENTNAME, InitTranslations } from "@henry2/tools-translator";
+import "@henry2/tools-translator/wc";
 
 // atoms
-import "@onkelhoy/menu/wc";
-import { Menu, MenuItem } from "@onkelhoy/menu";
+import "@henry2/menu/wc";
+import { Menu, MenuItem } from "@henry2/menu";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
+import { BaseTemplate } from "@henry2/templates-base";
 
 // local imports
 import { style } from "./style";

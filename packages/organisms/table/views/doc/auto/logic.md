@@ -6,10 +6,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
  // utils 
-import { html, property } from "@onkelhoy/tools-utils";
+import { html, property } from "@henry2/tools-utils";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
+import { BaseTemplate } from "@henry2/templates-base";
 
 // local 
 import { style } from "./style";
@@ -38,7 +38,7 @@ declare global {
     }
 }
 
-## TYPE-CODE: import { IOption } from '@onkelhoy/dropdown';
+## TYPE-CODE: import { IOption } from '@henry2/dropdown';
 
 export interface Column {
   search: boolean;

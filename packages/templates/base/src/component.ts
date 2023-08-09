@@ -1,4 +1,4 @@
-import { NextParent, property, suspense } from "@onkelhoy/tools-utils";
+import { NextParent, property, suspense } from "@henry2/tools-utils";
 
 import { FunctionCallback, RenderType } from "./types";
 

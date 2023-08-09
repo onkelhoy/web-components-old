@@ -1,4 +1,4 @@
-import { IOption } from '@onkelhoy/dropdown';
+import { IOption } from '@henry2/dropdown';
 
 // data related types
 type CellObject = {

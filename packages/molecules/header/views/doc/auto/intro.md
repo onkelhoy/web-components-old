@@ -3,17 +3,17 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-import { html, property, query } from "@onkelhoy/tools-utils";
-import "@onkelhoy/tools-translator/wc";
+import { html, property, query } from "@henry2/tools-utils";
+import "@henry2/tools-translator/wc";
 
 // atoms
-import "@onkelhoy/badge/wc";
-import "@onkelhoy/typography/wc";
-import "@onkelhoy/menu/wc";
-import { Menu } from "@onkelhoy/menu";
+import "@henry2/badge/wc";
+import "@henry2/typography/wc";
+import "@henry2/menu/wc";
+import { Menu } from "@henry2/menu";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
+import { BaseTemplate } from "@henry2/templates-base";
 
 // local 
 import { style } from "./style";

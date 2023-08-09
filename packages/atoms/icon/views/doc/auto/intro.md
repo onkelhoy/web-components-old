@@ -2,8 +2,8 @@ PRE: just start the task given, dont include any starting lines so I can just co
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
 ## SOURCE-CODE:
-import { property, html, Size } from '@onkelhoy/tools-utils';
-import { AssetTemplate } from '@onkelhoy/templates-asset';
+import { property, html, Size } from '@henry2/tools-utils';
+import { AssetTemplate } from '@henry2/templates-asset';
 
 import { style } from './style.js';
 

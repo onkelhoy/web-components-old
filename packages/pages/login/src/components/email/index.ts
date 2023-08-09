@@ -1,12 +1,12 @@
 // utils 
-import { html, property } from "@onkelhoy/tools-utils";
-import { Translator } from "@onkelhoy/tools-translator";
-import "@onkelhoy/tools-translator/wc";
+import { html, property } from "@henry2/tools-utils";
+import { Translator } from "@henry2/tools-translator";
+import "@henry2/tools-translator/wc";
 
 // atoms 
-import "@onkelhoy/input/wc";
-import "@onkelhoy/icon/wc";
-import "@onkelhoy/typography/wc";
+import "@henry2/input/wc";
+import "@henry2/icon/wc";
+import "@henry2/typography/wc";
 
 import { style } from "./style";
 

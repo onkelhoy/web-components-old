@@ -1,5 +1,5 @@
 {
-    "name": "@onkelhoy/tools-utils",
+    "name": "@henry2/tools-utils",
     "version": "1.0.0",
     "scripts": {
         "build": "tsc",
@@ -10,6 +10,11 @@
         ".": "./dist/src/index.js"
     },
     "author": "Henry Pap",
+    "private": false,
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    },
     "license": "ISC",
     "repository": {
         "type": "git",

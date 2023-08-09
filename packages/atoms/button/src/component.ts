@@ -1,5 +1,5 @@
-import { property, Size } from '@onkelhoy/tools-utils';
-import { BoxTemplate } from '@onkelhoy/templates-box';
+import { property, Size } from '@henry2/tools-utils';
+import { BoxTemplate } from '@henry2/templates-box';
 
 import { style } from './style.js';
 

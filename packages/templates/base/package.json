@@ -1,5 +1,5 @@
 {
-    "name": "@onkelhoy/templates-base",
+    "name": "@henry2/templates-base",
     "version": "1.0.0",
     "scripts": {
         "init": "sh .scripts/init.sh",
@@ -17,17 +17,22 @@
         "./bundle-wc": "./dist/register.bundle.mjs"
     },
     "author": "Henry Pap",
+    "private": false,
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://registry.npmjs.org/"
+    },
     "license": "ISC",
     "repository": {
         "type": "git",
         "url": "https://github.com/onkelhoy/web-components.git"
     },
     "dependencies": {
-        "@onkelhoy/tools-utils": "^1.0.0"
+        "@henry2/tools-utils": "^1.0.0"
     },
     "devDependencies": {
         "esbuild": "^0.17.18",
-        "node-sass": "^8.0.0",
+        "node-sass": "^9.0.0",
         "typescript": "^5.0.4",
         "tslib": "^2.5.0",
         "node-html-parser": "^6.1.5"

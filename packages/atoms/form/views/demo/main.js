@@ -1,14 +1,14 @@
 // tools
-import '@onkelhoy/tools-doc/wc';
-import '@onkelhoy/input/wc';
-import '@onkelhoy/checkbox/wc';
-import '@onkelhoy/textarea/wc';
-import '@onkelhoy/toggle/wc';
-import '@onkelhoy/button/wc';
-import '@onkelhoy/dropdown/wc';
+import '@henry2/tools-doc/wc';
+import '@henry2/input/wc';
+import '@henry2/checkbox/wc';
+import '@henry2/textarea/wc';
+import '@henry2/toggle/wc';
+import '@henry2/button/wc';
+import '@henry2/dropdown/wc';
 
 // component
-import '@onkelhoy/form/wc';
+import '@henry2/form/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');

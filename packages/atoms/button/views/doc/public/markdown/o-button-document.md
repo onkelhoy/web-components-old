@@ -17,7 +17,7 @@ To use the Button component in your HTML code, follow these simple steps:
 1. Make sure you have the necessary dependencies installed. The Button component relies on the Circular Tools and Circular Templates libraries. You can install them using a package manager like npm:
 
 ```bash
-npm install @onkelhoy/tools-utils @onkelhoy/templates-box
+npm install @henry2/tools-utils @henry2/templates-box
 ```
 
 2. Import the Button component and its required styles into your JavaScript file:

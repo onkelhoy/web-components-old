@@ -48,7 +48,7 @@ if [[ "$atomic_type" == "pages" || "$atomic_type" == "templates" || "$atomic_typ
     prefixname="${prefix}-${name}-${singular_atomic_type}"
 fi
 
-output=$(node scripts/generator/check.js $ROOTDIR "@onkelhoy$package_name/$name" $destination)
+output=$(node scripts/generator/check.js $ROOTDIR "@henry2$package_name/$name" $destination)
 
 if [ "$output" == "1" ]; then
   echo "Package exists in lockfile"

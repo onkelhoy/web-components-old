@@ -1,9 +1,9 @@
 // utils 
-import { html, property, ExtractSlotValue } from "@onkelhoy/tools-utils";
+import { html, property, ExtractSlotValue } from "@henry2/tools-utils";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
-import "@onkelhoy/templates-box/wc";
+import { BaseTemplate } from "@henry2/templates-base";
+import "@henry2/templates-box/wc";
 
 import { style } from "./style";
 

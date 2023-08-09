@@ -3,16 +3,16 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@onkelhoy/tools-utils";
-import "@onkelhoy/tools-translator/wc";
+import { html, property } from "@henry2/tools-utils";
+import "@henry2/tools-translator/wc";
 
 // atoms 
-import "@onkelhoy/button/wc";
-import "@onkelhoy/icon/wc";
-import "@onkelhoy/input/wc";
+import "@henry2/button/wc";
+import "@henry2/icon/wc";
+import "@henry2/input/wc";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
+import { BaseTemplate } from "@henry2/templates-base";
 
 // local 
 import { style } from "./style";

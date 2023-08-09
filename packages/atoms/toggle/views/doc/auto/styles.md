@@ -6,12 +6,12 @@ slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@onkelhoy/tools-utils";
+import { html, property } from "@henry2/tools-utils";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
-import { FieldTemplate } from "@onkelhoy/templates-field";
-import "@onkelhoy/templates-box/wc";
+import { BaseTemplate } from "@henry2/templates-base";
+import { FieldTemplate } from "@henry2/templates-field";
+import "@henry2/templates-box/wc";
 
 // local 
 import { style } from "./style";

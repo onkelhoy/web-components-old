@@ -1,5 +1,5 @@
-import { BaseTemplate } from "@onkelhoy/templates-base";
-import { property } from "@onkelhoy/tools-utils";
+import { BaseTemplate } from "@henry2/templates-base";
+import { property } from "@henry2/tools-utils";
 
 export class AssetTemplate extends BaseTemplate {
     @property({ onUpdate: "assetBaseUpdate" }) assetBase:string = "/public";

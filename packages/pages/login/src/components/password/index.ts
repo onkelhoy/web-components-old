@@ -1,14 +1,14 @@
 // utils 
-import { html, property, query } from "@onkelhoy/tools-utils";
-import { Translator } from "@onkelhoy/tools-translator";
-import "@onkelhoy/tools-translator/wc";
+import { html, property, query } from "@henry2/tools-utils";
+import { Translator } from "@henry2/tools-translator";
+import "@henry2/tools-translator/wc";
 
 // atoms 
-import { Input } from "@onkelhoy/input";
-import "@onkelhoy/input/wc";
-import "@onkelhoy/icon/wc";
-import "@onkelhoy/button/wc";
-import "@onkelhoy/typography/wc";
+import { Input } from "@henry2/input";
+import "@henry2/input/wc";
+import "@henry2/icon/wc";
+import "@henry2/button/wc";
+import "@henry2/typography/wc";
 
 import { style } from "./style";
 

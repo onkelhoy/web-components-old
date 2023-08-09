@@ -1,2 +1,2 @@
-import '@onkelhoy/tools-doc/wc';
-import "@onkelhoy/typography/wc";
+import '@henry2/tools-doc/wc';
+import "@henry2/typography/wc";

@@ -1,12 +1,12 @@
 // utils 
-import { html, property, query, ExtractSlotValue } from "@onkelhoy/tools-utils";
+import { html, property, query, ExtractSlotValue } from "@henry2/tools-utils";
 
 // atoms 
-import { Checkbox } from "@onkelhoy/checkbox";
-import "@onkelhoy/checkbox/wc";
+import { Checkbox } from "@henry2/checkbox";
+import "@henry2/checkbox/wc";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
+import { BaseTemplate } from "@henry2/templates-base";
 
 import { style } from "./style";
 import { Dropdown } from "../../component";

@@ -1,8 +1,8 @@
 // utils 
-import { ExtractSlotValue, html } from "@onkelhoy/tools-utils";
+import { ExtractSlotValue, html } from "@henry2/tools-utils";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
+import { BaseTemplate } from "@henry2/templates-base";
 
 // local 
 import { style } from "./style";

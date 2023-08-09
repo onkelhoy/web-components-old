@@ -6,13 +6,13 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
  // utils 
-import { html, property } from "@onkelhoy/tools-utils";
+import { html, property } from "@henry2/tools-utils";
 
 // templates
-import { BaseTemplate } from "@onkelhoy/templates-base";
-import { Placement } from "@onkelhoy/templates-popover";
-import "@onkelhoy/templates-popover/wc";
-import "@onkelhoy/templates-box/wc";
+import { BaseTemplate } from "@henry2/templates-base";
+import { Placement } from "@henry2/templates-popover";
+import "@henry2/templates-popover/wc";
+import "@henry2/templates-box/wc";
 
 // local 
 import { style } from "./style";

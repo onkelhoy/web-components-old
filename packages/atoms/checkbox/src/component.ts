@@ -1,8 +1,8 @@
 // utils
-import { html, property } from "@onkelhoy/tools-utils";
+import { html, property } from "@henry2/tools-utils";
 
 // templates
-import { FieldTemplate } from "@onkelhoy/templates-field";
+import { FieldTemplate } from "@henry2/templates-field";
 
 // local
 import { style } from "./style";

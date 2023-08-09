@@ -13,7 +13,7 @@ for arg in "$@"; do
 done
 
 # If the flag is set, run the command
-if [ $CI_FLAG -eq 1 ]; then
+if [ $CI_FLAG -eq 0 ]; then
   echo "Global semantic versioning?"
   echo "answer:"
   echo "[1] none"
@@ -23,9 +23,9 @@ if [ $CI_FLAG -eq 1 ]; then
 
   read -p "Enter the number corresponding to your choice: " choice
 
-  node $SCRIPT_DIR/main.js $choice $1
+  node $SCRIPT_DIR/main.js $choice
 else
-  node $SCRIPT_DIR/main.js $choice 1
+  node $SCRIPT_DIR/main.js 1 $NODE_TOKEN
 fi
 
 echo "packages built"
