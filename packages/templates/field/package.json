@@ -1,6 +1,6 @@
 {
     "name": "@henry2/templates-field",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "scripts": {
         "init": "sh .scripts/init.sh",
         "test": ".scripts/test.sh",
@@ -35,7 +35,7 @@
     "dependencies": {
         "@henry2/templates-form-element": "^1.0.0",
         "@henry2/tools-utils": "^1.0.0",
-        "@henry2/icon": "^1.0.3",
+        "@henry2/icon": "^1.0.0",
         "@henry2/typography": "^1.0.0"
     },
     "devDependencies": {

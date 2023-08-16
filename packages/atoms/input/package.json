@@ -1,6 +1,6 @@
 {
     "name": "@henry2/input",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "scripts": {
         "init": "sh .scripts/init.sh",
         "test": ".scripts/test.sh",
@@ -33,7 +33,6 @@
         "url": "https://github.com/onkelhoy/web-components.git"
     },
     "dependencies": {
-        "@henry2/templates-base": "^1.0.0",
         "@henry2/templates-field": "^1.0.0",
         "@henry2/templates-textinput": "^1.0.0",
         "@henry2/tools-utils": "^1.0.0"

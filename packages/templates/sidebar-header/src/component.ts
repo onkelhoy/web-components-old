@@ -1,5 +1,5 @@
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html } from "@henry2/tools-utils";
 
 // molecules
 import "@henry2/header/wc";

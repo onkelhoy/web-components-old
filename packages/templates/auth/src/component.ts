@@ -6,8 +6,6 @@ import "@henry2/tools-translator/wc";
 import "@henry2/button/wc";
 import "@henry2/typography/wc";
 import "@henry2/icon/wc";
-import "@henry2/input/wc";
-import "@henry2/form/wc";
 
 // templates
 import { BaseTemplate } from "@henry2/templates-base";

@@ -1,8 +1,7 @@
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html } from "@henry2/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
 import { FieldTemplate } from "@henry2/templates-field";
 import "@henry2/templates-box/wc";
 

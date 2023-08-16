@@ -1,5 +1,5 @@
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { property } from "@henry2/tools-utils";
 
 // templates
 import { BaseTemplate } from "@henry2/templates-base";

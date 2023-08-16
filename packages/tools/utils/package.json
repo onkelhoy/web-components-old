@@ -1,6 +1,6 @@
 {
     "name": "@henry2/tools-utils",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "scripts": {
         "build": "tsc",
         "watch": "tsc --watch"
