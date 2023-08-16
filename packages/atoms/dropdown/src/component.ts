@@ -155,7 +155,8 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
             <input 
                 @click="${this.handlekeyup}" 
                 @keyup="${this.handlekeyup}" 
-                data-tagname="select" ${!this.search ? "readonly='true'" : ""} 
+                data-tagname="select" 
+                ${!this.search ? "readonly='true'" : ""} 
                 placeholder="${this.placeholder || ""}" 
                 value="${this.value || ""}"
             />

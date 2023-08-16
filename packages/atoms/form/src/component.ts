@@ -17,6 +17,7 @@ export class Form extends BaseTemplate {
     @property({ rerender: false, onUpdate: "onsuccessupdate" }) success?:string;
 
     @query('o-message') messageElement!: Message;
+    @query('form') formElement!: HTMLFormElement;
 
     // update handlers
     private onerrorupdate = () => {
@@ -42,6 +43,7 @@ export class Form extends BaseTemplate {
             let data:any = new FormData(e.target);
             if (data) data = Array.from(data as any);
 
+            this.dispatchEvent(new SubmitEvent("submit"));
             this.dispatchEvent(new CustomEvent<OSubmitEvent>("o-submit", {
                 detail: {
                     data,
@@ -62,12 +64,20 @@ export class Form extends BaseTemplate {
     public hideMessage() {
         this.messageElement.open = false;
     }
+    public checkValidity() {
+        if (this.formElement) return this.formElement.checkValidity();
+        return false;
+    }
+    public reportValidity() {
+        if (this.formElement) return this.formElement.reportValidity();
+        return false;
+    }
 
     render() {
         return html`
-            <form @submit="${this.handlesubmit}">
-                <div>
-                    <o-message></o-message>
+            <form part="form" @submit="${this.handlesubmit}">
+                <div part="message-wrapper">
+                    <o-message part="message"></o-message>
                 </div>
                 <slot></slot>
             </form>

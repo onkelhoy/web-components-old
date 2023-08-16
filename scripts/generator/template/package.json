@@ -14,13 +14,12 @@
     },
     "main": "dist/src/index.js",
     "files": [
-        "asset"
+        "asset/",
+        "dist/"
     ],
     "exports": {
         ".": "./dist/src/index.js",
-        "./wc": "./dist/src/register.js",
-        "./esm": "./dist/index.mjs",
-        "./bundle-wc": "./dist/register.bundle.mjs"
+        "./wc": "./dist/register.bundle.mjs"
     },
     "author": "Henry Pap",
     "private": false,

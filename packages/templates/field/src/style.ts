@@ -31,6 +31,10 @@ export const style = `:host([size="small"]) o-box-template.wrapper {
     align-items: center;
     justify-content: space-between;
     padding-inline: var(--padding-small); }
+  :host footer div {
+    display: none;
+    align-items: center;
+    gap: var(--gap-small); }
   :host o-box-template.wrapper {
     box-sizing: border-box;
     position: relative;
@@ -57,6 +61,18 @@ export const style = `:host([size="small"]) o-box-template.wrapper {
       margin-left: var(--gap-small); }
   :host:focus {
     outline: none; }
+
+:host([isWarning="true"]) footer div:not(.warning) {
+  display: none; }
+
+:host([isWarning="true"]) footer div.warning {
+  display: flex; }
+
+:host([isError="true"]) footer div:not(.error) {
+  display: none; }
+
+:host([isError="true"]) footer div.error {
+  display: flex; }
 
 :host([hasfocus="true"]),
 :host(:focus) {

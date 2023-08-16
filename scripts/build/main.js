@@ -3,13 +3,29 @@ const path = require("path");
 const { exec } = require('child_process');
 
 const packagelock = JSON.parse(fs.readFileSync(path.join(__dirname, "../../package-lock.json")));
-// const latestjson = JSON.parse(fs.readFileSync(path.join(__dirname, 'latest.json')));
 
 const map = {};
 const set = new Set();
 
 const SEMANTIC_VERSION = process.argv[2];
 const CICD_NODE_TOKEN = process.argv[3];
+
+async function getjsonData() {
+  return new Promise((res, rej) => {
+    let jsonData = '';
+    process.stdin.on('data', (chunk) => {
+      jsonData += chunk;
+    });
+    
+    process.stdin.on('end', () => {
+      res(JSON.parse(jsonData));
+    });
+
+    process.stdin.on("error", (e) => {
+      rej(e);
+    })
+  })
+}
 
 for (const name in packagelock.packages) 
 {
@@ -38,40 +54,57 @@ for (const name in packagelock.packages)
   }
 }
 
-function execute(list) {
+async function execute(list, versionData) {
   let executions = [];
-  let i = 0;
-  for (let name of list) 
+  for (const name of list) 
   {
-    i++;
-    executions.push(new Promise((res, rej) => {
-      console.log('\t', i, name);
-      exec(path.join(__dirname, `individual.sh ${map[name].location} ${SEMANTIC_VERSION} ${CICD_NODE_TOKEN}`), (error, stdout, stderr) => {
-        if (error) {
-          // console.log("ERROR", error);
-          console.log('\t\t', name, '\t[failed]');
-        }
-        
-        // it prints warnings we dont want this
-        // else if (stderr) {
-        //   console.log("ST-ERROR", stderr);
-        // }
-
-        // if (stdout) {
-        //   console.log(stdout)
-        //   // res();
-        // }
-
-        res();
-      })
-    }))
+    if (CICD_NODE_TOKEN)
+    {
+      await execute_individual(name, versionData);
+      await wait();
+    }
+    else 
+    {
+      executions.push(execute_individual(name, versionData))
+    }
   }
 
-  return Promise.all(executions);
+  if (executions.length > 0) return Promise.all(executions);
+}
+
+function wait(n = 1000) {
+  return new Promise(res => setTimeout(res, n));
+}
+
+function execute_individual(name, versionData) {
+  return new Promise((res, rej) => {
+    let package_version = versionData.find(d => d.name === name)?.version;
+    exec(path.join(__dirname, `individual.sh ${map[name].location} ${SEMANTIC_VERSION} ${package_version || "0.0.0"} ${CICD_NODE_TOKEN || ""}`), (error, stdout, stderr) => {
+      if (error) {
+        if (error.code === 2)
+        {
+          console.log("\t[skipped]\t", name);
+        }
+        else 
+        {
+          console.log("\t[failed]\t", name);
+        }
+      }
+      // else if (stderr) {
+      //   console.log("ST-ERROR", stderr);
+      // }
+      else if (stdout) {
+        console.log("\t[success]\t", name);
+        // console.log("\t[success]\t", name);
+      }
+
+      res();
+    })
+  })
 }
 
 let attempts = 0;
-async function run() {
+async function run(versionData) {
   const list = [];
   const arr = Array.from(set);
   for (const name of arr) 
@@ -93,9 +126,9 @@ async function run() {
     // else if (latestjson[name] && latestjson[name] !== )
   }
 
-  console.log(`batch install, size=${list.length} ::`)
+  console.log(`package-batch, size=${list.length}`)
   // this is a batch that could all be run in parallel 
-  await execute(list);
+  await execute(list, versionData);
   console.log('');
 
   for (const name of list) 
@@ -118,7 +151,12 @@ async function run() {
       }
       attempts++;
     }
-    run();
+    run(versionData);
   }
 }
-run();
+
+async function init() {
+  const versionData = await getjsonData();
+  run(versionData);
+}
+init();
