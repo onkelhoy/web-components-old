@@ -133,22 +133,32 @@ export function property(options?: Partial<PropertyOption>) {
         const old = this[`_${propertyKey}`];
         this[`_${propertyKey}`] = options?.set ? options.set(value) : value;
 
-        if (_options.attribute) {
-          internal = true;
-          this.setAttribute(attributeName, valuestring);
-          internal = false;
+        const operation = () => {
+          if (_options.attribute) {
+            internal = true;
+            this.setAttribute(attributeName, valuestring);
+            internal = false;
+          }
+  
+          if (_options.onUpdate)
+          {
+            this[_options.onUpdate+"_attempts"] = 0;
+            tryupdate.call(this, _options.onUpdate, value, old, !!_options.verbose);
+          }
+  
+          if (_options.rerender)
+          {
+            this.debouncedRequestUpdate();
+          }
         }
 
-        if (_options.onUpdate)
+        if (!this.connected)
         {
-          this[_options.onUpdate+"_attempts"] = 0;
-          tryupdate.call(this, _options.onUpdate, value, old, !!_options.verbose);
+          this._pendingOperations.push(operation)
+          return;
         }
 
-        if (_options.rerender)
-        {
-          this.debouncedRequestUpdate();
-        }
+        operation();
       },
     });
   };

@@ -8,12 +8,13 @@ export class BaseTemplate extends HTMLElement {
 
     protected callAfterUpdate:(Function|FunctionCallback)[] = [];
     private attributeObserver!: MutationObserver;
+    private _pendingOperations: Function[] = [];
     @property({ rerender: false, type: Boolean }) hasFocus: boolean = false;
 
     // class functions
     constructor() {
         super();
-
+        
         this.addEventListener('blur', this.handleblur);
         this.addEventListener('focus', this.handlefocus);
 
@@ -37,6 +38,9 @@ export class BaseTemplate extends HTMLElement {
         // Start observing the node with configured parameters
         // attributes: true indicates we want to observe attribute changes
         this.attributeObserver.observe(this, { attributes: true });
+
+        this._pendingOperations.forEach(o => o());
+        this._pendingOperations = [];
     }
     disconnectedCallback() {
         this.attributeObserver.disconnect();
