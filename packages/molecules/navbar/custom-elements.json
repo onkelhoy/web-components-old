@@ -129,69 +129,21 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/navbar",
     "sources": [],
     "variables": {
-      "--o-navbar-background-color-light": {
-        "usecases": [
-          "--background"
-        ],
-        "fallbacks": [
-          "var(--neutral-100, white)"
-        ]
-      },
-      "--neutral-100": {
-        "usecases": [
-          "--background",
-          "--hamburger-background-hover"
-        ],
-        "fallbacks": [
-          "white",
-          "#FFFFFF"
-        ]
-      },
-      "--o-navbar-hamburger-background-color-light": {
-        "usecases": [
-          "--hamburger-background"
-        ],
-        "fallbacks": [
-          "transparent"
-        ]
-      },
-      "--o-navbar-hamburger-background-color-hover-light": {
-        "usecases": [
-          "--hamburger-background-hover"
-        ],
-        "fallbacks": [
-          "var(--neutral-300, #F1F1F4)"
-        ]
-      },
-      "--neutral-300": {
-        "usecases": [
-          "--hamburger-background-hover"
-        ],
-        "fallbacks": [
-          "#F1F1F4"
-        ]
-      },
-      "--o-navbar-hamburger-background-color-active-light": {
-        "usecases": [
-          "--hamburger-background-active"
-        ],
-        "fallbacks": [
-          "var(--neutral-500, #C7CBD4)"
-        ]
-      },
-      "--neutral-500": {
-        "usecases": [
-          "--hamburger-background-active"
-        ],
-        "fallbacks": [
-          "#C7CBD4"
-        ]
-      },
-      "--background": {
+      "--o-navbar-background-color": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "var(--o-color-bg, #FFFFFF)"
+        ]
+      },
+      "--o-color-bg": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--padding-small": {
         "usecases": [
@@ -220,39 +172,11 @@
           "16px"
         ]
       },
-      "--hamburger-background": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": []
-      },
-      "--primary-600": {
+      "--o-color-text": {
         "usecases": [
           "color"
         ],
-        "fallbacks": [
-          "black"
-        ]
-      },
-      "--hamburger-background-hover": {
-        "usecases": [
-          "background-color"
-        ],
         "fallbacks": []
-      },
-      "--hamburger-background-active": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": []
-      },
-      "--o-navbar-hamburger-hover-background-color-hover-light": {
-        "usecases": [
-          "--hamburger-background-hover"
-        ],
-        "fallbacks": [
-          "var(--neutral-100, #FFFFFF)"
-        ]
       }
     }
   }

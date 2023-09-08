@@ -8,28 +8,100 @@ Version: 1.0.0
 Development servers can be started and should all exist inside `"views"` folder
 
 ## Scripts 
-## Introduction to the Button Component
+PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
+ Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
-The Button component is a versatile and customizable UI element that can be easily integrated into your web applications. It provides a consistent and interactive way for users to trigger actions or navigate through your application.
+## SOURCE-CODE:
+import { property, Size } from '@henry2/tools-utils';
+import { BoxTemplate } from '@henry2/templates-box';
 
-To use the Button component in your HTML code, follow these simple steps:
-
-1. Make sure you have the necessary dependencies installed. The Button component relies on the Circular Tools and Circular Templates libraries. You can install them using a package manager like npm:
-
-```bash
-npm install @henry2/tools-utils @henry2/templates-box
-```
-
-2. Import the Button component and its required styles into your JavaScript file:
-
-```javascript
-import { Button } from './component.js';
 import { style } from './style.js';
-```
 
-3. Register the Button element with the browser's custom elements:
+import type { ButtonMode, ButtonVariant, ButtonColorVariant } from './types';
 
-```javascript
+// TODO extend form-element-template
+export class Button extends BoxTemplate {
+    static style = style;
+    
+    @property({ rerender: false, onUpdate: "ontypeupdate" }) type: "button" | "link" | "submit" | "reset" = "button"; // TODO link
+    @property({ rerender: false }) size: Size = "medium";
+    @property({ rerender: false }) mode: ButtonMode = "hug";
+    @property({ rerender: false }) variant: ButtonVariant = "filled";
+    @property({ rerender: false, type: Number }) tabIndex: number = 1;
+    @property({ rerender: false }) color: ButtonColorVariant = "secondary";
+
+    private formelement?: HTMLFormElement;
+
+    connectedCallback(): void {
+        super.connectedCallback();
+        this.addEventListener("click", this.handleclick, true);
+
+        window.addEventListener('keyup', this.handlekeyup);
+        // NOTE should this be a standard?
+        this.role = "button";
+    }
+    disconnectedCallback(): void {
+        super.disconnectedCallback();
+        window.removeEventListener('keyup', this.handlekeyup);
+    }
+
+    // handle update
+    private ontypeupdate = () => {
+        if (!["submit", "reset"].includes(this.type)) this.formelement = undefined;
+        else 
+        {
+            setTimeout(() => {
+                // form in case of initial and not dynamic (most cases) needs to load ?
+                if (!this.formelement) {
+                    this.formelement = this.shadow_closest<HTMLFormElement>("form");
+                }
+            }, 100);
+        }
+    }
+    
+    // event handlers
+    private handlekeyup = (e:KeyboardEvent) => {
+        if ((e.key || e.code).toLowerCase() === "enter")
+        {
+            if (this.hasFocus)
+            {
+                this.dispatchEvent(new Event('click'));
+            }
+        }
+    }
+    private handleclick = (e:Event) => {
+        if (this.formelement) 
+        {
+            if (this.type === "submit")
+            {
+                this.formelement.requestSubmit();
+            }
+
+            else if (this.type === "reset")
+            {
+                this.formelement.reset();
+            }
+        }
+    }
+
+    render() {
+        return `
+            <slot name="prefix"><span> </span></slot>
+            <slot></slot>
+            <slot name="suffix"><span> </span></slot>
+        `;
+    }
+}
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-button": Button;
+    }
+}
+## REGISTER-CODE:
+import { Button } from './component.js';
+
+// Register the element with the browser
 const cElements = customElements ?? window?.customElements;
 
 if (!cElements) {
@@ -39,111 +111,362 @@ if (!cElements) {
 if (!cElements.get('o-button')) {
   cElements.define('o-button', Button);
 }
-```
+PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
+ Based on the source code and the types can you give me the following tables. 
+1. properties (columns: name, default-value, type, description) 
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-4. In your HTML code, you can now use the `<o-button>` element as follows:
+## SOURCE-CODE:
+ import { property, Size } from '@henry2/tools-utils';
+import { BoxTemplate } from '@henry2/templates-box';
 
-```html
-<o-button></o-button>
-```
+import { style } from './style.js';
 
-You can customize the Button component by using its available properties. Here are some examples:
+import type { ButtonMode, ButtonVariant, ButtonColorVariant } from './types';
 
-- `size`: Sets the size of the button. Possible values are "small", "medium" (default), and "large".
-- `mode`: Specifies the button's mode. It can be "hug" (default) or "stretch".
-- `variant`: Defines the button's variant. Available options include "filled" (default), "outlined", and "text".
-- `tabIndex`: Specifies the tab order of the button within the document.
+// TODO extend form-element-template
+export class Button extends BoxTemplate {
+    static style = style;
+    
+    @property({ rerender: false, onUpdate: "ontypeupdate" }) type: "button" | "link" | "submit" | "reset" = "button"; // TODO link
+    @property({ rerender: false }) size: Size = "medium";
+    @property({ rerender: false }) mode: ButtonMode = "hug";
+    @property({ rerender: false }) variant: ButtonVariant = "filled";
+    @property({ rerender: false, type: Number }) tabIndex: number = 1;
+    @property({ rerender: false }) color: ButtonColorVariant = "secondary";
 
-Additionally, you can provide content within the button using named slots. The slots available are "left", "right", and the default slot.
+    private formelement?: HTMLFormElement;
 
-Here's an example of a customized Button component:
+    connectedCallback(): void {
+        super.connectedCallback();
+        this.addEventListener("click", this.handleclick, true);
 
-```html
-<o-button size="large" mode="stretch" variant="outlined" tabindex="2">
-    <span slot="left">Left Content</span>
-    Button Text
-    <span slot="right">Right Content</span>
-</o-button>
-```
+        window.addEventListener('keyup', this.handlekeyup);
+        // NOTE should this be a standard?
+        this.role = "button";
+    }
+    disconnectedCallback(): void {
+        super.disconnectedCallback();
+        window.removeEventListener('keyup', this.handlekeyup);
+    }
 
-With the Button component, you can create interactive and visually appealing buttons that seamlessly fit into your web application's design.properties:
+    // handle update
+    private ontypeupdate = () => {
+        if (!["submit", "reset"].includes(this.type)) this.formelement = undefined;
+        else 
+        {
+            setTimeout(() => {
+                // form in case of initial and not dynamic (most cases) needs to load ?
+                if (!this.formelement) {
+                    this.formelement = this.shadow_closest<HTMLFormElement>("form");
+                }
+            }, 100);
+        }
+    }
+    
+    // event handlers
+    private handlekeyup = (e:KeyboardEvent) => {
+        if ((e.key || e.code).toLowerCase() === "enter")
+        {
+            if (this.hasFocus)
+            {
+                this.dispatchEvent(new Event('click'));
+            }
+        }
+    }
+    private handleclick = (e:Event) => {
+        if (this.formelement) 
+        {
+            if (this.type === "submit")
+            {
+                this.formelement.requestSubmit();
+            }
 
-| name    | default-value | type           | description                  |
-|---------|---------------|----------------|------------------------------|
-| size    | "medium"      | Size           | Size of the button           |
-| mode    | "hug"         | ButtonMode     | Button mode                  |
-| variant | "filled"      | ButtonVariant  | Button variant               |
-| tabIndex| 1             | number         | Tab index of the button      |
+            else if (this.type === "reset")
+            {
+                this.formelement.reset();
+            }
+        }
+    }
 
+    render() {
+        return `
+            <slot name="prefix"><span> </span></slot>
+            <slot></slot>
+            <slot name="suffix"><span> </span></slot>
+        `;
+    }
+}
 
-events:
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-button": Button;
+    }
+}
 
-| name   | type                          | description                   |
-|--------|-------------------------------|-------------------------------|
-| N/A    | N/A                           | No specific events mentioned  |
+## TYPE-CODE: 
+export type ButtonVariant = 'filled'|'outlined'|'underlined'|'clear';
+export type ButtonType = 'button' | 'reset' | 'submit';
+export type ButtonMode = 'hug' | 'fill'
+export type ButtonColorVariant = "primary"|"secondary"|"brand"|"danger"|"success"|"warning";PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
+ Based on the source code and style code probided. Can you create a documentation that includes titles, short descrition and the table for each tables: css-variables, parts, slots.
+css-variables should be a table with columns: (name, default-value, type - ex. CSS unit, description).
+parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
+slots should include columns: (name, default-value, description)
 
+## SOURCE-CODE:
+import { property, Size } from '@henry2/tools-utils';
+import { BoxTemplate } from '@henry2/templates-box';
 
-public functions:
+import { style } from './style.js';
 
-| name   | arguments                          | description                    |
-|--------|-----------------------------------|--------------------------------|
-| render | N/A                               | Renders the button component   |# Documentation
+import type { ButtonMode, ButtonVariant, ButtonColorVariant } from './types';
 
-## Table of Contents
-- [css-variables](#css-variables)
-- [parts](#parts)
-- [slots](#slots)
+// TODO extend form-element-template
+export class Button extends BoxTemplate {
+    static style = style;
+    
+    @property({ rerender: false, onUpdate: "ontypeupdate" }) type: "button" | "link" | "submit" | "reset" = "button"; // TODO link
+    @property({ rerender: false }) size: Size = "medium";
+    @property({ rerender: false }) mode: ButtonMode = "hug";
+    @property({ rerender: false }) variant: ButtonVariant = "filled";
+    @property({ rerender: false, type: Number }) tabIndex: number = 1;
+    @property({ rerender: false }) color: ButtonColorVariant = "secondary";
 
-## `Button` Class
+    private formelement?: HTMLFormElement;
 
-### Description
-The `Button` class is a custom button element that extends the `BoxTemplate` class. It provides customizable properties and styling options for buttons.
+    connectedCallback(): void {
+        super.connectedCallback();
+        this.addEventListener("click", this.handleclick, true);
 
-### Usage
-```html
-<button is="circular-button"></button>
-```
+        window.addEventListener('keyup', this.handlekeyup);
+        // NOTE should this be a standard?
+        this.role = "button";
+    }
+    disconnectedCallback(): void {
+        super.disconnectedCallback();
+        window.removeEventListener('keyup', this.handlekeyup);
+    }
 
-### Properties
-| Name      | Type           | Default Value | Description                                                      |
-| --------- | -------------- | ------------- | ---------------------------------------------------------------- |
-| `size`    | `Size`         | `"medium"`    | The size of the button. Possible values: `"small"`, `"medium"`, `"large"`. |
-| `mode`    | `ButtonMode`   | `"hug"`       | The mode of the button. Possible values: `"hug"`, `"fill"`.      |
-| `variant` | `ButtonVariant`| `"filled"`    | The variant style of the button. Possible values: `"filled"`, `"underlined"`, `"outlined"`. |
-| `tabIndex`| `number`       | `1`           | The tab index of the button.                                     |
+    // handle update
+    private ontypeupdate = () => {
+        if (!["submit", "reset"].includes(this.type)) this.formelement = undefined;
+        else 
+        {
+            setTimeout(() => {
+                // form in case of initial and not dynamic (most cases) needs to load ?
+                if (!this.formelement) {
+                    this.formelement = this.shadow_closest<HTMLFormElement>("form");
+                }
+            }, 100);
+        }
+    }
+    
+    // event handlers
+    private handlekeyup = (e:KeyboardEvent) => {
+        if ((e.key || e.code).toLowerCase() === "enter")
+        {
+            if (this.hasFocus)
+            {
+                this.dispatchEvent(new Event('click'));
+            }
+        }
+    }
+    private handleclick = (e:Event) => {
+        if (this.formelement) 
+        {
+            if (this.type === "submit")
+            {
+                this.formelement.requestSubmit();
+            }
 
-### CSS Variables
-#### `css-variables` Table
-| Name                 | Default Value | Type          | Description                                               |
-| -------------------- | ------------- | ------------- | --------------------------------------------------------- |
-| `--button-cursor`    | `pointer`     |               | The cursor style for the button.                          |
-| `--button-font-family`| `var(--font-family, inherit)`|       | The font family for the button.                      |
-| `--button-padding`   |               | CSS unit      | The padding for the button.                                |
-| `--button-border-width` |          | CSS unit      | The border width for the button.                           |
-| `--button-background-color-<variant>` |  |           | The background color for the specified variant.           |
-| `--button-text-color-<variant>` |        |               | The text color for the specified variant.                 |
-| `--button-background-color-<variant>-hover` | |         | The background color for the specified variant when hovered.   |
-| `--button-text-color-<variant>-hover` |   |              | The text color for the specified variant when hovered.         |
-| `--button-background-color-<variant>-active` | |      | The background color for the specified variant when active.    |
-| `--button-text-color-<variant>-active` |    |             | The text color for the specified variant when active.          |
-| `--button-background-color-<variant>-disabled` | |   | The background color for the specified variant when disabled.  |
-| `--button-text-color-<variant>-disabled` |  |              | The text color for the specified variant when disabled.        |
-| `--button-cursor-disabled` | `not-allowed` |            | The cursor style for the disabled button.                   |
+            else if (this.type === "reset")
+            {
+                this.formelement.reset();
+            }
+        }
+    }
 
-### Parts
-#### `parts` Table
-| Name | Description |
-| ---- | ----------- |
-| `left` | The left slot of the button. |
-| `right` | The right slot of the button. |
+    render() {
+        return `
+            <slot name="prefix"><span> </span></slot>
+            <slot></slot>
+            <slot name="suffix"><span> </span></slot>
+        `;
+    }
+}
 
-### Slots
-#### `slots` Table
-| Name | Default Value | Description |
-| ---- | ------------- | ----------- |
-| `left` | `<span> </span>` | The content placed in the left slot of the button. |
-|        |               | 
-|        |               | 
-| `right` | `<span> </span>` | The content placed in the right slot of the button. |
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-button": Button;
+    }
+}
+## STYLE-CODE:
+// value maps
+$size-map: (
+  small: (
+    height: var(--field-size-small),
+    padding: 0.5rem,
+    border-width: 1px,
+  ),
+  medium: (
+    height: var(--field-size-medium),
+    padding: 1rem,
+    border-width: 1px,
+  ),
+  large: (
+    height: var(--field-size-large),
+    padding: 1rem,
+    border-width: 1px,
+  ),
+);
 
-Note: The
+:host {
+    cursor: var(--button-cursor, pointer);
+    align-items: center;
+    font-family: var(--button-font-family, var(--font-family, inherit));
+
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    box-sizing: border-box;
+    position: relative;
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+
+    background-color: var(--background);
+    color: var(--color);
+}
+
+:host([mode="hug"]) {
+    display: inline-flex;
+}
+:host([mode="fill"]) {
+    display: flex;
+}
+
+@each $name, $value in $size-map {
+    :host([size="#{$name}"]) {
+        height: var(--button-height-#{$name}, var(--height-#{$name}, #{map-get($value, height)}));
+        padding: var(--button-padding-#{$name}, var(--padding-#{$name}, #{map-get($value, padding)}));
+        border-width: var(--button-border-width-#{$name}, var(--border-width-#{$name}, #{map-get($value, border-width)}));
+    }
+}
+
+// set the color variables
+$colors: (
+  primary: (color: white, base: primary),
+  danger: (color: white, base: danger),
+  success: (color: white, base: success),
+  warning: (color: white, base: warning),
+  secondary: (color: black, base: neutral),
+  brand: (color: black, base: neutral)
+);
+
+@each $name, $properties in $colors {
+  $base: map-get($properties, 'base');
+  $color: map-get($properties, 'color');
+  
+  :host([color="#{$name}"]) {
+    --button-background: var(--o-color-#{$base}-500);
+    --button-color: var(--o-color-#{$color});
+
+    --button-background-hover: var(--o-color-#{$base}-700);
+    --button-color-hover: var(--o-color-#{$color});
+
+    --button-background-active: var(--o-color-#{$base}-600);
+    --button-color-active: var(--o-color-#{$color});
+
+    --button-background-disabled: var(--o-color-neutral-300);
+    --button-color-disabled: var(--o-color-neutral-700);
+  }
+}
+
+// :host([color="secondary"]) {
+//     --button-background: var(--o-color-neutral-100);
+//     --button-color: var(--o-color-text);
+
+//     --button-background-hover: var(--o-color-neutral-300);
+//     --button-color-hover: var(--o-color-black);
+
+//     --button-background-active: var(--o-color-neutral-200);
+//     --button-color-active: var(--o-color-black);
+// }
+
+:host([disabled]) {
+    cursor: var(--button-cursor-disabled, not-allowed);
+}
+
+// filled
+:host([variant="filled"]) {
+    --background: var(--button-background-color-filled, var(--button-background));
+    --color: var(--button-text-color-filled, var(--button-color));
+}
+:host([variant="filled"]:hover) {
+    --background: var(--button-background-color-filled-hover, var(--button-background-hover));
+    --color: var(--button-text-color-filled-hover, var(--button-color-hover));
+}
+:host([variant="filled"]:active) {
+    --background: var(--button-background-color-filled-active, var(--button-background-active));
+    --color: var(--button-text-color-filled-active, var(--button-color-active));
+}
+:host([variant="filled"][disabled]) {
+    --background: var(--button-background-color-filled-disabled, var(--button-background-disabled));
+    --color: var(--button-text-color-filled-disabled, var(--button-color-disabled));
+}
+
+// outlined
+:host([variant="outlined"]) {
+    border-color: var(--button-border-color-outlined, var(--button-background));
+    border-style: var(--button-border-style, solid);
+    --background: transparent;
+}
+:host([variant="outlined"]:hover) {
+    border-color: var(--button-border-color-outlined-hover, var(--button-background-hover));
+    --background: var(--o-button-outlined-hover-background, var(--o-color-hover-200));
+}
+:host([variant="outlined"]:active) {
+    border-color: var(--button-border-color-outlined-active, var(--button-background-active));
+    --background: var(--o-button-outlined-active-background, var(--o-color-hover-400));
+}
+:host([variant="outlined"][disabled]) {
+    border-color: var(--button-border-color-outlined-disabled, var(--button-background-disabled));
+    --color: var(--o-button-outlined-disabled-text-color, var(--button-color-disabled));
+    --background: transparent;
+}
+
+:host([variant="clear"]) {
+    --background: transparent;
+}
+:host([variant="clear"]:hover) {
+    --background: var(--o-button-clear-hover-background, var(--o-color-hover-200));
+}
+:host([variant="clear"]:active) {
+    --background: var(--o-button-clear-active-background, var(--o-color-hover-400));
+}
+:host([variant="clear"][disabled]) {
+    --color: var(--o-button-clear-disabled-text-color, var(--button-color-disabled));
+    --background: transparent;
+}
+
+// underlined
+:host([variant="underlined"]) {
+    --background: transparent;
+    text-decoration: underline;
+    text-underline-offset: var(--gap-smaller);
+    text-decoration-thickness: var(--button-underlined-thickness, 1px);
+}
+:host([variant="underlined"]:hover) {
+    text-decoration-thickness: var(--button-underlined-hover-thickness, 2px);
+}
+:host([variant="underlined"]:active) {
+    text-decoration-thickness: var(--button-underlined-active-thickness, 3px);
+}
+:host([variant="underlined"][disabled]) {
+    text-decoration-thickness: var(--button-underlined-disabled-thickness, 1px);
+    --color: var(--o-button-underlined-disabled-text-color, var(--button-color-disabled));
+    --background: transparent;
+}

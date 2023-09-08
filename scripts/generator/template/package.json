@@ -1,5 +1,5 @@
 {
-    "name": "@henry2/TEMPLATE_PACKAGENAME-TEMPLATE_NAME",
+    "name": "@henry2/TEMPLATE_PACKAGENAMETEMPLATE_NAME",
     "version": "1.0.0",
     "scripts": {
         "init": "sh .scripts/init.sh",

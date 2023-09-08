@@ -11,7 +11,7 @@ export const style = `:host {
     align-items: center;
     gap: var(--unit-size5);
     justify-content: space-between;
-    background-color: var(--o-color-white);
+    background-color: var(--o-color-neutral-50);
     padding: var(--padding-medium) var(--padding-large); }
     :host o-box-template div {
       width: 100%;

@@ -13,50 +13,76 @@
 <body>
   
 <h1 data-title="class">Toggle Properties</h1><h1 data-title="inherit">Inherited Properties</h1><h3 data-subtitle="from FieldTemplate">from FieldTemplate</h3>
-        <doc-card class="property" data-name="name">
-            <h2 slot="header"><span class="deemphasize">Property: </span>name</h2>
+        <doc-card class="property" data-name="counterElement">
+            <h2 slot="header"><span class="deemphasize">Property: </span>counterElement</h2>
 
             <div class="property-info">
-              <p>type: string</p>
+              <p>type: HTMLSpanElement</p>
               <p>default-value: undefined</p>
               <p>required: false</p>
             </div>
             <div class="variations">
                 
-                  <div class="variant" data-variant="foo">
-                    <h4><span class="deemphasize">Property-Value: </span>foo</h4>
-                    <code-block lang="html" display="both">
+                  <div class="variant" data-variant="[object Object]">
+                    <h4><span class="deemphasize">Property-Value: </span>[object Object]</h4>
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
-                        name="foo"
+                        counterElement="[object Object]"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
-                 
-                  <div class="variant" data-variant="bar">
-                    <h4><span class="deemphasize">Property-Value: </span>bar</h4>
-                    <code-block lang="html" display="both">
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="errorText">
+            <h2 slot="header"><span class="deemphasize">Property: </span>errorText</h2>
+
+            <div class="property-info">
+              <p>type: Typography</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="[object Object]">
+                    <h4><span class="deemphasize">Property-Value: </span>[object Object]</h4>
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
-                        name="bar"
+                        errorText="[object Object]"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
-                 
-                  <div class="variant" data-variant="hello world">
-                    <h4><span class="deemphasize">Property-Value: </span>hello world</h4>
-                    <code-block lang="html" display="both">
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="warningText">
+            <h2 slot="header"><span class="deemphasize">Property: </span>warningText</h2>
+
+            <div class="property-info">
+              <p>type: Typography</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="[object Object]">
+                    <h4><span class="deemphasize">Property-Value: </span>[object Object]</h4>
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
-                        name="hello world"
+                        warningText="[object Object]"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                 
             </div>
@@ -74,14 +100,14 @@
                 
                   <div class="variant" data-variant="[object Object]">
                     <h4><span class="deemphasize">Property-Value: </span>[object Object]</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         message="[object Object]"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                 
             </div>
@@ -99,38 +125,38 @@
                 
                   <div class="variant" data-variant="foo">
                     <h4><span class="deemphasize">Property-Value: </span>foo</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         label="foo"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                  
                   <div class="variant" data-variant="bar">
                     <h4><span class="deemphasize">Property-Value: </span>bar</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         label="bar"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                  
                   <div class="variant" data-variant="hello world">
                     <h4><span class="deemphasize">Property-Value: </span>hello world</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         label="hello world"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                 
             </div>
@@ -148,38 +174,38 @@
                 
                   <div class="variant" data-variant="small">
                     <h4><span class="deemphasize">Property-Value: </span>small</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         size="small"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                  
                   <div class="variant" data-variant="medium">
                     <h4><span class="deemphasize">Property-Value: </span>medium</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         size="medium"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                  
                   <div class="variant" data-variant="large">
                     <h4><span class="deemphasize">Property-Value: </span>large</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         size="large"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                 
             </div>
@@ -197,62 +223,62 @@
                 
                   <div class="variant" data-variant="small">
                     <h4><span class="deemphasize">Property-Value: </span>small</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         radius="small"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                  
                   <div class="variant" data-variant="medium">
                     <h4><span class="deemphasize">Property-Value: </span>medium</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         radius="medium"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                  
                   <div class="variant" data-variant="large">
                     <h4><span class="deemphasize">Property-Value: </span>large</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         radius="large"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                  
                   <div class="variant" data-variant="none">
                     <h4><span class="deemphasize">Property-Value: </span>none</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         radius="none"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                  
                   <div class="variant" data-variant="circular">
                     <h4><span class="deemphasize">Property-Value: </span>circular</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         radius="circular"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                 
             </div>
@@ -270,26 +296,26 @@
                 
                   <div class="variant" data-variant="true">
                     <h4><span class="deemphasize">Property-Value: </span>true</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         checked="true"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                  
                   <div class="variant" data-variant="false">
                     <h4><span class="deemphasize">Property-Value: </span>false</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         checked="false"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                 
             </div>
@@ -307,26 +333,26 @@
                 
                   <div class="variant" data-variant="true">
                     <h4><span class="deemphasize">Property-Value: </span>true</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         readonly="true"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                  
                   <div class="variant" data-variant="false">
                     <h4><span class="deemphasize">Property-Value: </span>false</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         readonly="false"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                 
             </div>
@@ -344,38 +370,235 @@
                 
                   <div class="variant" data-variant="foo">
                     <h4><span class="deemphasize">Property-Value: </span>foo</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         value="foo"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                  
                   <div class="variant" data-variant="bar">
                     <h4><span class="deemphasize">Property-Value: </span>bar</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         value="bar"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                  
                   <div class="variant" data-variant="hello world">
                     <h4><span class="deemphasize">Property-Value: </span>hello world</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <o-toggle 
                         value="hello world"
                         
                       >
-                        <p>Hello World</p>
+                        
                       </o-toggle>
-                    </code-block>
+                    </o-codeblock>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="customError">
+            <h2 slot="header"><span class="deemphasize">Property: </span>customError</h2>
+
+            <div class="property-info">
+              <p>type: FieldValidityState</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="[object Object]">
+                    <h4><span class="deemphasize">Property-Value: </span>[object Object]</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        customError="[object Object]"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="customWarning">
+            <h2 slot="header"><span class="deemphasize">Property: </span>customWarning</h2>
+
+            <div class="property-info">
+              <p>type: FieldValidityState</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="[object Object]">
+                    <h4><span class="deemphasize">Property-Value: </span>[object Object]</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        customWarning="[object Object]"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="max">
+            <h2 slot="header"><span class="deemphasize">Property: </span>max</h2>
+
+            <div class="property-info">
+              <p>type: number</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="1">
+                    <h4><span class="deemphasize">Property-Value: </span>1</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        max="1"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="10">
+                    <h4><span class="deemphasize">Property-Value: </span>10</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        max="10"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="1000">
+                    <h4><span class="deemphasize">Property-Value: </span>1000</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        max="1000"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="min">
+            <h2 slot="header"><span class="deemphasize">Property: </span>min</h2>
+
+            <div class="property-info">
+              <p>type: number</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="1">
+                    <h4><span class="deemphasize">Property-Value: </span>1</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        min="1"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="10">
+                    <h4><span class="deemphasize">Property-Value: </span>10</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        min="10"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="1000">
+                    <h4><span class="deemphasize">Property-Value: </span>1000</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        min="1000"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="maxLength">
+            <h2 slot="header"><span class="deemphasize">Property: </span>maxLength</h2>
+
+            <div class="property-info">
+              <p>type: number</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="1">
+                    <h4><span class="deemphasize">Property-Value: </span>1</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        maxLength="1"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="10">
+                    <h4><span class="deemphasize">Property-Value: </span>10</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        maxLength="10"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="1000">
+                    <h4><span class="deemphasize">Property-Value: </span>1000</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        maxLength="1000"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
                   </div>
                 
             </div>
@@ -403,6 +626,129 @@
               <p>required: false</p>
             </div>
             <div class="variations">
+                
+            </div>
+        </doc-card>
+    <h3 data-subtitle="from FormElementTemplate">from FormElementTemplate</h3>
+        <doc-card class="property" data-name="disabled">
+            <h2 slot="header"><span class="deemphasize">Property: </span>disabled</h2>
+
+            <div class="property-info">
+              <p>type: boolean</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="true">
+                    <h4><span class="deemphasize">Property-Value: </span>true</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        disabled="true"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="false">
+                    <h4><span class="deemphasize">Property-Value: </span>false</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        disabled="false"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="required">
+            <h2 slot="header"><span class="deemphasize">Property: </span>required</h2>
+
+            <div class="property-info">
+              <p>type: boolean</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="true">
+                    <h4><span class="deemphasize">Property-Value: </span>true</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        required="true"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="false">
+                    <h4><span class="deemphasize">Property-Value: </span>false</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        required="false"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="name">
+            <h2 slot="header"><span class="deemphasize">Property: </span>name</h2>
+
+            <div class="property-info">
+              <p>type: string</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="foo">
+                    <h4><span class="deemphasize">Property-Value: </span>foo</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        name="foo"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="bar">
+                    <h4><span class="deemphasize">Property-Value: </span>bar</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        name="bar"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="hello world">
+                    <h4><span class="deemphasize">Property-Value: </span>hello world</h4>
+                    <o-codeblock lang="html" display="both">
+                      <o-toggle 
+                        name="hello world"
+                        
+                      >
+                        
+                      </o-toggle>
+                    </o-codeblock>
+                  </div>
                 
             </div>
         </doc-card>

@@ -1,6 +1,6 @@
 body {
-  background-color: var(--o-color-canvas-50);
-  color: var(--o-color-black);
+  background-color: var(--o-color-bg-canvas);
+  color: var(--o-color-text);
 }
 
 body {
@@ -68,7 +68,7 @@ doc-card h4 {
   margin-bottom: 0.5rem;
 }
 
-code-block::part(code) {
+o-codeblock::part(code) {
   margin: 0;
   margin-bottom: 0.5rem;
 }

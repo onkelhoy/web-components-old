@@ -13,13 +13,14 @@ import { BaseTemplate } from "@henry2/templates-base";
 
 // local 
 import { style } from "./style";
-import { Variant } from "./types";
+import { Variant, Alignment } from "./types";
 
 export class Typography extends BaseTemplate {
     static style = style;
 
     @property({ rerender: false }) variant: Variant = "C3";
-
+    @property({ rerender: false }) align: Alignment = "initial";
+    @property({ rerender: false, type: Boolean }) nowrap = false;
 
     render() {
         return html`
@@ -36,3 +37,4 @@ declare global {
 }
 
 ## TYPE-CODE: export type Variant = `${'C'|'T'|'H'}${1|2|3|4}`|'H5';
+export type Alignment = "center" | "justify" | "start" | "end" | "left" | "right" | "unset" | "inherit" | "initial";

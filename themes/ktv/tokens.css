@@ -2,6 +2,7 @@
 @media (prefers-color-scheme: light) {
   :root {
 
+  --o-color-bg: orange;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -12,6 +13,7 @@
 
 .theme-light {
 
+  --o-color-bg: orange;
 }
 
 

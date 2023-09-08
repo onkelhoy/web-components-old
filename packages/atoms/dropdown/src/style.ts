@@ -1,5 +1,5 @@
 export const style = `:host {
-  --background: var(--dropdown-background-light, var(--o-color-white)); }
+  --background: var(--dropdown-background-light, var(--o-color-neutral-50)); }
   :host o-popover-template {
     --popover-gap: var(--gap-small);
     flex-grow: 1;
@@ -56,7 +56,7 @@ export const style = `:host {
 
 @media (prefers-color-scheme: dark) {
   :host {
-    --background: var(--dropdown-background-dark, var(--o-color-white)); } }
+    --background: var(--dropdown-background-dark, var(--o-color-neutral-50)); } }
 
 :host([popoveropen="true"]) o-icon[name="caret"] {
   transform: rotate(180deg); }`;

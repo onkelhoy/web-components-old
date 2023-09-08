@@ -13,10 +13,9 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html } from "@henry2/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
 import { FieldTemplate } from "@henry2/templates-field";
 import "@henry2/templates-box/wc";
 
@@ -34,10 +33,13 @@ export class Toggle extends FieldTemplate {
     }
     
     // event handlers
-    private handlekeyup = (e:Event) => {
-        if (this.hasFocus) 
+    private handlekeyup = (e:KeyboardEvent) => {
+        if ((e.key || e.code).toLowerCase() === "enter")
         {
-            console.log('activate')
+            if (this.hasFocus)
+            {
+                this.value = (!this.checked).toString();
+            }
         }
     }
     private handleclick = () => {
@@ -83,10 +85,9 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
  // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html } from "@henry2/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
 import { FieldTemplate } from "@henry2/templates-field";
 import "@henry2/templates-box/wc";
 
@@ -104,10 +105,13 @@ export class Toggle extends FieldTemplate {
     }
     
     // event handlers
-    private handlekeyup = (e:Event) => {
-        if (this.hasFocus) 
+    private handlekeyup = (e:KeyboardEvent) => {
+        if ((e.key || e.code).toLowerCase() === "enter")
         {
-            console.log('activate')
+            if (this.hasFocus)
+            {
+                this.value = (!this.checked).toString();
+            }
         }
     }
     private handleclick = () => {
@@ -141,10 +145,9 @@ slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html } from "@henry2/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
 import { FieldTemplate } from "@henry2/templates-field";
 import "@henry2/templates-box/wc";
 
@@ -162,10 +165,13 @@ export class Toggle extends FieldTemplate {
     }
     
     // event handlers
-    private handlekeyup = (e:Event) => {
-        if (this.hasFocus) 
+    private handlekeyup = (e:KeyboardEvent) => {
+        if ((e.key || e.code).toLowerCase() === "enter")
         {
-            console.log('activate')
+            if (this.hasFocus)
+            {
+                this.value = (!this.checked).toString();
+            }
         }
     }
     private handleclick = () => {
@@ -204,16 +210,18 @@ declare global {
         border: none;
         padding: 0;
         gap: 0;
+        height: auto;
         border-radius: var(--radius-max);
         margin-left: var(--margin-small);
+        // height: var(--field-size-smaller);
     }
 
     o-box-template.toggle {
         content: '';
         display: inline-block;
-        height: var(--field-size-small);
-        width: calc(var(--field-size-large) - var(--unit-size2));
-        background-color: var(--o-color-white);
+        height: var(--field-size-smaller);
+        width: calc(var(--field-size-large));
+        background-color: var(--o-color-neutral-50);
         padding: var(--padding-smaller);
 
         div {
@@ -226,8 +234,8 @@ declare global {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: var(--field-size-small);
-                height: var(--field-size-small);
+                width: var(--field-size-smaller);
+                height: var(--field-size-smaller);
                 border-radius: 50%;
                 background-color: var(--o-color-neutral-500);
             }
@@ -237,7 +245,7 @@ declare global {
 
 :host([checked="true"]) {
     span[part="indicator"] {
-        left: calc(100% - var(--field-size-small));
+        left: calc(100% - var(--field-size-smaller));
     }
 }
 :host([checked="false"]) {

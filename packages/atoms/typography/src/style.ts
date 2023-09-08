@@ -1,7 +1,8 @@
 export const style = `:host {
   --default-fontfamily: 'Poppins', sans-serif;
   text-align: left;
-  display: block; }
+  display: block;
+  color: inherit; }
 
 :host([alignment="center"]),
 :host([align="center"]) {

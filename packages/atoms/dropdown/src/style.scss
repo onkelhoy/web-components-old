@@ -1,5 +1,5 @@
 :host {
-    --background: var(--dropdown-background-light, var(--o-color-white));
+    --background: var(--dropdown-background-light, var(--o-color-neutral-50));
 
     o-popover-template {
         --popover-gap: var(--gap-small);
@@ -74,7 +74,7 @@ $size-map: (
 
 @media (prefers-color-scheme: dark) {
     :host {
-        --background: var(--dropdown-background-dark, var(--o-color-white)); // NOTE in dark this is black
+        --background: var(--dropdown-background-dark, var(--o-color-neutral-50)); // NOTE in dark this is black
     }
 }
 

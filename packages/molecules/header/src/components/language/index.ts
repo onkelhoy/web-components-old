@@ -14,6 +14,23 @@ import { BaseTemplate } from "@henry2/templates-base";
 import { style } from "./style";
 import LanguageEmojis from './languages.json';
 
+class B extends HTMLElement {
+  b: string;
+  
+  constructor() {
+    super();
+    this.b = "ok"
+  }
+}
+class A extends B {
+  a: string;
+
+  constructor() {
+    super();
+    this.a = "ok"
+  }
+}
+
 export class Language extends BaseTemplate {
   static style = style;
 
@@ -86,7 +103,11 @@ export class Language extends BaseTemplate {
   private handlelanguagechange = () => {
     if (this.menuElement && window.oTranslation?.current)
     {
-      if (this.displayElement) this.displayElement.innerHTML = (LanguageEmojis as any)[window.oTranslation.current.name]
+      if (this.displayElement) 
+      {
+        this.displayElement.parentElement?.classList.remove('globe')
+        this.displayElement.innerHTML = (LanguageEmojis as any)[window.oTranslation.current.name]
+      }
       if (this.menuElement.value !== window.oTranslation.current.id)
       {
         this.menuElement.value = window.oTranslation.current.id;
@@ -94,9 +115,10 @@ export class Language extends BaseTemplate {
     }
   }
   private handlelanguageselect = (e:Event) => {
-    if (e.target instanceof Menu && this.displayElement)
+    const menu = e.target as Menu;
+    if (menu && this.displayElement)
     {
-      if (e.target.value !== "init") window.oTranslation.change(e.target.value);
+      if (menu.value !== "init") window.oTranslation.change(menu.value);
     }
   }
 

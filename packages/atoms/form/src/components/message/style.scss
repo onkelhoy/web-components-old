@@ -4,7 +4,7 @@
   min-width: 10rem;
 
   o-box-template {
-    background-color: var(--o-color-canvas-50);
+    background-color: var(--o-color-bg-canvas);
     display: grid;
     grid-template-columns: 72px 1fr;
     gap: var(--gap-medium);
@@ -21,7 +21,7 @@
       }
 
       o-icon {
-        color: var(--o-color-white);
+        color: var(--o-color-neutral-50);
         display: none;
       }
     }

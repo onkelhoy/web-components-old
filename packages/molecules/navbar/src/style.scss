@@ -1,9 +1,40 @@
-:host {
-    --background: var(--o-navbar-background-color-light, var(--neutral-100, white));
-
-    --hamburger-background: var(--o-navbar-hamburger-background-color-light, transparent);
-    --hamburger-background-hover: var(--o-navbar-hamburger-background-color-hover-light, var(--neutral-300, #F1F1F4));
-    --hamburger-background-active: var(--o-navbar-hamburger-background-color-active-light, var(--neutral-500, #C7CBD4));
+// light mode (system)
+@media (prefers-color-scheme: light) {
+    :host {
+        o-icon.logo.dark {
+            display: none;
+        }
+        o-icon.logo.light {
+            display: initial;
+        }
+    }
+}
+// dark mode (system)
+@media (prefers-color-scheme: dark) {
+    :host {
+        o-icon.logo.dark {
+            display: initial;
+        }
+        o-icon.logo.light {
+            display: none;
+        }
+    }
+}
+:host(.theme-dark) {
+    o-icon.logo.dark {
+        display: initial;
+    }
+    o-icon.logo.light {
+        display: none;
+    }
+}
+:host(.theme-light) {
+    o-icon.logo.dark {
+        display: none;
+    }
+    o-icon.logo.light {
+        display: initial;
+    }
 }
 
 :host {    
@@ -18,7 +49,7 @@
     o-box-template {
         container-type: inline-size;
         display: block;
-        background-color: var(--background);
+        background-color: var(--o-navbar-background-color, var(--o-color-bg, #FFFFFF));
         padding: var(--padding-small, 8px);
         box-sizing: border-box;
         width: 100%;
@@ -42,14 +73,7 @@
                 width: 40px;
                 height: 40px;
 
-                background-color: var(--hamburger-background);
-                color: var(--primary-600, black);
-                &:hover {
-                    background-color: var(--hamburger-background-hover);
-                }
-                &:active {
-                    background-color: var(--hamburger-background-active);
-                }
+                color: var(--o-color-text);
             }
         }
     
@@ -74,7 +98,6 @@
 
 :host([mode="hover"]) {    
     width: 72px;
-    --hamburger-background-hover: var(--o-navbar-hamburger-hover-background-color-hover-light, var(--neutral-100, #FFFFFF));
     
     o-box-template {
         position: absolute;
@@ -125,7 +148,6 @@
     :host {
         o-box-template {
             transition: width 150ms ease-in;
-            background-color: red;
 
             header {
                 justify-content: center;
@@ -133,8 +155,9 @@
                 ::slotted(*) {
                     display: none;
                 }
-                o-icon.logo {
-                    display: none;
+                o-icon.logo.dark,
+                o-icon.logo.light {
+                    display: none !important;
                 }
                 o-button {
                     o-icon.open {

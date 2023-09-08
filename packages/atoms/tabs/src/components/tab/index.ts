@@ -6,7 +6,6 @@ import { BaseTemplate } from "@henry2/templates-base";
 
 // local 
 import { style } from "./style";
-import { SelectEvent } from "../../types";
 
 export type ClickEvent = { sectionHeight: number }; 
 
@@ -17,7 +16,7 @@ export class Tab extends BaseTemplate {
 
   public init(parent: HTMLElement) {
     parent.addEventListener('tab-select', (e:Event) => {
-      if (e instanceof CustomEvent<SelectEvent>)
+      if (e instanceof CustomEvent)
       {
         if (this.getAttribute('data-tab-id') === e.detail.id)
         {

@@ -10,56 +10,53 @@
   <script defer src="main.js"></script>
 </head>
 <body>
-  <side-menu>
-    <o-icon slot="header" class="logo" name="circular"></o-icon>
+  <o-sidebar-header-template>
+    <o-navbar selected="atoms" slot="sidebar">
+      <o-navbar-item 
+        id="atoms"
+        icon="atoms" 
+        icon_selected="atoms" 
+        text="Atoms" 
+       >
+      </o-navbar-item>
+      <o-navbar-item 
+        id="molecules"
+        icon="molecules" 
+        icon_selected="molecules" 
+        text="Molecules" 
+       >
+      </o-navbar-item>
+      <o-navbar-item 
+        id="organisms"  
+        icon="organisms" 
+        icon_selected="organisms" 
+        text="Organisms" 
+       >
+      </o-navbar-item>
+      <o-navbar-item 
+        id="pages"  
+        icon="pages" 
+        icon_selected="pages" 
+        text="Pages" 
+       >
+      </o-navbar-item>
+      <o-navbar-item 
+        id="templates"  
+        icon="templates" 
+        icon_selected="templates" 
+        text="Templates" 
+       >
+      </o-navbar-item>
+      <o-navbar-item 
+        id="tools"  
+        icon="tools" 
+        icon_selected="tools" 
+        text="Tools" 
+       >
+      </o-navbar-item>
+    </o-navbar>
 
-    <menu-item haschild="true">
-      <span slot="collapsed">F</span>
-      <span>foundations</span>
-    </menu-item>
-    
-    <menu-item>
-      <span slot="collapsed">C</span>
-      <span>components</span>
-
-      <menu-item haschild="true" data-sidemenu-name="atoms" slot="sub">
-        <o-icon slot="collapsed" customSize="15" name="atoms"></o-icon>
-        <o-icon customSize="15" name="atoms"></o-icon>
-        <span>atoms</span>
-      </menu-item>
-
-      <menu-item haschild="true" data-sidemenu-name="molecules" slot="sub">
-        <o-icon slot="collapsed" customSize="15" name="molecules"></o-icon>
-        <o-icon customSize="15" name="molecules"></o-icon>
-        <span>molecules</span>
-      </menu-item>
-      
-      <menu-item haschild="true" data-sidemenu-name="organisms" slot="sub">
-        <o-icon slot="collapsed" customSize="15" name="organisms"></o-icon>
-        <o-icon customSize="15" name="organisms"></o-icon>
-        <span>organisms</span>
-      </menu-item>
-
-      <menu-item haschild="true" data-sidemenu-name="pages" slot="sub">
-        <o-icon slot="collapsed" customSize="15" name="pages"></o-icon>
-        <o-icon customSize="15" name="pages"></o-icon>
-        <span>pages</span>
-      </menu-item>
-
-      <menu-item haschild="true" data-sidemenu-name="templates" slot="sub">
-        <o-icon slot="collapsed" customSize="15" name="templates"></o-icon>
-        <o-icon customSize="15" name="templates"></o-icon>
-        <span>templates</span>
-      </menu-item>
-
-      <menu-item haschild="true" data-sidemenu-name="tools" slot="sub">
-        <o-icon slot="collapsed" customSize="15" name="tools"></o-icon>
-        <o-icon customSize="15" name="tools"></o-icon>
-        <span>tools</span>
-      </menu-item>
-    </menu-item>
-  </side-menu>
-
-  <main class="designsystem"></main>
+    <main class="designsystem"></main>
+  </o-sidebar-header-template>
 </body>
 </html>

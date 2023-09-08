@@ -1,5 +1,3 @@
-import { CodeBlock } from './components/CodeBlock';
-import { Markdown } from './components/Markdown';
 import { Card } from './components/Card';
 import { Controller } from './components/Controller';
 import { ColorPicker } from './components/ColorPicker';
@@ -9,20 +7,14 @@ import { Radio } from './components/Radio';
 
 // include packages
 import '@henry2/tabs/wc';
+import "@henry2/codeblock/wc";
+import "@henry2/markdown/wc";
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;
 
 if (!cElements) {
   throw new Error('Custom Elements not supported');
-}
-
-if (!cElements.get('code-block')) {
-  cElements.define('code-block', CodeBlock);
-}
-
-if (!cElements.get('doc-markdown')) {
-  cElements.define('doc-markdown', Markdown);
 }
 
 if (!cElements.get('doc-card')) {

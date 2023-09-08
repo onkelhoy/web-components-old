@@ -3,10 +3,9 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html } from "@henry2/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
 import { FieldTemplate } from "@henry2/templates-field";
 import "@henry2/templates-box/wc";
 
@@ -24,10 +23,13 @@ export class Toggle extends FieldTemplate {
     }
     
     // event handlers
-    private handlekeyup = (e:Event) => {
-        if (this.hasFocus) 
+    private handlekeyup = (e:KeyboardEvent) => {
+        if ((e.key || e.code).toLowerCase() === "enter")
         {
-            console.log('activate')
+            if (this.hasFocus)
+            {
+                this.value = (!this.checked).toString();
+            }
         }
     }
     private handleclick = () => {

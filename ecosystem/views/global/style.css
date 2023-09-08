@@ -1,67 +1,6 @@
-:root {
-  --global-header-size: 4rem;
-  
-  /* color */
-  --global-background: #ffffff;
-  --global-sidebar-label-hover: #f7f7f7;
-  --global-sidebar-item-hover: #303030;
-  --global-sidebar-item-selected: black;
-  --global-color: black;
-  --global-inverse-color: white;
-  --global-colored: coral;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --global-background: #303030;
-    --global-sidebar-item-selected: white;
-    --global-color: white;
-    --global-inverse-color: black;
-    --global-colored: cornflowerblue;
-    --global-sidebar-label-hover: #363636;
-    --global-sidebar-item-hover: #dadada;
-  }
-}
-
-@font-face {
-  font-family: 'Soehne Buch';
-  font-style: normal;
-  font-weight: 400;
-  src: url('https://cdn.openai.com/common/fonts/soehne/soehne-buch.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Soehne Halbfett';
-  font-style: normal;
-  font-weight: 600;
-  src: url('https://cdn.openai.com/common/fonts/soehne/soehne-halbfett.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Soehne Mono Buch';
-  font-style: normal;
-  font-weight: 400;
-  src: url('https://cdn.openai.com/common/fonts/soehne/soehne-mono-buch.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Soehne Mono Halbfett';
-  font-style: normal;
-  font-weight: 600;
-  src: url('https://cdn.openai.com/common/fonts/soehne/soehne-mono-halbfett.woff2') format('woff2');
-}
-
-
 body {
-  font-family: 'Soehne Buch', sans-serif;
-  margin: 0;
-  background-color: var(--global-background);
-  color: var(--global-color);
-  display: grid;
-  /* display: flex; */
-  grid-template-columns: auto 1fr;
-  height: 100vh;
-  overflow: hidden;
+  background-color: var(--o-color-bg-canvas);
+  color: var(--o-color-text);
 }
 
 /***** MAIN *********************/
@@ -75,14 +14,4 @@ main.designsystem > div {
 main.designsystem > div.package:not(.selected) {
   position: relative;
   display: none;
-}
-
-/***** SIDEBAR ******************/
-o-icon.logo {
-  width: 200px;
-  color: var(--global-inverse-color);
-  height: calc(var(--global-header-size) - 15px);
-}
-o-icon.logo::part(svg) {
-  stroke: none;
 }

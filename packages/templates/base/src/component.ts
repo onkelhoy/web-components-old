@@ -9,11 +9,15 @@ export class BaseTemplate extends HTMLElement {
     protected callAfterUpdate:(Function|FunctionCallback)[] = [];
     private attributeObserver!: MutationObserver;
     private _pendingOperations: Function[] = [];
+    private connected: boolean = false;
+    public originalHTML: string = "";
     @property({ rerender: false, type: Boolean }) hasFocus: boolean = false;
 
     // class functions
     constructor() {
         super();
+
+        this.originalHTML = this.outerHTML;
         
         this.addEventListener('blur', this.handleblur);
         this.addEventListener('focus', this.handlefocus);
@@ -23,6 +27,7 @@ export class BaseTemplate extends HTMLElement {
         this.callAfterUpdate.push(this.firstUpdate);
     }
     connectedCallback() {
+        this.connected = true;
         this.debouncedRequestUpdate();
         // Create an observer instance linked to a callback function
         this.attributeObserver = new MutationObserver((mutationsList, observer) => {
@@ -43,6 +48,7 @@ export class BaseTemplate extends HTMLElement {
         this._pendingOperations = [];
     }
     disconnectedCallback() {
+        this.connected = false;
         this.attributeObserver.disconnect();
     }
     attributeChangedCallback(name:string, oldValue:string|null, newValue:string|null) {

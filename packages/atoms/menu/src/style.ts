@@ -1,6 +1,6 @@
 export const style = `:host {
-  --menu-background: var(--o-color-white);
-  --menu-color: var(--o-color-black); }
+  --menu-background: var(--o-color-neutral-50);
+  --menu-color: var(--o-color-text); }
   :host o-button {
     background-color: var(--menu-background);
     color: var(--menu-color);

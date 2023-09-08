@@ -15,10 +15,85 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/templates/field",
     "properties": [
       {
-        "name": "name",
-        "type": "string",
-        "type_value": null,
-        "primitive": true,
+        "name": "counterElement",
+        "type": "HTMLSpanElement",
+        "type_value": {
+          "addEventListener": null,
+          "removeEventListener": null
+        },
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "name": "errorText",
+        "type": "Typography",
+        "type_value": {
+          "variant": [
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "T1",
+            "T2",
+            "T3",
+            "T4",
+            "H1",
+            "H2",
+            "H3",
+            "H4",
+            "H5"
+          ],
+          "align": [
+            "center",
+            "justify",
+            "start",
+            "end",
+            "left",
+            "right",
+            "unset",
+            "inherit",
+            "initial"
+          ],
+          "nowrap": null,
+          "render": null
+        },
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "name": "warningText",
+        "type": "Typography",
+        "type_value": {
+          "variant": [
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "T1",
+            "T2",
+            "T3",
+            "T4",
+            "H1",
+            "H2",
+            "H3",
+            "H4",
+            "H5"
+          ],
+          "align": [
+            "center",
+            "justify",
+            "start",
+            "end",
+            "left",
+            "right",
+            "unset",
+            "inherit",
+            "initial"
+          ],
+          "nowrap": null,
+          "render": null
+        },
+        "primitive": false,
         "conditional": true
       },
       {
@@ -88,6 +163,65 @@
         "conditional": false
       },
       {
+        "name": "customError",
+        "type": "FieldValidityState",
+        "type_value": {
+          "badInput": null,
+          "customError": null,
+          "patternMismatch": null,
+          "rangeOverflow": null,
+          "rangeUnderflow": null,
+          "stepMismatch": null,
+          "tooLong": null,
+          "tooShort": null,
+          "typeMismatch": null,
+          "valid": null,
+          "valueMissing": null
+        },
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "name": "customWarning",
+        "type": "FieldValidityState",
+        "type_value": {
+          "badInput": null,
+          "customError": null,
+          "patternMismatch": null,
+          "rangeOverflow": null,
+          "rangeUnderflow": null,
+          "stepMismatch": null,
+          "tooLong": null,
+          "tooShort": null,
+          "typeMismatch": null,
+          "valid": null,
+          "valueMissing": null
+        },
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "name": "min",
+        "type": "number",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
         "name": "_suffix",
         "default_value": "<span> </span>",
         "type_value": null,
@@ -102,9 +236,50 @@
         "conditional": true
       }
     ],
-    "extend_class": null
+    "extend_class": {
+      "className": "FormElementTemplate",
+      "folder": "/Users/henry/Developer/projects/web-components/packages/templates/form-element",
+      "properties": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        }
+      ],
+      "extend_class": null
+    }
   },
   "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/templates/form-element": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "property",
+        "from": "@henry2/tools-utils"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@henry2/templates-base"
+      }
+    ],
     "/Users/henry/Developer/projects/web-components/packages/templates/field": [
       {
         "name": "__decorate",
@@ -112,6 +287,10 @@
       },
       {
         "name": "html",
+        "from": "@henry2/tools-utils"
+      },
+      {
+        "name": "query",
         "from": "@henry2/tools-utils"
       },
       {
@@ -123,12 +302,16 @@
         "from": "@henry2/tools-utils"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@henry2/templates-base"
+        "name": "FormElementTemplate",
+        "from": "@henry2/templates-form-element"
       },
       {
         "name": "style",
         "from": "./style"
+      },
+      {
+        "name": "ValidationAttributes",
+        "from": "./types"
       }
     ],
     "/Users/henry/Developer/projects/web-components/packages/templates/textinput": [
@@ -153,7 +336,7 @@
   "html": {
     "slots": [
       {
-        "name": "label",
+        "name": "header",
         "html": "<o-typography></o-typography>"
       },
       {
@@ -171,16 +354,16 @@
     ],
     "parts": [
       {
-        "name": "label",
-        "tag": "SLOT"
+        "name": "header",
+        "tag": "HEADER"
       },
       {
         "name": "wrapper",
         "tag": "O-BOX-TEMPLATE"
       },
       {
-        "name": "message",
-        "tag": "DIV"
+        "name": "footer",
+        "tag": "FOOTER"
       }
     ]
   },
@@ -191,52 +374,70 @@
         "folder": "/Users/henry/Developer/projects/web-components/packages/templates/field",
         "sources": [],
         "variables": {
-          "--field-height-small": {
+          "--o-field-height-small": {
             "usecases": [
               "height"
             ],
             "fallbacks": [
-              "var(--height-small, 20px)"
+              "var(--field-size-small)"
             ]
           },
-          "--height-small": {
+          "--field-size-small": {
+            "usecases": [
+              "height"
+            ],
+            "fallbacks": []
+          },
+          "--o-field-block-height-small": {
             "usecases": [
               "height"
             ],
             "fallbacks": [
-              "20px"
+              "var(--field-size-small)"
             ]
           },
-          "--field-height-medium": {
+          "--o-field-height-medium": {
             "usecases": [
               "height"
             ],
             "fallbacks": [
-              "var(--height-medium, 32px)"
+              "var(--field-size-medium)"
             ]
           },
-          "--height-medium": {
+          "--field-size-medium": {
+            "usecases": [
+              "height"
+            ],
+            "fallbacks": []
+          },
+          "--o-field-block-height-medium": {
             "usecases": [
               "height"
             ],
             "fallbacks": [
-              "32px"
+              "var(--field-size-small)"
             ]
           },
-          "--field-height-large": {
+          "--o-field-height-large": {
             "usecases": [
               "height"
             ],
             "fallbacks": [
-              "var(--height-large, 56px)"
+              "var(--field-size-large)"
             ]
           },
-          "--height-large": {
+          "--field-size-large": {
+            "usecases": [
+              "height"
+            ],
+            "fallbacks": []
+          },
+          "--o-field-block-height-large": {
             "usecases": [
               "height"
             ],
             "fallbacks": [
-              "56px"
+              "var(--field-size-small)"
             ]
           },
           "--o-field-background-color-light": {
@@ -270,6 +471,26 @@
           "--color": {
             "usecases": [
               "color"
+            ],
+            "fallbacks": []
+          },
+          "--padding-small": {
+            "usecases": [
+              "padding-inline"
+            ],
+            "fallbacks": []
+          },
+          "--gap-small": {
+            "usecases": [
+              "gap",
+              "margin-right",
+              "margin-left"
+            ],
+            "fallbacks": []
+          },
+          "--padding-medium": {
+            "usecases": [
+              "padding-inline"
             ],
             "fallbacks": []
           },

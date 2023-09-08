@@ -4,7 +4,7 @@ export const style = `:host {
   :host o-box-template {
     background-color: var(--background);
     border: 1px solid var(--border);
-    color: var(--o-color-black);
+    color: var(--o-color-text);
     width: 48px;
     display: inline-flex;
     justify-content: center;

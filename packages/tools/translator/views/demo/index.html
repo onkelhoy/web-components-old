@@ -20,7 +20,7 @@
     </doc-card>
 
     <doc-card>
-        <code-block lang="javascript" display="code">
+        <o-codeblock lang="javascript" display="code">
             class ExtendDemo extends Translator {
                 render() {
                     return html`
@@ -28,14 +28,14 @@
                     `
                 }
             }
-        </code-block>
-        <code-block lang="html" display="both">
+        </o-codeblock>
+        <o-codeblock lang="html" display="both">
             <translate-extenddemo></translate-extenddemo>
-        </code-block>
+        </o-codeblock>
     </doc-card>
     
     <doc-card>
-        <code-block lang="javascript" display="code">
+        <o-codeblock lang="javascript" display="code">
             class ExtendDemo2 extends Translator {
                 render() {
                     const label = this.translateKey('Your email address');
@@ -47,22 +47,22 @@
                     `
                 }
             }
-        </code-block>
-        <code-block lang="html" display="both">
+        </o-codeblock>
+        <o-codeblock lang="html" display="both">
             <translate-extenddemo2></translate-extenddemo2>
-        </code-block>
+        </o-codeblock>
     </doc-card>
 
     <doc-card>
-        <code-block lang="html" display="both">
+        <o-codeblock lang="html" display="both">
             <o-translator>Hello World</o-translator>
             <br />
             <o-translator name="Henry">Hello {name}</o-translator>
-        </code-block>
+        </o-codeblock>
     </doc-card>
 
     <doc-card>
-        <code-block lang="html" display="both">
+        <o-codeblock lang="html" display="both">
             <o-translator name="Henry">I dont exist {name}</o-translator>
             <o-translator 
                 start="4"
@@ -71,11 +71,11 @@
             >
                 {start} - {end} of {total}
             </o-translator>
-        </code-block>
+        </o-codeblock>
     </doc-card>
 
     <doc-card>
-        <code-block lang="javascript" display="code">
+        <o-codeblock lang="javascript" display="code">
             class InsideDemo extends BaseTemplate {
                 render() {
                     return html`
@@ -83,10 +83,10 @@
                     `
                 }
             }
-        </code-block>
-        <code-block lang="html" display="both">
+        </o-codeblock>
+        <o-codeblock lang="html" display="both">
             <translate-insidedemo text="bajs"></translate-insidedemo>
-        </code-block>
+        </o-codeblock>
     </doc-card>
 </body>
 </html>

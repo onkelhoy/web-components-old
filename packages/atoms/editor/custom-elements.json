@@ -89,7 +89,7 @@
           "--background"
         ],
         "fallbacks": [
-          "var(--o-color-white, white)"
+          "var(--o-color-neutral-50, white)"
         ]
       },
       "--o-color-white": {
@@ -135,7 +135,7 @@
           "--background"
         ],
         "fallbacks": [
-          "var(--o-color-white, black)"
+          "var(--o-color-neutral-50, black)"
         ]
       },
       "--o-editor-text-color-dark": {

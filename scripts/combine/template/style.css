@@ -1,95 +1,13 @@
-@font-face {
-  font-family: 'Soehne Buch';
-  font-style: normal;
-  font-weight: 400;
-  src: url('https://cdn.openai.com/common/fonts/soehne/soehne-buch.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Soehne Halbfett';
-  font-style: normal;
-  font-weight: 600;
-  src: url('https://cdn.openai.com/common/fonts/soehne/soehne-halbfett.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Soehne Mono Buch';
-  font-style: normal;
-  font-weight: 400;
-  src: url('https://cdn.openai.com/common/fonts/soehne/soehne-mono-buch.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Soehne Mono Halbfett';
-  font-style: normal;
-  font-weight: 600;
-  src: url('https://cdn.openai.com/common/fonts/soehne/soehne-mono-halbfett.woff2') format('woff2');
-}
-
-:root {
-  --background: #fafafa;
-  --foreground: #e8e8e8;
-  --hover: #d5d5d5;
-  --color: black;
-
-  --tab-light-selected-background-color: var(--foreground);
-  --tab-light-selected-text-color: var(--color);
-  --tab-light-background-color: transparent;
-  --tab-light-text-color: var(--color);
-  --tab-light-hover-background-color: var(--hover);
-  --tab-light-hover-text-color: var(--color);
-  --tab-light-active-background-color:var(--foreground);
-  --tab-light-active-text-color: var(--color);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-      --background: rgb(48 48 48);
-      --foreground: rgb(0, 0, 0);
-      --hover: #535353;
-      --color: white;
-
-      --tab-dark-selected-background-color: var(--foreground);
-      --tab-dark-selected-text-color: var(--color);
-      --tab-dark-background-color: transparent;
-      --tab-dark-text-color: var(--color);
-      --tab-dark-hover-background-color: var(--hover);
-      --tab-dark-hover-text-color: var(--color);
-      --tab-dark-active-background-color:var(--foreground);
-      --tab-dark-active-text-color: var(--color);
-  }
-}
-
 body {
-  font-family: 'Soehne Buch', sans-serif;
+  background-color: var(--o-color-bg-canvas);
+  color: var(--o-color-text);
+  font-family: var(--o-font-family);
+
   margin: 0;
-  background-color: var(--foreground);
-  color: var(--color);
   overflow-y: auto;
   overflow-x: hidden;
   height: auto !important;
   min-height: 100vh;
-}
-
-nav {
-  display: flex;
-  background-color: var(--foreground);
-  justify-content: flex-end;
-  align-items: center;
-  height: 2rem;
-  user-select: none;
-  /* border-bottom: 2px solid var(--foreground); */
-}
-nav > ul {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-nav > ul > li {
-  padding-inline: 1rem;
 }
 
 body > o-tabs > o-tab-content {
@@ -97,12 +15,11 @@ body > o-tabs > o-tab-content {
 }
 body > o-tabs::part(header) {
   --tabs-height: 3rem;
-  background-color: var(--background);
 }
 
 body > o-tabs > o-tab-content[id="interactive"] {
   height: calc(100vh - 5rem) !important;
 }
-body > doc-markdown {
+body > o-markdown {
   padding: 0;
 }

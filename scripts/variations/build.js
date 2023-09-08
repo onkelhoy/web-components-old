@@ -127,14 +127,14 @@ function build_class_variant(body, name, properties) {
                 ${variations.map(v => `
                   <div class="variant" data-variant="${v}">
                     <h4><span class="deemphasize">Property-Value: </span>${v}</h4>
-                    <code-block lang="html" display="both">
+                    <o-codeblock lang="html" display="both">
                       <${PREFIXNAME} 
                         ${prop.name}="${v}"
                         ${defaultprops.map(dp => `${dp.name}="${dp.value}"`)}
                       >
                         ${CONFIG.html}
                       </${PREFIXNAME}>
-                    </code-block>
+                    </o-codeblock>
                   </div>
                 `).join(' ')}
             </div>

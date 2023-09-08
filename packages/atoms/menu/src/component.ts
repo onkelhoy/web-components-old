@@ -1,5 +1,5 @@
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property, Size } from "@henry2/tools-utils";
 
 // atoms
 import "@henry2/icon/wc";
@@ -20,6 +20,7 @@ export class Menu extends BaseTemplate {
 
     @property({ rerender: false, type: Boolean }) open: boolean = false;
     @property() placement: Placement = "bottom-center";
+    @property() size: Size = "large";
 
     private current?: MenuItem;
     private items: MenuItem[] = [];
@@ -79,7 +80,7 @@ export class Menu extends BaseTemplate {
     render() {
         return html`
             <o-popover-template @hide="${this.handlehide}" @show="${this.handleshow}" revealby="click" hideonoutsideclick placement="${this.placement}">
-                <o-button part="button" slot="target" size="large">
+                <o-button part="button" slot="target" size="${this.size}">
                     <slot name="button-prefix" slot="prefix"></slot>
                     <slot name="button-content"></slot>
                     <slot name="button-suffix" slot="suffix">
