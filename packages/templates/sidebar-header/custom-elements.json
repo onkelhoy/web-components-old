@@ -1,0 +1,59 @@
+{
+  "className": "SidebarHeaderTemplate",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/templates/sidebar-header",
+  "properties": [],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/templates/sidebar-header": [
+      {
+        "name": "html",
+        "from": "@henry2/tools-utils"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@henry2/templates-base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "header",
+        "html": "<o-header></o-header>"
+      },
+      {
+        "name": "sidebar",
+        "html": "\n                    <o-navbar>\n                        <slot name=\"sidebar-content\"></slot>\n                    </o-navbar>\n                "
+      },
+      {
+        "name": "sidebar-content",
+        "html": ""
+      },
+      {
+        "name": "default",
+        "html": ""
+      },
+      {
+        "name": "footer",
+        "html": ""
+      }
+    ],
+    "parts": []
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/sidebar-header",
+    "sources": [],
+    "variables": {
+      "--padding-small": {
+        "usecases": [
+          "padding"
+        ],
+        "fallbacks": []
+      }
+    }
+  }
+}

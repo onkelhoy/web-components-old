@@ -1,0 +1,65 @@
+{
+  "className": "AuthTemplate",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/templates/auth",
+  "properties": [],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/templates/auth": [
+      {
+        "name": "html",
+        "from": "@henry2/tools-utils"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@henry2/templates-base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "logo",
+        "html": "<o-icon customsize=\"200\" name=\"interzero-logo\"></o-icon>"
+      },
+      {
+        "name": "welcome",
+        "html": "<o-typography variant=\"t2\"><o-translator>ðŸ‘‹ Welcome to Interzero.</o-translator></o-typography>"
+      },
+      {
+        "name": "note",
+        "html": "\n                    <o-typography nowrap=\"\"><o-translator>Don't have an account?</o-translator></o-typography>\n                    <o-button variant=\"underlined\"><o-typography nowrap=\"\"><o-translator>Register here</o-translator></o-typography></o-button>\n                "
+      },
+      {
+        "name": "default",
+        "html": ""
+      },
+      {
+        "name": "footer",
+        "html": "\n                    <o-button link=\"https://www.interzero.de/\" variant=\"underlined\"><o-translator>Interzero</o-translator></o-button>\n                    <o-button link=\"https://www.interzero.de/kontakt\" variant=\"underlined\"><o-translator>Contact</o-translator></o-button>\n                    <o-typography><o-translator>Â© 2022 - Interzero Circular Solutions Germany Gmbh</o-translator></o-typography>\n                "
+      }
+    ],
+    "parts": []
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/auth",
+    "sources": [],
+    "variables": {
+      "--o-color-white": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--gap-small": {
+        "usecases": [
+          "gap"
+        ],
+        "fallbacks": []
+      }
+    }
+  }
+}

@@ -30,6 +30,16 @@ export class Navbar extends BaseTemplate {
     private currentSelected?: NavbarItem;
     private currentAncestorSelected?: NavbarItem;
 
+    // class functions 
+    connectedCallback(): void {
+        super.connectedCallback();
+        window.addEventListener("theme-appearance-change", this.handleThemeAppearanceChange);
+    }
+    disconnectedCallback(): void {
+        super.disconnectedCallback();
+        window.removeEventListener("theme-appearance-change", this.handleThemeAppearanceChange);
+    }
+
     // update handlers
     private updateSelected = () => {
         const element = this.items.find(e => e.id === this.selected || e.text === this.selected);
@@ -44,6 +54,13 @@ export class Navbar extends BaseTemplate {
     }
 
     // event handlers
+    private handleThemeAppearanceChange = (e:Event) => {
+        if (e instanceof CustomEvent)
+        {
+            this.classList.remove('theme-light', 'theme-dark');
+            this.classList.add(`theme-${e.detail.value}`);
+        }
+    }
     private handlehamburgerclick = () => {
         // this.open = !this.open;
         if (this.boxtemplateElement) this.boxtemplateElement.elevation = "none"
@@ -118,8 +135,9 @@ export class Navbar extends BaseTemplate {
         return html`
             <o-box-template radius="medium">
                 <header>
-                    <o-icon class="logo" style="width:124px" size="large" name="interzero-logo"></o-icon>
-                    <o-button @click="${this.handlehamburgerclick}">
+                    <o-icon class="logo light" style="width:124px" size="large" name="interzero-logo"></o-icon>
+                    <o-icon class="logo dark" style="width:124px" size="large" name="interzero-logo-dark"></o-icon>
+                    <o-button variant="clear" @click="${this.handlehamburgerclick}">
                         <o-icon customSize="32" class="hover" name="circular-logo"></o-icon>
                         <o-icon size="small" class="open" name="hamburger.open"></o-icon>
                         <o-icon size="small" class="collapsed" name="hamburger.collapse"></o-icon>

@@ -27,4 +27,4 @@ export const style = `:host {
 @media (prefers-color-scheme: dark) {
   :host {
     --background: var(--o-table-dark-background-color, var(--o-color-black, black));
-    --color: var(--o-table-dark-text-color, var(--o-color-white, white)); } }`;
+    --color: var(--o-table-dark-text-color, var(--o-color-neutral-50, white)); } }`;

@@ -1,20 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
-
-:root {
-  --html-background: white;
-  --html-color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --html-background: black;
-    --html-color: white;
-  }
-}
-
 body {
-  background-color: var(--o-color-canvas-50);
-  color: var(--o-color-black);
+  background-color: var(--o-color-bg-canvas);
+  color: var(--o-color-text);
 }
 
 body {

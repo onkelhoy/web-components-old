@@ -3,7 +3,7 @@ export const style = `:host {
   max-width: 30rem;
   min-width: 10rem; }
   :host o-box-template {
-    background-color: var(--o-color-canvas-50);
+    background-color: var(--o-color-bg-canvas);
     display: grid;
     grid-template-columns: 72px 1fr;
     gap: var(--gap-medium);
@@ -16,7 +16,7 @@ export const style = `:host {
       :host o-box-template div.left {
         justify-content: center; }
       :host o-box-template div o-icon {
-        color: var(--o-color-white);
+        color: var(--o-color-neutral-50);
         display: none; }
     :host o-box-template o-button {
       position: absolute;

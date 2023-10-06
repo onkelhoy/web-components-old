@@ -1,8 +1,26 @@
-export const style = `:host {
-  --background: var(--o-navbar-background-color-light, var(--neutral-100, white));
-  --hamburger-background: var(--o-navbar-hamburger-background-color-light, transparent);
-  --hamburger-background-hover: var(--o-navbar-hamburger-background-color-hover-light, var(--neutral-300, #F1F1F4));
-  --hamburger-background-active: var(--o-navbar-hamburger-background-color-active-light, var(--neutral-500, #C7CBD4)); }
+export const style = `@media (prefers-color-scheme: light) {
+  :host o-icon.logo.dark {
+    display: none; }
+  :host o-icon.logo.light {
+    display: initial; } }
+
+@media (prefers-color-scheme: dark) {
+  :host o-icon.logo.dark {
+    display: initial; }
+  :host o-icon.logo.light {
+    display: none; } }
+
+:host(.theme-dark) o-icon.logo.dark {
+  display: initial; }
+
+:host(.theme-dark) o-icon.logo.light {
+  display: none; }
+
+:host(.theme-light) o-icon.logo.dark {
+  display: none; }
+
+:host(.theme-light) o-icon.logo.light {
+  display: initial; }
 
 :host {
   position: sticky;
@@ -14,7 +32,7 @@ export const style = `:host {
   :host o-box-template {
     container-type: inline-size;
     display: block;
-    background-color: var(--background);
+    background-color: var(--o-navbar-background-color, var(--o-color-bg, #FFFFFF));
     padding: var(--padding-small, 8px);
     box-sizing: border-box;
     width: 100%;
@@ -33,12 +51,7 @@ export const style = `:host {
         padding: 0;
         width: 40px;
         height: 40px;
-        background-color: var(--hamburger-background);
-        color: var(--primary-600, black); }
-        :host o-box-template header o-button:hover {
-          background-color: var(--hamburger-background-hover); }
-        :host o-box-template header o-button:active {
-          background-color: var(--hamburger-background-active); }
+        color: var(--o-color-text); }
     :host o-box-template o-divider {
       margin-block: var(--margin-small, 8px); }
     :host o-box-template div.body ::slotted(o-navbar-item) {
@@ -51,8 +64,7 @@ export const style = `:host {
   width: 72px; }
 
 :host([mode="hover"]) {
-  width: 72px;
-  --hamburger-background-hover: var(--o-navbar-hamburger-hover-background-color-hover-light, var(--neutral-100, #FFFFFF)); }
+  width: 72px; }
   :host([mode="hover"]) o-box-template {
     position: absolute; }
     :host([mode="hover"]) o-box-template:hover {
@@ -77,14 +89,14 @@ export const style = `:host {
 
 @container (max-width: 72px) {
   :host o-box-template {
-    transition: width 150ms ease-in;
-    background-color: red; }
+    transition: width 150ms ease-in; }
     :host o-box-template header {
       justify-content: center; }
       :host o-box-template header ::slotted(*) {
         display: none; }
-      :host o-box-template header o-icon.logo {
-        display: none; }
+      :host o-box-template header o-icon.logo.dark,
+      :host o-box-template header o-icon.logo.light {
+        display: none !important; }
       :host o-box-template header o-button o-icon.open {
         display: none; }
       :host o-box-template header o-button o-icon.collapsed {

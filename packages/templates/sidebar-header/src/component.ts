@@ -20,7 +20,11 @@ export class SidebarHeaderTemplate extends BaseTemplate {
                 <slot name="header"><o-header></o-header></slot>
             </div>
             <div class="sidebar">
-               <slot name="sidebar"><o-navbar></o-navbar></slot>
+                <slot name="sidebar">
+                    <o-navbar>
+                        <slot name="sidebar-content"></slot>
+                    </o-navbar>
+                </slot>
             </div>
             <div class="body">
                 <slot></slot>

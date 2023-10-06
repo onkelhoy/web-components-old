@@ -1,11 +1,14 @@
 // utils 
 import { html, property } from "@henry2/tools-utils";
 
+// molecules
+import "@henry2/codeblock/wc";
+import { Codeblock } from "@henry2/codeblock";
+
 // templates
 import { AssetTemplate } from "@henry2/templates-asset";
 
 import { style } from './style';
-import { CodeBlock } from "../CodeBlock";
 
 export class Markdown extends AssetTemplate {
     static style = style;
@@ -114,7 +117,7 @@ export class Markdown extends AssetTemplate {
     private updateCodeBlocks() {
         if (this.shadowRoot)
         {
-            const blocks = this.shadowRoot.querySelectorAll<CodeBlock>('code-block');
+            const blocks = this.shadowRoot.querySelectorAll<Codeblock>('o-codeblock');
             blocks.forEach((elm, index) => elm.format(this.codeblocks[index]));
         }
     }
@@ -128,13 +131,13 @@ export class Markdown extends AssetTemplate {
             if (lines[i].length > 3 && lines[i].endsWith('```')) 
             {
                 this.codeblocks.push(lines[i].split('```')[1])
-                htmlcontent.push("<code-block></code-block>");
+                htmlcontent.push("<o-codeblock></o-codeblock>");
             }
             else 
             {
                 let curr = i+1;
                 const lang = lines[i].split('```')[1].trim();
-                htmlcontent.push(`<code-block lang="${lang}"></code-block>`)
+                htmlcontent.push(`<o-codeblock lang="${lang}"></o-codeblock>`)
                 const code:string[] = [];
                 while (!lines[curr].startsWith('```')) {
                     code.push(lines[curr]);

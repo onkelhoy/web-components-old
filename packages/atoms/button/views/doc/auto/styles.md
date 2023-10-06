@@ -1,60 +1,261 @@
-# Documentation
+PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
+ Based on the source code and style code probided. Can you create a documentation that includes titles, short descrition and the table for each tables: css-variables, parts, slots.
+css-variables should be a table with columns: (name, default-value, type - ex. CSS unit, description).
+parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
+slots should include columns: (name, default-value, description)
 
-## Table of Contents
-- [css-variables](#css-variables)
-- [parts](#parts)
-- [slots](#slots)
+## SOURCE-CODE:
+import { property, Size } from '@henry2/tools-utils';
+import { BoxTemplate } from '@henry2/templates-box';
 
-## `Button` Class
+import { style } from './style.js';
 
-### Description
-The `Button` class is a custom button element that extends the `BoxTemplate` class. It provides customizable properties and styling options for buttons.
+import type { ButtonMode, ButtonVariant, ButtonColorVariant } from './types';
 
-### Usage
-```html
-<button is="circular-button"></button>
-```
+// TODO extend form-element-template
+export class Button extends BoxTemplate {
+    static style = style;
+    
+    @property({ rerender: false, onUpdate: "ontypeupdate" }) type: "button" | "link" | "submit" | "reset" = "button"; // TODO link
+    @property({ rerender: false }) size: Size = "medium";
+    @property({ rerender: false }) mode: ButtonMode = "hug";
+    @property({ rerender: false }) variant: ButtonVariant = "filled";
+    @property({ rerender: false, type: Number }) tabIndex: number = 1;
+    @property({ rerender: false }) color: ButtonColorVariant = "secondary";
 
-### Properties
-| Name      | Type           | Default Value | Description                                                      |
-| --------- | -------------- | ------------- | ---------------------------------------------------------------- |
-| `size`    | `Size`         | `"medium"`    | The size of the button. Possible values: `"small"`, `"medium"`, `"large"`. |
-| `mode`    | `ButtonMode`   | `"hug"`       | The mode of the button. Possible values: `"hug"`, `"fill"`.      |
-| `variant` | `ButtonVariant`| `"filled"`    | The variant style of the button. Possible values: `"filled"`, `"underlined"`, `"outlined"`. |
-| `tabIndex`| `number`       | `1`           | The tab index of the button.                                     |
+    private formelement?: HTMLFormElement;
 
-### CSS Variables
-#### `css-variables` Table
-| Name                 | Default Value | Type          | Description                                               |
-| -------------------- | ------------- | ------------- | --------------------------------------------------------- |
-| `--button-cursor`    | `pointer`     |               | The cursor style for the button.                          |
-| `--button-font-family`| `var(--font-family, inherit)`|       | The font family for the button.                      |
-| `--button-padding`   |               | CSS unit      | The padding for the button.                                |
-| `--button-border-width` |          | CSS unit      | The border width for the button.                           |
-| `--button-background-color-<variant>` |  |           | The background color for the specified variant.           |
-| `--button-text-color-<variant>` |        |               | The text color for the specified variant.                 |
-| `--button-background-color-<variant>-hover` | |         | The background color for the specified variant when hovered.   |
-| `--button-text-color-<variant>-hover` |   |              | The text color for the specified variant when hovered.         |
-| `--button-background-color-<variant>-active` | |      | The background color for the specified variant when active.    |
-| `--button-text-color-<variant>-active` |    |             | The text color for the specified variant when active.          |
-| `--button-background-color-<variant>-disabled` | |   | The background color for the specified variant when disabled.  |
-| `--button-text-color-<variant>-disabled` |  |              | The text color for the specified variant when disabled.        |
-| `--button-cursor-disabled` | `not-allowed` |            | The cursor style for the disabled button.                   |
+    connectedCallback(): void {
+        super.connectedCallback();
+        this.addEventListener("click", this.handleclick, true);
 
-### Parts
-#### `parts` Table
-| Name | Description |
-| ---- | ----------- |
-| `left` | The left slot of the button. |
-| `right` | The right slot of the button. |
+        window.addEventListener('keyup', this.handlekeyup);
+        // NOTE should this be a standard?
+        this.role = "button";
+    }
+    disconnectedCallback(): void {
+        super.disconnectedCallback();
+        window.removeEventListener('keyup', this.handlekeyup);
+    }
 
-### Slots
-#### `slots` Table
-| Name | Default Value | Description |
-| ---- | ------------- | ----------- |
-| `left` | `<span> </span>` | The content placed in the left slot of the button. |
-|        |               | 
-|        |               | 
-| `right` | `<span> </span>` | The content placed in the right slot of the button. |
+    // handle update
+    private ontypeupdate = () => {
+        if (!["submit", "reset"].includes(this.type)) this.formelement = undefined;
+        else 
+        {
+            setTimeout(() => {
+                // form in case of initial and not dynamic (most cases) needs to load ?
+                if (!this.formelement) {
+                    this.formelement = this.shadow_closest<HTMLFormElement>("form");
+                }
+            }, 100);
+        }
+    }
+    
+    // event handlers
+    private handlekeyup = (e:KeyboardEvent) => {
+        if ((e.key || e.code).toLowerCase() === "enter")
+        {
+            if (this.hasFocus)
+            {
+                this.dispatchEvent(new Event('click'));
+            }
+        }
+    }
+    private handleclick = (e:Event) => {
+        if (this.formelement) 
+        {
+            if (this.type === "submit")
+            {
+                this.formelement.requestSubmit();
+            }
 
-Note: The
+            else if (this.type === "reset")
+            {
+                this.formelement.reset();
+            }
+        }
+    }
+
+    render() {
+        return `
+            <slot name="prefix"><span> </span></slot>
+            <slot></slot>
+            <slot name="suffix"><span> </span></slot>
+        `;
+    }
+}
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "o-button": Button;
+    }
+}
+## STYLE-CODE:
+// value maps
+$size-map: (
+  small: (
+    height: var(--field-size-small),
+    padding: 0.5rem,
+    border-width: 1px,
+  ),
+  medium: (
+    height: var(--field-size-medium),
+    padding: 1rem,
+    border-width: 1px,
+  ),
+  large: (
+    height: var(--field-size-large),
+    padding: 1rem,
+    border-width: 1px,
+  ),
+);
+
+:host {
+    cursor: var(--button-cursor, pointer);
+    align-items: center;
+    font-family: var(--button-font-family, var(--font-family, inherit));
+
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    box-sizing: border-box;
+    position: relative;
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+
+    background-color: var(--background);
+    color: var(--color);
+}
+
+:host([mode="hug"]) {
+    display: inline-flex;
+}
+:host([mode="fill"]) {
+    display: flex;
+}
+
+@each $name, $value in $size-map {
+    :host([size="#{$name}"]) {
+        height: var(--button-height-#{$name}, var(--height-#{$name}, #{map-get($value, height)}));
+        padding: var(--button-padding-#{$name}, var(--padding-#{$name}, #{map-get($value, padding)}));
+        border-width: var(--button-border-width-#{$name}, var(--border-width-#{$name}, #{map-get($value, border-width)}));
+    }
+}
+
+// set the color variables
+$colors: (
+  primary: (color: white, base: primary),
+  danger: (color: white, base: danger),
+  success: (color: white, base: success),
+  warning: (color: white, base: warning),
+  secondary: (color: black, base: neutral),
+  brand: (color: black, base: neutral)
+);
+
+@each $name, $properties in $colors {
+  $base: map-get($properties, 'base');
+  $color: map-get($properties, 'color');
+  
+  :host([color="#{$name}"]) {
+    --button-background: var(--o-color-#{$base}-500);
+    --button-color: var(--o-color-#{$color});
+
+    --button-background-hover: var(--o-color-#{$base}-700);
+    --button-color-hover: var(--o-color-#{$color});
+
+    --button-background-active: var(--o-color-#{$base}-600);
+    --button-color-active: var(--o-color-#{$color});
+
+    --button-background-disabled: var(--o-color-neutral-300);
+    --button-color-disabled: var(--o-color-neutral-700);
+  }
+}
+
+// :host([color="secondary"]) {
+//     --button-background: var(--o-color-neutral-100);
+//     --button-color: var(--o-color-text);
+
+//     --button-background-hover: var(--o-color-neutral-300);
+//     --button-color-hover: var(--o-color-black);
+
+//     --button-background-active: var(--o-color-neutral-200);
+//     --button-color-active: var(--o-color-black);
+// }
+
+:host([disabled]) {
+    cursor: var(--button-cursor-disabled, not-allowed);
+}
+
+// filled
+:host([variant="filled"]) {
+    --background: var(--button-background-color-filled, var(--button-background));
+    --color: var(--button-text-color-filled, var(--button-color));
+}
+:host([variant="filled"]:hover) {
+    --background: var(--button-background-color-filled-hover, var(--button-background-hover));
+    --color: var(--button-text-color-filled-hover, var(--button-color-hover));
+}
+:host([variant="filled"]:active) {
+    --background: var(--button-background-color-filled-active, var(--button-background-active));
+    --color: var(--button-text-color-filled-active, var(--button-color-active));
+}
+:host([variant="filled"][disabled]) {
+    --background: var(--button-background-color-filled-disabled, var(--button-background-disabled));
+    --color: var(--button-text-color-filled-disabled, var(--button-color-disabled));
+}
+
+// outlined
+:host([variant="outlined"]) {
+    border-color: var(--button-border-color-outlined, var(--button-background));
+    border-style: var(--button-border-style, solid);
+    --background: transparent;
+}
+:host([variant="outlined"]:hover) {
+    border-color: var(--button-border-color-outlined-hover, var(--button-background-hover));
+    --background: var(--o-button-outlined-hover-background, var(--o-color-hover-200));
+}
+:host([variant="outlined"]:active) {
+    border-color: var(--button-border-color-outlined-active, var(--button-background-active));
+    --background: var(--o-button-outlined-active-background, var(--o-color-hover-400));
+}
+:host([variant="outlined"][disabled]) {
+    border-color: var(--button-border-color-outlined-disabled, var(--button-background-disabled));
+    --color: var(--o-button-outlined-disabled-text-color, var(--button-color-disabled));
+    --background: transparent;
+}
+
+:host([variant="clear"]) {
+    --background: transparent;
+}
+:host([variant="clear"]:hover) {
+    --background: var(--o-button-clear-hover-background, var(--o-color-hover-200));
+}
+:host([variant="clear"]:active) {
+    --background: var(--o-button-clear-active-background, var(--o-color-hover-400));
+}
+:host([variant="clear"][disabled]) {
+    --color: var(--o-button-clear-disabled-text-color, var(--button-color-disabled));
+    --background: transparent;
+}
+
+// underlined
+:host([variant="underlined"]) {
+    --background: transparent;
+    text-decoration: underline;
+    text-underline-offset: var(--gap-smaller);
+    text-decoration-thickness: var(--button-underlined-thickness, 1px);
+}
+:host([variant="underlined"]:hover) {
+    text-decoration-thickness: var(--button-underlined-hover-thickness, 2px);
+}
+:host([variant="underlined"]:active) {
+    text-decoration-thickness: var(--button-underlined-active-thickness, 3px);
+}
+:host([variant="underlined"][disabled]) {
+    text-decoration-thickness: var(--button-underlined-disabled-thickness, 1px);
+    --color: var(--o-button-underlined-disabled-text-color, var(--button-color-disabled));
+    --background: transparent;
+}

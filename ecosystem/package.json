@@ -21,13 +21,13 @@
     "author": "Henry Pap",
     "private": false,
     "license": "ISC",
-    "repository" : {
-        "type" : "git",
-        "url" : "https://github.com/onkelhoy/web-components.git"
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/onkelhoy/web-components.git"
     },
     "devDependencies": {
-        "@henry2/tools-doc": "^1.0.0",
         "@henry2/icon": "^1.0.0",
+        "@henry2/tools-doc": "^1.0.0",
         "esbuild": "^0.17.18",
         "node-html-parser": "^6.1.5",
         "node-sass": "^9.0.0",
@@ -35,6 +35,7 @@
     },
     "dependencies": {
         "@henry2/templates-base": "^1.0.0",
+        "@henry2/templates-sidebar-header": "^1.0.5",
         "@henry2/tools-utils": "^1.0.0"
     },
     "keywords": [

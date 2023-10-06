@@ -1,0 +1,117 @@
+{
+  "className": "Steps",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/steps",
+  "properties": [
+    {
+      "name": "steps",
+      "type_value": null,
+      "primitive": false,
+      "conditional": false
+    }
+  ],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/molecules/steps": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@henry2/tools-utils"
+      },
+      {
+        "name": "property",
+        "from": "@henry2/tools-utils"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@henry2/templates-base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [],
+    "parts": []
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/steps",
+    "sources": [],
+    "variables": {
+      "--o-steps-border-color-unselected": {
+        "usecases": [
+          "--border-color-unselected"
+        ],
+        "fallbacks": [
+          "var(--o-color-canvas-400)"
+        ]
+      },
+      "--o-color-canvas-400": {
+        "usecases": [
+          "--border-color-unselected"
+        ],
+        "fallbacks": []
+      },
+      "--o-steps-border-color-selected": {
+        "usecases": [
+          "--border-color-selected"
+        ],
+        "fallbacks": [
+          "var(--o-color-CB-800)"
+        ]
+      },
+      "--o-color-CB-800": {
+        "usecases": [
+          "--border-color-selected"
+        ],
+        "fallbacks": []
+      },
+      "--border-color-selected": {
+        "usecases": [
+          "--o-steps-circle-selected-color",
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--border-color-unselected": {
+        "usecases": [
+          "--o-steps-circle-stale-color",
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--padding-small": {
+        "usecases": [
+          "padding-block"
+        ],
+        "fallbacks": []
+      },
+      "--unit-size5": {
+        "usecases": [
+          "gap"
+        ],
+        "fallbacks": []
+      },
+      "--o-color-white": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--padding-medium": {
+        "usecases": [
+          "padding"
+        ],
+        "fallbacks": []
+      },
+      "--padding-large": {
+        "usecases": [],
+        "fallbacks": []
+      }
+    }
+  }
+}

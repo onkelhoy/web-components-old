@@ -1,6 +1,6 @@
 :host {
     --background: var(--o-tooltip-background-color-light, var(--o-color-black, black));
-    --color: var(--o-tooltip-text-color-light, var(--o-color-white, white));
+    --color: var(--o-tooltip-text-color-light, var(--o-color-neutral-50, white));
 
     --popover-gap: var(--o-tooltip-popover-gap, 0.5rem);
 
@@ -98,6 +98,6 @@
 @media (prefers-color-scheme: dark) {
     :host {
         --background: var(--o-tooltip-background-color-dark, var(--o-color-black, white));
-        --color: var(--o-tooltip-text-color-dark, var(--o-color-white, black));
+        --color: var(--o-tooltip-text-color-dark, var(--o-color-neutral-50, black));
     }
 }

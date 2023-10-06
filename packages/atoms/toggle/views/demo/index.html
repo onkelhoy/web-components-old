@@ -15,15 +15,26 @@
 </head>
 <body>
     <doc-card>
-        <code-block lang="html" display="both">
+        <o-codeblock lang="html" display="both">
             <o-toggle></o-toggle>
-        </code-block>
+            <o-toggle size="medium"></o-toggle>
+            <o-toggle size="large"></o-toggle>
+        </o-codeblock>
     </doc-card>
 
     <doc-card>
-        <code-block lang="html" display="both">
+        <o-codeblock lang="html" display="both">
+            <o-toggle>
+                <span slot="prefix">pre</span>
+                <span slot="suffix">suf</span>
+            </o-toggle>
+        </o-codeblock>
+    </doc-card>
+
+    <doc-card>
+        <o-codeblock lang="html" display="both">
             <o-toggle label="Hello World"></o-toggle>
-        </code-block>
+        </o-codeblock>
     </doc-card>
 </body>
 </html>

@@ -2,18 +2,15 @@
 $size-map: (
   small: (
     height: var(--field-size-small),
-    font-size: 0.8rem,
     padding: 0.5rem,
     border-width: 1px,
   ),
   medium: (
-    font-size: 1rem,
     height: var(--field-size-medium),
     padding: 1rem,
     border-width: 1px,
   ),
   large: (
-    font-size: 1.2rem,
     height: var(--field-size-large),
     padding: 1rem,
     border-width: 1px,
@@ -24,7 +21,6 @@ $size-map: (
     cursor: var(--button-cursor, pointer);
     align-items: center;
     font-family: var(--button-font-family, var(--font-family, inherit));
-    font-weight: var(--o-font-weight-semibold);
 
     justify-content: space-between;
     gap: 0.5rem;
@@ -49,7 +45,6 @@ $size-map: (
 
 @each $name, $value in $size-map {
     :host([size="#{$name}"]) {
-        font-size: var(--button-font-size-#{$name}, var(--font-size-#{$name}, #{map-get($value, font-size)}));
         height: var(--button-height-#{$name}, var(--height-#{$name}, #{map-get($value, height)}));
         padding: var(--button-padding-#{$name}, var(--padding-#{$name}, #{map-get($value, padding)}));
         border-width: var(--button-border-width-#{$name}, var(--border-width-#{$name}, #{map-get($value, border-width)}));
@@ -85,16 +80,16 @@ $colors: (
   }
 }
 
-:host([color="secondary"]) {
-    --button-background: var(--o-color-neutral-100);
-    --button-color: var(--o-color-black);
+// :host([color="secondary"]) {
+//     --button-background: var(--o-color-neutral-100);
+//     --button-color: var(--o-color-text);
 
-    --button-background-hover: var(--o-color-neutral-300);
-    --button-color-hover: var(--o-color-black);
+//     --button-background-hover: var(--o-color-neutral-300);
+//     --button-color-hover: var(--o-color-black);
 
-    --button-background-active: var(--o-color-neutral-200);
-    --button-color-active: var(--o-color-black);
-}
+//     --button-background-active: var(--o-color-neutral-200);
+//     --button-color-active: var(--o-color-black);
+// }
 
 :host([disabled]) {
     cursor: var(--button-cursor-disabled, not-allowed);

@@ -58,10 +58,11 @@ export class Theme extends BaseTemplate {
   }
 
   // private functions 
-  private setlightdark(mode: LightDarkTheme) {
-    window.sessionStorage.setItem("o-lightdarktheme", mode);
+  private setlightdark(value: LightDarkTheme) {
+    window.sessionStorage.setItem("o-lightdarktheme", value);
+    window.dispatchEvent(new CustomEvent("theme-appearance-change", { detail: { value } }));
     document.documentElement.classList.remove('theme-light', 'theme-dark');
-    document.documentElement.classList.add(`theme-${mode}`);
+    document.documentElement.classList.add(`theme-${value}`);
   }
 
   // event handlers 
@@ -132,18 +133,20 @@ export class Theme extends BaseTemplate {
     }
   }
   private handleselect = (e:Event) => {
-    if (e.target instanceof Menu)
+    const menu = e.target as Menu;
+    if (menu)
     {
-      if (window.oTheme.current !== e.target.value)
+      if (window.oTheme.current !== menu.value)
       {
-        window.oTheme.change(e.target.value);
+        window.oTheme.change(menu.value);
       }
     }
   }
   private handlechange = (e:Event) => {
-    if (e.target instanceof Toggle) 
+    const toggle = e.target as Toggle;
+    if (toggle) 
     {
-      this.setlightdark(e.target.checked ? "dark" : "light");
+      this.setlightdark(toggle.checked ? "dark" : "light");
     }
   }
 

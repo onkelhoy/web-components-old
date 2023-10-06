@@ -23,18 +23,18 @@ export class Header extends BaseTemplate {
     // event handlers 
     
     private handleuserselect = (e:Event) => {
-        
+        console.log('select user', e)
     }
-    private handlelightnessselect = (e:Event) => {
-        if (e.target instanceof Menu)
-        {
-            this.classList.remove('light-mode', 'dark-mode');
-            if (e.target.value !== "auto") 
-            {
-                this.classList.add(`${e.target.value}-mode`);
-            }
-        }
-    }
+    // private handlelightnessselect = (e:Event) => {
+    //     if (e.target instanceof Menu)
+    //     {
+    //         this.classList.remove('light-mode', 'dark-mode');
+    //         if (e.target.value !== "auto") 
+    //         {
+    //             this.classList.add(`${e.target.value}-mode`);
+    //         }
+    //     }
+    // }
 
     render() {
         const avatarlink = this.user?.avatar || `public/images/avatar${Math.round(Math.random() * 4) + 1}.png`

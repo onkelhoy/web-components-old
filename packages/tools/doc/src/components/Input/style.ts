@@ -1,6 +1,6 @@
 export const style = `:host {
-  --background: var(--o-color-white);
-  --color: var(--o-color-black);
+  --background: var(--o-color-neutral-50);
+  --color: var(--o-color-text);
   font-family: inherit;
   font-size: 12pt;
   display: block; }

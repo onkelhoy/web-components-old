@@ -15,7 +15,7 @@
     <div id="target">
       <o-toggle>
         
-      <div slot="label" data-slotname="label">
+      <div slot="header" data-slotname="header">
         <o-typography></o-typography>
       </div>
      
@@ -39,10 +39,14 @@
         <o-tab id="html">HTML</o-tab>
         <o-tab class="selected" id="properties">Properties</o-tab>
         <o-tab id="css">CSS</o-tab>
-        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: label" variant="textarea" name="slot-label" data-slotname="label" value="<o-typography></o-typography>"></doc-input><doc-input label="HTML slot: prefix" variant="textarea" name="slot-prefix" data-slotname="prefix" value="<span> </span>"></doc-input><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="<p>Hello World</p>"></doc-input><doc-input label="HTML slot: suffix" variant="textarea" name="slot-suffix" data-slotname="suffix" value="<span> </span>"></doc-input></div></o-tab-content>
+        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: header" variant="textarea" name="slot-header" data-slotname="header" value="<o-typography></o-typography>"></doc-input><doc-input label="HTML slot: prefix" variant="textarea" name="slot-prefix" data-slotname="prefix" value="<span> </span>"></doc-input><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="<p>Hello World</p>"></doc-input><doc-input label="HTML slot: suffix" variant="textarea" name="slot-suffix" data-slotname="suffix" value="<span> </span>"></doc-input></div></o-tab-content>
         <o-tab-content id="properties"><h3 data-subtitle="FieldTemplate Properties">FieldTemplate Properties</h3><div data-name="FieldTemplate Properties" class="properties">
-            <doc-input data-prop-name="name" value="" name="name" label="name"></doc-input>
-          
+        <doc-input data-prop-name="counterElement" variant="textarea" value="" name="counterElement" label="counterElement - HTMLSpanElement"></doc-input>
+      
+        <doc-input data-prop-name="errorText" variant="textarea" value="" name="errorText" label="errorText - Typography"></doc-input>
+      
+        <doc-input data-prop-name="warningText" variant="textarea" value="" name="warningText" label="warningText - Typography"></doc-input>
+      
         <doc-input data-prop-name="message" variant="textarea" value="" name="message" label="message - Message"></doc-input>
       
             <doc-input data-prop-name="label" value="" name="label" label="label"></doc-input>
@@ -56,11 +60,27 @@
           <doc-radio name="readonly" data-prop-name="readonly" label="readonly" value=""></doc-radio>
         
             <doc-input data-prop-name="value" value="" name="value" label="value"></doc-input>
+          
+        <doc-input data-prop-name="customError" variant="textarea" value="" name="customError" label="customError - FieldValidityState"></doc-input>
+      
+        <doc-input data-prop-name="customWarning" variant="textarea" value="" name="customWarning" label="customWarning - FieldValidityState"></doc-input>
+      
+          <doc-input data-prop-name="max" variant="number" value="" name="max" label="max"></doc-input>
+        
+          <doc-input data-prop-name="min" variant="number" value="" name="min" label="min"></doc-input>
+        
+          <doc-input data-prop-name="maxLength" variant="number" value="" name="maxLength" label="maxLength"></doc-input>
+        </div><h3 data-subtitle="FormElementTemplate Properties">FormElementTemplate Properties</h3><div data-name="FormElementTemplate Properties" class="properties">
+          <doc-radio name="disabled" data-prop-name="disabled" label="disabled" value=""></doc-radio>
+        
+          <doc-radio name="required" data-prop-name="required" label="required" value=""></doc-radio>
+        
+            <doc-input data-prop-name="name" value="" name="name" label="name"></doc-input>
           </div></o-tab-content>
         <o-tab-content id="css">
       <div data-css-part="/Users/henry/Developer/projects/web-components/packages/atoms/toggle" class="style-source">
         <h3>toggle styles</h3>
-      <div class="style-group" data-style-name="--field-size-small"><doc-input data-css-input="true" name="--field-size-small" label="--field-size-small" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--margin-small"><doc-input data-css-input="true" name="--margin-small" label="--margin-small" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>margin-left</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--o-color-neutral-500"><color-picker-input data-css-input="true" name="--o-color-neutral-500" label="--o-color-neutral-500" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--o-color-white"><color-picker-input data-css-input="true" name="--o-color-white" label="--o-color-white" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--padding-smaller"><doc-input data-css-input="true" name="--padding-smaller" label="--padding-smaller" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--radius-max"><doc-input data-css-input="true" name="--radius-max" label="--radius-max" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>border-radius</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div></div>
+      <div class="style-group" data-style-name="--field-size-smaller"><doc-input data-css-input="true" name="--field-size-smaller" label="--field-size-smaller" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--margin-small"><doc-input data-css-input="true" name="--margin-small" label="--margin-small" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>margin-left</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--o-color-neutral-50"><color-picker-input data-css-input="true" name="--o-color-neutral-50" label="--o-color-neutral-50" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--o-color-neutral-500"><color-picker-input data-css-input="true" name="--o-color-neutral-500" label="--o-color-neutral-500" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--padding-smaller"><doc-input data-css-input="true" name="--padding-smaller" label="--padding-smaller" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--radius-max"><doc-input data-css-input="true" name="--radius-max" label="--radius-max" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>border-radius</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div></div>
     </o-tab-content>
       </o-tabs>
     </section>

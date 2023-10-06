@@ -6,7 +6,8 @@
   --unit-size4: 24px;
   --unit-size5: 32px;
   --unit-size6: 40px;
-  --unit-size7: 56px;
+  --unit-size7: 48px;
+  --unit-size8: 56px;
 
   /* PADDINGS */ 
   --padding-smaller: var(--unit-size1);
@@ -30,7 +31,7 @@
   --field-size-smaller: var(--unit-size4);
   --field-size-small: var(--unit-size5);
   --field-size-medium: var(--unit-size6);
-  --field-size-large: var(--unit-size7);
+  --field-size-large: var(--unit-size8);
 
   /* TIMINGS */
   --timing-fast: 80ms;

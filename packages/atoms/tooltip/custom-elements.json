@@ -101,7 +101,7 @@
           "--color"
         ],
         "fallbacks": [
-          "var(--o-color-white, white)"
+          "var(--o-color-neutral-50, white)"
         ]
       },
       "--o-color-white": {
@@ -182,7 +182,7 @@
           "--color"
         ],
         "fallbacks": [
-          "var(--o-color-white, black)"
+          "var(--o-color-neutral-50, black)"
         ]
       }
     }

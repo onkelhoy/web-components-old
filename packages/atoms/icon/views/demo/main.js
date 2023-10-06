@@ -2,7 +2,7 @@
 import '@henry2/tools-doc/wc';
 
 // component
-import '@henry2/icon/bundle-wc';
+import '@henry2/icon/wc';
 
 const circleIcons = [
     "circle_empty",

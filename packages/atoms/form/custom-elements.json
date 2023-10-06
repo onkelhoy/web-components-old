@@ -40,6 +40,34 @@
       },
       "primitive": false,
       "conditional": false
+    },
+    {
+      "name": "formElement",
+      "type": "HTMLFormElement",
+      "type_value": {
+        "acceptCharset": null,
+        "action": null,
+        "autocomplete": null,
+        "elements": null,
+        "encoding": null,
+        "enctype": null,
+        "length": null,
+        "method": null,
+        "name": null,
+        "noValidate": null,
+        "rel": null,
+        "relList": null,
+        "target": null,
+        "checkValidity": null,
+        "reportValidity": null,
+        "requestSubmit": null,
+        "reset": null,
+        "submit": null,
+        "addEventListener": null,
+        "removeEventListener": null
+      },
+      "primitive": false,
+      "conditional": false
     }
   ],
   "extend_class": null,
@@ -78,7 +106,20 @@
         "html": ""
       }
     ],
-    "parts": []
+    "parts": [
+      {
+        "name": "form",
+        "tag": "FORM"
+      },
+      {
+        "name": "message-wrapper",
+        "tag": "DIV"
+      },
+      {
+        "name": "message",
+        "tag": "O-MESSAGE"
+      }
+    ]
   },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/form",

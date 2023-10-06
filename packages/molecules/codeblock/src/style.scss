@@ -1,0 +1,108 @@
+:host {
+    display: block;
+    margin-block: var(--margin-medium);
+    color: var(--o-color-text);
+
+    .string {
+        color: var(--o-color-text-warning);
+    }
+    .keyword {
+        color: var(--o-color-text-danger);
+
+        &.class,
+        &.implements,
+        &.extends,
+        &.this,
+        &.function {
+            color: var(--o-color-primary-500);
+        }
+    }
+    .function-arg {
+        color: var(--o-color-text-warning);
+    }
+    .function-name {
+        color: var(--o-color-text-brand-strong);
+    }
+    div.line {
+        min-height: 12px;
+        color: var(--o-color-text);
+    }
+
+    .html-attribute {
+        padding-left: var(--padding-smaller);
+        .html-attribute-name {
+            color: var(--o-color-primary-700);
+        }
+        .html-attribute-value {
+            color: var(--o-color-text-warning);
+        }
+    }
+
+    .html-tag {
+        color: var(--o-color-neutral-700);
+    }
+    .html-tag-name {
+        color: var(--o-color-primary-500);
+    }
+
+    code {
+        o-box-template {
+            background-color: var(--o-color-bg-secondary);
+            overflow: hidden;
+            display: block;
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: inherit;
+                background-color: var(--o-color-bg-tertiary);
+        
+                & > o-typography {
+                    text-indent: var(--padding-medium);
+                }
+
+                o-toggle {
+                    color: var(--o-color-text);
+                }
+        
+                o-button {
+                    o-icon[name="done"] {
+                        display: none;
+                    }
+                    o-icon[name="content_paste"] {
+                        display: initial;
+                    }
+                }
+            }
+        
+            main {
+                min-height: var(--unit-size5);
+                padding: var(--padding-medium) var(--padding-large);
+            }
+        }
+    }
+
+    fieldset {
+        background-color: var(--o-color-bg);
+        legend {
+            // TODO - how to display so in opposite color (theme-switch) 
+        }
+    }
+}
+
+:host([display="code"]) fieldset {
+    display: none;
+}
+
+:host(.copied) {
+    header {
+        o-button {
+            o-icon[name="done"] {
+                display: initial;
+            }
+            o-icon[name="content_paste"] {
+                display: none;
+            }
+        }
+    }
+}

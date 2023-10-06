@@ -14,6 +14,8 @@ export class Toggle extends FieldTemplate {
     constructor() {
         super();
 
+        this.size = "small";
+
         this.addEventListener("click", this.handleclick);
         this.addEventListener("keyup", this.handlekeyup);
     }

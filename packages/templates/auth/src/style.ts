@@ -5,7 +5,7 @@ export const style = `:host {
   grid-template-columns: 2fr 4fr 50% 4fr 2fr;
   grid-template-areas: "t t logo t2 t2" "z welcome welcome welcome z2" "k k note k2 k2" "k k form k2 k2" "k3 footer footer footer k4";
   justify-content: center;
-  background-color: var(--o-color-white);
+  background-color: var(--o-color-neutral-50);
   position: relative;
   height: 100vh; }
   :host div.logo {

@@ -8,13 +8,13 @@ ECODIR=$ROOTDIR/ecosystem
 # extract the subfolders containing "combine.sh"
 subfolders=$(find $ROOTDIR/packages -path "$ROOTDIR/packages/*/.scripts/combine.sh" -exec dirname {} \;)
 
-for subfolder in $subfolders; do
-  package_folder=$(dirname "$subfolder")
+# for subfolder in $subfolders; do
+#   package_folder=$(dirname "$subfolder")
 
-  cd $package_folder
-  sh .scripts/combine.sh
-  cd $ECODIR
-done
+#   cd $package_folder
+#   sh .scripts/combine.sh
+#   cd $ECODIR
+# done
 
 # now each combine has finished
 for subfolder in $subfolders; do

@@ -30,6 +30,18 @@
       ],
       "primitive": false,
       "conditional": false
+    },
+    {
+      "name": "size",
+      "type": "Size",
+      "default_value": "large",
+      "type_value": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "primitive": false,
+      "conditional": false
     }
   ],
   "extend_class": null,
@@ -97,23 +109,23 @@
     "variables": {
       "--o-color-white": {
         "usecases": [
-          "--background"
+          "--menu-background"
         ],
         "fallbacks": []
       },
       "--o-color-black": {
         "usecases": [
-          "--color"
+          "--menu-color"
         ],
         "fallbacks": []
       },
-      "--background": {
+      "--menu-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": []
       },
-      "--color": {
+      "--menu-color": {
         "usecases": [
           "color"
         ],

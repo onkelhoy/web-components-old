@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "web-component library",
   "private": true,
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/onkelhoy/web-components.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onkelhoy/web-components.git"
   },
   "scripts": {
     "init": "sh ./scripts/init.sh",
@@ -28,5 +28,8 @@
   "workspaces": [
     "ecosystem",
     "packages/**/*"
-  ]
+  ],
+  "dependencies": {
+    "@henry2/codeblock": "^1.0.0"
+  }
 }

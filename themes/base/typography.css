@@ -15,7 +15,7 @@
   --o-font-size-4x-large: 3.5rem; /* 56px */
   --o-font-size-5x-large: 4rem; /* 64px */
   --o-font-size-6x-large: 4.5rem; /* 72px */
-  --o-font-size-7x-large: 5.5rem; /* 88px */
+  --o-font-size-7x-large: 5rem; /* 88px */
   --o-font-size-8x-large: clamp(8.75rem, 15vw + 1rem, 15rem); /* 140px */
 
   /* Font weights */
@@ -116,7 +116,7 @@
   --typography-c3-letterspacing: 0.01em;
 
   --typography-c4-fontfamily: var(--o-font-family);
-  --typography-c4-fontsize: var(--o-font-size-small);
+  --typography-c4-fontsize: var(--o-font-size-x-small);
   --typography-c4-fontweight: var(--o-font-weight-normal);
   --typography-c4-lineheight: 20px;
   --typography-c4-letterspacing: 0.01em;
@@ -140,50 +140,50 @@
 } */
 
 /* HEADINGS */
+.typography-heading1-clean,
 .typography-heading1,
+.typography-h1-clean,
 .typography-h1 {
-  text-align: left;
-  display: block;
   font-family: var(--typography-h1-fontfamily);
   font-size: var(--typography-h1-fontsize);
   font-weight: var(--typography-h1-fontweight);
   line-height: var(--typography-h1-lineheight);
   letter-spacing: var(--typography-h1-letterspacing);
 }
+.typography-heading2-clean,
 .typography-heading2,
+.typography-h2-clean,
 .typography-h2 {
-  text-align: left;
-  display: block;
   font-family: var(--typography-h2-fontfamily);
   font-size: var(--typography-h2-fontsize);
   font-weight: var(--typography-h2-fontweight);
   line-height: var(--typography-h2-lineheight);
   letter-spacing: var(--typography-h2-letterspacing);
 }
+.typography-heading2-clean,
 .typography-heading2,
+.typography-h3-clean,
 .typography-h3 {
-  text-align: left;
-  display: block;
   font-family: var(--typography-h3-fontfamily);
   font-size: var(--typography-h3-fontsize);
   font-weight: var(--typography-h3-fontweight);
   line-height: var(--typography-h3-lineheight);
   letter-spacing: var(--typography-h3-letterspacing);
 }
+.typography-heading4-clean,
 .typography-heading4,
+.typography-h4-clean,
 .typography-h4 {
-  text-align: left;
-  display: block;
   font-family: var(--typography-h4-fontfamily);
   font-size: var(--typography-h4-fontsize);
   font-weight: var(--typography-h4-fontweight);
   line-height: var(--typography-h4-lineheight);
   letter-spacing: var(--typography-h4-letterspacing);
 }
+.typography-heading5-clean,
 .typography-heading5,
+.typography-h5-clean,
 .typography-h5 {
-  text-align: left;
-  display: block;
   font-family: var(--typography-h5-fontfamily);
   font-size: var(--typography-h5-fontsize);
   font-weight: var(--typography-h5-fontweight);
@@ -192,40 +192,40 @@
 }
 
 /* TITLE */
+.typography-title1-clean,
 .typography-title1,
+.typography-t1-clean,
 .typography-t1 {
-  text-align: left;
-  display: block;
   font-family: var(--typography-t1-fontfamily);
   font-size: var(--typography-t1-fontsize);
   font-weight: var(--typography-t1-fontweight);
   line-height: var(--typography-t1-lineheight);
   letter-spacing: var(--typography-t1-letterspacing);
 }
+.typography-title2-clean,
 .typography-title2,
+.typography-t2-clean,
 .typography-t2 {
-  text-align: left;
-  display: block;
   font-family: var(--typography-t2-fontfamily);
   font-size: var(--typography-t2-fontsize);
   font-weight: var(--typography-t2-fontweight);
   line-height: var(--typography-t2-lineheight);
   letter-spacing: var(--typography-t2-letterspacing);
 }
+.typography-title3-clean,
 .typography-title3,
+.typography-t3-clean,
 .typography-t3 {
-  text-align: left;
-  display: block;
   font-family: var(--typography-t3-fontfamily);
   font-size: var(--typography-t3-fontsize);
   font-weight: var(--typography-t3-fontweight);
   line-height: var(--typography-t3-lineheight);
   letter-spacing: var(--typography-t3-letterspacing);
 }
+.typography-title4-clean,
 .typography-title4,
+.typography-t4-clean,
 .typography-t4 {
-  text-align: left;
-  display: block;
   font-family: var(--typography-t4-fontfamily);
   font-size: var(--typography-t4-fontsize);
   font-weight: var(--typography-t4-fontweight);
@@ -235,20 +235,20 @@
 }
 
 /* COPY */
+.typography-copy1-clean,
 .typography-copy1,
+.typography-c1-clean,
 .typography-c1 {
-  text-align: left;
-  display: block;
   font-family: var(--typography-c1-fontfamily);
   font-size: var(--typography-c1-fontsize);
   font-weight: var(--typography-c1-fontweight);
   line-height: var(--typography-c1-lineheight);
   letter-spacing: var(--typography-c1-letterspacing);
 }
+.typography-copy2-clean,
 .typography-copy2,
+.typography-c2-clean,
 .typography-c2 {
-  text-align: left;
-  display: block;
   font-family: var(--typography-c2-fontfamily);
   font-size: var(--typography-c2-fontsize);
   font-weight: var(--typography-c2-fontweight);
@@ -257,23 +257,55 @@
 }
 /* default case */
 .typography, 
+.typography-clean, 
+.typography-copy3-clean,
 .typography-copy3,
+.typography-c3-clean,
 .typography-c3 {
-  text-align: left;
-  display: block;
   font-family: var(--typography-c3-fontfamily);
   font-size: var(--typography-c3-fontsize);
   font-weight: var(--typography-c3-fontweight);
   line-height: var(--typography-c3-lineheight);
   letter-spacing: var(--typography-c3-letterspacing);
 }
+.typography-copy4-clean,
 .typography-copy4,
+.typography-c4-clean,
 .typography-c4 {
-  text-align: left;
-  display: block;
   font-family: var(--typography-c4-fontfamily);
   font-size: var(--typography-c4-fontsize);
   font-weight: var(--typography-c4-fontweight);
   line-height: var(--typography-c4-lineheight);
   letter-spacing: var(--typography-c4-letterspacing);
+}
+
+
+typography,
+.typography-h1,
+.typography-heading2,
+.typography-h2,
+.typography-heading2,
+.typography-h3,
+.typography-heading4,
+.typography-h4,
+.typography-heading5,
+.typography-h5,
+.typography-title1,
+.typography-t1,
+.typography-title2,
+.typography-t2,
+.typography-title3,
+.typography-t3,
+.typography-title4,
+.typography-t4,
+.typography-copy1,
+.typography-c1,
+.typography-copy2,
+.typography-c2,
+.typography-copy3,
+.typography-c3,
+.typography-copy4,
+.typography-c4 {
+  text-align: left;
+  display: block;
 }

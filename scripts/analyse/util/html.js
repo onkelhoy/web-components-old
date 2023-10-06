@@ -111,6 +111,7 @@ function parser(html) {
 
 async function html_extractor(package_dir, component_name, script_dir) {
   try {
+    console.log('componentname', component_name, package_dir)
     build_html(package_dir, component_name, script_dir);
   
     const port = 3004;

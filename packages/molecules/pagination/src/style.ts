@@ -11,9 +11,4 @@ export const style = `:host {
     text-align: center; }
   :host span.button-group {
     display: flex;
-    justify-content: flex-end; }
-
-@media (prefers-color-scheme: dark) {
-  :host {
-    --background: var(--pagination-dark-background-color, var(--o-color-black, black));
-    --color: var(--pagination-dark-text-color, var(--o-color-white, white)); } }`;
+    justify-content: flex-end; }`;

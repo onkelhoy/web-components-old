@@ -1,0 +1,641 @@
+{
+  "className": "Dropdown",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/dropdown",
+  "properties": [
+    {
+      "name": "multiple",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "placement",
+      "type": "Placement",
+      "default_value": "bottom-left",
+      "type_value": [
+        "top-left",
+        "top-right",
+        "top-center",
+        "bottom-left",
+        "bottom-right",
+        "bottom-center",
+        "left-top",
+        "left-bottom",
+        "left-center",
+        "right-top",
+        "right-bottom",
+        "right-center"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "search",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "options",
+      "type": "Array",
+      "type_value": {
+        "length": null,
+        "toString": null,
+        "toLocaleString": null,
+        "pop": [
+          null,
+          null
+        ],
+        "push": null,
+        "concat": null,
+        "join": null,
+        "reverse": null,
+        "shift": [
+          null,
+          null
+        ],
+        "slice": null,
+        "sort": null,
+        "splice": null,
+        "unshift": null,
+        "indexOf": null,
+        "lastIndexOf": null,
+        "every": null,
+        "some": null,
+        "forEach": null,
+        "map": null,
+        "filter": null,
+        "reduce": null,
+        "reduceRight": null
+      },
+      "primitive": false,
+      "conditional": true
+    },
+    {
+      "name": "popoveropen",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "popoverElement",
+      "type": "PopoverTemplate",
+      "type_value": {
+        "revealby": [
+          "hover",
+          "click"
+        ],
+        "placement": [
+          "top-left",
+          "top-right",
+          "top-center",
+          "bottom-left",
+          "bottom-right",
+          "bottom-center",
+          "left-top",
+          "left-bottom",
+          "left-center",
+          "right-top",
+          "right-bottom",
+          "right-center"
+        ],
+        "hideonoutsideclick": null,
+        "open": null,
+        "outside": null,
+        "connectedCallback": null,
+        "disconnectedCallback": null,
+        "handlemouseenter": null,
+        "handlemouseleave": null,
+        "handlemousedown": null,
+        "handlewindowclick": null,
+        "show": null,
+        "hide": null,
+        "render": null
+      },
+      "primitive": false,
+      "conditional": false
+    }
+  ],
+  "extend_class": {
+    "className": "TextinputTemplate",
+    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/textinput",
+    "properties": [
+      {
+        "name": "placeholder",
+        "type": "string",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      }
+    ],
+    "extend_class": {
+      "className": "FieldTemplate",
+      "folder": "/Users/henry/Developer/projects/web-components/packages/templates/field",
+      "properties": [
+        {
+          "name": "counterElement",
+          "type": "HTMLSpanElement",
+          "type_value": {
+            "addEventListener": null,
+            "removeEventListener": null
+          },
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "name": "errorText",
+          "type": "Typography",
+          "type_value": {
+            "variant": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "T1",
+              "T2",
+              "T3",
+              "T4",
+              "H1",
+              "H2",
+              "H3",
+              "H4",
+              "H5"
+            ],
+            "align": [
+              "center",
+              "justify",
+              "start",
+              "end",
+              "left",
+              "right",
+              "unset",
+              "inherit",
+              "initial"
+            ],
+            "nowrap": null,
+            "render": null
+          },
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "name": "warningText",
+          "type": "Typography",
+          "type_value": {
+            "variant": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "T1",
+              "T2",
+              "T3",
+              "T4",
+              "H1",
+              "H2",
+              "H3",
+              "H4",
+              "H5"
+            ],
+            "align": [
+              "center",
+              "justify",
+              "start",
+              "end",
+              "left",
+              "right",
+              "unset",
+              "inherit",
+              "initial"
+            ],
+            "nowrap": null,
+            "render": null
+          },
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "name": "message",
+          "type": "Message",
+          "type_value": {
+            "type": null,
+            "message": null
+          },
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "size",
+          "type": "Size",
+          "default_value": "medium",
+          "type_value": [
+            "small",
+            "medium",
+            "large"
+          ],
+          "primitive": false,
+          "conditional": false
+        },
+        {
+          "name": "radius",
+          "type": "Radius",
+          "default_value": "small",
+          "type_value": [
+            "small",
+            "medium",
+            "large",
+            "none",
+            "circular"
+          ],
+          "primitive": false,
+          "conditional": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "default_value": false,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "default_value": "",
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "name": "customError",
+          "type": "FieldValidityState",
+          "type_value": {
+            "badInput": null,
+            "customError": null,
+            "patternMismatch": null,
+            "rangeOverflow": null,
+            "rangeUnderflow": null,
+            "stepMismatch": null,
+            "tooLong": null,
+            "tooShort": null,
+            "typeMismatch": null,
+            "valid": null,
+            "valueMissing": null
+          },
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "name": "customWarning",
+          "type": "FieldValidityState",
+          "type_value": {
+            "badInput": null,
+            "customError": null,
+            "patternMismatch": null,
+            "rangeOverflow": null,
+            "rangeUnderflow": null,
+            "stepMismatch": null,
+            "tooLong": null,
+            "tooShort": null,
+            "typeMismatch": null,
+            "valid": null,
+            "valueMissing": null
+          },
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "min",
+          "type": "number",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "maxLength",
+          "type": "number",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "_suffix",
+          "default_value": "<span> </span>",
+          "type_value": null,
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "name": "_prefix",
+          "default_value": "<span> </span>",
+          "type_value": null,
+          "primitive": false,
+          "conditional": true
+        }
+      ],
+      "extend_class": {
+        "className": "FormElementTemplate",
+        "folder": "/Users/henry/Developer/projects/web-components/packages/templates/form-element",
+        "properties": [
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "type_value": null,
+            "primitive": true,
+            "conditional": true
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "type_value": null,
+            "primitive": true,
+            "conditional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "type_value": null,
+            "primitive": true,
+            "conditional": true
+          }
+        ],
+        "extend_class": null
+      }
+    }
+  },
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/templates/form-element": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "property",
+        "from": "@henry2/tools-utils"
+      },
+      {
+        "name": "BaseTemplate",
+        "from": "@henry2/templates-base"
+      }
+    ],
+    "/Users/henry/Developer/projects/web-components/packages/templates/field": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@henry2/tools-utils"
+      },
+      {
+        "name": "query",
+        "from": "@henry2/tools-utils"
+      },
+      {
+        "name": "property",
+        "from": "@henry2/tools-utils"
+      },
+      {
+        "name": "suspense",
+        "from": "@henry2/tools-utils"
+      },
+      {
+        "name": "FormElementTemplate",
+        "from": "@henry2/templates-form-element"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      },
+      {
+        "name": "ValidationAttributes",
+        "from": "./types"
+      }
+    ],
+    "/Users/henry/Developer/projects/web-components/packages/templates/textinput": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "property",
+        "from": "@henry2/tools-utils"
+      },
+      {
+        "name": "FieldTemplate",
+        "from": "@henry2/templates-field"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ],
+    "/Users/henry/Developer/projects/web-components/packages/atoms/dropdown": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@henry2/tools-utils"
+      },
+      {
+        "name": "property",
+        "from": "@henry2/tools-utils"
+      },
+      {
+        "name": "query",
+        "from": "@henry2/tools-utils"
+      },
+      {
+        "name": "suspense",
+        "from": "@henry2/tools-utils"
+      },
+      {
+        "name": "TextinputTemplate",
+        "from": "@henry2/templates-textinput"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      },
+      {
+        "name": "Option",
+        "from": "./components/option"
+      }
+    ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "header",
+        "html": "<o-typography></o-typography>"
+      },
+      {
+        "name": "prefix",
+        "html": "<span> </span>"
+      },
+      {
+        "name": "suffix",
+        "html": "<o-icon customsize=\"13\" name=\"caret\">^</o-icon>"
+      },
+      {
+        "name": "default",
+        "html": "<o-option>Missing Options</o-option>"
+      }
+    ],
+    "parts": [
+      {
+        "name": "header",
+        "tag": "HEADER"
+      },
+      {
+        "name": "wrapper",
+        "tag": "O-BOX-TEMPLATE"
+      },
+      {
+        "name": "footer",
+        "tag": "FOOTER"
+      }
+    ]
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/dropdown",
+    "sources": [],
+    "variables": {
+      "--dropdown-background-light": {
+        "usecases": [
+          "--background"
+        ],
+        "fallbacks": [
+          "var(--o-color-neutral-50)"
+        ]
+      },
+      "--o-color-white": {
+        "usecases": [
+          "--background"
+        ],
+        "fallbacks": []
+      },
+      "--gap-small": {
+        "usecases": [
+          "--popover-gap"
+        ],
+        "fallbacks": []
+      },
+      "--padding-small": {
+        "usecases": [
+          "padding"
+        ],
+        "fallbacks": []
+      },
+      "--background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-field-height-small": {
+        "usecases": [
+          "height"
+        ],
+        "fallbacks": [
+          "var(--field-size-small)"
+        ]
+      },
+      "--field-size-small": {
+        "usecases": [
+          "height"
+        ],
+        "fallbacks": []
+      },
+      "--o-field-block-height-small": {
+        "usecases": [
+          "height"
+        ],
+        "fallbacks": [
+          "var(--field-size-small)"
+        ]
+      },
+      "--o-field-height-medium": {
+        "usecases": [
+          "height"
+        ],
+        "fallbacks": [
+          "var(--field-size-medium)"
+        ]
+      },
+      "--field-size-medium": {
+        "usecases": [
+          "height"
+        ],
+        "fallbacks": []
+      },
+      "--o-field-block-height-medium": {
+        "usecases": [
+          "height"
+        ],
+        "fallbacks": [
+          "var(--field-size-small)"
+        ]
+      },
+      "--o-field-height-large": {
+        "usecases": [
+          "height"
+        ],
+        "fallbacks": [
+          "var(--field-size-large)"
+        ]
+      },
+      "--field-size-large": {
+        "usecases": [
+          "height"
+        ],
+        "fallbacks": []
+      },
+      "--o-field-block-height-large": {
+        "usecases": [
+          "height"
+        ],
+        "fallbacks": [
+          "var(--field-size-small)"
+        ]
+      },
+      "--dropdown-background-dark": {
+        "usecases": [
+          "--background"
+        ],
+        "fallbacks": [
+          "var(--o-color-neutral-50)"
+        ]
+      }
+    }
+  }
+}

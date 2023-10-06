@@ -36,8 +36,8 @@ export class Option extends BaseTemplate {
     }, true);
 
     setTimeout(() => {
-      const dropdown = this.shadow_closest('o-dropdown');
-      if (dropdown instanceof Dropdown)
+      const dropdown = this.shadow_closest<Dropdown>('o-dropdown');
+      if (dropdown)
       {
         dropdown.registerOption(this);
         dropdown.addEventListener("change", this.handledropdownchange);

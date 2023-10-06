@@ -7,7 +7,9 @@ const ATOMICTYPE = process.argv[3];
 const CLASSNAME = process.argv[4];
 
 const FOLDERNAME = `${ATOMICTYPE}-${PACKAGENAME}`;
-const IDNAME = `${ATOMICTYPE}_${PACKAGENAME}`;
+const IDNAME = `${ATOMICTYPE}_${PACKAGENAME}`
+    .replace('.', '_')
+    .replace('-', '_');
 
 // helper function
 function fixCSS(css) {
@@ -86,11 +88,16 @@ document
   );
 
 // add the link in the sidebar 
-document
-  .querySelector(`side-menu menu-item[data-sidemenu-name="${ATOMICTYPE}"]`)
-  .appendChild(
-    parse(`<menu-item slot="sub" data-target="${IDNAME}">${CLASSNAME}</menu-item>`)
+const navbaritem = document
+  .querySelector(`o-navbar-item#${ATOMICTYPE}`)
+
+if (navbaritem)
+{
+  navbaritem.setAttribute('count', Number(navbaritem.getAttribute('count') || 0) + 1)
+  navbaritem.appendChild(
+    parse(`<o-navbar-item id="${IDNAME}" text="${CLASSNAME}"></o-navbar-item>`)
   )
+}
 
 // fix the links 
 targetdoc

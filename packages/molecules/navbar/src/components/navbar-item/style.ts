@@ -1,14 +1,14 @@
 export const style = `:host {
-  --button-color: var(--o-navbaritem-text-color-light, var(--o-color-neutral-600, #8A8D96));
-  --button-color-selected: var(--o-navbaritem-text-color-selected-light, var(--o-color-black, #000000));
-  --button-background: var(--o-navbaritem-background-light, var(--o-color-white, white));
-  --button-background-selected: var(--o-navbaritem-background-selected-light, var(--o-color-neutral-100, #F1F1F4));
-  --button-background-hover: var(--o-navbaritem-background-hover-light, var(--o-color-neutral-100, #F1F1F4));
-  --button-background-active: var(--o-navbaritem-background-active-light, var(--o-color-neutral-100, #F1F1F4));
-  --indicator: var(--button-background);
+  --nv-button-color: var(--o-navbaritem-text-color-light, var(--o-color-text-secondary, #6E7087));
+  --nv-button-color-selected: var(--o-navbaritem-text-color-selected-light, var(--o-color-text-ontertiary, #29292F));
+  --nv-button-background: var(--o-navbaritem-background-light, var(--o-color-bg, #FFFFFF));
+  --nv-button-background-selected: var(--o-navbaritem-background-selected-light, var(--o-color-bg-tertiary, #EAEBEF));
+  --nv-button-background-hover: var(--o-navbaritem-background-hover-light, var(--o-color-bg-tertiary, #EAEBEF));
+  --nv-button-background-active: var(--o-navbaritem-background-active-light, var(--o-color-bg-tertiary, #EAEBEF));
+  --indicator: var(--nv-button-background);
   --indicator-selected: var(--o-navbaritem-indicator-selected-light, var(--o-color-primary-600, #009DD3));
-  --count-border: var(--o-navbaritem-count-border-color-light, var(--o-color-neutral-100, #F1F1F4));
-  --count-background: var(--o-navbaritem-count-background-color-light, var(--neutral-100, #ffffff));
+  --count-border: var(--o-navbaritem-count-border-color-light, var(--o-color-border-secondary, #DADDE3));
+  --count-background: var(--o-navbaritem-count-background-color-light, var(--o-color-bg-secondary, #F6F7F8));
   --count-background-selected: var(--o-navbaritem-count-background-color-selected-light, var(--neutral-200, #F8F8F8)); }
 
 :host {
@@ -16,12 +16,12 @@ export const style = `:host {
   min-width: 56px;
   container-type: inline-size; }
   :host o-button {
-    --button-text-color-filled: var(--button-color);
-    --button-text-color-filled-hover: var(--button-color-selected);
-    --button-text-color-filled-active: var(--button-color-selected);
-    --button-background-color-filled: var(--button-background);
-    --button-background-color-filled-hover: var(--button-background-hover);
-    --button-background-color-filled-active: var(--button-background-active); }
+    --button-text-color-filled: var(--nv-button-color);
+    --button-text-color-filled-hover: var(--nv-button-color-selected);
+    --button-text-color-filled-active: var(--nv-button-color-selected);
+    --button-background-color-filled: var(--nv-button-background);
+    --button-background-color-filled-hover: var(--nv-button-background-hover);
+    --button-background-color-filled-active: var(--nv-button-background-active); }
     :host o-button span[slot="prefix"] {
       width: 40px;
       height: 40px;
@@ -43,13 +43,13 @@ export const style = `:host {
       gap: 12px;
       white-space: nowrap; }
     :host o-button:hover {
-      --indicator: var(--button-background-hover); }
+      --indicator: var(--nv-button-background-hover); }
     :host o-button:active {
-      --indicator: var(--button-background-active); }
+      --indicator: var(--nv-button-background-active); }
     :host o-button o-box-template.counter {
       background-color: var(--count-background);
       border: 1px solid var(--count-border);
-      color: var(--button-color);
+      color: var(--nv-button-color);
       width: 48px;
       display: inline-flex;
       justify-content: center;
@@ -72,8 +72,8 @@ export const style = `:host {
 :host(.selected) {
   --indicator: var(--indicator-selected); }
   :host(.selected) o-button {
-    --button-background-color-filled: var(--button-background-selected);
-    --button-text-color-filled: var(--button-color-selected); }
+    --button-background-color-filled: var(--nv-button-background-selected);
+    --button-text-color-filled: var(--nv-button-color-selected); }
     :host(.selected) o-button:hover {
       --indicator: var(--indicator-selected); }
     :host(.selected) o-button:active {

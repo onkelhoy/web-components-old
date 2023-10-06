@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codeblock demo</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <doc-card>
+        <o-codeblock display="both">
+            <o-button variant="outlined" color="primary">
+                hello
+            </o-button>
+
+            <o-button 
+                variant="outlined" 
+                color="primary"
+                radius="small"
+            >
+                hello HEHEHEH
+            </o-button>
+
+            <div>
+                <p>hello world</p>
+                <a href="#"><p>bajskaka</p></a>
+
+                <div>
+                    <h1>Hello World?</h1>
+                </div>
+            </div>
+        </o-codeblock>
+
+        <o-codeblock display="both">
+            <o-button 
+                variant="outlined" 
+                color="primary"
+                class="special"
+            >
+                hello
+            </o-button>
+
+            <style>
+                o-button.special {
+                    color: blue;
+                    background-color: red;
+                }
+            </style>
+        </o-codeblock>
+
+        <o-codeblock>
+            function hello(arg1 = "hejsan", arg2) {
+                return arg1 + " - " + arg2;
+            }
+
+            class A extends B implements C {
+                constructor(a = "hello") {
+                    this.a = a;
+                }
+            }
+
+            async function doSomething(foo:Bar) {
+                const res = await fetch(foo);
+            }
+
+            hello("foo", "bar");
+
+
+            im just some stupid text lets see how it would behave?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum dicta, ipsa consequuntur eligendi fugit neque esse architecto veniam fugiat optio expedita eos molestias quos delectus deserunt rem cum libero est.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas consequuntur, ratione maxime deserunt placeat numquam sint tenetur eligendi accusantium obcaecati assumenda magni quisquam excepturi, quia laudantium enim eaque. In, at!
+        </o-codeblock>
+
+        <o-codeblock themetoggle="false">
+            function MyComponent(arg1 = "hejsan", arg2) {
+
+                return (
+                    <h1>Hello world</h1>                    
+                )
+            }
+        </o-codeblock>
+    </doc-card>
+</body>
+</html>

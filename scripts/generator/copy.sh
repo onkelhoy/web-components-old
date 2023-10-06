@@ -44,7 +44,7 @@ if [[ "$atomic_type" == "pages" || "$atomic_type" == "templates" || "$atomic_typ
 
     # Create the result variable using the classname and the uppercase_singular_atomic_type
     classname="${classname}${uppercase_singular_atomic_type}"
-    package_name="-${atomic_type}"
+    package_name="${atomic_type}-"
     prefixname="${prefix}-${name}-${singular_atomic_type}"
 fi
 

@@ -18,18 +18,13 @@ export class Button extends BoxTemplate {
 
     private formelement?: HTMLFormElement;
 
-    // class functions
-    constructor() {
-        super();
-        
-        // NOTE should this be a standard?
-        this.role = "button";
-    }
     connectedCallback(): void {
         super.connectedCallback();
         this.addEventListener("click", this.handleclick, true);
 
         window.addEventListener('keyup', this.handlekeyup);
+        // NOTE should this be a standard?
+        this.role = "button";
     }
     disconnectedCallback(): void {
         super.disconnectedCallback();
