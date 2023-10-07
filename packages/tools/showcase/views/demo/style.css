@@ -1,0 +1,8 @@
+body {
+  background-color: var(--o-color-bg-canvas);
+  color: var(--o-color-text);
+}
+
+body {
+  font-family: var(--o-font-family);
+}
