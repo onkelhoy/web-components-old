@@ -1,7 +1,7 @@
 :host {
     text-align: left;
     display: block;
-    color: var(--o-text-color);
+    color: inherit;
 }
 
 :host([inline]) {
@@ -52,7 +52,7 @@
 
 // HEADING
 :host([variant="heading1"]),
-:host([variant="h1"]) {
+:host([variant="H1"]) {
     font-family: var(--typography-h1-fontfamily);
     font-size: var(--typography-h1-fontsize);
     font-weight: var(--typography-h1-fontweight);
@@ -60,7 +60,7 @@
     letter-spacing: var(--typography-h1-letterspacing);
 }
 :host([variant="heading2"]),
-:host([variant="h2"]) {
+:host([variant="H2"]) {
     font-family: var(--typography-h2-fontfamily);
     font-size: var(--typography-h2-fontsize);
     font-weight: var(--typography-h2-fontweight);
@@ -68,7 +68,7 @@
     letter-spacing: var(--typography-h2-letterspacing);
 }
 :host([variant="heading3"]),
-:host([variant="h3"]) {
+:host([variant="H3"]) {
     font-family: var(--typography-h3-fontfamily);
     font-size: var(--typography-h3-fontsize);
     font-weight: var(--typography-h3-fontweight);
@@ -76,7 +76,7 @@
     letter-spacing: var(--typography-h3-letterspacing);
 }
 :host([variant="heading4"]),
-:host([variant="h4"]) {
+:host([variant="H4"]) {
     font-family: var(--typography-h4-fontfamily);
     font-size: var(--typography-h4-fontsize);
     font-weight: var(--typography-h4-fontweight);
@@ -84,7 +84,7 @@
     letter-spacing: var(--typography-h4-letterspacing);
 }
 :host([variant="heading5"]),
-:host([variant="h5"]) {
+:host([variant="H5"]) {
     font-family: var(--typography-h5-fontfamily);
     font-size: var(--typography-h5-fontsize);
     font-weight: var(--typography-h5-fontweight);
@@ -94,7 +94,7 @@
 
 // TITLE
 :host([variant="title1"]),
-:host([variant="t1"]) {
+:host([variant="T1"]) {
     font-family: var(--typography-t1-fontfamily);
     font-size: var(--typography-t1-fontsize);
     font-weight: var(--typography-t1-fontweight);
@@ -102,7 +102,7 @@
     letter-spacing: var(--typography-t1-letterspacing);
 }
 :host([variant="title2"]),
-:host([variant="t2"]) {
+:host([variant="T2"]) {
     font-family: var(--typography-t2-fontfamily);
     font-size: var(--typography-t2-fontsize);
     font-weight: var(--typography-t2-fontweight);
@@ -110,7 +110,7 @@
     letter-spacing: var(--typography-t2-letterspacing);
 }
 :host([variant="title3"]),
-:host([variant="t3"]) {
+:host([variant="T3"]) {
     font-family: var(--typography-t3-fontfamily);
     font-size: var(--typography-t3-fontsize);
     font-weight: var(--typography-t3-fontweight);
@@ -118,7 +118,7 @@
     letter-spacing: var(--typography-t3-letterspacing);
 }
 :host([variant="title4"]),
-:host([variant="t4"]) {
+:host([variant="T4"]) {
     font-family: var(--typography-t4-fontfamily);
     font-size: var(--typography-t4-fontsize);
     font-weight: var(--typography-t4-fontweight);
@@ -129,7 +129,7 @@
 
 // COPY
 :host([variant="copy1"]),
-:host([variant="c1"]) {
+:host([variant="C1"]) {
     font-family: var(--typography-c1-fontfamily);
     font-size: var(--typography-c1-fontsize);
     font-weight: var(--typography-c1-fontweight);
@@ -137,7 +137,7 @@
     letter-spacing: var(--typography-c1-letterspacing);
 }
 :host([variant="copy2"]),
-:host([variant="c2"]) {
+:host([variant="C2"]) {
     font-family: var(--typography-c2-fontfamily);
     font-size: var(--typography-c2-fontsize);
     font-weight: var(--typography-c2-fontweight);
@@ -145,7 +145,7 @@
     letter-spacing: var(--typography-c2-letterspacing);
 }
 :host([variant="copy3"]),
-:host([variant="c3"]) {
+:host([variant="C3"]) {
     font-family: var(--typography-c3-fontfamily);
     font-size: var(--typography-c3-fontsize);
     font-weight: var(--typography-c3-fontweight);
@@ -153,7 +153,7 @@
     letter-spacing: var(--typography-c3-letterspacing);
 }
 :host([variant="copy4"]),
-:host([variant="c4"]) {
+:host([variant="C4"]) {
     font-family: var(--typography-c4-fontfamily);
     font-size: var(--typography-c4-fontsize);
     font-weight: var(--typography-c4-fontweight);
@@ -163,7 +163,7 @@
 
 // BUTTON
 :host([variant="button1"]),
-:host([variant="b1"]) {
+:host([variant="B1"]) {
     font-family: var(--typography-b1-fontfamily);
     font-size: var(--typography-b1-fontsize);
     font-weight: var(--typography-b1-fontweight);
@@ -171,7 +171,7 @@
     letter-spacing: var(--typography-b1-letterspacing);
 }
 :host([variant="button2"]),
-:host([variant="b2"]) {
+:host([variant="B2"]) {
     font-family: var(--typography-b2-fontfamily);
     font-size: var(--typography-b2-fontsize);
     font-weight: var(--typography-b2-fontweight);
