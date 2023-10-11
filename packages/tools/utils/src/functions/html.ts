@@ -1,4 +1,4 @@
-function findComments(element:Node) {
+export function findComments(element:Node) {
     let arr = [];
     for(let i = 0; i < element.childNodes.length; i++) {
         let node = element.childNodes[i];
@@ -40,7 +40,7 @@ export function html(strings: TemplateStringsArray, ...values: any[]) {
             {
                 if (values[i][j] instanceof DocumentFragment)
                 {
-                    arr.push(`<!-- circular-comment-${i}.${j} -->`)
+                    arr.push(`<!-- comment-node-${i}.${j} -->`)
                 }
             }
             if (arr.length > 0)
@@ -51,7 +51,7 @@ export function html(strings: TemplateStringsArray, ...values: any[]) {
         }
         if (values[i] instanceof DocumentFragment)
         {
-            result += strings[i] + `<!-- circular-comment-${i} -->`;
+            result += strings[i] + `<!-- comment-node-${i} -->`;
             continue;
         }
         const trimmed = strings[i].trim();
@@ -81,11 +81,19 @@ export function html(strings: TemplateStringsArray, ...values: any[]) {
             const parent = comment.parentNode;
             if (parent)
             {
-                if (comment.textContent)
+                const trimmedCommentName = comment.nodeValue?.trim();
+                if (trimmedCommentName?.startsWith("comment-node"))
                 {
-                    const indexes = comment.textContent.match(/\d+/g)
-                    insertElement(parent, comment, indexes, values);
+                    if (comment.textContent)
+                    {
+                        const indexes = comment.textContent.match(/\d+/g)
+                        insertElement(parent, comment, indexes, values);
+                    }
                 }
+                // else if (trimmedCommentName?.startsWith("comment-ref"))
+                // {
+                //     console.log('comment', comment.nodeValue)
+                // }
     
                 // NOTE could investigate to keep it for performance caching or something to determine which have been updating 
                 parent.removeChild(comment);
@@ -101,6 +109,8 @@ export function html(strings: TemplateStringsArray, ...values: any[]) {
                 element.addEventListener(eventName, values[indexValue]);
             }
         });
+
+        element.removeAttribute('"');
     });
 
     return content;

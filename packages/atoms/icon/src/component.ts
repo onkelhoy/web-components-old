@@ -20,7 +20,8 @@ export class Icon extends AssetTemplate {
     constructor() {
         super();
 
-        this.assetBase = "/public/icons"
+        this.render_mode = "greedy";
+        this.assetBase = "/public/icons";
     }
     public firstUpdate() {
         if (this.shadowRoot)
