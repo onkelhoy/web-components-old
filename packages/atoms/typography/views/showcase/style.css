@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+}
+
+main {
+  padding: 64px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+section,
+.vertical-flex {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-medium);
+}
+section.flex {
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+}
+section.flex > * {
+  width: 100%;
+}
+
+div:has(table) {
+  width: 100%;
+  overflow-x: auto;
+}
+td {
+  white-space: nowrap;
+}
+
+/* custom style */ 
+.libre {
+  font-style: italic;
+}
+.typestyles > o-typography[variant="T3"] {
+  font-weight: var(--fontweight-regular);
+}
+.typestyles.helvetica > o-typography {
+  font-family: Helvetica;
+}
+section.small {
+  --typography-h1-fontsize: 5rem;
+  --typography-h2-fontsize: 4.5rem;
+  --typography-h3-fontsize: 4rem;
+  --typography-h4-fontsize: 3.5rem;
+  --typography-h5-fontsize: 3rem;
+  --typography-t1-fontsize: 2.5rem;
+  --typography-t2-fontsize: 2rem;
+  --typography-t3-fontsize: 1.5rem;
+  --typography-t4-fontsize: 1.25rem;
+  --typography-c1-fontsize: 1.25rem;
+  --typography-c2-fontsize: 1rem;
+  --typography-c3-fontsize: 1rem;
+  --typography-c4-fontsize: 0.75rem;
+  --typography-b1-fontsize: 1rem;
+  --typography-b2-fontsize: 1rem;
+}

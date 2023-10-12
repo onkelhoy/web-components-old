@@ -164,4 +164,5 @@ export const style = `:host {
   font-size: var(--typography-b2-fontsize);
   font-weight: var(--typography-b2-fontweight);
   line-height: var(--typography-b2-lineheight);
-  letter-spacing: var(--typography-b2-letterspacing); }`;
+  letter-spacing: var(--typography-b2-letterspacing);
+  text-decoration: underline; }`;

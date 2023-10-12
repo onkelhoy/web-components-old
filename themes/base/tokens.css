@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -1501,8 +1502,6 @@
 }
 
 
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
-
 :root {
   --o-font-family: 'Libre Franklin', helvetica, sans-serif;
 
@@ -1798,7 +1797,7 @@
   line-height: var(--typography-b2-lineheight);
   letter-spacing: var(--typography-b2-letterspacing);
   color: var(--o-text-color);
-  text-transform: uppercase;
+  text-decoration: underline;
 }
 
 

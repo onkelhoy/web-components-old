@@ -1,5 +1,5 @@
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property, Size } from "@henry2/tools-utils";
 
 // atoms 
 import "@henry2/typography/wc";
@@ -15,13 +15,14 @@ export class Guideline extends BaseTemplate {
   static style = style;
 
   @property() variant: Variant = "success";
+  @property() padding: Size = "large";
   @property() infotext: string = "This is ok";
 
   render() {
     return html`
-      <o-showcase-card>
+      <showcase-card padding="${this.padding}">
         <slot></slot>
-      </o-showcase-card>
+      </showcase-card>
       <div>
         ${this.variant === "success" ? html`<o-icon size="small" name="success"></o-icon>` : ''}
         ${this.variant === "warning" ? html`<o-icon size="small" name="warning"></o-icon>` : ''}

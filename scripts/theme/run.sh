@@ -12,6 +12,12 @@ outputFile="themes/$NAME/tokens.css"
 # Clear or create the output file
 > "$outputFile"
 
+# Inject the imports if exsits
+if [ -f "themes/$NAME/imports.css" ]; then 
+  cat "themes/$NAME/imports.css" >> "$outputFile"
+  echo "" >> "$outputFile"
+fi
+
 # loop through light and dark themes
 for mode in "light" "dark"; do
   FILE_PATH="themes/$NAME/$mode.css"
@@ -47,7 +53,7 @@ echo "\n$DARKROOT\n" >> $outputFile
 for file in "themes/$NAME"/*.css
 do
   # Skip if current file is any of the files
-  if [ "$file" = "$outputFile" ] || [ "$file" = "themes/$NAME/light.css" ] || [ "$file" = "themes/$NAME/dark.css" ]; then
+  if [ "$file" = "$outputFile" ] || [ "$file" = "themes/$NAME/light.css" ] || [ "$file" = "themes/$NAME/dark.css" ] || [ "$file" = "themes/$NAME/imports.css" ]; then
     continue
   fi
 

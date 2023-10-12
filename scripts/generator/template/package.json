@@ -38,6 +38,8 @@
     },
     "devDependencies": {
         "@henry2/tools-doc": "^1.0.0",
+        "@henry2/tools-showcase": "^1.0.0",
+        "@henry2/typography": "^1.0.0",
         "@henry2/icon": "^1.0.0",
         "esbuild": "^0.17.18",
         "tslib": "^2.5.0",

@@ -33,11 +33,13 @@
         "@henry2/tools-utils": "^1.0.0"
     },
     "devDependencies": {
+        "@henry2/tools-showcase": "^1.0.0",
+        "@henry2/typography": "^1.0.5",
         "esbuild": "^0.17.18",
+        "node-html-parser": "^6.1.5",
         "node-sass": "^9.0.0",
-        "typescript": "^5.0.4",
         "tslib": "^2.5.0",
-        "node-html-parser": "^6.1.5"
+        "typescript": "^5.0.4"
     },
     "keywords": [
         "web-component",

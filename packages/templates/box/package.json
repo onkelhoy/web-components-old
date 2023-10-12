@@ -37,8 +37,10 @@
         "@henry2/tools-utils": "^1.0.0"
     },
     "devDependencies": {
-        "@henry2/tools-doc": "^1.0.0",
         "@henry2/icon": "^1.0.0",
+        "@henry2/tools-doc": "^1.0.0",
+        "@henry2/tools-showcase": "^1.0.0",
+        "@henry2/typography": "^1.0.5",
         "esbuild": "^0.17.18",
         "node-html-parser": "^6.1.5",
         "node-sass": "^9.0.0",
