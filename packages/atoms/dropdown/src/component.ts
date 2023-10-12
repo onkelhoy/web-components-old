@@ -13,7 +13,7 @@ import '@henry2/templates-box/wc';
 // local 
 import { style } from "./style";
 import { IOption, OptionType } from "./types";
-import { Option, OptionClick } from "./components/option";
+import { Option } from "./components/option";
 
 export class Dropdown extends TextinputTemplate<HTMLInputElement> {
     static style = style;
@@ -60,7 +60,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
         super();
 
         this.debouncedCheckValue = suspense(this.checkValue, 100);
-        this._suffix = html`<o-icon customsize="13" name="caret">^</o-icon>`
+        this._suffix = '<o-icon customsize="13" name="caret">^</o-icon>'
     }
     // private functions
     private debouncedCheckValue () {}
@@ -161,13 +161,18 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
                 value="${this.value || ""}"
             />
         `)
+
         return html`
             <o-popover-template @show="${this.handleShow}" @hide="${this.handleHide}" revealby="click">
                 <span slot="target">
                     ${superrender}
                 </span>
                 <o-box-template class="options" radius="small" elevation="small">
-                    <slot>${this.__options.length > 0 ? this.__options.map(v => html`<o-option value="${v.value}">${v.text}</o-option>`) : '<o-option>Missing Options</o-option>'}</slot>
+                    
+                    <slot>
+                        ${this.__options.map(v => html`<o-option key="${v.value}" value="${v.value}">${v.text}</o-option>`)}
+                        ${this.__options?.length === 0 ? '<o-option key="missing-value">Missing Options</o-option>' : ''}
+                    </slot>
                 </o-box-template>
             </o-popover-template>
         `

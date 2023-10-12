@@ -193,15 +193,17 @@ async function tryupdate(this:any, update:string, value:any, old:any, verbose:bo
   }
 }
 
-function convertFromString(value:string, type:Function) {
+function convertFromString(value:string|null, type:Function) {
   switch (type.name) 
   {
     case "Boolean":
+      if (value === null) return false;
       return value === "" || value.toLowerCase() === "true" ? true : false;
     case "Number":
       return Number(value);
     case "Object":
     case "Array":
+      if (value === null) return null;
       return JSON.parse(value);
     default:
       return type(value);
