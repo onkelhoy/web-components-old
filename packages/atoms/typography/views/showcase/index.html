@@ -14,405 +14,412 @@
     <script defer src="main.js"></script>
 </head>
 <body>
-    <showcase-header
-      title="Typography"
-      subtitle="A strong typography system creates consistency, personality, and readability across your product. "
-    >
-    </showcase-header>
-    <main>
-      <section class="flex">
-        <div class="vertical-flex">
-          <o-typography variant="T3">Typeface</o-typography>
-          <o-typography>The default typeface for Interzero is Libre Franklin. Libre Franklin includes 9 weights from Thin to Black in both regular and italic styles.</o-typography>
-        </div>
-        <showcase-card padding="medium">
-          <div>
-            <o-typography class="libre" variant="H5">Libre</o-typography>
-            <o-typography variant="H1">Franklin</o-typography>
-          </div>
-        </showcase-card>
-      </section>
-      <section class="flex">
-        <div class="vertical-flex">
-          <o-typography variant="T3">Typestyles</o-typography>
-          <o-typography variant="C1">Heading</o-typography>
-          <o-typography>Headings are at the highest level of the typography hierarchy. They are the most prominent style of type.</o-typography>
-          <o-typography variant="C1">Title</o-typography>
-          <o-typography>Titles are not as prominent or as large as headings. They are used as titles for subsections of a page. Note that Title 4 is in all-caps.</o-typography>
-          <o-typography variant="C1">Copy</o-typography>
-          <o-typography>Copy styles are at the lowest level of the typography hierarchy. They are used for body text. Copy 3 is the primary style for default body text.</o-typography>
-        </div>
-        <showcase-card>
-          <div class="typestyles">
-            <o-typography variant="T1">Libre Franklin</o-typography>
-            <o-typography variant="T3" >abcdefghijklmnopqrstuvwxyzäöüß</o-typography>
-            <o-typography variant="T3">0123456789</o-typography>
-            <o-typography variant="T3">!"	#	$€%	&	'	(	)	*	+	,	-	.	/	:	; <	=	>	?	@	[	\	]	^	_	`	{	|	}	~</o-typography>
-          </div>
-        </showcase-card>
-      </section>
-      <section>
+  <showcase-header
+    title="Typography"
+    subtitle="A strong typography system creates consistency, personality, and readability across your product. "
+  >
+  </showcase-header>
+  <main>
+    <section id="typeface">
+      <div class="flex-vertical">
         <o-typography variant="T3">Typeface</o-typography>
         <o-typography>The default typeface for Interzero is Libre Franklin. Libre Franklin includes 9 weights from Thin to Black in both regular and italic styles.</o-typography>
-      </section>
-      <section>
-        <o-typography variant="T3">Large Screens</o-typography>
-        <showcase-card padding="small">
-          <div>
-          <table cellspacing="10">
-            <thead>
-              <tr>
-                <th><o-typography variant="C2">Style</o-typography></th>
-                <th><o-typography variant="C2">Typeface</o-typography></th>
-                <th><o-typography variant="C2">Weight</o-typography></th>
-                <th><o-typography variant="C2">Size</o-typography></th>
-                <th><o-typography variant="C2">Letter Spacing</o-typography></th>
-                <th><o-typography variant="C2">Line Height</o-typography></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><o-typography variant="H1">Heading 1</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>800 / Extra Bold</o-typography></td>
-                <td><o-typography>140px / 8.75 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>120%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="H2">Heading 2</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>800 / Extra Bold</o-typography></td>
-                <td><o-typography>88px / 5.5 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>120%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="H3">Heading 3</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>700 / Bold</o-typography></td>
-                <td><o-typography>80px / 5 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>120%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="H4">Heading 4</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>700 / Bold</o-typography></td>
-                <td><o-typography>64px / 4 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>120%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="H5">Heading 5</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>400 / Regular</o-typography></td>
-                <td><o-typography>56px / 3.5 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>120%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="T1">Title 1</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>700 / Bold</o-typography></td>
-                <td><o-typography>48px / 3 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>120%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="T2">Title 2</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>700 / Bold</o-typography></td>
-                <td><o-typography>40px / 2.5 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>120%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="T3">Title 3</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>600 / Semibold</o-typography></td>
-                <td><o-typography>32px / 2 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>120%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="T4">Title 4</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>600 / Semibold</o-typography></td>
-                <td><o-typography>24px / 1.5 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>140%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="C1">Copy 1</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>500 / Medium</o-typography></td>
-                <td><o-typography>24px / 1.5 rem</o-typography></td>
-                <td><o-typography>1%</o-typography></td>
-                <td><o-typography>140%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="C2">Copy 2</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>600 / Semibold</o-typography></td>
-                <td><o-typography>16px / 1 rem</o-typography></td>
-                <td><o-typography>1%</o-typography></td>
-                <td><o-typography>140%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="C3">Copy 3</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>400 / Regular</o-typography></td>
-                <td><o-typography>16px / 1 rem</o-typography></td>
-                <td><o-typography>1%</o-typography></td>
-                <td><o-typography>140%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="C4">Copy 4</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>400 / Regular</o-typography></td>
-                <td><o-typography>12px / 0.75 rem</o-typography></td>
-                <td><o-typography>1%</o-typography></td>
-                <td><o-typography>140%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="B1">Button 1</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>600 / Semibold</o-typography></td>
-                <td><o-typography>16px / 1 rem</o-typography></td>
-                <td><o-typography>1%</o-typography></td>
-                <td><o-typography>140%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="B2">Button 2</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>600 / Semibold</o-typography></td>
-                <td><o-typography>16px / 1 rem</o-typography></td>
-                <td><o-typography>1%</o-typography></td>
-                <td><o-typography>140%</o-typography></td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
-        </showcase-card>
-      </section>
-      <section class="vertical-flex small">
-        <o-typography variant="T3">Small Screens</o-typography>
-        <showcase-card padding="small">
-          <div>
-          <table cellspacing="10">
-            <thead>
-              <tr>
-                <th><o-typography variant="C2">Style</o-typography></th>
-                <th><o-typography variant="C2">Typeface</o-typography></th>
-                <th><o-typography variant="C2">Weight</o-typography></th>
-                <th><o-typography variant="C2">Size</o-typography></th>
-                <th><o-typography variant="C2">Letter Spacing</o-typography></th>
-                <th><o-typography variant="C2">Line Height</o-typography></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><o-typography variant="H1">Heading 1</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>800 / Extra Bold</o-typography></td>
-                <td><o-typography>80px / 5 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>120%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="H2">Heading 2</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>800 / Extra Bold</o-typography></td>
-                <td><o-typography>72px / 4.5 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>120%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="H3">Heading 3</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>700 / Bold</o-typography></td>
-                <td><o-typography>64px / 4 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>120%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="H4">Heading 4</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>700 / Bold</o-typography></td>
-                <td><o-typography>56px / 3.5 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>120%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="H5">Heading 5</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>400 / Regular</o-typography></td>
-                <td><o-typography>48px / 3 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>120%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="T1">Title 1</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>700 / Bold</o-typography></td>
-                <td><o-typography>40px / 2.5 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>120%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="T2">Title 2</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>700 / Bold</o-typography></td>
-                <td><o-typography>32px / 2 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>120%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="T3">Title 3</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>600 / Semibold</o-typography></td>
-                <td><o-typography>24px / 1.5 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>120%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="T4">Title 4</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>600 / Semibold</o-typography></td>
-                <td><o-typography>20px / 1.25 rem</o-typography></td>
-                <td><o-typography>0%</o-typography></td>
-                <td><o-typography>140%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="C1">Copy 1</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>500 / Medium</o-typography></td>
-                <td><o-typography>20px / 1.25 rem</o-typography></td>
-                <td><o-typography>1%</o-typography></td>
-                <td><o-typography>140%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="C2">Copy 2</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>600 / Semibold</o-typography></td>
-                <td><o-typography>16px / 1 rem</o-typography></td>
-                <td><o-typography>1%</o-typography></td>
-                <td><o-typography>140%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="C3">Copy 3</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>400 / Regular</o-typography></td>
-                <td><o-typography>16px / 1 rem</o-typography></td>
-                <td><o-typography>1%</o-typography></td>
-                <td><o-typography>140%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="C4">Copy 4</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>400 / Regular</o-typography></td>
-                <td><o-typography>12px / 0.75 rem</o-typography></td>
-                <td><o-typography>1%</o-typography></td>
-                <td><o-typography>140%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="B1">Button 1</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>600 / Semibold</o-typography></td>
-                <td><o-typography>16px / 1 rem</o-typography></td>
-                <td><o-typography>1%</o-typography></td>
-                <td><o-typography>140%</o-typography></td>
-              </tr>
-              <tr>
-                <td><o-typography variant="B2">Button 2</o-typography></td>
-                <td><o-typography>Libre Franklin</o-typography></td>
-                <td><o-typography>600 / Semibold</o-typography></td>
-                <td><o-typography>16px / 1 rem</o-typography></td>
-                <td><o-typography>1%</o-typography></td>
-                <td><o-typography>140%</o-typography></td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
-        </showcase-card>
-      </section>
-      <section class="flex">
-        <div class="vertical-flex">
-          <o-typography variant="T3">Fallback Font</o-typography>
-          <o-typography>Use Helvetica if Libre Franklin is unable to be used for any particular reason.</o-typography>
+      </div>
+      <showcase-card padding="medium">
+        <div>
+          <o-typography class="libre" variant="H5">Libre</o-typography>
+          <o-typography variant="H1">Franklin</o-typography>
         </div>
-        <showcase-card>
-          <div class="typestyles helvetica">
-            <o-typography variant="T1">Helvetica</o-typography>
-            <o-typography variant="T3" >abcdefghijklmnopqrstuvwxyzäöüß</o-typography>
-            <o-typography variant="T3">0123456789</o-typography>
-            <o-typography variant="T3">!"	#	$€%	&	'	(	)	*	+	,	-	.	/	:	; <	=	>	?	@	[	\	]	^	_	`	{	|	}	~</o-typography>
-          </div>
-        </showcase-card>
-      </section>
-      <section>
-        <o-typography variant="T3">Color</o-typography>
-        <o-typography>The color used for type should be chosen carefully, and in most cases a neutral color should be used.</o-typography>
-      </section>
-      <section class="flex">
-        <showcase-guideline 
-          variant="success"
-          infotext="Apply the appropriate color tokens to typography. Be sure to choose a color that optimizes legibility and accessibility."
-        >
-          <div class="vertical-flex">
-            <o-typography variant="C1">Lorum ipsum</o-typography>
-            <o-typography>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</o-typography>
-          </div>
-        </showcase-guideline>
-        <showcase-guideline 
-          variant="success"
-          infotext="Apply the appropriate color tokens for success, warning, and error text. Be sure to choose a color that optimizes legibility and accessibility."
-        >
-          <div class="vertical-flex">
-            <o-typography style="color:var(--o-color-text-danger-onsecondary)">Oops, something went wrong.</o-typography>
-            <o-typography style="color:var(--o-color-text-warning-onsecondary)">Warning</o-typography>
-            <o-typography style="color:var(--o-color-text-success-onsecondary)">Success</o-typography>
-          </div>
-        </showcase-guideline>
-      </section>
-      <section class="flex">
-        <showcase-guideline 
-          variant="success"
-          infotext="Apply the appropriate color tokens to typography. Be sure to choose a color that optimizes legibility and accessibility."
-        >
-          <div class="vertical-flex">
-            <o-typography variant="C1">Lorum ipsum</o-typography>
-            <o-typography>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</o-typography>
-          </div>
-        </showcase-guideline>
-        <showcase-guideline 
-          variant="error"
-          infotext="Don't use color as decoration, use of color in typography should have a specific purpose."
-        >
-          <div class="vertical-flex">
-            <o-typography style="color: var(--o-color-cerulean-azure-300)" variant="C1">Lorum ipsum</o-typography>
-            <o-typography style="color: var(--o-color-salem-green-500)">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</o-typography>
-          </div>
-        </showcase-guideline>
-      </section>
-      <section class="flex">
-        <showcase-guideline 
-          variant="success"
-          infotext="Use the color token --o-color-text-link for text links."
-        >
-          <o-typography style="color: var(--o-color-text-link)">Text link</o-typography>
-        </showcase-guideline>
-        <showcase-guideline 
-          variant="error"
-          infotext="Avoid using blue text unless it's for a link. This is because the color blue is strongly associated with clickable links."
-        >
-          <div class="vertical-flex">
-            <o-typography style="color: var(--o-color-text-link)" variant="C1">Lorum ipsum</o-typography>
-            <o-typography style="color: var(--o-color-text-link-oninverse)">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</o-typography>
-          </div>
-        </showcase-guideline>
-      </section>
-    </main>
+      </showcase-card>
+    </section>
+
+    <section id="typestyles">
+      <div class="flex-vertical">
+        <o-typography variant="T3">Typestyles</o-typography>
+        <o-typography variant="C1">Heading</o-typography>
+        <o-typography>Headings are at the highest level of the typography hierarchy. They are the most prominent style of type.</o-typography>
+        <o-typography variant="C1">Title</o-typography>
+        <o-typography>Titles are not as prominent or as large as headings. They are used as titles for subsections of a page. Note that Title 4 is in all-caps.</o-typography>
+        <o-typography variant="C1">Copy</o-typography>
+        <o-typography>Copy styles are at the lowest level of the typography hierarchy. They are used for body text. Copy 3 is the primary style for default body text.</o-typography>
+      </div>
+      <showcase-card>
+        <div class="typestyles">
+          <o-typography variant="T1">Libre Franklin</o-typography>
+          <o-typography variant="T3" >abcdefghijklmnopqrstuvwxyzäöüß</o-typography>
+          <o-typography variant="T3">0123456789</o-typography>
+          <o-typography variant="T3">!"	#	$€%	&	'	(	)	*	+	,	-	.	/	:	; <	=	>	?	@	[	\	]	^	_	`	{	|	}	~</o-typography>
+        </div>
+      </showcase-card>
+    </section>
+
+    <!-- TODO is this text really supposed to be the same? -->
+    <section id="temp">
+      <o-typography variant="T3">Typeface</o-typography>
+      <o-typography>The default typeface for Interzero is Libre Franklin. Libre Franklin includes 9 weights from Thin to Black in both regular and italic styles.</o-typography>
+    </section>
+
+    <section id="examples-large">
+      <o-typography variant="T3">Large Screens</o-typography>
+      <showcase-card padding="small">
+        <div>
+        <table cellspacing="10">
+          <thead>
+            <tr>
+              <th><o-typography nowrap variant="C2">Style</o-typography></th>
+              <th><o-typography nowrap variant="C2">Typeface</o-typography></th>
+              <th><o-typography nowrap variant="C2">Weight</o-typography></th>
+              <th><o-typography nowrap variant="C2">Size</o-typography></th>
+              <th><o-typography nowrap variant="C2">Letter Spacing</o-typography></th>
+              <th><o-typography nowrap variant="C2">Line Height</o-typography></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><o-typography nowrap variant="H1">Heading 1</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>800 / Extra Bold</o-typography></td>
+              <td><o-typography nowrap>140px / 8.75 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>120%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="H2">Heading 2</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>800 / Extra Bold</o-typography></td>
+              <td><o-typography nowrap>88px / 5.5 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>120%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="H3">Heading 3</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>700 / Bold</o-typography></td>
+              <td><o-typography nowrap>80px / 5 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>120%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="H4">Heading 4</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>700 / Bold</o-typography></td>
+              <td><o-typography nowrap>64px / 4 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>120%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="H5">Heading 5</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>400 / Regular</o-typography></td>
+              <td><o-typography nowrap>56px / 3.5 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>120%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="T1">Title 1</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>700 / Bold</o-typography></td>
+              <td><o-typography nowrap>48px / 3 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>120%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="T2">Title 2</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>700 / Bold</o-typography></td>
+              <td><o-typography nowrap>40px / 2.5 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>120%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="T3">Title 3</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>600 / Semibold</o-typography></td>
+              <td><o-typography nowrap>32px / 2 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>120%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="T4">Title 4</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>600 / Semibold</o-typography></td>
+              <td><o-typography nowrap>24px / 1.5 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>140%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="C1">Copy 1</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>500 / Medium</o-typography></td>
+              <td><o-typography nowrap>24px / 1.5 rem</o-typography></td>
+              <td><o-typography nowrap>1%</o-typography></td>
+              <td><o-typography nowrap>140%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="C2">Copy 2</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>600 / Semibold</o-typography></td>
+              <td><o-typography nowrap>16px / 1 rem</o-typography></td>
+              <td><o-typography nowrap>1%</o-typography></td>
+              <td><o-typography nowrap>140%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="C3">Copy 3</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>400 / Regular</o-typography></td>
+              <td><o-typography nowrap>16px / 1 rem</o-typography></td>
+              <td><o-typography nowrap>1%</o-typography></td>
+              <td><o-typography nowrap>140%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="C4">Copy 4</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>400 / Regular</o-typography></td>
+              <td><o-typography nowrap>12px / 0.75 rem</o-typography></td>
+              <td><o-typography nowrap>1%</o-typography></td>
+              <td><o-typography nowrap>140%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="B1">Button 1</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>600 / Semibold</o-typography></td>
+              <td><o-typography nowrap>16px / 1 rem</o-typography></td>
+              <td><o-typography nowrap>1%</o-typography></td>
+              <td><o-typography nowrap>140%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="B2">Button 2</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>600 / Semibold</o-typography></td>
+              <td><o-typography nowrap>16px / 1 rem</o-typography></td>
+              <td><o-typography nowrap>1%</o-typography></td>
+              <td><o-typography nowrap>140%</o-typography></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </showcase-card>
+    </section>
+
+    <section  id="examples-small">
+      <o-typography variant="T3">Small Screens</o-typography>
+      <showcase-card padding="small">
+        <div>
+        <table cellspacing="10">
+          <thead>
+            <tr>
+              <th><o-typography nowrap variant="C2">Style</o-typography></th>
+              <th><o-typography nowrap variant="C2">Typeface</o-typography></th>
+              <th><o-typography nowrap variant="C2">Weight</o-typography></th>
+              <th><o-typography nowrap variant="C2">Size</o-typography></th>
+              <th><o-typography nowrap variant="C2">Letter Spacing</o-typography></th>
+              <th><o-typography nowrap variant="C2">Line Height</o-typography></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><o-typography nowrap variant="H1">Heading 1</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>800 / Extra Bold</o-typography></td>
+              <td><o-typography nowrap>80px / 5 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>120%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="H2">Heading 2</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>800 / Extra Bold</o-typography></td>
+              <td><o-typography nowrap>72px / 4.5 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>120%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="H3">Heading 3</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>700 / Bold</o-typography></td>
+              <td><o-typography nowrap>64px / 4 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>120%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="H4">Heading 4</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>700 / Bold</o-typography></td>
+              <td><o-typography nowrap>56px / 3.5 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>120%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="H5">Heading 5</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>400 / Regular</o-typography></td>
+              <td><o-typography nowrap>48px / 3 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>120%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="T1">Title 1</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>700 / Bold</o-typography></td>
+              <td><o-typography nowrap>40px / 2.5 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>120%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="T2">Title 2</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>700 / Bold</o-typography></td>
+              <td><o-typography nowrap>32px / 2 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>120%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="T3">Title 3</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>600 / Semibold</o-typography></td>
+              <td><o-typography nowrap>24px / 1.5 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>120%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="T4">Title 4</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>600 / Semibold</o-typography></td>
+              <td><o-typography nowrap>20px / 1.25 rem</o-typography></td>
+              <td><o-typography nowrap>0%</o-typography></td>
+              <td><o-typography nowrap>140%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="C1">Copy 1</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>500 / Medium</o-typography></td>
+              <td><o-typography nowrap>20px / 1.25 rem</o-typography></td>
+              <td><o-typography nowrap>1%</o-typography></td>
+              <td><o-typography nowrap>140%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="C2">Copy 2</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>600 / Semibold</o-typography></td>
+              <td><o-typography nowrap>16px / 1 rem</o-typography></td>
+              <td><o-typography nowrap>1%</o-typography></td>
+              <td><o-typography nowrap>140%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="C3">Copy 3</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>400 / Regular</o-typography></td>
+              <td><o-typography nowrap>16px / 1 rem</o-typography></td>
+              <td><o-typography nowrap>1%</o-typography></td>
+              <td><o-typography nowrap>140%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="C4">Copy 4</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>400 / Regular</o-typography></td>
+              <td><o-typography nowrap>12px / 0.75 rem</o-typography></td>
+              <td><o-typography nowrap>1%</o-typography></td>
+              <td><o-typography nowrap>140%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="B1">Button 1</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>600 / Semibold</o-typography></td>
+              <td><o-typography nowrap>16px / 1 rem</o-typography></td>
+              <td><o-typography nowrap>1%</o-typography></td>
+              <td><o-typography nowrap>140%</o-typography></td>
+            </tr>
+            <tr>
+              <td><o-typography nowrap variant="B2">Button 2</o-typography></td>
+              <td><o-typography nowrap>Libre Franklin</o-typography></td>
+              <td><o-typography nowrap>600 / Semibold</o-typography></td>
+              <td><o-typography nowrap>16px / 1 rem</o-typography></td>
+              <td><o-typography nowrap>1%</o-typography></td>
+              <td><o-typography nowrap>140%</o-typography></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </showcase-card>
+    </section>
+
+    <section id="fallback">
+      <div>
+        <o-typography variant="T3">Fallback Font</o-typography>
+        <o-typography>Use Helvetica if Libre Franklin is unable to be used for any particular reason.</o-typography>
+      </div>
+      <showcase-card>
+        <div class="typestyles helvetica">
+          <o-typography variant="T1">Helvetica</o-typography>
+          <o-typography variant="T3" >abcdefghijklmnopqrstuvwxyzäöüß</o-typography>
+          <o-typography variant="T3">0123456789</o-typography>
+          <o-typography variant="T3">!"	#	$€%	&	'	(	)	*	+	,	-	.	/	:	; <	=	>	?	@	[	\	]	^	_	`	{	|	}	~</o-typography>
+        </div>
+      </showcase-card>
+    </section>
+
+    <section id="guidelines">
+      <o-typography variant="T3">Color</o-typography>
+      <o-typography>The color used for type should be chosen carefully, and in most cases a neutral color should be used.</o-typography>
+    </section>
+    <section>
+      <showcase-guideline 
+        variant="success"
+        infotext="Apply the appropriate color tokens to typography. Be sure to choose a color that optimizes legibility and accessibility."
+      >
+        <div class="flex-vertical">
+          <o-typography variant="C1">Lorum ipsum</o-typography>
+          <o-typography>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</o-typography>
+        </div>
+      </showcase-guideline>
+      <showcase-guideline 
+        variant="success"
+        infotext="Apply the appropriate color tokens for success, warning, and error text. Be sure to choose a color that optimizes legibility and accessibility."
+      >
+        <div class="flex-vertical">
+          <o-typography style="color:var(--o-color-text-danger-onsecondary)">Oops, something went wrong.</o-typography>
+          <o-typography style="color:var(--o-color-text-warning-onsecondary)">Warning</o-typography>
+          <o-typography style="color:var(--o-color-text-success-onsecondary)">Success</o-typography>
+        </div>
+      </showcase-guideline>
+    </section>
+    <section>
+      <showcase-guideline 
+        variant="success"
+        infotext="Apply the appropriate color tokens to typography. Be sure to choose a color that optimizes legibility and accessibility."
+      >
+        <div class="flex-vertical">
+          <o-typography variant="C1">Lorum ipsum</o-typography>
+          <o-typography>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</o-typography>
+        </div>
+      </showcase-guideline>
+      <showcase-guideline 
+        variant="error"
+        infotext="Don't use color as decoration, use of color in typography should have a specific purpose."
+      >
+        <div class="flex-vertical">
+          <o-typography style="color: var(--o-color-cerulean-azure-300)" variant="C1">Lorum ipsum</o-typography>
+          <o-typography style="color: var(--o-color-salem-green-500)">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</o-typography>
+        </div>
+      </showcase-guideline>
+    </section>
+    <section>
+      <showcase-guideline 
+        variant="success"
+        infotext="Use the color token --o-color-text-link for text links."
+      >
+        <o-typography style="color: var(--o-color-text-link)">Text link</o-typography>
+      </showcase-guideline>
+      <showcase-guideline 
+        variant="error"
+        infotext="Avoid using blue text unless it's for a link. This is because the color blue is strongly associated with clickable links."
+      >
+        <div class="flex-vertical">
+          <o-typography style="color: var(--o-color-text-link)" variant="C1">Lorum ipsum</o-typography>
+          <o-typography style="color: var(--o-color-text-link-oninverse)">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</o-typography>
+        </div>
+      </showcase-guideline>
+    </section>
+  </main>
 </body>
 </html>

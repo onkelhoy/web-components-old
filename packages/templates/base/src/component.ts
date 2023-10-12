@@ -8,6 +8,7 @@ export class BaseTemplate extends HTMLElement {
 
     protected callAfterUpdate:(Function|FunctionCallback)[] = [];
     protected render_mode: 'greedy'|'smart' = 'smart';
+    protected render_style_mode: 'lazy'|'smart' = 'lazy';
 
     private attributeObserver!: MutationObserver;
     private _pendingOperations: Function[] = [];
@@ -168,6 +169,9 @@ export class BaseTemplate extends HTMLElement {
             this.shadowRoot.appendChild(targetElement);
             return;
         }
+
+        // NOTE most cases would never require style to be changed 
+        if (this.render_style_mode === "lazy") return;
 
         this.styleComperator.innerHTML = this.getStyle();
 

@@ -1,29 +1,93 @@
-// value maps
-$size-map: (
-  small: (
-    height: var(--field-size-small),
-    padding: 0.5rem,
-    border-width: 1px,
-  ),
-  medium: (
-    height: var(--field-size-medium),
-    padding: 1rem,
-    border-width: 1px,
-  ),
-  large: (
-    height: var(--field-size-large),
-    padding: 1rem,
-    border-width: 1px,
-  ),
-);
+@function get-state-set($map, $variant, $state, $color-name) {
+    $default-color: map-get($map, 'default') or $color-name;
+    $variant-map: map-get($map, $variant) or ();
+
+    $state-map: map-get($variant-map, $state) or ();
+
+    $state-trail: "";
+
+    @if $state != "normal" {
+        $state-trail: "-#{$state}";
+    }
+
+    $output: ();
+
+    @if $variant == "outlined" and $state == "normal" {
+        $output: map-merge($output, (
+            border: map-get($state-map, "border") or "border-#{$default-color}#{$state-trail}",
+        ));
+    }
+    
+    @if ($variant == "clear" or $variant == "outlined") and $state == "normal" {
+        $output: map-merge($output, (
+            text: map-get($state-map, "text") or "text-#{$default-color}#{$state-trail}",
+            icon: map-get($state-map, "icon") or "icon-#{$default-color}#{$state-trail}",
+        ));
+    }
+    @else {
+        $output: map-merge($output, (
+            text: map-get($state-map, "text") or "text-on#{$default-color}#{$state-trail}",
+            icon: map-get($state-map, "icon") or "icon-on#{$default-color}#{$state-trail}",
+            background: map-get($state-map, "background") or "bg-#{$default-color}#{$state-trail}",
+        ));
+    }
+        
+    @return $output;
+}
+@mixin set-color($color-name, $color-map: ()) {
+    @each $variant in (filled, outlined, clear) {
+        @each $state in (normal, hover, pressed) {
+            $map: get-state-set($color-map, $variant, $state, $color-name);
+
+            $text: map-get($map, "text");
+            $background: map-get($map, "background");
+            $icon: map-get($map, "icon");
+            $border: map-get($map, "border");
+        
+            $pointer-state: "";
+            $state-name: $state;
+            @if $state == "hover" {
+                $pointer-state: ":hover"
+            }
+            @else if $state == "pressed" {
+                $pointer-state: ":active"
+            }
+            @else {
+                $state-name: "default";
+            }
+        
+            :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled]).#{$state-name}),
+            :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled])#{$pointer-state}) {
+                @if $border {
+                    border-color: var(--o-button-#{$color-name}-#{$variant}-#{$state-name}-border, var(--o-color-#{$border}));
+                }
+                @if $background {
+                    border-color: transparent;
+                    background-color: var(--o-button-#{$color-name}-#{$variant}-#{$state-name}-background, var(--o-color-#{$background}));
+                }
+            
+                color: var(--o-button-#{$color-name}-#{$variant}-#{$state-name}-text, var(--o-color-#{$text}));
+            }
+            :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled]).#{$state-name}) ::slotted(o-icon),
+            :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled])#{$pointer-state}) ::slotted(o-icon) {
+                color: var(--o-button-#{$color-name}-#{$variant}-#{$state-name}-icon, var(--o-color-#{$icon}));
+            }
+
+            :host([variant="#{$variant}"][color="#{$color-name}"][loading="true"]:not([disabled]).#{$state-name}),
+            :host([variant="#{$variant}"][color="#{$color-name}"][loading="true"]:not([disabled])#{$pointer-state}) {
+                &::after {
+                    border-top: 2px solid var(--o-button-#{$color-name}-#{$variant}-#{$state-name}-icon, var(--o-color-#{$icon}));
+                }
+            }
+        }
+    }
+}
 
 :host {
-    cursor: var(--button-cursor, pointer);
+    cursor: var(--o-button-cursor, pointer);
     align-items: center;
-    font-family: var(--button-font-family, var(--font-family, inherit));
 
-    justify-content: space-between;
-    gap: 0.5rem;
+    justify-content: space-evenly;
 
     box-sizing: border-box;
     position: relative;
@@ -32,136 +96,211 @@ $size-map: (
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
 
-    background-color: var(--background);
-    color: var(--color);
-}
+    border-style: solid;
+    border-width: 2px;
+    border-color: transparent;
 
+    transition: background-color ease-in 80ms;
+}
+span.content {
+    padding-inline: var(--gap-small);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+:host([variant="outlined"]:is(:active)),
+:host([variant="outlined"]:is(:hover)) {
+    border-color: transparent !important;
+}
 :host([mode="hug"]) {
     display: inline-flex;
 }
 :host([mode="fill"]) {
     display: flex;
 }
+:host([textvariant="B1"]),
+:host([textvariant="button1"]) {
+    font-family: var(--typography-b1-fontfamily);
+    font-size: var(--typography-b1-fontsize);
+    font-weight: var(--typography-b1-fontweight);
+    line-height: var(--typography-b1-lineheight);
+    letter-spacing: var(--typography-b1-letterspacing);
+}
+:host([color="secondary"][variant="clear"]),
+:host([color="inverse"][variant="clear"]),
+:host([textvariant="B2"]),
+:host([textvariant="button2"]) {
+    font-family: var(--typography-b2-fontfamily);
+    font-size: var(--typography-b2-fontsize);
+    font-weight: var(--typography-b2-fontweight);
+    line-height: var(--typography-b2-lineheight);
+    letter-spacing: var(--typography-b2-letterspacing);
+    text-decoration: underline;
+}
+
+@include set-color("primary", (
+    default: "brand",
+    clear: (
+        hover: (
+            background: 'bg-hover',
+            icon: 'icon-brand-hover',
+            text: 'text-brand-hover',
+        ),
+        pressed: (
+            background: 'bg-pressed',
+            icon: 'icon-brand-pressed',
+            text: 'text-brand-pressed',
+        )
+    )
+));
+@include set-color("secondary", (
+    default: "inverse",
+    outlined: (
+        normal: (
+            text: 'text',
+            icon: 'icon',
+        )
+    ),
+    clear: (
+        normal: (
+            text: 'text',
+            icon: 'icon',
+        ),
+        hover: (
+            background: 'bg-hover',
+            text: 'text',
+            icon: 'icon',
+        ),
+        pressed: (
+            background: 'bg-pressed',
+            text: 'text',
+            icon: 'icon',
+        )
+    )
+));
+@include set-color("inverse", (
+    filled: (
+        normal: (
+            background: 'bg',
+            text: 'text',
+            icon: 'icon',
+        ),
+        hover: (
+            background: 'bg-hover',
+            text: 'text',
+            icon: 'icon',
+        ),
+        pressed: (
+            background: 'bg-pressed',
+            text: 'text',
+            icon: 'icon',
+        )
+    ),
+    outlined: (
+        normal: (
+            border: 'border-inverse-strong',
+        ),
+        hover: (
+            background: 'bg-hover',
+            text: 'text',
+            icon: 'icon',
+        ),
+        pressed: (
+            background: 'bg-pressed',
+            text: 'text',
+            icon: 'icon',
+        )
+    ),
+));
+@include set-color("danger");
+@include set-color("success");
+@include set-color("warning");
+
+:host([disabled]) {
+    cursor: var(--o-button-cursor-disabled, not-allowed);
+    color: var(--o-button-disabled-text, var(--o-color-text-disabled));
+}
+:host([disabled]) ::slotted(o-icon) {
+    color: var(--o-button-icon-disabled, var(--o-color-icon-disabled));
+}
+:host([variant="filled"][disabled]) {
+    background-color: var(--o-button-disabled-filled-background, var(--o-color-bg-disabled));
+}
+:host([variant="outlined"][disabled]) {
+    border-color: var(--o-button-disabled-outlined-border, var(--o-color-border-disabled)) !important;
+}
+
+:host(.focus),
+:host(:focus-visible) {
+    outline-offset: 2px;
+    outline: 2px solid var(--o-color-border-strong) !important;
+}
+:host([disabled]:focus),
+:host([disabled].focus),
+:host([disabled]:focus-visible),
+:host([disabled]:focus-within) {
+    outline: none !important;
+}
+
+:host([loading="true"]) {
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: var(--field-size-smaller);
+        height: var(--field-size-smaller);
+
+        border-radius: 50%;
+        display: inline-block;
+        border-right: 2px solid transparent;
+        box-sizing: border-box;
+
+        animation: spin 1s linear infinite; /* This line sets up the animation */
+    }
+
+    span.content,
+    ::slotted(*) {
+        display: none !important;
+    }
+}
+:host([loading="true"][mode="hug"]) {
+    width: 110px;
+}
+
+$size-map: (
+    small: (
+        padding: var(--padding-smaller),
+        height: 2rem, // border
+    ),
+    medium: (
+        padding: var(--padding-smaller) var(--padding-medium),
+        height: 2.5rem,
+    ),
+    large: (
+        padding: var(--padding-smaller) var(--padding-small),
+        height: 3rem,
+    ),
+);
 
 @each $name, $value in $size-map {
     :host([size="#{$name}"]) {
-        height: var(--button-height-#{$name}, var(--height-#{$name}, #{map-get($value, height)}));
-        padding: var(--button-padding-#{$name}, var(--padding-#{$name}, #{map-get($value, padding)}));
-        border-width: var(--button-border-width-#{$name}, var(--border-width-#{$name}, #{map-get($value, border-width)}));
+        min-height: var(--o-button-height-#{$name}, #{map-get($value, height)});
+        height: fit-content;
+        padding: var(--o-button-padding-#{$name}, #{map-get($value, padding)});
+    }
+    :host([circle="true"][size="#{$name}"]) {
+        padding: 0;
+        justify-content: center;
+        width: var(--o-button-height-#{$name}, #{map-get($value, height)});
     }
 }
 
-// set the color variables
-$colors: (
-  primary: (color: white, base: primary),
-  danger: (color: white, base: danger),
-  success: (color: white, base: success),
-  warning: (color: white, base: warning),
-  secondary: (color: black, base: neutral),
-  brand: (color: black, base: neutral)
-);
-
-@each $name, $properties in $colors {
-  $base: map-get($properties, 'base');
-  $color: map-get($properties, 'color');
-  
-  :host([color="#{$name}"]) {
-    --button-background: var(--o-color-#{$base}-500);
-    --button-color: var(--o-color-#{$color});
-
-    --button-background-hover: var(--o-color-#{$base}-700);
-    --button-color-hover: var(--o-color-#{$color});
-
-    --button-background-active: var(--o-color-#{$base}-600);
-    --button-color-active: var(--o-color-#{$color});
-
-    --button-background-disabled: var(--o-color-neutral-300);
-    --button-color-disabled: var(--o-color-neutral-700);
-  }
-}
-
-// :host([color="secondary"]) {
-//     --button-background: var(--o-color-neutral-100);
-//     --button-color: var(--o-color-text);
-
-//     --button-background-hover: var(--o-color-neutral-300);
-//     --button-color-hover: var(--o-color-black);
-
-//     --button-background-active: var(--o-color-neutral-200);
-//     --button-color-active: var(--o-color-black);
-// }
-
-:host([disabled]) {
-    cursor: var(--button-cursor-disabled, not-allowed);
-}
-
-// filled
-:host([variant="filled"]) {
-    --background: var(--button-background-color-filled, var(--button-background));
-    --color: var(--button-text-color-filled, var(--button-color));
-}
-:host([variant="filled"]:hover) {
-    --background: var(--button-background-color-filled-hover, var(--button-background-hover));
-    --color: var(--button-text-color-filled-hover, var(--button-color-hover));
-}
-:host([variant="filled"]:active) {
-    --background: var(--button-background-color-filled-active, var(--button-background-active));
-    --color: var(--button-text-color-filled-active, var(--button-color-active));
-}
-:host([variant="filled"][disabled]) {
-    --background: var(--button-background-color-filled-disabled, var(--button-background-disabled));
-    --color: var(--button-text-color-filled-disabled, var(--button-color-disabled));
-}
-
-// outlined
-:host([variant="outlined"]) {
-    border-color: var(--button-border-color-outlined, var(--button-background));
-    border-style: var(--button-border-style, solid);
-    --background: transparent;
-}
-:host([variant="outlined"]:hover) {
-    border-color: var(--button-border-color-outlined-hover, var(--button-background-hover));
-    --background: var(--o-button-outlined-hover-background, var(--o-color-hover-200));
-}
-:host([variant="outlined"]:active) {
-    border-color: var(--button-border-color-outlined-active, var(--button-background-active));
-    --background: var(--o-button-outlined-active-background, var(--o-color-hover-400));
-}
-:host([variant="outlined"][disabled]) {
-    border-color: var(--button-border-color-outlined-disabled, var(--button-background-disabled));
-    --color: var(--o-button-outlined-disabled-text-color, var(--button-color-disabled));
-    --background: transparent;
-}
-
-:host([variant="clear"]) {
-    --background: transparent;
-}
-:host([variant="clear"]:hover) {
-    --background: var(--o-button-clear-hover-background, var(--o-color-hover-200));
-}
-:host([variant="clear"]:active) {
-    --background: var(--o-button-clear-active-background, var(--o-color-hover-400));
-}
-:host([variant="clear"][disabled]) {
-    --color: var(--o-button-clear-disabled-text-color, var(--button-color-disabled));
-    --background: transparent;
-}
-
-// underlined
-:host([variant="underlined"]) {
-    --background: transparent;
-    text-decoration: underline;
-    text-underline-offset: var(--gap-smaller);
-    text-decoration-thickness: var(--button-underlined-thickness, 1px);
-}
-:host([variant="underlined"]:hover) {
-    text-decoration-thickness: var(--button-underlined-hover-thickness, 2px);
-}
-:host([variant="underlined"]:active) {
-    text-decoration-thickness: var(--button-underlined-active-thickness, 3px);
-}
-:host([variant="underlined"][disabled]) {
-    text-decoration-thickness: var(--button-underlined-disabled-thickness, 1px);
-    --color: var(--o-button-underlined-disabled-text-color, var(--button-color-disabled));
-    --background: transparent;
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }

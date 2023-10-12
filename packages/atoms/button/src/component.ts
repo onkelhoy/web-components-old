@@ -3,18 +3,22 @@ import { BoxTemplate } from '@henry2/templates-box';
 
 import { style } from './style.js';
 
-import type { ButtonMode, ButtonVariant, ButtonColorVariant } from './types';
+import type { ButtonMode, ButtonVariant, ButtonColorVariant, ButtonTextType } from './types';
 
 // TODO extend form-element-template
 export class Button extends BoxTemplate {
     static style = style;
     
-    @property({ rerender: false, onUpdate: "ontypeupdate" }) type: "button" | "link" | "submit" | "reset" = "button"; // TODO link
+    @property({ rerender: false, onUpdate: "ontypeupdate" }) type: "button" | "submit" | "reset" = "button";
     @property({ rerender: false }) size: Size = "medium";
+    @property({ rerender: false }) href?: string;
+    @property({ rerender: false, type: Boolean }) circle = false;
+    @property({ rerender: false, type: Boolean }) loading = false;
+    @property({ rerender: false }) textvariant: ButtonTextType = "B1"; // TODO attribute: 'text-variant'
     @property({ rerender: false }) mode: ButtonMode = "hug";
     @property({ rerender: false }) variant: ButtonVariant = "filled";
     @property({ rerender: false, type: Number }) tabIndex: number = 1;
-    @property({ rerender: false }) color: ButtonColorVariant = "secondary";
+    @property({ rerender: false }) color: ButtonColorVariant = "primary";
 
     private formelement?: HTMLFormElement;
 
@@ -55,8 +59,12 @@ export class Button extends BoxTemplate {
             }
         }
     }
-    private handleclick = (e:Event) => {
-        if (this.formelement) 
+    private handleclick = () => {
+        if (this.href) 
+        {
+            window.location.href = this.href;
+        }
+        else if (this.formelement) 
         {
             if (this.type === "submit")
             {
@@ -72,9 +80,9 @@ export class Button extends BoxTemplate {
 
     render() {
         return `
-            <slot name="prefix"><span> </span></slot>
-            <slot></slot>
-            <slot name="suffix"><span> </span></slot>
+            <slot name="prefix"></slot>
+            <span class="content"><slot></slot></span>
+            <slot name="suffix"></slot>
         `;
     }
 }

@@ -4,26 +4,20 @@
 o-box-template {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  min-height: 300px;
-  background-color: var(--o-color-bg-secondary);
-}
+  justify-content: flex-start;
+  gap: var(--gap-medium);
+  
+  overflow-x: auto;
+  text-align: center;
+  padding: var(--padding-large) var(--padding-medium);
 
-:host([padding="large"]) {
-  o-box-template {
-    padding: 60px 80px;
-  }
-}
-:host([padding="medium"]) {
-  o-box-template {
-    padding: var(--padding-medium) var(--padding-large);
-  }
-}
-:host([padding="small"]) {
-  o-box-template {
-    padding: var(--padding-medium);
+  position: relative;
+  box-sizing: border-box;
+  min-height: 250px;
+  width: 100%;
+  background-color: var(--o-color-bg-secondary);
+
+  ::slotted(*) {
+    margin: auto;
   }
 }
