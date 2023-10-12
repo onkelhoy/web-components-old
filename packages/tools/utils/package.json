@@ -25,9 +25,10 @@
         "url": "https://github.com/onkelhoy/web-components.git"
     },
     "devDependencies": {
+        "@henry2/tools-showcase": "^1.0.0",
+        "@henry2/typography": "^1.0.5",
         "typescript": "^5.0.4"
     },
-    "dependencies": {},
     "keywords": [
         "web-component",
         "typescript",

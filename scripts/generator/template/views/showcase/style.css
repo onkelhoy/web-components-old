@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+}
+
+main {
+  padding: 64px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+section,
+.vertical-flex {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-medium);
+}
+section.flex {
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+}
+section.flex > * {
+  width: 100%;
+}
+
+div:has(table) {
+  width: 100%;
+  overflow-x: auto;
+}
+td {
+  white-space: nowrap;
+}
+
+/* custom style */ 

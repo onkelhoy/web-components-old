@@ -3,16 +3,17 @@ export const style = `:host {
   --variant-bg-color: var(--o-color-bg-success);
   --variant-text-color: var(--o-color-text-success); }
 
-o-showcase-card {
+showcase-card {
   margin-bottom: var(--margin-medium); }
-  o-showcase-card::after {
-    content: '';
-    width: 100%;
-    height: 1rem;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: var(--variant-bg-color); }
+
+showcase-card::part(box)::after {
+  content: '';
+  width: 100%;
+  height: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--variant-bg-color); }
 
 div {
   display: flex;

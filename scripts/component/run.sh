@@ -10,7 +10,7 @@ source $ROOTDIR/scripts/generator/config.env
 read -p "Enter the name of the component: " name
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-classname=$(echo $name | awk -F"_" '{$1=toupper(substr($1,1,1))substr($1,2); for (i=2;i<=NF;i++){$i=toupper(substr($i,1,1))substr($i,2)}; print}' OFS="")
+classname=$(echo $name | awk -F"[_-]" '{$1=toupper(substr($1,1,1))substr($1,2); for (i=2;i<=NF;i++){$i=toupper(substr($i,1,1))substr($i,2)}; print}' OFS="")
 prefixname="${prefix}-${name}"
 
 # destinations 
