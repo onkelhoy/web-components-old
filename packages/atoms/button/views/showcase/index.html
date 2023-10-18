@@ -1,0 +1,2874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Showcase</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <showcase-header
+      title="Button"
+      subtitle="Lorem ipsum dolor sit amet consectetur. Enim lobortis id elementum non. Tristique vulputate erat vel elit placerat faucibus vulputate volutpat."
+    >
+    </showcase-header>
+
+    <main>
+
+      <!-- overview -->
+      <section id="overview">
+        <div>
+          <o-typography variant="T3">Overview</o-typography>
+          <o-typography style="margin-bottom: 16px;">Buttons are essential elements of UI Design. They drive the user flow forward and enable the user to take actions.</o-typography>
+          <div>
+            <o-typography variant="C2">Color variants</o-typography>
+            <ol class="flex-vertical">
+              <li><o-typography><strong>Primary:</strong> used for the main action of a page, such as Submit or Sign Up. It should be used sparingly.</o-typography></li>
+              <li><o-typography><strong>Secondary:</strong> for important actions that are not considered primary.</o-typography></li>
+              <li><o-typography><strong>Inverse:</strong> used on inverse backgrounds where primary and secondary buttons do not have enough contrast.</o-typography></li>
+              <li><o-typography><strong>Danger, Warning, & Success:</strong> used to communicate danger, warning, and success messages.</o-typography></li>
+              <li><o-typography><strong>Disabled:</strong> for disabled buttons that cannot be interacted with.</o-typography></li>
+            </ol>
+          </div>
+
+          <o-divider></o-divider>
+
+          <div>
+            <o-typography variant="C2">Style variants</o-typography>
+            <ol class="flex-vertical">
+              <li><o-typography><strong>Filled:</strong> for important actions, where user attention is very important.</o-typography></li>
+              <li><o-typography><strong>Outlined:</strong> for medium-important actions.</o-typography></li>
+              <li><o-typography><strong>Clear:</strong> for the least important actions.</o-typography></li>
+            </ol>
+          </div>
+        </div>
+        <showcase-card>
+          <table class="size" cellspacing="30">
+            <tr>
+              <td><o-typography variant="C2">Default</o-typography></td>
+              <td></td>
+              <td>
+                <o-button>
+                  <o-icon cache="true" slot="prefix" name="check">OK</o-icon>
+                  Button
+                </o-button>
+              </td>
+              <td class="messure-line vertical left">
+                <o-typography style="color:#E8178A" nowrap>2.5rem / 40px</o-typography>
+              </td>
+            </tr>
+            <tr>
+              <td><o-typography variant="C2">Small</o-typography></td>
+              <td></td>
+              <td>
+                <o-button size="small">
+                  <o-icon cache="true" slot="prefix" name="check">OK</o-icon>
+                  Button
+                </o-button>
+              </td>
+              <td class="messure-line vertical left">
+                <o-typography style="color:#E8178A" nowrap>2rem / 32px</o-typography>
+              </td>
+            </tr>
+            <tr>
+              <td><o-typography variant="C2">Large</o-typography></td>
+              <td></td>
+              <td>
+                <o-button size="large">
+                  <o-icon cache="true" slot="prefix" name="check">OK</o-icon>
+                  Button
+                </o-button>
+              </td>
+              <td class="messure-line vertical left">
+                <o-typography style="color:#E8178A" nowrap>3rem / 48px</o-typography>
+              </td>
+            </tr>
+          </table>
+        </showcase-card>
+      </section>
+      <o-divider></o-divider>
+
+      <!-- component -->
+      <section id="component">
+        <o-typography variant="T3">Component</o-typography>
+      </section>
+      <section>
+        <showcase-card padding="small">
+          <table cellspacing="30" class="component">
+            <thead>
+              <tr>
+                <th></th>
+                <th>
+                  <o-typography variant="C2">Primary</o-typography>
+                  <o-typography variant="C4">Default</o-typography>
+                </th>
+                <th>
+                  <o-typography variant="C4">Hover</o-typography>
+                </th>
+                <th>
+                  <o-typography variant="C4">Pressed</o-typography>
+                </th>
+                <th>
+                  <o-typography variant="C2">Secondary</o-typography>
+                  <o-typography variant="C4">Default</o-typography>
+                </th>
+                <th>
+                  <o-typography variant="C4">Hover</o-typography>
+                </th>
+                <th>
+                  <o-typography variant="C4">Pressed</o-typography>
+                </th>
+                <th>
+                  <o-typography variant="C2">Inverse</o-typography>
+                  <o-typography variant="C4">Default</o-typography>
+                </th>
+                <th>
+                  <o-typography variant="C4">Hover</o-typography>
+                </th>
+                <th>
+                  <o-typography variant="C4">Pressed</o-typography>
+                </th>
+                <th>
+                  <o-typography variant="C2">Disabled</o-typography>
+                  <o-typography variant="C4">Default</o-typography>
+                </th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </showcase-card>
+      </section>
+
+      <o-divider></o-divider>
+
+
+      <!-- behaviour -->
+      <section id="behaviour">
+        <o-typography variant="T3">Behaviour</o-typography>
+      </section>
+      <section>
+        <div style="padding-bottom: 3rem; justify-content: space-between;">
+          <div class="flex-vertical">
+            <o-typography variant="T4">Hover</o-typography>
+            <o-typography>When hovering over a button with a cursor, the state changes to the hover state.</o-typography>
+          </div>
+          <div class="flex-vertical">
+            <o-typography variant="T4">Pressed</o-typography>
+            <o-typography>When pressing a button down, the state changes to the pressed state.</o-typography>
+          </div>
+          <div class="flex-vertical">
+            <o-typography variant="T4">Disabled</o-typography>
+            <o-typography>When buttons cannot be interacted with, they should appear disabled. Disabled buttons do not have a hover or pressed state.</o-typography>
+          </div>
+        </div>
+        <showcase-card>
+          <table cellspacing="30">
+            <tr>
+              <td><o-typography align="right" variant="C2">Default</o-typography></td>
+              <td><o-button>Button</o-button></td>
+            </tr>
+            <tr>
+              <td><o-typography align="right" variant="C2">Hover</o-typography></td>
+              <td><o-button class="hover">Button</o-button></td>
+            </tr>
+            <tr>
+              <td><o-typography align="right" variant="C2">Pressed</o-typography></td>
+              <td><o-button class="pressed">Button</o-button></td>
+            </tr>
+            <tr>
+              <td><o-typography align="right" variant="C2">Disabled</o-typography></td>
+              <td><o-button disabled>Button</o-button></td>
+            </tr>
+          </table>
+        </showcase-card>
+      </section>
+
+      <!-- focused -->
+      <section id="focused">
+        <div>
+          <o-typography variant="T4">Focused</o-typography>
+          <o-typography style="margin-bottom: var(--margin-medium);">When focusing on a button using the keyboard or voice controls, the state changes to the focused state. Focused buttons have a focus ring around them which matches the corner radius. While in the focused state, buttons can also have a hover or pressed state.</o-typography>
+          <o-typography style="margin-bottom: var(--margin-medium);">The focus ring uses the color <strong>--o-color-border-strong</strong>, has a 0.125rem (2px) width, and has 0.0625rem (1px) margin between itself and the button. The focus ring is formatted outside the button and should not affect the button’s vertical placement on a page.</o-typography>
+          <o-typography style="margin-bottom: var(--margin-medium);">Disabled buttons are not able to be focused.</o-typography>
+        </div>
+        <div>
+          <showcase-card padding="small" class="half">
+            <div class="flex-vertical">
+              <o-typography align="center" variant="C2">Default</o-typography>
+              <o-button class="focus">Button</o-button>
+            </div>
+            <div class="flex-vertical">
+              <o-typography align="center" variant="C2">Hover</o-typography>
+              <o-button class="hover focus">Button</o-button>
+            </div>
+            <div class="flex-vertical">
+              <o-typography align="center" variant="C2">Pressed</o-typography>
+              <o-button class="pressed focus">Button</o-button>
+            </div>
+            <div class="flex-vertical">
+              <o-typography align="center" variant="C2">Disabled</o-typography>
+              <o-button disabled class="focus">Button</o-button>
+            </div>
+          </showcase-card>
+
+          <showcase-card padding="small" class="half">
+            <div class="flex-vertical">
+              <o-typography align="center" variant="C2">Filled</o-typography>
+              <o-button variant="filled" class="focus">Button</o-button>
+            </div>
+            <div class="flex-vertical">
+              <o-typography align="center" variant="C2">Outlined</o-typography>
+              <o-button variant="outlined" class="focus">Button</o-button>
+            </div>
+            <div class="flex-vertical">
+              <o-typography align="center" variant="C2">Clear</o-typography>
+              <o-button variant="clear" class="focus">Button</o-button>
+            </div>
+          </showcase-card>
+        </div>
+      </section>
+
+
+      <!-- loading -->
+      <section id="loading">
+        <div>
+          <o-typography variant="T4">Loading</o-typography>
+          <o-typography>Buttons can indicate that indeterminate progress is taking place by using the loading state. When a button is loading, the button label and icons are hidden and a spinner is shown in its place, while maintaining the width that it would have if the label and icons were visible.</o-typography>
+          <o-typography>Use the loading state sparingly. It should be reserved only for when the progress is expected to be quick (taking 5 seconds or less), and when there is no better way to communicate progress.</o-typography>
+          <o-typography>For determinate progress or interment progress expected to take more than 5 seconds, use a progress bar.</o-typography>
+        </div>
+        <showcase-card padding="small">
+          <table cellspacing="30">
+            <tr>
+              <td><o-typography variant="C2">Filled</o-typography></td>
+              <td><o-button loading>Loading button</o-button></td>
+              <td><o-button color="secondary" loading>Loading button</o-button></td>
+              <td><o-button color="danger" loading>Loading button</o-button></td>
+              <td><o-button color="warning" loading>Loading button</o-button></td>
+              <td><o-button color="success" loading>Loading button</o-button></td>
+            </tr>
+            <tr>
+              <td><o-typography variant="C2">Outlined</o-typography></td>
+              <td><o-button variant="outlined" loading>Loading button</o-button></td>
+              <td><o-button variant="outlined" color="secondary" loading>Loading button</o-button></td>
+              <td><o-button variant="outlined" color="danger" loading>Loading button</o-button></td>
+              <td><o-button variant="outlined" color="warning" loading>Loading button</o-button></td>
+              <td><o-button variant="outlined" color="success" loading>Loading button</o-button></td>
+            </tr>
+            <tr>
+              <td><o-typography variant="C2">Clear</o-typography></td>
+              <td><o-button variant="clear" loading>Loading button</o-button></td>
+              <td><o-button variant="clear" color="secondary" loading>Loading button</o-button></td>
+              <td><o-button variant="clear" color="danger" loading>Loading button</o-button></td>
+              <td><o-button variant="clear" color="warning" loading>Loading button</o-button></td>
+              <td><o-button variant="clear" color="success" loading>Loading button</o-button></td>
+            </tr>
+          </table>
+        </showcase-card>
+      </section>
+
+      <!-- success warning & danger -->
+      <section id="success-warning-danger">
+        <div>
+          <o-typography variant="T4">Success, Warning & Danger</o-typography>
+          <o-typography>Success, warning, and danger buttons communicate messages to the user. Select the filled, outlined, or clear button type based on the importance of the message.</o-typography>
+          <o-typography>Success, warning, and danger buttons must be used with with an icon. Make sure to use a relevant icon for each state.</o-typography>
+          <div>
+            <o-typography variant="C2">Success</o-typography>
+            <o-typography>Use a success button to indicate successful actions. </o-typography>
+          </div>
+          <div>
+            <o-typography variant="C2">Warning</o-typography>
+            <o-typography>Use a warning button to indicate potentially destructive actions. </o-typography>
+          </div>
+          <div>
+            <o-typography variant="C2">Danger</o-typography>
+            <o-typography>Use a danger button to indicate destructive actions. </o-typography>
+          </div>
+        </div>
+        <showcase-card>
+          <table cellspacing="30">
+            <thead>
+              <tr>
+                <th></th>
+                <th><o-typography variant="C2">Important</o-typography></th>
+                <th><o-typography variant="C2">Medium important</o-typography></th>
+                <th><o-typography variant="C2">Least important</o-typography></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><o-typography align="right" variant="C2">Success</o-typography></td>
+                <td>
+                  <o-button color="success">
+                    <o-icon slot="prefix" name="check-circle" cache="true">OK</o-icon>
+                    Button
+                  </o-button>
+                </td>
+                <td>
+                  <o-button color="success" variant="outlined">
+                    <o-icon slot="prefix" name="check-circle" cache="true">OK</o-icon>
+                    Button
+                  </o-button>
+                </td>
+                <td>
+                  <o-button color="success" variant="clear">
+                    <o-icon slot="prefix" name="check-circle" cache="true">OK</o-icon>
+                    Button
+                  </o-button>
+                </td>
+              </tr>
+              <tr>
+                <td><o-typography align="right" variant="C2">Warning</o-typography></td>
+                <td>
+                  <o-button color="warning">
+                    <o-icon slot="prefix" name="warning" cache="true">!</o-icon>
+                    Button
+                  </o-button>
+                </td>
+                <td>
+                  <o-button color="warning" variant="outlined">
+                    <o-icon slot="prefix" name="warning" cache="true">!</o-icon>
+                    Button
+                  </o-button>
+                </td>
+                <td>
+                  <o-button color="warning" variant="clear">
+                    <o-icon slot="prefix" name="warning" cache="true">!</o-icon>
+                    Button
+                  </o-button>
+                </td>
+              </tr>
+              <tr>
+                <td><o-typography align="right" variant="C2">Danger</o-typography></td>
+                <td>
+                  <o-button color="danger">
+                    <o-icon slot="prefix" name="danger" cache="true">X</o-icon>
+                    Button
+                  </o-button>
+                </td>
+                <td>
+                  <o-button color="danger" variant="outlined">
+                    <o-icon slot="prefix" name="danger" cache="true">X</o-icon>
+                    Button
+                  </o-button>
+                </td>
+                <td>
+                  <o-button color="danger" variant="clear">
+                    <o-icon slot="prefix" name="danger" cache="true">X</o-icon>
+                    Button
+                  </o-button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </showcase-card>
+      </section>
+
+      <o-divider></o-divider>
+
+      <!-- border radius -->
+      <section id="border-radius">
+        <div>
+          <o-typography variant="T4">Border radius</o-typography>
+          <o-typography>All buttons have a fully rounded border radius. </o-typography>
+          <o-typography>However there's support to use the normal radius <strong>(none, small, medium, large, circular)</strong></o-typography>
+        </div>
+        <showcase-card>
+          
+          <table cellspacing="30">
+            <tr>
+              <td><o-typography align="right" variant="C2">Default/Circular</o-typography></td>
+              <td>
+                <o-button radius="circular">
+                  <o-icon name="check" slot="prefix" cache="true"></o-icon>
+                  Button
+                </o-button>
+              </td>
+            </tr>
+            <tr>
+              <td><o-typography align="right" variant="C2">None</o-typography></td>
+              <td>
+                <o-button radius="none">
+                  <o-icon name="check" slot="prefix" cache="true"></o-icon>
+                  Button
+                </o-button>
+              </td>
+            </tr>
+            <tr>
+              <td><o-typography align="right" variant="C2">Small</o-typography></td>
+              <td>
+                <o-button radius="small">
+                  <o-icon name="check" slot="prefix" cache="true"></o-icon>
+                  Button
+                </o-button>
+              </td>
+            </tr>
+            <tr>
+              <td><o-typography align="right" variant="C2">Medium</o-typography></td>
+              <td>
+                <o-button radius="medium">
+                  <o-icon name="check" slot="prefix" cache="true"></o-icon>
+                  Button
+                </o-button>
+              </td>
+            </tr>
+            <tr>
+              <td><o-typography align="right" variant="C2">Large</o-typography></td>
+              <td>
+                <o-button radius="large">
+                  <o-icon name="check" slot="prefix" cache="true"></o-icon>
+                  Button
+                </o-button>
+              </td>
+            </tr>
+          </table>
+        </showcase-card>
+      </section>
+
+      <!-- size -->
+      <section id="size">
+        <div>
+          <o-typography variant="T4">Size</o-typography>
+          <o-typography>There are 3 sizes of button: default, small, and large. Choose the size that best works with the context of your design, and apply sizes as consistently as possible.  </o-typography>
+        </div>
+        <showcase-card>
+          <table class="size" cellspacing="30">
+            <tr>
+              <td><o-typography variant="C2">Default</o-typography></td>
+              <td></td>
+              <td>
+                <o-button>
+                  <o-icon cache="true" slot="prefix" name="check">OK</o-icon>
+                  Button
+                </o-button>
+              </td>
+              <td class="messure-line vertical left">
+                <o-typography style="color:#E8178A" nowrap>2.5rem / 40px</o-typography>
+              </td>
+            </tr>
+            <tr>
+              <td><o-typography variant="C2">Small</o-typography></td>
+              <td></td>
+              <td>
+                <o-button size="small">
+                  <o-icon cache="true" slot="prefix" name="check">OK</o-icon>
+                  Button
+                </o-button>
+              </td>
+              <td class="messure-line vertical left">
+                <o-typography style="color:#E8178A" nowrap>2rem / 32px</o-typography>
+              </td>
+            </tr>
+            <tr>
+              <td><o-typography variant="C2">Large</o-typography></td>
+              <td></td>
+              <td>
+                <o-button size="large">
+                  <o-icon cache="true" slot="prefix" name="check">OK</o-icon>
+                  Button
+                </o-button>
+              </td>
+              <td class="messure-line vertical left">
+                <o-typography style="color:#E8178A" nowrap>3rem / 48px</o-typography>
+              </td>
+            </tr>
+          </table>
+        </showcase-card>
+      </section>
+
+      <!-- importance -->
+      <section id="importance">
+        <div>
+          <o-typography variant="T4">Importance</o-typography>
+          <o-typography>Major CTAs signify the most importance, with filled variants having more importance than outlined variants. </o-typography>
+          <o-typography>Minor CTAs signify actions with less importance than a major CTA, with outlined variants having more importance than clear variants.</o-typography>
+        </div>
+        <showcase-card>
+          <o-typography style="margin-bottom: var(--margin-medium);" variant="C2">Importance hierarchy</o-typography>
+          <table cellspacing="0">
+            <tr>
+              <td>
+                <o-typography variant="C2">Major CTAs</o-typography>
+              </td>
+              <td>
+                <o-typography variant="C4" nowrap>Most importance</o-typography>
+              </td>
+              <td class="messure-line vertical left" style="margin-left: var(--margin-medium);">
+                <div class="flex-vertical">
+                  <span>
+                    <o-button>
+                      <o-icon cache="true" slot="prefix" name="check">OK</o-icon>
+                      primary-filled
+                    </o-button>
+                  </span>
+                  <span>
+                    <o-button color="secondary">
+                      <o-icon cache="true" slot="prefix" name="check">OK</o-icon>
+                      secondary-filled
+                    </o-button>
+                  </span>
+                  <span>
+                    <o-button variant="outlined">
+                      <o-icon cache="true" slot="prefix" name="check">OK</o-icon>
+                      primary-outlined
+                    </o-button>
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <o-typography variant="C2">Minor CTAs</o-typography>
+              </td>
+              <td>
+                <o-typography align="center" variant="C4" nowrap>Least importance</o-typography>
+              </td>
+              <td class="messure-line vertical left" style="margin-left: var(--margin-medium);">
+                <div class="flex-vertical">
+                  <span>
+                    <o-button variant="outlined" color="secondary">
+                      <o-icon cache="true" slot="prefix" name="check">OK</o-icon>
+                      secondary-outlined
+                    </o-button>
+                  </span>
+                  <span>
+                    <o-button variant="clear" color="primary">
+                      <o-icon cache="true" slot="prefix" name="check">OK</o-icon>
+                      primary-clear
+                    </o-button>
+                  </span>
+                  <span>
+                    <o-button variant="clear" color="secondary">
+                      <o-icon cache="true" slot="prefix" name="check">OK</o-icon>
+                      secondary-clear
+                    </o-button>
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </showcase-card>
+      </section>
+
+      <!-- alignment -->
+      <section id="alignment">
+        <div>
+          <o-typography variant="T4">Alignment</o-typography>
+          <o-typography>Button alignment depends on where they appear and if they are nested in another component. </o-typography>
+          <div>
+            <o-typography variant="C2">Left-aligned</o-typography>
+            <o-typography>Generally, the primary button is aligned to the left and stays close to where the user’s focus is. This applies to forms and cards.</o-typography>
+          </div>
+          <div>
+            <o-typography variant="C2">Right-aligned</o-typography>
+            <o-typography>When nested within dialogs and wizards, the primary button is traditionally aligned to the right. This also applies to other components that a button is nested in, such as in-line notifications.</o-typography>
+          </div>
+          <div>
+            <o-typography variant="C2">Center-aligned</o-typography>
+            <o-typography>Buttons can be center-aligned when the rest of the design is also center aligned.</o-typography>
+          </div>
+          <div>
+            <o-typography variant="C2">Full-width</o-typography>
+            <o-typography>In some cases, buttons can span the entire width of a container. This usually happens within cards, side panels, and dialogs.</o-typography>
+          </div>
+        </div>
+        <div>
+          <showcase-card class="half">
+            <div>
+              <o-typography align="center" variant="C2">Left-aligned</o-typography>
+              <o-typography align="center" nowrap>full size pages, forms, cards</o-typography>
+              <div class="center">
+                <div class="card left-align theme-dark">
+                  <div class="line short"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="button-flex">
+                    <div class="button filled"></div>
+                    <div class="button outlined"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <o-typography align="center" variant="C2">Right-aligned</o-typography>
+              <o-typography align="center" nowrap>dialogs, wizards, in-line notifications, messages</o-typography>
+              <div class="center">
+                <div class="card right-align theme-dark">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="popup card">
+                    <o-icon size="small" name="close"></o-icon>
+                    <div class="line short"></div>
+                    <div class="line"></div>
+                    <div class="button-flex">
+                      <div class="button outlined"></div>
+                      <div class="button filled"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </showcase-card>
+
+          <showcase-card class="half">
+            <div>
+              <o-typography align="center" variant="C2">Center-aligned</o-typography>
+              <o-typography align="center" nowrap>centered designs</o-typography>
+              <div class="center">
+                <div class="card center-align theme-dark">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="button filled"></div>
+                  <div class="button outlined"></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <o-typography align="center" variant="C2">Full-width</o-typography>
+              <o-typography align="center" nowrap>cards, side panels, dialogs</o-typography>
+              <div class="center">
+                <div class="card sidebar theme-dark">
+                  <div class="sidebar">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="button filled"></div>
+                  </div>
+                  <div>
+                    <div class="line short"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                  </div>
+                </div>
+                <div class="card full theme-dark">
+                  <div class="line short"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="button filled" style="margin-top: var(--margin-small)"></div>
+                  <div class="button outlined"></div>
+                </div>
+              </div>
+            </div>
+          </showcase-card>
+        </div>
+      </section>
+
+      <!-- visual-weight -->
+      <section id="visual-weight">
+        <div>
+          <o-typography variant="T4">Visual Weight</o-typography>
+          <o-typography>If there are more than 3 CTAs on a page, it’s recommended to use outlined or clear buttons for the majority of instances. This is due to the visual weight of filled buttons, which can appear too heavy if there are many of them.</o-typography>
+        </div>
+        <div>
+          <showcase-card>
+            <div>
+              <o-typography align="center" variant="C2">Visual weight</o-typography>
+              <div class="center">
+                <div class="card theme-dark">
+                  <div class="flex">
+                    <div class="flex-bottom">
+                      <div class="line short"></div>
+                      <div class="line"></div>
+                    </div>
+                    <div class="flex-bottom">
+                      <div class="button filled"></div>
+                    </div>
+                  </div>
+                  <div class="grid">
+                    <div class="card">
+                      <div class="button secondary outlined"></div>
+                    </div>
+                    <div class="card">
+                      <div class="button secondary outlined"></div>
+                    </div>
+                    <div class="card">
+                      <div class="button secondary outlined"></div>
+                    </div>
+                    <div class="card">
+                      <div class="button secondary outlined"></div>
+                    </div>
+                    <div class="card">
+                      <div class="button secondary outlined"></div>
+                    </div>
+                    <div class="card">
+                      <div class="button secondary outlined"></div>
+                    </div>
+                    <div class="card">
+                      <div class="button secondary outlined"></div>
+                    </div>
+                    <div class="card">
+                      <div class="button secondary outlined"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </showcase-card>
+        </div>
+      </section>
+
+      <!-- icons -->
+      <section id="icons">
+        <div>
+          <o-typography variant="T4">Icons</o-typography>
+          <o-typography>Icons should only by used in buttons if additional clarity is required. Icons should not be used as decoration.</o-typography>
+          <o-typography>If a button does have an icon, the icon may be a leading icon or a trailing icon (aka prefix an suffix in dev environments). The default position for icons is leading. Trailing icons may only be used if it doesn’t make sense for the icon to be leading. </o-typography>
+          <o-typography>Icon buttons, buttons that only have an icon and no label, may also be used, but must be accompanied by a tooltip on hover.</o-typography>
+        </div>
+        <showcase-card>
+          <o-button>Button</o-button>
+          <o-button>
+            <o-icon slot="prefix" cache="true" name="check">OK</o-icon>
+            Button
+          </o-button>
+          <o-button>
+            <o-icon slot="suffix" cache="true" name="arrow-right">-></o-icon>
+            Button
+          </o-button>
+          <o-button circle>
+            <o-icon cache="true" name="arrow-right">-></o-icon>
+          </o-button>
+        </showcase-card>
+      </section>
+
+      <!-- label -->
+      <section id="label">
+        <div>
+          <o-typography variant="T4">Labels</o-typography>
+
+          <o-typography variant="C2">Case</o-typography>
+          <o-typography>Use sentence case for button labels. Don’t use all-caps for emphasis.</o-typography>
+
+          <o-typography variant="C2">Verbs</o-typography>
+          <o-typography>Buttons represent actions and the best way to represent an action in writing is with a verb. Labels written as nouns or adjectives can be disorienting.</o-typography>
+
+          <o-typography variant="C2">Clarity</o-typography>
+          <o-typography>Make sure that the label clearly states the outcome of an action and uses the same words as other buttons in the experience that do the same thing.</o-typography>
+
+          <o-typography variant="C2">Tone</o-typography>
+          <o-typography>Be aware of tone and avoid decorations like emojis or exclamations.</o-typography>
+        </div>
+        <showcase-card>
+          <o-typography align="center" variant="C2">Label examples</o-typography>
+          <o-button>Get started</o-button>
+          <o-button>Sign up</o-button>
+        </showcase-card>
+      </section>
+
+      <!-- minimum-width -->
+      <section id="minimum-width">
+        <div>
+          <o-typography variant="T4">Minimum Width</o-typography>
+
+          <o-typography>Buttons with small labels can look strange or awkward. To avoid this, buttons have a minimum width of 2.25x the height of the button.</o-typography>
+
+          <o-typography variant="C2">Large</o-typography>
+          <o-typography>48px x 2.25 = 108px (6.75rem) min. width</o-typography>
+
+          <o-typography variant="C2">Default</o-typography>
+          <o-typography>40px x 2.25 = 90px (5.625rem) min. width</o-typography>
+
+          <o-typography variant="C2">Small</o-typography>
+          <o-typography>32px x 2.25 = 72px (4.5rem) min. width</o-typography>
+        </div>
+        <showcase-card>
+          <o-button>OK</o-button>
+        </showcase-card>
+      </section>
+
+      <!-- overflow -->
+      <section id="overflow">
+        <div>
+          <o-typography variant="T4">Overflow</o-typography>
+          <o-typography>Overflow within buttons should be avoided as it reduces legibility and can negatively impact layouts, however if the label text becomes too long for the available horizontal space, it wraps to the next line. This may occur when switching the displayed language. The icon is vertically aligned to the center in these cases.</o-typography>
+          <o-typography>The maximum width of the button is determined on a contextual basis.</o-typography>
+          <o-typography><strong>Note</strong> that in real scenario this would have been forced as button is hugging the content</o-typography>
+        </div>
+        <showcase-card>
+          <div style="width: 200px">
+            <o-button>
+              <o-icon cache="true" slot="prefix" name="check">OK</o-icon>
+              Informationen über Interzero
+            </o-button>
+          </div>
+        </showcase-card>
+      </section>
+
+      <!-- inverse -->
+      <section id="inverse">
+        <div>
+          <o-typography variant="T4">Inverse</o-typography>
+          <o-typography>Inverse buttons replace both primary and secondary buttons when there isn’t enough contrast on inverse or image backgrounds.</o-typography>
+        </div>
+        <showcase-card>
+          <o-button color="inverse">
+            <o-icon slot="prefix" cache="true" name="check">OK</o-icon>
+            Button
+          </o-button>
+          <o-button color="inverse" variant="outlined">
+            <o-icon slot="prefix" cache="true" name="check">OK</o-icon>
+            Button
+          </o-button>
+          <o-button color="inverse" variant="clear">
+            <o-icon slot="prefix" cache="true" name="check">OK</o-icon>
+            Button
+          </o-button>
+        </showcase-card>
+      </section>
+
+      <o-divider></o-divider>
+
+
+      <!-- group-display -->
+      <section class="vertical" id="group-display">
+        <o-typography variant="T3">Button Groups</o-typography>
+        <o-typography>Button groups logically align buttons based on importance.</o-typography>
+      </section>
+      
+      <section>
+        <showcase-card class="flex-vertical">
+          <div class="horizontal flex-vertical">
+            <o-typography align="center" variant="C2">Horizontal</o-typography>
+            <div>
+              <div class="flex-vertical">
+                <o-typography align="center">2 button group</o-typography>
+                <!-- first batch -->
+                <div class="flex">
+                  <o-button>Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button>Button</o-button>
+                  <o-button variant="clear">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button variant="outlined">Button</o-button>
+                  <o-button variant="clear">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                </div>
+
+                <!-- first batch (flipped)-->
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button>Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button variant="clear">Button</o-button>
+                  <o-button>Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button variant="clear">Button</o-button>
+                  <o-button variant="outlined">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                </div>
+
+                <!-- identicals -->
+                <div class="flex">
+                  <o-button color="primary" variant="clear">Button</o-button>
+                  <o-button color="primary" variant="clear">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                </div>
+              </div>
+              <div class="flex-vertical">
+                <o-typography align="center">3 button group</o-typography>
+                <!-- first batch -->
+                <div class="flex">
+                  <o-button>Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button>Button</o-button>
+                  <o-button variant="clear">Button</o-button>
+                  <o-button variant="clear">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button variant="outlined">Button</o-button>
+                  <o-button variant="clear">Button</o-button>
+                  <o-button variant="clear">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                </div>
+
+                <!-- first batch (flipped)-->
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button>Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button variant="clear">Button</o-button>
+                  <o-button variant="clear">Button</o-button>
+                  <o-button>Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button variant="clear">Button</o-button>
+                  <o-button variant="clear">Button</o-button>
+                  <o-button variant="outlined">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                </div>
+
+                <!-- identicals -->
+                <div class="flex">
+                  <o-button color="primary" variant="clear">Button</o-button>
+                  <o-button color="primary" variant="clear">Button</o-button>
+                  <o-button color="primary" variant="clear">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vertical flex-vertical">
+            <o-typography align="center" variant="C2">Stacked</o-typography>
+            <div>
+              <div class="flex-vertical">
+                <o-typography align="center">2 button group</o-typography>
+                <!-- first batch -->
+                <div class="flex">
+                  <o-button>Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button>Button</o-button>
+                  <o-button variant="clear">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button variant="outlined">Button</o-button>
+                  <o-button variant="clear">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                </div>
+
+                <!-- first batch (flipped)-->
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button>Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button variant="clear">Button</o-button>
+                  <o-button>Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button variant="clear">Button</o-button>
+                  <o-button variant="outlined">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                </div>
+
+                <!-- identicals -->
+                <div class="flex">
+                  <o-button color="primary" variant="clear">Button</o-button>
+                  <o-button color="primary" variant="clear">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                </div>
+              </div>
+              <div class="flex-vertical">
+                <o-typography align="center">3 button group</o-typography>
+                <!-- first batch -->
+                <div class="flex">
+                  <o-button>Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button>Button</o-button>
+                  <o-button variant="clear">Button</o-button>
+                  <o-button variant="clear">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button variant="outlined">Button</o-button>
+                  <o-button variant="clear">Button</o-button>
+                  <o-button variant="clear">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                </div>
+
+                <!-- first batch (flipped)-->
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button>Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button variant="clear">Button</o-button>
+                  <o-button variant="clear">Button</o-button>
+                  <o-button>Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button variant="clear">Button</o-button>
+                  <o-button variant="clear">Button</o-button>
+                  <o-button variant="outlined">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                </div>
+
+                <!-- identicals -->
+                <div class="flex">
+                  <o-button color="primary" variant="clear">Button</o-button>
+                  <o-button color="primary" variant="clear">Button</o-button>
+                  <o-button color="primary" variant="clear">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                  <o-button color="secondary" variant="outlined">Button</o-button>
+                </div>
+                <div class="flex">
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                  <o-button color="secondary" variant="clear">Button</o-button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </showcase-card>
+      </section>
+
+      <!-- combinations -->
+      <section id="combinations">
+        <div>
+          <o-typography variant="T4">Combinations</o-typography>
+          <o-typography>A major CTA can be combined with one or more minor CTAs. Select the minor CTA type based on importance. Make sure all minor CTA’s within a button group are the same.</o-typography>
+          <o-typography>Multiple minor CTAs can be combined.</o-typography>
+          <o-typography>See the alignment section above for guidelines on whether to use the right or left aligned button group variants.</o-typography>
+        </div>
+        <showcase-card>
+          <o-typography align="center" variant="C2">Combination examples</o-typography>
+          <table>
+            <tr>
+              <td><o-button>Button</o-button></td>
+              <td><o-button variant="outlined" color="secondary">Button</o-button></td>
+              <td><o-button variant="outlined" color="secondary">Button</o-button></td>
+            </tr>
+            <tr>
+              <td><o-button variant="clear" color="secondary">Button</o-button></td>
+              <td><o-button variant="clear" color="secondary">Button</o-button></td>
+              <td><o-button color="secondary">Button</o-button></td>
+            </tr>
+            <tr>
+              <td><o-button variant="clear">Button</o-button></td>
+              <td><o-button variant="clear">Button</o-button></td>
+              <td><o-button variant="clear">Button</o-button></td>
+            </tr>
+          </table>
+        </showcase-card>
+      </section>
+
+      <!-- stacked groups -->
+      <section id="stacked groups">
+        <div>
+          <o-typography variant="T4">Stacked Groups</o-typography>
+          <o-typography>Stacked button groups can be used when the horizontal space isn’t available. For stacked button groups, the major CTA is always on top.</o-typography>
+        </div>
+        <showcase-card>
+          <o-typography align="center" variant="C2">Stacked groups</o-typography>
+          <o-button>Button</o-button>
+          <o-button variant="outlined" color="secondary">Button</o-button>
+          <o-button variant="outlined" color="secondary">Button</o-button>
+        </showcase-card>
+      </section>
+
+      <!-- button-width -->
+      <section id="button-width">
+        <div>
+          <o-typography variant="T4">Button Width</o-typography>
+          <o-typography>Within a stacked button group, buttons should all be the same width. To do this, keep the button with the most width on “Hug” and match the width of the others using  “Fill”. </o-typography>
+          <o-typography>Horizontal button groups may have buttons of varying widths. </o-typography>
+          <o-typography>When aligning button groups to the grid, each group should be treated as an individual component.</o-typography>
+        </div>
+        <showcase-card>
+          <o-typography align="center" variant="C2">Button width</o-typography>
+          <div class="flex-vertical">
+            <o-typography align="center" class="messure-text">214px (fill)</o-typography>
+            <div class="flex-vertical messure-line both">
+              <span><o-button mode="fill">Order now</o-button></span>
+              <span><o-button color="secondary" variant="outlined">Order now - long text</o-button></span>
+            </div>
+          <o-typography align="center" class="messure-text">214px (hug)</o-typography>
+          </div>
+        </showcase-card>
+      </section>
+
+      <!-- group-danger-warning-success -->
+      <section id="group-danger-warning-success">
+        <div>
+          <o-typography variant="T4">Danger, Warning & Success</o-typography>
+          <o-typography>Use a button group with a danger button to indicate destructive actions, a warning button to indicate potentially destructive actions, or a success button to indicate successful actions. </o-typography>
+          <o-typography>Only one danger, warning, or success button may be used per group, and only the “filled” variant may be used. The minor buttons in the group must be “outlined-secondary”.</o-typography>
+        </div>
+        <showcase-card padding="medium">
+          <div class="flex-vertical figma-component">
+            <o-typography align="center" variant="C2">Danger</o-typography>
+            <div class="flex">
+              <o-button color="danger">Button</o-button>
+              <o-button variant="outlined" color="danger">Button</o-button>
+            </div>
+          </div>
+          <div class="flex-vertical">
+            <o-typography align="center" variant="C2">Warning</o-typography>
+            <div class="flex">
+              <o-button variant="outlined" color="warning">Button</o-button>
+              <o-button color="warning">Button</o-button>
+            </div>
+          </div>
+          <div class="flex-vertical">
+            <o-typography align="center" variant="C2">Success</o-typography>
+            <div class="flex">
+              <o-button color="success" variant="outlined">Button</o-button>
+              <o-button color="success">Button</o-button>
+            </div>
+          </div>
+        </showcase-card>
+      </section>
+
+      <!-- group-icons -->
+      <section id="group-icons">
+        <div>
+          <o-typography variant="T4">Icons</o-typography>
+
+          <o-typography>Icons may be used in groups with one of the following formats:</o-typography>
+          <ol>
+            <li><o-typography>Only the major button in the group has an icon</o-typography></li>
+            <li><o-typography>All buttons in a group have an icon</o-typography></li>
+            <li><o-typography>No buttons in a group have an icon</o-typography></li>
+          </ol>
+          <o-typography>Icons in button groups must either all be leading or all be trailing. In most cases they will all be leading.</o-typography>
+        </div>
+        <showcase-card>
+          <table cellspacing="10">
+            <tr>
+              <td>
+                <div class="flex">
+                  <o-button variant="clear">Cancel</o-button>
+                  <o-button variant="clear">Preview</o-button>
+                  <o-button variant="outlined">
+                    <o-icon slot="prefix" name="edit"></o-icon>
+                    Edit
+                  </o-button>
+                </div>
+              </td>
+              <td>
+                <o-typography align="left" nowrap variant="C2">Major button has icon</o-typography>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="flex">
+                  <o-button variant="clear">
+                    <o-icon slot="prefix" name="eye"></o-icon>
+                    Preview
+                  </o-button>
+                  <o-button variant="clear">
+                    <o-icon slot="prefix" name="group"></o-icon>
+                    View team
+                  </o-button>
+                  <o-button variant="clear">
+                    <o-icon slot="prefix" name="edit"></o-icon>
+                    Edit
+                  </o-button>
+                </div>
+              </td>
+              <td>
+                <o-typography align="left" nowrap variant="C2">All buttons have an icon (leading)</o-typography>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="flex">
+                  <o-button color="secondary" variant="outlined">Cancel</o-button>
+                  <o-button color="secondary" variant="outlined">Preview</o-button>
+                  <o-button color="secondary">Edit</o-button>
+                </div>
+              </td>
+              <td>
+                <o-typography align="left" nowrap variant="C2">No buttons have an icon</o-typography>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="flex">
+                  <o-button circle variant="clear">
+                    <o-icon name="eye"></o-icon>
+                  </o-button>
+                  <o-button circle variant="clear">
+                    <o-icon name="group"></o-icon>
+                  </o-button>
+                  <o-button circle variant="clear">
+                    <o-icon name="edit"></o-icon>
+                  </o-button>
+                </div>
+              </td>
+              <td>
+                <o-typography align="left" nowrap variant="C2">All buttons are icon-only</o-typography>
+              </td>
+            </tr>
+          </table>
+        </showcase-card>
+      </section>
+
+      <section id="guidelines">
+        <o-typography variant="T3">Best practices</o-typography>
+      </section>
+      
+      <o-divider></o-divider>
+
+      <!-- guidelines -->
+      <section class="guidelines">
+        <div>
+          <showcase-guideline
+            variant="error"
+            infotext="Don’t combine multiple major buttons. Too many options may overwhelm users, especially if they are the same hierarchy level."
+          >
+            <div class="flex">
+              <o-button>Button</o-button>
+              <o-button>Button</o-button>
+              <o-button>Button</o-button>
+            </div>
+          </showcase-guideline>
+          <showcase-guideline
+            variant="error"
+            infotext="Don’t combine more than 2 types of buttons."
+          >
+            <div class="flex">
+              <o-button>Button</o-button>
+              <o-button color="secondary">Button</o-button>
+              <o-button variant="clear">Button</o-button>
+            </div>
+          </showcase-guideline>
+        </div>
+        <div>
+          <showcase-guideline
+            variant="error"
+            infotext="Don’t combine multiple types of “outlined” buttons. The hierarchy can be difficult to distinguish."
+          >
+            <div class="flex">
+              <o-button variant="outlined">Button</o-button>
+              <o-button variant="outlined" color="secondary">Button</o-button>
+              <o-button variant="outlined" color="secondary">Button</o-button>
+            </div>
+          </showcase-guideline>
+          <showcase-guideline
+            variant="error"
+            infotext="Don’t combine “secondary-filled” buttons with primary buttons. The visual weight of the secondary button can overpower the hierarchy of the primary button."
+          >
+            <div class="flex">
+              <o-button color="secondary">Button</o-button>
+              <o-button>Button</o-button>
+            </div>
+            <div class="flex">
+              <o-button color="secondary">Button</o-button>
+              <o-button variant="outlined">Button</o-button>
+            </div>
+            <div class="flex">
+              <o-button color="secondary">Button</o-button>
+              <o-button variant="clear">Button</o-button>
+            </div>
+          </showcase-guideline>
+        </div>
+      </section>
+
+      <o-divider></o-divider>
+
+      <!-- examples -->
+      <section id="examples">
+        <o-typography variant="T3">Examples</o-typography>
+      </section>
+      <section>
+        <div class="theme-light">
+          <div class="flex-vertical radius-top-left">
+            <span><o-typography inline align="center">--o-color-bg</o-typography></span>
+            <!-- primary -->
+            <div class="flex">
+              <o-button>
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- secondary -->
+            <div class="flex">
+              <o-button color="secondary">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="secondary" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="secondary" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- danger -->
+            <div class="flex">
+              <o-button color="danger">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="danger" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="danger" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- warning -->
+            <div class="flex">
+              <o-button color="warning">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="warning" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="warning" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- success -->
+            <div class="flex">
+              <o-button color="success">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="success" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="success" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- disabled -->
+            <div class="flex">
+              <o-button disabled>
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button disabled variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button disabled variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+          </div>
+          <div class="flex-vertical">
+            <span><o-typography inline align="center">--o-color-bg-secondary</o-typography></span>
+            <!-- primary -->
+            <div class="flex">
+              <o-button>
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- secondary -->
+            <div class="flex">
+              <o-button color="secondary">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="secondary" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="secondary" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- danger -->
+            <div class="flex">
+              <o-button color="danger">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="danger" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="danger" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- warning -->
+            <div class="flex">
+              <o-button color="warning">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="warning" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="warning" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- success -->
+            <div class="flex">
+              <o-button color="success">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="success" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="success" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- disabled -->
+            <div class="flex">
+              <o-button disabled>
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button disabled variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button disabled variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+          </div>
+          <div class="flex-vertical radius-top-right">
+            <span><o-typography inline align="center">--o-color-bg-tertiary</o-typography></span>
+            <!-- primary -->
+            <div class="flex">
+              <o-button>
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- secondary -->
+            <div class="flex">
+              <o-button color="secondary">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="secondary" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="secondary" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- danger -->
+            <div class="flex">
+              <o-button color="danger">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="danger" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="danger" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- warning -->
+            <div class="flex">
+              <o-button color="warning">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="warning" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="warning" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- success -->
+            <div class="flex">
+              <o-button color="success">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="success" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="success" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- disabled -->
+            <div class="flex">
+              <o-button disabled>
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button disabled variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button disabled variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+          </div>
+        </div>
+        <div class="theme-dark">
+          <div class="flex-vertical radius-bottom-left">
+            <span><o-typography inline align="center">--o-color-bg</o-typography></span>
+            <!-- primary -->
+            <div class="flex">
+              <o-button>
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- secondary -->
+            <div class="flex">
+              <o-button color="secondary">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="secondary" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="secondary" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- danger -->
+            <div class="flex">
+              <o-button color="danger">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="danger" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="danger" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- warning -->
+            <div class="flex">
+              <o-button color="warning">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="warning" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="warning" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- success -->
+            <div class="flex">
+              <o-button color="success">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="success" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="success" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- disabled -->
+            <div class="flex">
+              <o-button disabled>
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button disabled variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button disabled variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+          </div>
+          <div class="flex-vertical">
+            <span><o-typography inline align="center">--o-color-bg-secondary</o-typography></span>
+            <!-- primary -->
+            <div class="flex">
+              <o-button>
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- secondary -->
+            <div class="flex">
+              <o-button color="secondary">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="secondary" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="secondary" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- danger -->
+            <div class="flex">
+              <o-button color="danger">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="danger" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="danger" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- warning -->
+            <div class="flex">
+              <o-button color="warning">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="warning" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="warning" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- success -->
+            <div class="flex">
+              <o-button color="success">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="success" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="success" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- disabled -->
+            <div class="flex">
+              <o-button disabled>
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button disabled variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button disabled variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+          </div>
+          <div class="flex-vertical radius-bottom-right">
+            <span><o-typography inline align="center">--o-color-bg-tertiary</o-typography></span>
+            <!-- primary -->
+            <div class="flex">
+              <o-button>
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- secondary -->
+            <div class="flex">
+              <o-button color="secondary">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="secondary" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="secondary" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="secondary" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- danger -->
+            <div class="flex">
+              <o-button color="danger">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="danger" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="danger" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="danger" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- warning -->
+            <div class="flex">
+              <o-button color="warning">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="warning" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="warning" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="warning" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- success -->
+            <div class="flex">
+              <o-button color="success">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="success" variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="outlined" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="outlined" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button color="success" variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="clear" class="hover">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+              <o-button color="success" variant="clear" class="pressed">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+  
+            <!-- disabled -->
+            <div class="flex">
+              <o-button disabled>
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button disabled variant="outlined">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+            <div class="flex">
+              <o-button disabled variant="clear">
+                <o-icon cache="true" name="check" slot="prefix">OK</o-icon>
+                Button
+              </o-button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+</body>
+</html>

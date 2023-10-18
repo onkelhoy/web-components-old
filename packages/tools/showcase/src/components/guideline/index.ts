@@ -26,7 +26,7 @@ export class Guideline extends BaseTemplate {
       <div>
         ${this.variant === "success" ? html`<o-icon size="small" name="success"></o-icon>` : ''}
         ${this.variant === "warning" ? html`<o-icon size="small" name="warning"></o-icon>` : ''}
-        ${this.variant === "error" ? html`<o-icon size="small" name="error"></o-icon>` : ''}
+        ${this.variant === "error" ? html`<o-icon size="small" name="close"></o-icon>` : ''}
 
         <o-typography>${this.infotext}</o-typography>
       </div>

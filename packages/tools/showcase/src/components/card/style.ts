@@ -4,18 +4,15 @@ export const style = `:host {
 o-box-template {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-medium);
+  overflow-x: auto;
+  text-align: center;
+  padding: var(--padding-large) var(--padding-medium);
   position: relative;
-  overflow: hidden;
-  min-height: 300px;
+  box-sizing: border-box;
+  min-height: 250px;
+  width: 100%;
   background-color: var(--o-color-bg-secondary); }
-
-:host([padding="large"]) o-box-template {
-  padding: 60px 80px; }
-
-:host([padding="medium"]) o-box-template {
-  padding: var(--padding-medium) var(--padding-large); }
-
-:host([padding="small"]) o-box-template {
-  padding: var(--padding-medium); }`;
+  o-box-template ::slotted(*) {
+    margin: auto; }`;

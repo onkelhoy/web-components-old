@@ -1,12 +1,6 @@
-export const style = `:host {
-  --color: var(--o-divider-color-light, var(--o-color-netural-200)); }
-  :host div {
-    background-color: var(--color);
-    content: ''; }
-
-@media (prefers-color-scheme: dark) {
-  :host {
-    --color: var(--o-divider-color-dark, var(--o-color-netural-200)); } }
+export const style = `:host div {
+  background-color: var(--o-divider-color, var(--o-color-border));
+  content: ''; }
 
 :host([mode="horizontal"]) {
   display: flex;

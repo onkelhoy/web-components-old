@@ -115,8 +115,7 @@ export const style = `:host {
   font-size: var(--typography-t4-fontsize);
   font-weight: var(--typography-t4-fontweight);
   line-height: var(--typography-t4-lineheight);
-  letter-spacing: var(--typography-t4-letterspacing);
-  text-transform: uppercase; }
+  letter-spacing: var(--typography-t4-letterspacing); }
 
 :host([variant="copy1"]),
 :host([variant="C1"]) {

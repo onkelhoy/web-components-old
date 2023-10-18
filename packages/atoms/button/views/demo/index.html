@@ -14,63 +14,141 @@
     <script defer src="main.js"></script>
 </head>
 <body>
+
+    <doc-card>
+        <h4 slot="header">Circle Buttons</h4>
+        <o-codeblock lang="html" display="both">
+            <o-button size="large" circle color="warning" variant="outlined">
+                <o-icon name="circle">S</o-icon>
+            </o-button>
+            <o-button size="medium" circle color="warning" variant="outlined">
+                <o-icon name="circle">S</o-icon>
+            </o-button>
+            <o-button size="small" circle color="warning" variant="outlined">
+                <o-icon name="circle">S</o-icon>
+            </o-button>
+        </o-codeblock>
+    </doc-card>
+    
+    <doc-card>
+        <h4 slot="header">Small</h4>
+        <o-codeblock lang="html" display="both">
+            <o-button size="small" color="primary">
+                <o-icon slot="prefix" name="circle">P</o-icon>
+                Button 
+            </o-button>
+            <o-button size="small" color="primary">
+                <o-icon slot="prefix" name="circle">P</o-icon>
+                Button 
+                <o-icon slot="suffix" name="circle">S</o-icon>
+            </o-button>
+            <o-button size="small" color="primary">
+                Button 
+                <o-icon slot="suffix" name="circle">S</o-icon>
+            </o-button>
+        </o-codeblock>
+    </doc-card>
+    
+    <doc-card>
+        <h4 slot="header">Medium</h4>
+        <o-codeblock lang="html" display="both">
+            <o-button size="medium" color="primary">
+                <o-icon slot="prefix" name="circle">P</o-icon>
+                Button 
+            </o-button>
+            <o-button size="medium" color="primary">
+                <o-icon slot="prefix" name="circle">P</o-icon>
+                Button 
+                <o-icon slot="suffix" name="circle">S</o-icon>
+            </o-button>
+            <o-button size="medium" color="primary">
+                Button 
+                <o-icon slot="suffix" name="circle">S</o-icon>
+            </o-button>
+        </o-codeblock>
+    </doc-card>
+
+
+    <doc-card>
+        <h4 slot="header">Large</h4>
+        <o-codeblock lang="html" display="both">
+            <o-button size="large" color="primary">
+                <o-icon slot="prefix" name="circle">P</o-icon>
+                Button 
+            </o-button>
+            <o-button size="large" color="primary">
+                <o-icon slot="prefix" name="circle">P</o-icon>
+                Button 
+                <o-icon slot="suffix" name="circle">S</o-icon>
+            </o-button>
+            <o-button size="large" color="primary">
+                Button 
+                <o-icon slot="suffix" name="circle">S</o-icon>
+            </o-button>
+        </o-codeblock>
+    </doc-card>
+    
+    <doc-card>
+        <h4 slot="header">Warning Icon</h4>
+        <o-codeblock lang="html" display="both">
+            <o-button size="large" color="warning" variant="outlined">
+                <o-icon slot="prefix" name="circle">P</o-icon>
+                Button 
+                <o-icon slot="suffix" name="circle">S</o-icon>
+            </o-button>
+            <o-button size="large" color="warning" variant="clear">
+                <o-icon slot="prefix" name="circle">P</o-icon>
+                Button 
+                <o-icon slot="suffix" name="circle">S</o-icon>
+            </o-button>
+        </o-codeblock>
+    </doc-card>
+
     <doc-card>
         <h4 slot="header">Filled</h4>
         <o-codeblock lang="html" display="both">
-            <o-button id="demo-target" color="danger">Hello</o-button>
-            <o-button id="demo-target" color="warning">Hello</o-button>
-            <o-button id="demo-target" color="success">Hello</o-button>
-            <o-button id="demo-target" color="brand">Hello</o-button>
-            <o-button id="demo-target" color="primary">Hello</o-button>
-            <o-button id="demo-target" color="secondary">Hello</o-button>
+            <o-button color="danger">Button</o-button>
+            <o-button color="warning">Button</o-button>
+            <o-button color="success">Button</o-button>
+            <o-button color="inverse">Button</o-button>
+            <o-button color="primary">Button</o-button>
+            <o-button color="secondary">Button</o-button>
         </o-codeblock>
     </doc-card>
 
     <doc-card>
         <h4 slot="header">Outline</h4>
         <o-codeblock lang="html" display="both">
-            <o-button id="demo-target" variant="outlined" color="danger">Hello</o-button>
-            <o-button id="demo-target" variant="outlined" color="warning">Hello</o-button>
-            <o-button id="demo-target" variant="outlined" color="success">Hello</o-button>
-            <o-button id="demo-target" variant="outlined" color="brand">Hello</o-button>
-            <o-button id="demo-target" variant="outlined" color="primary">Hello</o-button>
-            <o-button id="demo-target" variant="outlined" color="secondary">Hello</o-button>
-        </o-codeblock>
-    </doc-card>
-
-    <doc-card>
-        <h4 slot="header">Underline</h4>
-        <o-codeblock lang="html" display="both">
-            <o-button id="demo-target" variant="underlined" color="danger">Hello</o-button>
-            <o-button id="demo-target" variant="underlined" color="warning">Hello</o-button>
-            <o-button id="demo-target" variant="underlined" color="success">Hello</o-button>
-            <o-button id="demo-target" variant="underlined" color="brand">Hello</o-button>
-            <o-button id="demo-target" variant="underlined" color="primary">Hello</o-button>
-            <o-button id="demo-target" variant="underlined" color="secondary">Hello</o-button>
+            <o-button variant="outlined" color="danger">Button</o-button>
+            <o-button variant="outlined" color="warning">Button</o-button>
+            <o-button variant="outlined" color="success">Button</o-button>
+            <o-button variant="outlined" color="inverse">Button</o-button>
+            <o-button variant="outlined" color="primary">Button</o-button>
+            <o-button variant="outlined" color="secondary">Button</o-button>
         </o-codeblock>
     </doc-card>
 
     <doc-card>
         <h4 slot="header">Clear</h4>
         <o-codeblock lang="html" display="both">
-            <o-button id="demo-target" variant="clear" color="danger">Hello</o-button>
-            <o-button id="demo-target" variant="clear" color="warning">Hello</o-button>
-            <o-button id="demo-target" variant="clear" color="success">Hello</o-button>
-            <o-button id="demo-target" variant="clear" color="brand">Hello</o-button>
-            <o-button id="demo-target" variant="clear" color="primary">Hello</o-button>
-            <o-button id="demo-target" variant="clear" color="secondary">Hello</o-button>
+            <o-button variant="clear" color="danger">Button</o-button>
+            <o-button variant="clear" color="warning">Button</o-button>
+            <o-button variant="clear" color="success">Button</o-button>
+            <o-button variant="clear" color="inverse">Button</o-button>
+            <o-button variant="clear" color="primary">Button</o-button>
+            <o-button variant="clear" color="secondary">Button</o-button>
         </o-codeblock>
     </doc-card>
 
     <doc-card>
         <h4 slot="header">Disabled</h4>
         <o-codeblock lang="html" display="both">
-            <o-button id="demo-target" variant="filled" disabled>Hello</o-button>
-            <o-button id="demo-target" variant="outlined" disabled>Hello</o-button>
-            <o-button id="demo-target" variant="underlined" disabled>Hello</o-button>
-            <o-button id="demo-target" variant="clear" disabled>Hello</o-button>
-            <o-button id="demo-target" variant="filled" color="success" disabled>Hello</o-button>
-            <o-button id="demo-target" variant="filled" color="danger" disabled>Hello</o-button>
+            <o-button variant="filled" disabled>Button</o-button>
+            <o-button variant="outlined" disabled>Button</o-button>
+            <o-button variant="inverse" disabled>Button</o-button>
+            <o-button variant="clear" disabled>Button</o-button>
+            <o-button variant="filled" color="success" disabled>Button</o-button>
+            <o-button variant="filled" color="danger" disabled>Button</o-button>
         </o-codeblock>
     </doc-card>
 </body>
