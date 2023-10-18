@@ -24,6 +24,7 @@ export class Markdown extends AssetTemplate {
   constructor() {
     super();
 
+    this.render_mode = "greedy";
     this.assetBase = "/public/markdown"
   }
 
@@ -99,7 +100,8 @@ export class Markdown extends AssetTemplate {
 
     if (this.shadowRoot) {
       this.content = htmlcontent.join("");
-      this.callAfterUpdate.push(this.updateCodeBlocks);
+      // this.callAfterUpdate.push(this.updateCodeBlocks);
+      this.requestUpdate();
     }
   }
 

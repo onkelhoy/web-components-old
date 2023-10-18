@@ -86,12 +86,12 @@ export class Item extends BaseSystem {
       this.dispatchEvent(new Event('reached-max'));
     }
   }
-  public handleclick = () => {
+  public click = () => {
     if (this.static) return;
     if (this.isparent) {
       if (this.getBoundingClientRect().width < 100) { // start selecting the subitems
         const savedcurrent = this.currentsubitemselected;
-        this.subitems[this.currentsubitemselected]?.handleclick();
+        this.subitems[this.currentsubitemselected]?.click();
 
         // make sure we click through all children
         // we make sure to only call if same value (since there could be a update inbetween line 94 and this)
@@ -148,7 +148,7 @@ export class Item extends BaseSystem {
           variant="clear" 
           color="secondary" 
           part="button" 
-          @click="${this.handleclick}" 
+          @click="${this.click}" 
           mode="fill" 
           textVariant="B1"
           size="${this.isparent ? "small" : "medium"}"

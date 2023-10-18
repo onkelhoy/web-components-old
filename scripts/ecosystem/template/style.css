@@ -2,11 +2,12 @@ body {
   background-color: var(--pap-color-bg-canvas, #EAEBEF);
   color: var(--pap-color-text, #29292F);
   display: flex;
-
+  margin: 0;
 }
 
 pap-sidebar.designsystem {
   margin-right: var(--margin-small);
+  z-index: 1003;
 }
 
 /***** MAIN *********************/

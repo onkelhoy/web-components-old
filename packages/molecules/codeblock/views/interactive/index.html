@@ -1,83 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive</title>
 
-  <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="style.css">
 
   <script defer type="module" src="main.js"></script>
 </head>
+
 <body>
   <doc-controller>
     <div id="target">
       <pap-codeblock>
-        
-      <div  data-slotname="default">
-        <p>Hello World</p>
-      </div>
-    
+
+        <div data-slotname="default">
+          <p>Hello World</p>
+        </div>
+
       </pap-codeblock>
-  </div>
+    </div>
 
     <section class="control" slot="setting">
       <pap-tabs>
         <pap-tab id="html">HTML</pap-tab>
         <pap-tab class="selected" id="properties">Properties</pap-tab>
         <pap-tab id="css">CSS</pap-tab>
-        <pap-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="<p>Hello World</p>"></doc-input></div></pap-tab-content>
-        <pap-tab-content id="properties"><h3 data-subtitle="Codeblock Properties">Codeblock Properties</h3><div data-name="Codeblock Properties" class="properties">
-        
-        
+        <pap-tab-content id="html">
+          <div data-name="slot-html" class="slot"><br><doc-input label="HTML" variant="textarea" name="slot-default"
+              data-slotname="default" value="<p>Hello World</p>"></doc-input></div>
+        </pap-tab-content>
+        <pap-tab-content id="properties">
+          <h3 data-subtitle="Codeblock Properties">Codeblock Properties</h3>
+          <div data-name="Codeblock Properties" class="properties">
+
+
+
+
+
+
+            
         <doc-input data-prop-name="main" variant="textarea" value="" name="main" label="main - HTMLElement"></doc-input>
       
-      
-      
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="languageElement" variant="textarea" value="" name="languageElement" label="languageElement - Typography"></doc-input>
       
-      
-      
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="copytext" variant="textarea" value="" name="copytext" label="copytext - Typography"></doc-input>
       
-      
-      
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="fieldsetElement" variant="textarea" value="" name="fieldsetElement" label="fieldsetElement - HTMLFieldSetElement"></doc-input>
       
-      
-      
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="display" variant="select" value="code" name="display" label="display" options='["both","code"]'></doc-input>
       
-      
-      
-          
-          
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           <doc-radio name="themetoggle" data-prop-name="themetoggle" label="themetoggle" value="true"></doc-radio>
         
-        
-        
-            
+
+
+
+
+
+
+
+
+
+
+
+
+
             
             <doc-input data-prop-name="lang" value="" name="lang" label="lang"></doc-input>
           
-          
-          </div></pap-tab-content>
+
+
+
+
+
+
+          </div>
+        </pap-tab-content>
         <pap-tab-content id="css">
-      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/molecules/codeblock" class="style-source">
-        <h3>codeblock styles</h3>
-      <div class="style-group" data-style-name="--margin-medium"><doc-input data-css-input="true" name="--margin-medium" label="--margin-medium" value="16px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>margin-block</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>16px</li></ul></div></div></div><div class="style-group" data-style-name="--padding-large"><doc-input data-css-input="true" name="--padding-large" label="--padding-large" value="24p"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>24p</li></ul></div></div></div><div class="style-group" data-style-name="--padding-medium"><doc-input data-css-input="true" name="--padding-medium" label="--padding-medium" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>text-indent</li><li>padding</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>16px</li><li>16px) var(--padding-large, 24px</li></ul></div></div></div><div class="style-group" data-style-name="--padding-smaller"><doc-input data-css-input="true" name="--padding-smaller" label="--padding-smaller" value="4px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding-left</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>4px</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-bg"><color-picker-input data-css-input="true" name="--pap-color-bg" label="--pap-color-bg" value="#FFFFFF"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#FFFFFF</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-bg-secondary"><color-picker-input data-css-input="true" name="--pap-color-bg-secondary" label="--pap-color-bg-secondary" value="#F6F7F8"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#F6F7F8</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-bg-tertiary"><color-picker-input data-css-input="true" name="--pap-color-bg-tertiary" label="--pap-color-bg-tertiary" value="#EAEBEF"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#EAEBEF</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-neutral-700"><color-picker-input data-css-input="true" name="--pap-color-neutral-700" label="--pap-color-neutral-700" value="#4D4E58"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#4D4E58</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-primary-500"><color-picker-input data-css-input="true" name="--pap-color-primary-500" label="--pap-color-primary-500" value="#0CB9Eb"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#0CB9Eb</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-primary-700"><color-picker-input data-css-input="true" name="--pap-color-primary-700" label="--pap-color-primary-700" value="#0177A3"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#0177A3</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-text"><color-picker-input data-css-input="true" name="--pap-color-text" label="--pap-color-text" value="#29292F"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#29292F</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-text-brand-strong"><color-picker-input data-css-input="true" name="--pap-color-text-brand-strong" label="--pap-color-text-brand-strong" value="#002652"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#002652</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-text-danger"><color-picker-input data-css-input="true" name="--pap-color-text-danger" label="--pap-color-text-danger" value="#A3111F"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#A3111F</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-text-warning"><color-picker-input data-css-input="true" name="--pap-color-text-warning" label="--pap-color-text-warning" value="#984308"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#984308</li></ul></div></div></div><div class="style-group" data-style-name="--unit-size5"><doc-input data-css-input="true" name="--unit-size5" label="--unit-size5" value="32px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>min-height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>32px</li></ul></div></div></div></div>
-    </pap-tab-content>
+          <div data-css-part="/Users/henry/Developer/projects/web-components/packages/molecules/codeblock"
+            class="style-source">
+            <h3>codeblock styles</h3>
+            <div class="style-group" data-style-name="--margin-medium"><doc-input data-css-input="true" name="--margin-medium" label="--margin-medium" value="16px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>margin-block</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>16px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--padding-large"><doc-input data-css-input="true" name="--padding-large" label="--padding-large" value="24p"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>24p</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--padding-medium"><doc-input data-css-input="true" name="--padding-medium" label="--padding-medium" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>text-indent</li><li>padding</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>16px</li><li>16px) var(--padding-large, 24px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--padding-smaller"><doc-input data-css-input="true" name="--padding-smaller" label="--padding-smaller" value="4px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding-left</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>4px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--pap-color-bg"><color-picker-input data-css-input="true" name="--pap-color-bg" label="--pap-color-bg" value="#FFFFFF"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#FFFFFF</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--pap-color-bg-secondary"><color-picker-input data-css-input="true" name="--pap-color-bg-secondary" label="--pap-color-bg-secondary" value="#F6F7F8"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#F6F7F8</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--pap-color-bg-tertiary"><color-picker-input data-css-input="true" name="--pap-color-bg-tertiary" label="--pap-color-bg-tertiary" value="#EAEBEF"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#EAEBEF</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--pap-color-neutral-700"><color-picker-input data-css-input="true" name="--pap-color-neutral-700" label="--pap-color-neutral-700" value="#4D4E58"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#4D4E58</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--pap-color-primary-500"><color-picker-input data-css-input="true" name="--pap-color-primary-500" label="--pap-color-primary-500" value="#0CB9Eb"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#0CB9Eb</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--pap-color-primary-700"><color-picker-input data-css-input="true" name="--pap-color-primary-700" label="--pap-color-primary-700" value="#0177A3"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#0177A3</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--pap-color-text"><color-picker-input data-css-input="true" name="--pap-color-text" label="--pap-color-text" value="#29292F"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#29292F</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--pap-color-text-brand-strong"><color-picker-input data-css-input="true" name="--pap-color-text-brand-strong" label="--pap-color-text-brand-strong" value="#002652"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#002652</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--pap-color-text-danger"><color-picker-input data-css-input="true" name="--pap-color-text-danger" label="--pap-color-text-danger" value="#A3111F"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#A3111F</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--pap-color-text-warning"><color-picker-input data-css-input="true" name="--pap-color-text-warning" label="--pap-color-text-warning" value="#984308"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#984308</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--unit-size5"><doc-input data-css-input="true" name="--unit-size5" label="--unit-size5" value="32px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>min-height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>32px</li></ul></div></div></div>
+          </div>
+        </pap-tab-content>
       </pap-tabs>
     </section>
   </doc-controller>
 </body>
+
 </html>

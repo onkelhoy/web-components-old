@@ -1,197 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive</title>
 
-  <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="style.css">
 
   <script defer type="module" src="main.js"></script>
 </head>
+
 <body>
   <doc-controller>
     <div id="target">
       <pap-toggle>
-        
-      <div slot="header" data-slotname="header">
-        <pap-typography></pap-typography>
-      </div>
-     
-      <div slot="prefix" data-slotname="prefix">
-        <span> </span>
-      </div>
-     
-      <div  data-slotname="default">
-        <p>Hello World</p>
-      </div>
-     
-      <div slot="suffix" data-slotname="suffix">
-        <span> </span>
-      </div>
-    
+
+        <div slot="header" data-slotname="header">
+          <pap-typography></pap-typography>
+        </div>
+
+        <div slot="prefix" data-slotname="prefix">
+          <span> </span>
+        </div>
+
+        <div data-slotname="default">
+          <p>Hello World</p>
+        </div>
+
+        <div slot="suffix" data-slotname="suffix">
+          <span> </span>
+        </div>
+
       </pap-toggle>
-  </div>
+    </div>
 
     <section class="control" slot="setting">
       <pap-tabs>
         <pap-tab id="html">HTML</pap-tab>
         <pap-tab class="selected" id="properties">Properties</pap-tab>
         <pap-tab id="css">CSS</pap-tab>
-        <pap-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: header" variant="textarea" name="slot-header" data-slotname="header" value="<pap-typography></pap-typography>"></doc-input><doc-input label="HTML slot: prefix" variant="textarea" name="slot-prefix" data-slotname="prefix" value="<span> </span>"></doc-input><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="<p>Hello World</p>"></doc-input><doc-input label="HTML slot: suffix" variant="textarea" name="slot-suffix" data-slotname="suffix" value="<span> </span>"></doc-input></div></pap-tab-content>
-        <pap-tab-content id="properties"><h3 data-subtitle="FieldTemplate Properties">FieldTemplate Properties</h3><div data-name="FieldTemplate Properties" class="properties">
-        
-        
-        
+        <pap-tab-content id="html">
+          <div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: header" variant="textarea"
+              name="slot-header" data-slotname="header" value="<pap-typography></pap-typography>"></doc-input><doc-input               label="HTML slot: prefix" variant="textarea" name="slot-prefix" data-slotname="prefix"
+              value="<span> </span>"></doc-input><doc-input label="HTML" variant="textarea" name="slot-default"
+              data-slotname="default" value="<p>Hello World</p>"></doc-input><doc-input label="HTML slot: suffix"
+              variant="textarea" name="slot-suffix" data-slotname="suffix" value="<span> </span>"></doc-input></div>
+        </pap-tab-content>
+        <pap-tab-content id="properties">
+          <h3 data-subtitle="FieldTemplate Properties">FieldTemplate Properties</h3>
+          <div data-name="FieldTemplate Properties" class="properties">
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="counterElement" variant="textarea" value="" name="counterElement" label="counterElement - HTMLSpanElement"></doc-input>
       
-      
-      
-      
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="errorText" variant="textarea" value="" name="errorText" label="errorText - Typography"></doc-input>
       
-      
-      
-      
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="warningText" variant="textarea" value="" name="warningText" label="warningText - Typography"></doc-input>
       
-      
-      
-      
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="message" variant="textarea" value="" name="message" label="message - Message"></doc-input>
       
-      
-      
-      
-            
-            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             
             <doc-input data-prop-name="label" value="" name="label" label="label"></doc-input>
           
-          
-          
-          
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="size" variant="select" value="medium" name="size" label="size" options='["small","medium","large"]'></doc-input>
       
-      
-      
-      
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="radius" variant="select" value="small" name="radius" label="radius" options='["small","medium","large","none","circular"]'></doc-input>
       
-      
-      
-      
-          
-          
-          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           <doc-radio name="checked" data-prop-name="checked" label="checked" value=""></doc-radio>
         
-        
-        
-        
-          
-          
-          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           <doc-radio name="readonly" data-prop-name="readonly" label="readonly" value=""></doc-radio>
         
-        
-        
-        
-            
-            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             
             <doc-input data-prop-name="value" value="" name="value" label="value"></doc-input>
           
-          
-          
-          
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="customError" variant="textarea" value="" name="customError" label="customError - FieldValidityState"></doc-input>
       
-      
-      
-      
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="customWarning" variant="textarea" value="" name="customWarning" label="customWarning - FieldValidityState"></doc-input>
       
-      
-      
-      
-          
-          
-          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           <doc-input data-prop-name="max" variant="number" value="" name="max" label="max"></doc-input>
         
-        
-        
-        
-          
-          
-          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           <doc-input data-prop-name="min" variant="number" value="" name="min" label="min"></doc-input>
         
-        
-        
-        
-          
-          
-          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           <doc-input data-prop-name="maxLength" variant="number" value="" name="maxLength" label="maxLength"></doc-input>
         
-        
-        
-        </div><h3 data-subtitle="FormElementTemplate Properties">FormElementTemplate Properties</h3><div data-name="FormElementTemplate Properties" class="properties">
-          
-          
-          
+
+
+
+
+
+
+
+          </div>
+          <h3 data-subtitle="FormElementTemplate Properties">FormElementTemplate Properties</h3>
+          <div data-name="FormElementTemplate Properties" class="properties">
+
+
+
+
+
+
+
+            
           <doc-radio name="disabled" data-prop-name="disabled" label="disabled" value=""></doc-radio>
         
-        
-        
-        
-          
-          
-          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           <doc-radio name="required" data-prop-name="required" label="required" value=""></doc-radio>
         
-        
-        
-        
-            
-            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             
             <doc-input data-prop-name="name" value="" name="name" label="name"></doc-input>
           
-          
-          
-          </div></pap-tab-content>
+
+
+
+
+
+
+
+          </div>
+        </pap-tab-content>
         <pap-tab-content id="css">
-      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/atoms/toggle" class="style-source">
-        <h3>toggle styles</h3>
-      <div class="style-group" data-style-name="--field-size-smaller"><doc-input data-css-input="true" name="--field-size-smaller" label="--field-size-smaller" value="24px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>24px</li></ul></div></div></div><div class="style-group" data-style-name="--margin-small"><doc-input data-css-input="true" name="--margin-small" label="--margin-small" value="8px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>margin-left</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>8px</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-neutral-50"><color-picker-input data-css-input="true" name="--pap-color-neutral-50" label="--pap-color-neutral-50" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--pap-color-neutral-500"><color-picker-input data-css-input="true" name="--pap-color-neutral-500" label="--pap-color-neutral-500" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--padding-smaller"><doc-input data-css-input="true" name="--padding-smaller" label="--padding-smaller" value="4px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>4px</li></ul></div></div></div><div class="style-group" data-style-name="--radius-max"><doc-input data-css-input="true" name="--radius-max" label="--radius-max" value="1000px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>border-radius</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>1000px</li></ul></div></div></div><div class="style-group" data-style-name="--field-size-large"><doc-input data-css-input="true" name="--field-size-large" label="--field-size-large" value="56px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>56px</li></ul></div></div></div><div class="style-group" data-style-name="--field-size-medium"><doc-input data-css-input="true" name="--field-size-medium" label="--field-size-medium" value="40px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>40px</li></ul></div></div></div><div class="style-group" data-style-name="--field-size-small"><doc-input data-css-input="true" name="--field-size-small" label="--field-size-small" value="32px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>32px</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-bg-inverse"><color-picker-input data-css-input="true" name="--pap-color-bg-inverse" label="--pap-color-bg-inverse" value="#29292F"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#29292F</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-icon"><color-picker-input data-css-input="true" name="--pap-color-icon" label="--pap-color-icon" value="#29292F"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#29292F</li></ul></div></div></div><div class="style-group" data-style-name="--unit-size3"><doc-input data-css-input="true" name="--unit-size3" label="--unit-size3" value="16px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>16px</li></ul></div></div></div></div>
-    </pap-tab-content>
+          <div data-css-part="/Users/henry/Developer/projects/web-components/packages/atoms/toggle"
+            class="style-source">
+            <h3>toggle styles</h3>
+            <div class="style-group" data-style-name="--field-size-smaller"><doc-input data-css-input="true" name="--field-size-smaller" label="--field-size-smaller" value="24px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>24px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--margin-small"><doc-input data-css-input="true" name="--margin-small" label="--margin-small" value="8px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>margin-left</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>8px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--pap-color-neutral-50"><color-picker-input data-css-input="true"
+                name="--pap-color-neutral-50" label="--pap-color-neutral-50" value=""></color-picker-input>
+              <div class="info">
+                <div>
+                  <h5>Usecases</h5>
+                  <ul class="usecases">
+                    <li>background-color</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Fallbacks</h5>
+                  <ul class="fallbacks"></ul>
+                </div>
+              </div>
+            </div>
+            <div class="style-group" data-style-name="--pap-color-neutral-500"><color-picker-input data-css-input="true"
+                name="--pap-color-neutral-500" label="--pap-color-neutral-500" value=""></color-picker-input>
+              <div class="info">
+                <div>
+                  <h5>Usecases</h5>
+                  <ul class="usecases">
+                    <li>background-color</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Fallbacks</h5>
+                  <ul class="fallbacks"></ul>
+                </div>
+              </div>
+            </div>
+            <div class="style-group" data-style-name="--padding-smaller"><doc-input data-css-input="true" name="--padding-smaller" label="--padding-smaller" value="4px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>4px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--radius-max"><doc-input data-css-input="true" name="--radius-max" label="--radius-max" value="1000px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>border-radius</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>1000px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--field-size-large"><doc-input data-css-input="true" name="--field-size-large" label="--field-size-large" value="56px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>56px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--field-size-medium"><doc-input data-css-input="true" name="--field-size-medium" label="--field-size-medium" value="40px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>40px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--field-size-small"><doc-input data-css-input="true" name="--field-size-small" label="--field-size-small" value="32px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>32px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--pap-color-bg-inverse"><color-picker-input data-css-input="true" name="--pap-color-bg-inverse" label="--pap-color-bg-inverse" value="#29292F"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#29292F</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--pap-color-icon"><color-picker-input data-css-input="true" name="--pap-color-icon" label="--pap-color-icon" value="#29292F"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#29292F</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--unit-size3"><doc-input data-css-input="true" name="--unit-size3" label="--unit-size3" value="16px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>16px</li></ul></div></div></div>
+          </div>
+        </pap-tab-content>
       </pap-tabs>
     </section>
   </doc-controller>
 </body>
+
 </html>

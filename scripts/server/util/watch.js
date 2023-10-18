@@ -60,8 +60,8 @@ async function watch(file_path)
 {
   if (!contexts[file_path]) 
   {
-    console.log('[watching]', file_path)
-    const outfile = path.join(output_dir, path.basename(file_path));
+    console.log('[esbuild - watch]', file_path)
+    const outfile = path.join(output_dir, strip(file_path));
 
     await build(file_path, outfile);
 
@@ -81,13 +81,25 @@ async function watch(file_path)
 
 async function build(file_path, outfile = null)
 {
-  if (outfile === null) outfile = path.join(output_dir, path.basename(file_path));
+  if (outfile === null) 
+  {
+    console.log('[esbuild - build]', file_path)
+    outfile = path.join(output_dir, strip(file_path));
+  }
+
   // Perform initial build
   await esbuild.build({
     entryPoints: [file_path],
     bundle: true,
     outfile,
   });
+}
+
+function strip(url)
+{
+  const stripped = url
+    .replace(process.env.VIEW_DIR + "/", '')
+  return stripped;
 }
 
 // Clean up all contexts

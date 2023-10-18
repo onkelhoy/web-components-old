@@ -1,73 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive</title>
 
-  <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="style.css">
 
   <script defer type="module" src="main.js"></script>
 </head>
+
 <body>
   <doc-controller>
     <div id="target">
       <pap-pagination>
-        
+
       </pap-pagination>
-  </div>
+    </div>
 
     <section class="control" slot="setting">
       <pap-tabs>
         <pap-tab id="html">HTML</pap-tab>
         <pap-tab class="selected" id="properties">Properties</pap-tab>
         <pap-tab id="css">CSS</pap-tab>
-        <pap-tab-content id="html"><div data-name="slot-html" class="slot"><br></div></pap-tab-content>
-        <pap-tab-content id="properties"><h3 data-subtitle="Pagination Properties">Pagination Properties</h3><div data-name="Pagination Properties" class="properties">
-          
-          
+        <pap-tab-content id="html">
+          <div data-name="slot-html" class="slot"><br></div>
+        </pap-tab-content>
+        <pap-tab-content id="properties">
+          <h3 data-subtitle="Pagination Properties">Pagination Properties</h3>
+          <div data-name="Pagination Properties" class="properties">
+
+
+
+
+
+
+            
           <doc-input data-prop-name="page" variant="number" value="1" name="page" label="page"></doc-input>
         
-        
-        
-          
-          
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           <doc-input data-prop-name="perpage" variant="number" value="" name="perpage" label="perpage"></doc-input>
         
-        
-        
-          
-          
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           <doc-input data-prop-name="total" variant="number" value="" name="total" label="total"></doc-input>
         
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="pagedropdownElement" variant="textarea" value="" name="pagedropdownElement" label="pagedropdownElement - Dropdown"></doc-input>
       
-      
-      
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="perpagedropdownElement" variant="textarea" value="" name="perpagedropdownElement" label="perpagedropdownElement - Dropdown"></doc-input>
       
-      
-      
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="infoElement" variant="textarea" value="" name="infoElement" label="infoElement - Translator"></doc-input>
       
-      
-      </div></pap-tab-content>
+
+
+
+
+
+
+          </div>
+        </pap-tab-content>
         <pap-tab-content id="css">
-      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/molecules/pagination" class="style-source">
-        <h3>pagination styles</h3>
-      <div class="style-group" data-style-name="--gap-small"><doc-input data-css-input="true" name="--gap-small" label="--gap-small" value="8px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>gap</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>8px</li></ul></div></div></div></div>
-    </pap-tab-content>
+          <div data-css-part="/Users/henry/Developer/projects/web-components/packages/molecules/pagination"
+            class="style-source">
+            <h3>pagination styles</h3>
+            <div class="style-group" data-style-name="--gap-small"><doc-input data-css-input="true" name="--gap-small" label="--gap-small" value="8px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>gap</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>8px</li></ul></div></div></div>
+          </div>
+        </pap-tab-content>
       </pap-tabs>
     </section>
   </doc-controller>
 </body>
+
 </html>

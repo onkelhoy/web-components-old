@@ -67,10 +67,9 @@ function listDirectories(folderPath)
 const themes = listDirectories(path.resolve(SCRIPTDIR, '../../themes'));
 if (themes.length > 1)
 {
-  document.appendChild(parse(`
-        <script defer>
-            window.addEventListener("load", () => {
-            ${themes.map(theme => 
+  document.appendChild(parse(`<script defer>
+  window.addEventListener("load", () => {
+    ${themes.map(theme => 
   {
     let color = undefined;
     let text = theme;
@@ -88,15 +87,15 @@ if (themes.length > 1)
     catch {}
     if (!color)
     {
-      const colors = ["cornflowerblue", "coral", "chocolate", "salmon", "firebrick", "khaki"];
+      const colors = ["cornflowerblue", "coral", "chocolate", "salmon", "firebrick", "khaki", "grey", "limegreen", "olive", "skyblue", "steelblue"];
       color = colors[Math.round(Math.random() * (colors.length - 1))]
     }
-                
-    return `window.oTheme.add({ name: "${text}", href: "themes/${theme}", representColor: "${color}" });`
+                  
+    return `window.oTheme.add({ name: "${text}", href: "/themes/${theme}", representColor: "${color}" });`
   }).join('\n')}
-            });
-        </script>
-    `));
+  window.oTheme.change("base");
+});
+  </script>`));
 }
 
 fs.writeFileSync(combinedIndex_path, document.toString(), "utf-8");

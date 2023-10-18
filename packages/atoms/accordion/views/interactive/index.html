@@ -1,117 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive</title>
 
-  <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="style.css">
 
   <script defer type="module" src="main.js"></script>
 </head>
+
 <body>
   <doc-controller>
     <div id="target">
       <pap-accordion>
-        
-      <div  data-slotname="default">
-        <p>Hello World</p>
-      </div>
-    
+
+        <div data-slotname="default">
+          <p>Hello World</p>
+        </div>
+
       </pap-accordion>
-  </div>
+    </div>
 
     <section class="control" slot="setting">
       <pap-tabs>
         <pap-tab id="html">HTML</pap-tab>
         <pap-tab class="selected" id="properties">Properties</pap-tab>
         <pap-tab id="css">CSS</pap-tab>
-        <pap-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="<p>Hello World</p>"></doc-input></div></pap-tab-content>
-        <pap-tab-content id="properties"><h3 data-subtitle="Accordion Properties">Accordion Properties</h3><div data-name="Accordion Properties" class="properties">
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+        <pap-tab-content id="html">
+          <div data-name="slot-html" class="slot"><br><doc-input label="HTML" variant="textarea" name="slot-default"
+              data-slotname="default" value="<p>Hello World</p>"></doc-input></div>
+        </pap-tab-content>
+        <pap-tab-content id="properties">
+          <h3 data-subtitle="Accordion Properties">Accordion Properties</h3>
+          <div data-name="Accordion Properties" class="properties">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           <doc-radio name="open" data-prop-name="open" label="open" value=""></doc-radio>
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="mode" variant="select" value="vertical" name="mode" label="mode" options='["horizontal","vertical"]'></doc-input>
       
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      </div></pap-tab-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+        </pap-tab-content>
         <pap-tab-content id="css">
-      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/atoms/accordion" class="style-source">
-        <h3>accordion styles</h3>
-      </div>
-    </pap-tab-content>
+          <div data-css-part="/Users/henry/Developer/projects/web-components/packages/atoms/accordion"
+            class="style-source">
+            <h3>accordion styles</h3>
+          </div>
+        </pap-tab-content>
       </pap-tabs>
     </section>
   </doc-controller>
 </body>
+
 </html>

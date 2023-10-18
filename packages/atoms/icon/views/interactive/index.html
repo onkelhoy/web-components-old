@@ -1,113 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive</title>
 
-  <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="style.css">
 
   <script defer type="module" src="main.js"></script>
 </head>
+
 <body>
   <doc-controller>
     <div id="target">
       <pap-icon>
-        
-      <div  data-slotname="default">
-        Hello World
-      </div>
-    
+
+        <div data-slotname="default">
+          Hello World
+        </div>
+
       </pap-icon>
-  </div>
+    </div>
 
     <section class="control" slot="setting">
       <pap-tabs>
         <pap-tab id="html">HTML</pap-tab>
         <pap-tab class="selected" id="properties">Properties</pap-tab>
         <pap-tab id="css">CSS</pap-tab>
-        <pap-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="Hello World"></doc-input></div></pap-tab-content>
-        <pap-tab-content id="properties"><h3 data-subtitle="Icon Properties">Icon Properties</h3><div data-name="Icon Properties" class="properties">
-        
-        
-        
-        
-        
+        <pap-tab-content id="html">
+          <div data-name="slot-html" class="slot"><br><doc-input label="HTML" variant="textarea" name="slot-default"
+              data-slotname="default" value="Hello World"></doc-input></div>
+        </pap-tab-content>
+        <pap-tab-content id="properties">
+          <h3 data-subtitle="Icon Properties">Icon Properties</h3>
+          <div data-name="Icon Properties" class="properties">
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="container" variant="select" value="" name="container" label="container" options='["small","medium","large"]'></doc-input>
       
-      
-      
-      
-      
-      
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="name" variant="select" value="circle" name="name" label="name" options='["circle_empty","circle","clock_loader_10","clock_loader_20","clock_loader_40","clock_loader_60","clock_loader_80","clock_loader_90","create_new_folder","shopping_cart_checkout"]'></doc-input>
       
-      
-      
-      
-      
-      
-            
-            
-            
-            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             
             <color-picker-input data-prop-name="color" name="color" label="color" value=""></color-picker-input>
           
-          
-          
-          
-          
-          
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="size" variant="select" value="medium" name="size" label="size" options='["small","medium","large"]'></doc-input>
       
-      
-      
-      
-      
-      
-          
-          
-          
-          
-          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           <doc-input data-prop-name="customSize" variant="number" value="40" name="customSize" label="customSize"></doc-input>
         
-        
-        
-        
-        
-        </div><h3 data-subtitle="AssetTemplate Properties">AssetTemplate Properties</h3><div data-name="AssetTemplate Properties" class="properties">
-          
-          
-          
-          
-          
+
+
+
+
+
+
+
+
+
+          </div>
+          <h3 data-subtitle="AssetTemplate Properties">AssetTemplate Properties</h3>
+          <div data-name="AssetTemplate Properties" class="properties">
+
+
+
+
+
+
+
+
+
+            
           <doc-radio name="cache" data-prop-name="cache" label="cache" value=""></doc-radio>
         
-        
-        
-        
-        
-        </div></pap-tab-content>
+
+
+
+
+
+
+
+
+
+          </div>
+        </pap-tab-content>
         <pap-tab-content id="css">
-      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/atoms/icon" class="style-source">
-        <h3>icon styles</h3>
-      <div class="style-group" data-style-name="--field-size-large"><doc-input data-css-input="true" name="--field-size-large" label="--field-size-large" value="56px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>width</li><li>height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>56px</li></ul></div></div></div><div class="style-group" data-style-name="--field-size-medium"><doc-input data-css-input="true" name="--field-size-medium" label="--field-size-medium" value="40px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>width</li><li>height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>40px</li></ul></div></div></div><div class="style-group" data-style-name="--field-size-small"><doc-input data-css-input="true" name="--field-size-small" label="--field-size-small" value="32px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>width</li><li>height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>32px</li></ul></div></div></div><div class="style-group" data-style-name="--icon-custom-size"><doc-input data-css-input="true" name="--icon-custom-size" label="--icon-custom-size" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>width</li><li>height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--icon-size-large"><doc-input data-css-input="true" name="--icon-size-large" label="--icon-size-large" value="40px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--icon-custom-size</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>40px</li></ul></div></div></div><div class="style-group" data-style-name="--icon-size-medium"><doc-input data-css-input="true" name="--icon-size-medium" label="--icon-size-medium" value="20px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--icon-custom-size</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>20px</li></ul></div></div></div><div class="style-group" data-style-name="--icon-size-small"><doc-input data-css-input="true" name="--icon-size-small" label="--icon-size-small" value="16px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--icon-custom-size</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>16px</li></ul></div></div></div></div>
-    </pap-tab-content>
+          <div data-css-part="/Users/henry/Developer/projects/web-components/packages/atoms/icon" class="style-source">
+            <h3>icon styles</h3>
+            <div class="style-group" data-style-name="--field-size-large"><doc-input data-css-input="true" name="--field-size-large" label="--field-size-large" value="56px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>width</li><li>height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>56px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--field-size-medium"><doc-input data-css-input="true" name="--field-size-medium" label="--field-size-medium" value="40px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>width</li><li>height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>40px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--field-size-small"><doc-input data-css-input="true" name="--field-size-small" label="--field-size-small" value="32px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>width</li><li>height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>32px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--icon-custom-size"><doc-input data-css-input="true" name="--icon-custom-size" label="--icon-custom-size" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>width</li><li>height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div>
+            <div class="style-group" data-style-name="--icon-size-large"><doc-input data-css-input="true" name="--icon-size-large" label="--icon-size-large" value="40px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--icon-custom-size</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>40px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--icon-size-medium"><doc-input data-css-input="true" name="--icon-size-medium" label="--icon-size-medium" value="20px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--icon-custom-size</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>20px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--icon-size-small"><doc-input data-css-input="true" name="--icon-size-small" label="--icon-size-small" value="16px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--icon-custom-size</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>16px</li></ul></div></div></div>
+          </div>
+        </pap-tab-content>
       </pap-tabs>
     </section>
   </doc-controller>
 </body>
+
 </html>

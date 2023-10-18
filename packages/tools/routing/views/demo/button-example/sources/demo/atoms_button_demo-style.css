@@ -1,0 +1,8 @@
+body pap-tab-content[id="demo"]  {
+  background-color: var(--pap-color-bg-canvas, #EAEBEF);
+  color: var(--pap-color-text, #29292F);
+}
+
+body pap-tab-content[id="demo"]  {
+  font-family: var(--pap-font-family);
+}

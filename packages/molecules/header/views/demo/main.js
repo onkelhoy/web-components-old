@@ -7,11 +7,11 @@ import '@pap-it/header/wc';
 window.onload = () => {
     console.log('[demo]: window loaded');
 
-    window.oTheme.add({ name: "KTV", href: "ktv", representColor: "cornflowerblue" });
-    window.oTheme.add({ name: "PMP", href: "pmp", representColor: "coral" });
+    window.oTheme.add({ name: "KTV", href: "/themes/ktv", representColor: "cornflowerblue" });
+    window.oTheme.add({ name: "PMP", href: "/themes/pmp", representColor: "coral" });
     // window.oTheme.add({ name: "Base", href: "base", representColor: "gray" });
 
-    window.oTheme.
+    // window.oTheme.
 
     setTimeout(() => {
         window.oTranslation.loadAll([

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  <doc-controller>
+    <div id="target">
+      <pap-routing-tool>
+        
+      <div slot="header" data-slotname="header">
+        
+                    <h1>llama drama trauma</h1>
+                
+      </div>
+     
+      <div  data-slotname="default">
+        
+                    <p>Why did the llama go to therapy? Because it had a lot of spitting issues!</p>
+                
+      </div>
+     
+      <div slot="footer" data-slotname="footer">
+        
+                    <p>Why did the llama enter the door? To attend the llamazing party inside!</p>
+                
+      </div>
+    
+      </pap-routing-tool>
+  </div>
+
+    <section class="control" slot="setting">
+      <pap-tabs>
+        <pap-tab id="html">HTML</pap-tab>
+        <pap-tab class="selected" id="properties">Properties</pap-tab>
+        <pap-tab id="css">CSS</pap-tab>
+        <pap-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: header" variant="textarea" name="slot-header" data-slotname="header" value="
+                    <h1>llama drama trauma</h1>
+                "></doc-input><doc-input label="HTML slot: default" variant="textarea" name="slot-default" data-slotname="default" value="
+                    <p>Why did the llama go to therapy? Because it had a lot of spitting issues!</p>
+                "></doc-input><doc-input label="HTML slot: footer" variant="textarea" name="slot-footer" data-slotname="footer" value="
+                    <p>Why did the llama enter the door? To attend the llamazing party inside!</p>
+                "></doc-input></div></pap-tab-content>
+        <pap-tab-content id="properties"><h3 data-subtitle="RoutingTool Properties">RoutingTool Properties</h3><div data-name="RoutingTool Properties" class="properties">
+        
+        
+        
+        <doc-input data-prop-name="foo" variant="select" value="bar" name="foo" label="foo" options='["bar","hello world"]'></doc-input>
+      
+      
+      
+      
+          
+          
+          
+          <doc-input data-prop-name="bajs" variant="number" value="" name="bajs" label="bajs"></doc-input>
+        
+        
+        
+        
+          
+          
+          
+          <doc-radio name="fooLaa" data-prop-name="fooLaa" label="fooLaa" value="true"></doc-radio>
+        
+        
+        
+        
+            <doc-input data-prop-name="url" value="" name="url" label="url"></doc-input>
+          </div><h3 data-subtitle="AssetTemplate Properties">AssetTemplate Properties</h3><div data-name="AssetTemplate Properties" class="properties">
+            <doc-input data-prop-name="assetBase" value="/public" name="assetBase" label="assetBase"></doc-input>
+          
+          <doc-radio name="cache" data-prop-name="cache" label="cache" value=""></doc-radio>
+        </div></pap-tab-content>
+        <pap-tab-content id="css">
+      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/tools/routing" class="style-source">
+        <h3>routing styles</h3>
+      <div class="style-group" data-style-name="--padding-medium"><doc-input data-css-input="true" name="--padding-medium" label="--padding-medium" value="16px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>16px</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-bg"><color-picker-input data-css-input="true" name="--pap-color-bg" label="--pap-color-bg" value="white"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>white</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-text"><color-picker-input data-css-input="true" name="--pap-color-text" label="--pap-color-text" value="black"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>black</li></ul></div></div></div><div class="style-group" data-style-name="--routing-background-color"><color-picker-input data-css-input="true" name="--routing-background-color" label="--routing-background-color" value="var(--pap-color-bg, white)"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>var(--pap-color-bg, white)</li></ul></div></div></div><div class="style-group" data-style-name="--routing-text-color"><color-picker-input data-css-input="true" name="--routing-text-color" label="--routing-text-color" value="var(--pap-color-text, black)"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>var(--pap-color-text, black)</li></ul></div></div></div></div>
+    </pap-tab-content>
+      </pap-tabs>
+    </section>
+  </doc-controller>
+</body>
+</html>

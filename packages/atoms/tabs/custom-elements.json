@@ -1,0 +1,260 @@
+{
+  "className": "Tabs",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/tabs",
+  "properties": [
+    {
+      "name": "indicatorElement",
+      "type": "HTMLSpanElement",
+      "type_value": {
+        "addEventListener": null,
+        "removeEventListener": null
+      },
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "headerElement",
+      "type": "HTMLElement",
+      "type_value": {
+        "accessKey": null,
+        "accessKeyLabel": null,
+        "autocapitalize": null,
+        "dir": null,
+        "draggable": null,
+        "hidden": null,
+        "inert": null,
+        "innerText": null,
+        "lang": null,
+        "offsetHeight": null,
+        "offsetLeft": null,
+        "offsetParent": [
+          null,
+          null
+        ],
+        "offsetTop": null,
+        "offsetWidth": null,
+        "outerText": null,
+        "spellcheck": null,
+        "title": null,
+        "translate": null,
+        "attachInternals": null,
+        "click": null,
+        "addEventListener": null,
+        "removeEventListener": null
+      },
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "mainElement",
+      "type": "HTMLElement",
+      "type_value": {
+        "accessKey": null,
+        "accessKeyLabel": null,
+        "autocapitalize": null,
+        "dir": null,
+        "draggable": null,
+        "hidden": null,
+        "inert": null,
+        "innerText": null,
+        "lang": null,
+        "offsetHeight": null,
+        "offsetLeft": null,
+        "offsetParent": [
+          null,
+          null
+        ],
+        "offsetTop": null,
+        "offsetWidth": null,
+        "outerText": null,
+        "spellcheck": null,
+        "title": null,
+        "translate": null,
+        "attachInternals": null,
+        "click": null,
+        "addEventListener": null,
+        "removeEventListener": null
+      },
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "preselect",
+      "type": "number",
+      "default_value": 0,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "indicator",
+      "type": "boolean",
+      "default_value": true,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "scrolling",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    }
+  ],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/atoms/tabs": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "query",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      },
+      {
+        "name": "Tab",
+        "from": "./components/tab"
+      },
+      {
+        "name": "TabContent",
+        "from": "./components/content"
+      }
+    ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "header-top",
+        "html": ""
+      },
+      {
+        "name": "header-prefix",
+        "html": ""
+      },
+      {
+        "name": "tab",
+        "html": ""
+      },
+      {
+        "name": "header-suffix",
+        "html": ""
+      },
+      {
+        "name": "header-below",
+        "html": ""
+      },
+      {
+        "name": "between",
+        "html": ""
+      },
+      {
+        "name": "content",
+        "html": ""
+      }
+    ],
+    "parts": [
+      {
+        "name": "header",
+        "tag": "HEADER"
+      },
+      {
+        "name": "header-content",
+        "tag": "DIV"
+      },
+      {
+        "name": "header-tabs",
+        "tag": "DIV"
+      },
+      {
+        "name": "indicator",
+        "tag": "SPAN"
+      },
+      {
+        "name": "content",
+        "tag": "MAIN"
+      }
+    ]
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/tabs",
+    "sources": [],
+    "variables": {
+      "--gap-small": {
+        "usecases": [
+          "gap"
+        ],
+        "fallbacks": [
+          "8px"
+        ]
+      },
+      "--tabs-indicator-height": {
+        "usecases": [
+          "height"
+        ],
+        "fallbacks": [
+          "var(--unit-size-1, 4px)"
+        ]
+      },
+      "--unit-size-1": {
+        "usecases": [
+          "height"
+        ],
+        "fallbacks": [
+          "4px"
+        ]
+      },
+      "--tabs-indicator-color": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--pap-color-border-brand, #009DD3)"
+        ]
+      },
+      "--pap-color-border-brand": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "#009DD3"
+        ]
+      },
+      "--radius-small": {
+        "usecases": [
+          "border-top-left-radius",
+          "border-top-right-radius"
+        ],
+        "fallbacks": [
+          "4px"
+        ]
+      },
+      "--tabs-maxheight": {
+        "usecases": [
+          "max-height"
+        ],
+        "fallbacks": [
+          "15rem"
+        ]
+      }
+    }
+  }
+}
