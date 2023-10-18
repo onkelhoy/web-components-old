@@ -1,19 +1,13 @@
 :host {
-    --menu-background: var(--o-color-neutral-50);
+    --menu-background: var(--o-color-bg);
     --menu-color: var(--o-color-text);
+    display: inline-block;
 
     o-button {
-        background-color: var(--menu-background);
-        color: var(--menu-color);
-        padding: var(--padding-small, 8px);
-        gap: var(--padding-small, 8px);
-
         span.caret-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 40px;
-            height: 40px;
         }
     }
 

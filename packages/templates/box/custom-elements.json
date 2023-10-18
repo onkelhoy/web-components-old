@@ -51,15 +51,6 @@
       }
     ]
   },
-  "html": {
-    "slots": [
-      {
-        "name": "default",
-        "html": ""
-      }
-    ],
-    "parts": []
-  },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/templates/box",
     "sources": [],

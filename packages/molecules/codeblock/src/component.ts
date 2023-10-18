@@ -467,7 +467,7 @@ export class Codeblock extends BaseTemplate {
                     <main></main>
                 </o-box-template>
             </code>
-            <fieldset>
+            <fieldset part="fieldset">
                 <legend>
                     <o-typography>result</o-typography>
                 </legend>

@@ -18,8 +18,8 @@ export class Badge extends BaseTemplate {
 
     render() {
         return html`
-            <o-box-template radius="circular">
-                <o-typography variant="C4">${FormatNumber(this.count)}</o-typography>
+            <o-box-template part="box" radius="circular">
+                <o-typography variant="C4"><slot>${FormatNumber(this.count)}</slot></o-typography>
             </o-box-template>
         `
     }

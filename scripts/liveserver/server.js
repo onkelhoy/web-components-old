@@ -1,4 +1,5 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const fs = require('fs');
 const path = require('path');
 const esbuild = require('esbuild');
@@ -9,6 +10,7 @@ const { deepMerge } = require('./util');
 const { server:socketserver, update:socketupdate, error:socketerror } = require('./socket');
 
 const app = express();
+app.use(cookieParser());
 
 const SCRIPT_DIR = process.argv[2];
 const PACKAGE_DIR = process.argv[3];
@@ -96,15 +98,15 @@ const clientHTML = fs
     .replace('PORT', CONFIG.port);
 
 app.get('*', async (req, res) => {
-    let url = req._parsedUrl.pathname;
+    const url = correctUrl(req._parsedUrl.pathname, req, res);
+
     const [status, file] = await getFile(url);
-    
     if (status === 200 && url.endsWith('.js'))
     {
         res.setHeader('Content-Type', 'application/javascript');
     }
     res.status(status).end(file);
-})
+});
 
 const RebuildPlugin = {
     name: 'rebuild',
@@ -157,19 +159,113 @@ async function watch(file_path, output_dist) {
     }
 }
 
+function isFilePath(p) {
+    // Extract the extension from the path
+    const extension = path.extname(p);
+
+    // If the extension is not empty, it's likely a file path
+    return extension.length > 0;
+}
+function getFileName(url) {
+    return path.basename(url);
+}
+function getFolderName(url) {
+    return path.dirname(url);
+}
+function correctUrl(url, req, res) {
+    if (url.endsWith('/'))
+    {
+        url += htmlfilename;
+    }
+
+    let folder_path = url;
+    let file_path = undefined;
+    if (isFilePath(url))
+    {
+        file_path = getFileName(url);
+        folder_path = getFolderName(url);
+    }
+    else 
+    {
+        if (!folder_path.endsWith('/')) 
+        {
+            folder_path += '/';
+        }
+    }
+
+    const dynamic_route = req.cookies.dynamic_route;
+    if (fs.existsSync(path.join(viewfolder, folder_path)))
+    {
+        if (dynamic_route) res.clearCookie('dynamic_route');
+    }
+    else 
+    {
+        if (dynamic_route && dynamic_route !== "/" && folder_path.startsWith(dynamic_route))
+        {
+            folder_path = folder_path.slice(dynamic_route.length, folder_path.length);
+        }
+
+        // static folders 
+        if (folder_path.startsWith('/asset/')) return returnURL(folder_path, file_path);
+        if (folder_path.startsWith('/themes/')) return returnURL(folder_path, file_path);
+        if (folder_path.startsWith('/public/')) return returnURL(folder_path, file_path);
+        if (folder_path.startsWith('/translations/')) return returnURL(folder_path, file_path);
+
+        if (!fs.existsSync(path.join(viewfolder, folder_path)))
+        {
+            // folder_path doesnt exists - we should remove the shit until we get a path that exists  
+            const queue = folder_path.split('/').reverse();
+            let folder_path_loop = folder_path;
+            let remove_part = '';
+            while (queue.length > 0)
+            {
+                const popped = queue.pop();
+                if (popped === '') 
+                {
+                    continue;
+                }
+                else if (popped)
+                {
+                    remove_part += ('/' + popped);
+                    folder_path_loop = folder_path_loop.slice(('/' + popped).length, folder_path_loop.length);
+                    if (fs.existsSync(path.join(viewfolder, folder_path_loop)))
+                    {
+                        res.cookie('dynamic_route', remove_part);
+                        folder_path = folder_path.slice(remove_part.length, folder_path.length);
+                        break;
+                    }
+                }
+                else 
+                {
+                    // this should not happend I guess 
+                    console.log('[ERROR] I should not be printed!');
+                    break;
+                }
+            }
+        }
+    }
+    
+    return returnURL(folder_path, file_path);
+}
+function returnURL(folder_path, file_path) {
+    if (file_path) 
+    {
+        return path.join(folder_path, file_path);
+    }
+
+    return folder_path;
+}
+
 const contexts = {};
 async function getFile(url) {
     try {
-        if (url === "/")
-        {
-            url = htmlfilename;
-        }
-
         let file_path = path.join(viewfolder, url);
 
-        // check if file exists in other places (local & global asset folder)
-        // then individually the dependency packages's asset folder
         if (!fs.existsSync(file_path))
+            // check if its dynamic routes 
+    
+            // check if file exists in other places (local & global asset folder)
+            // then individually the dependency packages's asset folder
             if (/public/.test(url)) {
             {
                 const urlwithoutpublic = url.replace("/public", "");
@@ -280,13 +376,28 @@ async function getFile(url) {
     }
 }
 
+let server_start_attempts = 0;
+function StartServer() {
+    const port = Number(CONFIG.port) + server_start_attempts;
+    const httpServer = app.listen(port, () => {
+      console.log(`devserver started on port ${port}`);
+    }).on('error', () => {
+        server_start_attempts++;
+        if (server_start_attempts < 1000)
+        {
+            StartServer();
+        }
+        else 
+        {
+            console.log(`[ERROR] port spaces between [${CONFIG.PORT}, ${port}] are all taken, please free up some ports`);
+        }
+    });
 
-const httpServer = app.listen(CONFIG.port, () => {
-  console.log(`devserver started on port ${CONFIG.port}`);
-});
+    httpServer.on('upgrade', (request, socket, head) => {
+        socketserver.handleUpgrade(request, socket, head, (socket) => {
+          socketserver.emit('connection', socket, request);
+        });
+    });
+}
 
-httpServer.on('upgrade', (request, socket, head) => {
-  socketserver.handleUpgrade(request, socket, head, (socket) => {
-    socketserver.emit('connection', socket, request);
-  });
-});
+StartServer();

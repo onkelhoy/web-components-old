@@ -1,7 +1,7 @@
 export const style = `:host {
   display: inline-block;
   --border-color-unselected: var(--o-steps-border-color-unselected, var(--o-color-canvas-400));
-  --border-color-selected: var(--o-steps-border-color-selected, var(--o-color-CB-800));
+  --border-color-selected: var(--o-steps-border-color-selected, var(--o-color-clear-blue-800));
   --o-steps-circle-selected-color: var(--border-color-selected);
   --o-steps-circle-stale-color: var(--border-color-unselected); }
   :host o-typography {

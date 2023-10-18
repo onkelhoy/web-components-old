@@ -10,16 +10,18 @@ body {
   min-height: 100vh;
 }
 
+o-tabs::part(header) {
+  position: sticky;
+  background-color: var(--o-color-bg-canvas);
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
 body > o-tabs > o-tab-content {
   margin: 1rem;
-}
-body > o-tabs::part(header) {
-  --tabs-height: 3rem;
 }
 
 body > o-tabs > o-tab-content[id="interactive"] {
   height: calc(100vh - 5rem) !important;
-}
-body > o-markdown {
-  padding: 0;
 }

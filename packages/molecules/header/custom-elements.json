@@ -30,10 +30,6 @@
         "from": "@henry2/tools-utils"
       },
       {
-        "name": "Menu",
-        "from": "@henry2/menu"
-      },
-      {
         "name": "BaseTemplate",
         "from": "@henry2/templates-base"
       },

@@ -1,10 +1,7 @@
 // tools
 import '@henry2/tools-doc/wc';
-import '@henry2/tools-showcase/wc';
 
 // component
-import '@henry2/typography/wc';
-import '@henry2/divider/wc';
 import '@henry2/button/wc';
 
 window.onload = () => {

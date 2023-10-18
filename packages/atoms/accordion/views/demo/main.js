@@ -16,4 +16,14 @@ window.onload = () => {
         console.log('close')
         window.target.open = false;
     }
+
+    window.horizontalopenBTN.onclick = () => {
+        console.log('open horizontal')
+        window.horizontaltarget.open = true;
+    }
+
+    window.horizontalcloseBTN.onclick = () => {
+        console.log('close horizontal')
+        window.horizontaltarget.open = false;
+    }
 }

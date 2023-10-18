@@ -12,7 +12,7 @@ export type ClickEvent = { sectionHeight: number };
 export class Tab extends BaseTemplate {
   static style = style;
 
-  @property() heading: string = "Tab";
+  @property() text: string = "Tab";
 
   public init(parent: HTMLElement) {
     parent.addEventListener('tab-select', (e:Event) => {
@@ -40,14 +40,27 @@ export class Tab extends BaseTemplate {
     if (this.classList.contains('selected'))
     {
       setTimeout(() => {
-        this.dispatchEvent(new Event('click'));
-      }, 1)
+        this.dispatchEvent(new Event('click', {
+          composed: false,
+          cancelable: false
+        }));
+      }, 130) 
+      // TODO - tab self select
+      /** NOTE I dont know why 130 works 
+       * 
+       * problem source -> sidebar showcase overlay example the self click didnt work streight away 
+       * - perhaps a more complex solution awaits that would be able to set a timeout after element 
+       *   has been rendered to screen, seems to be hard because shadowRoot exists.. 
+       * 
+       *   triggering click within shadowRoot and 
+       *   
+      /*/
     }
   }
 
   render() {
     return html`
-      <slot>${this.heading}</slot>
+      <slot>${this.text}</slot>
     `
   }
 }

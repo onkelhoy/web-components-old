@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header - Variations</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  
+<h1 data-title="class">Header Properties</h1>
+        <doc-card class="property" data-name="user">
+            <h2 slot="header"><span class="deemphasize">Property: </span>user</h2>
+
+            <div class="property-info">
+              <p>type: UserModel</p>
+              <p>default-value: undefined</p>
+              <p>required: false</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="[object Object]">
+                    <h4><span class="deemphasize">Property-Value: </span>[object Object]</h4>
+                    <o-codeblock display="both">
+                      <o-header 
+                        user="[object Object]"
+                        
+                      >
+                        <p>Hello World</p>
+                      </o-header>
+                    </o-codeblock>
+                  </div>
+                
+            </div>
+        </doc-card>
+    <h1 data-title="inherit">Inherited Properties</h1></body>
+</html>

@@ -1,17 +1,33 @@
 {
   "className": "Accordion",
   "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/accordion",
-  "properties": [],
+  "properties": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "mode",
+      "type": "Mode",
+      "default_value": "vertical",
+      "type_value": [
+        "horizontal",
+        "vertical"
+      ],
+      "primitive": false,
+      "conditional": false
+    }
+  ],
   "extend_class": null,
   "imports": {
     "/Users/henry/Developer/projects/web-components/packages/atoms/accordion": [
       {
         "name": "__decorate",
         "from": "tslib"
-      },
-      {
-        "name": "html",
-        "from": "@henry2/tools-utils"
       },
       {
         "name": "property",

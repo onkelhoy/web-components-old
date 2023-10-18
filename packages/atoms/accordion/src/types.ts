@@ -1,1 +1,1 @@
-export {}
+export type Mode = "horizontal"|"vertical";

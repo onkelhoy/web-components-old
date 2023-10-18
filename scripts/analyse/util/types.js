@@ -15,14 +15,15 @@ function types_extractor(fileName, className) {
         ts.forEachChild(sourceFile, (node) => {
             if (ts.isClassDeclaration(node) && node.name.escapedText === className) {
                 // If the node is a class declaration
-    
                 node.members.forEach(member => {
+                    // TODO improvement: 
+                    // if (ts.isPropertyDeclaration(member) || !!member.symbol.valueDeclaration) {
                     if (ts.isPropertyDeclaration(member)) {
                         // If the member is a property declaration
                         const type = member.type;
 
                         // mostly to eliminate styles
-                        if (type && !member.modifiers?.some(modifier => modifier.kind === ts.SyntaxKind.StaticKeyword || modifier.kind === ts.SyntaxKind.PrivateKeyword))
+                        if (type && !member.modifiers?.some(modifier => [ts.SyntaxKind.StaticKeyword, ts.SyntaxKind.PrivateKeyword].includes(modifier.kind)))
                         {
                             let default_value = undefined;
                             if (member.initializer) {
@@ -48,7 +49,7 @@ function types_extractor(fileName, className) {
                                     typeName = type.typeName?.escapedText;
                                     break;
                             }
-    
+
                             // const type_value = extract_type(checker, program, type);
                             let type_value = null;
                             if (ts.isTypeReferenceNode(member.type)) {
@@ -61,6 +62,28 @@ function types_extractor(fileName, className) {
     
                             properties.push({name, type: typeName, default_value, type_value, primitive, conditional: !!member.questionToken})
                         }
+                        // TODO implement solution so properties without type specification can be tried also 
+                        // idea: maybe let typescript run it once and read component.d.ts file it has stuff typeset 
+
+                        // else  
+                        // {
+                        //     // if (case_circle) 
+                        //     // {
+                        //     //     console.log("circle you sneaky snake", member)
+                        //     // }
+                        //     if (member.symbol.valueDeclaration)
+                        //     {
+
+                        //         // const v = default_value = getInitialValue(member.initializer);
+                        //         // if (case_circle) console.log("I have a value", member.name.escapedText, default_value)
+                        //     }
+
+                        //     // const initial = 
+                        //     // if (initial)
+                        //     // {
+                        //     //     console.log(member.name.escapedText, initial)
+                        //     // }
+                        // }
                     }
                 });
     
@@ -91,6 +114,8 @@ function types_extractor(fileName, className) {
         return initializer.text;
     }
 
+    console.log("properties generated:")
+    console.table(properties)
     return properties;
 }
 function extract_type(checker, node) {

@@ -45,6 +45,14 @@ export const style = `:host {
 :host([nowrap="true"]) {
   white-space: nowrap; }
 
+:host([truncate="true"]) {
+  white-space: nowrap;
+  /* this ensures text remains on a single line */
+  overflow: hidden;
+  /* hides any overflow */
+  text-overflow: ellipsis;
+  /* shows ellipsis for any overflow */ }
+
 :host([variant="heading1"]),
 :host([variant="H1"]) {
   font-family: var(--typography-h1-fontfamily);

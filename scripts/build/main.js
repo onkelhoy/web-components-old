@@ -37,6 +37,7 @@ for (const name in packagelock.packages)
     set.add(mapname);
 
     const package = packagelock.packages[packagelock.packages[name].resolved];
+    console.log(name, package)
     const dependencies = [];
 
     map[mapname].location = packagelock.packages[name].resolved;

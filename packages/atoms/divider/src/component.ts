@@ -14,7 +14,7 @@ export class Divider extends BaseTemplate {
     @property({ rerender: false }) mode: Mode = "horizontal";
 
     render() {
-        return '<div></div>'
+        return '<div part="line"></div>'
     }
 }
 

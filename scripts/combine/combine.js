@@ -39,22 +39,25 @@ let addedscripts = 0;
 let addedlinks = 0;
 
 const IDNAME = `${ATOMICTYPE}_${PACKAGENAME}_${SUBFOLDER}`
+    .replace(' ', '_')
     .replace('.', '_')
     .replace('-', '_');
 
 // helper function
 function fixCSS(css, ids) {
-    const section = `${GLOBAL ? `div#${IDNAME}` : '' }o-tab-content[data-tab-id="${SUBFOLDER}"]`;
+    const section = `${GLOBAL ? `div#${IDNAME}` : '' }o-tab-content[id="${SUBFOLDER}"]`;
     const idselector = new RegExp(`#(${ids.join('|')})`);
 
     const lines = css.split(/\n/);
     for (let i=0; i<lines.length; i++) 
     {
         if (/^(\s+)?(@font-face|:root|@media|--)/g.test(lines[i])) continue
-        if (/\{/.test(lines[i]))
+        if (/(\{|,)\W*$/.test(lines[i]))
         {
-            const startline_match = lines[i].match(/^(body)?([^\{,]*)(\{|,)\W*$/);
-            if (startline_match) lines[i] = lines[i].replace(startline_match[2], ` ${section} ${startline_match[2]}`);
+            const startline_match = lines[i].match(/^(body)?([^\{,]*)(\{|\,)\W*$/);
+            if (startline_match) {
+                lines[i] = lines[i].replace(startline_match[2], ` ${section} ${startline_match[2]}`);
+            }
 
             if (ids.length > 0)
             {
@@ -70,7 +73,7 @@ function fixCSS(css, ids) {
 
 }
 function fixJS(js, ids) {
-    const section = `${GLOBAL ? `div#${IDNAME}` : '' }o-tab-content[data-tab-id="${SUBFOLDER}"]`;
+    const section = `${GLOBAL ? `div#${IDNAME}` : '' }o-tab-content[id="${SUBFOLDER}"]`;
     const idsjoin = ids.join('|');
     const windowIdSelector = new RegExp(`window.(${idsjoin})\\W?`);
     const windowInsideIdSelector = new RegExp(`window\\[(['"])(${idsjoin})['"]\\]\\W?`);
@@ -229,7 +232,7 @@ document.querySelectorAll('style').forEach(style => {
 // append the tab 
 const tabs = combinedDOM.querySelector('o-tabs');
 tabs.appendChild(parse(`
-    <o-tab id="${SUBFOLDER}" heading="${config.name}"></o-tab>
+    <o-tab id="${SUBFOLDER}" text="${config.name}"></o-tab>
 `));
 tabs.appendChild(parse(`
     <o-tab-content id="${SUBFOLDER}">${document.querySelector('body').innerHTML}</o-tab-content>

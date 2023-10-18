@@ -16,7 +16,7 @@ export class Guideline extends BaseTemplate {
 
   @property() variant: Variant = "success";
   @property() padding: Size = "large";
-  @property() infotext: string = "This is ok";
+  @property() text: string = "This is ok";
 
   render() {
     return html`
@@ -28,7 +28,7 @@ export class Guideline extends BaseTemplate {
         ${this.variant === "warning" ? html`<o-icon size="small" name="warning"></o-icon>` : ''}
         ${this.variant === "error" ? html`<o-icon size="small" name="close"></o-icon>` : ''}
 
-        <o-typography>${this.infotext}</o-typography>
+        <o-typography>${this.text}</o-typography>
       </div>
     `
   }

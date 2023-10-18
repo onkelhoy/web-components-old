@@ -15,16 +15,123 @@
 </head>
 <body>
     <doc-card>
-        <h1>Default</h1>
-        <o-codeblock lang="html" display="both">
+        <h1 slot="header">Pre selected</h1>
+        <o-codeblock display="both">
+            <o-tabs preselect="2">
+                <o-tab>Tab A</o-tab>
+                <o-tab>Tab B</o-tab>
+                <o-tab>Tab C</o-tab>
+                <o-tab>Tab D</o-tab>
+
+                <o-tab-content>
+                    Tab content A
+                </o-tab-content>
+                <o-tab-content>
+                    Tab content B
+                </o-tab-content>
+                <o-tab-content>
+                    Tab content C
+                </o-tab-content>
+                <o-tab-content>
+                    Tab content D
+                </o-tab-content>
+            </o-tabs>
+        </o-codeblock>
+    </doc-card>
+    <doc-card>
+        <h1 slot="header">No pre selected</h1>
+        <o-codeblock display="both">
+            <o-tabs preselect="-1">
+                <o-tab>Tab A</o-tab>
+                <o-tab>Tab B</o-tab>
+                <o-tab>Tab C</o-tab>
+                <o-tab>Tab D</o-tab>
+
+                <o-tab-content>
+                    Tab content A
+                </o-tab-content>
+                <o-tab-content>
+                    Tab content B
+                </o-tab-content>
+                <o-tab-content>
+                    Tab content C
+                </o-tab-content>
+                <o-tab-content>
+                    Tab content D
+                </o-tab-content>
+            </o-tabs>
+        </o-codeblock>
+    </doc-card>
+    <doc-card>
+        <h1 slot="header">Prefix</h1>
+        <o-codeblock display="both">
             <o-tabs>
-                <o-tab heading="Awesome Tab"></o-tab>
+                <o-tab>Tab A</o-tab>
+                <o-tab>Tab B</o-tab>
+
+                <o-tab-content>
+                    Tab content A
+                </o-tab-content>
+                <o-tab-content>
+                    Tab content B
+                </o-tab-content>
+
+                <p slot="header-prefix">PREFIX</p>
+            </o-tabs>
+        </o-codeblock>
+    </doc-card>
+    <doc-card>
+        <h1 slot="header">Suffix</h1>
+        <o-codeblock display="both">
+            <o-tabs>
+                <o-tab>Tab A</o-tab>
+                <o-tab>Tab B</o-tab>
+
+                <o-tab-content>
+                    Tab content A
+                </o-tab-content>
+                <o-tab-content>
+                    Tab content B
+                </o-tab-content>
+
+                <p slot="header-suffix">SUFFIX</p>
+            </o-tabs>
+        </o-codeblock>
+    </doc-card>
+    <doc-card>
+        <h1 slot="header">Full usage of slots</h1>
+        <o-codeblock display="both">
+            <o-tabs>
+                <o-tab>Tab A</o-tab>
+                <o-tab>Tab B</o-tab>
+
+                <o-tab-content>
+                    Tab content A
+                </o-tab-content>
+                <o-tab-content>
+                    Tab content B
+                </o-tab-content>
+
+                <p slot="header-prefix">PREFIX</p>
+                <p slot="header-suffix">SUFFIX</p>
+                <p slot="header-top">Im at the top</p>
+                <p slot="header-below">Im below the header</p>
+
+                <p slot="between">i exist between the header and content</p>
+            </o-tabs>
+        </o-codeblock>
+    </doc-card>
+    <doc-card>
+        <h1>Default</h1>
+        <o-codeblock display="both">
+            <o-tabs>
+                <o-tab text="Awesome Tab"></o-tab>
                 <o-tab><h2>IM SPECIAL</h2></o-tab>
                 <o-tab>
                     <h1>I am a very long tab name</h1>
                     <p>WOOOOOOOOOOW SO COOL</p>
                 </o-tab>
-                <o-tab heading="I AM THE SELECTED ONE" class="selected"></o-tab>
+                <o-tab text="I AM THE SELECTED ONE" class="selected"></o-tab>
 
                 <o-tab-content>I am the awesome tab</o-tab-content>
                 <o-tab-content>
@@ -57,15 +164,15 @@
     </doc-card>
     <doc-card>
         <h1>Scrolling + Indicator</h1>
-        <o-codeblock lang="html" display="both">
+        <o-codeblock display="both">
             <o-tabs class="tabs-scrolling-indicator" scrolling="true" indicator="true">
-                <o-tab heading="Awesome Tab"></o-tab>
+                <o-tab text="Awesome Tab"></o-tab>
                 <o-tab><h2>IM SPECIAL</h2></o-tab>
                 <o-tab>
                     <h1>I am a very long tab name</h1>
                     <p>WOOOOOOOOOOW SO COOL</p>
                 </o-tab>
-                <o-tab heading="I AM THE SELECTED ONE" class="selected"></o-tab>
+                <o-tab text="I AM THE SELECTED ONE" class="selected"></o-tab>
 
                 <o-tab-content>I am the awesome tab</o-tab-content>
                 <o-tab-content>
@@ -98,18 +205,18 @@
     </doc-card>
     <doc-card>
         <h1>Nested</h1>
-        <o-codeblock lang="html" display="both">
+        <o-codeblock display="both">
             <o-tabs>
-                <o-tab heading="demo"></o-tab>
+                <o-tab text="demo"></o-tab>
                 <o-tab-content>
                     <o-tabs>
-                        <o-tab heading="Awesome Tab"></o-tab>
+                        <o-tab text="Awesome Tab"></o-tab>
                         <o-tab><h2>IM SPECIAL</h2></o-tab>
                         <o-tab>
                             <h1>I am a very long tab name</h1>
                             <p>WOOOOOOOOOOW SO COOL</p>
                         </o-tab>
-                        <o-tab heading="I AM THE SELECTED ONE" class="selected"></o-tab>
+                        <o-tab text="I AM THE SELECTED ONE" class="selected"></o-tab>
 
                         <o-tab-content>I am the awesome tab</o-tab-content>
                         <o-tab-content>

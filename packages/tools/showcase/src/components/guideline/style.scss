@@ -8,7 +8,10 @@ showcase-card {
   margin-bottom: var(--margin-medium);
 }
 showcase-card::part(box) {
+  overflow: hidden;
+  
   &::after {
+    z-index: 9999;
     content: '';
     width: 100%;
     height: 1rem;

@@ -26,6 +26,13 @@
         }
     }
 
+    // window.addEventListener('beforeunload', async () => {
+    //     // Clear the session identifier when the page is refreshed or closed
+    //     document.cookie = 'dynamic_route=; Max-Age=-99999999;';
+    //     await fetch('/cookie-reset');
+    //     alert('cookie reset');
+    // });
+
     window.currentliveservererrorfile = null;
     window.addEventListener("load", () => {
         const popup = document.createElement('dialog');

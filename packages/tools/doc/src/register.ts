@@ -9,6 +9,11 @@ import { Radio } from './components/Radio';
 import '@henry2/tabs/wc';
 import "@henry2/codeblock/wc";
 import "@henry2/markdown/wc";
+import "@henry2/typography/wc";
+import "@henry2/icon/wc";
+import "@henry2/divider/wc";
+import "@henry2/header/wc";
+import "@henry2/tools-showcase/wc";
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;

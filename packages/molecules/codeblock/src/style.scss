@@ -83,6 +83,8 @@
     }
 
     fieldset {
+        // overflow: initial;
+        // overflow-x: auto;
         background-color: var(--o-color-bg);
         legend {
             // TODO - how to display so in opposite color (theme-switch) 

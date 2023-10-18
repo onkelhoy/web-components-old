@@ -22,6 +22,42 @@
       "conditional": false
     },
     {
+      "name": "href",
+      "type": "string",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    },
+    {
+      "name": "circle",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "loading",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "textvariant",
+      "type": "ButtonTextType",
+      "default_value": "B1",
+      "type_value": [
+        "B1",
+        "B2",
+        "button1",
+        "button2"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
       "name": "mode",
       "type": "ButtonMode",
       "default_value": "hug",
@@ -39,7 +75,6 @@
       "type_value": [
         "filled",
         "outlined",
-        "underlined",
         "clear"
       ],
       "primitive": false,
@@ -56,11 +91,11 @@
     {
       "name": "color",
       "type": "ButtonColorVariant",
-      "default_value": "secondary",
+      "default_value": "primary",
       "type_value": [
         "primary",
         "secondary",
-        "brand",
+        "inverse",
         "danger",
         "success",
         "warning"
@@ -145,7 +180,7 @@
     "slots": [
       {
         "name": "prefix",
-        "html": "<span> </span>"
+        "html": ""
       },
       {
         "name": "default",
@@ -153,16 +188,21 @@
       },
       {
         "name": "suffix",
-        "html": "<span> </span>"
+        "html": ""
       }
     ],
-    "parts": []
+    "parts": [
+      {
+        "name": "content",
+        "tag": "SPAN"
+      }
+    ]
   },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/button",
     "sources": [],
     "variables": {
-      "--button-cursor": {
+      "--o-button-cursor": {
         "usecases": [
           "cursor"
         ],
@@ -170,310 +210,1741 @@
           "pointer"
         ]
       },
-      "--button-font-family": {
+      "--padding-small": {
+        "usecases": [
+          "padding-inline"
+        ],
+        "fallbacks": []
+      },
+      "--typography-b1-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": [
-          "var(--font-family, inherit)"
-        ]
+        "fallbacks": []
       },
-      "--font-family": {
+      "--typography-b1-fontsize": {
+        "usecases": [
+          "font-size"
+        ],
+        "fallbacks": []
+      },
+      "--typography-b1-fontweight": {
+        "usecases": [
+          "font-weight"
+        ],
+        "fallbacks": []
+      },
+      "--typography-b1-lineheight": {
+        "usecases": [
+          "line-height"
+        ],
+        "fallbacks": []
+      },
+      "--typography-b1-letterspacing": {
+        "usecases": [
+          "letter-spacing"
+        ],
+        "fallbacks": []
+      },
+      "--typography-b2-fontfamily": {
         "usecases": [
           "font-family"
         ],
+        "fallbacks": []
+      },
+      "--typography-b2-fontsize": {
+        "usecases": [
+          "font-size"
+        ],
+        "fallbacks": []
+      },
+      "--typography-b2-fontweight": {
+        "usecases": [
+          "font-weight"
+        ],
+        "fallbacks": []
+      },
+      "--typography-b2-lineheight": {
+        "usecases": [
+          "line-height"
+        ],
+        "fallbacks": []
+      },
+      "--typography-b2-letterspacing": {
+        "usecases": [
+          "letter-spacing"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-primary-filled-default-background": {
+        "usecases": [
+          "background-color"
+        ],
         "fallbacks": [
-          "inherit"
+          "var(--o-color-bg-brand)"
         ]
       },
-      "--background": {
+      "--o-color-bg-brand": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": []
       },
-      "--color": {
+      "--o-button-primary-filled-default-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-onbrand)"
+        ]
+      },
+      "--o-color-text-onbrand": {
         "usecases": [
           "color"
         ],
         "fallbacks": []
       },
-      "--button-height-small": {
+      "--o-button-primary-filled-default-icon": {
         "usecases": [
-          "height"
+          "color"
         ],
         "fallbacks": [
-          "var(--height-small, var(--field-size-small))"
+          "var(--o-color-icon-onbrand)"
         ]
       },
-      "--height-small": {
+      "--o-color-icon-onbrand": {
         "usecases": [
-          "height"
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-primary-filled-hover-background": {
+        "usecases": [
+          "background-color"
         ],
         "fallbacks": [
-          "var(--field-size-small)"
+          "var(--o-color-bg-brand-hover)"
         ]
       },
-      "--field-size-small": {
+      "--o-color-bg-brand-hover": {
         "usecases": [
-          "height"
+          "background-color"
         ],
         "fallbacks": []
       },
-      "--button-padding-small": {
+      "--o-button-primary-filled-hover-text": {
         "usecases": [
-          "padding"
+          "color"
         ],
         "fallbacks": [
-          "var(--padding-small, 0.5rem)"
+          "var(--o-color-text-onbrand-hover)"
         ]
       },
-      "--padding-small": {
+      "--o-color-text-onbrand-hover": {
         "usecases": [
-          "padding"
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-primary-filled-hover-icon": {
+        "usecases": [
+          "color"
         ],
         "fallbacks": [
-          "0.5rem"
+          "var(--o-color-icon-onbrand-hover)"
         ]
       },
-      "--button-border-width-small": {
+      "--o-color-icon-onbrand-hover": {
         "usecases": [
-          "border-width"
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-primary-filled-pressed-background": {
+        "usecases": [
+          "background-color"
         ],
         "fallbacks": [
-          "var(--border-width-small, 1px)"
+          "var(--o-color-bg-brand-pressed)"
         ]
       },
-      "--border-width-small": {
+      "--o-color-bg-brand-pressed": {
         "usecases": [
-          "border-width"
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-primary-filled-pressed-text": {
+        "usecases": [
+          "color"
         ],
         "fallbacks": [
-          "1px"
+          "var(--o-color-text-onbrand-pressed)"
         ]
       },
-      "--button-height-medium": {
+      "--o-color-text-onbrand-pressed": {
         "usecases": [
-          "height"
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-primary-filled-pressed-icon": {
+        "usecases": [
+          "color"
         ],
         "fallbacks": [
-          "var(--height-medium, var(--field-size-medium))"
+          "var(--o-color-icon-onbrand-pressed)"
         ]
       },
-      "--height-medium": {
+      "--o-color-icon-onbrand-pressed": {
         "usecases": [
-          "height"
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-primary-outlined-default-border": {
+        "usecases": [
+          "border-color"
         ],
         "fallbacks": [
-          "var(--field-size-medium)"
+          "var(--o-color-border-brand)"
         ]
       },
-      "--field-size-medium": {
+      "--o-color-border-brand": {
         "usecases": [
-          "height"
+          "border-color"
         ],
         "fallbacks": []
       },
-      "--button-padding-medium": {
+      "--o-button-primary-outlined-default-text": {
         "usecases": [
-          "padding"
+          "color"
         ],
         "fallbacks": [
-          "var(--padding-medium, 1rem)"
+          "var(--o-color-text-brand)"
         ]
       },
-      "--padding-medium": {
+      "--o-color-text-brand": {
         "usecases": [
-          "padding"
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-primary-outlined-default-icon": {
+        "usecases": [
+          "color"
         ],
         "fallbacks": [
-          "1rem"
+          "var(--o-color-icon-brand)"
         ]
       },
-      "--button-border-width-medium": {
+      "--o-color-icon-brand": {
         "usecases": [
-          "border-width"
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-primary-outlined-hover-background": {
+        "usecases": [
+          "background-color"
         ],
         "fallbacks": [
-          "var(--border-width-medium, 1px)"
+          "var(--o-color-bg-brand-hover)"
         ]
       },
-      "--border-width-medium": {
+      "--o-button-primary-outlined-hover-text": {
         "usecases": [
-          "border-width"
+          "color"
         ],
         "fallbacks": [
-          "1px"
+          "var(--o-color-text-onbrand-hover)"
         ]
       },
-      "--button-height-large": {
+      "--o-button-primary-outlined-hover-icon": {
         "usecases": [
-          "height"
+          "color"
         ],
         "fallbacks": [
-          "var(--height-large, var(--field-size-large))"
+          "var(--o-color-icon-onbrand-hover)"
         ]
       },
-      "--height-large": {
+      "--o-button-primary-outlined-pressed-background": {
         "usecases": [
-          "height"
+          "background-color"
         ],
         "fallbacks": [
-          "var(--field-size-large)"
+          "var(--o-color-bg-brand-pressed)"
         ]
       },
-      "--field-size-large": {
+      "--o-button-primary-outlined-pressed-text": {
         "usecases": [
-          "height"
-        ],
-        "fallbacks": []
-      },
-      "--button-padding-large": {
-        "usecases": [
-          "padding"
+          "color"
         ],
         "fallbacks": [
-          "var(--padding-large, 1rem)"
+          "var(--o-color-text-onbrand-pressed)"
         ]
       },
-      "--padding-large": {
+      "--o-button-primary-outlined-pressed-icon": {
         "usecases": [
-          "padding"
+          "color"
         ],
         "fallbacks": [
-          "1rem"
+          "var(--o-color-icon-onbrand-pressed)"
         ]
       },
-      "--button-border-width-large": {
+      "--o-button-primary-clear-default-text": {
         "usecases": [
-          "border-width"
+          "color"
         ],
         "fallbacks": [
-          "var(--border-width-large, 1px)"
+          "var(--o-color-text-brand)"
         ]
       },
-      "--border-width-large": {
+      "--o-button-primary-clear-default-icon": {
         "usecases": [
-          "border-width"
+          "color"
         ],
         "fallbacks": [
-          "1px"
+          "var(--o-color-icon-brand)"
         ]
       },
-      "--o-color-primary-500": {
+      "--o-button-primary-clear-hover-background": {
         "usecases": [
-          "--button-background"
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-hover)"
+        ]
+      },
+      "--o-color-bg-hover": {
+        "usecases": [
+          "background-color"
         ],
         "fallbacks": []
       },
-      "--o-color-white": {
+      "--o-button-primary-clear-hover-text": {
         "usecases": [
-          "--button-color",
-          "--button-color-hover",
-          "--button-color-active"
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-brand-hover)"
+        ]
+      },
+      "--o-color-text-brand-hover": {
+        "usecases": [
+          "color"
         ],
         "fallbacks": []
       },
-      "--o-color-primary-700": {
+      "--o-button-primary-clear-hover-icon": {
         "usecases": [
-          "--button-background-hover"
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-brand-hover)"
+        ]
+      },
+      "--o-color-icon-brand-hover": {
+        "usecases": [
+          "color"
         ],
         "fallbacks": []
       },
-      "--o-color-primary-600": {
+      "--o-button-primary-clear-pressed-background": {
         "usecases": [
-          "--button-background-active"
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-pressed)"
+        ]
+      },
+      "--o-color-bg-pressed": {
+        "usecases": [
+          "background-color"
         ],
         "fallbacks": []
       },
-      "--o-color-neutral-300": {
+      "--o-button-primary-clear-pressed-text": {
         "usecases": [
-          "--button-background-disabled"
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-brand-pressed)"
+        ]
+      },
+      "--o-color-text-brand-pressed": {
+        "usecases": [
+          "color"
         ],
         "fallbacks": []
       },
-      "--o-color-neutral-700": {
+      "--o-button-primary-clear-pressed-icon": {
         "usecases": [
-          "--button-color-disabled",
-          "--button-background-hover"
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-brand-pressed)"
+        ]
+      },
+      "--o-color-icon-brand-pressed": {
+        "usecases": [
+          "color"
         ],
         "fallbacks": []
       },
-      "--o-color-danger-500": {
+      "--o-button-secondary-filled-default-background": {
         "usecases": [
-          "--button-background"
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-inverse)"
+        ]
+      },
+      "--o-color-bg-inverse": {
+        "usecases": [
+          "background-color"
         ],
         "fallbacks": []
       },
-      "--o-color-danger-700": {
+      "--o-button-secondary-filled-default-text": {
         "usecases": [
-          "--button-background-hover"
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-oninverse)"
+        ]
+      },
+      "--o-color-text-oninverse": {
+        "usecases": [
+          "color"
         ],
         "fallbacks": []
       },
-      "--o-color-danger-600": {
+      "--o-button-secondary-filled-default-icon": {
         "usecases": [
-          "--button-background-active"
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-oninverse)"
+        ]
+      },
+      "--o-color-icon-oninverse": {
+        "usecases": [
+          "color"
         ],
         "fallbacks": []
       },
-      "--o-color-success-500": {
+      "--o-button-secondary-filled-hover-background": {
         "usecases": [
-          "--button-background"
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-inverse-hover)"
+        ]
+      },
+      "--o-color-bg-inverse-hover": {
+        "usecases": [
+          "background-color"
         ],
         "fallbacks": []
       },
-      "--o-color-success-700": {
+      "--o-button-secondary-filled-hover-text": {
         "usecases": [
-          "--button-background-hover"
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-oninverse-hover)"
+        ]
+      },
+      "--o-color-text-oninverse-hover": {
+        "usecases": [
+          "color"
         ],
         "fallbacks": []
       },
-      "--o-color-success-600": {
+      "--o-button-secondary-filled-hover-icon": {
         "usecases": [
-          "--button-background-active"
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-oninverse-hover)"
+        ]
+      },
+      "--o-color-icon-oninverse-hover": {
+        "usecases": [
+          "color"
         ],
         "fallbacks": []
       },
-      "--o-color-warning-500": {
+      "--o-button-secondary-filled-pressed-background": {
         "usecases": [
-          "--button-background"
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-inverse-pressed)"
+        ]
+      },
+      "--o-color-bg-inverse-pressed": {
+        "usecases": [
+          "background-color"
         ],
         "fallbacks": []
       },
-      "--o-color-warning-700": {
+      "--o-button-secondary-filled-pressed-text": {
         "usecases": [
-          "--button-background-hover"
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-oninverse-pressed)"
+        ]
+      },
+      "--o-color-text-oninverse-pressed": {
+        "usecases": [
+          "color"
         ],
         "fallbacks": []
       },
-      "--o-color-warning-600": {
+      "--o-button-secondary-filled-pressed-icon": {
         "usecases": [
-          "--button-background-active"
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-oninverse-pressed)"
+        ]
+      },
+      "--o-color-icon-oninverse-pressed": {
+        "usecases": [
+          "color"
         ],
         "fallbacks": []
       },
-      "--o-color-neutral-500": {
+      "--o-button-secondary-outlined-default-border": {
         "usecases": [
-          "--button-background"
+          "border-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-border-inverse)"
+        ]
+      },
+      "--o-color-border-inverse": {
+        "usecases": [
+          "border-color"
         ],
         "fallbacks": []
       },
-      "--o-color-black": {
+      "--o-button-secondary-outlined-default-text": {
         "usecases": [
-          "--button-color",
-          "--button-color-hover",
-          "--button-color-active"
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text)"
+        ]
+      },
+      "--o-color-text": {
+        "usecases": [
+          "color"
         ],
         "fallbacks": []
       },
-      "--o-color-neutral-600": {
+      "--o-button-secondary-outlined-default-icon": {
         "usecases": [
-          "--button-background-active"
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon)"
+        ]
+      },
+      "--o-color-icon": {
+        "usecases": [
+          "color"
         ],
         "fallbacks": []
       },
-      "--button-cursor-disabled": {
+      "--o-button-secondary-outlined-hover-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-inverse-hover)"
+        ]
+      },
+      "--o-button-secondary-outlined-hover-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-oninverse-hover)"
+        ]
+      },
+      "--o-button-secondary-outlined-hover-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-oninverse-hover)"
+        ]
+      },
+      "--o-button-secondary-outlined-pressed-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-inverse-pressed)"
+        ]
+      },
+      "--o-button-secondary-outlined-pressed-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-oninverse-pressed)"
+        ]
+      },
+      "--o-button-secondary-outlined-pressed-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-oninverse-pressed)"
+        ]
+      },
+      "--o-button-secondary-clear-default-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text)"
+        ]
+      },
+      "--o-button-secondary-clear-default-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon)"
+        ]
+      },
+      "--o-button-secondary-clear-hover-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-hover)"
+        ]
+      },
+      "--o-button-secondary-clear-hover-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text)"
+        ]
+      },
+      "--o-button-secondary-clear-hover-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon)"
+        ]
+      },
+      "--o-button-secondary-clear-pressed-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-pressed)"
+        ]
+      },
+      "--o-button-secondary-clear-pressed-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text)"
+        ]
+      },
+      "--o-button-secondary-clear-pressed-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon)"
+        ]
+      },
+      "--o-button-inverse-filled-default-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg)"
+        ]
+      },
+      "--o-color-bg": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-inverse-filled-default-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text)"
+        ]
+      },
+      "--o-button-inverse-filled-default-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon)"
+        ]
+      },
+      "--o-button-inverse-filled-hover-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-hover)"
+        ]
+      },
+      "--o-button-inverse-filled-hover-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text)"
+        ]
+      },
+      "--o-button-inverse-filled-hover-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon)"
+        ]
+      },
+      "--o-button-inverse-filled-pressed-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-pressed)"
+        ]
+      },
+      "--o-button-inverse-filled-pressed-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text)"
+        ]
+      },
+      "--o-button-inverse-filled-pressed-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon)"
+        ]
+      },
+      "--o-button-inverse-outlined-default-border": {
+        "usecases": [
+          "border-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-border-inverse-strong)"
+        ]
+      },
+      "--o-color-border-inverse-strong": {
+        "usecases": [
+          "border-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-inverse-outlined-default-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-inverse)"
+        ]
+      },
+      "--o-color-text-inverse": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-inverse-outlined-default-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-inverse)"
+        ]
+      },
+      "--o-color-icon-inverse": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-inverse-outlined-hover-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-hover)"
+        ]
+      },
+      "--o-button-inverse-outlined-hover-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text)"
+        ]
+      },
+      "--o-button-inverse-outlined-hover-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon)"
+        ]
+      },
+      "--o-button-inverse-outlined-pressed-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-pressed)"
+        ]
+      },
+      "--o-button-inverse-outlined-pressed-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text)"
+        ]
+      },
+      "--o-button-inverse-outlined-pressed-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon)"
+        ]
+      },
+      "--o-button-inverse-clear-default-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-inverse)"
+        ]
+      },
+      "--o-button-inverse-clear-default-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-inverse)"
+        ]
+      },
+      "--o-button-inverse-clear-hover-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-inverse-hover)"
+        ]
+      },
+      "--o-button-inverse-clear-hover-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-oninverse-hover)"
+        ]
+      },
+      "--o-button-inverse-clear-hover-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-oninverse-hover)"
+        ]
+      },
+      "--o-button-inverse-clear-pressed-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-inverse-pressed)"
+        ]
+      },
+      "--o-button-inverse-clear-pressed-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-oninverse-pressed)"
+        ]
+      },
+      "--o-button-inverse-clear-pressed-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-oninverse-pressed)"
+        ]
+      },
+      "--o-button-danger-filled-default-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-danger)"
+        ]
+      },
+      "--o-color-bg-danger": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-danger-filled-default-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-ondanger)"
+        ]
+      },
+      "--o-color-text-ondanger": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-danger-filled-default-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-ondanger)"
+        ]
+      },
+      "--o-color-icon-ondanger": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-danger-filled-hover-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-danger-hover)"
+        ]
+      },
+      "--o-color-bg-danger-hover": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-danger-filled-hover-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-ondanger-hover)"
+        ]
+      },
+      "--o-color-text-ondanger-hover": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-danger-filled-hover-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-ondanger-hover)"
+        ]
+      },
+      "--o-color-icon-ondanger-hover": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-danger-filled-pressed-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-danger-pressed)"
+        ]
+      },
+      "--o-color-bg-danger-pressed": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-danger-filled-pressed-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-ondanger-pressed)"
+        ]
+      },
+      "--o-color-text-ondanger-pressed": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-danger-filled-pressed-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-ondanger-pressed)"
+        ]
+      },
+      "--o-color-icon-ondanger-pressed": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-danger-outlined-default-border": {
+        "usecases": [
+          "border-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-border-danger)"
+        ]
+      },
+      "--o-color-border-danger": {
+        "usecases": [
+          "border-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-danger-outlined-default-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-danger)"
+        ]
+      },
+      "--o-color-text-danger": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-danger-outlined-default-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-danger)"
+        ]
+      },
+      "--o-color-icon-danger": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-danger-outlined-hover-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-danger-hover)"
+        ]
+      },
+      "--o-button-danger-outlined-hover-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-ondanger-hover)"
+        ]
+      },
+      "--o-button-danger-outlined-hover-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-ondanger-hover)"
+        ]
+      },
+      "--o-button-danger-outlined-pressed-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-danger-pressed)"
+        ]
+      },
+      "--o-button-danger-outlined-pressed-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-ondanger-pressed)"
+        ]
+      },
+      "--o-button-danger-outlined-pressed-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-ondanger-pressed)"
+        ]
+      },
+      "--o-button-danger-clear-default-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-danger)"
+        ]
+      },
+      "--o-button-danger-clear-default-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-danger)"
+        ]
+      },
+      "--o-button-danger-clear-hover-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-danger-hover)"
+        ]
+      },
+      "--o-button-danger-clear-hover-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-ondanger-hover)"
+        ]
+      },
+      "--o-button-danger-clear-hover-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-ondanger-hover)"
+        ]
+      },
+      "--o-button-danger-clear-pressed-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-danger-pressed)"
+        ]
+      },
+      "--o-button-danger-clear-pressed-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-ondanger-pressed)"
+        ]
+      },
+      "--o-button-danger-clear-pressed-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-ondanger-pressed)"
+        ]
+      },
+      "--o-button-success-filled-default-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-success)"
+        ]
+      },
+      "--o-color-bg-success": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-success-filled-default-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-onsuccess)"
+        ]
+      },
+      "--o-color-text-onsuccess": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-success-filled-default-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-onsuccess)"
+        ]
+      },
+      "--o-color-icon-onsuccess": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-success-filled-hover-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-success-hover)"
+        ]
+      },
+      "--o-color-bg-success-hover": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-success-filled-hover-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-onsuccess-hover)"
+        ]
+      },
+      "--o-color-text-onsuccess-hover": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-success-filled-hover-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-onsuccess-hover)"
+        ]
+      },
+      "--o-color-icon-onsuccess-hover": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-success-filled-pressed-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-success-pressed)"
+        ]
+      },
+      "--o-color-bg-success-pressed": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-success-filled-pressed-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-onsuccess-pressed)"
+        ]
+      },
+      "--o-color-text-onsuccess-pressed": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-success-filled-pressed-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-onsuccess-pressed)"
+        ]
+      },
+      "--o-color-icon-onsuccess-pressed": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-success-outlined-default-border": {
+        "usecases": [
+          "border-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-border-success)"
+        ]
+      },
+      "--o-color-border-success": {
+        "usecases": [
+          "border-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-success-outlined-default-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-success)"
+        ]
+      },
+      "--o-color-text-success": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-success-outlined-default-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-success)"
+        ]
+      },
+      "--o-color-icon-success": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-success-outlined-hover-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-success-hover)"
+        ]
+      },
+      "--o-button-success-outlined-hover-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-onsuccess-hover)"
+        ]
+      },
+      "--o-button-success-outlined-hover-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-onsuccess-hover)"
+        ]
+      },
+      "--o-button-success-outlined-pressed-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-success-pressed)"
+        ]
+      },
+      "--o-button-success-outlined-pressed-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-onsuccess-pressed)"
+        ]
+      },
+      "--o-button-success-outlined-pressed-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-onsuccess-pressed)"
+        ]
+      },
+      "--o-button-success-clear-default-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-success)"
+        ]
+      },
+      "--o-button-success-clear-default-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-success)"
+        ]
+      },
+      "--o-button-success-clear-hover-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-success-hover)"
+        ]
+      },
+      "--o-button-success-clear-hover-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-onsuccess-hover)"
+        ]
+      },
+      "--o-button-success-clear-hover-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-onsuccess-hover)"
+        ]
+      },
+      "--o-button-success-clear-pressed-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-success-pressed)"
+        ]
+      },
+      "--o-button-success-clear-pressed-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-onsuccess-pressed)"
+        ]
+      },
+      "--o-button-success-clear-pressed-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-onsuccess-pressed)"
+        ]
+      },
+      "--o-button-warning-filled-default-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-warning)"
+        ]
+      },
+      "--o-color-bg-warning": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-warning-filled-default-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-onwarning)"
+        ]
+      },
+      "--o-color-text-onwarning": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-warning-filled-default-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-onwarning)"
+        ]
+      },
+      "--o-color-icon-onwarning": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-warning-filled-hover-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-warning-hover)"
+        ]
+      },
+      "--o-color-bg-warning-hover": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-warning-filled-hover-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-onwarning-hover)"
+        ]
+      },
+      "--o-color-text-onwarning-hover": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-warning-filled-hover-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-onwarning-hover)"
+        ]
+      },
+      "--o-color-icon-onwarning-hover": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-warning-filled-pressed-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-warning-pressed)"
+        ]
+      },
+      "--o-color-bg-warning-pressed": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-warning-filled-pressed-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-onwarning-pressed)"
+        ]
+      },
+      "--o-color-text-onwarning-pressed": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-warning-filled-pressed-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-onwarning-pressed)"
+        ]
+      },
+      "--o-color-icon-onwarning-pressed": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-warning-outlined-default-border": {
+        "usecases": [
+          "border-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-border-warning)"
+        ]
+      },
+      "--o-color-border-warning": {
+        "usecases": [
+          "border-color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-warning-outlined-default-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-warning)"
+        ]
+      },
+      "--o-color-text-warning": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-warning-outlined-default-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-warning)"
+        ]
+      },
+      "--o-color-icon-warning": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--o-button-warning-outlined-hover-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-warning-hover)"
+        ]
+      },
+      "--o-button-warning-outlined-hover-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-onwarning-hover)"
+        ]
+      },
+      "--o-button-warning-outlined-hover-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-onwarning-hover)"
+        ]
+      },
+      "--o-button-warning-outlined-pressed-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-warning-pressed)"
+        ]
+      },
+      "--o-button-warning-outlined-pressed-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-onwarning-pressed)"
+        ]
+      },
+      "--o-button-warning-outlined-pressed-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-onwarning-pressed)"
+        ]
+      },
+      "--o-button-warning-clear-default-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-warning)"
+        ]
+      },
+      "--o-button-warning-clear-default-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-warning)"
+        ]
+      },
+      "--o-button-warning-clear-hover-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-warning-hover)"
+        ]
+      },
+      "--o-button-warning-clear-hover-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-onwarning-hover)"
+        ]
+      },
+      "--o-button-warning-clear-hover-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-onwarning-hover)"
+        ]
+      },
+      "--o-button-warning-clear-pressed-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--o-color-bg-warning-pressed)"
+        ]
+      },
+      "--o-button-warning-clear-pressed-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-text-onwarning-pressed)"
+        ]
+      },
+      "--o-button-warning-clear-pressed-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "var(--o-color-icon-onwarning-pressed)"
+        ]
+      },
+      "--o-button-cursor-disabled": {
         "usecases": [
           "cursor"
         ],
@@ -481,266 +1952,146 @@
           "not-allowed"
         ]
       },
-      "--button-background-color-filled": {
+      "--o-button-disabled-text": {
         "usecases": [
-          "--background"
+          "color"
         ],
         "fallbacks": [
-          "var(--button-background)"
+          "var(--o-color-text-disabled)"
         ]
       },
-      "--button-background": {
+      "--o-color-text-disabled": {
         "usecases": [
-          "--background",
-          "border-color"
+          "color"
         ],
         "fallbacks": []
       },
-      "--button-text-color-filled": {
+      "--o-button-icon-disabled": {
         "usecases": [
-          "--color"
+          "color"
         ],
         "fallbacks": [
-          "var(--button-color)"
+          "var(--o-color-icon-disabled)"
         ]
       },
-      "--button-color": {
+      "--o-color-icon-disabled": {
         "usecases": [
-          "--color"
+          "color"
         ],
         "fallbacks": []
       },
-      "--button-background-color-filled-hover": {
+      "--o-button-disabled-filled-background": {
         "usecases": [
-          "--background"
+          "background-color"
         ],
         "fallbacks": [
-          "var(--button-background-hover)"
+          "var(--o-color-bg-disabled)"
         ]
       },
-      "--button-background-hover": {
+      "--o-color-bg-disabled": {
         "usecases": [
-          "--background",
-          "border-color"
+          "background-color"
         ],
         "fallbacks": []
       },
-      "--button-text-color-filled-hover": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "var(--button-color-hover)"
-        ]
-      },
-      "--button-color-hover": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": []
-      },
-      "--button-background-color-filled-active": {
-        "usecases": [
-          "--background"
-        ],
-        "fallbacks": [
-          "var(--button-background-active)"
-        ]
-      },
-      "--button-background-active": {
-        "usecases": [
-          "--background",
-          "border-color"
-        ],
-        "fallbacks": []
-      },
-      "--button-text-color-filled-active": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "var(--button-color-active)"
-        ]
-      },
-      "--button-color-active": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": []
-      },
-      "--button-background-color-filled-disabled": {
-        "usecases": [
-          "--background"
-        ],
-        "fallbacks": [
-          "var(--button-background-disabled)"
-        ]
-      },
-      "--button-background-disabled": {
-        "usecases": [
-          "--background",
-          "border-color"
-        ],
-        "fallbacks": []
-      },
-      "--button-text-color-filled-disabled": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "var(--button-color-disabled)"
-        ]
-      },
-      "--button-color-disabled": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": []
-      },
-      "--button-border-color-outlined": {
+      "--o-button-disabled-outlined-border": {
         "usecases": [
           "border-color"
         ],
         "fallbacks": [
-          "var(--button-background)"
+          "var(--o-color-border-disabled)) !importan"
         ]
       },
-      "--button-border-style": {
-        "usecases": [
-          "border-style"
-        ],
-        "fallbacks": [
-          "solid"
-        ]
-      },
-      "--button-border-color-outlined-hover": {
+      "--o-color-border-disabled": {
         "usecases": [
           "border-color"
         ],
-        "fallbacks": [
-          "var(--button-background-hover)"
-        ]
+        "fallbacks": []
       },
-      "--o-button-outlined-hover-background": {
+      "--field-size-smaller": {
         "usecases": [
-          "--background"
-        ],
-        "fallbacks": [
-          "var(--o-color-hover-200)"
-        ]
-      },
-      "--o-color-hover-200": {
-        "usecases": [
-          "--background"
+          "width",
+          "height"
         ],
         "fallbacks": []
       },
-      "--button-border-color-outlined-active": {
+      "--o-button-height-small": {
         "usecases": [
-          "border-color"
+          "min-height"
         ],
         "fallbacks": [
-          "var(--button-background-active)"
+          "2rem"
         ]
       },
-      "--o-button-outlined-active-background": {
+      "--o-button-min-width-small": {
         "usecases": [
-          "--background"
+          "min-width"
         ],
         "fallbacks": [
-          "var(--o-color-hover-400)"
+          "4.5rem"
         ]
       },
-      "--o-color-hover-400": {
+      "--margin-smaller": {
         "usecases": [
-          "--background"
+          "margin-left",
+          "margin-right"
         ],
         "fallbacks": []
       },
-      "--button-border-color-outlined-disabled": {
+      "--o-button-width-small": {
         "usecases": [
-          "border-color"
+          "width"
         ],
         "fallbacks": [
-          "var(--button-background-disabled)"
+          "2rem"
         ]
       },
-      "--o-button-outlined-disabled-text-color": {
+      "--o-button-height-medium": {
         "usecases": [
-          "--color"
+          "min-height"
         ],
         "fallbacks": [
-          "var(--button-color-disabled)"
+          "2.5rem"
         ]
       },
-      "--o-button-clear-hover-background": {
+      "--o-button-min-width-medium": {
         "usecases": [
-          "--background"
+          "min-width"
         ],
         "fallbacks": [
-          "var(--o-color-hover-200)"
+          "5.625rem"
         ]
       },
-      "--o-button-clear-active-background": {
+      "--o-button-width-medium": {
         "usecases": [
-          "--background"
+          "width"
         ],
         "fallbacks": [
-          "var(--o-color-hover-400)"
+          "2.5rem"
         ]
       },
-      "--o-button-clear-disabled-text-color": {
+      "--o-button-height-large": {
         "usecases": [
-          "--color"
+          "min-height"
         ],
         "fallbacks": [
-          "var(--button-color-disabled)"
+          "3rem"
         ]
       },
-      "--gap-smaller": {
+      "--o-button-min-width-large": {
         "usecases": [
-          "text-underline-offset"
-        ],
-        "fallbacks": []
-      },
-      "--button-underlined-thickness": {
-        "usecases": [
-          "text-decoration-thickness"
+          "min-width"
         ],
         "fallbacks": [
-          "1px"
+          "6.75rem"
         ]
       },
-      "--button-underlined-hover-thickness": {
+      "--o-button-width-large": {
         "usecases": [
-          "text-decoration-thickness"
+          "width"
         ],
         "fallbacks": [
-          "2px"
-        ]
-      },
-      "--button-underlined-active-thickness": {
-        "usecases": [
-          "text-decoration-thickness"
-        ],
-        "fallbacks": [
-          "3px"
-        ]
-      },
-      "--button-underlined-disabled-thickness": {
-        "usecases": [
-          "text-decoration-thickness"
-        ],
-        "fallbacks": [
-          "1px"
-        ]
-      },
-      "--o-button-underlined-disabled-text-color": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "var(--button-color-disabled)"
+          "3rem"
         ]
       }
     }

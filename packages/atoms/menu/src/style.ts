@@ -1,17 +1,11 @@
 export const style = `:host {
-  --menu-background: var(--o-color-neutral-50);
-  --menu-color: var(--o-color-text); }
-  :host o-button {
-    background-color: var(--menu-background);
-    color: var(--menu-color);
-    padding: var(--padding-small, 8px);
-    gap: var(--padding-small, 8px); }
-    :host o-button span.caret-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 40px; }
+  --menu-background: var(--o-color-bg);
+  --menu-color: var(--o-color-text);
+  display: inline-block; }
+  :host o-button span.caret-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
   :host o-popover-template {
     display: inline-block; }
   :host o-box-template {

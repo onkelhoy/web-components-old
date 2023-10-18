@@ -1,4 +1,7 @@
-export const style = `.flag {
+export const style = `:host {
+  display: inline-block; }
+
+.flag {
   display: inline-block;
   height: 24px;
   width: 24px;
@@ -11,8 +14,6 @@ export const style = `.flag {
     font-size: 33pt; }
 
 span.wrapper {
-  width: 40px;
-  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center; }

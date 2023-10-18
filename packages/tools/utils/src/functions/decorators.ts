@@ -80,7 +80,7 @@ export function query<T extends Element = HTMLElement>(options:queryParam<T>) {
 // property.ts
 export interface PropertyOption {
   type: Function;
-  attribute: boolean;
+  attribute: boolean|string;
   rerender: boolean;
   onUpdate?: string;
   verbose?: boolean;
@@ -99,7 +99,7 @@ export function property(options?: Partial<PropertyOption>) {
   const _options = options === undefined ? DefaultOptions : {...DefaultOptions, ...(options as PropertyOption)};
 
   return function (target: HTMLElement, propertyKey: string) {
-    const attributeName = propertyKey.toLowerCase();
+    const attributeName = (typeof _options.attribute === "string" ? _options.attribute : propertyKey).toLowerCase();
     let internal = false;
 
     // Observe attributes

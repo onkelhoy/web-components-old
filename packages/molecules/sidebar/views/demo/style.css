@@ -1,0 +1,43 @@
+body {
+  background-color: var(--o-color-bg-canvas);
+  color: var(--o-color-text);
+}
+
+body {
+  font-family: var(--o-font-family);
+}
+
+.balloon {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+
+.balloon1 {
+  top: 700px;
+  left: 300px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--o-color-bg-warning);
+}
+.balloon2 {
+  top: 600px;
+  left: 350px;
+  width: 80px;
+  height: 80px;
+  background-color: var(--o-color-accent-02-300);
+}
+.balloon3 {
+  top: 800px;
+  left: 300px;
+  width: 200px;
+  height: 200px;
+  background-color: var(--o-color-bg-success);
+}
+.balloon4 {
+  top: 900px;
+  left: 250px;
+  width: 160px;
+  height: 160px;
+  background-color: var(--o-color-bg-danger);
+}
