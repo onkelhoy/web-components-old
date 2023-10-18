@@ -1,31 +1,31 @@
 // utils 
-import { property } from "@papit/tools-utils";
+import { property } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
 // local 
 import { style } from "./style";
 import { Mode } from "./types";
 
-export class Accordion extends BaseTemplate {
-    static style = style;
+export class Accordion extends BaseSystem {
+  static style = style;
 
-    @property({ rerender: false, type: Boolean }) open:boolean = false;
-    @property({ rerender: false }) mode:Mode = "vertical";
+  @property({ rerender: false, type: Boolean }) open: boolean = false;
+  @property({ rerender: false }) mode: Mode = "vertical";
 
-    render() {
-        return `
+  render() {
+    return `
             <div part="group">
                 <slot></slot>
             </div>
         `
-    }
+  }
 }
 
 
 declare global {
-    interface HTMLElementTagNameMap {
-        "pap-accordion": Accordion;
-    }
+  interface HTMLElementTagNameMap {
+    "pap-accordion": Accordion;
+  }
 }

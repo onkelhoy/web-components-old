@@ -2,37 +2,40 @@
 
 Atomic Type: molecules
 
-Version: 1.0.0
+Version: 0.0.0
 
-## Development 
+## Development
+
 Development servers can be started and should all exist inside `"views"` folder
 
-## Scripts 
+## Scripts
+
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
-## SOURCE-CODE:
-// utils 
-import { html, property, query } from "@papit/tools-utils";
-import "@papit/tools-translator/wc";
+## SOURCE-CODE
 
-// atoms 
-import "@papit/button/wc";
-import "@papit/icon/wc";
-import "@papit/divider/wc";
-import "@papit/typography/wc";
+// utils
+import { html, property, query } from "@pap-it/system-utils";
+import "@pap-it/tools-translator/wc";
+
+// atoms
+import "@pap-it/button/wc";
+import "@pap-it/icon/wc";
+import "@pap-it/divider/wc";
+import "@pap-it/typography/wc";
 
 // templates
-import { BoxTemplate } from "@papit/templates-box";
-import { BaseTemplate } from "@papit/templates-base";
-import '@papit/templates-box/wc'
+import { BoxTemplate } from "@pap-it/templates-box";
+import { BaseSystem } from "@pap-it/system-base";
+import '@pap-it/templates-box/wc'
 
-// local 
+// local
 import { style } from "./style";
 import { Mode, SelectEvent } from "./types";
 import { Item } from "./components/item";
 
-export class Sidebar extends BaseTemplate {
+export class Sidebar extends BaseSystem {
     static style = style;
 
     @property({ rerender: false }) mode:Mode = "open";
@@ -168,13 +171,14 @@ export class Sidebar extends BaseTemplate {
     }
 }
 
-
 declare global {
     interface HTMLElementTagNameMap {
         "pap-sidebar": Sidebar;
     }
 }
-## REGISTER-CODE:
+
+## REGISTER-CODE
+
 import { Item } from './components/item';
 import { Sidebar } from './component.js';
 
@@ -192,33 +196,35 @@ if (!cElements.get('pap-sidebar-item')) {
   cElements.define('pap-sidebar-item', Item);
 }
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- // utils 
-import { html, property, query } from "@papit/tools-utils";
-import "@papit/tools-translator/wc";
+## SOURCE-CODE
 
-// atoms 
-import "@papit/button/wc";
-import "@papit/icon/wc";
-import "@papit/divider/wc";
-import "@papit/typography/wc";
+ // utils
+import { html, property, query } from "@pap-it/system-utils";
+import "@pap-it/tools-translator/wc";
+
+// atoms
+import "@pap-it/button/wc";
+import "@pap-it/icon/wc";
+import "@pap-it/divider/wc";
+import "@pap-it/typography/wc";
 
 // templates
-import { BoxTemplate } from "@papit/templates-box";
-import { BaseTemplate } from "@papit/templates-base";
-import '@papit/templates-box/wc'
+import { BoxTemplate } from "@pap-it/templates-box";
+import { BaseSystem } from "@pap-it/system-base";
+import '@pap-it/templates-box/wc'
 
-// local 
+// local
 import { style } from "./style";
 import { Mode, SelectEvent } from "./types";
 import { Item } from "./components/item";
 
-export class Sidebar extends BaseTemplate {
+export class Sidebar extends BaseSystem {
     static style = style;
 
     @property({ rerender: false }) mode:Mode = "open";
@@ -354,14 +360,13 @@ export class Sidebar extends BaseTemplate {
     }
 }
 
-
 declare global {
     interface HTMLElementTagNameMap {
         "pap-sidebar": Sidebar;
     }
 }
 
-## TYPE-CODE: export type SelectEvent = { id: string };
+## TYPE-CODE: export type SelectEvent = { id: string }
 
 export type Mode = "open" | "collapsed" | "hover";PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and style code probided. Can you create a documentation that includes titles, short descrition and the table for each tables: css-variables, parts, slots.
@@ -369,28 +374,29 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
-import { html, property, query } from "@papit/tools-utils";
-import "@papit/tools-translator/wc";
+## SOURCE-CODE
 
-// atoms 
-import "@papit/button/wc";
-import "@papit/icon/wc";
-import "@papit/divider/wc";
-import "@papit/typography/wc";
+// utils
+import { html, property, query } from "@pap-it/system-utils";
+import "@pap-it/tools-translator/wc";
+
+// atoms
+import "@pap-it/button/wc";
+import "@pap-it/icon/wc";
+import "@pap-it/divider/wc";
+import "@pap-it/typography/wc";
 
 // templates
-import { BoxTemplate } from "@papit/templates-box";
-import { BaseTemplate } from "@papit/templates-base";
-import '@papit/templates-box/wc'
+import { BoxTemplate } from "@pap-it/templates-box";
+import { BaseSystem } from "@pap-it/system-base";
+import '@pap-it/templates-box/wc'
 
-// local 
+// local
 import { style } from "./style";
 import { Mode, SelectEvent } from "./types";
 import { Item } from "./components/item";
 
-export class Sidebar extends BaseTemplate {
+export class Sidebar extends BaseSystem {
     static style = style;
 
     @property({ rerender: false }) mode:Mode = "open";
@@ -526,13 +532,14 @@ export class Sidebar extends BaseTemplate {
     }
 }
 
-
 declare global {
     interface HTMLElementTagNameMap {
         "pap-sidebar": Sidebar;
     }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 // light mode (system)
 @media (prefers-color-scheme: light) {
     :host {
@@ -572,7 +579,7 @@ declare global {
     }
 }
 
-:host {    
+:host {
     position: sticky;
     top: 0;
     left: 0;
@@ -581,7 +588,7 @@ declare global {
     z-index: 1;
     // min-height: 100vh;
     grid-template-rows: 1fr;
-    
+
     pap-box-template {
         container-type: inline-size;
         display: block;
@@ -631,10 +638,10 @@ declare global {
     width: 3.5rem;
 }
 
-:host([mode="hover"]) {    
+:host([mode="hover"]) {
     width: 3.5rem;
     z-index: 1000;
-    
+
     pap-box-template {
         position: absolute;
 

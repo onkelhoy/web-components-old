@@ -4,20 +4,21 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
-import { html, property } from "@papit/tools-utils";
+## SOURCE-CODE
+
+// utils
+import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 import { Mode } from "./types";
 
-export class Divider extends BaseTemplate {
+export class Divider extends BaseSystem {
     static style = style;
-    
+
     @property({ rerender: false }) mode: Mode = "horizontal";
 
     render() {
@@ -25,13 +26,14 @@ export class Divider extends BaseTemplate {
     }
 }
 
-
 declare global {
     interface HTMLElementTagNameMap {
         "pap-divider": Divider;
     }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     div {
         background-color: var(--pap-divider-color, var(--pap-color-border, #C7CBD4));
@@ -43,7 +45,7 @@ declare global {
     display: flex;
     align-items: center;
     height: 16px;
-    
+
     div {
         height: 1px;
         flex-grow: 1;

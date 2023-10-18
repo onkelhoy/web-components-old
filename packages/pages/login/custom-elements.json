@@ -25,15 +25,15 @@
     "/Users/henry/Developer/projects/web-components/packages/tools/translator": [
       {
         "name": "ExtractSlotValue",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@papit/templates-base"
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
       },
       {
         "name": "style",
@@ -51,15 +51,15 @@
       },
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "Translator",
-        "from": "@papit/tools-translator"
+        "from": "@pap-it/tools-translator"
       },
       {
         "name": "style",

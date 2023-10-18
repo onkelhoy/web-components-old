@@ -1,5 +1,5 @@
 {
-  "name": "@papit/input",
+  "name": "@pap-it/input",
   "version": "0.0.0",
   "scripts": {
     "init": "sh .scripts/init.sh",
@@ -35,13 +35,13 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@papit/templates-field": "^0.0.0",
-    "@papit/templates-textinput": "^0.0.0",
-    "@papit/tools-utils": "^0.0.0"
+    "@pap-it/templates-field": "^0.0.0",
+    "@pap-it/templates-textinput": "^0.0.0",
+    "@pap-it/system-utils": "^0.0.0"
   },
   "devDependencies": {
     "eslint": "^8.53.0",
-    "@papit/tools-doc": "^0.0.0",
+    "@pap-it/system-doc": "^0.0.0",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "node-sass": "^9.0.0",

@@ -1,17 +1,17 @@
 // utils 
-import { html, property, query } from "@papit/tools-utils";
+import { html, property, query } from "@pap-it/system-utils";
 
 // atoms 
-import { Typography } from "@papit/typography";
-import { Toggle } from "@papit/toggle";
-import "@papit/typography/wc";
-import "@papit/button/wc";
-import "@papit/icon/wc";
-import "@papit/toggle/wc";
+import { Typography } from "@pap-it/typography";
+import { Toggle } from "@pap-it/toggle";
+import "@pap-it/typography/wc";
+import "@pap-it/button/wc";
+import "@pap-it/icon/wc";
+import "@pap-it/toggle/wc";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
-import "@papit/templates-box/wc";
+import { BaseSystem } from "@pap-it/system-base";
+import "@pap-it/templates-box/wc";
 
 // local 
 import { style } from "./style";
@@ -23,7 +23,7 @@ const MAX_HTMLCONTENT = 180;
 const OPEN_BRACKETS = ["(", "[", "{"];
 const CLOSE_BRACKETS = [")", "]", "}"];
 
-export class Codeblock extends BaseTemplate {
+export class Codeblock extends BaseSystem {
   static style = style;
 
   @query({ selector: 'main', onload: 'onmainload' }) main!: HTMLElement;

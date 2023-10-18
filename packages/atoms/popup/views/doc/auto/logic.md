@@ -1,21 +1,23 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- // utils 
-import { html, property, query } from "@papit/tools-utils";
+## SOURCE-CODE
+
+ // utils
+import { html, property, query } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 import { State, Variant } from "./types";
 
-export class Popup extends BaseTemplate {
+export class Popup extends BaseSystem {
   static style = style;
 
   @query('iz-card') private cardElement!: HTMLDivElement;
@@ -56,7 +58,7 @@ export class Popup extends BaseTemplate {
     _old: string | null,
     value: string | null
   ): void {
-    super.attributeChangedCallback(name, _old, value);
+    super.attributeChangedCallback(name,_old, value);
 
     if (name === 'state') {
       if (value === 'show') {
@@ -148,5 +150,6 @@ declare global {
     }
 }
 
-## TYPE-CODE: export type State = 'show' | 'hide';
+## TYPE-CODE: export type State = 'show' | 'hide'
+
 export type Variant = 'global' | 'parent';

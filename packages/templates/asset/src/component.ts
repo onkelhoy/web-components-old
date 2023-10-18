@@ -1,58 +1,55 @@
-import { BaseTemplate } from "@papit/templates-base";
-import { property } from "@papit/tools-utils";
+import { BaseSystem } from "@pap-it/system-base";
+import { property } from "@pap-it/system-utils";
 
-export class AssetTemplate extends BaseTemplate {
-    @property({ onUpdate: "assetBaseUpdate" }) assetBase:string = "/public";
-    @property({ type: Boolean }) cache:boolean = false;
+export class AssetTemplate extends BaseSystem {
+  @property({ onUpdate: "assetBaseUpdate" }) assetBase: string = "/public";
+  @property({ type: Boolean }) cache: boolean = false;
 
-    protected async loadAsset(file: string, isurl=false): Promise<string | Response | null> {
-        try {
-            let filename = file;
-            if (filename[0] === "/") filename = filename.slice(1, filename.length);
+  protected async loadAsset(file: string, isurl = false): Promise<string | Response | null> {
+    try {
+      let filename = file;
+      if (filename[0] === "/") filename = filename.slice(1, filename.length);
 
-            const url = isurl ? file : `${this.assetBase}/${filename}`;
+      const url = isurl ? file : `${this.assetBase}/${filename}`;
 
-            if (this.cache)
-            {
-                const item = window.localStorage.getItem(`pap-assets-${url}`);
-                if (item)
-                {
-                    return item;
-                }
-            }
-
-            const response = await fetch(url);
-
-            if (response.ok) {
-                return response;
-            } else {
-                console.error('Error fetching asset:', response.status, response.statusText);
-            }
-        } catch (error) {
-            console.error('Error fetching asset:', error);
+      if (this.cache) {
+        const item = window.localStorage.getItem(`pap-assets-${url}`);
+        if (item) {
+          return item;
         }
-        return null;
+      }
+
+      const response = await fetch(url);
+
+      if (response.ok) {
+        return response;
+      } else {
+        console.error('Error fetching asset:', response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error('Error fetching asset:', error);
     }
+    return null;
+  }
 
-    private assetBaseUpdate() {
-        if (this.assetBase[this.assetBase.length - 1] === "/")
-        {
-            this.assetBase = this.assetBase.slice(0, this.assetBase.length - 1);
-        }
+  private assetBaseUpdate() {
+    if (this.assetBase[this.assetBase.length - 1] === "/") {
+      this.assetBase = this.assetBase.slice(0, this.assetBase.length - 1);
     }
+  }
 
-    protected cacheData(file:string, data:string) {
-        let filename = file;
-        if (filename[0] === "/") filename = filename.slice(1, filename.length);
+  protected cacheData(file: string, data: string) {
+    let filename = file;
+    if (filename[0] === "/") filename = filename.slice(1, filename.length);
 
-        const url = `${this.assetBase}/${filename}`;
+    const url = `${this.assetBase}/${filename}`;
 
-        window.localStorage.setItem(`pap-assets-${url}`, data);
-    }
+    window.localStorage.setItem(`pap-assets-${url}`, data);
+  }
 }
 
 declare global {
-    interface HTMLElementTagNameMap {
-        "pap-asset-template": AssetTemplate;
-    }
+  interface HTMLElementTagNameMap {
+    "pap-asset-template": AssetTemplate;
+  }
 }

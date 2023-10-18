@@ -1,4 +1,4 @@
-import { LanguageSet, EventCallback } from '@papit/tools-utils';
+import { LanguageSet, EventCallback } from '@pap-it/system-utils';
 export const TRANSLATION_CHANGE_EVENTNAME = 'pap-translation-change';
 export const TRANSLATION_ADDED = 'pap-translation-added';
 

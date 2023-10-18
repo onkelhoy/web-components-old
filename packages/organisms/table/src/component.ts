@@ -1,11 +1,11 @@
 // utils 
-import { html, property, query } from "@papit/tools-utils";
+import { html, property, query } from "@pap-it/system-utils";
 
 // molecules
-import "@papit/pagination/wc";
+import "@pap-it/pagination/wc";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
 // local 
 import { style } from "./style";
@@ -13,84 +13,77 @@ import { Cell, Config, Data, HeaderCell } from './types';
 import { Cell as CellElement } from "./components/cell";
 import { CellTitle } from "./components/cell-title";
 
-export class Table extends BaseTemplate {
-    static style = style;
+export class Table extends BaseSystem {
+  static style = style;
 
-    @property({ type: Object, attribute: false }) config: Config = {};
-    @property({ type: Array, attribute: false }) rows: Data[][] = [];
+  @property({ type: Object, attribute: false }) config: Config = {};
+  @property({ type: Array, attribute: false }) rows: Data[][] = [];
 
-    @query('table') tableElement!: HTMLTableElement;
+  @query('table') tableElement!: HTMLTableElement;
 
-    // event handlers 
-    private handlecellchange = (e:Event) => {
-        if (e.target instanceof CellElement)
-        {
-            console.log('change', e.target.value);
-        }
+  // event handlers 
+  private handlecellchange = (e: Event) => {
+    if (e.target instanceof CellElement) {
+      console.log('change', e.target.value);
     }
-    private handlesorting = (e:Event) => {
-        if (e.target instanceof CellTitle)
-        {
-            this.tableElement
-                .querySelectorAll<CellTitle>('pap-cell-title')
-                .forEach(element => {
-                    if (element !== e.target)
-                    {
-                        if (element.canSort)
-                        {
-                            element.sorting = 'none'
-                        }
-                    }
-                })
+  }
+  private handlesorting = (e: Event) => {
+    if (e.target instanceof CellTitle) {
+      this.tableElement
+        .querySelectorAll<CellTitle>('pap-cell-title')
+        .forEach(element => {
+          if (element !== e.target) {
+            if (element.canSort) {
+              element.sorting = 'none'
+            }
+          }
+        })
 
-            console.log('sorting', e.target.id, e.target.sorting)
-        }
+      console.log('sorting', e.target.id, e.target.sorting)
     }
+  }
 
-    // private functions 
-    private getCell(col: Data) {
-        const colascell = col as Cell;
-        const isstring = typeof col === "string";
-        if (isstring || !colascell.header)
-        {
-            const value = isstring ? col : colascell.value;
-            const allowEdit = this.config.canEdit !== undefined ? this.config.canEdit : isstring ? false : !!colascell.canEdit; 
+  // private functions 
+  private getCell(col: Data) {
+    const colascell = col as Cell;
+    const isstring = typeof col === "string";
+    if (isstring || !colascell.header) {
+      const value = isstring ? col : colascell.value;
+      const allowEdit = this.config.canEdit !== undefined ? this.config.canEdit : isstring ? false : !!colascell.canEdit;
 
-            return html`
+      return html`
                 <td>
                     <pap-cell @change="${this.handlecellchange}" value="${value}" allowEdit="${allowEdit}"></pap-cell>
                 </td>
             `
-        }
-        else
-        {
-            const colasheadercell = col as HeaderCell;
-            let cansort = colasheadercell.sorting;
-            if (cansort === undefined)
-            {
-                cansort = !!this.config.sorting;
-            }
+    }
+    else {
+      const colasheadercell = col as HeaderCell;
+      let cansort = colasheadercell.sorting;
+      if (cansort === undefined) {
+        cansort = !!this.config.sorting;
+      }
 
-            return html`
+      return html`
                 <th>
                     <pap-cell-title id="${colasheadercell.value}" @sorting="${this.handlesorting}" canSort="${cansort}">${colasheadercell.value}</pap-cell-title>
                 </th>
             `
-        }
     }
-    private getRow = (row: Data[]) => {
-        return html`
+  }
+  private getRow = (row: Data[]) => {
+    return html`
             <tr>
                 ${row.map(data => this.getCell(data))}
             </tr>
         `
-    }
-    private getRows() {
-        return this.rows.map(this.getRow);
-    }
+  }
+  private getRows() {
+    return this.rows.map(this.getRow);
+  }
 
-    render() {
-        return html`
+  render() {
+    return html`
             <table cellspacing="0" cellpadding="0">
                 ${this.getRows()}
             </table>
@@ -100,12 +93,12 @@ export class Table extends BaseTemplate {
                 ` : ''}
             </footer>
         `
-    }
+  }
 }
 
 
 declare global {
-    interface HTMLElementTagNameMap {
-        "pap-table": Table;
-    }
+  interface HTMLElementTagNameMap {
+    "pap-table": Table;
+  }
 }

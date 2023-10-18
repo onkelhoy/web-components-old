@@ -1,12 +1,14 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- import { property, Size } from '@papit/tools-utils';
-import { BoxTemplate } from '@papit/templates-box';
+## SOURCE-CODE
+
+ import { property, Size } from '@pap-it/system-utils';
+import { BoxTemplate } from '@pap-it/templates-box';
 
 import { style } from './style.js';
 
@@ -15,7 +17,7 @@ import type { ButtonMode, ButtonVariant, ButtonColorVariant } from './types';
 // TODO extend form-element-template
 export class Button extends BoxTemplate {
     static style = style;
-    
+
     @property({ rerender: false, onUpdate: "ontypeupdate" }) type: "button" | "link" | "submit" | "reset" = "button"; // TODO link
     @property({ rerender: false }) size: Size = "medium";
     @property({ rerender: false }) mode: ButtonMode = "hug";
@@ -92,7 +94,8 @@ declare global {
     }
 }
 
-## TYPE-CODE: 
+## TYPE-CODE
+
 export type ButtonVariant = 'filled'|'outlined'|'underlined'|'clear';
 export type ButtonType = 'button' | 'reset' | 'submit';
 export type ButtonMode = 'hug' | 'fill'

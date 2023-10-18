@@ -1,44 +1,44 @@
 // utils 
-import { html, property, query } from "@papit/tools-utils";
-import "@papit/tools-translator/wc";
+import { html, property, query } from "@pap-it/system-utils";
+import "@pap-it/tools-translator/wc";
 
 // atoms
-import "@papit/badge/wc";
-import "@papit/typography/wc";
-import "@papit/menu/wc";
-import { Menu } from "@papit/menu";
+import "@pap-it/badge/wc";
+import "@pap-it/typography/wc";
+import "@pap-it/menu/wc";
+import { Menu } from "@pap-it/menu";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
 // local 
 import { style } from "./style";
 import { UserModel } from "./types";
 
-export class Header extends BaseTemplate {
-    static style = style;
+export class Header extends BaseSystem {
+  static style = style;
 
-    @property({ type: Object }) user?: UserModel;
+  @property({ type: Object }) user?: UserModel;
 
-    // event handlers 
-    
-    private handleuserselect = (e:Event) => {
-        console.log('select user', e)
-    }
-    // private handlelightnessselect = (e:Event) => {
-    //     if (e.target instanceof Menu)
-    //     {
-    //         this.classList.remove('light-mode', 'dark-mode');
-    //         if (e.target.value !== "auto") 
-    //         {
-    //             this.classList.add(`${e.target.value}-mode`);
-    //         }
-    //     }
-    // }
+  // event handlers 
 
-    render() {
-        const avatarlink = this.user?.avatar || `public/images/avatar${Math.round(Math.random() * 4) + 1}.png`
-        return html`
+  private handleuserselect = (e: Event) => {
+    console.log('select user', e)
+  }
+  // private handlelightnessselect = (e:Event) => {
+  //     if (e.target instanceof Menu)
+  //     {
+  //         this.classList.remove('light-mode', 'dark-mode');
+  //         if (e.target.value !== "auto") 
+  //         {
+  //             this.classList.add(`${e.target.value}-mode`);
+  //         }
+  //     }
+  // }
+
+  render() {
+    const avatarlink = this.user?.avatar || `public/images/avatar${Math.round(Math.random() * 4) + 1}.png`
+    return html`
             <div class="prefix">
                 <slot name="prefix"></slot>
             </div>
@@ -63,12 +63,12 @@ export class Header extends BaseTemplate {
             </div>
             
         `
-    }
+  }
 }
 
 
 declare global {
-    interface HTMLElementTagNameMap {
-        "pap-header": Header;
-    }
+  interface HTMLElementTagNameMap {
+    "pap-header": Header;
+  }
 }

@@ -1,9 +1,9 @@
-import { html } from "@papit/tools-utils";
-import { BaseTemplate } from "@papit/templates-base";
+import { html } from "@pap-it/system-utils";
+import { BaseSystem } from "@pap-it/system-base";
 
-import { Translator } from '@papit/tools-translator';
+import { Translator } from '@pap-it/tools-translator';
 
-class InsideDemo extends BaseTemplate {
+class InsideDemo extends BaseSystem {
   render() {
     return html`
       <pap-translator>${this.getAttribute('text')}</pap-translator>

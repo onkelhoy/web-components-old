@@ -1,31 +1,31 @@
 // utils 
-import { html, property } from "@papit/tools-utils";
-import "@papit/tools-translator/wc";
+import { html, property } from "@pap-it/system-utils";
+import "@pap-it/tools-translator/wc";
 
 // atoms 
-import "@papit/button/wc";
-import "@papit/icon/wc";
-import "@papit/input/wc";
+import "@pap-it/button/wc";
+import "@pap-it/icon/wc";
+import "@pap-it/input/wc";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
 // local 
 import { style } from "./style";
 
-export class Chat extends BaseTemplate {
-    static style = style;
+export class Chat extends BaseSystem {
+  static style = style;
 
-    // event handlers
-    private handlesmileyclick = () => {
-        console.log('open smileys')
-    }
-    private handlesendclick = () => {
-        console.log('send')
-    }
+  // event handlers
+  private handlesmileyclick = () => {
+    console.log('open smileys')
+  }
+  private handlesendclick = () => {
+    console.log('send')
+  }
 
-    render() {
-        return html`
+  render() {
+    return html`
             <main></main>
 
             
@@ -40,12 +40,12 @@ export class Chat extends BaseTemplate {
                 </div>
             </pap-input>
         `
-    }
+  }
 }
 
 
 declare global {
-    interface HTMLElementTagNameMap {
-        "pap-chat": Chat;
-    }
+  interface HTMLElementTagNameMap {
+    "pap-chat": Chat;
+  }
 }

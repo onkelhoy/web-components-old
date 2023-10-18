@@ -7,7 +7,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # get the package environment variables
 source $PACKAGE_PATH/.env
 
-TARGET_PACKAGE=@papit/$PACKAGENAME$NAME
+TARGET_PACKAGE=@pap-it/$PACKAGENAME$NAME
 
 # execute the runner that will extract dependencies and update their package.json
 node $SCRIPT_DIR/main.js $ROOTDIR $TARGET_PACKAGE

@@ -1,89 +1,83 @@
 // utils 
-import { html, property, Size, Radius } from "@papit/tools-utils";
+import { html, property, Size, Radius } from "@pap-it/system-utils";
 
 // atoms
-import { ButtonVariant, ButtonColorVariant } from "@papit/button";
-import "@papit/icon/wc";
-import "@papit/button/wc";
+import { ButtonVariant, ButtonColorVariant } from "@pap-it/button";
+import "@pap-it/icon/wc";
+import "@pap-it/button/wc";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
-import { Placement } from "@papit/templates-popover";
-import "@papit/templates-popover/wc";
-import "@papit/templates-box/wc";
+import { BaseSystem } from "@pap-it/system-base";
+import { Placement } from "@pap-it/templates-popover";
+import "@pap-it/templates-popover/wc";
+import "@pap-it/templates-box/wc";
 
 // local 
 import { style } from "./style";
 import { MenuItem } from "./components/menu-item";
 
-export class Menu extends BaseTemplate {
-    static style = style;
+export class Menu extends BaseSystem {
+  static style = style;
 
-    @property({ rerender: false, type: Boolean }) open: boolean = false;
-    @property() placement: Placement = "bottom-center";
-    @property() size: Size = "medium";
+  @property({ rerender: false, type: Boolean }) open: boolean = false;
+  @property() placement: Placement = "bottom-center";
+  @property() size: Size = "medium";
 
-    @property() buttonVariant: ButtonVariant = "clear";
-    @property() buttonColor: ButtonColorVariant = "secondary";
-    @property() buttonRadius: Radius = "medium";
+  @property() buttonVariant: ButtonVariant = "clear";
+  @property() buttonColor: ButtonColorVariant = "secondary";
+  @property() buttonRadius: Radius = "medium";
 
-    private current?: MenuItem;
-    private items: MenuItem[] = [];
+  private current?: MenuItem;
+  private items: MenuItem[] = [];
 
-    // public functions
-    // NOTE problem with value as I need to access it via attributes...
-    public get value () {
-        return this.current?.getvalue() || '';
+  // public functions
+  // NOTE problem with value as I need to access it via attributes...
+  public get value() {
+    return this.current?.getvalue() || '';
+  }
+  public set value(value: string) {
+    const item = this.items.find(i => i.getvalue() === value);
+    if (item) {
+      item.click();
     }
-    public set value (value:string) {
-        const item = this.items.find(i => i.getvalue() === value);
-        if (item)
-        {
-            item.click();
+  }
+  public get text() {
+    return this.current?.gettext();
+  }
+
+  // event handlers
+  private handleslotchange = (e: Event) => {
+    if (e.target instanceof HTMLSlotElement) {
+      const items = e.target.assignedElements();
+      items.forEach(item => {
+        if (item instanceof MenuItem) {
+          if (!item.hasAttribute('data-menu-init')) {
+            item.addEventListener('select', this.handleitemselected);
+            item.setAttribute('data-menu-init', 'true');
+            this.items.push(item);
+          }
         }
+      })
     }
-    public get text () {
-        return this.current?.gettext();
+  }
+  private handleitemselected = (e: Event) => {
+    if (e.target instanceof MenuItem) {
+      if (this.current && e.target !== this.current) {
+        this.current.checked = false;
+      }
+      this.current = e.target;
+      this.dispatchEvent(new Event('select'));
     }
+  }
+  private handlehide = () => {
+    this.open = false;
+  }
+  private handleshow = () => {
+    this.open = true;
+  }
 
-    // event handlers
-    private handleslotchange = (e:Event) => {
-        if (e.target instanceof HTMLSlotElement)
-        {
-            const items = e.target.assignedElements();
-            items.forEach(item => {
-                if (item instanceof MenuItem)
-                {
-                    if (!item.hasAttribute('data-menu-init'))
-                    {
-                        item.addEventListener('select', this.handleitemselected);
-                        item.setAttribute('data-menu-init', 'true');
-                        this.items.push(item);
-                    }
-                }
-            })
-        }
-    }
-    private handleitemselected = (e:Event) => {
-        if (e.target instanceof MenuItem)
-        {
-            if (this.current && e.target !== this.current)
-            {
-                this.current.checked = false;
-            }
-            this.current = e.target;
-            this.dispatchEvent(new Event('select'));
-        }
-    }
-    private handlehide = () => {
-        this.open = false;
-    }
-    private handleshow = () => {
-        this.open = true;
-    }
-
-    render() {
-        return html`
+  render() {
+    return html`
             <pap-popover-template @hide="${this.handlehide}" @show="${this.handleshow}" revealby="click" hideonoutsideclick placement="${this.placement}">
                 <pap-button 
                     variant="${this.buttonVariant}" 
@@ -106,12 +100,12 @@ export class Menu extends BaseTemplate {
                 </pap-box-template>
             </pap-popover-template>
         `
-    }
+  }
 }
 
 
 declare global {
-    interface HTMLElementTagNameMap {
-        "pap-menu": Menu;
-    }
+  interface HTMLElementTagNameMap {
+    "pap-menu": Menu;
+  }
 }

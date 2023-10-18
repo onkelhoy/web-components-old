@@ -7,7 +7,7 @@ const DEPENDENCY = {}
 
 function recursive(name, callback) 
 {
-  if (!name.startsWith('@papit'))
+  if (!name.startsWith('@pap-it'))
   {
     return;
   }

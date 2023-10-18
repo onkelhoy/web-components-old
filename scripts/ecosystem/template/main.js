@@ -1,6 +1,6 @@
-import "@papit/icon/wc";
-import "@papit/tools-doc/wc";
-import "@papit/sidebar/wc";
+import "@pap-it/icon/wc";
+import "@pap-it/system-doc/wc";
+import "@pap-it/sidebar/wc";
 
 window.onload = () => {
   document.querySelector('pap-navbar').addEventListener('select', e => {

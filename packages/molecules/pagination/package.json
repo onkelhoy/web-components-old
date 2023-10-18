@@ -1,5 +1,5 @@
 {
-  "name": "@papit/pagination",
+  "name": "@pap-it/pagination",
   "version": "0.0.0",
   "scripts": {
     "init": "sh .scripts/init.sh",
@@ -35,17 +35,17 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@papit/button": "^0.0.0",
-    "@papit/dropdown": "^0.0.0",
-    "@papit/icon": "0.0.1",
-    "@papit/templates-base": "^0.0.0",
-    "@papit/tools-translator": "^0.0.0",
-    "@papit/typography": "^0.0.0",
-    "@papit/tools-utils": "^0.0.0"
+    "@pap-it/button": "^0.0.0",
+    "@pap-it/dropdown": "^0.0.0",
+    "@pap-it/icon": "0.0.0",
+    "@pap-it/system-base": "^0.0.0",
+    "@pap-it/tools-translator": "^0.0.0",
+    "@pap-it/typography": "^0.0.0",
+    "@pap-it/system-utils": "^0.0.0"
   },
   "devDependencies": {
     "eslint": "^8.53.0",
-    "@papit/tools-doc": "^0.0.0",
+    "@pap-it/system-doc": "^0.0.0",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "node-sass": "^9.0.0",

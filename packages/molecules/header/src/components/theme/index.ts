@@ -1,36 +1,35 @@
 // utils 
-import { html, property, query } from "@papit/tools-utils";
-import { change as ChangeTheme, THEMECHANGE_NAME, THEMEADD_NAME } from "@papit/tools-theme";
-import "@papit/tools-translator/wc";
+import { html, property, query } from "@pap-it/system-utils";
+import { change as ChangeTheme, THEMECHANGE_NAME, THEMEADD_NAME } from "@pap-it/tools-theme";
+import "@pap-it/tools-translator/wc";
 
 // atoms 
-import { Menu, MenuItem } from '@papit/menu';
-import { Toggle } from '@papit/toggle';
-import "@papit/menu/wc";
-import "@papit/typography/wc";
-import "@papit/toggle/wc";
-import "@papit/icon/wc";
+import { Menu, MenuItem } from '@pap-it/menu';
+import { Toggle } from '@pap-it/toggle';
+import "@pap-it/menu/wc";
+import "@pap-it/typography/wc";
+import "@pap-it/toggle/wc";
+import "@pap-it/icon/wc";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
 import { style } from "./style";
 type LightDarkTheme = "light" | "dark";
 
-export class Theme extends BaseTemplate {
+export class Theme extends BaseSystem {
   static style = style;
 
   @query('span[slot].theme-color') themecolorElement!: HTMLSpanElement;
   @query('template') templateElement!: HTMLTemplateElement;
   @query('pap-toggle') toggleElement!: Toggle;
-  @query({ selector:'pap-menu', onload: 'onloadmenu' }) menuElement!: Menu;
+  @query({ selector: 'pap-menu', onload: 'onloadmenu' }) menuElement!: Menu;
 
   // class functions
   connectedCallback() {
     super.connectedCallback();
 
-    if (!window.sessionStorage.getItem("pap-lightdarktheme"))
-    {
+    if (!window.sessionStorage.getItem("pap-lightdarktheme")) {
       this.setlightdark(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     }
 
@@ -66,9 +65,8 @@ export class Theme extends BaseTemplate {
   }
 
   // event handlers 
-  private handleprefercolorchange = (e:MediaQueryListEvent) => {
-    if (this.toggleElement)
-    {
+  private handleprefercolorchange = (e: MediaQueryListEvent) => {
+    if (this.toggleElement) {
       this.toggleElement.value = e.matches.toString();
     }
   }
@@ -77,37 +75,31 @@ export class Theme extends BaseTemplate {
     if (!this.templateElement) return;
     if (!this.themecolorElement) return;
 
-    if (window.oTheme.map.size <= 1)
-    {
+    if (window.oTheme.map.size <= 1) {
       this.menuElement.setAttribute('hidden', 'true');
       return;
     }
-    else if (this.menuElement.hasAttribute('hidden'))
-    {
+    else if (this.menuElement.hasAttribute('hidden')) {
       this.menuElement.removeAttribute('hidden');
     }
-  
+
     const items = this.menuElement.querySelectorAll<MenuItem>("pap-menu-item");
     const assigned = new Set<string>();
     items.forEach(item => {
-      if (!window.oTheme.map.has(item.value))
-      {
+      if (!window.oTheme.map.has(item.value)) {
         this.menuElement.removeChild(item);
       }
-      else 
-      {
+      else {
         assigned.add(item.value);
       }
     });
-  
+
     Array.from(window.oTheme.map).forEach(([name, config]) => {
-      if (!assigned.has(name))
-      {
+      if (!assigned.has(name)) {
         const newitem = this.templateElement.content.cloneNode(true) as HTMLElement;
-        
+
         const itemElement = newitem.querySelector<MenuItem>('pap-menu-item');
-        if (itemElement) 
-        {
+        if (itemElement) {
           itemElement.setAttribute('value', name);
         }
 
@@ -122,30 +114,25 @@ export class Theme extends BaseTemplate {
     })
   }
   private handlethemechange = () => {
-    if (this.menuElement)
-    {
+    if (this.menuElement) {
       const config = window.oTheme.map.get(window.oTheme.current);
-      if (config)
-      {
+      if (config) {
         this.themecolorElement.style.backgroundColor = config.representColor;
         this.menuElement.value = window.oTheme.current;
       }
     }
   }
-  private handleselect = (e:Event) => {
+  private handleselect = (e: Event) => {
     const menu = e.target as Menu;
-    if (menu)
-    {
-      if (window.oTheme.current !== menu.value)
-      {
+    if (menu) {
+      if (window.oTheme.current !== menu.value) {
         window.oTheme.change(menu.value);
       }
     }
   }
-  private handlechange = (e:Event) => {
+  private handlechange = (e: Event) => {
     const toggle = e.target as Toggle;
-    if (toggle) 
-    {
+    if (toggle) {
       this.setlightdark(toggle.checked ? "dark" : "light");
     }
   }

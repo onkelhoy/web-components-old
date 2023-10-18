@@ -1,23 +1,23 @@
 // utils 
-import { html, property, query } from "@papit/tools-utils";
-import "@papit/tools-translator/wc";
+import { html, property, query } from "@pap-it/system-utils";
+import "@pap-it/tools-translator/wc";
 
 // atoms 
-import { Accordion } from "@papit/accordion";
-import "@papit/icon/wc";
-import "@papit/button/wc";
-import "@papit/accordion/wc";
-import "@papit/typography/wc";
+import { Accordion } from "@pap-it/accordion";
+import "@pap-it/icon/wc";
+import "@pap-it/button/wc";
+import "@pap-it/accordion/wc";
+import "@pap-it/typography/wc";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
-import "@papit/templates-box/wc";
+import { BaseSystem } from "@pap-it/system-base";
+import "@pap-it/templates-box/wc";
 
 import { style } from "./style";
 
 export type Variant = "warning" | "error" | "success";
 
-export class Message extends BaseTemplate {
+export class Message extends BaseSystem {
   static style = style;
 
   @property({ rerender: false }) variant: Variant = "success";
@@ -27,8 +27,7 @@ export class Message extends BaseTemplate {
 
   // update handlers
   private onopenupdate = () => {
-    if (this.accordionElement) 
-    {
+    if (this.accordionElement) {
       this.accordionElement.open = this.open;
     }
     else return 10;

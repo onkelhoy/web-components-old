@@ -1,27 +1,27 @@
 // utils 
-import { html, property } from "@papit/tools-utils";
+import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BoxTemplate } from "@papit/templates-box";
+import { BoxTemplate } from "@pap-it/templates-box";
 
 // local 
 import { style } from "./style";
 
-export class Message extends BoxTemplate  {
-    static style = style;
+export class Message extends BoxTemplate {
+  static style = style;
 
-    // event handlers
+  // event handlers
 
-    override render() {
-        return html`
+  override render() {
+    return html`
             
         `
-    }
+  }
 }
 
 
 declare global {
-    interface HTMLElementTagNameMap {
-        "pap-chat-message": Message;
-    }
+  interface HTMLElementTagNameMap {
+    "pap-chat-message": Message;
+  }
 }

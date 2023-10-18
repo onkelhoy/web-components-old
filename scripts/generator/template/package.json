@@ -1,5 +1,5 @@
 {
-  "name": "@papit/TEMPLATE_PACKAGENAMETEMPLATE_NAME",
+  "name": "@pap-it/TEMPLATE_PACKAGENAMETEMPLATE_NAME",
   "version": "1.0.0",
   "scripts": {
     "init": "sh .scripts/init.sh",
@@ -35,11 +35,11 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@papit/tools-utils": "^0.0.0",
-    "@papit/templates-base": "^0.0.0"
+    "@pap-it/system-utils": "^0.0.0",
+    "@pap-it/system-base": "^0.0.0"
   },
   "devDependencies": {
-    "@papit/tools-doc": "^0.0.0",
+    "@pap-it/system-doc": "^0.0.0",
     "esbuild": "^0.17.18",
     "tslib": "^2.5.0",
     "node-sass": "^9.0.0",

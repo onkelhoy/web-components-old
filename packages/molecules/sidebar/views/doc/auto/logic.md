@@ -1,31 +1,33 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- // utils 
-import { html, property, query } from "@papit/tools-utils";
-import "@papit/tools-translator/wc";
+## SOURCE-CODE
 
-// atoms 
-import "@papit/button/wc";
-import "@papit/icon/wc";
-import "@papit/divider/wc";
-import "@papit/typography/wc";
+ // utils
+import { html, property, query } from "@pap-it/system-utils";
+import "@pap-it/tools-translator/wc";
+
+// atoms
+import "@pap-it/button/wc";
+import "@pap-it/icon/wc";
+import "@pap-it/divider/wc";
+import "@pap-it/typography/wc";
 
 // templates
-import { BoxTemplate } from "@papit/templates-box";
-import { BaseTemplate } from "@papit/templates-base";
-import '@papit/templates-box/wc'
+import { BoxTemplate } from "@pap-it/templates-box";
+import { BaseSystem } from "@pap-it/system-base";
+import '@pap-it/templates-box/wc'
 
-// local 
+// local
 import { style } from "./style";
 import { Mode, SelectEvent } from "./types";
 import { Item } from "./components/item";
 
-export class Sidebar extends BaseTemplate {
+export class Sidebar extends BaseSystem {
     static style = style;
 
     @property({ rerender: false }) mode:Mode = "open";
@@ -161,13 +163,12 @@ export class Sidebar extends BaseTemplate {
     }
 }
 
-
 declare global {
     interface HTMLElementTagNameMap {
         "pap-sidebar": Sidebar;
     }
 }
 
-## TYPE-CODE: export type SelectEvent = { id: string };
+## TYPE-CODE: export type SelectEvent = { id: string }
 
 export type Mode = "open" | "collapsed" | "hover";

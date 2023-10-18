@@ -1,17 +1,22 @@
-import { fixture } from '@papit/tools-test';
+import { fixture } from '@pap-it/tools-test';
 
-describe('Input', function () {
-  describe('base tests', function () {
-    it('web-component should exists', function () {
+describe('Input', function () 
+{
+  describe('base tests', function () 
+  {
+    it('web-component should exists', function () 
+    {
       const elm = fixture('pap-input');
 
-      if (!elm) {
+      if (!elm) 
+      {
         throw new Error('element not created')
       }
 
       const docelm = document.querySelector(`pap-input[data-testid="${elm.getAttribute('data-testid')}"]`);
       
-      if (!docelm) {
+      if (!docelm) 
+      {
         throw new Error('element not found');
       }
     });

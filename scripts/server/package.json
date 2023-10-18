@@ -1,5 +1,5 @@
 {
-  "name": "@papit/server",
+  "name": "@pap-it/server",
   "version": "0.0.0",
   "description": "a simple live server that hosts html files with a live reload, and can serve node-modules ",
   "main": "server.js",

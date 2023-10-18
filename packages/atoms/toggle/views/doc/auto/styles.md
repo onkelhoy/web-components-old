@@ -4,15 +4,16 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
-import { html } from "@papit/tools-utils";
+## SOURCE-CODE
+
+// utils
+import { html } from "@pap-it/system-utils";
 
 // templates
-import { FieldTemplate } from "@papit/templates-field";
-import "@papit/templates-box/wc";
+import { FieldTemplate } from "@pap-it/templates-field";
+import "@pap-it/templates-box/wc";
 
-// local 
+// local
 import { style } from "./style";
 
 export class Toggle extends FieldTemplate {
@@ -51,13 +52,14 @@ export class Toggle extends FieldTemplate {
     }
 }
 
-
 declare global {
     interface HTMLElementTagNameMap {
         "pap-toggle": Toggle;
     }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     cursor: pointer;
     display: inline-flex;

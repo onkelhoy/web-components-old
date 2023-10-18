@@ -299,11 +299,11 @@
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@papit/templates-base"
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
       }
     ],
     "/Users/henry/Developer/projects/web-components/packages/templates/field": [
@@ -313,23 +313,23 @@
       },
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "query",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "suspense",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "FormElementTemplate",
-        "from": "@papit/templates-form-element"
+        "from": "@pap-it/templates-form-element"
       },
       {
         "name": "style",
@@ -347,11 +347,11 @@
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "FieldTemplate",
-        "from": "@papit/templates-field"
+        "from": "@pap-it/templates-field"
       },
       {
         "name": "style",
@@ -365,15 +365,15 @@
       },
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "TextinputTemplate",
-        "from": "@papit/templates-textinput"
+        "from": "@pap-it/templates-textinput"
       },
       {
         "name": "style",

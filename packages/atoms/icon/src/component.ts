@@ -1,5 +1,5 @@
-import { property, html, Size } from '@papit/tools-utils';
-import { AssetTemplate } from '@papit/templates-asset';
+import { property, html, Size } from '@pap-it/system-utils';
+import { AssetTemplate } from '@pap-it/templates-asset';
 
 import { style } from './style.js';
 import { ContainerTypes } from './types.js';

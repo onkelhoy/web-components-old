@@ -1,17 +1,17 @@
 // utils 
-import { html, property } from "@papit/tools-utils";
+import { html, property } from "@pap-it/system-utils";
 
 // atoms
-import "@papit/button/wc";
-import "@papit/icon/wc";
+import "@pap-it/button/wc";
+import "@pap-it/icon/wc";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
-import "@papit/templates-box/wc";
+import { BaseSystem } from "@pap-it/system-base";
+import "@pap-it/templates-box/wc";
 
 import { style } from "./style";
 
-export class Menu extends BaseTemplate {
+export class Menu extends BaseSystem {
   static style = style;
 
   @property({ type: Object }) config: Partial<Config> = {};

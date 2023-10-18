@@ -27,6 +27,9 @@ export const style = `:host header {
       transition: all var(--tabs-indicator-animation-easing, ease) var(--tabs-indicator-animation-duration, 200ms);
       border-top-left-radius: var(--radius-small, 4px);
       border-top-right-radius: var(--radius-small, 4px); }
+  :host header ::slotted(*[slot="header"]) {
+    flex-grow: 1;
+    z-index: 20; }
 
 ::slotted(*[slot="header-prefix"]) {
   margin-right: auto; }

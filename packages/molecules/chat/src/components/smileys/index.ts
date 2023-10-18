@@ -1,17 +1,17 @@
 // utils 
-import { html, property, query } from "@papit/tools-utils";
-import '@papit/tools-translator/wc';
+import { html, property, query } from "@pap-it/system-utils";
+import '@pap-it/tools-translator/wc';
 
 // atoms
-import { Input } from "@papit/input";
-import { Button } from "@papit/button";
-import '@papit/button/wc';
-import '@papit/typography/wc';
-import '@papit/icon/wc';
-import '@papit/tooltip/wc';
+import { Input } from "@pap-it/input";
+import { Button } from "@pap-it/button";
+import '@pap-it/button/wc';
+import '@pap-it/typography/wc';
+import '@pap-it/icon/wc';
+import '@pap-it/tooltip/wc';
 
 // templates 
-import { BaseTemplate } from '@papit/templates-base';
+import { BaseSystem } from '@pap-it/system-base';
 
 // local 
 import { style } from "./style";
@@ -33,7 +33,7 @@ interface Emoji {
 
 export type EmojiEvent = { emoji: Emojicon }
 
-export class Smileys extends BaseTemplate  {
+export class Smileys extends BaseSystem {
   static style = style;
 
   @property({ rerender: false }) private search: string = "";
@@ -41,22 +41,20 @@ export class Smileys extends BaseTemplate  {
   @query('div.search-results') searchResults!: HTMLDivElement;
 
   // event handlers
-  private handleclick(emoji:Emojicon) {
+  private handleclick(emoji: Emojicon) {
     return () => {
       this.dispatchEvent(new CustomEvent<EmojiEvent>("select", { detail: { emoji } }))
     }
   }
-  private handleinput = (e:Event) => {
+  private handleinput = (e: Event) => {
     this.search = (e.target as HTMLInputElement).value;
 
     this.searchResults.innerHTML = ""
 
-    if (this.search !== "")
-    {
+    if (this.search !== "") {
       emojidata.forEach(category => {
         category.emojis.forEach(emoji => {
-          if (emoji.name.startsWith(this.search))
-          {
+          if (emoji.name.startsWith(this.search)) {
             this.searchResults.appendChild(html`
               <pap-button variant="clear" size="small" class="emoji" title="${emoji.name}" @click="${this.handleclick(emoji)}">${emoji.emoji}</pap-button>
             `);
@@ -64,12 +62,11 @@ export class Smileys extends BaseTemplate  {
         })
       })
     }
-    
-    
+
+
   }
   private handleclear = () => {
-    if (this.inputElement)
-    {
+    if (this.inputElement) {
       this.inputElement.value = '';
     }
   }
@@ -87,7 +84,7 @@ export class Smileys extends BaseTemplate  {
 
           <div class="search-results"></div>
         </div>
-        ${emojidata.map((info:Emoji, index) => html`
+        ${emojidata.map((info: Emoji, index) => html`
           <pap-tab class="${index === 0 ? "selected" : ""}" title="${info.name}">
             <pap-icon customSize="20" name="${info.slug}"></pap-icon>
           </pap-tab>
@@ -97,7 +94,7 @@ export class Smileys extends BaseTemplate  {
               <pap-translator>${info.name}</pap-translator>
             </pap-typography>
             <div>
-              ${info.emojis.map((emoji:Emojicon) => html`
+              ${info.emojis.map((emoji: Emojicon) => html`
                   <pap-button class="emoji" variant="clear" title="${emoji.name}" slot="target" @click="${this.handleclick(emoji)}">${emoji.emoji}</pap-button>
               `)}
             </div>

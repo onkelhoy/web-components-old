@@ -10,18 +10,23 @@ const set = new Set();
 const SEMANTIC_VERSION = process.argv[2];
 const CICD_NODE_TOKEN = process.argv[3];
 
-async function getjsonData() {
-  return new Promise((res, rej) => {
+async function getjsonData() 
+{
+  return new Promise((res, rej) => 
+  {
     let jsonData = '';
-    process.stdin.on('data', (chunk) => {
+    process.stdin.on('data', (chunk) => 
+    {
       jsonData += chunk;
     });
     
-    process.stdin.on('end', () => {
+    process.stdin.on('end', () => 
+    {
       res(JSON.parse(jsonData));
     });
 
-    process.stdin.on("error", (e) => {
+    process.stdin.on("error", (e) => 
+    {
       rej(e);
     })
   })
@@ -29,21 +34,26 @@ async function getjsonData() {
 
 for (const name in packagelock.packages) 
 {
-  if (name.startsWith("node_modules/@papit") && name !== "node_modules/@papit/server")
+  if (name.startsWith("node_modules/@pap-it") && name !== "node_modules/@pap-it/server")
   {
     const mapname = name.split("node_modules/")[1];
     if (!map[mapname]) map[mapname] = { dep: [], has: [] };
 
     set.add(mapname);
 
-    const package = packagelock.packages[packagelock.packages[name].resolved];
+    const packagejson = packagelock.packages[packagelock.packages[name].resolved];
+    if (!packagejson) 
+    {
+      console.log('failes', name, packagejson, packagelock.packages[name].resolved)
+      continue;
+    }
     const dependencies = [];
 
     map[mapname].location = packagelock.packages[name].resolved;
 
-    for (const dep in package.dependencies) 
+    for (const dep in packagejson.dependencies) 
     {
-      if (dep.startsWith("@papit") && dep !== mapname)
+      if (dep.startsWith("@pap-it") && dep !== mapname)
       {
         if (!map[dep]) map[dep] = { dep: [], has: [] };
         map[dep].has.push(mapname);
@@ -53,10 +63,11 @@ for (const name in packagelock.packages)
     map[mapname].dep = dependencies
   }
 }
-// // we also add the @papit/server 
-// map['@papit/server'] = { dep: [], has: [], location: packagelock.packages['node_modules/@papit/server'].resolved }
+// // we also add the @pap-it/server 
+// map['@pap-it/server'] = { dep: [], has: [], location: packagelock.packages['node_modules/@pap-it/server'].resolved }
 
-async function execute(list, versionData) {
+async function execute(list, versionData) 
+{
   let executions = [];
   for (const name of list) 
   {
@@ -74,15 +85,20 @@ async function execute(list, versionData) {
   if (executions.length > 0) return Promise.all(executions);
 }
 
-function wait(n = 1000) {
+function wait(n = 1000) 
+{
   return new Promise(res => setTimeout(res, n));
 }
 
-function execute_individual(name, versionData) {
-  return new Promise((res, rej) => {
+function execute_individual(name, versionData) 
+{
+  return new Promise((res, rej) => 
+  {
     let package_version = versionData.find(d => d.name === name)?.version || '-0.0.0';
-    exec(path.join(__dirname, `individual.sh ${map[name].location} ${SEMANTIC_VERSION} ${package_version} ${CICD_NODE_TOKEN || ""}`), (error, stdout, stderr) => {
-      if (error) {
+    exec(path.join(__dirname, `individual.sh ${map[name].location} ${SEMANTIC_VERSION} ${package_version} ${CICD_NODE_TOKEN || ""}`), (error, stdout, stderr) => 
+    {
+      if (error) 
+      {
         if (error.code === 2)
         {
           console.log("\t[skipped]\t", name);
@@ -92,7 +108,8 @@ function execute_individual(name, versionData) {
           console.log("\t[failed]\t", name);
         }
       }
-      else if (stdout) {
+      else if (stdout) 
+      {
         console.log("\t[success]\t", name);
         // console.log("\t[success]\t", name);
       }
@@ -103,7 +120,8 @@ function execute_individual(name, versionData) {
 }
 
 let attempts = 0;
-async function run(versionData) {
+async function run(versionData) 
+{
   const list = [];
   const arr = Array.from(set);
   for (const name of arr) 
@@ -144,7 +162,8 @@ async function run(versionData) {
   }
 }
 
-async function init() {
+async function init() 
+{
   const versionData = await getjsonData();
   run(versionData);
 }
