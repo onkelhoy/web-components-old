@@ -1,0 +1,189 @@
+PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
+ Based on the source code and style code probided. Can you create a documentation that includes titles, short descrition and the table for each tables: css-variables, parts, slots.
+css-variables should be a table with columns: (name, default-value, type - ex. CSS unit, description).
+parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
+slots should include columns: (name, default-value, description)
+
+## SOURCE-CODE:
+// utils
+import { html, property } from "@pap-it/system-utils";
+
+// atoms
+import "@pap-it/accordion/wc";
+import "@pap-it/button/wc";
+import "@pap-it/icon/wc";
+import "@pap-it/typography/wc";
+import "@pap-it/divider/wc";
+
+// templates
+import { BaseSystem } from "@pap-it/system-base";
+import "@pap-it/templates-box/wc";
+
+// local
+import { style } from "./style";
+import { Contact } from "./types";
+
+export class SidebarContact extends BaseSystem {
+  static style = style;
+
+  @property({ type: Boolean }) open: boolean = false;
+  @property({ type: Array }) contacts: Contact[] = [];
+
+  private handleHeaderClick = () => {
+    this.open = !this.open;
+  }
+
+  private getContact = (contact: Contact, index: number) => {
+    const buttons = [];
+    if (contact.email) {
+      buttons.push(html`
+                <pap-button
+                    variant="clear"
+                    mode="fill"
+                    color="secondary"
+                    href="mailto:${contact.email}"
+                >
+                    <pap-translator>Write an email</pap-translator>
+                </pap-button>
+            `);
+    }
+    if (contact.teams) {
+      buttons.push(html`
+                <pap-button
+                    variant="clear"
+                    mode="fill"
+                    color="secondary"
+                    href="https://teams.microsoft.com/l/call/0/0?users=${contact.teams}"
+                >
+                    <pap-translator>Call via Teams</pap-translator>
+                </pap-button>
+            `);
+    }
+
+    console.log('has phone?', contact.phone)
+
+    return html`
+            <div>
+                <pap-typography variant="C4">${contact.role}</pap-typography>
+                <pap-typography variant="C2">${contact.name}</pap-typography>
+            </div>
+            ${contact.phone ? html`
+                <div>
+                    <pap-icon name="phone"></pap-icon>
+                    <pap-typography><a href="tel:${contact.phone}">${contact.phone}</a></pap-typography>
+                </div>
+            ` : ''}
+            ${buttons.length > 0 ? html`<div>${buttons}</div>` : ''}
+            ${index < this.contacts.length - 1 ? '<pap-divider></pap-divider>' : ''}
+        `;
+  }
+
+  render() {
+
+    const contacts = this.contacts.map(this.getContact);
+
+    return html`
+            <pap-box-template part="collapsed"><pap-icon name="phone"></pap-icon></pap-box-template>
+            <pap-box-template radius="medium" part="base">
+                <header part="header" @click="${this.handleHeaderClick}">
+                    <pap-typography variant="C4"> <pap-translator>Contact</pap-translator> </pap-typography>
+                    <pap-icon size="small" name="caret"></pap-icon>
+                </header>
+                <pap-accordion open="${this.open}">
+                    <pap-divider></pap-divider>
+                    ${contacts.length > 0 ? contacts : '<pap-typography> <pap-translator>No available contacts</pap-translator> </pap-typography>'}
+                </pap-accordion>
+            </pap-box-template>
+        `
+  }
+}
+
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "pap-sidebar-contact": SidebarContact;
+  }
+}
+## STYLE-CODE:
+:host {
+    display: flex;
+    justify-content: center;
+    container-type: inline-size;
+
+    pap-box-template[part="collapsed"] {
+        background-color: var(--pap-color-bg-secondary, #F6F7F8);
+        padding: var(--padding-small, 8px);
+        align-items: center;
+        justify-content: center;
+        display: none;
+    }
+
+    pap-box-template[part="base"] {
+        background-color: var(--pap-color-bg-secondary, #F6F7F8);
+        display: block;
+        padding-inline: var(--padding-medium, 16px);
+        flex-grow: 1;
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding-block: var(--padding-medium, 16px);
+            align-items: center;
+            cursor: pointer;
+            color: var(--pap-color-text-secondary, #6E7087);
+
+            pap-icon {
+                rotate: -90deg;
+                transition: rotate ease 30ms;
+            }
+        }
+
+        pap-accordion[open="true"] {
+            padding-bottom: var(--padding-small, 8px);
+
+            div {
+                display: flex;
+                gap: var(--gap-small, 8px);
+                flex-direction: column;
+            }
+
+            div:has(a) {
+                color: var(--pap-color-text-secondary, #6E7087);
+                flex-direction: row;
+                height: var(--field-size-medium, 40px);
+                align-items: center;
+
+                a {
+                    color: currentColor;
+                    text-decoration: none;
+                }
+            }
+
+            div:has(pap-button) {
+                flex-direction: row;
+            }
+        }
+    }
+}
+
+:host([open="true"]) {
+    pap-box-template {
+        header {
+            pap-icon {
+                rotate: 0deg;
+            }
+        }
+    }
+}
+
+// 150px comes from sidebar-item
+@container (max-width: 150px) {
+    :host {
+        pap-box-template[part="base"] {
+            display: none;
+        }
+        pap-box-template[part="collapsed"] {
+            display: inline-flex;
+        }
+    }
+}

@@ -21,12 +21,12 @@ export const style = `:host {
     height: var(--unit-size-1, 4px);
     border-top-left-radius: var(--radius-small, 4px);
     border-top-right-radius: var(--radius-small, 4px);
-    background-color: var(--pap-color-bg-tertiary, #EAEBEF); }
+    background-color: var(--pap-color-bg-secondary, #F6F7F8); }
 
 :host(:active) {
   color: var(--pap-color-text-pressed); }
   :host(:active):after {
-    background-color: var(--pap-color-bg-secondary, #F6F7F8); }
+    background-color: var(--pap-color-border-secondary, #DADDE3); }
 
 ::slotted(*) {
   pointer-events: none; }`;

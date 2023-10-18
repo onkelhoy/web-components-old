@@ -1,18 +1,19 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
-## SOURCE-CODE:
-// utils 
-import { html, property, query } from "@papit/tools-utils";
+## SOURCE-CODE
+
+// utils
+import { html, property, query } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 import { State, Variant } from "./types";
 
-export class Popup extends BaseTemplate {
+export class Popup extends BaseSystem {
   static style = style;
 
   @query('iz-card') private cardElement!: HTMLDivElement;
@@ -53,7 +54,7 @@ export class Popup extends BaseTemplate {
     _old: string | null,
     value: string | null
   ): void {
-    super.attributeChangedCallback(name, _old, value);
+    super.attributeChangedCallback(name,_old, value);
 
     if (name === 'state') {
       if (value === 'show') {
@@ -144,7 +145,9 @@ declare global {
         "pap-popup": Popup;
     }
 }
-## REGISTER-CODE:
+
+## REGISTER-CODE
+
 import { Popup } from './component.js';
 
 // Register the element with the browser

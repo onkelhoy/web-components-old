@@ -1,10 +1,12 @@
-import '@papit/tools-doc/wc';
+import '@pap-it/system-doc/wc';
 
 let TARGET_ELEMENT = null;
-window.onload = () => {
+window.onload = () => 
+{
   TARGET_ELEMENT = document.querySelector('doc-controller > div > *');
 
-  document.querySelectorAll('section.control *[name]').forEach(element => {
+  document.querySelectorAll('section.control *[name]').forEach(element => 
+  {
     const name = element.name;
     const defaultvalue = element.value;
 
@@ -13,13 +15,15 @@ window.onload = () => {
       update(name, defaultvalue, element);
     }
 
-    element.addEventListener('change', event => {
+    element.addEventListener('change', event => 
+    {
       update(name, event.detail.value, element);
     })
   });
 }
 
-function update(name, value, element) {
+function update(name, value, element) 
+{
   if (element.hasAttribute('data-css-input'))
   {
     if (element.hasAttribute('data-init'))
@@ -44,4 +48,4 @@ function update(name, value, element) {
     TARGET_ELEMENT.setAttribute(name, value);
   }
 }
-import "@papit/typography/wc";
+import "@pap-it/typography/wc";

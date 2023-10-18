@@ -1,9 +1,10 @@
 // tools
-import '@papit/tools-doc/wc';
+import '@pap-it/system-doc/wc';
 
 // component
-import '@papit/textarea/wc';
+import '@pap-it/textarea/wc';
 
-window.onload = () => {
-    console.log('[doc]: window loaded');
+window.onload = () => 
+{
+  console.log('[doc]: window loaded');
 }

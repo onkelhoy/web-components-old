@@ -1,35 +1,35 @@
 // utils 
-import { ExtractSlotValue, FormatNumber, html, property, query } from "@papit/tools-utils";
-import "@papit/tools-translator/wc";
+import { ExtractSlotValue, FormatNumber, html, property, query } from "@pap-it/system-utils";
+import "@pap-it/tools-translator/wc";
 
 // atoms 
-import { Accordion } from "@papit/accordion";
-import "@papit/button/wc";
-import "@papit/icon/wc";
-import "@papit/divider/wc";
-import "@papit/badge/wc";
-import "@papit/typography/wc";
-import "@papit/accordion/wc";
+import { Accordion } from "@pap-it/accordion";
+import "@pap-it/button/wc";
+import "@pap-it/icon/wc";
+import "@pap-it/divider/wc";
+import "@pap-it/badge/wc";
+import "@pap-it/typography/wc";
+import "@pap-it/accordion/wc";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
-import '@papit/templates-box/wc'
+import { BaseSystem } from "@pap-it/system-base";
+import '@pap-it/templates-box/wc'
 
 import { style } from "./style";
 
 export type ChildSelectEvent = Item;
 
-export class Item extends BaseTemplate {
+export class Item extends BaseSystem {
   static style = style;
 
-  @property() icon?:string;
-  @property() icon_selected?:string;
-  @property() text:string = "";
-  @property({ type: Number }) counter?:number;
-  @property({ type: Boolean }) isparent:boolean = false;
-  @property({ type: Boolean }) indicator:boolean = false;
+  @property() icon?: string;
+  @property() icon_selected?: string;
+  @property() text: string = "";
+  @property({ type: Number }) counter?: number;
+  @property({ type: Boolean }) isparent: boolean = false;
+  @property({ type: Boolean }) indicator: boolean = false;
   @property({ type: Boolean }) static: boolean = false;
-  @property({ rerender: false, type: Boolean, onUpdate: "onaccordionopenupdate" }) open:boolean = true;
+  @property({ rerender: false, type: Boolean, onUpdate: "onaccordionopenupdate" }) open: boolean = true;
 
   // elements 
   @query('pap-accordion') accordionElement!: Accordion;
@@ -39,12 +39,10 @@ export class Item extends BaseTemplate {
 
   // on updates
   public onaccordionopenupdate = () => {
-    if (this.accordionElement)
-    {
+    if (this.accordionElement) {
       this.accordionElement.open = this.open;
     }
-    else 
-    {
+    else {
       return 10;
     }
   }
@@ -56,17 +54,13 @@ export class Item extends BaseTemplate {
   }
 
   // event handlers 
-  private handleslotchange = (e:Event) => {
-    if (e.target instanceof HTMLSlotElement)
-    {
+  private handleslotchange = (e: Event) => {
+    if (e.target instanceof HTMLSlotElement) {
       const elements = e.target.assignedElements();
       elements.forEach(element => {
-        if (element instanceof Item)
-        {
-          if (!element.hasAttribute('sidebar-subitem')) 
-          {
-            if (!this.isparent) 
-            {
+        if (element instanceof Item) {
+          if (!element.hasAttribute('sidebar-subitem')) {
+            if (!this.isparent) {
               this.isparent = true;
             }
 
@@ -74,7 +68,7 @@ export class Item extends BaseTemplate {
             this.subitems.push(element);
             element.addEventListener('reached-max', this.handlereachedmax);
             element.addEventListener('child-select', this.hanlechildselect);
-            
+
             const depthlevel = Number(this.getAttribute('sidebar-subitem') || 0);
             element.style.setProperty("--padding-left", `calc(${depthlevel} * var(--gap-small, 8px))`);
             element.setAttribute('sidebar-subitem', depthlevel.toString());
@@ -87,69 +81,57 @@ export class Item extends BaseTemplate {
   private handlereachedmax = () => {
     this.currentsubitemselected++;
 
-    if (this.currentsubitemselected >= this.subitems.length)
-    {
+    if (this.currentsubitemselected >= this.subitems.length) {
       this.currentsubitemselected = 0;
       this.dispatchEvent(new Event('reached-max'));
     }
   }
   public handleclick = () => {
     if (this.static) return;
-    if (this.isparent)
-    {
-      if (this.getBoundingClientRect().width < 100)
-      { // start selecting the subitems
+    if (this.isparent) {
+      if (this.getBoundingClientRect().width < 100) { // start selecting the subitems
         const savedcurrent = this.currentsubitemselected;
         this.subitems[this.currentsubitemselected]?.handleclick();
 
         // make sure we click through all children
         // we make sure to only call if same value (since there could be a update inbetween line 94 and this)
-        if (this.currentsubitemselected == savedcurrent && !this.subitems[this.currentsubitemselected].isparent)
-        {
+        if (this.currentsubitemselected == savedcurrent && !this.subitems[this.currentsubitemselected].isparent) {
           this.currentsubitemselected++;
-          if (this.currentsubitemselected >= this.subitems.length)
-          {
+          if (this.currentsubitemselected >= this.subitems.length) {
             this.currentsubitemselected = 0;
             this.dispatchEvent(new Event('reached-max'));
           }
         }
       }
-      else 
-      {
+      else {
         this.open = !this.open;
       }
     }
-    else 
-    {
-      if (this.hasAttribute('sidebar-subitem')) 
-      {
+    else {
+      if (this.hasAttribute('sidebar-subitem')) {
         this.dispatchEvent(new CustomEvent<ChildSelectEvent>('child-select', { detail: this }));
       }
       this.dispatchEvent(new Event('select'));
       this.classList.add('selected');
     }
   }
-  private hanlechildselect = (e:Event) => {
-    let currentstring:null|string = null;
-    if (e.target instanceof Item)
-    {
+  private hanlechildselect = (e: Event) => {
+    let currentstring: null | string = null;
+    if (e.target instanceof Item) {
       currentstring = e.target.getAttribute('subitem-index');
       this.currentsubitemselected = Number(currentstring);
     }
 
     this.subitems.forEach(element => {
-      if (element.getAttribute('subitem-index') !== currentstring)
-      {
+      if (element.getAttribute('subitem-index') !== currentstring) {
         element.deselect();
       }
     })
 
-    if (e instanceof CustomEvent)
-    {
+    if (e instanceof CustomEvent) {
       this.dispatchEvent(new CustomEvent<ChildSelectEvent>('child-select', { detail: e.detail }));
 
-      if (!this.hasAttribute('sidebar-subitem') && !this.classList.contains("selected"))
-      {
+      if (!this.hasAttribute('sidebar-subitem') && !this.classList.contains("selected")) {
         this.classList.add('selected');
       }
     }
@@ -194,6 +176,6 @@ export class Item extends BaseTemplate {
 
 declare global {
   interface HTMLElementTagNameMap {
-      "pap-sidebar-item": Item;
+    "pap-sidebar-item": Item;
   }
 }

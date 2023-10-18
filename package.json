@@ -1,5 +1,5 @@
 {
-  "name": "@papit/web-components",
+  "name": "@pap-it/web-components",
   "version": "1.0.0",
   "description": "web-component library",
   "private": true,
@@ -29,10 +29,11 @@
   "author": "Henry Pap",
   "license": "ISC",
   "workspaces": [
-    "ecosystem",
     "packages/**/*"
   ],
   "devDependencies": {
-    "eslint": "^8.53.0"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.53.0",
+    "node-html-parser": "^6.1.11"
   }
 }

@@ -1,28 +1,30 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- // utils 
-import { html, property, query } from "@papit/tools-utils";
-import "@papit/tools-translator/wc";
+## SOURCE-CODE
+
+ // utils
+import { html, property, query } from "@pap-it/system-utils";
+import "@pap-it/tools-translator/wc";
 
 // atoms
-import "@papit/badge/wc";
-import "@papit/typography/wc";
-import "@papit/menu/wc";
-import { Menu } from "@papit/menu";
+import "@pap-it/badge/wc";
+import "@pap-it/typography/wc";
+import "@pap-it/menu/wc";
+import { Menu } from "@pap-it/menu";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 import { UserModel } from "./types";
 
-export class Header extends BaseTemplate {
+export class Header extends BaseSystem {
     static style = style;
 
     @property({ type: Object }) user?: UserModel;
@@ -73,7 +75,6 @@ export class Header extends BaseTemplate {
     }
 }
 
-
 declare global {
     interface HTMLElementTagNameMap {
         "pap-header": Header;
@@ -81,6 +82,7 @@ declare global {
 }
 
 ## TYPE-CODE: export interface UserModel {
+
   firstname: string;
   lastname: string;
   avatar: string;

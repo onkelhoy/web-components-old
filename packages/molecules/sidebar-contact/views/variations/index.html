@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SidebarContact - Variations</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  
+<h1 data-title="class">SidebarContact Properties</h1>
+        <doc-card class="property" data-name="open">
+            <h2 slot="header"><span class="deemphasize">Property: </span>open</h2>
+
+            <div class="property-info">
+              <p>type: boolean</p>
+              <p>default-value: false</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="true">
+                    <h4><span class="deemphasize">Property-Value: </span>true</h4>
+                    <pap-codeblock display="both">
+                      <pap-sidebar-contact 
+                        open="true"
+                        
+                      >
+                        <p>Hello World</p>
+                      </pap-sidebar-contact>
+                    </pap-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="false">
+                    <h4><span class="deemphasize">Property-Value: </span>false</h4>
+                    <pap-codeblock display="both">
+                      <pap-sidebar-contact 
+                        open="false"
+                        
+                      >
+                        <p>Hello World</p>
+                      </pap-sidebar-contact>
+                    </pap-codeblock>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="contacts">
+            <h2 slot="header"><span class="deemphasize">Property: </span>contacts</h2>
+
+            <div class="property-info">
+              <p>type: undefined</p>
+              <p>default-value: undefined</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+            </div>
+        </doc-card>
+    <h1 data-title="inherit">Inherited Properties</h1></body>
+</html>

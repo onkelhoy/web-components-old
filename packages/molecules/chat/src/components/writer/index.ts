@@ -1,14 +1,14 @@
 // utils 
-import { html, property, query } from "@papit/tools-utils";
+import { html, property, query } from "@pap-it/system-utils";
 
 // atoms
-import { Textarea } from "@papit/textarea";
-import '@papit/textarea/wc';
-import '@papit/button/wc';
-import '@papit/icon/wc';
+import { Textarea } from "@pap-it/textarea";
+import '@pap-it/textarea/wc';
+import '@pap-it/button/wc';
+import '@pap-it/icon/wc';
 
 // templates 
-import { BoxTemplate } from '@papit/templates-box';
+import { BoxTemplate } from '@pap-it/templates-box';
 
 // local 
 import { style } from "./style";
@@ -18,50 +18,49 @@ import { EmojiEvent } from "../smileys";
 export type SendEvent = { text: string };
 
 // TODO move this class into its own component .. its a godamn edit at this point
-export class Writer extends BoxTemplate  {
-    static style = style;
+export class Writer extends BoxTemplate {
+  static style = style;
 
-    // properties
-    // TODO have them in a nicer format like setting
-    // @property({ type: Boolean }) smileys = true;
-    // @property({ type: Boolean }) file = true;
-    // @property({ type: Boolean }) editor = true;
-    @property({ type: Boolean, rerender: false }) smileyopen = false;
+  // properties
+  // TODO have them in a nicer format like setting
+  // @property({ type: Boolean }) smileys = true;
+  // @property({ type: Boolean }) file = true;
+  // @property({ type: Boolean }) editor = true;
+  @property({ type: Boolean, rerender: false }) smileyopen = false;
 
-    // queries
-    @query('pap-textarea') textareaElement!: Textarea;
-    @query('#file-manager') fileElement!: HTMLInputElement;
+  // queries
+  @query('pap-textarea') textareaElement!: Textarea;
+  @query('#file-manager') fileElement!: HTMLInputElement;
 
-    // event handlers
-    private handlesmileyclick = () => {
-      this.smileyopen = true;
+  // event handlers
+  private handlesmileyclick = () => {
+    this.smileyopen = true;
+  }
+  private handlecloseclick = () => {
+    this.smileyopen = false;
+  }
+  private handlesmileyselect = (e: CustomEvent<EmojiEvent>) => {
+    this.textareaElement.insert(e.detail.emoji.emoji);
+  }
+  private handleformatclick = () => {
+    console.log('format mode')
+  }
+  private handlefileclick = () => {
+    this.smileyopen = false;
+    if (this.fileElement) {
+      this.fileElement.click();
     }
-    private handlecloseclick = () => {
-      this.smileyopen = false;
-    }
-    private handlesmileyselect = (e:CustomEvent<EmojiEvent>) => {
-      this.textareaElement.insert(e.detail.emoji.emoji);
-    }
-    private handleformatclick = () => {
-      console.log('format mode')
-    }
-    private handlefileclick = () => {
-      this.smileyopen = false;
-      if (this.fileElement)
-      {
-        this.fileElement.click();
-      }
-    }
-    private handlefileselect = (e:Event) => {
-      console.log(this.fileElement.files)
-    }
-    private handlesendclick = () => {
-      this.smileyopen = false;
-      this.dispatchEvent(new CustomEvent<SendEvent>('send', { detail: { text: this.textareaElement.value || "" } }));
-    }
+  }
+  private handlefileselect = (e: Event) => {
+    console.log(this.fileElement.files)
+  }
+  private handlesendclick = () => {
+    this.smileyopen = false;
+    this.dispatchEvent(new CustomEvent<SendEvent>('send', { detail: { text: this.textareaElement.value || "" } }));
+  }
 
-    render() {
-      return html`
+  render() {
+    return html`
         <input hidden type="file" multiple id="file-manager" @change="${this.handlefileselect}" />
         <div class="accordion">
           <pap-chat-smileys @select="${this.handlesmileyselect}"></pap-chat-smileys>
@@ -90,12 +89,12 @@ export class Writer extends BoxTemplate  {
           </pap-button>
         </div>
       `
-    }
+  }
 }
 
 
 declare global {
-    interface HTMLElementTagNameMap {
-        "pap-chat-writer": Writer;
-    }
+  interface HTMLElementTagNameMap {
+    "pap-chat-writer": Writer;
+  }
 }

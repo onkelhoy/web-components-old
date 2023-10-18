@@ -4,8 +4,6 @@ body {
   font-family: var(--pap-font-family);
 
   margin: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
   height: auto !important;
   min-height: 100vh;
 }
@@ -15,13 +13,13 @@ pap-tabs::part(header) {
   background-color: var(--pap-color-bg-canvas, #EAEBEF);
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 1001;
 }
 
-body > pap-tabs > pap-tab-content {
+body>pap-tabs>pap-tab-content {
   margin: 1rem;
 }
 
-body > pap-tabs > pap-tab-content[id="interactive"] {
+body>pap-tabs>pap-tab-content[id="interactive"] {
   height: calc(100vh - 5rem) !important;
 }

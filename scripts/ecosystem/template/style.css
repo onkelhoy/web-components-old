@@ -1,17 +1,26 @@
 body {
   background-color: var(--pap-color-bg-canvas, #EAEBEF);
   color: var(--pap-color-text, #29292F);
+  display: flex;
+
+}
+
+pap-sidebar.designsystem {
+  margin-right: var(--margin-small);
 }
 
 /***** MAIN *********************/
 main.designsystem {
+  flex-grow: 1;
   max-height: 100vh;
   overflow-y: auto;
 }
-main.designsystem > div {
+
+main.designsystem>div {
   height: 100%;
 }
-main.designsystem > div.package:not(.selected) {
+
+main.designsystem>div.package:not(.selected) {
   position: relative;
   display: none;
 }

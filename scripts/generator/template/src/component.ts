@@ -1,27 +1,27 @@
 // utils 
-import { html, property } from "@papit/tools-utils";
+import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
 // local 
 import { style } from "./style";
 import { Foo, ClickEvent } from "./types";
 
-export class TEMPLATE_CLASSNAME extends BaseTemplate {
-    static style = style;
+export class TEMPLATE_CLASSNAME extends BaseSystem {
+  static style = style;
 
-    @property() foo:Foo = "bar";
-    @property({ type: Number }) bajs?:number;
-    @property({ type: Boolean }) fooLaa:boolean = true;
+  @property() foo: Foo = "bar";
+  @property({ type: Number }) bajs?: number;
+  @property({ type: Boolean }) fooLaa: boolean = true;
 
-    // event handlers
-    private handleMainClick() {
-        this.dispatchEvent(new CustomEvent<ClickEvent>("main-click", { detail: { foo: this.foo } }));
-    }
+  // event handlers
+  private handleMainClick() {
+    this.dispatchEvent(new CustomEvent<ClickEvent>("main-click", { detail: { foo: this.foo } }));
+  }
 
-    render() {
-        return html`
+  render() {
+    return html`
             <header part="header">
                 <slot name="header">
                     <h1>llama drama trauma</h1>
@@ -38,12 +38,12 @@ export class TEMPLATE_CLASSNAME extends BaseTemplate {
                 </slot>
             </footer>
         `
-    }
+  }
 }
 
 
 declare global {
-    interface HTMLElementTagNameMap {
-        "TEMPLATE_PREFIXNAME": TEMPLATE_CLASSNAME;
-    }
+  interface HTMLElementTagNameMap {
+    "TEMPLATE_PREFIXNAME": TEMPLATE_CLASSNAME;
+  }
 }

@@ -34,11 +34,52 @@
     {
       "name": "size",
       "type": "Size",
-      "default_value": "large",
+      "default_value": "medium",
       "type_value": [
         "small",
         "medium",
         "large"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "buttonVariant",
+      "type": "ButtonVariant",
+      "default_value": "clear",
+      "type_value": [
+        "filled",
+        "outlined",
+        "clear"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "buttonColor",
+      "type": "ButtonColorVariant",
+      "default_value": "secondary",
+      "type_value": [
+        "primary",
+        "secondary",
+        "inverse",
+        "danger",
+        "success",
+        "warning"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "buttonRadius",
+      "type": "Radius",
+      "default_value": "medium",
+      "type_value": [
+        "small",
+        "medium",
+        "large",
+        "none",
+        "circular"
       ],
       "primitive": false,
       "conditional": false
@@ -53,15 +94,15 @@
       },
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@papit/templates-base"
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
       },
       {
         "name": "style",
@@ -85,21 +126,21 @@
       },
       {
         "name": "button-suffix",
-        "html": "\n                        <span class=\"caret-wrapper\">\n                            <pap-icon customsize=\"15\" name=\"caret\">v</pap-icon>\n                        </span>\n                    "
+        "html": "\n            <pap-icon customsize=\"15\" name=\"caret\">v</pap-icon>\n          "
       },
       {
         "name": "default",
-        "html": "\n                        <pap-menu-item>Missing Items</pap-menu-item>\n                    "
+        "html": "\n            <pap-menu-item>Missing Items</pap-menu-item>\n          "
       }
     ],
     "parts": [
       {
         "name": "button",
-        "tag": "pap-BUTTON"
+        "tag": "PAP-BUTTON"
       },
       {
         "name": "box",
-        "tag": "pap-BOX-TEMPLATE"
+        "tag": "PAP-BOX-TEMPLATE"
       }
     ]
   },
@@ -107,39 +148,35 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/menu",
     "sources": [],
     "variables": {
-      "--pap-color-white": {
+      "--pap-color-bg": {
         "usecases": [
           "--menu-background"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
-      "--pap-color-black": {
+      "--pap-color-text": {
         "usecases": [
           "--menu-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#29292F"
+        ]
+      },
+      "--padding-small": {
+        "usecases": [
+          "padding-block"
+        ],
+        "fallbacks": [
+          "8px"
+        ]
       },
       "--menu-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": []
-      },
-      "--menu-color": {
-        "usecases": [
-          "color"
-        ],
-        "fallbacks": []
-      },
-      "--padding-small": {
-        "usecases": [
-          "padding",
-          "gap",
-          "padding-block"
-        ],
-        "fallbacks": [
-          "8px"
-        ]
       }
     }
   }

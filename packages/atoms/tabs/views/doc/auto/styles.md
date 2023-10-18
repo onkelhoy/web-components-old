@@ -4,20 +4,21 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
-import { html, property } from "@papit/tools-utils";
+## SOURCE-CODE
+
+// utils
+import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 import { Tab } from "./components/tab";
 import { TabContent } from "./components/content";
 import { SelectEvent } from "./types";
 
-export class Tabs extends BaseTemplate {
+export class Tabs extends BaseSystem {
     static style = style;
 
     private tabs:Tab[] = [];
@@ -180,7 +181,9 @@ declare global {
         "pap-tabs": Tabs;
     }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     display: grid;
     grid-template-rows: auto 1fr;

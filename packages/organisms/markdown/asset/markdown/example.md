@@ -9,11 +9,12 @@ Here's a link to [Google](https://www.google.com).
 ## Titles and Subtitles
 
 ### Level 3 subtitle
+
 #### Level 4 subtitle
 
 ## Content
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla justo eget enim rhoncus semper. Proin tincidunt urna ac libero ultrices, eu feugiat nulla tincidunt. Nam semper sapien vitae eleifend congue. Sed eu nisl aliquam, gravida enim vel, euismod risus. 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla justo eget enim rhoncus semper. Proin tincidunt urna ac libero ultrices, eu feugiat nulla tincidunt. Nam semper sapien vitae eleifend congue. Sed eu nisl aliquam, gravida enim vel, euismod risus.
 
 ## Tables
 
@@ -22,27 +23,28 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fringilla justo ege
 | Row 1, Column 1 | Row 1, Column 2 |
 | Row 2, Column 1 | Row 2, Column 2 |
 
+## Logical
 
-## Logical 
+### Properties Table
 
-### Properties Table:
 | name   | default-value | type     | description                          |
 |--------|---------------|----------|--------------------------------------|
 | foo    | "bar"         | Foo      | This property is of type `Foo`       |
 | bajs   | undefined     | number   | This property is of type `number`    |
 | fooLaa | true          | boolean  | This property is of type `boolean`   |
 
-### Events Table:
+### Events Table
+
 | name       | type                    | description                                                          |
 |------------|-------------------------|----------------------------------------------------------------------|
 | main-click | `CustomEvent<ClickEvent>` | This event is dispatched when the main section is clicked.           |
 
-### Public Functions Table:
+### Public Functions Table
+
 | name         | arguments                                     | description                                                                                                                         |
 |--------------|------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| render       | None                                           | This function renders the `TestPage` component using `html` function from "@papit/tools-utils" and returns the rendered HTML as a string. |
+| render       | None                                           | This function renders the `TestPage` component using `html` function from "@pap-it/system-utils" and returns the rendered HTML as a string. |
 | handleMainClick | None                                           | This function dispatches a `CustomEvent` with type `ClickEvent` and detail `{foo: this.foo}` when the main section is clicked.          |
-
 
 ## Styling
 
@@ -73,7 +75,6 @@ The TestPage component has the following slots:
 | header | `<h1>llama drama trauma</h1>` | The header content of the component. |
 | default | `<p>Why did the llama go to therapy? Because it had a lot of spitting issues!</p>` | The main content of the component. |
 | footer | `<p>Why did the llama enter the door? To attend the llamazing party inside!</p>` | The footer content of the component. |
-
 
 ## Code
 

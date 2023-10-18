@@ -57,6 +57,22 @@
       ],
       "primitive": false,
       "conditional": false
+    },
+    {
+      "name": "nowrap",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "truncate",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
     }
   ],
   "extend_class": null,
@@ -68,21 +84,30 @@
       },
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@papit/templates-base"
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
       },
       {
         "name": "style",
         "from": "./style"
       }
     ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "default",
+        "html": ""
+      }
+    ],
+    "parts": []
   },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/typography",
@@ -92,451 +117,601 @@
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-h1-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "8.75rem"
+        ]
       },
       "--typography-h1-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "800"
+        ]
       },
       "--typography-h1-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "120%"
+        ]
       },
       "--typography-h1-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0"
+        ]
       },
       "--typography-h2-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-h2-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "5.5rem"
+        ]
       },
       "--typography-h2-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "800"
+        ]
       },
       "--typography-h2-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "120%"
+        ]
       },
       "--typography-h2-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0"
+        ]
       },
       "--typography-h3-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-h3-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "5rem"
+        ]
       },
       "--typography-h3-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "700"
+        ]
       },
       "--typography-h3-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "120%"
+        ]
       },
       "--typography-h3-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0"
+        ]
       },
       "--typography-h4-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-h4-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "4rem"
+        ]
       },
       "--typography-h4-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "700"
+        ]
       },
       "--typography-h4-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "120%"
+        ]
       },
       "--typography-h4-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0"
+        ]
       },
       "--typography-h5-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-h5-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "3.5rem"
+        ]
       },
       "--typography-h5-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "400"
+        ]
       },
       "--typography-h5-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "120%"
+        ]
       },
       "--typography-h5-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0"
+        ]
       },
       "--typography-t1-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-t1-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "3rem"
+        ]
       },
       "--typography-t1-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "700"
+        ]
       },
       "--typography-t1-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "120%"
+        ]
       },
       "--typography-t1-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0"
+        ]
       },
       "--typography-t2-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-t2-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "2.5rem"
+        ]
       },
       "--typography-t2-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "700"
+        ]
       },
       "--typography-t2-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "120%"
+        ]
       },
       "--typography-t2-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0"
+        ]
       },
       "--typography-t3-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-t3-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "2rem"
+        ]
       },
       "--typography-t3-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "600"
+        ]
       },
       "--typography-t3-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "120%"
+        ]
       },
       "--typography-t3-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0"
+        ]
       },
       "--typography-t4-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-t4-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "1.5rem"
+        ]
       },
       "--typography-t4-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "600"
+        ]
       },
       "--typography-t4-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "140%"
+        ]
       },
       "--typography-t4-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0"
+        ]
       },
       "--typography-c1-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-c1-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "1.5rem"
+        ]
       },
       "--typography-c1-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "500"
+        ]
       },
       "--typography-c1-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "140%"
+        ]
       },
       "--typography-c1-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0.01rem"
+        ]
       },
       "--typography-c2-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-c2-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "1rem"
+        ]
       },
       "--typography-c2-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "600"
+        ]
       },
       "--typography-c2-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "140%"
+        ]
       },
       "--typography-c2-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0.01rem"
+        ]
       },
       "--typography-c3-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-c3-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "1rem"
+        ]
       },
       "--typography-c3-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "400"
+        ]
       },
       "--typography-c3-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "140%"
+        ]
       },
       "--typography-c3-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0.01rem"
+        ]
       },
       "--typography-c4-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-c4-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0.75rem"
+        ]
       },
       "--typography-c4-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "400"
+        ]
       },
       "--typography-c4-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "140%"
+        ]
       },
       "--typography-c4-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0.01rem"
+        ]
       },
       "--typography-b1-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-b1-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "1rem"
+        ]
       },
       "--typography-b1-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "600"
+        ]
       },
       "--typography-b1-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "140%"
+        ]
       },
       "--typography-b1-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0.01rem"
+        ]
       },
       "--typography-b2-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-b2-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "1rem"
+        ]
       },
       "--typography-b2-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "600"
+        ]
       },
       "--typography-b2-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "140%"
+        ]
       },
       "--typography-b2-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0.01rem"
+        ]
       }
     }
   }

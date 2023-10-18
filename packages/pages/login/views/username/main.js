@@ -1,8 +1,8 @@
 // tools
-import '@papit/tools-doc/wc';
+import '@pap-it/system-doc/wc';
 
 // component
-import '@papit/pages-login/wc';
+import '@pap-it/pages-login/wc';
 
 window.onload = () => {
     console.log('[username]: window loaded');

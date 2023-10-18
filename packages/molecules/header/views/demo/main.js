@@ -1,17 +1,17 @@
 // tools
-import '@papit/tools-doc/wc';
+import '@pap-it/system-doc/wc';
 
 // component
-import '@papit/header/wc';
+import '@pap-it/header/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');
 
-    // window.oTheme.add({ name: "Blue", href: "blue", representColor: "cornflowerblue" });
-    // window.oTheme.add({ name: "Orange", href: "orange", representColor: "orange" });
-
     window.oTheme.add({ name: "KTV", href: "ktv", representColor: "cornflowerblue" });
     window.oTheme.add({ name: "PMP", href: "pmp", representColor: "coral" });
+    // window.oTheme.add({ name: "Base", href: "base", representColor: "gray" });
+
+    window.oTheme.
 
     setTimeout(() => {
         window.oTranslation.loadAll([

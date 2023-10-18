@@ -1,0 +1,77 @@
+{
+  "className": "Divider",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/divider",
+  "properties": [
+    {
+      "name": "mode",
+      "type": "Mode",
+      "default_value": "horizontal",
+      "type_value": [
+        "vertical",
+        "horizontal"
+      ],
+      "primitive": false,
+      "conditional": false
+    }
+  ],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/atoms/divider": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [],
+    "parts": [
+      {
+        "name": "line",
+        "tag": "DIV"
+      }
+    ]
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/divider",
+    "sources": [],
+    "variables": {
+      "--pap-divider-color": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "var(--pap-color-border, #C7CBD4)"
+        ]
+      },
+      "--pap-color-border": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "#C7CBD4"
+        ]
+      },
+      "--divider-margin": {
+        "usecases": [
+          "margin-inline"
+        ],
+        "fallbacks": [
+          "8px"
+        ]
+      }
+    }
+  }
+}

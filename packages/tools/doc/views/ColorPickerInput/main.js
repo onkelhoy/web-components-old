@@ -1,1 +1,0 @@
-import '@papit/tools-doc/wc';

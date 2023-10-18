@@ -154,11 +154,11 @@
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@papit/templates-base"
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
       },
       {
         "name": "style",
@@ -172,11 +172,11 @@
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "BoxTemplate",
-        "from": "@papit/templates-box"
+        "from": "@pap-it/templates-box"
       },
       {
         "name": "style",
@@ -225,6 +225,12 @@
         "fallbacks": [
           "8px"
         ]
+      },
+      "--gap-small": {
+        "usecases": [
+          "gap"
+        ],
+        "fallbacks": []
       },
       "--typography-b1-fontfamily": {
         "usecases": [
@@ -450,12 +456,20 @@
           "#FFFFFF"
         ]
       },
-      "--pap-button-primary-outlined-default-background": {
+      "--pap-button-primary-outlined-default-border": {
         "usecases": [
-          "background-color"
+          "border-color"
         ],
         "fallbacks": [
-          "\"bg-primary-default\""
+          "var(--pap-color-border-brand, #009DD3)"
+        ]
+      },
+      "--pap-color-border-brand": {
+        "usecases": [
+          "border-color"
+        ],
+        "fallbacks": [
+          "#009DD3"
         ]
       },
       "--pap-button-primary-outlined-default-text": {
@@ -536,14 +550,6 @@
         ],
         "fallbacks": [
           "var(--pap-color-icon-onbrand-pressed, #FFFFFF)"
-        ]
-      },
-      "--pap-button-primary-clear-default-background": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": [
-          "\"bg-primary-default\""
         ]
       },
       "--pap-button-primary-clear-default-text": {
@@ -802,12 +808,20 @@
           "#FFFFFF"
         ]
       },
-      "--pap-button-secondary-outlined-default-background": {
+      "--pap-button-secondary-outlined-default-border": {
         "usecases": [
-          "background-color"
+          "border-color"
         ],
         "fallbacks": [
-          "\"bg-secondary-default\""
+          "var(--pap-color-border, #C7CBD4)"
+        ]
+      },
+      "--pap-color-border": {
+        "usecases": [
+          "border-color"
+        ],
+        "fallbacks": [
+          "#C7CBD4"
         ]
       },
       "--pap-button-secondary-outlined-default-text": {
@@ -888,14 +902,6 @@
         ],
         "fallbacks": [
           "var(--pap-color-icon-oninverse-pressed, #FFFFFF)"
-        ]
-      },
-      "--pap-button-secondary-clear-default-background": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": [
-          "\"bg-secondary-default\""
         ]
       },
       "--pap-button-secondary-clear-default-text": {
@@ -1042,12 +1048,20 @@
           "var(--pap-color-icon, #29292F)"
         ]
       },
-      "--pap-button-inverse-outlined-default-background": {
+      "--pap-button-inverse-outlined-default-border": {
         "usecases": [
-          "background-color"
+          "border-color"
         ],
         "fallbacks": [
-          "\"bg-inverse-default\""
+          "var(--pap-color-border-inverse-strong, #FFFFFF)"
+        ]
+      },
+      "--pap-color-border-inverse-strong": {
+        "usecases": [
+          "border-color"
+        ],
+        "fallbacks": [
+          "#FFFFFF"
         ]
       },
       "--pap-button-inverse-outlined-default-text": {
@@ -1112,14 +1126,6 @@
         ],
         "fallbacks": [
           "var(--pap-color-icon, #29292F)"
-        ]
-      },
-      "--pap-button-inverse-clear-default-background": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": [
-          "\"bg-inverse-default\""
         ]
       },
       "--pap-button-inverse-clear-default-text": {
@@ -1330,12 +1336,20 @@
           "#FFFFFF"
         ]
       },
-      "--pap-button-danger-outlined-default-background": {
+      "--pap-button-danger-outlined-default-border": {
         "usecases": [
-          "background-color"
+          "border-color"
         ],
         "fallbacks": [
-          "\"bg-danger-default\""
+          "var(--pap-color-border-danger, #B70E1E)"
+        ]
+      },
+      "--pap-color-border-danger": {
+        "usecases": [
+          "border-color"
+        ],
+        "fallbacks": [
+          "#B70E1E"
         ]
       },
       "--pap-button-danger-outlined-default-text": {
@@ -1416,14 +1430,6 @@
         ],
         "fallbacks": [
           "var(--pap-color-icon-ondanger-pressed, #FFFFFF)"
-        ]
-      },
-      "--pap-button-danger-clear-default-background": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": [
-          "\"bg-danger-default\""
         ]
       },
       "--pap-button-danger-clear-default-text": {
@@ -1634,12 +1640,20 @@
           "#FFFFFF"
         ]
       },
-      "--pap-button-success-outlined-default-background": {
+      "--pap-button-success-outlined-default-border": {
         "usecases": [
-          "background-color"
+          "border-color"
         ],
         "fallbacks": [
-          "\"bg-success-default\""
+          "var(--pap-color-border-success, #2E701B)"
+        ]
+      },
+      "--pap-color-border-success": {
+        "usecases": [
+          "border-color"
+        ],
+        "fallbacks": [
+          "#2E701B"
         ]
       },
       "--pap-button-success-outlined-default-text": {
@@ -1720,14 +1734,6 @@
         ],
         "fallbacks": [
           "var(--pap-color-icon-onsuccess-pressed, #FFFFFF)"
-        ]
-      },
-      "--pap-button-success-clear-default-background": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": [
-          "\"bg-success-default\""
         ]
       },
       "--pap-button-success-clear-default-text": {
@@ -1938,12 +1944,20 @@
           "#FFFFFF"
         ]
       },
-      "--pap-button-warning-outlined-default-background": {
+      "--pap-button-warning-outlined-default-border": {
         "usecases": [
-          "background-color"
+          "border-color"
         ],
         "fallbacks": [
-          "\"bg-warning-default\""
+          "var(--pap-color-border-warning, #E27F00)"
+        ]
+      },
+      "--pap-color-border-warning": {
+        "usecases": [
+          "border-color"
+        ],
+        "fallbacks": [
+          "#E27F00"
         ]
       },
       "--pap-button-warning-outlined-default-text": {
@@ -2024,14 +2038,6 @@
         ],
         "fallbacks": [
           "var(--pap-color-icon-onwarning-pressed, #FFFFFF)"
-        ]
-      },
-      "--pap-button-warning-clear-default-background": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": [
-          "\"bg-warning-default\""
         ]
       },
       "--pap-button-warning-clear-default-text": {
@@ -2193,15 +2199,6 @@
         ],
         "fallbacks": [
           "4.5rem"
-        ]
-      },
-      "--margin-smaller": {
-        "usecases": [
-          "margin-left",
-          "margin-right"
-        ],
-        "fallbacks": [
-          "4px"
         ]
       },
       "--pap-button-width-small": {

@@ -24,8 +24,16 @@
         "none",
         "small",
         "medium",
-        "large"
+        "large",
+        "x-large"
       ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "elevationdirection",
+      "default_value": "vertical",
+      "type_value": null,
       "primitive": false,
       "conditional": false
     }
@@ -39,11 +47,11 @@
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@papit/templates-base"
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
       },
       {
         "name": "style",
@@ -51,32 +59,19 @@
       }
     ]
   },
+  "html": {
+    "slots": [
+      {
+        "name": "default",
+        "html": ""
+      }
+    ],
+    "parts": []
+  },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/templates/box",
     "sources": [],
     "variables": {
-      "--pap-box-shadow-color-light": {
-        "usecases": [
-          "--shadow-color"
-        ],
-        "fallbacks": [
-          "var(--pap-color-shadow-500)"
-        ]
-      },
-      "--pap-color-shadow-500": {
-        "usecases": [
-          "--shadow-color"
-        ],
-        "fallbacks": []
-      },
-      "--pap-box-shadow-color-dark": {
-        "usecases": [
-          "--shadow-color"
-        ],
-        "fallbacks": [
-          "var(--pap-color-shadow-500)"
-        ]
-      },
       "--box-radius-none": {
         "usecases": [
           "border-radius"
@@ -106,7 +101,8 @@
           "border-radius"
         ],
         "fallbacks": [
-          "var(--radius-small, 4px)"
+          "var(--radius-small, 4px)",
+          "4px"
         ]
       },
       "--box-radius-medium": {
@@ -122,7 +118,8 @@
           "border-radius"
         ],
         "fallbacks": [
-          "var(--radius-medium, 8px)"
+          "var(--radius-medium, 8px)",
+          "8px"
         ]
       },
       "--box-radius-large": {
@@ -138,7 +135,8 @@
           "border-radius"
         ],
         "fallbacks": [
-          "var(--radius-large, 16px)"
+          "var(--radius-large, 16px)",
+          "16px"
         ]
       },
       "--box-radius-circular": {
@@ -161,22 +159,8 @@
         "usecases": [
           "border-radius"
         ],
-        "fallbacks": []
-      },
-      "--box-shadow-none": {
-        "usecases": [
-          "box-shadow"
-        ],
         "fallbacks": [
-          "var(--shadow-none, none)"
-        ]
-      },
-      "--shadow-none": {
-        "usecases": [
-          "box-shadow"
-        ],
-        "fallbacks": [
-          "none"
+          "1000px"
         ]
       },
       "--box-shadow-small": {
@@ -184,37 +168,49 @@
           "box-shadow"
         ],
         "fallbacks": [
-          "var(--shadow-small, 0 2px 4px var(--shadow-color))"
+          "var(--shadow-s, 0 2px 4px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)))",
+          "var(--shadow-horizontal-s, 2px 0 4px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)))"
         ]
       },
-      "--shadow-small": {
+      "--shadow-s": {
         "usecases": [
           "box-shadow"
         ],
         "fallbacks": [
-          "0 2px 4px var(--shadow-color)"
+          "0 2px 4px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%))"
         ]
       },
-      "--shadow-color": {
+      "--pap-color-shadow": {
         "usecases": [
           "box-shadow"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)"
+        ]
+      },
+      "--pap-color-neutral-600": {
+        "usecases": [
+          "box-shadow"
+        ],
+        "fallbacks": [
+          "#6E7087), transparent 80"
+        ]
       },
       "--box-shadow-medium": {
         "usecases": [
           "box-shadow"
         ],
         "fallbacks": [
-          "var(--shadow-medium, 4px 0px 32px 0px var(--shadow-color))"
+          "var(--shadow-m, 0 4px 6px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)))",
+          "var(--shadow-horizontal-m, 4px 0 6px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)))"
         ]
       },
-      "--shadow-medium": {
+      "--shadow-m": {
         "usecases": [
           "box-shadow"
         ],
         "fallbacks": [
-          "4px 0px 32px 0px var(--shadow-color)"
+          "0 4px 6px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%))"
         ]
       },
       "--box-shadow-large": {
@@ -222,15 +218,65 @@
           "box-shadow"
         ],
         "fallbacks": [
-          "var(--shadow-large, 0 2px 15px 5px var(--shadow-color))"
+          "var(--shadow-l, 0 8px 12px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)))",
+          "var(--shadow-horizontal-l, 8px 0 12px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)))"
         ]
       },
-      "--shadow-large": {
+      "--shadow-l": {
         "usecases": [
           "box-shadow"
         ],
         "fallbacks": [
-          "0 2px 15px 5px var(--shadow-color)"
+          "0 8px 12px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%))"
+        ]
+      },
+      "--box-shadow-x-large": {
+        "usecases": [
+          "box-shadow"
+        ],
+        "fallbacks": [
+          "var(--shadow-xl, 0 16px 20px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)))",
+          "var(--shadow-horizontal-xl, 16px 0 20px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)))"
+        ]
+      },
+      "--shadow-xl": {
+        "usecases": [
+          "box-shadow"
+        ],
+        "fallbacks": [
+          "0 16px 20px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%))"
+        ]
+      },
+      "--shadow-horizontal-s": {
+        "usecases": [
+          "box-shadow"
+        ],
+        "fallbacks": [
+          "2px 0 4px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%))"
+        ]
+      },
+      "--shadow-horizontal-m": {
+        "usecases": [
+          "box-shadow"
+        ],
+        "fallbacks": [
+          "4px 0 6px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%))"
+        ]
+      },
+      "--shadow-horizontal-l": {
+        "usecases": [
+          "box-shadow"
+        ],
+        "fallbacks": [
+          "8px 0 12px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%))"
+        ]
+      },
+      "--shadow-horizontal-xl": {
+        "usecases": [
+          "box-shadow"
+        ],
+        "fallbacks": [
+          "16px 0 20px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%))"
         ]
       }
     }

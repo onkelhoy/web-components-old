@@ -1,13 +1,13 @@
 // utils 
-import { html, property } from "@papit/tools-utils";
+import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
 import { style } from "./style";
 import { Reveal, Placement } from './types';
 
-export class PopoverTemplate extends BaseTemplate {
+export class PopoverTemplate extends BaseSystem {
   static styles = [style];
 
   @property() revealby: Reveal = 'hover';
@@ -38,28 +38,24 @@ export class PopoverTemplate extends BaseTemplate {
   private handlemouseenter = () => {
     this.outside = false;
 
-    if (this.revealby === "hover")
-    {
+    if (this.revealby === "hover") {
       this.show();
     }
   }
   private handlemouseleave = () => {
     this.outside = true;
-    
-    if (this.revealby === "hover")
-    {
+
+    if (this.revealby === "hover") {
       this.hide();
     }
   }
   private handlemousedown = () => {
-    if (this.revealby === "click")
-    {
+    if (this.revealby === "click") {
       this.show();
     }
   }
-  private handlewindowclick = (e:Event) => {
-    if (this.hideonoutsideclick && this.outside && this.revealby === "click")
-    {
+  private handlewindowclick = (e: Event) => {
+    if (this.hideonoutsideclick && this.outside && this.revealby === "click") {
       this.hide();
     }
   }
@@ -92,6 +88,6 @@ export class PopoverTemplate extends BaseTemplate {
 
 declare global {
   interface HTMLElementTagNameMap {
-      "pap-popover-template": PopoverTemplate;
+    "pap-popover-template": PopoverTemplate;
   }
 }

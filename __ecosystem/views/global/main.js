@@ -1,12 +1,14 @@
-import "@papit/icon/wc";
-import "@papit/tools-doc/wc";
-import "@papit/templates-sidebar-header/wc";
+import "@pap-it/icon/wc";
+import "@pap-it/system-doc/wc";
+import "@pap-it/templates-sidebar-header/wc";
 
-window.onload = () => {
+window.onload = () => 
+{
   window.oTheme.add({ name: "KTV", href: "ktv", representColor: "cornflowerblue" });
   window.oTheme.add({ name: "PMP", href: "pmp", representColor: "coral" });
 
-  document.querySelector('pap-navbar').addEventListener('select', e => {
+  document.querySelector('pap-navbar').addEventListener('select', e => 
+  {
     const id = e.detail.id;
 
     // disable the others first 
@@ -16,11 +18,11 @@ window.onload = () => {
     document.querySelector(`main.designsystem div[data-target="${id}"]`)?.classList.add('selected')
   })
   
-//   document.querySelectorAll('side-menu menu-item[data-target]').forEach(elm => {
-//     elm.onclick = () => {
-//       // disable the others first 
-//       document.querySelector('side-menu menu-item[data-target].selected')?.classList.remove('selected');
-//       document.querySelector('main.designsystem div[data-target].selected')?.classList.remove('selected');
+  //   document.querySelectorAll('side-menu menu-item[data-target]').forEach(elm => {
+  //     elm.onclick = () => {
+  //       // disable the others first 
+  //       document.querySelector('side-menu menu-item[data-target].selected')?.classList.remove('selected');
+  //       document.querySelector('main.designsystem div[data-target].selected')?.classList.remove('selected');
   
 //       // add the curent 
 //       elm.classList.add('selected');

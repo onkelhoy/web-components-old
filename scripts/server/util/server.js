@@ -14,6 +14,8 @@ const app = express();
 app.use(cookieParser());
 
 let liveHTML = null;
+const commonHTML = fs
+  .readFileSync(path.join(process.env.SCRIPT_DIR, "template/common.html"), 'utf-8');
 
 app.get('*', async (req, res) => 
 {
@@ -34,7 +36,7 @@ app.get('*', async (req, res) =>
         return res.status(302).end('forbidden');
       }
 
-      if (process.env.LIVEMODE)
+      if (process.env.LIVEMODE === "live")
       {
         if (filepath.endsWith('.js'))
         {
@@ -49,6 +51,7 @@ app.get('*', async (req, res) =>
           file = fs.readFileSync(filepath, 'utf-8');
           const document = parse(file);
           document.querySelector('head').appendChild(parse(liveHTML));
+          document.querySelector('head').appendChild(parse(commonHTML));
           file = document.toString();
         }
       }
@@ -62,6 +65,19 @@ app.get('*', async (req, res) =>
             filepath = getFilePath(req, res); // should update to the newly created file inside .temp
           }
         }
+        if (filepath.endsWith('.html'))
+        {
+          file = fs.readFileSync(filepath, 'utf-8');
+          const document = parse(file);
+          document.querySelector('head').appendChild(parse(commonHTML));
+          file = document.toString();
+        }
+      }
+
+      if (filepath.endsWith('.js')) 
+      {
+        // Set Content-Type header for JavaScript files
+        res.set('Content-Type', 'application/javascript');
       }
 
       if (file === null) file = fs.readFileSync(filepath);
@@ -94,7 +110,7 @@ function start(CONFIG)
 {
   const port = Number(CONFIG.port) + server_start_attempts;
 
-  if (process.env.LIVEMODE)
+  if (process.env.LIVEMODE === "live")
   {
     liveHTML = fs
       .readFileSync(path.join(process.env.SCRIPT_DIR, "template/live.html"), 'utf-8')

@@ -1,4 +1,4 @@
-import { fixture } from '@papit/tools-test';
+import { fixture } from '@pap-it/tools-test';
 
 describe('Steps', function () {
   describe('base tests', function () {

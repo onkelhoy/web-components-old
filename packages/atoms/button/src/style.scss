@@ -1,159 +1,176 @@
 @import "style-maps/_mapper.skip";
 
 :host {
-    cursor: var(--pap-button-cursor, pointer);
-    align-items: center;
-    display: flex;
-    gap: var(--gap-small);
-    padding-inline: var(--padding-smaller, 4px);
+  cursor: var(--pap-button-cursor, pointer);
+  align-items: center;
+  display: flex;
+  padding-inline: var(--padding-small, 8px);
 
-    box-sizing: border-box;
-    position: relative;
+  box-sizing: border-box;
+  position: relative;
 
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
 
-    border-style: solid;
-    border-width: 2px;
-    border-color: transparent;
+  border-style: solid;
+  border-width: 2px;
+  border-color: transparent;
 
-    transition: background-color ease-in 80ms;
+  transition: background-color ease-in 80ms;
 }
+
 span.content {
-    margin-inline: auto;
-    gap: var(--gap-small);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  padding-inline: var(--padding-small, 8px);
+  margin-inline: auto;
+  gap: var(--gap-small);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
+
 :host([variant="outlined"]:is(:active)),
 :host([variant="outlined"]:is(:hover)) {
-    border-color: transparent !important;
+  border-color: transparent !important;
 }
+
 :host([mode="hug"]) {
-    display: inline-flex;
+  display: inline-flex;
 }
+
 :host([mode="fill"]) {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 }
+
 :host([textvariant="B1"]),
 :host([textvariant="button1"]) {
-    font-family: var(--typography-b1-fontfamily, 'Libre Franklin', helvetica, sans-serif);
-    font-size: var(--typography-b1-fontsize, 1rem);
-    font-weight: var(--typography-b1-fontweight, 600);
-    line-height: var(--typography-b1-lineheight, 140%);
-    letter-spacing: var(--typography-b1-letterspacing, 0.01rem);
+  font-family: var(--typography-b1-fontfamily, 'Libre Franklin', helvetica, sans-serif);
+  font-size: var(--typography-b1-fontsize, 1rem);
+  font-weight: var(--typography-b1-fontweight, 600);
+  line-height: var(--typography-b1-lineheight, 140%);
+  letter-spacing: var(--typography-b1-letterspacing, 0.01rem);
 }
+
 :host([color="secondary"][variant="clear"]:not([textvariant="B1"]):not([textvariant="button1"])),
 :host([color="inverse"][variant="clear"]:not([textvariant="B1"]):not([textvariant="button1"])),
 :host([textvariant="B2"]),
 :host([textvariant="button2"]) {
-    font-family: var(--typography-b2-fontfamily, 'Libre Franklin', helvetica, sans-serif);
-    font-size: var(--typography-b2-fontsize, 1rem);
-    font-weight: var(--typography-b2-fontweight, 600);
-    line-height: var(--typography-b2-lineheight, 140%);
-    letter-spacing: var(--typography-b2-letterspacing, 0.01rem);
-    text-decoration: underline;
+  font-family: var(--typography-b2-fontfamily, 'Libre Franklin', helvetica, sans-serif);
+  font-size: var(--typography-b2-fontsize, 1rem);
+  font-weight: var(--typography-b2-fontweight, 600);
+  line-height: var(--typography-b2-lineheight, 140%);
+  letter-spacing: var(--typography-b2-letterspacing, 0.01rem);
+  text-decoration: underline;
 }
 
 @include set-colors;
 
 :host([disabled]) {
-    cursor: var(--pap-button-cursor-disabled, not-allowed);
-    color: var(--pap-button-disabled-text, var(--pap-color-text-disabled, #A3A9B7));
+  cursor: var(--pap-button-cursor-disabled, not-allowed);
+  color: var(--pap-button-disabled-text, var(--pap-color-text-disabled, #A3A9B7));
 }
+
 :host([disabled]) ::slotted(pap-icon) {
-    color: var(--pap-button-icon-disabled, var(--pap-color-icon-disabled, #A3A9B7));
+  color: var(--pap-button-icon-disabled, var(--pap-color-icon-disabled, #A3A9B7));
 }
+
 :host([variant="filled"][disabled]) {
-    background-color: var(--pap-button-disabled-filled-background, var(--pap-color-bg-disabled, #DADDE3));
+  background-color: var(--pap-button-disabled-filled-background, var(--pap-color-bg-disabled, #DADDE3));
 }
+
 :host([variant="outlined"][disabled]) {
-    border-color: var(--pap-button-disabled-outlined-border, var(--pap-color-border-disabled, #A3A9B7)) !important;
+  border-color: var(--pap-button-disabled-outlined-border, var(--pap-color-border-disabled, #A3A9B7)) !important;
 }
 
 :host(.focus),
 :host(:focus-visible) {
-    outline-offset: 2px;
-    outline: 2px solid var(--pap-color-border-strong, #29292F) !important;
+  outline-offset: 2px;
+  outline: 2px solid var(--pap-color-border-strong, #29292F) !important;
 }
+
 :host([disabled]:focus),
 :host([disabled].focus),
 :host([disabled]:focus-visible),
 :host([disabled]:focus-within) {
-    outline: none !important;
+  outline: none !important;
 }
 
 :host([loading="true"]) {
-    &::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: var(--field-size-smaller, 24px);
-        height: var(--field-size-smaller, 24px);
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--field-size-smaller, 24px);
+    height: var(--field-size-smaller, 24px);
 
-        border-radius: 50%;
-        display: inline-block;
-        border-right: 2px solid transparent;
-        box-sizing: border-box;
+    border-radius: 50%;
+    display: inline-block;
+    border-right: 2px solid transparent;
+    box-sizing: border-box;
 
-        animation: spin 1s linear infinite; /* This line sets up the animation */
-    }
+    animation: spin 1s linear infinite;
+    /* This line sets up the animation */
+  }
 
-    span.content,
-    ::slotted(*) {
-        display: none !important;
-    }
+  span.content,
+  ::slotted(*) {
+    display: none !important;
+  }
 }
+
 :host([loading="true"][mode="hug"]) {
-    width: 110px;
+  width: 110px;
 }
 
 $size-map: (
-    small: (
-        min-width: 4.5rem,
-        height: 2rem, // border
-    ),
-    medium: (
-        min-width: 5.625rem,
-        height: 2.5rem,
-    ),
-    large: (
-        min-width: 6.75rem,
-        height: 3rem,
-    ),
+  small: (min-width: 4.5rem,
+    height: 2rem, // border
+  ),
+  medium: (min-width: 5.625rem,
+    height: 2.5rem,
+  ),
+  large: (min-width: 6.75rem,
+    height: 3rem,
+  ),
 );
 
+// ::slotted(*[slot="prefix"]) {
+//   margin-left: var(--margin-small, 8px);
+// }
+
+// ::slotted(*[slot="suffix"]) {
+//   margin-right: var(--margin-small, 8px);
+// }
+
 @each $name, $value in $size-map {
-    :host([size="#{$name}"]) {
-        min-height: var(--pap-button-height-#{$name}, #{map-get($value, height)});
-        height: fit-content;
-    }
-    :host([size="#{$name}"]:not([circle="true"])) {
-        min-width: var(--pap-button-min-width-#{$name}, #{map-get($value, min-width)});
-    }
-    ::slotted(*[slot="prefix"]) {
-        margin-left: var(--margin-smaller, 4px);
-    }
-    ::slotted(*[slot="suffix"]) {
-        margin-right: var(--margin-smaller, 4px);
-    }
-    :host([circle="true"][size="#{$name}"]) {
-        padding: 0;
-        min-width: auto !important;
-        justify-content: center;
-        width: var(--pap-button-width-#{$name}, #{map-get($value, height)});
-    }
+  :host([size="#{$name}"]) {
+    min-height: var(--pap-button-height-#{$name}, #{map-get($value, height)});
+    height: fit-content;
+  }
+
+  :host([size="#{$name}"]:not([circle="true"])) {
+    min-width: var(--pap-button-min-width-#{$name}, #{map-get($value, min-width)});
+  }
+
+  :host([circle="true"][size="#{$name}"]) {
+    padding: 0;
+    min-width: auto !important;
+    justify-content: center;
+    width: var(--pap-button-width-#{$name}, #{map-get($value, height)});
+  }
 }
 
 @keyframes spin {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }

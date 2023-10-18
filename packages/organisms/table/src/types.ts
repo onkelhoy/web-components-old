@@ -1,4 +1,4 @@
-import { IOption } from '@papit/dropdown';
+import { IOption } from '@pap-it/dropdown';
 
 // data related types
 type CellObject = {

@@ -1,4 +1,4 @@
-import '@papit/tools-doc/wc';
+import '@pap-it/system-doc/wc';
 
 let TARGET_ELEMENT = null;
 window.onload = () => {

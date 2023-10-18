@@ -1,0 +1,46 @@
+body {
+  background-color: var(--pap-color-bg-canvas, #EAEBEF);
+  color: var(--pap-color-text, #29292F);
+  font-family: var(--pap-font-family);
+  margin: 0;
+  height: 100vh;
+}
+
+section.control {
+  padding: 0 4rem;
+}
+section.control pap-tabs::part(header) {
+  border-bottom: 2px solid var(--pap-color-border, #C7CBD4);
+}
+
+div.slot {
+  display: grid;
+  gap: 1rem;
+  row-gap: 3rem;
+}
+div.properties {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+.style-source {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.style-source > h3 {
+  grid-column: 1/3;
+}
+
+.style-group > .info {
+  display: flex;
+}
+
+div#target {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

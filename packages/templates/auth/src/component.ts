@@ -1,23 +1,23 @@
 // utils 
-import { html } from "@papit/tools-utils";
-import "@papit/tools-translator/wc";
+import { html } from "@pap-it/system-utils";
+import "@pap-it/tools-translator/wc";
 
 // atoms 
-import "@papit/button/wc";
-import "@papit/typography/wc";
-import "@papit/icon/wc";
+import "@pap-it/button/wc";
+import "@pap-it/typography/wc";
+import "@pap-it/icon/wc";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
 // local 
 import { style } from "./style";
 
-export class AuthTemplate extends BaseTemplate {
-    static style = style;
+export class AuthTemplate extends BaseSystem {
+  static style = style;
 
-    render() {
-        return html`
+  render() {
+    return html`
             <div class="logo flex">
                 <slot name="logo"><pap-icon customSize="200" name="interzero-logo"></pap-icon></slot>
             </div>
@@ -41,12 +41,12 @@ export class AuthTemplate extends BaseTemplate {
                 </slot>
             </div>
         `
-    }
+  }
 }
 
 
 declare global {
-    interface HTMLElementTagNameMap {
-        "pap-auth-template": AuthTemplate;
-    }
+  interface HTMLElementTagNameMap {
+    "pap-auth-template": AuthTemplate;
+  }
 }

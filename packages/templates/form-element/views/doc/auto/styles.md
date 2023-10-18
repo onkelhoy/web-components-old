@@ -4,14 +4,15 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
-import { property } from "@papit/tools-utils";
+## SOURCE-CODE
+
+// utils
+import { property } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
-export class FormElementTemplate extends BaseTemplate {
+export class FormElementTemplate extends BaseSystem {
 
     @property({ type: Boolean, rerender: false }) disabled?: boolean;
     @property({ type: Boolean, rerender: false }) required?: boolean;
@@ -53,10 +54,10 @@ export class FormElementTemplate extends BaseTemplate {
     }
 }
 
-
 declare global {
     interface HTMLElementTagNameMap {
         "pap-form-element-template": FormElementTemplate;
     }
 }
-## STYLE-CODE:
+
+## STYLE-CODE

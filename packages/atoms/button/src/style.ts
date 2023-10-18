@@ -2,8 +2,7 @@ export const style = `:host {
   cursor: var(--pap-button-cursor, pointer);
   align-items: center;
   display: flex;
-  gap: var(--gap-small);
-  padding-inline: var(--padding-smaller, 4px);
+  padding-inline: var(--padding-small, 8px);
   box-sizing: border-box;
   position: relative;
   -webkit-user-select: none;
@@ -18,6 +17,7 @@ export const style = `:host {
   transition: background-color ease-in 80ms; }
 
 span.content {
+  padding-inline: var(--padding-small, 8px);
   margin-inline: auto;
   gap: var(--gap-small);
   display: inline-flex;
@@ -844,12 +844,6 @@ span.content {
 :host([size="small"]:not([circle="true"])) {
   min-width: var(--pap-button-min-width-small, 4.5rem); }
 
-::slotted(*[slot="prefix"]) {
-  margin-left: var(--margin-smaller, 4px); }
-
-::slotted(*[slot="suffix"]) {
-  margin-right: var(--margin-smaller, 4px); }
-
 :host([circle="true"][size="small"]) {
   padding: 0;
   min-width: auto !important;
@@ -863,12 +857,6 @@ span.content {
 :host([size="medium"]:not([circle="true"])) {
   min-width: var(--pap-button-min-width-medium, 5.625rem); }
 
-::slotted(*[slot="prefix"]) {
-  margin-left: var(--margin-smaller, 4px); }
-
-::slotted(*[slot="suffix"]) {
-  margin-right: var(--margin-smaller, 4px); }
-
 :host([circle="true"][size="medium"]) {
   padding: 0;
   min-width: auto !important;
@@ -881,12 +869,6 @@ span.content {
 
 :host([size="large"]:not([circle="true"])) {
   min-width: var(--pap-button-min-width-large, 6.75rem); }
-
-::slotted(*[slot="prefix"]) {
-  margin-left: var(--margin-smaller, 4px); }
-
-::slotted(*[slot="suffix"]) {
-  margin-right: var(--margin-smaller, 4px); }
 
 :host([circle="true"][size="large"]) {
   padding: 0;

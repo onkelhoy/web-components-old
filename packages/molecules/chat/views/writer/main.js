@@ -1,8 +1,8 @@
 // tools
-import '@papit/tools-doc/wc';
+import '@pap-it/system-doc/wc';
 
 // component
-import '@papit/chat/wc';
+import '@pap-it/chat/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');

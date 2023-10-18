@@ -4,28 +4,29 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
-import { html, property, query } from "@papit/tools-utils";
-import "@papit/tools-translator/wc";
+## SOURCE-CODE
 
-// atoms 
-import "@papit/button/wc";
-import "@papit/icon/wc";
-import "@papit/divider/wc";
-import "@papit/typography/wc";
+// utils
+import { html, property, query } from "@pap-it/system-utils";
+import "@pap-it/tools-translator/wc";
+
+// atoms
+import "@pap-it/button/wc";
+import "@pap-it/icon/wc";
+import "@pap-it/divider/wc";
+import "@pap-it/typography/wc";
 
 // templates
-import { BoxTemplate } from "@papit/templates-box";
-import { BaseTemplate } from "@papit/templates-base";
-import '@papit/templates-box/wc'
+import { BoxTemplate } from "@pap-it/templates-box";
+import { BaseSystem } from "@pap-it/system-base";
+import '@pap-it/templates-box/wc'
 
-// local 
+// local
 import { style } from "./style";
 import { Mode, SelectEvent } from "./types";
 import { Item } from "./components/item";
 
-export class Sidebar extends BaseTemplate {
+export class Sidebar extends BaseSystem {
     static style = style;
 
     @property({ rerender: false }) mode:Mode = "open";
@@ -161,13 +162,14 @@ export class Sidebar extends BaseTemplate {
     }
 }
 
-
 declare global {
     interface HTMLElementTagNameMap {
         "pap-sidebar": Sidebar;
     }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 // light mode (system)
 @media (prefers-color-scheme: light) {
     :host {
@@ -207,7 +209,7 @@ declare global {
     }
 }
 
-:host {    
+:host {
     position: sticky;
     top: 0;
     left: 0;
@@ -216,7 +218,7 @@ declare global {
     z-index: 1;
     // min-height: 100vh;
     grid-template-rows: 1fr;
-    
+
     pap-box-template {
         container-type: inline-size;
         display: block;
@@ -266,10 +268,10 @@ declare global {
     width: 3.5rem;
 }
 
-:host([mode="hover"]) {    
+:host([mode="hover"]) {
     width: 3.5rem;
     z-index: 1000;
-    
+
     pap-box-template {
         position: absolute;
 

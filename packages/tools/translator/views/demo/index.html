@@ -1,92 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TranslatorTool demo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TranslatorTool demo</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
-    <script defer src="demo.js"></script>
+  <script defer src="main.js"></script>
+  <script defer src="demo.js"></script>
 </head>
+
 <body>
-    <doc-card>
-        <button id="toggle-translation">Toggle Translation</button>
-    </doc-card>
+  <doc-card>
+    <button id="toggle-translation">Toggle Translation</button>
+  </doc-card>
 
-    <doc-card>
-        <pap-codeblock lang="javascript" display="code">
-            class ExtendDemo extends Translator {
-                render() {
-                    return html`
-                        <label>${this.translateKey('bajs')}</label>
-                    `
-                }
-            }
-        </pap-codeblock>
-        <pap-codeblock display="both">
-            <translate-extenddemo></translate-extenddemo>
-        </pap-codeblock>
-    </doc-card>
-    
-    <doc-card>
-        <pap-codeblock lang="javascript" display="code">
-            class ExtendDemo2 extends Translator {
-                render() {
-                    const label = this.translateKey('Your email address');
-                    const placeholder = this.translateKey('Type here');
-                    
-                    return html`
-                        <p>${label}</p>
-                        <p>${placeholder}</p>
-                    `
-                }
-            }
-        </pap-codeblock>
-        <pap-codeblock display="both">
-            <translate-extenddemo2></translate-extenddemo2>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <pap-codeblock lang="javascript" display="code">
+      class ExtendDemo extends Translator {
+      render() {
+      return html`
+      <label>${this.translateKey('bajs')}</label>
+      `
+      }
+      }
+    </pap-codeblock>
+    <pap-codeblock display="both">
+      <translate-extenddemo></translate-extenddemo>
+    </pap-codeblock>
+  </doc-card>
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-translator>Hello World</pap-translator>
-            <br />
-            <pap-translator name="Henry">Hello {name}</pap-translator>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <pap-codeblock lang="javascript" display="code">
+      class ExtendDemo2 extends Translator {
+      render() {
+      const label = this.translateKey('Your email address');
+      const placeholder = this.translateKey('Type here');
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-translator name="Henry">I dont exist {name}</pap-translator>
-            <pap-translator 
-                start="4"
-                end="7"
-                total="19"
-            >
-                {start} - {end} of {total}
-            </pap-translator>
-        </pap-codeblock>
-    </doc-card>
+      return html`
+      <p>${label}</p>
+      <p>${placeholder}</p>
+      `
+      }
+      }
+    </pap-codeblock>
+    <pap-codeblock display="both">
+      <translate-extenddemo2></translate-extenddemo2>
+    </pap-codeblock>
+  </doc-card>
 
-    <doc-card>
-        <pap-codeblock lang="javascript" display="code">
-            class InsideDemo extends BaseTemplate {
-                render() {
-                    return html`
-                        <pap-translator>${this.getAttribute('text')}</pap-translator>
-                    `
-                }
-            }
-        </pap-codeblock>
-        <pap-codeblock display="both">
-            <translate-insidedemo text="bajs"></translate-insidedemo>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <pap-codeblock display="both">
+      <pap-translator>Hello World</pap-translator>
+      <br />
+      <pap-translator name="Henry">Hello {name}</pap-translator>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-codeblock display="both">
+      <pap-translator name="Henry">I dont exist {name}</pap-translator>
+      <pap-translator start="4" end="7" total="19">
+        {start} - {end} of {total}
+      </pap-translator>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-codeblock lang="javascript" display="code">
+      class InsideDemo extends BaseSystem {
+      render() {
+      return html`
+      <pap-translator>${this.getAttribute('text')}</pap-translator>
+      `
+      }
+      }
+    </pap-codeblock>
+    <pap-codeblock display="both">
+      <translate-insidedemo text="bajs"></translate-insidedemo>
+    </pap-codeblock>
+  </doc-card>
 </body>
+
 </html>

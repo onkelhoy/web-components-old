@@ -1,2 +1,2 @@
-import '@papit/tools-doc/wc';
-import "@papit/accordion/wc";
+import '@pap-it/system-doc/wc';
+import "@pap-it/accordion/wc";

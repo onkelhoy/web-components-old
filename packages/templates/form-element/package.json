@@ -1,15 +1,16 @@
 {
-  "name": "@papit/templates-form-element",
-  "version": "0.0.0",
+  "name": "@pap-it/templates-form-element",
+  "version": "1.0.0",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
     "build": ".scripts/build.sh",
     "watch": ".scripts/watch.sh",
-    "manual-publish": ".scripts/publish.sh",
+    "manual-publish": "sh .scripts/publish.sh",
     "postversion": "sh .scripts/postversion.sh",
     "combine": ".scripts/combine.sh && .scripts/start.sh combined",
     "start": ".scripts/start.sh",
+    "isolate": "sh .scripts/isolate.sh",
     "interactive": "sh .scripts/helper/build-interactive.sh",
     "variations": "sh .scripts/helper/build-variations.sh",
     "component:add": "sh .scripts/helper/add-component.sh"
@@ -35,12 +36,13 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@papit/templates-base": "^0.0.0",
-    "@papit/tools-utils": "^0.0.0"
+    "@pap-it/system-base": "1.0.0",
+    "@pap-it/system-utils": "1.0.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint": "^8.53.0",
-    "@papit/tools-doc": "^0.0.0",
+    "@pap-it/system-doc": "1.0.0",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "node-sass": "^9.0.0",
@@ -50,8 +52,6 @@
   "keywords": [
     "web-component",
     "typescript",
-    "demoing",
-    "testing",
     "sass"
   ],
   "description": ""

@@ -3,6 +3,7 @@ node_modules/
 
 # Ignore build output directory
 dist/
+isolated/
 web/
 combined/
 .devserver-temp/

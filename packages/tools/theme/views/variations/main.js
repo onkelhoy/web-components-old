@@ -1,2 +1,2 @@
-import '@papit/tools-doc/wc';
-import "@papit/tools-theme/wc";
+import '@pap-it/system-doc/wc';
+import "@pap-it/tools-theme/wc";

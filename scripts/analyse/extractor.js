@@ -70,7 +70,7 @@ function extractor(folder_path, className) {
     }
 
     let extend_class = null;
-    if (classInfo.extends && !["HTMLElement", "BaseTemplate"].includes(classInfo.extends)) {
+    if (classInfo.extends && !["HTMLElement", "BaseSystem"].includes(classInfo.extends)) {
         for (let imp of imports) {
             if (imp.name === classInfo.extends)
             {
@@ -121,7 +121,7 @@ function extract_import(line) {
     return null;
 }
 function getLocalModule(name) {
-    if (!name.startsWith('@papit')) return null;
+    if (!name.startsWith('@pap-it')) return null;
 
     const data = LOCKFILE.packages[`node_modules/${name}`];
     if (!data) return null;

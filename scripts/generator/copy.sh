@@ -10,6 +10,7 @@ echo "3) organisms"
 echo "4) pages"
 echo "5) templates"
 echo "6) tools"
+echo "7) system"
 
 read -p "Enter the number corresponding to your choice: " choice
 read -p "Enter the name: " name
@@ -23,6 +24,7 @@ case $choice in
     4) atomic_type="pages" ;;
     5) atomic_type="templates" ;;
     6) atomic_type="tools" ;;
+    7) atomic_type="system" ;;
     *) echo "Invalid choice! Exiting..."; exit 1 ;;
 esac
 
@@ -35,7 +37,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 destination="./packages/${atomic_type}/${name}"
 package_name=""
 
-if [[ "$atomic_type" == "pages" || "$atomic_type" == "templates" || "$atomic_type" == "tools" ]]; then
+if [[ "$atomic_type" == "system" || "$atomic_type" == "pages" || "$atomic_type" == "templates" || "$atomic_type" == "tools" ]]; then
     # Remove the trailing 's' from the atomic type
     singular_atomic_type=$(echo "$atomic_type" | sed 's/.$//')
 
@@ -48,7 +50,7 @@ if [[ "$atomic_type" == "pages" || "$atomic_type" == "templates" || "$atomic_typ
     prefixname="${prefix}-${name}-${singular_atomic_type}"
 fi
 
-output=$(node scripts/generator/check.js $ROOTDIR "@papit$package_name/$name" $destination)
+output=$(node scripts/generator/check.js $ROOTDIR "@pap-it$package_name/$name" $destination)
 
 if [ "$output" == "1" ]; then
   echo "Package exists in lockfile"

@@ -1,0 +1,16 @@
+{
+  "name": "@pap-it/ecosystem",
+  "version": "1.0.0",
+  "author": "Henry Pap",
+  "private": true,
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onkelhoy/web-components.git"
+  },
+  "dependencies": {},
+  "keywords": [
+    "designsystem"
+  ],
+  "description": ""
+}

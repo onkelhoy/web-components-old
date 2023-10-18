@@ -1,0 +1,278 @@
+{
+  "className": "Markdown",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/organisms/markdown",
+  "properties": [
+    {
+      "name": "url",
+      "type": "string",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    },
+    {
+      "name": "file",
+      "type": "string",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    }
+  ],
+  "extend_class": {
+    "className": "AssetTemplate",
+    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/asset",
+    "properties": [
+      {
+        "name": "assetBase",
+        "type": "string",
+        "default_value": "/public",
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "name": "cache",
+        "type": "boolean",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      }
+    ],
+    "extend_class": null
+  },
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/templates/asset": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      }
+    ],
+    "/Users/henry/Developer/projects/web-components/packages/organisms/markdown": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "AssetTemplate",
+        "from": "@pap-it/templates-asset"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [],
+    "parts": []
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/organisms/markdown",
+    "sources": [],
+    "variables": {
+      "--pap-markdown-background": {
+        "usecases": [
+          "--background"
+        ],
+        "fallbacks": [
+          "var(--pap-color-bg, #FFFFFF)"
+        ]
+      },
+      "--pap-color-bg": {
+        "usecases": [
+          "--background"
+        ],
+        "fallbacks": [
+          "#FFFFFF"
+        ]
+      },
+      "--pap-markdown-block-background": {
+        "usecases": [
+          "--block-background"
+        ],
+        "fallbacks": [
+          "var(--pap-color-bg-tertiary, #EAEBEF)"
+        ]
+      },
+      "--pap-color-bg-tertiary": {
+        "usecases": [
+          "--block-background"
+        ],
+        "fallbacks": [
+          "#EAEBEF"
+        ]
+      },
+      "--pap-markdown-block-ribbon": {
+        "usecases": [
+          "--block-ribbon"
+        ],
+        "fallbacks": [
+          "var(--pap-color-bg-brand, #009DD3)"
+        ]
+      },
+      "--pap-color-bg-brand": {
+        "usecases": [
+          "--block-ribbon"
+        ],
+        "fallbacks": [
+          "#009DD3"
+        ]
+      },
+      "--pap-markdown-border": {
+        "usecases": [
+          "--border"
+        ],
+        "fallbacks": [
+          "var(--pap-color-border, #C7CBD4)"
+        ]
+      },
+      "--pap-color-border": {
+        "usecases": [
+          "--border"
+        ],
+        "fallbacks": [
+          "#C7CBD4"
+        ]
+      },
+      "--pap-markdown-color": {
+        "usecases": [
+          "--color"
+        ],
+        "fallbacks": [
+          "var(--pap-color-text, #29292F)"
+        ]
+      },
+      "--pap-color-text": {
+        "usecases": [
+          "--color"
+        ],
+        "fallbacks": [
+          "#29292F"
+        ]
+      },
+      "--pap-markdown-link": {
+        "usecases": [
+          "--link"
+        ],
+        "fallbacks": [
+          "var(--pap-color-text-link, #0177A3)"
+        ]
+      },
+      "--pap-color-text-link": {
+        "usecases": [
+          "--link"
+        ],
+        "fallbacks": [
+          "#0177A3"
+        ]
+      },
+      "--pap-markdown-link-hover": {
+        "usecases": [
+          "--link-hover"
+        ],
+        "fallbacks": [
+          "var(--pap-color-text-link-oninverse, #36CEFA)"
+        ]
+      },
+      "--pap-color-text-link-oninverse": {
+        "usecases": [
+          "--link-hover"
+        ],
+        "fallbacks": [
+          "#36CEFA"
+        ]
+      },
+      "--pap-markdown-table-header-background": {
+        "usecases": [
+          "--table-header-background"
+        ],
+        "fallbacks": [
+          "var(--pap-color-hover-400, rgba(0,0,0,0.1))"
+        ]
+      },
+      "--pap-color-hover-400": {
+        "usecases": [
+          "--table-header-background"
+        ],
+        "fallbacks": [
+          "rgba(0,0,0,0.1)"
+        ]
+      },
+      "--color": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--border": {
+        "usecases": [
+          "border-bottom-color",
+          "border-top-color",
+          "border-left-color",
+          "border-right-color",
+          "border-bottom"
+        ],
+        "fallbacks": []
+      },
+      "--table-header-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--radius-small": {
+        "usecases": [
+          "border-top-left-radius",
+          "border-top-right-radius",
+          "border-bottom-right-radius",
+          "border-bottom-left-radius"
+        ],
+        "fallbacks": [
+          "4px"
+        ]
+      },
+      "--link": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--link-hover": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": []
+      },
+      "--block-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      },
+      "--block-ribbon": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": []
+      }
+    }
+  }
+}

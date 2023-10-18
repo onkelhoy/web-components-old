@@ -1,9 +1,9 @@
 // tools
-import '@papit/tools-doc/wc';
+import '@pap-it/system-doc/wc';
 
 // components
-import '@papit/sidebar/wc';
-import '@papit/sidebar-contact/wc';
+import '@pap-it/sidebar/wc';
+import '@pap-it/sidebar-contact/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');

@@ -1,9 +1,10 @@
 // tools
-import '@papit/tools-doc/wc';
+import '@pap-it/system-doc/wc';
 
 // component
-import '@papit/tooltip/wc';
+import '@pap-it/tooltip/wc';
 
-window.onload = () => {
-    console.log('[doc]: window loaded');
+window.onload = () => 
+{
+  console.log('[doc]: window loaded');
 }

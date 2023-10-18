@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  <doc-controller>
+    <div id="target">
+      <pap-auth-template>
+        
+      <div slot="logo" data-slotname="logo">
+        <pap-icon customsize="200" name="interzero-logo"></pap-icon>
+      </div>
+     
+      <div slot="welcome" data-slotname="welcome">
+        <pap-typography variant="t2"><pap-translator>ðŸ‘‹ Welcome to Interzero.</pap-translator></pap-typography>
+      </div>
+     
+      <div slot="note" data-slotname="note">
+        
+                    <pap-typography nowrap=""><pap-translator>Don't have an account?</pap-translator></pap-typography>
+                    <pap-button variant="underlined"><pap-typography nowrap=""><pap-translator>Register here</pap-translator></pap-typography></pap-button>
+                
+      </div>
+     
+      <div  data-slotname="default">
+        <p>Hello World</p>
+      </div>
+     
+      <div slot="footer" data-slotname="footer">
+        
+                    <pap-button link="https://www.interzero.de/" variant="underlined"><pap-translator>Interzero</pap-translator></pap-button>
+                    <pap-button link="https://www.interzero.de/kontakt" variant="underlined"><pap-translator>Contact</pap-translator></pap-button>
+                    <pap-typography><pap-translator>Â© 2022 - Interzero Circular Solutions Germany Gmbh</pap-translator></pap-typography>
+                
+      </div>
+    
+      </pap-auth-template>
+  </div>
+
+    <section class="control" slot="setting">
+      <pap-tabs>
+        <pap-tab id="html">HTML</pap-tab>
+        <pap-tab class="selected" id="properties">Properties</pap-tab>
+        <pap-tab id="css">CSS</pap-tab>
+        <pap-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: logo" variant="textarea" name="slot-logo" data-slotname="logo" value="<pap-icon customsize="200" name="interzero-logo">"></doc-input><doc-input label="HTML slot: welcome" variant="textarea" name="slot-welcome" data-slotname="welcome" value="<pap-typography variant="t2"><pap-translator>ðŸ‘‹ Welcome to Interzero.</pap-translator>"></doc-input><doc-input label="HTML slot: note" variant="textarea" name="slot-note" data-slotname="note" value="
+                    <pap-typography nowrap=""><pap-translator>Don't have an account?</pap-translator>
+                    <pap-button variant="underlined"><pap-typography nowrap=""><pap-translator>Register here</pap-translator></pap-typography></pap-button>
+                "></doc-input><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="<p>Hello World</p>"></doc-input><doc-input label="HTML slot: footer" variant="textarea" name="slot-footer" data-slotname="footer" value="
+                    <pap-button link="https://www.interzero.de/" variant="underlined"><pap-translator>Interzero</pap-translator>
+                    <pap-button link="https://www.interzero.de/kontakt" variant="underlined"><pap-translator>Contact</pap-translator></pap-button>
+                    <pap-typography><pap-translator>Â© 2022 - Interzero Circular Solutions Germany Gmbh</pap-translator></pap-typography>
+                "></doc-input></div></pap-tab-content>
+        <pap-tab-content id="properties"></pap-tab-content>
+        <pap-tab-content id="css">
+      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/templates/auth" class="style-source">
+        <h3>auth styles</h3>
+      <div class="style-group" data-style-name="--gap-small"><doc-input data-css-input="true" name="--gap-small" label="--gap-small" value="8px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>gap</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>8px</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-neutral-50"><color-picker-input data-css-input="true" name="--pap-color-neutral-50" label="--pap-color-neutral-50" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div></div>
+    </pap-tab-content>
+      </pap-tabs>
+    </section>
+  </doc-controller>
+</body>
+</html>

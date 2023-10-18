@@ -20,19 +20,19 @@
       },
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "FormatNumber",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@papit/templates-base"
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
       },
       {
         "name": "style",
@@ -41,36 +41,70 @@
     ]
   },
   "html": {
-    "slots": [],
-    "parts": []
+    "slots": [
+      {
+        "name": "default",
+        "html": "0"
+      }
+    ],
+    "parts": [
+      {
+        "name": "box",
+        "tag": "PAP-BOX-TEMPLATE"
+      }
+    ]
   },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/badge",
     "sources": [],
     "variables": {
-      "--pap-color-neutral-200": {
-        "usecases": [
-          "--background"
-        ],
-        "fallbacks": []
-      },
-      "--pap-color-neutral-300": {
-        "usecases": [
-          "--border"
-        ],
-        "fallbacks": []
-      },
-      "--background": {
+      "--pap-color-bg": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
-      "--pap-color-black": {
+      "--pap-color-text": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#29292F"
+        ]
+      },
+      "--padding-smaller": {
+        "usecases": [
+          "padding"
+        ],
+        "fallbacks": [
+          "4px) var(--padding-small, 8px"
+        ]
+      },
+      "--padding-small": {
+        "usecases": [
+          "padding"
+        ],
+        "fallbacks": [
+          "8p"
+        ]
+      },
+      "--pap-color-bg-secondary": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "#F6F7F8"
+        ]
+      },
+      "--pap-color-text-secondary": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "#6E7087"
+        ]
       }
     }
   }

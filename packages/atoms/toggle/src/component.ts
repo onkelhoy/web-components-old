@@ -1,41 +1,39 @@
 // utils 
-import { html } from "@papit/tools-utils";
+import { html } from "@pap-it/system-utils";
 
 // templates
-import { FieldTemplate } from "@papit/templates-field";
-import "@papit/templates-box/wc";
+import { FieldTemplate } from "@pap-it/templates-field";
+import "@pap-it/templates-box/wc";
 
 // local 
 import { style } from "./style";
 
 export class Toggle extends FieldTemplate {
-    static style = style;
+  static style = style;
 
-    constructor() {
-        super();
+  constructor() {
+    super();
 
-        this.size = "small";
+    this.size = "small";
 
-        this.addEventListener("click", this.handleclick);
-        this.addEventListener("keyup", this.handlekeyup);
-    }
-    
-    // event handlers
-    private handlekeyup = (e:KeyboardEvent) => {
-        if ((e.key || e.code).toLowerCase() === "enter")
-        {
-            if (this.hasFocus)
-            {
-                this.value = (!this.checked).toString();
-            }
-        }
-    }
-    private handleclick = () => {
+    this.addEventListener("click", this.handleclick);
+    this.addEventListener("keyup", this.handlekeyup);
+  }
+
+  // event handlers
+  private handlekeyup = (e: KeyboardEvent) => {
+    if ((e.key || e.code).toLowerCase() === "enter") {
+      if (this.hasFocus) {
         this.value = (!this.checked).toString();
+      }
     }
+  }
+  private handleclick = () => {
+    this.value = (!this.checked).toString();
+  }
 
-    render() {
-        return super.render(html`
+  render() {
+    return super.render(html`
             <input type="checkbox" hidden />
             <pap-box-template class="toggle" radius="circular">
                 <div>
@@ -43,12 +41,12 @@ export class Toggle extends FieldTemplate {
                 </div>
             </pap-box-template>
         `);
-    }
+  }
 }
 
 
 declare global {
-    interface HTMLElementTagNameMap {
-        "pap-toggle": Toggle;
-    }
+  interface HTMLElementTagNameMap {
+    "pap-toggle": Toggle;
+  }
 }

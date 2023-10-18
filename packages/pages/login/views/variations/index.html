@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LoginPage - Variations</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  
+<h1 data-title="class">LoginPage Properties</h1>
+        <doc-card class="property" data-name="project">
+            <h2 slot="header"><span class="deemphasize">Property: </span>project</h2>
+
+            <div class="property-info">
+              <p>type: Project</p>
+              <p>default-value: PMP</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="KTV">
+                    <h4><span class="deemphasize">Property-Value: </span>KTV</h4>
+                    <pap-codeblock display="both">
+                      <pap-login-page 
+                        project="KTV"
+                        
+                      >
+                        <p>Hello World</p>
+                      </pap-login-page>
+                    </pap-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="PMP">
+                    <h4><span class="deemphasize">Property-Value: </span>PMP</h4>
+                    <pap-codeblock display="both">
+                      <pap-login-page 
+                        project="PMP"
+                        
+                      >
+                        <p>Hello World</p>
+                      </pap-login-page>
+                    </pap-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="pfandportal">
+                    <h4><span class="deemphasize">Property-Value: </span>pfandportal</h4>
+                    <pap-codeblock display="both">
+                      <pap-login-page 
+                        project="pfandportal"
+                        
+                      >
+                        <p>Hello World</p>
+                      </pap-login-page>
+                    </pap-codeblock>
+                  </div>
+                
+            </div>
+        </doc-card>
+    <h1 data-title="inherit">Inherited Properties</h1></body>
+</html>

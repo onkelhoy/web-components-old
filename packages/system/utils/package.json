@@ -1,0 +1,43 @@
+{
+  "name": "@pap-it/system-utils",
+  "version": "1.0.0",
+  "scripts": {
+    "init": "sh .scripts/init.sh",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "manual-publish": "sh .scripts/publish.sh",
+    "postversion": "sh .scripts/postversion.sh"
+  },
+  "main": "dist/src/index.js",
+  "files": [
+    "asset/",
+    "dist/"
+  ],
+  "exports": {
+    ".": "./dist/src/index.js"
+  },
+  "author": "Henry Pap",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onkelhoy/web-components.git"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.53.0",
+    "@pap-it/system-showcase": "1.0.0",
+    "@pap-it/typography": "1.0.0",
+    "typescript": "^5.0.4"
+  },
+  "keywords": [
+    "web-component",
+    "typescript",
+    "sass"
+  ],
+  "description": ""
+}

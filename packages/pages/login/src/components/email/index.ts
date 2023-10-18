@@ -1,12 +1,12 @@
 // utils 
-import { html, property } from "@papit/tools-utils";
-import { Translator } from "@papit/tools-translator";
-import "@papit/tools-translator/wc";
+import { html, property } from "@pap-it/system-utils";
+import { Translator } from "@pap-it/tools-translator";
+import "@pap-it/tools-translator/wc";
 
 // atoms 
-import "@papit/input/wc";
-import "@papit/icon/wc";
-import "@papit/typography/wc";
+import "@pap-it/input/wc";
+import "@pap-it/icon/wc";
+import "@pap-it/typography/wc";
 
 import { style } from "./style";
 

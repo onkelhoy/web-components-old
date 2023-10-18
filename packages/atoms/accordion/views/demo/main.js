@@ -1,8 +1,8 @@
 // tools
-import '@papit/tools-doc/wc';
+import '@pap-it/system-doc/wc';
 
 // component
-import '@papit/accordion/wc';
+import '@pap-it/accordion/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded, WTF');

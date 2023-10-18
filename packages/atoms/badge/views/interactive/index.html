@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  <doc-controller>
+    <div id="target">
+      <pap-badge>
+        
+      <div  data-slotname="default">
+        0
+      </div>
+    
+      </pap-badge>
+  </div>
+
+    <section class="control" slot="setting">
+      <pap-tabs>
+        <pap-tab id="html">HTML</pap-tab>
+        <pap-tab class="selected" id="properties">Properties</pap-tab>
+        <pap-tab id="css">CSS</pap-tab>
+        <pap-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: default" variant="textarea" name="slot-default" data-slotname="default" value="0"></doc-input></div></pap-tab-content>
+        <pap-tab-content id="properties"><h3 data-subtitle="Badge Properties">Badge Properties</h3><div data-name="Badge Properties" class="properties">
+          
+          
+          
+          
+          
+          <doc-input data-prop-name="count" variant="number" value="" name="count" label="count"></doc-input>
+        
+        
+        
+        
+        
+        </div></pap-tab-content>
+        <pap-tab-content id="css">
+      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/atoms/badge" class="style-source">
+        <h3>badge styles</h3>
+      <div class="style-group" data-style-name="--padding-small"><doc-input data-css-input="true" name="--padding-small" label="--padding-small" value="8p"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>8p</li></ul></div></div></div><div class="style-group" data-style-name="--padding-smaller"><doc-input data-css-input="true" name="--padding-smaller" label="--padding-smaller" value="4px) var(--padding-small, 8px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>4px) var(--padding-small, 8px</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-bg"><color-picker-input data-css-input="true" name="--pap-color-bg" label="--pap-color-bg" value="#FFFFFF"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#FFFFFF</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-bg-secondary"><color-picker-input data-css-input="true" name="--pap-color-bg-secondary" label="--pap-color-bg-secondary" value="#F6F7F8"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#F6F7F8</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-text"><color-picker-input data-css-input="true" name="--pap-color-text" label="--pap-color-text" value="#29292F"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#29292F</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-text-secondary"><color-picker-input data-css-input="true" name="--pap-color-text-secondary" label="--pap-color-text-secondary" value="#6E7087"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#6E7087</li></ul></div></div></div></div>
+    </pap-tab-content>
+      </pap-tabs>
+    </section>
+  </doc-controller>
+</body>
+</html>

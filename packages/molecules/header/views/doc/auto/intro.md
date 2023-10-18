@@ -1,25 +1,26 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
-## SOURCE-CODE:
-// utils 
-import { html, property, query } from "@papit/tools-utils";
-import "@papit/tools-translator/wc";
+## SOURCE-CODE
+
+// utils
+import { html, property, query } from "@pap-it/system-utils";
+import "@pap-it/tools-translator/wc";
 
 // atoms
-import "@papit/badge/wc";
-import "@papit/typography/wc";
-import "@papit/menu/wc";
-import { Menu } from "@papit/menu";
+import "@pap-it/badge/wc";
+import "@pap-it/typography/wc";
+import "@pap-it/menu/wc";
+import { Menu } from "@pap-it/menu";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 import { UserModel } from "./types";
 
-export class Header extends BaseTemplate {
+export class Header extends BaseSystem {
     static style = style;
 
     @property({ type: Object }) user?: UserModel;
@@ -70,13 +71,14 @@ export class Header extends BaseTemplate {
     }
 }
 
-
 declare global {
     interface HTMLElementTagNameMap {
         "pap-header": Header;
     }
 }
-## REGISTER-CODE:
+
+## REGISTER-CODE
+
 import { Theme } from './components/theme';
 import { Language } from './components/language';
 import { Header } from './component.js';

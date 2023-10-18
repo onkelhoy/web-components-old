@@ -10,11 +10,11 @@ CICD_NODE_TOKEN=$4
 cd $PACKAGE 
 
 # increase version 
-if [[ $SEMANTIC_VERSION == 2 ]]; then 
+if [[ $SEMANTIC_VERSION == 1 ]]; then 
   npm version patch
-elif [[ $SEMANTIC_VERSION == 3 ]]; then 
+elif [[ $SEMANTIC_VERSION == 2 ]]; then 
   npm version minor
-elif [[ $SEMANTIC_VERSION == 4 ]]; then 
+elif [[ $SEMANTIC_VERSION == 3 ]]; then 
   npm version major
 fi
 
