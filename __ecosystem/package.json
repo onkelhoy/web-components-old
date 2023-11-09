@@ -1,0 +1,48 @@
+{
+    "name": "@henry2/ecosystem",
+    "version": "1.0.0",
+    "scripts": {
+        "init": "sh .scripts/init.sh",
+        "test": ".scripts/test.sh",
+        "build": ".scripts/build.sh",
+        "watch": ".scripts/watch.sh",
+        "combine": ".scripts/combine.sh",
+        "start": ".scripts/start.sh"
+    },
+    "main": "dist/src/index.js",
+    "files": [
+        "asset/",
+        "dist/"
+    ],
+    "exports": {
+        ".": "./dist/src/index.js",
+        "./wc": "./dist/register.bundle.mjs"
+    },
+    "author": "Henry Pap",
+    "private": false,
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/onkelhoy/web-components.git"
+    },
+    "devDependencies": {
+        "@henry2/icon": "^1.0.0",
+        "@henry2/tools-doc": "^1.0.0",
+        "esbuild": "^0.17.18",
+        "node-html-parser": "^6.1.5",
+        "node-sass": "^9.0.0",
+        "typescript": "^5.0.4"
+    },
+    "dependencies": {
+        "@henry2/templates-base": "^1.0.0",
+        "@henry2/tools-utils": "^1.0.0"
+    },
+    "keywords": [
+        "web-component",
+        "typescript",
+        "demoing",
+        "testing",
+        "sass"
+    ],
+    "description": ""
+}

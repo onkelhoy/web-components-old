@@ -327,6 +327,7 @@
   --o-color-bg-danger-pressed: var(--o-color-danger-200);
   --o-color-bg-danger-secondary: var(--o-color-danger-800);
   --o-color-bg-disabled: var(--o-color-neutral-500);
+  --o-color-bg-overlay: var(--o-color-ghost-gray-50);
 
   /* Icon */
   --o-color-icon: var(--o-color-neutral-950);
@@ -377,17 +378,8 @@
   --o-color-border-disabled: var(--o-color-neutral-600);
 
   /* SHADOW COLORS */
-  --o-color-shadow-50:  rgba(0, 0, 0, 0.75);
-  --o-color-shadow-100: rgba(0, 0, 0, 0.8);
-  --o-color-shadow-200: rgba(0, 0, 0, 0.85);
-  --o-color-shadow-300: rgba(0, 0, 0, 0.9);
-  --o-color-shadow-400: rgba(0, 0, 0, 0.95);
-  --o-color-shadow-500: rgba(0, 0, 0, 1);
-  --o-color-shadow-600: rgba(0, 0, 0, 1);
-  --o-color-shadow-700: rgba(0, 0, 0, 1);
-  --o-color-shadow-800: rgba(0, 0, 0, 1);
-  --o-color-shadow-900: rgba(0, 0, 0, 1);
-  --o-color-shadow-950: rgba(0, 0, 0, 1);
+  /* TODO this is still pending from design */
+  --o-color-shadow: color-mix(in oklab, var(--o-color-neutral-50), transparent 60%);
 
   /* HOVER COLORS */
   --o-color-hover-50:  rgba(255, 255, 255, 0.01);

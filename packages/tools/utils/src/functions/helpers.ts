@@ -1,3 +1,5 @@
+import { Devices } from "../types";
+
 export function suspense<T extends (...args: any[]) => any>(
   execute: T,
   delay: number = 300
@@ -63,12 +65,91 @@ export function FormatNumber(num:number) {
     return num.toString();
   } 
   else if (Math.abs(num) < 1_000_000) {
-    return Math.round(num / 1_000) + 'K';
+    return Math.round((num * 10) / 1_000) / 10 + 'k';
   } 
   else if (Math.abs(num) < 1_000_000_000) {
-    return Math.round(num / 1_000_000) + 'M';
+    return Math.round((num * 10) / 1_000_000) / 10 + 'm';
   } 
+  else if (Math.abs(num) < 1_000_000_000_000) {
+    return Math.round((num * 10) / 1_000_000_000) / 10 + 'bn';
+  }
   else {
-    return Math.round(num / 1_000_000_000) + 'B';
+    return Math.round((num * 10) / 1_000_000_000_000) / 10 + 'tn';
+  }
+}
+
+export function DetectLanguage() {
+  if (window.oLocalisation)
+  {
+    if (window.oLocalisation.lang)
+    {
+      return window.oLocalisation.lang;
+    }
+    if (window.oLocalisation.settings?.url)
+    {
+      const langmatch = window.location.pathname.match(/\/([^\/]*)\//);
+      if (langmatch)
+      {
+        return langmatch[1];
+      }
+    }
+  }
+
+  const head_lang = document.head.getAttribute("lang");
+  if (head_lang) 
+  {
+    return head_lang;
+  }
+
+  const meta_lang = document.head.querySelector('meta[http-equiv="Content-Language"]')?.getAttribute("content");
+  if (meta_lang)
+  {
+    return meta_lang;
+  }
+
+  const navigator_lang = navigator.language;
+  if (navigator_lang)
+  {
+    return navigator_lang;
+  }
+}
+
+export function SetLanguage(language?:string) {
+  if (language) 
+  {
+    window.oLocalisation.lang = language;
+  }
+
+  const lang = DetectLanguage();
+}
+
+export function DetectDevice(component: HTMLElement): Devices {
+  if (component.classList.contains("mobile")) return "mobile";
+
+  // do fancy checks
+  // console.log(window.navigator.userAgent, window.navigator.mediaCapabilities, window.navigator.languages)
+
+  const computed = window.getComputedStyle(component);
+  const desktop = Number(computed.getPropertyValue("--breakpoint-desktop")?.replace('px', '')) || 320;
+  const laptop = Number(computed.getPropertyValue("--breakpoint-laptop")?.replace('px', '')) || 768;
+  const pad = Number(computed.getPropertyValue("--breakpoint-pad")?.replace('px', '')) || 1024;
+  // const mobile = Number(computed.getPropertyValue("--breakpoint-mobile")?.replace('px', '')) || 1440;
+  
+  // finally do basic checks
+  if (window.innerWidth > desktop)
+  {
+    return "desktop";
+  }
+  else if (window.innerWidth > laptop)
+  {
+    return "laptop";
+  }
+  else if (window.innerWidth > pad)
+  {
+    return "pad";
+  }
+  else 
+  {
+    return "mobile";
   }
 }

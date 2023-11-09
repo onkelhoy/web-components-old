@@ -164,7 +164,7 @@ export class Theme extends BaseTemplate {
         <o-icon name="dark-mode"></o-icon>
       </o-toggle>
 
-      <o-menu placement="bottom-right" @select="${this.handleselect}">
+      <o-menu placement="bottom-left" @select="${this.handleselect}">
         <span slot="button-prefix" class="theme-color"></span>
         <o-typography slot="button-content" class="theme-name"><o-translator>Theme</o-translator></o-typography>
       </o-menu>

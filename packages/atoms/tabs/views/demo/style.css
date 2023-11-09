@@ -10,3 +10,7 @@ body {
 .tabs-scrolling-indicator > o-tab-content {
   min-height: 20rem;
 }
+
+p[slot] {
+  margin-block: 0;
+}

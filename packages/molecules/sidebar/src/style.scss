@@ -1,0 +1,190 @@
+:host {
+    display: block;
+    position: sticky;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 1000;
+
+    o-button[part="hamburger-outside"] {
+        position: absolute;
+        top: var(--gap-large);
+        left: var(--gap-medium);
+        z-index: 3;
+        display: none;
+    }
+
+    o-box-template {
+        position: fixed;
+        container-type: inline-size;
+        z-index: 2;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-sizing: border-box;
+
+        background-color: var(--o-sidebar-background-color, var(--o-color-bg, #FFFFFF));
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+
+        padding-block: var(--padding-medium);
+        padding-bottom: 0;
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--padding-small);
+            padding-left: var(--padding-medium);
+            padding-bottom: var(--padding-medium);
+
+            o-icon {
+                color: var(--o-color-text-brand-strong);
+            }
+        }
+
+        o-divider {
+            padding-right: var(--padding-small);
+            padding-left: var(--padding-medium);
+
+            &::part(line) {
+                background-color: var(--o-color-border-tertiary);
+            }
+        }
+
+        div[part="body"] {
+            overflow-y: auto;
+            padding-top: var(--padding-small);
+            padding-bottom: var(--padding-medium);
+            padding-right: var(--padding-small);
+        }
+
+        footer {
+            margin-top: auto;
+            padding-bottom: var(--padding-medium);
+            padding-inline: var(--padding-small);
+        }
+    }
+
+    o-box-template[elevation="medium"] {
+        box-shadow: var(--shadow-horizontal-m);
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--o-color-bg-overlay);
+        opacity: 0;
+        z-index: 1;
+        pointer-events: none;
+        // transition: opacity ease-in 60ms;
+    }
+}
+// NOTE we use min-width to avoid flex issues when used like in raw
+// we need to still set width on host to avoid bigger then wished
+:host([mode="open"]) {
+    min-width: 320px;
+    width: 320px;
+
+    o-box-template {
+        width: 320px;
+    }
+}
+:host([mode="collapsed"]) {
+    min-width: 3.5rem;
+    width: 3.5rem;
+
+    o-box-template {
+        width: 3.5rem;
+    }
+}
+
+:host([mode="hover"]) {    
+    min-width: 3.5rem;
+    width: 3.5rem;
+    z-index: 1000;
+    
+    o-box-template {
+        width: 3.5rem;
+
+        &:hover {
+            width: 320px;
+            transition: width 60ms ease-in;
+            box-shadow: var(--shadow-horizontal-m);
+        }
+        &:not(:hover) {
+            box-shadow: none;
+        }
+    }
+}
+
+// mobile
+:host(.mobile:not([mode="open"])),
+:host([unit="pad"]:not([mode="open"])),
+:host([unit="mobile"]:not([mode="open"])) {
+    min-width: 0;
+    width: 0;
+
+    o-box-template {
+        width: 0;
+    }
+
+    o-button[part="hamburger-outside"] {
+        display: flex;
+    }
+
+    &::before {
+        opacity: 0;
+    }
+}
+:host([mode="open"].mobile),
+:host([mode="open"][unit="pad"]),
+:host([mode="open"][unit="mobile"]) {
+    min-width: 0;
+    width: 0;
+
+    o-box-template {
+        width: 85vw;
+        max-width: 320px;
+    }
+
+    &::before {
+        opacity: 0.7;
+    }
+}
+
+@container (min-width: 3.5rem) {
+    :host {
+        o-box-template {
+            transition: width 60ms ease-in;
+        }
+    }
+}
+@container (max-width: 3.5rem) {
+    :host {
+        o-box-template {
+            transition: width 150ms ease-in;
+
+            header {
+                justify-content: center;
+                padding-left: var(--padding-small);
+
+                ::slotted(*) {
+                    display: none;
+                }
+                o-icon.logo {
+                    display: none !important;
+                }
+            }
+
+            o-divider {
+                padding-left: var(--padding-small);
+            }
+        }
+    }
+}

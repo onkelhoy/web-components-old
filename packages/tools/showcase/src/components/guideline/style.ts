@@ -6,14 +6,17 @@ export const style = `:host {
 showcase-card {
   margin-bottom: var(--margin-medium); }
 
-showcase-card::part(box)::after {
-  content: '';
-  width: 100%;
-  height: 1rem;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: var(--variant-bg-color); }
+showcase-card::part(box) {
+  overflow: hidden; }
+  showcase-card::part(box)::after {
+    z-index: 9999;
+    content: '';
+    width: 100%;
+    height: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--variant-bg-color); }
 
 div {
   display: flex;

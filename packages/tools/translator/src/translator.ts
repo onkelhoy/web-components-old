@@ -1,29 +1,6 @@
-export type TranslationObject = Record<string, string>;
+import { LanguageSet, EventCallback } from '@henry2/tools-utils';
 export const TRANSLATION_CHANGE_EVENTNAME = 'o-translation-change';
 export const TRANSLATION_ADDED = 'o-translation-added';
-type EventCallback = (event: Event) => void;
-
-export interface LanguageSet {
-  id: string;
-  name: string;
-  translations: TranslationObject;
-}
-export interface Translation {
-  subscribe(callback: EventCallback): void;
-  unsubscribe(callback: EventCallback): void;
-  load(set: LanguageSet): void;
-  loadAll(array: LanguageSet[]): void;
-  change(id: string): void;
-
-  map: Map<string, LanguageSet>;
-  current: LanguageSet;
-}
-
-declare global {
-  interface Window {
-    oTranslation: Translation;
-  }
-}
 
 export function load(set: LanguageSet) {
   if (!set.translations || typeof set.translations !== 'object')
@@ -35,10 +12,10 @@ export function load(set: LanguageSet) {
   window.oTranslation.change(set.id);
   window.dispatchEvent(new Event(TRANSLATION_ADDED));
 }
-export function change(id: string) {
-  const set = window.oTranslation.map.get(id);
+export function change(lang: string) {
+  const set = window.oTranslation.map.get(lang);
   if (!set)
-    throw new Error(`Could not find language set based on id provided: ${id}`);
+    throw new Error(`[error] translator-load-all: Could not find language set based on lang provided - ${lang}`);
 
   window.oTranslation.current = set;
   window.dispatchEvent(new Event(TRANSLATION_CHANGE_EVENTNAME));
@@ -48,7 +25,7 @@ export function loadAll(array: LanguageSet[]) {
     array.forEach(set => window.oTranslation.map.set(set.id, set));
     window.dispatchEvent(new Event(TRANSLATION_ADDED));
   } catch (e) {
-    console.error('error is here', e);
+    console.error('[error] translator-load-all', e);
   }
 }
 export function subscribe(callback: EventCallback) {

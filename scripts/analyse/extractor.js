@@ -80,13 +80,16 @@ function extractor(folder_path, className) {
             }
         }
     }
-
-    const properties = types_extractor(component_path, className)
-            .filter(info => classprop_set[info.name]);
+    const properties = types_extractor(component_path, className).filter(info => classprop_set[info.name]);
 
     IMPORTS[folder_path] = imports;
 
-    return { className, folder: folder_path, properties, extend_class };
+    return { 
+        className, 
+        folder: folder_path, 
+        properties, 
+        extend_class 
+    };
 }
 function extract_import(line) {
     const import_match_module = line.match(/import\W+\{([^'"\}]+)\W+from\W+["']([^"']+)["']/);

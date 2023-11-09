@@ -103,10 +103,11 @@
     transition: background-color ease-in 80ms;
 }
 span.content {
-    padding-inline: var(--gap-small);
+    padding-inline: var(--padding-small);
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-grow: 1;
 }
 :host([variant="outlined"]:is(:active)),
 :host([variant="outlined"]:is(:hover)) {
@@ -117,6 +118,7 @@ span.content {
 }
 :host([mode="fill"]) {
     display: flex;
+    width: 100%;
 }
 :host([textvariant="B1"]),
 :host([textvariant="button1"]) {
@@ -126,8 +128,8 @@ span.content {
     line-height: var(--typography-b1-lineheight);
     letter-spacing: var(--typography-b1-letterspacing);
 }
-:host([color="secondary"][variant="clear"]),
-:host([color="inverse"][variant="clear"]),
+:host([color="secondary"][variant="clear"]:not([textvariant="B1"]):not([textvariant="button1"])),
+:host([color="inverse"][variant="clear"]:not([textvariant="B1"]):not([textvariant="button1"])),
 :host([textvariant="B2"]),
 :host([textvariant="button2"]) {
     font-family: var(--typography-b2-fontfamily);
@@ -270,15 +272,15 @@ span.content {
 
 $size-map: (
     small: (
-        padding: var(--padding-smaller),
+        min-width: 4.5rem,
         height: 2rem, // border
     ),
     medium: (
-        padding: var(--padding-smaller) var(--padding-medium),
+        min-width: 5.625rem,
         height: 2.5rem,
     ),
     large: (
-        padding: var(--padding-smaller) var(--padding-small),
+        min-width: 6.75rem,
         height: 3rem,
     ),
 );
@@ -287,12 +289,21 @@ $size-map: (
     :host([size="#{$name}"]) {
         min-height: var(--o-button-height-#{$name}, #{map-get($value, height)});
         height: fit-content;
-        padding: var(--o-button-padding-#{$name}, #{map-get($value, padding)});
+    }
+    :host([size="#{$name}"]:not([circle="true"])) {
+        min-width: var(--o-button-min-width-#{$name}, #{map-get($value, min-width)});
+    }
+    ::slotted(*[slot="prefix"]) {
+        margin-left: var(--margin-smaller);
+    }
+    ::slotted(*[slot="suffix"]) {
+        margin-right: var(--margin-smaller);
     }
     :host([circle="true"][size="#{$name}"]) {
         padding: 0;
+        min-width: auto !important;
         justify-content: center;
-        width: var(--o-button-height-#{$name}, #{map-get($value, height)});
+        width: var(--o-button-width-#{$name}, #{map-get($value, height)});
     }
 }
 

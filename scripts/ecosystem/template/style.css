@@ -1,0 +1,17 @@
+body {
+  background-color: var(--o-color-bg-canvas);
+  color: var(--o-color-text);
+}
+
+/***** MAIN *********************/
+main.designsystem {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+main.designsystem > div {
+  height: 100%;
+}
+main.designsystem > div.package:not(.selected) {
+  position: relative;
+  display: none;
+}

@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Showcase</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <script defer src="main.js"></script>
+</head>
+<body>
+  <showcase-header
+    title="Sidebar"
+    subtitle=""
+  >
+  </showcase-header>
+  <main>
+    <section id="overview">
+      <div class="flex-vertical">
+        <o-typography variant="T3">Overview</o-typography>
+        <o-typography>Navigation sidebars provide access to different pages. They can either be expanded or collapsed.</o-typography>
+      </div>
+      <showcase-card>
+        <div class="card">
+          <o-sidebar>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+          </o-sidebar>
+        </div>
+      </showcase-card>
+    </section>
+
+    <section id="component">
+      <o-typography variant="T3">Component</o-typography>
+    </section>
+    <o-divider></o-divider>
+    <section>
+      <showcase-card>
+        <table cellspacing="30">
+          <thead>
+            <tr>
+              <th>
+                <div class="flex-vertical">
+                  <o-typography align="center" variant="T3">Expanded</o-typography>
+                  <o-typography align="center" color="secondary">Desktop & Laptop (large)</o-typography>
+                </div>
+              </th>
+              <th>
+                <div class="flex-vertical">
+                  <o-typography align="center" variant="T3">Expanded - Hover</o-typography>
+                  <o-typography align="center" color="secondary">Desktop & Laptop (large)</o-typography>
+                </div>
+              </th>
+              <th>
+                <div class="flex-vertical">
+                  <o-typography align="center" variant="T3">Collapsed</o-typography>
+                  <o-typography align="center" color="secondary">Desktop & Laptop (large)</o-typography>
+                </div>
+              </th>
+              <th>
+                <div class="flex-vertical">
+                  <o-typography align="center" variant="T3">Expanded</o-typography>
+                  <o-typography align="center" color="secondary">Pad & Mobile (small)</o-typography>
+                </div>
+              </th>
+              <th>
+                <div class="flex-vertical">
+                  <o-typography align="center" variant="T3">Collapsed</o-typography>
+                  <o-typography align="center" color="secondary">Pad & Mobile (small)</o-typography>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <o-sidebar>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item text="Heading">
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  </o-sidebar-item>
+                  <o-sidebar-item open="false" text="Heading">
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  </o-sidebar-item>
+
+                  <o-sidebar-contact slot="footer"></o-sidebar-contact>
+                </o-sidebar>
+              </td>
+              <td>
+                <o-sidebar mode="hover" class="hover">
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item text="Heading">
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  </o-sidebar-item>
+                  <o-sidebar-item open="false" text="Heading">
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  </o-sidebar-item>
+
+                  <o-sidebar-contact slot="footer"></o-sidebar-contact>
+                </o-sidebar>
+              </td>
+              <td>
+                <o-sidebar mode="hover">
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item text="Heading">
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  </o-sidebar-item>
+                  <o-sidebar-item open="false" text="Heading">
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  </o-sidebar-item>
+                  
+                  <o-sidebar-contact slot="footer"></o-sidebar-contact>
+                </o-sidebar>
+              </td>
+              <td>
+                <o-sidebar class="mobile">
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item text="Heading">
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  </o-sidebar-item>
+                  <o-sidebar-item open="false" text="Heading">
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  </o-sidebar-item>
+                </o-sidebar>
+              </td>
+              <td>
+                <o-sidebar class="mobile" mode="hover">
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item text="Heading">
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  </o-sidebar-item>
+                  <o-sidebar-item open="false" text="Heading">
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                    <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  </o-sidebar-item>
+                </o-sidebar>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </showcase-card>
+    </section>
+
+    <o-divider></o-divider>
+    
+    <section id="sub-components">
+      <o-typography variant="T3">Sub-Components</o-typography>
+    </section>
+
+    <section id="badge" class="vertical">
+      <div class="flex-vertical">
+        <o-typography variant="T4">Badge</o-typography>
+        <o-typography>Badges are used to indicate counts on nav-items. They are only displayed on the expanded sidebar. This will become it’s own component in the future.</o-typography>
+      </div>
+      <showcase-card>
+        <table cellspacing="30">
+          <thead>
+            <tr>
+              <th><o-typography align="center" variant="C2">Active</o-typography></th>
+              <th><o-typography align="center" variant="C2">Inactive</o-typography></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><o-badge mode="active">1</o-badge></td>
+              <td><o-badge mode="inactive">1</o-badge></td>
+            </tr>
+          </tbody>
+        </table>
+      </showcase-card>
+    </section>
+
+    <section id="status-light" class="vertical">
+      <div class="flex-vertical">
+        <o-typography variant="T4">Status light</o-typography>
+        <o-typography>Status lights are used to indicate notifications on nav-items. They are displayed on both the expanded and collapsed sidebar. There will likely be more indicator variants in the future.</o-typography>
+        <o-typography>Always set the status light border to match the background that the status light is used on.</o-typography>
+      </div>
+      <showcase-card>
+        <div>o</div>
+      </showcase-card>
+    </section>
+
+    <section id="nav-heading" class="vertical">
+      <div class="flex-vertical">
+        <o-typography variant="T4">Nav heading</o-typography>
+        <o-typography>Nav-headings consist of a chevron and a label. They are the parent of a nav-items. When clicked they expand or collapse a nav-group.</o-typography>
+      </div>
+      <showcase-card>
+        <table cellspacing="20">
+          <thead>
+            <tr>
+              <td></td>
+              <th><o-typography align="center" variant="C2">Expanded</o-typography></th>
+              <th><o-typography align="center" variant="C2">Collapsed</o-typography></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><o-typography align="center" variant="C2">Default</o-typography></td>
+              <td><o-sidebar-item open="false" text="Heading" isparent="true"></o-sidebar-item></td>
+              <td><o-sidebar-item open="false" text="Heading" isparent="true"></o-sidebar-item></td>
+            </tr>
+            <tr>
+              <td><o-typography align="center" variant="C2">Hover</o-typography></td>
+              <td><o-sidebar-item open="false" text="Heading" isparent="true" class="hover"></o-sidebar-item></td>
+              <td><o-sidebar-item open="false" text="Heading" isparent="true" class="hover"></o-sidebar-item></td>
+            </tr>
+            <tr>
+              <td><o-typography align="center" variant="C2">Pressed</o-typography></td>
+              <td><o-sidebar-item open="false" text="Heading" isparent="true" class="pressed"></o-sidebar-item></td>
+              <td><o-sidebar-item open="false" text="Heading" isparent="true" class="pressed"></o-sidebar-item></td>
+            </tr>
+          </tbody>
+        </table>
+      </showcase-card>
+    </section>
+
+    <section id="nav-item" class="vertical">
+      <div class="flex-vertical">
+        <o-typography variant="T4">Nav item</o-typography>
+        <o-typography>Nav-items consist of an icon, a label, and an optional badge or status light. They are the children of nav-headings. When clicked they take the user to another area.</o-typography>
+      </div>
+      <showcase-card>
+        <table cellspacing="20">
+          <thead>
+            <tr>
+              <td></td>
+              <th><o-typography align="center" variant="C2">Expanded</o-typography></th>
+              <th><o-typography align="center" variant="C2">Collapsed</o-typography></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><o-typography align="center" variant="C2">Default</o-typography></td>
+              <td><o-sidebar-item open="false" text="Heading" icon="user.unselected" icon_selected="user.selected"></o-sidebar-item></td>
+              <td><o-sidebar-item open="false" text="Heading" icon="user.unselected" icon_selected="user.selected"></o-sidebar-item></td>
+            </tr>
+            <tr>
+              <td><o-typography align="center" variant="C2">Hover</o-typography></td>
+              <td><o-sidebar-item open="false" text="Heading" icon="user.unselected" icon_selected="user.selected" class="hover"></o-sidebar-item></td>
+              <td><o-sidebar-item open="false" text="Heading" icon="user.unselected" icon_selected="user.selected" class="hover"></o-sidebar-item></td>
+            </tr>
+            <tr>
+              <td><o-typography align="center" variant="C2">Pressed</o-typography></td>
+              <td><o-sidebar-item open="false" text="Heading" icon="user.unselected" icon_selected="user.selected" class="pressed"></o-sidebar-item></td>
+              <td><o-sidebar-item open="false" text="Heading" icon="user.unselected" icon_selected="user.selected" class="pressed"></o-sidebar-item></td>
+            </tr>
+            <tr>
+              <td><o-typography align="center" variant="C2">Default</o-typography></td>
+              <td><o-sidebar-item open="false" text="Heading" icon="user.unselected" icon_selected="user.selected" class="selected"></o-sidebar-item></td>
+              <td><o-sidebar-item open="false" text="Heading" icon="user.unselected" icon_selected="user.selected" class="selected"></o-sidebar-item></td>
+            </tr>
+          </tbody>
+        </table>
+      </showcase-card>
+    </section>
+
+    <section id="nav-group" class="vertical">
+      <div class="flex-vertical">
+        <o-typography variant="T4">Nav group</o-typography>
+        <o-typography>Nav-groups consist of a nav-heading and multiple nav-items. All nav-items are organized into nav-groups. Nav-groups may or may not have a heading. If a nav-group has a heading, the group can be opened or closed by using the chevron button or by clicking anywhere on the heading. Nav-groups cannot be opened or closed when the sidebar is in the collapsed state.</o-typography>
+      </div>
+      <showcase-card>
+        <table cellspacing="30">
+          <thead>
+            <tr>
+              <td></td>
+              <th><o-typography align="center" variant="C2">Expanded</o-typography></th>
+              <th><o-typography align="center" variant="C2">Collapsed</o-typography></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><o-typography align="center" variant="C2">Closed</o-typography></td>
+              <td>
+                <o-sidebar-item text="Heading" open="false">
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                </o-sidebar-item>
+              </td>
+              <td>
+                <o-sidebar-item text="Heading" open="false">
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                </o-sidebar-item>
+              </td>
+            </tr>
+            <tr>
+              <td><o-typography align="center" variant="C2">Open</o-typography></td>
+              <td>
+                <o-sidebar-item text="Heading">
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                </o-sidebar-item>
+              </td>
+              <td>
+                <o-sidebar-item text="Heading">
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                  <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                </o-sidebar-item>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </showcase-card>
+    </section>
+
+    <section id="nav-bottom-slot" class="vertical">
+      <div class="flex-vertical">
+        <o-typography variant="T4">Nav bottom slot</o-typography>
+        <o-typography>The nav bottom slot contains a component that is pinned to the bottom of the sidebar. Contact sections are the most common component that is used in the nav bottom slot. </o-typography>
+        <br />
+        <o-typography variant="C2">Nav bottom slot</o-typography>
+        <o-typography>Contact sections contain information about key contacts. The contact section can be opened by clicking anywhere on the closed component. When opened, it can be closed by clicking anywhere on the header section of the component. Contact sections cannot be opened or closed when the sidebar is in the collapsed state.</o-typography>
+      </div>
+      <showcase-card>
+        <table cellspacing="30">
+          <thead>
+            <tr>
+              <th><o-typography align="center" variant="C2">Closed</o-typography></th>
+              <th><o-typography align="center" variant="C2">Open</o-typography></th>
+              <th><o-typography align="center" variant="C2">Collapsed</o-typography></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <o-sidebar-contact></o-sidebar-contact>
+              </td>
+              <td>
+                <o-sidebar-contact open="false"></o-sidebar-contact>
+              </td>
+              <td>
+                <o-sidebar-contact></o-sidebar-contact>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </showcase-card>
+    </section>
+
+    <o-divider></o-divider>
+    
+    <section id="behaviour">
+      <o-typography variant="T3">Behaviour</o-typography>
+    </section>
+
+    <section id="truncation">
+      <div class="flex-vertical">
+        <o-typography variant="T3">Truncation</o-typography>
+        <o-typography>Nav-items are truncated with an ellipsis when they overflow their container.</o-typography>
+      </div>
+      <showcase-card>
+        <div class="card">
+          <o-sidebar selected="1">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" id="1" text="This label is too long and it is not ideal"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+                  
+            <o-sidebar-contact slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+        </div>
+      </showcase-card>
+    </section>
+
+    <section id="scrolling">
+      <div class="flex-vertical">
+        <o-typography variant="T3">Scrolling</o-typography>
+        <o-typography>Navigation sidebars can be vertically scrolled independent of the rest of the content on the screen in cases where the sidebar’s contents exceed the height of the viewport.</o-typography>
+      </div>
+      <showcase-card>
+        <div class="card">
+          <o-sidebar>
+            <o-sidebar-item class="selected" icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+                  
+            <o-sidebar-contact slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+        </div>
+      </showcase-card>
+    </section>
+
+    <section id="visibility" class="vertical">
+      <o-typography variant="T3">Visibility</o-typography>
+      <o-typography>Navigation sidebars can be open and fully visible or collapsed. The menu icon is used to open and collapse the drawer. </o-typography>
+      <o-typography>Navigation sidebars should be open by default on large screens and closed by default on small screens. </o-typography>
+    </section>
+    <section>
+      <showcase-card>
+        <o-typography align="center" variant="C2">Desktop and laptop sidebars</o-typography>
+        <div class="card small">
+          <o-sidebar mode="hover">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+          </o-sidebar>
+        </div>
+
+        <div class="card small">
+          <o-sidebar>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+          </o-sidebar>
+        </div>
+      </showcase-card>
+      <showcase-card>
+        <o-typography align="center" variant="C2">Pad and mobile sidebars</o-typography>
+        <div class="card small">
+          <o-sidebar class="mobile" mode="collapsed">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+                  
+            <o-sidebar-contact slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+        </div>
+
+        <div class="card small">
+          <o-sidebar class="mobile">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+                  
+            <o-sidebar-contact slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+        </div>
+      </showcase-card>
+    </section>
+
+    <section id="expand-on-hover" class="vertical">
+      <o-typography variant="T3">Expand on hover</o-typography>
+      <o-typography>While the navigation sidebar is collapsed, hovering the mouse over the sidebar will cause it to expand on top of page content, called the expanded-hover state. Moving the mouse away from the sidebar will return the sidebar to the collapsed state.</o-typography>
+      <o-typography>Clicking the menu button when the sidebar is in the expanded-hover state will fix the sidebar and it will no longer collapse when the mouse is moved away from the sidebar. Page content will then move to be beside the sidebar instead of underneath it.</o-typography>
+      <o-typography>When in the expanded-hover state, the sidebar has a shadow using the token <strong>--o-shadow-m</strong>.</o-typography>
+    </section>
+    <section>
+      <showcase-card>
+        <o-typography align="center" variant="C2">Moving the mouse into the sidebar causes the sidebar to pop-out on top of page content</o-typography>
+        <div class="card small">
+          <o-sidebar mode="hover">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+                  
+            <o-sidebar-contact slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+          <div class="page">
+            <o-tabs indicator="true">
+              <o-typography slot="header-top" variant="T4">Upload document</o-typography>
+              <o-tab>General Documents</o-tab>
+              <o-tab class="selected">JAMM Documents</o-tab>
+
+              <o-tab-content>
+                <div class="page-card">
+                  <div class="dropzone"></div>
+                </div>
+                <div class="page-card">
+                  <o-typography>Uploaded General documents</o-typography>
+                </div>
+              </o-tab-content>
+              <o-tab-content>
+                <div class="page-card">
+                  <div class="dropzone"></div>
+                </div>
+                <div class="page-card">
+                  <o-typography>Uploaded JAMM documents</o-typography>
+                </div>
+              </o-tab-content>
+            </o-tabs>
+          </div>
+        </div>
+
+        <div class="card small">
+          <o-sidebar mode="hover" class="hover">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+                  
+            <o-sidebar-contact slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+          <div class="page">
+            <o-tabs indicator="true">
+              <o-typography slot="header-top" variant="T4">Upload document</o-typography>
+              <o-tab>General Documents</o-tab>
+              <o-tab class="selected">JAMM Documents</o-tab>
+
+              <o-tab-content>
+                <div class="page-card">
+                  <div class="dropzone"></div>
+                </div>
+                <div class="page-card">
+                  <o-typography>Uploaded General documents</o-typography>
+                </div>
+              </o-tab-content>
+              <o-tab-content>
+                <div class="page-card">
+                  <div class="dropzone"></div>
+                </div>
+                <div class="page-card">
+                  <o-typography>Uploaded JAMM documents</o-typography>
+                </div>
+              </o-tab-content>
+            </o-tabs>
+          </div>
+        </div>
+      </showcase-card>
+      <showcase-card>
+        <o-typography align="center" variant="C2">Moving the mouse away from the sidebar causes it to collapse</o-typography>
+        <div class="card small">
+          <o-sidebar mode="hover" class="hover">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+                  
+            <o-sidebar-contact slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+          <div class="page">
+            <o-tabs indicator="true">
+              <o-typography slot="header-top" variant="T4">Upload document</o-typography>
+              <o-tab>General Documents</o-tab>
+              <o-tab class="selected">JAMM Documents</o-tab>
+
+              <o-tab-content>
+                <div class="page-card">
+                  <div class="dropzone"></div>
+                </div>
+                <div class="page-card">
+                  <o-typography>Uploaded General documents</o-typography>
+                </div>
+              </o-tab-content>
+              <o-tab-content>
+                <div class="page-card">
+                  <div class="dropzone"></div>
+                </div>
+                <div class="page-card">
+                  <o-typography>Uploaded JAMM documents</o-typography>
+                </div>
+              </o-tab-content>
+            </o-tabs>
+          </div>
+        </div>
+
+        <div class="card small">
+          <o-sidebar mode="hover">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+                  
+            <o-sidebar-contact slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+          <div class="page">
+            <o-tabs indicator="true">
+              <o-typography slot="header-top" variant="T4">Upload document</o-typography>
+              <o-tab>General Documents</o-tab>
+              <o-tab class="selected">JAMM Documents</o-tab>
+
+              <o-tab-content>
+                <div class="page-card">
+                  <div class="dropzone"></div>
+                </div>
+                <div class="page-card">
+                  <o-typography>Uploaded General documents</o-typography>
+                </div>
+              </o-tab-content>
+              <o-tab-content>
+                <div class="page-card">
+                  <div class="dropzone"></div>
+                </div>
+                <div class="page-card">
+                  <o-typography>Uploaded JAMM documents</o-typography>
+                </div>
+              </o-tab-content>
+            </o-tabs>
+          </div>
+        </div>
+      </showcase-card>
+    </section>
+
+    <section id="contact-section" class="vertical">
+      <o-typography variant="T3">Contact section</o-typography>
+      <o-typography>The navigation sidebar may have a contact section pinned to the bottom of the sidebar. If there is overlap, the contact section appears on top of the nav-groups.</o-typography>
+    </section>
+    <section>
+      <showcase-card>
+        <div class="card smaller">
+          <o-sidebar mode="hover">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+                  
+            <o-sidebar-contact slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+        </div>
+
+        <div class="card small">
+          <o-sidebar>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+                  
+            <o-sidebar-contact slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+        </div>
+
+        <div class="card small">
+          <o-sidebar>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+                  
+            <o-sidebar-contact open="true" slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+        </div>
+      </showcase-card>
+      <showcase-card>
+        <div class="card small">
+          <o-sidebar>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+                  
+            <o-sidebar-contact open="true" slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+        </div>
+      </showcase-card>
+    </section>
+
+    <section id="nav-item-states">
+      <div class="flex-vertical">
+        <o-typography variant="T3">Nav item states</o-typography>
+        <o-typography>Default, hover, and pressed nav-items use their respective states and use the outlined icon.</o-typography>
+        <o-typography>Active nav-items will use the <strong>--o-color-bg-tertiary</strong> token, and swap the outlined icon for a filled icon. </o-typography>
+        <o-typography>Hover, pressed, and active states use the active variant of the badge.</o-typography>
+      </div>
+      <showcase-card>
+        <table cellspacing="0">
+          <tr>
+            <td><o-typography>Default</o-typography></td>
+            <td><o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item></td>
+          </tr>
+          <tr>
+            <td><o-typography>Hover</o-typography></td>
+            <td><o-sidebar-item class="hover" icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item></td>
+          </tr>
+          <tr>
+            <td><o-typography>Pressed</o-typography></td>
+            <td><o-sidebar-item class="pressed" icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item></td>
+          </tr>
+          <tr>
+            <td><o-typography>Active</o-typography></td>
+            <td><o-sidebar-item class="selected" icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item></td>
+          </tr>
+        </table>
+      </showcase-card>
+    </section>
+
+    <section id="nav-heading-states">
+      <div class="flex-vertical">
+        <o-typography variant="T3">Nav heading states</o-typography>
+        <o-typography>Default, hover, and pressed nav-headings use their respective states.</o-typography>
+      </div>
+      <showcase-card>
+        <table cellspacing="0">
+          <tr>
+            <td><o-typography>Default</o-typography></td>
+            <td><o-sidebar-item text="Heading" isparent="true"></o-sidebar-item></td>
+          </tr>
+          <tr>
+            <td><o-typography>Hover</o-typography></td>
+            <td><o-sidebar-item class="hover" text="Heading" isparent="true"></o-sidebar-item></td>
+          </tr>
+          <tr>
+            <td><o-typography>Pressed</o-typography></td>
+            <td><o-sidebar-item class="pressed" text="Heading" isparent="true"></o-sidebar-item></td>
+          </tr>
+        </table>
+      </showcase-card>
+    </section>
+
+    <section id="counter-behaviour">
+      <div class="flex-vertical">
+        <o-typography variant="T3">Nav heading states</o-typography>
+        <o-typography>Badges adjust their width depending on their value and have a minimum width of 32px. Only 3 numerical digits including a decimal are supported. After 999, an additional abbreviation for large values is added. “k” for thousand, “m” for million, “bn” for billion, and “tn” for trillion. </o-typography>
+        <o-typography>Translations of these abbreviations are handled on a project basis.</o-typography>
+      </div>
+      <showcase-card>
+        <div>
+          <o-badge count="1"></o-badge>
+          <o-badge count="999"></o-badge>
+        </div>
+        <div>
+          <o-badge count="1000"></o-badge>
+          <o-badge count="9900"></o-badge>
+        </div>
+        <div>
+          <o-badge count="10000"></o-badge>
+          <o-badge count="999000"></o-badge>
+        </div>
+        <div>
+          <o-badge count="1000000"></o-badge>
+          <o-badge count="999000000"></o-badge>
+        </div>
+        <div>
+          <o-badge count="1000000000"></o-badge>
+          <o-badge count="999000000000"></o-badge>
+        </div>
+        <div>
+          <o-badge count="1000000000000"></o-badge>
+          <o-badge count="999000000000000"></o-badge>
+        </div>
+      </showcase-card>
+    </section>
+
+    <section id="animation">
+      <div class="flex-vertical">
+        <o-typography variant="T3">Animation</o-typography>
+        <o-typography>The animation of the navigation sidebar expanding and collapsing and the nav-group opening and closing follows these animation inputs.</o-typography>
+      </div>
+      <showcase-card>
+        <div class="box">
+          <o-typography variant="C3"><strong>Duration: </strong>375ms</o-typography>
+          <o-typography variant="C3"><strong>Stiffness: </strong>400</o-typography>
+          <o-typography variant="C3"><strong>Damping: </strong>32</o-typography>
+          <o-typography variant="C3"><strong>Mass: </strong>1</o-typography>
+        </div>
+      </showcase-card>
+    </section>
+
+    <section id="responsive-width" class="vertical">
+      <o-typography variant="T3">Responsive width</o-typography>
+      <o-typography>The navigation sidebar has a 320px width by default.</o-typography>
+      <o-typography>On screens smaller than 720px, the navigation sidebar is displayed on top of page content and is expanded with the menu button. The sidebar will assume 85% of the viewport width up to a max width of 320px. The max width takes affect at approx 377px viewport width.</o-typography>
+    </section>
+    <section>
+      <showcase-card>
+        <div>
+          <o-typography 
+            class="messure-text messure-line bottom" 
+            style="margin-bottom: var(--margin-medium);" 
+            align="center" 
+            nowrap
+          >
+            320px
+          </o-typography>
+          <o-typography 
+            class="messure-line bottom messure-text" 
+            style="width:272px;" 
+            align="center" 
+            nowrap
+          >
+            272px (85%)
+          </o-typography>
+          <div class="card small">
+            <o-sidebar class="mobile">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item text="Heading">
+                <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              </o-sidebar-item>
+            </o-sidebar>
+          </div>
+        </div>
+        <div>
+          <o-typography 
+            class="messure-text messure-line bottom" 
+            style="width:390px;margin-bottom: var(--margin-medium);" 
+            align="center" 
+            nowrap
+          >
+            390px
+          </o-typography>
+          <o-typography 
+            class="messure-line bottom messure-text" 
+            style="width:320px;" 
+            align="center" 
+            nowrap
+          >
+            320px (85%)
+          </o-typography>
+          <div class="card small">
+            <o-sidebar class="mobile">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item text="Heading">
+                <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              </o-sidebar-item>
+            </o-sidebar>
+          </div>
+        </div>
+      </showcase-card>
+      <showcase-card>
+        <o-typography style="margin-top: var(--margin-medium);" align="center" variant="C2">The menu button opens a sidebar on top<br/>
+          of page content on screens <720px</o-typography>
+
+        <div style="margin-top: 5rem" class="card small">
+          <o-sidebar mode="collapsed" class="mobile">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+                  
+            <o-sidebar-contact slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+        </div>
+
+        <div style="margin-top: 5rem" class="card small">
+          <o-sidebar class="mobile">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+                  
+            <o-sidebar-contact slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+        </div>
+      </showcase-card>
+    </section>
+
+    <section id="overlay" class="vertical">
+      <o-typography variant="T3">Overlay</o-typography>
+      <o-typography>When the navigation sidebar is expanded on mobile and pad, an overlay appears between the navigation drawer and the other content on the page. </o-typography>
+      <o-typography>The overlay uses the color token --o-color-bg-overlay at 70% opacity.</o-typography>
+    </section>
+    <section>
+      <showcase-card>
+        <div class="card small">
+          <o-sidebar mode="open" class="mobile">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+                
+            <o-sidebar-contact slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+          <div class="page">
+            <o-tabs indicator="true">
+              <o-typography slot="header-top" variant="T4">Upload document</o-typography>
+              <o-tab>General Documents</o-tab>
+              <o-tab class="selected">JAMM Documents</o-tab>
+
+              <o-tab-content>
+                <div class="page-card">
+                  <div class="dropzone"></div>
+                </div>
+                <div class="page-card">
+                  <o-typography>Uploaded General documents</o-typography>
+                </div>
+              </o-tab-content>
+              <o-tab-content>
+                <div class="page-card">
+                  <div class="dropzone"></div>
+                </div>
+                <div class="page-card">
+                  <o-typography>Uploaded JAMM documents</o-typography>
+                </div>
+              </o-tab-content>
+            </o-tabs>
+          </div>
+        </div>
+      </showcase-card>
+      <showcase-card>
+        <div class="card small theme-opposite">
+          <o-sidebar mode="open" class="mobile theme-opposite">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+                
+            <o-sidebar-contact slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+          <div class="page">
+            <o-tabs class="theme-light" indicator="true">
+              <o-typography slot="header-top" variant="T4">Upload document</o-typography>
+              <o-tab>General Documents</o-tab>
+              <o-tab class="selected">JAMM Documents</o-tab>
+
+              <o-tab-content>
+                <div class="page-card">
+                  <div class="dropzone"></div>
+                </div>
+                <div class="page-card">
+                  <o-typography>Uploaded General documents</o-typography>
+                </div>
+              </o-tab-content>
+              <o-tab-content>
+                <div class="page-card">
+                  <div class="dropzone"></div>
+                </div>
+                <div class="page-card">
+                  <o-typography>Uploaded JAMM documents</o-typography>
+                </div>
+              </o-tab-content>
+            </o-tabs>
+          </div>
+        </div>
+      </showcase-card>
+    </section>
+    
+    <o-divider></o-divider>
+    
+    <section id="guidelines">
+      <o-typography variant="T3">Best practices</o-typography>
+    </section>
+    <section>
+      <showcase-guideline
+        text="Do use a maximum of 2 hierarchy levels in the sidenav."
+        variant="success"
+      >  
+        <o-sidebar>
+          <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+          <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+          <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+          <o-sidebar-item text="Heading">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+          </o-sidebar-item>
+          <o-sidebar-item open="false" text="Heading">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+          </o-sidebar-item>
+          <o-sidebar-item open="false" text="Heading">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+          </o-sidebar-item>
+          <o-sidebar-item text="Heading">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+          </o-sidebar-item>
+                  
+          <o-sidebar-contact slot="footer"></o-sidebar-contact>
+        </o-sidebar>
+      </showcase-guideline>
+      <showcase-guideline
+        text="Don’t use more than 2 hierarchy levels in the sidenav."
+        variant="error"
+      >  
+        <o-sidebar>
+          <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+          <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+          <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+          <o-sidebar-item text="Heading">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item text="Heading">
+                <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+                <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              </o-sidebar-item>
+            </o-sidebar-item>
+          </o-sidebar-item>
+          <o-sidebar-item open="false" text="Heading">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+          </o-sidebar-item>
+          <o-sidebar-item open="false" text="Heading">
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+          </o-sidebar-item>
+          
+          <o-sidebar-contact slot="footer"></o-sidebar-contact>
+        </o-sidebar>
+      </showcase-guideline>
+    </section>
+
+    <o-divider></o-divider>
+
+    <section id="examples">
+      <o-typography variant="T3">Examples</o-typography>
+    </section>
+    <section class="example">
+      <showcase-card>
+        <div>
+          <o-sidebar>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item indicator="true" icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+            <o-sidebar-item open="false" text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+            <o-sidebar-item open="false" text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+            
+            <o-sidebar-contact slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+          <div>
+            <div>
+              <div class="btn"></div>
+              <div class="btn"></div>
+            </div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+          </div>
+        </div>
+      </showcase-card>
+    </section>
+    <section class="example theme-opposite">
+      <showcase-card>
+        <div>
+          <o-sidebar>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item indicator="true" icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+            <o-sidebar-item open="false" text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+            <o-sidebar-item open="false" text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+            <o-sidebar-item text="Heading">
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+              <o-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="1" text="Nav-item"></o-sidebar-item>
+            </o-sidebar-item>
+
+            <o-sidebar-contact class="theme-opposite" slot="footer"></o-sidebar-contact>
+          </o-sidebar>
+          <div>
+            <div>
+              <div class="btn"></div>
+              <div class="btn"></div>
+            </div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+          </div>
+        </div>
+      </showcase-card>
+    </section>
+  </main>
+</body>
+</html>

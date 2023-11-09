@@ -43,7 +43,53 @@ const tabcontainer = document.querySelector('o-tabs');
 tabs.forEach(element => {
     element.parentNode.removeChild(element);
     tabcontainer.appendChild(element);
-})
+});
+
+function listDirectories(folderPath) {
+    try {
+        const filesAndDirs = fs.readdirSync(folderPath, { withFileTypes: true });
+        const directories = filesAndDirs.filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
+        return directories;
+    } catch (error) {
+        console.error('Error reading the directory:', error);
+    }
+}
+
+// add translations
+
+// add themes 
+const themes = listDirectories(path.resolve(SCRIPTDIR, '../../themes'));
+if (themes.length > 1)
+{
+    document.appendChild(parse(`
+        <script defer>
+            window.addEventListener("load", () => {
+            ${themes.map(theme => {
+                let color = undefined;
+                let text = theme;
+                try {
+                    const themeconfig = fs.readFileSync(path.resolve(SCRIPTDIR, '../../themes', theme, ".config"));
+                    if (themeconfig)
+                    {
+                        const config = JSON.parse(themeconfig);
+                        color = config.color;
+
+                        if (config.text) text = theme.text;
+                    }
+                }
+                catch {}
+                if (!color)
+                {
+                    const colors = ["cornflowerblue", "coral", "chocolate", "salmon", "firebrick", "khaki"];
+                    color = colors[Math.round(Math.random() * (colors.length - 1))]
+                }
+                
+                return `window.oTheme.add({ name: "${text}", href: "${theme}", representColor: "${color}" });`
+            }).join('\n')}
+            });
+        </script>
+    `));
+}
 
 fs.writeFileSync(combinedIndex_path, document.toString(), "utf-8");
 

@@ -49,11 +49,11 @@ export function init() {
       current: 'base',
       map: new Map()
     }
-    window.oTheme.map.set("base", {
-      name: "Base",
-      href: "base",
-      representColor: "#444",
-    });
+    // window.oTheme.map.set("base", {
+    //   name: "base",
+    //   href: "base",
+    //   representColor: "#444",
+    // });
   }
 }
 init();

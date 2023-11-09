@@ -21,6 +21,7 @@ echo ""
 
 # init bash script executions 
 chmod +x ./scripts/build/individual.sh
+chmod +x ./scripts/ecosystem/individual.sh
 
 echo "### install node dependancies"
 npm install

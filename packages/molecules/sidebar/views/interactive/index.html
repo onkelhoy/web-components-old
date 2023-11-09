@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  <doc-controller>
+    <div id="target">
+      <o-sidebar>
+        
+      <div  data-slotname="default">
+        <p>Hello World</p>
+      </div>
+    
+      </o-sidebar>
+  </div>
+
+    <section class="control" slot="setting">
+      <o-tabs>
+        <o-tab id="html">HTML</o-tab>
+        <o-tab class="selected" id="properties">Properties</o-tab>
+        <o-tab id="css">CSS</o-tab>
+        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="<p>Hello World</p>"></doc-input><doc-input label="HTML slot: footer" variant="textarea" name="slot-footer" data-slotname="footer" value=""></doc-input></div></o-tab-content>
+        <o-tab-content id="properties"><h3 data-subtitle="Sidebar Properties">Sidebar Properties</h3><div data-name="Sidebar Properties" class="properties">
+        
+        
+        
+        
+        
+        
+        <doc-input data-prop-name="mode" variant="select" value="open" name="mode" label="mode" options='["open","collapsed","hover"]'></doc-input>
+      
+      
+      
+      
+      
+      
+      
+            
+            
+            
+            
+            
+            
+            <doc-input data-prop-name="selected" value="" name="selected" label="selected"></doc-input>
+          
+          
+          
+          
+          
+          
+          
+        
+        
+        
+        
+        
+        
+        <doc-input data-prop-name="boxtemplateElement" variant="textarea" value="" name="boxtemplateElement" label="boxtemplateElement - BoxTemplate"></doc-input>
+      
+      
+      
+      
+      
+      
+      
+        
+        
+        
+        
+        <doc-input data-prop-name="unit" variant="select" value="desktop" name="unit" label="unit" options='["mobile","pad","laptop","desktop"]'></doc-input>
+      
+      
+      
+      
+      
+          <doc-radio name="inside" data-prop-name="inside" label="inside" value=""></doc-radio>
+        </div></o-tab-content>
+        <o-tab-content id="css">
+      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/molecules/sidebar" class="style-source">
+        <h3>sidebar styles</h3>
+      <div class="style-group" data-style-name="--margin-medium"><doc-input data-css-input="true" name="--margin-medium" label="--margin-medium" value="16px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>margin-left</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>16px</li></ul></div></div></div><div class="style-group" data-style-name="--margin-small"><doc-input data-css-input="true" name="--margin-small" label="--margin-small" value="8px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>margin-top</li><li>margin-block</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>8px</li></ul></div></div></div><div class="style-group" data-style-name="--margin-smaller"><doc-input data-css-input="true" name="--margin-smaller" label="--margin-smaller" value="4px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>margin-bottom</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>4px</li></ul></div></div></div><div class="style-group" data-style-name="--o-color-bg"><color-picker-input data-css-input="true" name="--o-color-bg" label="--o-color-bg" value="#FFFFFF"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#FFFFFF</li></ul></div></div></div><div class="style-group" data-style-name="--o-sidebar-background-color"><color-picker-input data-css-input="true" name="--o-sidebar-background-color" label="--o-sidebar-background-color" value="var(--o-color-bg, #FFFFFF)"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>var(--o-color-bg, #FFFFFF)</li></ul></div></div></div><div class="style-group" data-style-name="--padding-small"><doc-input data-css-input="true" name="--padding-small" label="--padding-small" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding</li><li>padding-right</li><li>padding-top</li><li>padding-inline</li><li>padding-left</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--gap-medium"><doc-input data-css-input="true" name="--gap-medium" label="--gap-medium" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>left</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--o-color-bg-overlay"><color-picker-input data-css-input="true" name="--o-color-bg-overlay" label="--o-color-bg-overlay" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--gap-large"><doc-input data-css-input="true" name="--gap-large" label="--gap-large" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>top</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--padding-medium"><doc-input data-css-input="true" name="--padding-medium" label="--padding-medium" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding-block</li><li>padding-left</li><li>padding-bottom</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--o-color-border-tertiary"><color-picker-input data-css-input="true" name="--o-color-border-tertiary" label="--o-color-border-tertiary" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--shadow-horizontal-m"><doc-input data-css-input="true" name="--shadow-horizontal-m" label="--shadow-horizontal-m" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>box-shadow</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div></div>
+    </o-tab-content>
+      </o-tabs>
+    </section>
+  </doc-controller>
+</body>
+</html>

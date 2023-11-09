@@ -12,8 +12,8 @@ export class Button extends BoxTemplate {
     @property({ rerender: false, onUpdate: "ontypeupdate" }) type: "button" | "submit" | "reset" = "button";
     @property({ rerender: false }) size: Size = "medium";
     @property({ rerender: false }) href?: string;
-    @property({ rerender: false, type: Boolean }) circle = false;
-    @property({ rerender: false, type: Boolean }) loading = false;
+    @property({ rerender: false, type: Boolean }) circle:boolean = false;
+    @property({ rerender: false, type: Boolean }) loading:boolean = false;
     @property({ rerender: false }) textvariant: ButtonTextType = "B1"; // TODO attribute: 'text-variant'
     @property({ rerender: false }) mode: ButtonMode = "hug";
     @property({ rerender: false }) variant: ButtonVariant = "filled";
@@ -81,7 +81,7 @@ export class Button extends BoxTemplate {
     render() {
         return `
             <slot name="prefix"></slot>
-            <span class="content"><slot></slot></span>
+            <span part="content" class="content"><slot></slot></span>
             <slot name="suffix"></slot>
         `;
     }

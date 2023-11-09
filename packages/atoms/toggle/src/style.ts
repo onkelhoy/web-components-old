@@ -1,7 +1,8 @@
 export const style = `:host {
   cursor: pointer;
   display: inline-flex;
-  align-items: center; }
+  align-items: center;
+  color: var(--o-color-icon); }
   :host input {
     display: none !important; }
   :host::part(wrapper) {

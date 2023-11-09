@@ -49,6 +49,11 @@
 :host([nowrap="true"]) {
     white-space: nowrap;
 }
+:host([truncate="true"]) {
+    white-space: nowrap;   /* this ensures text remains on a single line */
+    overflow: hidden;      /* hides any overflow */
+    text-overflow: ellipsis;  /* shows ellipsis for any overflow */
+}
 
 // HEADING
 :host([variant="heading1"]),

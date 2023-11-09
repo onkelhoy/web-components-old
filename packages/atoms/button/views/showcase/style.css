@@ -2,7 +2,15 @@ body {
   margin: 0;
 }
 
+/* BUG fixes */
+main,
+showcase-header {
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
 /*** POSITION BOXES *************/
+
 showcase-header {
   padding-inline: 10%;
 }
@@ -20,6 +28,7 @@ main {
   gap: calc(3 * var(--gap-large));
   padding: var(--padding-large);
   padding-inline: 10%;
+  background-color: var(--o-color-bg);
   padding-block: calc(3 * var(--gap-large));
 }
 section {
@@ -350,6 +359,7 @@ section#visual-weight .button.outlined {
   border: 1px solid var(--o-color-border);
 }
 section#visual-weight .flex {
+  display: flex;
   align-items: flex-end;
   justify-content: space-between;
   margin-bottom: var(--gap-medium);

@@ -18,18 +18,28 @@ if [ -f "themes/$NAME/imports.css" ]; then
   echo "" >> "$outputFile"
 fi
 
+# extract the 2 types 
+LIGHT_THEME=$(sed -n '/:root {/,/}/p' "themes/$NAME/light.css" | sed 's/:root {//g' | sed 's/}//g')
+DARK_THEME=$(sed -n '/:root {/,/}/p' "themes/$NAME/dark.css" | sed 's/:root {//g' | sed 's/}//g')
+
 # loop through light and dark themes
 for mode in "light" "dark"; do
   FILE_PATH="themes/$NAME/$mode.css"
   if [ -f $FILE_PATH ]; then 
 
-    # get content inside :root block
-    ROOT_CONTENT=$(sed -n '/:root {/,/}/p' $FILE_PATH | sed 's/:root {//g' | sed 's/}//g')
+    # Define opposite mode
+    if [ "$mode" == "light" ]; then 
+      TARGET=$LIGHT_THEME
+      OPPOSITE=$DARK_THEME
+    else
+      TARGET=$DARK_THEME
+      OPPOSITE=$LIGHT_THEME
+    fi
 
     # generate new content
-    CLASS_CONTENT="\n.theme-$mode {\n$ROOT_CONTENT\n}\n"
+    CLASS_CONTENT="\n.theme-$mode {\n$TARGET\n}\n"
       
-    MEDIA_QUERY_CONTENT="@media (prefers-color-scheme: $mode) {\n  :root {\n$ROOT_CONTENT\n  }\n}"
+    MEDIA_QUERY_CONTENT="@media (prefers-color-scheme: $mode) {\n .theme-opposite {\n$OPPOSITE\n }\n \t:root {\n$TARGET\n  }\n}"
     NEW_CONTENT="$MEDIA_QUERY_CONTENT"
     NEW_CONTENT=$(echo "$NEW_CONTENT" | sed 's/%/%%/g')
 

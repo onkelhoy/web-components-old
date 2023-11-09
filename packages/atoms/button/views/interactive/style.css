@@ -38,3 +38,9 @@ div.properties {
 .style-group > .info {
   display: flex;
 }
+
+div#target {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

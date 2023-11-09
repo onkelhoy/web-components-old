@@ -13,7 +13,9 @@
     "build": "bash ./scripts/build/run.sh",
     "create": "sh ./scripts/generator/copy.sh",
     "clean": "sh ./scripts/clean.sh",
-    "start": "cd ./ecosystem && npm run combine",
+    "ecosystem:build": "sh ./scripts/ecosystem/build.sh",
+    "ecosystem:start": "sh ./scripts/ecosystem/start.sh",
+    "start": "npm run ecosystem:build & npm run ecosystem:start",
     "theme:build": "sh ./scripts/theme/run.sh",
     "document": ""
   },

@@ -1,6 +1,6 @@
 {
     "name": "@henry2/pagination",
-    "version": "1.0.5",
+    "version": "1.1.0",
     "scripts": {
         "init": "sh .scripts/init.sh",
         "test": ".scripts/test.sh",
@@ -43,7 +43,6 @@
     },
     "devDependencies": {
         "@henry2/tools-doc": "^1.0.0",
-        "@henry2/tools-showcase": "^1.0.0",
         "esbuild": "^0.17.18",
         "node-html-parser": "^6.1.5",
         "node-sass": "^9.0.0",

@@ -1,5 +1,5 @@
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property, query } from "@henry2/tools-utils";
 
 // templates
 import { BaseTemplate } from "@henry2/templates-base";
@@ -20,17 +20,22 @@ export class Tabs extends BaseTemplate {
     private internalclick = false;
 
     // elements 
-    private indicatorElement!: HTMLSpanElement;
-    private headerElement!: HTMLElement;
-    private mainElement!: HTMLElement;
+    @query('span[part="indicator"]') indicatorElement!: HTMLSpanElement;
+    @query('header > div') headerElement!: HTMLElement;
+    @query('main') mainElement!: HTMLElement;
 
-    @property({ type: Boolean }) indicator: boolean = false;
+    // preselect = true makes sure tabs automatically selects the index (default = 0)
+    // NOTE preselect = index out of bounds will result in no preselected
+    @property({ type: Number, rerender: false }) preselect: number = 0;
+    @property({ type: Boolean }) indicator: boolean = true;
     @property({ rerender: false, type: Boolean }) scrolling: boolean = false;
 
     // event handlers
     private handleslotchange = (e:Event) => {
         if (e.target instanceof HTMLSlotElement)
         {
+            let selected:null|number = null;
+            let firsttab:Tab|null = null;
             e.target
                 .assignedElements()
                 .forEach((element, index) => {
@@ -47,8 +52,11 @@ export class Tabs extends BaseTemplate {
                         }
                         if (isTab) 
                         {
+                            if (!firsttab && index === this.preselect) firsttab = element;
                             id = this.tabs.length.toString();
                             element.addEventListener('click', this.handletabclick);
+
+                            if (element.classList.contains('selected')) selected = index;
                             this.tabs.push(element);
                         }
 
@@ -65,6 +73,16 @@ export class Tabs extends BaseTemplate {
                         }
                     }
                 });
+
+            if (selected === null)
+            {
+                if (firsttab !== null) 
+                {
+                    setTimeout(() => {
+                        (firsttab as Tab).click();
+                    }, 100)
+                }
+            }
         }
     }
     private handletabclick = (e:Event) => {
@@ -138,24 +156,17 @@ export class Tabs extends BaseTemplate {
         this.scrollclick = false;
     }
 
-    // class functions
-    firstUpdate(): void {
-        if (this.shadowRoot)
-        {
-            const header = this.shadowRoot.querySelector('header');
-            if (header) this.headerElement = header;
-            const main = this.shadowRoot.querySelector('main');
-            if (main) this.mainElement = main;
-            const span = this.shadowRoot.querySelector<HTMLSpanElement>('span.indicator');
-            if (span) this.indicatorElement = span;
-        }
-    }
-
     render() {
         return html`
             <header part="header">
-                <slot @slotchange="${this.handleslotchange}" name="tab"></slot>
-                <span class='indicator'></span>
+                <slot name="header-top"></slot>
+                <div part="header-tabs">
+                    <slot name="header-prefix"></slot>
+                    <slot @slotchange="${this.handleslotchange}" name="tab"></slot>
+                    <slot name="header-suffix"></slot>
+                    <span part="indicator"></span>
+                </div>
+                <slot name="header-below"></slot>
             </header>
             <slot name="between"></slot>
             <main @scroll="${this.handlescroll}" @scrollend="${this.handlescrollend}" part="content">

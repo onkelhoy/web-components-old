@@ -1,7 +1,8 @@
 // utils 
-import { html, property, Size } from "@henry2/tools-utils";
+import { html, property, Size, Radius } from "@henry2/tools-utils";
 
 // atoms
+import { ButtonVariant, ButtonColorVariant } from "@henry2/button";
 import "@henry2/icon/wc";
 import "@henry2/button/wc";
 
@@ -20,7 +21,11 @@ export class Menu extends BaseTemplate {
 
     @property({ rerender: false, type: Boolean }) open: boolean = false;
     @property() placement: Placement = "bottom-center";
-    @property() size: Size = "large";
+    @property() size: Size = "medium";
+
+    @property() buttonVariant: ButtonVariant = "clear";
+    @property() buttonColor: ButtonColorVariant = "secondary";
+    @property() buttonRadius: Radius = "medium";
 
     private current?: MenuItem;
     private items: MenuItem[] = [];
@@ -80,13 +85,18 @@ export class Menu extends BaseTemplate {
     render() {
         return html`
             <o-popover-template @hide="${this.handlehide}" @show="${this.handleshow}" revealby="click" hideonoutsideclick placement="${this.placement}">
-                <o-button part="button" slot="target" size="${this.size}">
+                <o-button 
+                    variant="${this.buttonVariant}" 
+                    color="${this.buttonColor}" 
+                    radius="${this.buttonRadius}" 
+                    part="button" 
+                    slot="target" 
+                    size="${this.size}"
+                >
                     <slot name="button-prefix" slot="prefix"></slot>
                     <slot name="button-content"></slot>
                     <slot name="button-suffix" slot="suffix">
-                        <span class="caret-wrapper">
-                            <o-icon customSize="15" name="caret">v</o-icon>
-                        </span>
+                        <o-icon customSize="15" name="caret">v</o-icon>
                     </slot>
                 </o-button>
                 <o-box-template part="box" class="options" radius="small" elevation="small">

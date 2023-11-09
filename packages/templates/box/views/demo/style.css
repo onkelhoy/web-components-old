@@ -3,6 +3,16 @@ body {
   color: var(--o-color-text);
 }
 
-body {
-  font-family: var(--o-font-family);
+o-box-template {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+o-codeblock::part(fieldset) {
+  padding: var(--padding-large);
+  display: flex;
+  gap: 4rem;
 }

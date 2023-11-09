@@ -14,23 +14,6 @@ import { BaseTemplate } from "@henry2/templates-base";
 import { style } from "./style";
 import LanguageEmojis from './languages.json';
 
-class B extends HTMLElement {
-  b: string;
-  
-  constructor() {
-    super();
-    this.b = "ok"
-  }
-}
-class A extends B {
-  a: string;
-
-  constructor() {
-    super();
-    this.a = "ok"
-  }
-}
-
 export class Language extends BaseTemplate {
   static style = style;
 
@@ -137,7 +120,7 @@ export class Language extends BaseTemplate {
         </o-menu-item>
       </template>
 
-      <o-menu placement="bottom-right" @select="${this.handlelanguageselect}">
+      <o-menu placement="bottom-left" @select="${this.handlelanguageselect}">
         <span slot="button-prefix" class="wrapper">
           <span class="flag globe">
             <span class="display">
