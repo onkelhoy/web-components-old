@@ -8,8 +8,6 @@ function cleanup() {
     echo "[start] clean-up"
     kill $watcher_pid 
     kill $watch_server_pid 
-    # kill -INT ${watcher_pid} 
-    # kill -INT ${watch_server_pid}
 
     clear
     echo "$SUBFOLDER terminated" 
@@ -26,7 +24,7 @@ sh .scripts/watch.sh &
 watcher_pid=$!
 
 # watch demo project
-sh $ROOTDIR/scripts/liveserver/run.sh $SUBFOLDER &
+sh $ROOTDIR/scripts/server/run.sh $SUBFOLDER --live &
 watch_server_pid=$!
 
 # Wait for the script to receive a SIGINT, or EXIT (from parent process) (Ctrl+C)

@@ -1,0 +1,47 @@
+const path = require('path');
+
+// NOTE this has to be done first !! 
+// assinging environment variables
+process.env.SCRIPT_DIR = process.argv[2];
+process.env.PACKAGE_DIR = process.argv[3];
+process.env.ROOT_DIR = process.argv[4];
+process.env.SUBFOLDER = process.argv[5];
+process.env.HTMLFILE = process.argv[6];
+process.env.LIVEMODE = process.argv[7] === "live";
+process.env.VIEW_DIR = path.join(process.env.PACKAGE_DIR, 'views', process.env.SUBFOLDER);
+
+const { start } = require('./util/server');
+const { init } = require('./util/dependency');
+const { DeepMerge } = require('./util/merge');
+const { cleanup: watchCleanup } = require('./util/watch');
+const { run: PrepareLanguages } = require('./util/language');
+
+process.on('EXIT', cleanup);
+process.on('SIGINT', cleanup);
+process.on('SIGTERM', cleanup);
+
+let cleanupcalls = 0;
+function cleanup() 
+{
+  if (cleanupcalls > 0) return;
+  cleanupcalls++;
+
+  watchCleanup();
+
+  process.exit(0);  // This is important to ensure the process actually terminates
+}
+
+let CONFIG = {
+  port: 3000
+};
+try 
+{
+  LOCAL_CONFIG = JSON.parse(fs.readFileSync(path.join(viewfolder, '.config'), 'utf-8'))
+  CONFIG = DeepMerge(CONFIG, LOCAL_CONFIG);
+}
+catch {}
+
+init();
+PrepareLanguages();
+
+start(CONFIG);
