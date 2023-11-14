@@ -45,7 +45,7 @@ export const style = `:host([size="small"]) o-box-template.wrapper {
     :host o-box-template.wrapper ::slotted(*:not([slot])),
     :host o-box-template.wrapper input, :host o-box-template.wrapper select, :host o-box-template.wrapper textarea {
       color: inherit;
-      font-family: var(--input-fontfamily, var(--typography-c3-fontfamily, 'Libre Franklin', helvetica, sans-serif));
+      font-family: var(--input-fontfamily, var(--typography-c3-fontfamily, "Libre Franklin", helvetica, sans-serif));
       font-size: var(--input-fontsize, var(--typography-c3-fontsize, 16px));
       font-weight: var(--input-fontweight, var(--typography-c3-fontweight, 400));
       line-height: var(--input-lineheight, var(--typography-c3-lineheight, 24px));

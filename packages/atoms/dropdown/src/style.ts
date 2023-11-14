@@ -42,17 +42,17 @@ export const style = `:host {
 :host([placement="bottom-left"][size="small"]) o-popover-template::part(wrapper),
 :host([placement="bottom-center"][size="small"]) o-popover-template::part(wrapper),
 :host([placement="bottom-right"][size="small"]) o-popover-template::part(wrapper) {
-  top: calc(var(--field-size-small, 32px) + var(--field-size-small, 32px)); }
+  top: calc(var(--field-size-small, 32px) + var(--field-size-small)); }
 
 :host([placement="bottom-left"][size="medium"]) o-popover-template::part(wrapper),
 :host([placement="bottom-center"][size="medium"]) o-popover-template::part(wrapper),
 :host([placement="bottom-right"][size="medium"]) o-popover-template::part(wrapper) {
-  top: calc(var(--field-size-small, 32px) + var(--field-size-medium, 40px)); }
+  top: calc(var(--field-size-small, 32px) + var(--field-size-medium)); }
 
 :host([placement="bottom-left"][size="large"]) o-popover-template::part(wrapper),
 :host([placement="bottom-center"][size="large"]) o-popover-template::part(wrapper),
 :host([placement="bottom-right"][size="large"]) o-popover-template::part(wrapper) {
-  top: calc(var(--field-size-small, 32px) + var(--field-size-large, 56px)); }
+  top: calc(var(--field-size-small, 32px) + var(--field-size-large)); }
 
 @media (prefers-color-scheme: dark) {
   :host {

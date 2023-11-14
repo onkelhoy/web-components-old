@@ -1,6 +1,6 @@
 export const style = `:host {
   display: inline-block;
-  --border-color-unselected: var(--o-steps-border-color-unselected, var(--o-color-canvas-400));
+  --border-color-unselected: var(--o-steps-border-color-unselected, var(--o-color-bg-canvas, #EAEBEF));
   --border-color-selected: var(--o-steps-border-color-selected, var(--o-color-clear-blue-800, #0059E6));
   --o-steps-circle-selected-color: var(--border-color-selected);
   --o-steps-circle-stale-color: var(--border-color-unselected); }
@@ -11,7 +11,7 @@ export const style = `:host {
     align-items: center;
     gap: var(--unit-size5, 32px);
     justify-content: space-between;
-    background-color: var(--o-color-neutral-50);
+    background-color: var(--o-color-bg, #FFFFFF);
     padding: var(--padding-medium, 16px) var(--padding-large, 24px); }
     :host o-box-template div {
       width: 100%;

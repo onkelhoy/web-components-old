@@ -1,13 +1,15 @@
 // PROPERTIES
 :host {
+  container-type: inline-size;
   display: block;
   min-width: 3.5rem;
+  margin-block: var(--margin-smaller, 4px);
 
   div {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 40px;
+    height: var(--field-size-medium, 40px);
   }
 
   o-divider {
@@ -20,8 +22,6 @@
     }
   }
   
-  container-type: inline-size;
-
   o-button {
     padding-left: var(--padding-left);
 
@@ -29,17 +29,16 @@
     border-bottom-left-radius: 0;
 
     span[slot="prefix"] {
-      // width: 40px;
-      // height: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
 
       &.indicator {
+        margin-left: var(--margin-medium);
         &::after {
           content: '';
-          width: 8px;
-          height: 8px;
+          width: var(--unit-size2, 8px);
+          height: var(--unit-size2, 8px);
           border-radius: 50%;
           display: none;
   
@@ -53,14 +52,14 @@
     }
 
     &::part(content) {
-      max-width: 100%;
+      margin-left: 0;
     }
     
     span.group {
       flex-grow: 1;
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: var(--gap-small);
       white-space: nowrap;
       justify-content: flex-start;
       width: 100%;
@@ -72,12 +71,10 @@
       }
     }
   }
-
-  o-accordion {
-    ::slotted(o-sidebar-item) {
-      // --padding-left: calc(var(--padding-left, 0) + 10px);
-      margin-block: var(--margin-smaller, 4px);
-    }
+}
+:host([isparent="false"][indicator="false"]) {
+  span[slot="prefix"] {
+    margin-left: var(--margin-large);
   }
 }
 :host([counter]) o-button::part(content) {
@@ -163,6 +160,9 @@
       span.group {
         justify-content: center;
       }
+      &::part(content) {
+        margin-left: auto;
+      }
     }
 
     
@@ -171,6 +171,23 @@
     span[slot="prefix"],
     o-divider {
       display: none !important;
+    }
+  }
+
+  :host([indicator="true"]) {
+    span[slot="prefix"] {
+      &.indicator {
+        display: block !important;
+        position: absolute;
+        top: var(--unit-size1, 4px);
+        right: var(--unit-size1, 4px);
+        width: var(--unit-size2, 8px);
+        height: var(--unit-size2, 8px);
+
+        &::after {
+          position: absolute;
+        }
+      }
     }
   }
 
@@ -194,13 +211,6 @@
         background-color: var(--o-color-border, #C7CBD4);
         transform: translate(-50%, -50%);
       }
-    }
-  }
-}
-@container (min-width: 150px) {
-  :host {
-    o-button {
-      // padding-left: 0;
     }
   }
 }

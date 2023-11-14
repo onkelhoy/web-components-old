@@ -3,8 +3,9 @@
 :host {
     cursor: var(--o-button-cursor, pointer);
     align-items: center;
-
-    justify-content: space-evenly;
+    display: flex;
+    gap: var(--gap-small);
+    padding-inline: var(--padding-smaller, 4px);
 
     box-sizing: border-box;
     position: relative;
@@ -20,11 +21,11 @@
     transition: background-color ease-in 80ms;
 }
 span.content {
-    padding-inline: var(--padding-small, 8px);
-    display: flex;
+    margin-inline: auto;
+    gap: var(--gap-small);
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    flex-grow: 1;
 }
 :host([variant="outlined"]:is(:active)),
 :host([variant="outlined"]:is(:hover)) {

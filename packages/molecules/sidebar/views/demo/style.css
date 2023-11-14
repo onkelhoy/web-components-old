@@ -1,12 +1,21 @@
 body {
   background-color: var(--o-color-bg-canvas, #EAEBEF);
   color: var(--o-color-text, #29292F);
-}
-
-body {
   font-family: var(--o-font-family);
 }
-
+o-codeblock::part(fieldset) {
+  overflow-x: hidden;
+}
+o-sidebar {
+  max-height: 60rem;
+}
+o-sidebar::part(base) {
+  max-height: 60rem;
+  position: relative;
+}
+o-sidebar[mode="hover"]::part(base) {
+  position: absolute;
+}
 .balloon {
   content: '';
   position: absolute;

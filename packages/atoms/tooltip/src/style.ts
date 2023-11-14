@@ -1,6 +1,6 @@
 export const style = `:host {
-  --background: var(--o-tooltip-background-color-light, var(--o-color-black, black));
-  --color: var(--o-tooltip-text-color-light, var(--o-color-neutral-50, white));
+  --background: var(--o-tooltip-background-color-light, var(--o-color-bg-inverse, #29292F));
+  --color: var(--o-tooltip-text-color-light, var(--o-color-text-inverse, #FFFFFF));
   --popover-gap: var(--o-tooltip-popover-gap, 0.5rem); }
   :host o-popover-template {
     display: inline-block; }
@@ -79,9 +79,4 @@ export const style = `:host {
 :host([placement="right-bottom"]) o-box-template::after {
   bottom: var(--o-tooltip-arrow-offset, 0.5rem);
   left: 1px;
-  transform: translateX(-100%) rotate(-90deg); }
-
-@media (prefers-color-scheme: dark) {
-  :host {
-    --background: var(--o-tooltip-background-color-dark, var(--o-color-black, white));
-    --color: var(--o-tooltip-text-color-dark, var(--o-color-neutral-50, black)); } }`;
+  transform: translateX(-100%) rotate(-90deg); }`;
