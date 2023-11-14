@@ -16,7 +16,7 @@ export const style = `:host {
       :host o-box-template div.left {
         justify-content: center; }
       :host o-box-template div o-icon {
-        color: var(--o-color-neutral-50);
+        color: var(--o-color-icon-inverse, #FFFFFF);
         display: none; }
     :host o-box-template o-button {
       position: absolute;

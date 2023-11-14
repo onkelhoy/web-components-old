@@ -50,8 +50,15 @@
     </doc-card>
     
     <doc-card>
+        <h1 slot="header">Counter and Indicator</h1>
         <o-codeblock display="both">
-            <o-sidebar-item text="With Fallback"></o-sidebar-item>
+            <o-sidebar-item icon="tools" text="Normal"></o-sidebar-item>
+            <o-sidebar-item icon="tools" text="With counter" counter="123"></o-sidebar-item>
+            <o-sidebar-item icon="tools" text="With counter" counter="1234"></o-sidebar-item>
+            <o-sidebar-item icon="tools" text="With counter" counter="12345"></o-sidebar-item>
+            <o-sidebar-item icon="tools" text="With indicator" indicator></o-sidebar-item>
+            <o-sidebar-item icon="tools" text="With indicator" indicator counter="123"></o-sidebar-item>
+            <o-sidebar-item icon="tools" text="With indicator + counter" indicator counter="12345"></o-sidebar-item>
         </o-codeblock>
     </doc-card>
 </body>

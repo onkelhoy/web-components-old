@@ -1,12 +1,13 @@
 export const style = `:host {
+  container-type: inline-size;
   display: block;
   min-width: 3.5rem;
-  container-type: inline-size; }
+  margin-block: var(--margin-smaller, 4px); }
   :host div {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 40px; }
+    height: var(--field-size-medium, 40px); }
   :host o-divider {
     height: var(--unit-size2, 8px);
     display: none;
@@ -21,29 +22,32 @@ export const style = `:host {
       display: flex;
       justify-content: center;
       align-items: center; }
-      :host o-button span[slot="prefix"].indicator::after {
-        content: '';
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        display: none;
-        background-color: var(--o-color-bg-brand, #009DD3); }
+      :host o-button span[slot="prefix"].indicator {
+        margin-left: var(--margin-medium); }
+        :host o-button span[slot="prefix"].indicator::after {
+          content: '';
+          width: var(--unit-size2, 8px);
+          height: var(--unit-size2, 8px);
+          border-radius: 50%;
+          display: none;
+          background-color: var(--o-color-bg-brand, #009DD3); }
       :host o-button span[slot="prefix"].caret {
         display: none; }
     :host o-button::part(content) {
-      max-width: 100%; }
+      margin-left: 0; }
     :host o-button span.group {
       flex-grow: 1;
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: var(--gap-small);
       white-space: nowrap;
       justify-content: flex-start;
       width: 100%; }
     :host o-button o-icon.selected {
       display: none; }
-  :host o-accordion ::slotted(o-sidebar-item) {
-    margin-block: var(--margin-smaller, 4px); }
+
+:host([isparent="false"][indicator="false"]) span[slot="prefix"] {
+  margin-left: var(--margin-large); }
 
 :host([counter]) o-button::part(content) {
   max-width: calc(100% - 6rem); }
@@ -97,11 +101,22 @@ export const style = `:host {
     height: var(--field-size-medium, 40px); }
     :host o-button span.group {
       justify-content: center; }
+    :host o-button::part(content) {
+      margin-left: auto; }
   :host o-typography,
   :host o-badge,
   :host span[slot="prefix"],
   :host o-divider {
     display: none !important; }
+  :host([indicator="true"]) span[slot="prefix"].indicator {
+    display: block !important;
+    position: absolute;
+    top: var(--unit-size1, 4px);
+    right: var(--unit-size1, 4px);
+    width: var(--unit-size2, 8px);
+    height: var(--unit-size2, 8px); }
+    :host([indicator="true"]) span[slot="prefix"].indicator::after {
+      position: absolute; }
   :host([isparent="true"]) o-button {
     position: relative; }
     :host([isparent="true"]) o-button *[slot],
@@ -116,6 +131,4 @@ export const style = `:host {
       top: 50%;
       left: 50%;
       background-color: var(--o-color-border, #C7CBD4);
-      transform: translate(-50%, -50%); } }
-
-@container (min-width: 150px) {}`;
+      transform: translate(-50%, -50%); } }`;

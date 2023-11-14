@@ -13,19 +13,19 @@
 
   $state-trail: "";
 
-  @if $state != "normal" {
+  @if $state != "default" {
       $state-trail: "-#{$state}";
   }
 
   $output: ();
 
-  @if $variant == "outlined" and $state == "normal" {
+  @if $variant == "outlined" and $state == "default" {
       $output: map-merge($output, (
           border: map-get($state-map, "border") or "border-#{$default-color}#{$state-trail}",
       ));
   }
   
-  @if ($variant == "clear" or $variant == "outlined") and $state == "normal" {
+  @if ($variant == "clear" or $variant == "outlined") and $state == "default" {
       $output: map-merge($output, (
           text: map-get($state-map, "text") or "text-#{$default-color}#{$state-trail}",
           icon: map-get($state-map, "icon") or "icon-#{$default-color}#{$state-trail}",

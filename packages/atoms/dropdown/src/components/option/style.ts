@@ -15,7 +15,7 @@ export const style = `:host {
   background-color: var(--option-background-active); }
 
 ::slotted(*:not(o-typography)) {
-  font-family: var(--typography-c3-fontfamily, 'Libre Franklin', helvetica, sans-serif);
+  font-family: var(--typography-c3-fontfamily, "Libre Franklin", helvetica, sans-serif);
   font-size: var(--typography-c3-fontsize, 1rem);
   font-weight: var(--typography-c3-fontweight, 400);
   line-height: var(--typography-c3-lineheight, 140%);

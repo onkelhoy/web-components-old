@@ -44,7 +44,7 @@ export const style = `:host {
   rotate: 0deg; }
 
 @container (max-width: 150px) {
-    :host o-box-template[part="base"] {
-      display: none; }
-    :host o-box-template[part="collapsed"] {
-      display: inline-flex; } }`;
+  :host o-box-template[part="base"] {
+    display: none; }
+  :host o-box-template[part="collapsed"] {
+    display: inline-flex; } }`;

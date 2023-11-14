@@ -1,7 +1,9 @@
 export const style = `:host {
   cursor: var(--o-button-cursor, pointer);
   align-items: center;
-  justify-content: space-evenly;
+  display: flex;
+  gap: var(--gap-small);
+  padding-inline: var(--padding-smaller, 4px);
   box-sizing: border-box;
   position: relative;
   -webkit-user-select: none;
@@ -16,11 +18,11 @@ export const style = `:host {
   transition: background-color ease-in 80ms; }
 
 span.content {
-  padding-inline: var(--padding-small, 8px);
-  display: flex;
+  margin-inline: auto;
+  gap: var(--gap-small);
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  flex-grow: 1; }
+  justify-content: center; }
 
 :host([variant="outlined"]:is(:active)),
 :host([variant="outlined"]:is(:hover)) {
@@ -96,8 +98,7 @@ span.content {
 
 :host([variant="outlined"][color="primary"]:not([disabled]).default),
 :host([variant="outlined"][color="primary"]:not([disabled])) {
-  border-color: transparent;
-  background-color: var(--o-button-primary-outlined-default-background, "bg-primary-default");
+  border-color: var(--o-button-primary-outlined-default-border, var(--o-color-border-brand, #009DD3));
   color: var(--o-button-primary-outlined-default-text, var(--o-color-text-brand, #0177A3)); }
 
 :host([variant="outlined"][color="primary"]:not([disabled]).default) ::slotted(o-icon),
@@ -138,8 +139,6 @@ span.content {
 
 :host([variant="clear"][color="primary"]:not([disabled]).default),
 :host([variant="clear"][color="primary"]:not([disabled])) {
-  border-color: transparent;
-  background-color: var(--o-button-primary-clear-default-background, "bg-primary-default");
   color: var(--o-button-primary-clear-default-text, var(--o-color-text-brand, #0177A3)); }
 
 :host([variant="clear"][color="primary"]:not([disabled]).default) ::slotted(o-icon),
@@ -222,8 +221,7 @@ span.content {
 
 :host([variant="outlined"][color="secondary"]:not([disabled]).default),
 :host([variant="outlined"][color="secondary"]:not([disabled])) {
-  border-color: transparent;
-  background-color: var(--o-button-secondary-outlined-default-background, "bg-secondary-default");
+  border-color: var(--o-button-secondary-outlined-default-border, var(--o-color-border, #C7CBD4));
   color: var(--o-button-secondary-outlined-default-text, var(--o-color-text, #29292F)); }
 
 :host([variant="outlined"][color="secondary"]:not([disabled]).default) ::slotted(o-icon),
@@ -264,8 +262,6 @@ span.content {
 
 :host([variant="clear"][color="secondary"]:not([disabled]).default),
 :host([variant="clear"][color="secondary"]:not([disabled])) {
-  border-color: transparent;
-  background-color: var(--o-button-secondary-clear-default-background, "bg-secondary-default");
   color: var(--o-button-secondary-clear-default-text, var(--o-color-text, #29292F)); }
 
 :host([variant="clear"][color="secondary"]:not([disabled]).default) ::slotted(o-icon),
@@ -348,8 +344,7 @@ span.content {
 
 :host([variant="outlined"][color="inverse"]:not([disabled]).default),
 :host([variant="outlined"][color="inverse"]:not([disabled])) {
-  border-color: transparent;
-  background-color: var(--o-button-inverse-outlined-default-background, "bg-inverse-default");
+  border-color: var(--o-button-inverse-outlined-default-border, var(--o-color-border-inverse-strong, #FFFFFF));
   color: var(--o-button-inverse-outlined-default-text, var(--o-color-text-oninverse, #FFFFFF)); }
 
 :host([variant="outlined"][color="inverse"]:not([disabled]).default) ::slotted(o-icon),
@@ -390,8 +385,6 @@ span.content {
 
 :host([variant="clear"][color="inverse"]:not([disabled]).default),
 :host([variant="clear"][color="inverse"]:not([disabled])) {
-  border-color: transparent;
-  background-color: var(--o-button-inverse-clear-default-background, "bg-inverse-default");
   color: var(--o-button-inverse-clear-default-text, var(--o-color-text-oninverse, #FFFFFF)); }
 
 :host([variant="clear"][color="inverse"]:not([disabled]).default) ::slotted(o-icon),
@@ -474,8 +467,7 @@ span.content {
 
 :host([variant="outlined"][color="danger"]:not([disabled]).default),
 :host([variant="outlined"][color="danger"]:not([disabled])) {
-  border-color: transparent;
-  background-color: var(--o-button-danger-outlined-default-background, "bg-danger-default");
+  border-color: var(--o-button-danger-outlined-default-border, var(--o-color-border-danger, #B70E1E));
   color: var(--o-button-danger-outlined-default-text, var(--o-color-text-danger, #A3111F)); }
 
 :host([variant="outlined"][color="danger"]:not([disabled]).default) ::slotted(o-icon),
@@ -516,8 +508,6 @@ span.content {
 
 :host([variant="clear"][color="danger"]:not([disabled]).default),
 :host([variant="clear"][color="danger"]:not([disabled])) {
-  border-color: transparent;
-  background-color: var(--o-button-danger-clear-default-background, "bg-danger-default");
   color: var(--o-button-danger-clear-default-text, var(--o-color-text-danger, #A3111F)); }
 
 :host([variant="clear"][color="danger"]:not([disabled]).default) ::slotted(o-icon),
@@ -600,8 +590,7 @@ span.content {
 
 :host([variant="outlined"][color="success"]:not([disabled]).default),
 :host([variant="outlined"][color="success"]:not([disabled])) {
-  border-color: transparent;
-  background-color: var(--o-button-success-outlined-default-background, "bg-success-default");
+  border-color: var(--o-button-success-outlined-default-border, var(--o-color-border-success, #2E701B));
   color: var(--o-button-success-outlined-default-text, var(--o-color-text-success, #29591B)); }
 
 :host([variant="outlined"][color="success"]:not([disabled]).default) ::slotted(o-icon),
@@ -642,8 +631,6 @@ span.content {
 
 :host([variant="clear"][color="success"]:not([disabled]).default),
 :host([variant="clear"][color="success"]:not([disabled])) {
-  border-color: transparent;
-  background-color: var(--o-button-success-clear-default-background, "bg-success-default");
   color: var(--o-button-success-clear-default-text, var(--o-color-text-success, #29591B)); }
 
 :host([variant="clear"][color="success"]:not([disabled]).default) ::slotted(o-icon),
@@ -726,8 +713,7 @@ span.content {
 
 :host([variant="outlined"][color="warning"]:not([disabled]).default),
 :host([variant="outlined"][color="warning"]:not([disabled])) {
-  border-color: transparent;
-  background-color: var(--o-button-warning-outlined-default-background, "bg-warning-default");
+  border-color: var(--o-button-warning-outlined-default-border, var(--o-color-border-warning, #E27F00));
   color: var(--o-button-warning-outlined-default-text, var(--o-color-text-warning, #984308)); }
 
 :host([variant="outlined"][color="warning"]:not([disabled]).default) ::slotted(o-icon),
@@ -768,8 +754,6 @@ span.content {
 
 :host([variant="clear"][color="warning"]:not([disabled]).default),
 :host([variant="clear"][color="warning"]:not([disabled])) {
-  border-color: transparent;
-  background-color: var(--o-button-warning-clear-default-background, "bg-warning-default");
   color: var(--o-button-warning-clear-default-text, var(--o-color-text-warning, #984308)); }
 
 :host([variant="clear"][color="warning"]:not([disabled]).default) ::slotted(o-icon),
