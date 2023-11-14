@@ -1,6 +1,6 @@
 :host {
     display: block;
-    padding: var(--padding-medium);
+    padding: var(--padding-medium, 16px);
 
     background-color: var(--TEMPLATE_NAME-background-color, var(--o-color-bg, white));
     color: var(--TEMPLATE_NAME-text-color, var(--o-color-text, black));

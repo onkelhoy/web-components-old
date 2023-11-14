@@ -95,17 +95,17 @@ declare global {
 // value maps
 $size-map: (
   small: (
-    height: var(--field-size-small),
+    height: var(--field-size-small, 32px),
     padding: 0.5rem,
     border-width: 1px,
   ),
   medium: (
-    height: var(--field-size-medium),
+    height: var(--field-size-medium, 40px),
     padding: 1rem,
     border-width: 1px,
   ),
   large: (
-    height: var(--field-size-large),
+    height: var(--field-size-large, 56px),
     padding: 1rem,
     border-width: 1px,
   ),
@@ -170,13 +170,13 @@ $colors: (
     --button-color-active: var(--o-color-#{$color});
 
     --button-background-disabled: var(--o-color-neutral-300);
-    --button-color-disabled: var(--o-color-neutral-700);
+    --button-color-disabled: var(--o-color-neutral-700, #4D4E58);
   }
 }
 
 // :host([color="secondary"]) {
 //     --button-background: var(--o-color-neutral-100);
-//     --button-color: var(--o-color-text);
+//     --button-color: var(--o-color-text, #29292F);
 
 //     --button-background-hover: var(--o-color-neutral-300);
 //     --button-color-hover: var(--o-color-black);
@@ -215,11 +215,11 @@ $colors: (
 }
 :host([variant="outlined"]:hover) {
     border-color: var(--button-border-color-outlined-hover, var(--button-background-hover));
-    --background: var(--o-button-outlined-hover-background, var(--o-color-hover-200));
+    --background: var(--o-button-outlined-hover-background, var(--o-color-hover-200, rgba(0,0,0,0.05)));
 }
 :host([variant="outlined"]:active) {
     border-color: var(--button-border-color-outlined-active, var(--button-background-active));
-    --background: var(--o-button-outlined-active-background, var(--o-color-hover-400));
+    --background: var(--o-button-outlined-active-background, var(--o-color-hover-400, rgba(0,0,0,0.1)));
 }
 :host([variant="outlined"][disabled]) {
     border-color: var(--button-border-color-outlined-disabled, var(--button-background-disabled));
@@ -231,10 +231,10 @@ $colors: (
     --background: transparent;
 }
 :host([variant="clear"]:hover) {
-    --background: var(--o-button-clear-hover-background, var(--o-color-hover-200));
+    --background: var(--o-button-clear-hover-background, var(--o-color-hover-200, rgba(0,0,0,0.05)));
 }
 :host([variant="clear"]:active) {
-    --background: var(--o-button-clear-active-background, var(--o-color-hover-400));
+    --background: var(--o-button-clear-active-background, var(--o-color-hover-400, rgba(0,0,0,0.1)));
 }
 :host([variant="clear"][disabled]) {
     --color: var(--o-button-clear-disabled-text-color, var(--button-color-disabled));
@@ -245,7 +245,7 @@ $colors: (
 :host([variant="underlined"]) {
     --background: transparent;
     text-decoration: underline;
-    text-underline-offset: var(--gap-smaller);
+    text-underline-offset: var(--gap-smaller, 4px);
     text-decoration-thickness: var(--button-underlined-thickness, 1px);
 }
 :host([variant="underlined"]:hover) {

@@ -1,10 +1,10 @@
 :host {
     display: inline-block;
-    background-color: var(--o-color-bg);
-    color: var(--o-color-text);
+    background-color: var(--o-color-bg, #FFFFFF);
+    color: var(--o-color-text, #29292F);
     width: 100%;
-    padding: var(--padding-large);
+    padding: var(--padding-large, 24px);
     box-sizing: border-box;
-    border-radius: var(--radius-medium);
-    margin-bottom: var(--margin-medium);
+    border-radius: var(--radius-medium, 8px);
+    margin-bottom: var(--margin-medium, 16px);
 }

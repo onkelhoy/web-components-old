@@ -6,7 +6,7 @@
       var(--o-color-secondary-950) 50%
     );
 
-  color: var(--o-color-text-inverse);
+  color: var(--o-color-text-inverse, #FFFFFF);
   display: block;
   padding: 60px;
   padding-left: 100px;

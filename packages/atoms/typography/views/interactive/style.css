@@ -1,6 +1,6 @@
 body {
-  background-color: var(--o-color-bg-canvas);
-  color: var(--o-color-text);
+  background-color: var(--o-color-bg-canvas, #EAEBEF);
+  color: var(--o-color-text, #29292F);
   font-family: var(--o-font-family);
   margin: 0;
   height: 100vh;
@@ -10,7 +10,7 @@ section.control {
   padding: 0 4rem;
 }
 section.control o-tabs::part(header) {
-  border-bottom: 2px solid var(--o-color-border);
+  border-bottom: 2px solid var(--o-color-border, #C7CBD4);
 }
 
 div.slot {

@@ -19,21 +19,21 @@ showcase-card::part(box) {
 showcase-card > div {
   display: flex;
   flex-direction: column;
-  gap: var(--gap-small);
+  gap: var(--gap-small, 8px);
 }
 main {
   display: flex;
   flex-direction: column;
-  gap: calc(3 * var(--gap-large));
-  padding: var(--padding-large);
+  gap: calc(3 * var(--gap-large, 24px));
+  padding: var(--padding-large, 24px);
   padding-inline: 10%;
-  padding-block: calc(3 * var(--gap-large));
+  padding-block: calc(3 * var(--gap-large, 24px));
 }
 section {
   overflow-x: auto;
   display: flex;
   justify-content: space-between;
-  gap: var(--gap-medium);
+  gap: var(--gap-medium, 16px);
 }
 section.vertical {
   flex-direction: column;
@@ -41,7 +41,7 @@ section.vertical {
 .flex-vertical,
 section > * {
   display: inline-flex;
-  gap: var(--gap-small);
+  gap: var(--gap-small, 8px);
   flex-direction: column;
 }
 section > * {
@@ -70,9 +70,9 @@ section > * {
   left: 0;
 
   background-image: 
-    linear-gradient(to left, var(--o-color-border) 2px, transparent 2px),
-    linear-gradient(to bottom, transparent calc(50% - 1px), var(--o-color-border) calc(50% - 1px), var(--o-color-border) calc(50% + 1px), transparent calc(50% + 1px)),
-    linear-gradient(to right, var(--o-color-border) 2px, transparent 2px);
+    linear-gradient(to left, var(--o-color-border, #C7CBD4) 2px, transparent 2px),
+    linear-gradient(to bottom, transparent calc(50% - 1px), var(--o-color-border, #C7CBD4) calc(50% - 1px), var(--o-color-border, #C7CBD4) calc(50% + 1px), transparent calc(50% + 1px)),
+    linear-gradient(to right, var(--o-color-border, #C7CBD4) 2px, transparent 2px);
 }
 .messure-line::before {
   transform: translateY(-100%);
@@ -90,9 +90,9 @@ section > * {
   top: 0;
 
   background-image: 
-    linear-gradient(to bottom, var(--o-color-border) 2px, transparent 2px),
-    linear-gradient(to left, transparent calc(50% - 1px), var(--o-color-border) calc(50% - 1px), var(--o-color-border) calc(50% + 1px), transparent calc(50% + 1px)),
-    linear-gradient(to top, var(--o-color-border) 2px, transparent 2px);
+    linear-gradient(to bottom, var(--o-color-border, #C7CBD4) 2px, transparent 2px),
+    linear-gradient(to left, transparent calc(50% - 1px), var(--o-color-border, #C7CBD4) calc(50% - 1px), var(--o-color-border, #C7CBD4) calc(50% + 1px), transparent calc(50% + 1px)),
+    linear-gradient(to top, var(--o-color-border, #C7CBD4) 2px, transparent 2px);
 }
 .messure-line.vertical::before {
   transform: translateX(-100%);
@@ -110,11 +110,11 @@ section > * {
 
 /* global styles */
 div.card {
-  border-radius: var(--radius-large);
+  border-radius: var(--radius-large, 16px);
   background: #686868;
   width: 50rem;
   position: relative;
-  transform: translateY(var(--margin-large));
+  transform: translateY(var(--margin-large, 24px));
   max-height: 360px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -133,24 +133,24 @@ div.card:has(div.page) {
   /* position: absolute; */
 }
 showcase-card div.page o-tabs::part(header) {
-  background-color: var(--o-color-bg);
-  border-radius: var(--radius-medium);
-  padding: var(--padding-medium);
+  background-color: var(--o-color-bg, #FFFFFF);
+  border-radius: var(--radius-medium, 8px);
+  padding: var(--padding-medium, 16px);
   margin-top: 3rem;
 }
 showcase-card div.page div.page-card {
-  background-color: var(--o-color-bg);
-  padding: var(--padding-medium);
-  border-radius: var(--radius-medium);
-  margin-bottom: var(--margin-small);
+  background-color: var(--o-color-bg, #FFFFFF);
+  padding: var(--padding-medium, 16px);
+  border-radius: var(--radius-medium, 8px);
+  margin-bottom: var(--margin-small, 8px);
   height: 6rem;
   min-width: 30rem;
 }
 showcase-card div.page div.dropzone {
   content: '';
   height: 6rem;
-  border-radius: var(--radius-medium);
-  background-color: var(--o-color-bg-secondary);
+  border-radius: var(--radius-medium, 8px);
+  background-color: var(--o-color-bg-secondary, #F6F7F8);
   border: 1px dashed grey;
 }
 o-sidebar {
@@ -173,7 +173,7 @@ o-sidebar[mode="open"].mobile::part(base) {
 }
 o-sidebar[mode="hover"].hover::part(base) {
   width: 320px;
-  box-shadow: var(--shadow-horizontal-m) !important;
+  box-shadow: var(--shadow-horizontal-m, 4px 0 6px var(--o-color-shadow, color-mix(in oklab, var(--o-color-neutral-600, #6E7087), transparent 80%))) !important;
 }
 
 /* components */
@@ -182,7 +182,7 @@ section#component + o-divider + section showcase-card::part(box) {
 }
 section#component + o-divider + section td {
   min-width: 320px;
-  padding: var(--padding-medium);
+  padding: var(--padding-medium, 16px);
   overflow: hidden;
 }
 
@@ -206,7 +206,7 @@ section#contact-section + section showcase-card::part(box) {
 }
 section#visibility + section div.card,
 section#expand-on-hover + section div.card {
-  margin-top: var(--margin-large);
+  margin-top: var(--margin-large, 24px);
 }
 
 section#scrolling o-sidebar {
@@ -227,16 +227,16 @@ section#contact-section + section .card > o-sidebar {
 
 section#nav-item-states td,
 section#nav-heading-states td {
-  padding-block: var(--padding-small);
+  padding-block: var(--padding-small, 8px);
 }
 section#nav-item-states td:nth-child(1),
 section#nav-heading-states td:nth-child(1) {
-  padding-right: var(--gap-medium);
+  padding-right: var(--gap-medium, 16px);
 }
 section#nav-item-states td:nth-child(2),
 section#nav-heading-states td:nth-child(2) {
   min-width: 320px;
-  background-color: var(--o-color-bg);
+  background-color: var(--o-color-bg, #FFFFFF);
 }
 
 section#counter-behaviour showcase-card::part(box) {
@@ -250,7 +250,7 @@ section#animation div.box {
   justify-content: center;
   align-items: flex-start;
   gap: var(--gap-small, 0.5rem);
-  border-radius: var(--radius-large);
+  border-radius: var(--radius-large, 16px);
   background-color: var(--o-color-bg-tertiary, #EAEBEF);
 }
 
@@ -276,7 +276,7 @@ section.example o-sidebar {
   height: 100%;
 }
 section.example showcase-card::part(box) {
-  background-color: var(--o-color-bg-canvas);
+  background-color: var(--o-color-bg-canvas, #EAEBEF);
 }
 section.example showcase-card > div {
   flex-direction: row;
@@ -288,12 +288,12 @@ section.example showcase-card > div {
 section.example showcase-card > div > div {
   display: flex;
   flex-direction: column;
-  gap: var(--gap-small);
+  gap: var(--gap-small, 8px);
   flex-grow: 1;
 }
 section.example showcase-card .box {
-  background-color: var(--o-color-bg);
-  border-radius: var(--radius-medium);
+  background-color: var(--o-color-bg, #FFFFFF);
+  border-radius: var(--radius-medium, 8px);
 }
 section.example showcase-card .box:nth-child(2) {
   height: 6rem;
@@ -310,15 +310,15 @@ section.example showcase-card .box:nth-child(5) {
 
 section.example showcase-card div > div > div:has(div.btn) {
   display: flex;
-  gap: var(--gap-small);
-  margin-bottom: var(--margin-small);
+  gap: var(--gap-small, 8px);
+  margin-bottom: var(--margin-small, 8px);
 }
 section.example showcase-card .btn:first-child {
   margin-left: auto;
 }
 section.example showcase-card .btn {
-  background-color: var(--o-color-bg);
-  border-radius: var(--radius-max);
+  background-color: var(--o-color-bg, #FFFFFF);
+  border-radius: var(--radius-max, 1000px);
   height: 2rem;
   width: 8rem;
 }

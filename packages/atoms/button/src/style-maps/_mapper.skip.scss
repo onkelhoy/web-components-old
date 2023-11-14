@@ -1,0 +1,101 @@
+@import 'primary.skip';
+@import 'secondary.skip';
+@import 'inverse.skip';
+@import 'danger.skip';
+@import 'warning.skip';
+@import 'success.skip';
+
+@function get-state-set($map, $variant, $state, $color-name) {
+  $default-color: map-get($map, 'default') or $color-name;
+  $variant-map: map-get($map, $variant) or ();
+
+  $state-map: map-get($variant-map, $state) or ();
+
+  $state-trail: "";
+
+  @if $state != "normal" {
+      $state-trail: "-#{$state}";
+  }
+
+  $output: ();
+
+  @if $variant == "outlined" and $state == "normal" {
+      $output: map-merge($output, (
+          border: map-get($state-map, "border") or "border-#{$default-color}#{$state-trail}",
+      ));
+  }
+  
+  @if ($variant == "clear" or $variant == "outlined") and $state == "normal" {
+      $output: map-merge($output, (
+          text: map-get($state-map, "text") or "text-#{$default-color}#{$state-trail}",
+          icon: map-get($state-map, "icon") or "icon-#{$default-color}#{$state-trail}",
+      ));
+  }
+  @else {
+      $output: map-merge($output, (
+          text: map-get($state-map, "text") or "text-on#{$default-color}#{$state-trail}",
+          icon: map-get($state-map, "icon") or "icon-on#{$default-color}#{$state-trail}",
+          background: map-get($state-map, "background") or "bg-#{$default-color}#{$state-trail}",
+      ));
+  }
+      
+  @return $output;
+}
+@mixin set-color($color-name, $color-map) {
+  @each $variant in (filled, outlined, clear) {
+      @each $state in (default, hover, pressed) {
+          $map: get-state-set($color-map, $variant, $state, $color-name);
+
+          $text: map-get($map, "text");
+          $background: map-get($map, "background");
+          $icon: map-get($map, "icon");
+          $border: map-get($map, "border");
+      
+          $pointer-state: "";
+          $state-name: $state;
+          @if $state == "hover" {
+              $pointer-state: ":hover"
+          }
+          @else if $state == "pressed" {
+              $pointer-state: ":active"
+          }
+          @else {
+              $state-name: "default";
+          }
+      
+          :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled]).#{$state-name}),
+          :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled])#{$pointer-state}) {
+              @if $border {
+                  border-color: var(--o-button-#{$color-name}-#{$variant}-#{$state-name}-border, $border);
+              }
+              @if $background {
+                  border-color: transparent;
+                  background-color: var(--o-button-#{$color-name}-#{$variant}-#{$state-name}-background, $background);
+              }
+          
+              color: var(--o-button-#{$color-name}-#{$variant}-#{$state-name}-text, $text);
+          }
+          :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled]).#{$state-name}) ::slotted(o-icon),
+          :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled])#{$pointer-state}) ::slotted(o-icon) {
+              color: var(--o-button-#{$color-name}-#{$variant}-#{$state-name}-icon, $icon);
+          }
+
+          :host([variant="#{$variant}"][color="#{$color-name}"][loading="true"]:not([disabled]).#{$state-name}),
+          :host([variant="#{$variant}"][color="#{$color-name}"][loading="true"]:not([disabled])#{$pointer-state}) {
+              &::after {
+                  border-top: 2px solid var(--o-button-#{$color-name}-#{$variant}-#{$state-name}-icon, $icon);
+              }
+          }
+      }
+  }
+}
+
+
+@mixin set-colors {
+  @include set-color("primary", $primary);
+  @include set-color("secondary", $secondary);
+  @include set-color("inverse", $inverse);
+  @include set-color("danger", $danger);
+  @include set-color("success", $success);
+  @include set-color("warning", $warning);
+}

@@ -1,6 +1,6 @@
 body {
-  background-color: var(--o-color-bg-canvas);
-  color: var(--o-color-text);
+  background-color: var(--o-color-bg-canvas, #EAEBEF);
+  color: var(--o-color-text, #29292F);
 }
 
 o-box-template {
@@ -12,7 +12,7 @@ o-box-template {
 }
 
 o-codeblock::part(fieldset) {
-  padding: var(--padding-large);
+  padding: var(--padding-large, 24px);
   display: flex;
   gap: 4rem;
 }

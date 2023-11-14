@@ -4,26 +4,26 @@
     container-type: inline-size;
 
     o-box-template[part="collapsed"] {
-        background-color: var(--o-color-bg-secondary);
-        padding: var(--padding-small);
+        background-color: var(--o-color-bg-secondary, #F6F7F8);
+        padding: var(--padding-small, 8px);
         align-items: center;
         justify-content: center;
         display: none;
     }
 
     o-box-template[part="base"] {
-        background-color: var(--o-color-bg-secondary);
+        background-color: var(--o-color-bg-secondary, #F6F7F8);
         display: block;
-        padding-inline: var(--padding-medium);
+        padding-inline: var(--padding-medium, 16px);
         flex-grow: 1;
 
         header {
             display: flex;
             justify-content: space-between;
-            padding-block: var(--padding-medium);
+            padding-block: var(--padding-medium, 16px);
             align-items: center;
             cursor: pointer;
-            color: var(--o-color-text-secondary);
+            color: var(--o-color-text-secondary, #6E7087);
 
             o-icon {
                 rotate: -90deg;
@@ -32,18 +32,18 @@
         }
 
         o-accordion[open="true"] {
-            padding-bottom: var(--padding-small);
+            padding-bottom: var(--padding-small, 8px);
 
             div {
                 display: flex;
-                gap: var(--gap-small);
+                gap: var(--gap-small, 8px);
                 flex-direction: column;
             }
 
             div:has(a) {
-                color: var(--o-color-text-secondary);
+                color: var(--o-color-text-secondary, #6E7087);
                 flex-direction: row;
-                height: var(--field-size-medium);
+                height: var(--field-size-medium, 40px);
                 align-items: center;
 
                 a {
@@ -72,8 +72,6 @@
 // 150px comes from sidebar-item
 @container (max-width: 150px) {
     :host {
-        background-color: red;
-
         o-box-template[part="base"] {
             display: none;
         }

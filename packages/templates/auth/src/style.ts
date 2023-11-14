@@ -24,7 +24,7 @@ export const style = `:host {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: var(--gap-small); }
+    gap: var(--gap-small, 8px); }
   :host ::slotted(o-button),
   :host o-button {
     gap: 0;

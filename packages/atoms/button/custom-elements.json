@@ -130,8 +130,16 @@
           "none",
           "small",
           "medium",
-          "large"
+          "large",
+          "x-large"
         ],
+        "primitive": false,
+        "conditional": false
+      },
+      {
+        "name": "elevationdirection",
+        "default_value": "vertical",
+        "type_value": null,
         "primitive": false,
         "conditional": false
       }
@@ -214,242 +222,280 @@
         "usecases": [
           "padding-inline"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "8px"
+        ]
       },
       "--typography-b1-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-b1-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "1rem"
+        ]
       },
       "--typography-b1-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "600"
+        ]
       },
       "--typography-b1-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "140%"
+        ]
       },
       "--typography-b1-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0.01rem"
+        ]
       },
       "--typography-b2-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--typography-b2-fontsize": {
         "usecases": [
           "font-size"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "1rem"
+        ]
       },
       "--typography-b2-fontweight": {
         "usecases": [
           "font-weight"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "600"
+        ]
       },
       "--typography-b2-lineheight": {
         "usecases": [
           "line-height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "140%"
+        ]
       },
       "--typography-b2-letterspacing": {
         "usecases": [
           "letter-spacing"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "0.01rem"
+        ]
       },
       "--o-button-primary-filled-default-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-brand)"
+          "var(--o-color-bg-brand, #009DD3)"
         ]
       },
       "--o-color-bg-brand": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#009DD3"
+        ]
       },
       "--o-button-primary-filled-default-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onbrand)"
+          "var(--o-color-text-onbrand, #FFFFFF)"
         ]
       },
       "--o-color-text-onbrand": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-primary-filled-default-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onbrand)"
+          "var(--o-color-icon-onbrand, #FFFFFF)"
         ]
       },
       "--o-color-icon-onbrand": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-primary-filled-hover-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-brand-hover)"
+          "var(--o-color-bg-brand-hover, #0050B3)"
         ]
       },
       "--o-color-bg-brand-hover": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#0050B3"
+        ]
       },
       "--o-button-primary-filled-hover-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onbrand-hover)"
+          "var(--o-color-text-onbrand-hover, #FFFFFF)"
         ]
       },
       "--o-color-text-onbrand-hover": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-primary-filled-hover-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onbrand-hover)"
+          "var(--o-color-icon-onbrand-hover, #FFFFFF)"
         ]
       },
       "--o-color-icon-onbrand-hover": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-primary-filled-pressed-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-brand-pressed)"
+          "var(--o-color-bg-brand-pressed, #002652)"
         ]
       },
       "--o-color-bg-brand-pressed": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#002652"
+        ]
       },
       "--o-button-primary-filled-pressed-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onbrand-pressed)"
+          "var(--o-color-text-onbrand-pressed, #FFFFFF)"
         ]
       },
       "--o-color-text-onbrand-pressed": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-primary-filled-pressed-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onbrand-pressed)"
+          "var(--o-color-icon-onbrand-pressed, #FFFFFF)"
         ]
       },
       "--o-color-icon-onbrand-pressed": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
-      },
-      "--o-button-primary-outlined-default-border": {
-        "usecases": [
-          "border-color"
-        ],
         "fallbacks": [
-          "var(--o-color-border-brand)"
+          "#FFFFFF"
         ]
       },
-      "--o-color-border-brand": {
+      "--o-button-primary-outlined-default-background": {
         "usecases": [
-          "border-color"
+          "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"bg-primary-default\""
+        ]
       },
       "--o-button-primary-outlined-default-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-brand)"
+          "var(--o-color-text-brand, #0177A3)"
         ]
       },
       "--o-color-text-brand": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#0177A3"
+        ]
       },
       "--o-button-primary-outlined-default-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-brand)"
+          "var(--o-color-icon-brand, #0177A3)"
         ]
       },
       "--o-color-icon-brand": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#0177A3"
+        ]
       },
       "--o-button-primary-outlined-hover-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-brand-hover)"
+          "var(--o-color-bg-brand-hover, #0050B3)"
         ]
       },
       "--o-button-primary-outlined-hover-text": {
@@ -457,7 +503,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onbrand-hover)"
+          "var(--o-color-text-onbrand-hover, #FFFFFF)"
         ]
       },
       "--o-button-primary-outlined-hover-icon": {
@@ -465,7 +511,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onbrand-hover)"
+          "var(--o-color-icon-onbrand-hover, #FFFFFF)"
         ]
       },
       "--o-button-primary-outlined-pressed-background": {
@@ -473,7 +519,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-brand-pressed)"
+          "var(--o-color-bg-brand-pressed, #002652)"
         ]
       },
       "--o-button-primary-outlined-pressed-text": {
@@ -481,7 +527,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onbrand-pressed)"
+          "var(--o-color-text-onbrand-pressed, #FFFFFF)"
         ]
       },
       "--o-button-primary-outlined-pressed-icon": {
@@ -489,7 +535,15 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onbrand-pressed)"
+          "var(--o-color-icon-onbrand-pressed, #FFFFFF)"
+        ]
+      },
+      "--o-button-primary-clear-default-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "\"bg-primary-default\""
         ]
       },
       "--o-button-primary-clear-default-text": {
@@ -497,7 +551,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-brand)"
+          "var(--o-color-text-brand, #0177A3)"
         ]
       },
       "--o-button-primary-clear-default-icon": {
@@ -505,7 +559,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-brand)"
+          "var(--o-color-icon-brand, #0177A3)"
         ]
       },
       "--o-button-primary-clear-hover-background": {
@@ -513,259 +567,287 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-hover)"
+          "var(--o-color-bg-hover, #DADDE3)"
         ]
       },
       "--o-color-bg-hover": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#DADDE3"
+        ]
       },
       "--o-button-primary-clear-hover-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-brand-hover)"
+          "var(--o-color-text-brand-hover, #0050B3)"
         ]
       },
       "--o-color-text-brand-hover": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#0050B3"
+        ]
       },
       "--o-button-primary-clear-hover-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-brand-hover)"
+          "var(--o-color-icon-brand-hover, #0050B3)"
         ]
       },
       "--o-color-icon-brand-hover": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#0050B3"
+        ]
       },
       "--o-button-primary-clear-pressed-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-pressed)"
+          "var(--o-color-bg-pressed, #C7CBD4)"
         ]
       },
       "--o-color-bg-pressed": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#C7CBD4"
+        ]
       },
       "--o-button-primary-clear-pressed-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-brand-pressed)"
+          "var(--o-color-text-brand-pressed, #002652)"
         ]
       },
       "--o-color-text-brand-pressed": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#002652"
+        ]
       },
       "--o-button-primary-clear-pressed-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-brand-pressed)"
+          "var(--o-color-icon-brand-pressed, #002652)"
         ]
       },
       "--o-color-icon-brand-pressed": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#002652"
+        ]
       },
       "--o-button-secondary-filled-default-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-inverse)"
+          "var(--o-color-bg-inverse, #29292F)"
         ]
       },
       "--o-color-bg-inverse": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#29292F"
+        ]
       },
       "--o-button-secondary-filled-default-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-oninverse)"
+          "var(--o-color-text-oninverse, #FFFFFF)"
         ]
       },
       "--o-color-text-oninverse": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-secondary-filled-default-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-oninverse)"
+          "var(--o-color-icon-oninverse, #FFFFFF)"
         ]
       },
       "--o-color-icon-oninverse": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-secondary-filled-hover-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-inverse-hover)"
+          "var(--o-color-bg-inverse-hover, #4D4E58)"
         ]
       },
       "--o-color-bg-inverse-hover": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#4D4E58"
+        ]
       },
       "--o-button-secondary-filled-hover-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-oninverse-hover)"
+          "var(--o-color-text-oninverse-hover, #FFFFFF)"
         ]
       },
       "--o-color-text-oninverse-hover": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-secondary-filled-hover-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-oninverse-hover)"
+          "var(--o-color-icon-oninverse-hover, #FFFFFF)"
         ]
       },
       "--o-color-icon-oninverse-hover": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-secondary-filled-pressed-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-inverse-pressed)"
+          "var(--o-color-bg-inverse-pressed, #6E7087)"
         ]
       },
       "--o-color-bg-inverse-pressed": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#6E7087"
+        ]
       },
       "--o-button-secondary-filled-pressed-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-oninverse-pressed)"
+          "var(--o-color-text-oninverse-pressed, #FFFFFF)"
         ]
       },
       "--o-color-text-oninverse-pressed": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-secondary-filled-pressed-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-oninverse-pressed)"
+          "var(--o-color-icon-oninverse-pressed, #FFFFFF)"
         ]
       },
       "--o-color-icon-oninverse-pressed": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
-      },
-      "--o-button-secondary-outlined-default-border": {
-        "usecases": [
-          "border-color"
-        ],
         "fallbacks": [
-          "var(--o-color-border-inverse)"
+          "#FFFFFF"
         ]
       },
-      "--o-color-border-inverse": {
+      "--o-button-secondary-outlined-default-background": {
         "usecases": [
-          "border-color"
+          "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"bg-secondary-default\""
+        ]
       },
       "--o-button-secondary-outlined-default-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text)"
+          "var(--o-color-text, #29292F)"
         ]
       },
       "--o-color-text": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#29292F"
+        ]
       },
       "--o-button-secondary-outlined-default-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon)"
+          "var(--o-color-icon, #29292F)"
         ]
       },
       "--o-color-icon": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#29292F"
+        ]
       },
       "--o-button-secondary-outlined-hover-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-inverse-hover)"
+          "var(--o-color-bg-inverse-hover, #4D4E58)"
         ]
       },
       "--o-button-secondary-outlined-hover-text": {
@@ -773,7 +855,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-oninverse-hover)"
+          "var(--o-color-text-oninverse-hover, #FFFFFF)"
         ]
       },
       "--o-button-secondary-outlined-hover-icon": {
@@ -781,7 +863,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-oninverse-hover)"
+          "var(--o-color-icon-oninverse-hover, #FFFFFF)"
         ]
       },
       "--o-button-secondary-outlined-pressed-background": {
@@ -789,7 +871,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-inverse-pressed)"
+          "var(--o-color-bg-inverse-pressed, #6E7087)"
         ]
       },
       "--o-button-secondary-outlined-pressed-text": {
@@ -797,7 +879,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-oninverse-pressed)"
+          "var(--o-color-text-oninverse-pressed, #FFFFFF)"
         ]
       },
       "--o-button-secondary-outlined-pressed-icon": {
@@ -805,7 +887,15 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-oninverse-pressed)"
+          "var(--o-color-icon-oninverse-pressed, #FFFFFF)"
+        ]
+      },
+      "--o-button-secondary-clear-default-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "\"bg-secondary-default\""
         ]
       },
       "--o-button-secondary-clear-default-text": {
@@ -813,7 +903,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text)"
+          "var(--o-color-text, #29292F)"
         ]
       },
       "--o-button-secondary-clear-default-icon": {
@@ -821,7 +911,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon)"
+          "var(--o-color-icon, #29292F)"
         ]
       },
       "--o-button-secondary-clear-hover-background": {
@@ -829,7 +919,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-hover)"
+          "var(--o-color-bg-hover, #DADDE3)"
         ]
       },
       "--o-button-secondary-clear-hover-text": {
@@ -837,7 +927,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text)"
+          "var(--o-color-text, #29292F)"
         ]
       },
       "--o-button-secondary-clear-hover-icon": {
@@ -845,7 +935,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon)"
+          "var(--o-color-icon, #29292F)"
         ]
       },
       "--o-button-secondary-clear-pressed-background": {
@@ -853,7 +943,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-pressed)"
+          "var(--o-color-bg-pressed, #C7CBD4)"
         ]
       },
       "--o-button-secondary-clear-pressed-text": {
@@ -861,7 +951,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text)"
+          "var(--o-color-text, #29292F)"
         ]
       },
       "--o-button-secondary-clear-pressed-icon": {
@@ -869,7 +959,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon)"
+          "var(--o-color-icon, #29292F)"
         ]
       },
       "--o-button-inverse-filled-default-background": {
@@ -877,21 +967,23 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg)"
+          "var(--o-color-bg, #FFFFFF)"
         ]
       },
       "--o-color-bg": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-inverse-filled-default-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text)"
+          "var(--o-color-text, #29292F)"
         ]
       },
       "--o-button-inverse-filled-default-icon": {
@@ -899,7 +991,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon)"
+          "var(--o-color-icon, #29292F)"
         ]
       },
       "--o-button-inverse-filled-hover-background": {
@@ -907,7 +999,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-hover)"
+          "var(--o-color-bg-hover, #DADDE3)"
         ]
       },
       "--o-button-inverse-filled-hover-text": {
@@ -915,7 +1007,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text)"
+          "var(--o-color-text, #29292F)"
         ]
       },
       "--o-button-inverse-filled-hover-icon": {
@@ -923,7 +1015,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon)"
+          "var(--o-color-icon, #29292F)"
         ]
       },
       "--o-button-inverse-filled-pressed-background": {
@@ -931,7 +1023,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-pressed)"
+          "var(--o-color-bg-pressed, #C7CBD4)"
         ]
       },
       "--o-button-inverse-filled-pressed-text": {
@@ -939,7 +1031,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text)"
+          "var(--o-color-text, #29292F)"
         ]
       },
       "--o-button-inverse-filled-pressed-icon": {
@@ -947,57 +1039,39 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon)"
+          "var(--o-color-icon, #29292F)"
         ]
       },
-      "--o-button-inverse-outlined-default-border": {
+      "--o-button-inverse-outlined-default-background": {
         "usecases": [
-          "border-color"
+          "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-border-inverse-strong)"
+          "\"bg-inverse-default\""
         ]
-      },
-      "--o-color-border-inverse-strong": {
-        "usecases": [
-          "border-color"
-        ],
-        "fallbacks": []
       },
       "--o-button-inverse-outlined-default-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-inverse)"
+          "var(--o-color-text-oninverse, #FFFFFF)"
         ]
-      },
-      "--o-color-text-inverse": {
-        "usecases": [
-          "color"
-        ],
-        "fallbacks": []
       },
       "--o-button-inverse-outlined-default-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-inverse)"
+          "var(--o-color-icon-oninverse, #FFFFFF)"
         ]
-      },
-      "--o-color-icon-inverse": {
-        "usecases": [
-          "color"
-        ],
-        "fallbacks": []
       },
       "--o-button-inverse-outlined-hover-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-hover)"
+          "var(--o-color-bg-hover, #DADDE3)"
         ]
       },
       "--o-button-inverse-outlined-hover-text": {
@@ -1005,7 +1079,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text)"
+          "var(--o-color-text, #29292F)"
         ]
       },
       "--o-button-inverse-outlined-hover-icon": {
@@ -1013,7 +1087,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon)"
+          "var(--o-color-icon, #29292F)"
         ]
       },
       "--o-button-inverse-outlined-pressed-background": {
@@ -1021,7 +1095,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-pressed)"
+          "var(--o-color-bg-pressed, #C7CBD4)"
         ]
       },
       "--o-button-inverse-outlined-pressed-text": {
@@ -1029,7 +1103,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text)"
+          "var(--o-color-text, #29292F)"
         ]
       },
       "--o-button-inverse-outlined-pressed-icon": {
@@ -1037,7 +1111,15 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon)"
+          "var(--o-color-icon, #29292F)"
+        ]
+      },
+      "--o-button-inverse-clear-default-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "\"bg-inverse-default\""
         ]
       },
       "--o-button-inverse-clear-default-text": {
@@ -1045,7 +1127,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-inverse)"
+          "var(--o-color-text-oninverse, #FFFFFF)"
         ]
       },
       "--o-button-inverse-clear-default-icon": {
@@ -1053,7 +1135,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-inverse)"
+          "var(--o-color-icon-oninverse, #FFFFFF)"
         ]
       },
       "--o-button-inverse-clear-hover-background": {
@@ -1061,7 +1143,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-inverse-hover)"
+          "var(--o-color-bg-inverse-hover, #4D4E58)"
         ]
       },
       "--o-button-inverse-clear-hover-text": {
@@ -1069,7 +1151,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-oninverse-hover)"
+          "var(--o-color-text-oninverse-hover, #FFFFFF)"
         ]
       },
       "--o-button-inverse-clear-hover-icon": {
@@ -1077,7 +1159,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-oninverse-hover)"
+          "var(--o-color-icon-oninverse-hover, #FFFFFF)"
         ]
       },
       "--o-button-inverse-clear-pressed-background": {
@@ -1085,7 +1167,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-inverse-pressed)"
+          "var(--o-color-bg-inverse-pressed, #6E7087)"
         ]
       },
       "--o-button-inverse-clear-pressed-text": {
@@ -1093,7 +1175,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-oninverse-pressed)"
+          "var(--o-color-text-oninverse-pressed, #FFFFFF)"
         ]
       },
       "--o-button-inverse-clear-pressed-icon": {
@@ -1101,7 +1183,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-oninverse-pressed)"
+          "var(--o-color-icon-oninverse-pressed, #FFFFFF)"
         ]
       },
       "--o-button-danger-filled-default-background": {
@@ -1109,175 +1191,191 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-danger)"
+          "var(--o-color-bg-danger, #B70E1E)"
         ]
       },
       "--o-color-bg-danger": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#B70E1E"
+        ]
       },
       "--o-button-danger-filled-default-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-ondanger)"
+          "var(--o-color-text-ondanger, #FFFFFF)"
         ]
       },
       "--o-color-text-ondanger": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-danger-filled-default-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-ondanger)"
+          "var(--o-color-icon-ondanger, #FFFFFF)"
         ]
       },
       "--o-color-icon-ondanger": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-danger-filled-hover-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-danger-hover)"
+          "var(--o-color-bg-danger-hover, #A3111F)"
         ]
       },
       "--o-color-bg-danger-hover": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#A3111F"
+        ]
       },
       "--o-button-danger-filled-hover-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-ondanger-hover)"
+          "var(--o-color-text-ondanger-hover, #FFFFFF)"
         ]
       },
       "--o-color-text-ondanger-hover": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-danger-filled-hover-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-ondanger-hover)"
+          "var(--o-color-icon-ondanger-hover, #FFFFFF)"
         ]
       },
       "--o-color-icon-ondanger-hover": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-danger-filled-pressed-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-danger-pressed)"
+          "var(--o-color-bg-danger-pressed, #871520)"
         ]
       },
       "--o-color-bg-danger-pressed": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#871520"
+        ]
       },
       "--o-button-danger-filled-pressed-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-ondanger-pressed)"
+          "var(--o-color-text-ondanger-pressed, #FFFFFF)"
         ]
       },
       "--o-color-text-ondanger-pressed": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-danger-filled-pressed-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-ondanger-pressed)"
+          "var(--o-color-icon-ondanger-pressed, #FFFFFF)"
         ]
       },
       "--o-color-icon-ondanger-pressed": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
-      },
-      "--o-button-danger-outlined-default-border": {
-        "usecases": [
-          "border-color"
-        ],
         "fallbacks": [
-          "var(--o-color-border-danger)"
+          "#FFFFFF"
         ]
       },
-      "--o-color-border-danger": {
+      "--o-button-danger-outlined-default-background": {
         "usecases": [
-          "border-color"
+          "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"bg-danger-default\""
+        ]
       },
       "--o-button-danger-outlined-default-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-danger)"
+          "var(--o-color-text-danger, #A3111F)"
         ]
       },
       "--o-color-text-danger": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#A3111F"
+        ]
       },
       "--o-button-danger-outlined-default-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-danger)"
+          "var(--o-color-icon-danger, #A3111F)"
         ]
       },
       "--o-color-icon-danger": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#A3111F"
+        ]
       },
       "--o-button-danger-outlined-hover-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-danger-hover)"
+          "var(--o-color-bg-danger-hover, #A3111F)"
         ]
       },
       "--o-button-danger-outlined-hover-text": {
@@ -1285,7 +1383,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-ondanger-hover)"
+          "var(--o-color-text-ondanger-hover, #FFFFFF)"
         ]
       },
       "--o-button-danger-outlined-hover-icon": {
@@ -1293,7 +1391,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-ondanger-hover)"
+          "var(--o-color-icon-ondanger-hover, #FFFFFF)"
         ]
       },
       "--o-button-danger-outlined-pressed-background": {
@@ -1301,7 +1399,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-danger-pressed)"
+          "var(--o-color-bg-danger-pressed, #871520)"
         ]
       },
       "--o-button-danger-outlined-pressed-text": {
@@ -1309,7 +1407,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-ondanger-pressed)"
+          "var(--o-color-text-ondanger-pressed, #FFFFFF)"
         ]
       },
       "--o-button-danger-outlined-pressed-icon": {
@@ -1317,7 +1415,15 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-ondanger-pressed)"
+          "var(--o-color-icon-ondanger-pressed, #FFFFFF)"
+        ]
+      },
+      "--o-button-danger-clear-default-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "\"bg-danger-default\""
         ]
       },
       "--o-button-danger-clear-default-text": {
@@ -1325,7 +1431,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-danger)"
+          "var(--o-color-text-danger, #A3111F)"
         ]
       },
       "--o-button-danger-clear-default-icon": {
@@ -1333,7 +1439,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-danger)"
+          "var(--o-color-icon-danger, #A3111F)"
         ]
       },
       "--o-button-danger-clear-hover-background": {
@@ -1341,7 +1447,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-danger-hover)"
+          "var(--o-color-bg-danger-hover, #A3111F)"
         ]
       },
       "--o-button-danger-clear-hover-text": {
@@ -1349,7 +1455,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-ondanger-hover)"
+          "var(--o-color-text-ondanger-hover, #FFFFFF)"
         ]
       },
       "--o-button-danger-clear-hover-icon": {
@@ -1357,7 +1463,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-ondanger-hover)"
+          "var(--o-color-icon-ondanger-hover, #FFFFFF)"
         ]
       },
       "--o-button-danger-clear-pressed-background": {
@@ -1365,7 +1471,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-danger-pressed)"
+          "var(--o-color-bg-danger-pressed, #871520)"
         ]
       },
       "--o-button-danger-clear-pressed-text": {
@@ -1373,7 +1479,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-ondanger-pressed)"
+          "var(--o-color-text-ondanger-pressed, #FFFFFF)"
         ]
       },
       "--o-button-danger-clear-pressed-icon": {
@@ -1381,7 +1487,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-ondanger-pressed)"
+          "var(--o-color-icon-ondanger-pressed, #FFFFFF)"
         ]
       },
       "--o-button-success-filled-default-background": {
@@ -1389,175 +1495,191 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-success)"
+          "var(--o-color-bg-success, #2E701B)"
         ]
       },
       "--o-color-bg-success": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#2E701B"
+        ]
       },
       "--o-button-success-filled-default-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onsuccess)"
+          "var(--o-color-text-onsuccess, #FFFFFF)"
         ]
       },
       "--o-color-text-onsuccess": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-success-filled-default-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onsuccess)"
+          "var(--o-color-icon-onsuccess, #FFFFFF)"
         ]
       },
       "--o-color-icon-onsuccess": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-success-filled-hover-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-success-hover)"
+          "var(--o-color-bg-success-hover, #29591B)"
         ]
       },
       "--o-color-bg-success-hover": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#29591B"
+        ]
       },
       "--o-button-success-filled-hover-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onsuccess-hover)"
+          "var(--o-color-text-onsuccess-hover, #FFFFFF)"
         ]
       },
       "--o-color-text-onsuccess-hover": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-success-filled-hover-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onsuccess-hover)"
+          "var(--o-color-icon-onsuccess-hover, #FFFFFF)"
         ]
       },
       "--o-color-icon-onsuccess-hover": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-success-filled-pressed-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-success-pressed)"
+          "var(--o-color-bg-success-pressed, #244C1B)"
         ]
       },
       "--o-color-bg-success-pressed": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#244C1B"
+        ]
       },
       "--o-button-success-filled-pressed-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onsuccess-pressed)"
+          "var(--o-color-text-onsuccess-pressed, #FFFFFF)"
         ]
       },
       "--o-color-text-onsuccess-pressed": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-success-filled-pressed-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onsuccess-pressed)"
+          "var(--o-color-icon-onsuccess-pressed, #FFFFFF)"
         ]
       },
       "--o-color-icon-onsuccess-pressed": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
-      },
-      "--o-button-success-outlined-default-border": {
-        "usecases": [
-          "border-color"
-        ],
         "fallbacks": [
-          "var(--o-color-border-success)"
+          "#FFFFFF"
         ]
       },
-      "--o-color-border-success": {
+      "--o-button-success-outlined-default-background": {
         "usecases": [
-          "border-color"
+          "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"bg-success-default\""
+        ]
       },
       "--o-button-success-outlined-default-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-success)"
+          "var(--o-color-text-success, #29591B)"
         ]
       },
       "--o-color-text-success": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#29591B"
+        ]
       },
       "--o-button-success-outlined-default-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-success)"
+          "var(--o-color-icon-success, #29591B)"
         ]
       },
       "--o-color-icon-success": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#29591B"
+        ]
       },
       "--o-button-success-outlined-hover-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-success-hover)"
+          "var(--o-color-bg-success-hover, #29591B)"
         ]
       },
       "--o-button-success-outlined-hover-text": {
@@ -1565,7 +1687,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onsuccess-hover)"
+          "var(--o-color-text-onsuccess-hover, #FFFFFF)"
         ]
       },
       "--o-button-success-outlined-hover-icon": {
@@ -1573,7 +1695,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onsuccess-hover)"
+          "var(--o-color-icon-onsuccess-hover, #FFFFFF)"
         ]
       },
       "--o-button-success-outlined-pressed-background": {
@@ -1581,7 +1703,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-success-pressed)"
+          "var(--o-color-bg-success-pressed, #244C1B)"
         ]
       },
       "--o-button-success-outlined-pressed-text": {
@@ -1589,7 +1711,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onsuccess-pressed)"
+          "var(--o-color-text-onsuccess-pressed, #FFFFFF)"
         ]
       },
       "--o-button-success-outlined-pressed-icon": {
@@ -1597,7 +1719,15 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onsuccess-pressed)"
+          "var(--o-color-icon-onsuccess-pressed, #FFFFFF)"
+        ]
+      },
+      "--o-button-success-clear-default-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "\"bg-success-default\""
         ]
       },
       "--o-button-success-clear-default-text": {
@@ -1605,7 +1735,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-success)"
+          "var(--o-color-text-success, #29591B)"
         ]
       },
       "--o-button-success-clear-default-icon": {
@@ -1613,7 +1743,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-success)"
+          "var(--o-color-icon-success, #29591B)"
         ]
       },
       "--o-button-success-clear-hover-background": {
@@ -1621,7 +1751,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-success-hover)"
+          "var(--o-color-bg-success-hover, #29591B)"
         ]
       },
       "--o-button-success-clear-hover-text": {
@@ -1629,7 +1759,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onsuccess-hover)"
+          "var(--o-color-text-onsuccess-hover, #FFFFFF)"
         ]
       },
       "--o-button-success-clear-hover-icon": {
@@ -1637,7 +1767,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onsuccess-hover)"
+          "var(--o-color-icon-onsuccess-hover, #FFFFFF)"
         ]
       },
       "--o-button-success-clear-pressed-background": {
@@ -1645,7 +1775,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-success-pressed)"
+          "var(--o-color-bg-success-pressed, #244C1B)"
         ]
       },
       "--o-button-success-clear-pressed-text": {
@@ -1653,7 +1783,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onsuccess-pressed)"
+          "var(--o-color-text-onsuccess-pressed, #FFFFFF)"
         ]
       },
       "--o-button-success-clear-pressed-icon": {
@@ -1661,7 +1791,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onsuccess-pressed)"
+          "var(--o-color-icon-onsuccess-pressed, #FFFFFF)"
         ]
       },
       "--o-button-warning-filled-default-background": {
@@ -1669,175 +1799,191 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-warning)"
+          "var(--o-color-bg-warning, #FFA800)"
         ]
       },
       "--o-color-bg-warning": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFA800"
+        ]
       },
       "--o-button-warning-filled-default-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onwarning)"
+          "var(--o-color-text-onwarning, #29292F)"
         ]
       },
       "--o-color-text-onwarning": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#29292F"
+        ]
       },
       "--o-button-warning-filled-default-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onwarning)"
+          "var(--o-color-icon-onwarning, #29292F)"
         ]
       },
       "--o-color-icon-onwarning": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#29292F"
+        ]
       },
       "--o-button-warning-filled-hover-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-warning-hover)"
+          "var(--o-color-bg-warning-hover, #E27F00)"
         ]
       },
       "--o-color-bg-warning-hover": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#E27F00"
+        ]
       },
       "--o-button-warning-filled-hover-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onwarning-hover)"
+          "var(--o-color-text-onwarning-hover, #FFFFFF)"
         ]
       },
       "--o-color-text-onwarning-hover": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-warning-filled-hover-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onwarning-hover)"
+          "var(--o-color-icon-onwarning-hover, #FFFFFF)"
         ]
       },
       "--o-color-icon-onwarning-hover": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-warning-filled-pressed-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-warning-pressed)"
+          "var(--o-color-bg-warning-pressed, #BB5802)"
         ]
       },
       "--o-color-bg-warning-pressed": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#BB5802"
+        ]
       },
       "--o-button-warning-filled-pressed-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onwarning-pressed)"
+          "var(--o-color-text-onwarning-pressed, #FFFFFF)"
         ]
       },
       "--o-color-text-onwarning-pressed": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#FFFFFF"
+        ]
       },
       "--o-button-warning-filled-pressed-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onwarning-pressed)"
+          "var(--o-color-icon-onwarning-pressed, #FFFFFF)"
         ]
       },
       "--o-color-icon-onwarning-pressed": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
-      },
-      "--o-button-warning-outlined-default-border": {
-        "usecases": [
-          "border-color"
-        ],
         "fallbacks": [
-          "var(--o-color-border-warning)"
+          "#FFFFFF"
         ]
       },
-      "--o-color-border-warning": {
+      "--o-button-warning-outlined-default-background": {
         "usecases": [
-          "border-color"
+          "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"bg-warning-default\""
+        ]
       },
       "--o-button-warning-outlined-default-text": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-warning)"
+          "var(--o-color-text-warning, #984308)"
         ]
       },
       "--o-color-text-warning": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#984308"
+        ]
       },
       "--o-button-warning-outlined-default-icon": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-warning)"
+          "var(--o-color-icon-warning, #E27F00)"
         ]
       },
       "--o-color-icon-warning": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#E27F00"
+        ]
       },
       "--o-button-warning-outlined-hover-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-warning-hover)"
+          "var(--o-color-bg-warning-hover, #E27F00)"
         ]
       },
       "--o-button-warning-outlined-hover-text": {
@@ -1845,7 +1991,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onwarning-hover)"
+          "var(--o-color-text-onwarning-hover, #FFFFFF)"
         ]
       },
       "--o-button-warning-outlined-hover-icon": {
@@ -1853,7 +1999,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onwarning-hover)"
+          "var(--o-color-icon-onwarning-hover, #FFFFFF)"
         ]
       },
       "--o-button-warning-outlined-pressed-background": {
@@ -1861,7 +2007,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-warning-pressed)"
+          "var(--o-color-bg-warning-pressed, #BB5802)"
         ]
       },
       "--o-button-warning-outlined-pressed-text": {
@@ -1869,7 +2015,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onwarning-pressed)"
+          "var(--o-color-text-onwarning-pressed, #FFFFFF)"
         ]
       },
       "--o-button-warning-outlined-pressed-icon": {
@@ -1877,7 +2023,15 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onwarning-pressed)"
+          "var(--o-color-icon-onwarning-pressed, #FFFFFF)"
+        ]
+      },
+      "--o-button-warning-clear-default-background": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "\"bg-warning-default\""
         ]
       },
       "--o-button-warning-clear-default-text": {
@@ -1885,7 +2039,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-warning)"
+          "var(--o-color-text-warning, #984308)"
         ]
       },
       "--o-button-warning-clear-default-icon": {
@@ -1893,7 +2047,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-warning)"
+          "var(--o-color-icon-warning, #E27F00)"
         ]
       },
       "--o-button-warning-clear-hover-background": {
@@ -1901,7 +2055,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-warning-hover)"
+          "var(--o-color-bg-warning-hover, #E27F00)"
         ]
       },
       "--o-button-warning-clear-hover-text": {
@@ -1909,7 +2063,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onwarning-hover)"
+          "var(--o-color-text-onwarning-hover, #FFFFFF)"
         ]
       },
       "--o-button-warning-clear-hover-icon": {
@@ -1917,7 +2071,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onwarning-hover)"
+          "var(--o-color-icon-onwarning-hover, #FFFFFF)"
         ]
       },
       "--o-button-warning-clear-pressed-background": {
@@ -1925,7 +2079,7 @@
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-warning-pressed)"
+          "var(--o-color-bg-warning-pressed, #BB5802)"
         ]
       },
       "--o-button-warning-clear-pressed-text": {
@@ -1933,7 +2087,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-onwarning-pressed)"
+          "var(--o-color-text-onwarning-pressed, #FFFFFF)"
         ]
       },
       "--o-button-warning-clear-pressed-icon": {
@@ -1941,7 +2095,7 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-onwarning-pressed)"
+          "var(--o-color-icon-onwarning-pressed, #FFFFFF)"
         ]
       },
       "--o-button-cursor-disabled": {
@@ -1957,63 +2111,73 @@
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-text-disabled)"
+          "var(--o-color-text-disabled, #A3A9B7)"
         ]
       },
       "--o-color-text-disabled": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#A3A9B7"
+        ]
       },
       "--o-button-icon-disabled": {
         "usecases": [
           "color"
         ],
         "fallbacks": [
-          "var(--o-color-icon-disabled)"
+          "var(--o-color-icon-disabled, #A3A9B7)"
         ]
       },
       "--o-color-icon-disabled": {
         "usecases": [
           "color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#A3A9B7"
+        ]
       },
       "--o-button-disabled-filled-background": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg-disabled)"
+          "var(--o-color-bg-disabled, #DADDE3)"
         ]
       },
       "--o-color-bg-disabled": {
         "usecases": [
           "background-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#DADDE3"
+        ]
       },
       "--o-button-disabled-outlined-border": {
         "usecases": [
           "border-color"
         ],
         "fallbacks": [
-          "var(--o-color-border-disabled)) !importan"
+          "var(--o-color-border-disabled, #A3A9B7)) !importan"
         ]
       },
       "--o-color-border-disabled": {
         "usecases": [
           "border-color"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "#A3A9B7)) !importa"
+        ]
       },
       "--field-size-smaller": {
         "usecases": [
           "width",
           "height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "24px"
+        ]
       },
       "--o-button-height-small": {
         "usecases": [
@@ -2036,7 +2200,9 @@
           "margin-left",
           "margin-right"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "4px"
+        ]
       },
       "--o-button-width-small": {
         "usecases": [

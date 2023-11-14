@@ -46,10 +46,10 @@ declare global {
 
 $radius-map: (
     none: 0px,
-    small: var(--radius-small),
-    medium: var(--radius-medium),
-    large: var(--radius-large),
-    circular: var(--radius-max),
+    small: var(--radius-small, 4px),
+    medium: var(--radius-medium, 8px),
+    large: var(--radius-large, 16px),
+    circular: var(--radius-max, 1000px),
 );
 
 $elevation-map: (

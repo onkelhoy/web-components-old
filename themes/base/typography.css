@@ -86,13 +86,13 @@
   --typography-c4-letterspacing: 0.01rem;
 
   --typography-b1-fontfamily: var(--o-font-family);
-  --typography-b1-fontsize: var(--o-font-size-x-small);
+  --typography-b1-fontsize: 1rem;
   --typography-b1-fontweight: var(--fontweight-semibold);
   --typography-b1-lineheight: 140%;
   --typography-b1-letterspacing: 0.01rem;
 
   --typography-b2-fontfamily: var(--o-font-family);
-  --typography-b2-fontsize: var(--o-font-size-x-small);
+  --typography-b2-fontsize: 1rem;
   --typography-b2-fontweight: var(--fontweight-semibold);
   --typography-b2-lineheight: 140%;
   --typography-b2-letterspacing: 0.01rem;
@@ -275,11 +275,11 @@
 .typography-button1,
 .typography-b1-clean,
 .typography-b1 {
-  font-family: var(--typography-b1-fontfamily);
-  font-size: var(--typography-b1-fontsize);
-  font-weight: var(--typography-b1-fontweight);
-  line-height: var(--typography-b1-lineheight);
-  letter-spacing: var(--typography-b1-letterspacing);
+  font-family: var(--typography-b1-fontfamily, 'Libre Franklin', helvetica, sans-serif);
+  font-size: var(--typography-b1-fontsize, 1rem);
+  font-weight: var(--typography-b1-fontweight, 600);
+  line-height: var(--typography-b1-lineheight, 140%);
+  letter-spacing: var(--typography-b1-letterspacing, 0.01rem);
   color: var(--o-text-color);
 }
 
@@ -287,11 +287,11 @@
 .typography-button2,
 .typography-b2-clean,
 .typography-b2 {
-  font-family: var(--typography-b2-fontfamily);
-  font-size: var(--typography-b2-fontsize);
-  font-weight: var(--typography-b2-fontweight);
-  line-height: var(--typography-b2-lineheight);
-  letter-spacing: var(--typography-b2-letterspacing);
+  font-family: var(--typography-b2-fontfamily, 'Libre Franklin', helvetica, sans-serif);
+  font-size: var(--typography-b2-fontsize, 1rem);
+  font-weight: var(--typography-b2-fontweight, 600);
+  line-height: var(--typography-b2-lineheight, 140%);
+  letter-spacing: var(--typography-b2-letterspacing, 0.01rem);
   color: var(--o-text-color);
   text-decoration: underline;
 }

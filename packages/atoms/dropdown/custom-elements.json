@@ -567,7 +567,7 @@
           "height"
         ],
         "fallbacks": [
-          "var(--field-size-small)"
+          "var(--field-size-small, 32px)"
         ]
       },
       "--field-size-small": {
@@ -581,7 +581,7 @@
           "height"
         ],
         "fallbacks": [
-          "var(--field-size-small)"
+          "var(--field-size-small, 32px)"
         ]
       },
       "--o-field-height-medium": {
@@ -589,7 +589,7 @@
           "height"
         ],
         "fallbacks": [
-          "var(--field-size-medium)"
+          "var(--field-size-medium, 40px)"
         ]
       },
       "--field-size-medium": {
@@ -603,7 +603,7 @@
           "height"
         ],
         "fallbacks": [
-          "var(--field-size-small)"
+          "var(--field-size-small, 32px)"
         ]
       },
       "--o-field-height-large": {
@@ -611,7 +611,7 @@
           "height"
         ],
         "fallbacks": [
-          "var(--field-size-large)"
+          "var(--field-size-large, 56px)"
         ]
       },
       "--field-size-large": {
@@ -625,7 +625,7 @@
           "height"
         ],
         "fallbacks": [
-          "var(--field-size-small)"
+          "var(--field-size-small, 32px)"
         ]
       },
       "--dropdown-background-dark": {

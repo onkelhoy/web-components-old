@@ -1,5 +1,5 @@
 :host {
-  --button-background-color-clear-hover: var(--o-smiley-hover-background, var(--o-color-hover-200));
+  --button-background-color-clear-hover: var(--o-smiley-hover-background, var(--o-color-hover-200, rgba(0,0,0,0.05)));
   --color: var(--o-chat-writer-text-color-light, var(--o-color-black, black));
 
   div.accordion {

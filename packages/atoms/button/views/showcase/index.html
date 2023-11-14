@@ -194,9 +194,9 @@
       <section id="focused">
         <div>
           <o-typography variant="T4">Focused</o-typography>
-          <o-typography style="margin-bottom: var(--margin-medium);">When focusing on a button using the keyboard or voice controls, the state changes to the focused state. Focused buttons have a focus ring around them which matches the corner radius. While in the focused state, buttons can also have a hover or pressed state.</o-typography>
-          <o-typography style="margin-bottom: var(--margin-medium);">The focus ring uses the color <strong>--o-color-border-strong</strong>, has a 0.125rem (2px) width, and has 0.0625rem (1px) margin between itself and the button. The focus ring is formatted outside the button and should not affect the button’s vertical placement on a page.</o-typography>
-          <o-typography style="margin-bottom: var(--margin-medium);">Disabled buttons are not able to be focused.</o-typography>
+          <o-typography style="margin-bottom: var(--margin-medium, 16px);">When focusing on a button using the keyboard or voice controls, the state changes to the focused state. Focused buttons have a focus ring around them which matches the corner radius. While in the focused state, buttons can also have a hover or pressed state.</o-typography>
+          <o-typography style="margin-bottom: var(--margin-medium, 16px);">The focus ring uses the color <strong>--o-color-border-strong</strong>, has a 0.125rem (2px) width, and has 0.0625rem (1px) margin between itself and the button. The focus ring is formatted outside the button and should not affect the button’s vertical placement on a page.</o-typography>
+          <o-typography style="margin-bottom: var(--margin-medium, 16px);">Disabled buttons are not able to be focused.</o-typography>
         </div>
         <div>
           <showcase-card padding="small" class="half">
@@ -492,7 +492,7 @@
           <o-typography>Minor CTAs signify actions with less importance than a major CTA, with outlined variants having more importance than clear variants.</o-typography>
         </div>
         <showcase-card>
-          <o-typography style="margin-bottom: var(--margin-medium);" variant="C2">Importance hierarchy</o-typography>
+          <o-typography style="margin-bottom: var(--margin-medium, 16px);" variant="C2">Importance hierarchy</o-typography>
           <table cellspacing="0">
             <tr>
               <td>
@@ -501,7 +501,7 @@
               <td>
                 <o-typography variant="C4" nowrap>Most importance</o-typography>
               </td>
-              <td class="messure-line vertical left" style="margin-left: var(--margin-medium);">
+              <td class="messure-line vertical left" style="margin-left: var(--margin-medium, 16px);">
                 <div class="flex-vertical">
                   <span>
                     <o-button>
@@ -531,7 +531,7 @@
               <td>
                 <o-typography align="center" variant="C4" nowrap>Least importance</o-typography>
               </td>
-              <td class="messure-line vertical left" style="margin-left: var(--margin-medium);">
+              <td class="messure-line vertical left" style="margin-left: var(--margin-medium, 16px);">
                 <div class="flex-vertical">
                   <span>
                     <o-button variant="outlined" color="secondary">
@@ -663,7 +663,7 @@
                   <div class="line"></div>
                   <div class="line"></div>
                   <div class="line"></div>
-                  <div class="button filled" style="margin-top: var(--margin-small)"></div>
+                  <div class="button filled" style="margin-top: var(--margin-small, 8px)"></div>
                   <div class="button outlined"></div>
                 </div>
               </div>

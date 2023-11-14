@@ -20,21 +20,21 @@ showcase-card::part(box) {
 showcase-card > div {
   display: flex;
   flex-direction: column;
-  gap: var(--gap-small);
+  gap: var(--gap-small, 8px);
 }
 main {
   display: flex;
   flex-direction: column;
-  gap: calc(3 * var(--gap-large));
-  padding: var(--padding-large);
+  gap: calc(3 * var(--gap-large, 24px));
+  padding: var(--padding-large, 24px);
   padding-inline: 10%;
-  background-color: var(--o-color-bg);
-  padding-block: calc(3 * var(--gap-large));
+  background-color: var(--o-color-bg, #FFFFFF);
+  padding-block: calc(3 * var(--gap-large, 24px));
 }
 section {
   display: flex;
   justify-content: space-between;
-  gap: var(--gap-medium);
+  gap: var(--gap-medium, 16px);
 }
 section.vertical {
   flex-direction: column;
@@ -42,7 +42,7 @@ section.vertical {
 .flex-vertical,
 section > * {
   display: inline-flex;
-  gap: var(--gap-small);
+  gap: var(--gap-small, 8px);
   flex-direction: column;
 }
 section > * {
@@ -71,9 +71,9 @@ section > * {
   left: 0;
 
   background-image: 
-  linear-gradient(to left, var(--o-color-border) 2px, transparent 2px),
-  linear-gradient(to bottom, transparent calc(50% - 1px), var(--o-color-border) calc(50% - 1px), var(--o-color-border) calc(50% + 1px), transparent calc(50% + 1px)),
-    linear-gradient(to right, var(--o-color-border) 2px, transparent 2px);
+  linear-gradient(to left, var(--o-color-border, #C7CBD4) 2px, transparent 2px),
+  linear-gradient(to bottom, transparent calc(50% - 1px), var(--o-color-border, #C7CBD4) calc(50% - 1px), var(--o-color-border, #C7CBD4) calc(50% + 1px), transparent calc(50% + 1px)),
+    linear-gradient(to right, var(--o-color-border, #C7CBD4) 2px, transparent 2px);
 }
 .messure-line::before {
   transform: translateY(-100%);
@@ -91,9 +91,9 @@ section > * {
   top: 0;
 
   background-image: 
-    linear-gradient(to bottom, var(--o-color-border) 2px, transparent 2px),
-    linear-gradient(to left, transparent calc(50% - 1px), var(--o-color-border) calc(50% - 1px), var(--o-color-border) calc(50% + 1px), transparent calc(50% + 1px)),
-    linear-gradient(to top, var(--o-color-border) 2px, transparent 2px);
+    linear-gradient(to bottom, var(--o-color-border, #C7CBD4) 2px, transparent 2px),
+    linear-gradient(to left, transparent calc(50% - 1px), var(--o-color-border, #C7CBD4) calc(50% - 1px), var(--o-color-border, #C7CBD4) calc(50% + 1px), transparent calc(50% + 1px)),
+    linear-gradient(to top, var(--o-color-border, #C7CBD4) 2px, transparent 2px);
 }
 .messure-line.vertical::before {
   transform: translateX(-100%);
@@ -119,13 +119,13 @@ showcase-card.half::part(box) {
 section#component + section tbody > tr > td > div {
   display: inline-flex;
   flex-direction: column;
-  gap: var(--gap-large);
+  gap: var(--gap-large, 24px);
 }
 section#component + section tbody > tr > td:has(o-button[color="inverse"]) {
   position: relative;
 }
 section#component + section tbody > tr > td:has(o-button[color="inverse"])::before {
-  background-color: var(--o-color-bg-inverse);
+  background-color: var(--o-color-bg-inverse, #29292F);
   content: '';
   position: absolute;
   width: calc(100% + 30px);
@@ -135,19 +135,19 @@ section#component + section tbody > tr > td:has(o-button[color="inverse"])::befo
 }
 section#component + section tbody > tr:has(o-button[color="inverse"]):first-child > td:not(:has(o-button[color="inverse"])) + td:has(o-button[color="inverse"])::before,
 section#component + section tbody > tr:not(:has(o-button[color="inverse"])) + tr:has(o-button[color="inverse"]) > td:not(:has(o-button[color="inverse"])) + td:has(o-button[color="inverse"])::before {
-  border-top-left-radius: var(--radius-medium);
+  border-top-left-radius: var(--radius-medium, 8px);
 }
 section#component + section tbody > tr:has(o-button[color="inverse"]):first-child > td:not(:has(o-button[color="inverse"])) + td:has(o-button[color="inverse"]) + td:has(o-button[color="inverse"]) + td:has(o-button[color="inverse"])::before,
 section#component + section tbody > tr:not(:has(o-button[color="inverse"])) + tr:has(o-button[color="inverse"]) > td:not(:has(o-button[color="inverse"])) + td:has(o-button[color="inverse"]) + td:has(o-button[color="inverse"]) + td:has(o-button[color="inverse"])::before {
-  border-top-right-radius: var(--radius-medium);
+  border-top-right-radius: var(--radius-medium, 8px);
 }
 section#component + section tbody > tr:has(o-button[color="inverse"]):first-child + tr:has(o-button[color="inverse"]) + tr:has(o-button[color="inverse"]) > td:not(:has(o-button[color="inverse"])) + td:has(o-button[color="inverse"])::before,
 section#component + section tbody > tr:not(:has(o-button[color="inverse"])) + tr:has(o-button[color="inverse"]) + tr:has(o-button[color="inverse"]) + tr:has(o-button[color="inverse"]) > td:not(:has(o-button[color="inverse"])) + td:has(o-button[color="inverse"])::before {
-  border-bottom-left-radius: var(--radius-medium);
+  border-bottom-left-radius: var(--radius-medium, 8px);
 }
 section#component + section tbody > tr:has(o-button[color="inverse"]):first-child + tr:has(o-button[color="inverse"]) + tr:has(o-button[color="inverse"]) > td:not(:has(o-button[color="inverse"])) + td:has(o-button[color="inverse"]) + td:has(o-button[color="inverse"]) + td:has(o-button[color="inverse"])::before,
 section#component + section tbody > tr:not(:has(o-button[color="inverse"])) + tr:has(o-button[color="inverse"]) + tr:has(o-button[color="inverse"]) + tr:has(o-button[color="inverse"]) > td:not(:has(o-button[color="inverse"])) + td:has(o-button[color="inverse"]) + td:has(o-button[color="inverse"]) + td:has(o-button[color="inverse"])::before {
-  border-bottom-right-radius: var(--radius-medium);
+  border-bottom-right-radius: var(--radius-medium, 8px);
 }
 section#component + section tbody > tr > td:first-child {
   writing-mode: vertical-lr;
@@ -169,10 +169,10 @@ section#importance .messure-line.left {
   left: 0.5rem;
 }
 section#importance table td + td {
-  padding-left: var(--padding-medium);
+  padding-left: var(--padding-medium, 16px);
 }
 section#importance .flex-vertical {
-  padding-block: var(--gap-small);
+  padding-block: var(--gap-small, 8px);
 }
 section#importance table tr > td:has(o-typography[variant="C4"]) {
   position: relative;
@@ -206,17 +206,17 @@ section#alignment div.center {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
-  gap: var(--gap-medium);
+  gap: var(--gap-medium, 16px);
 }
 section#visual-weight .card,
 section#alignment .card {
   padding: 1.5rem;
-  background-color: var(--o-color-bg);
-  border-radius: var(--radius-medium);
+  background-color: var(--o-color-bg, #FFFFFF);
+  border-radius: var(--radius-medium, 8px);
   display: flex;
   flex-direction: column;
   position: relative;
-  gap: var(--gap-small);
+  gap: var(--gap-small, 8px);
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -225,8 +225,8 @@ section#alignment .line {
   content: '';
   width: 220px;
   height: 0.75rem;
-  background-color: var(--o-color-bg-tertiary);
-  border-radius: var(--radius-max);
+  background-color: var(--o-color-bg-tertiary, #EAEBEF);
+  border-radius: var(--radius-max, 1000px);
 }
 section#visual-weight .line.short,
 section#alignment .line.short {
@@ -237,11 +237,11 @@ section#alignment .button {
   content: '';
   width: 55px;
   height: 0.75rem;
-  border-radius: var(--radius-max);
+  border-radius: var(--radius-max, 1000px);
 }
 section#visual-weight .button.filled,
 section#alignment .button.filled {
-  background-color: var(--o-color-bg-brand);
+  background-color: var(--o-color-bg-brand, #009DD3);
 }
 /* end of share with visual weight */ 
 
@@ -250,21 +250,21 @@ section#alignment .card:not(.popup) {
 }
 section#alignment .button-flex {
   display: flex;
-  gap: var(--gap-small);
-  margin-top: var(--margin-small);
+  gap: var(--gap-small, 8px);
+  margin-top: var(--margin-small, 8px);
 }
 section#alignment  o-icon {
-  color: var(--o-color-icon);
+  color: var(--o-color-icon, #29292F);
 }
 section#alignment .button.outlined {
-  border: 1px solid var(--o-color-border-brand);
+  border: 1px solid var(--o-color-border-brand, #009DD3);
 }
 section#alignment .card.right-align .button-flex {
   justify-content: flex-end;
 }
 section#alignment .card.right-align::before {
   content: '';
-  background-color: var(--o-color-bg-inverse);
+  background-color: var(--o-color-bg-inverse, #29292F);
   position: absolute;
   top: 0;
   left: 0;
@@ -301,27 +301,27 @@ section#alignment .card.center-align > div.line:nth-child(3) {
 }
 section#alignment .card.center-align > div.line:nth-child(4) {
   width: 80px;
-  margin-bottom: var(--margin-small);
+  margin-bottom: var(--margin-small, 8px);
 }
 section#alignment .card.sidebar {
   display: grid;
   padding: 0;
   gap: 0;
   grid-template-columns: 4rem 10rem;
-  background-color: var(--o-color-bg-canvas);
+  background-color: var(--o-color-bg-canvas, #EAEBEF);
 }
 section#alignment .card.sidebar > div {
   display: flex;
   flex-direction: column;
   position: relative;
-  gap: var(--gap-small);
+  gap: var(--gap-small, 8px);
 }
 section#alignment .card.sidebar > div + div {
   padding: 1.5rem;
 }
 section#alignment .card.sidebar div.sidebar {
   padding: 0.5rem;
-  background-color: var(--o-color-bg);
+  background-color: var(--o-color-bg, #FFFFFF);
 }
 section#alignment .card.sidebar div.sidebar .line {
   height: 0.5rem;
@@ -343,10 +343,10 @@ section#visual-weight .grid {
   display: grid;
   grid-template-columns: repeat(4, 5rem);
   grid-template-rows: 5rem 5rem;
-  gap: var(--gap-medium);
+  gap: var(--gap-medium, 16px);
 }
 section#visual-weight .grid .card {
-  background-color: var(--o-color-bg-tertiary);
+  background-color: var(--o-color-bg-tertiary, #EAEBEF);
   padding: 1rem;
   width: 100%;
   height: 100%;
@@ -356,25 +356,25 @@ section#visual-weight .grid .card .button {
   width: 100%;
 }
 section#visual-weight .button.outlined {
-  border: 1px solid var(--o-color-border);
+  border: 1px solid var(--o-color-border, #C7CBD4);
 }
 section#visual-weight .flex {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: var(--gap-medium);
+  margin-bottom: var(--gap-medium, 16px);
 }
 section#visual-weight .flex-bottom {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: var(--gap-small);
+  gap: var(--gap-small, 8px);
 }
 
 /* inverse */
 section#inverse showcase-card::part(box) {
   flex-direction: row;
-  background-color: var(--o-color-bg-inverse);
+  background-color: var(--o-color-bg-inverse, #29292F);
 }
 
 /* group-display */
@@ -394,20 +394,20 @@ section#group-display + section showcase-card > div > div {
 }
 section#group-display + section .flex {
   display: flex;
-  gap: var(--gap-medium);
+  gap: var(--gap-medium, 16px);
 }
 section#group-display + section showcase-card .horizontal .flex {
   justify-content: center;
 }
 section#group-display + section showcase-card .vertical .flex {
   flex-direction: column;
-  gap: var(--gap-small);
+  gap: var(--gap-small, 8px);
 }
 
 /* group-danger-warning-success */
 section#group-danger-warning-success .flex {
   display: flex;
-  gap: var(--gap-small);
+  gap: var(--gap-small, 8px);
 }
 section#group-danger-warning-success showcase-card::part(box) {
   flex-direction: row;
@@ -419,10 +419,10 @@ section#group-icons .flex {
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  gap: var(--gap-small);
+  gap: var(--gap-small, 8px);
 }
 section#group-icons td + td {
-  padding-left: var(--padding-large);
+  padding-left: var(--padding-large, 24px);
 }
 
 /* examples */ 
@@ -433,7 +433,7 @@ section#examples + section {
 }
 section#examples + section .flex {
   display: flex;
-  gap: var(--gap-small);
+  gap: var(--gap-small, 8px);
   justify-content: center;
 }
 section#examples + section > div {
@@ -445,34 +445,34 @@ section#examples + section > div > div {
   flex-grow: 1;
 }
 section#examples + section > div > div.radius-top-left {
-  border-top-left-radius: var(--radius-medium);
+  border-top-left-radius: var(--radius-medium, 8px);
 }
 section#examples + section > div > div.radius-top-right {
-  border-top-right-radius: var(--radius-medium);
+  border-top-right-radius: var(--radius-medium, 8px);
 }
 section#examples + section > div > div.radius-bottom-left {
-  border-bottom-left-radius: var(--radius-medium);
+  border-bottom-left-radius: var(--radius-medium, 8px);
 }
 section#examples + section > div > div.radius-bottom-right {
-  border-bottom-right-radius: var(--radius-medium);
+  border-bottom-right-radius: var(--radius-medium, 8px);
 }
 section#examples + section > div > div {
-  background-color: var(--o-color-bg);
-  padding: var(--padding-large);
+  background-color: var(--o-color-bg, #FFFFFF);
+  padding: var(--padding-large, 24px);
 }
 section#examples + section > div > div + div {
-  background-color: var(--o-color-bg-secondary);
+  background-color: var(--o-color-bg-secondary, #F6F7F8);
 }
 section#examples + section > div > div + div + div {
-  background-color: var(--o-color-bg-tertiary);
+  background-color: var(--o-color-bg-tertiary, #EAEBEF);
 }
 section#examples + section > div > div > span {
   text-align: center;
-  margin-bottom: var(--margin-small);
+  margin-bottom: var(--margin-small, 8px);
 }
 section#examples + section > div > div > span > o-typography {
-  background-color: var(--o-color-bg-tertiary);
+  background-color: var(--o-color-bg-tertiary, #EAEBEF);
   color: var(--o-color-text-ontertiary);
-  padding: var(--padding-small);
-  border-radius: var(--radius-small);
+  padding: var(--padding-small, 8px);
+  border-radius: var(--radius-small, 4px);
 }

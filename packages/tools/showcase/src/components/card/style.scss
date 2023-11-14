@@ -5,17 +5,17 @@ o-box-template {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: var(--gap-medium);
+  gap: var(--gap-medium, 16px);
   
   overflow-x: auto;
   text-align: center;
-  padding: var(--padding-large) var(--padding-medium);
+  padding: var(--padding-large, 24px) var(--padding-medium, 16px);
 
   position: relative;
   box-sizing: border-box;
   min-height: 250px;
   width: 100%;
-  background-color: var(--o-color-bg-secondary);
+  background-color: var(--o-color-bg-secondary, #F6F7F8);
 
   ::slotted(*) {
     margin: auto;

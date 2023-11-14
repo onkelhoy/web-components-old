@@ -1,6 +1,6 @@
 export const style = `:host {
-  --menu-background: var(--o-color-bg);
-  --menu-color: var(--o-color-text);
+  --menu-background: var(--o-color-bg, #FFFFFF);
+  --menu-color: var(--o-color-text, #29292F);
   display: inline-block; }
   :host o-button span.caret-wrapper {
     display: flex;
@@ -10,7 +10,7 @@ export const style = `:host {
     display: inline-block; }
   :host o-box-template {
     display: block;
-    padding-block: var(--padding-small);
+    padding-block: var(--padding-small, 8px);
     min-width: 180px;
     background-color: var(--menu-background);
     max-height: 20rem;

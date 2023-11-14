@@ -1,53 +1,53 @@
 :host {
     display: block;
-    margin-block: var(--margin-medium);
-    color: var(--o-color-text);
+    margin-block: var(--margin-medium, 16px);
+    color: var(--o-color-text, #29292F);
 
     .string {
-        color: var(--o-color-text-warning);
+        color: var(--o-color-text-warning, #984308);
     }
     .keyword {
-        color: var(--o-color-text-danger);
+        color: var(--o-color-text-danger, #A3111F);
 
         &.class,
         &.implements,
         &.extends,
         &.this,
         &.function {
-            color: var(--o-color-primary-500);
+            color: var(--o-color-primary-500, #0CB9Eb);
         }
     }
     .function-arg {
-        color: var(--o-color-text-warning);
+        color: var(--o-color-text-warning, #984308);
     }
     .function-name {
-        color: var(--o-color-text-brand-strong);
+        color: var(--o-color-text-brand-strong, #002652);
     }
     div.line {
         min-height: 12px;
-        color: var(--o-color-text);
+        color: var(--o-color-text, #29292F);
     }
 
     .html-attribute {
-        padding-left: var(--padding-smaller);
+        padding-left: var(--padding-smaller, 4px);
         .html-attribute-name {
-            color: var(--o-color-primary-700);
+            color: var(--o-color-primary-700, #0177A3);
         }
         .html-attribute-value {
-            color: var(--o-color-text-warning);
+            color: var(--o-color-text-warning, #984308);
         }
     }
 
     .html-tag {
-        color: var(--o-color-neutral-700);
+        color: var(--o-color-neutral-700, #4D4E58);
     }
     .html-tag-name {
-        color: var(--o-color-primary-500);
+        color: var(--o-color-primary-500, #0CB9Eb);
     }
 
     code {
         o-box-template {
-            background-color: var(--o-color-bg-secondary);
+            background-color: var(--o-color-bg-secondary, #F6F7F8);
             overflow: hidden;
             display: block;
             header {
@@ -55,14 +55,14 @@
                 justify-content: space-between;
                 align-items: center;
                 color: inherit;
-                background-color: var(--o-color-bg-tertiary);
+                background-color: var(--o-color-bg-tertiary, #EAEBEF);
         
                 & > o-typography {
-                    text-indent: var(--padding-medium);
+                    text-indent: var(--padding-medium, 16px);
                 }
 
                 o-toggle {
-                    color: var(--o-color-text);
+                    color: var(--o-color-text, #29292F);
                 }
         
                 o-button {
@@ -76,8 +76,8 @@
             }
         
             main {
-                min-height: var(--unit-size5);
-                padding: var(--padding-medium) var(--padding-large);
+                min-height: var(--unit-size5, 32px);
+                padding: var(--padding-medium, 16px) var(--padding-large, 24px);
             }
         }
     }
@@ -85,7 +85,7 @@
     fieldset {
         // overflow: initial;
         // overflow-x: auto;
-        background-color: var(--o-color-bg);
+        background-color: var(--o-color-bg, #FFFFFF);
         legend {
             // TODO - how to display so in opposite color (theme-switch) 
         }

@@ -4,7 +4,7 @@ export const style = `:host {
   grid-template-rows: 1fr auto;
   grid-template-areas: "label input" "message message";
   align-items: center;
-  column-gap: var(--gap-small);
+  column-gap: var(--gap-small, 8px);
   cursor: pointer; }
   :host::part(label) {
     grid-area: label; }

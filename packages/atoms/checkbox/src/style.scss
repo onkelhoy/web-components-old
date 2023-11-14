@@ -6,7 +6,7 @@
         "label input"
         "message message";
     align-items: center;
-    column-gap: var(--gap-small);
+    column-gap: var(--gap-small, 8px);
     cursor: pointer;
 
     &::part(label) {

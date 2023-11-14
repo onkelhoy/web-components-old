@@ -1,6 +1,6 @@
 body {
-  background-color: var(--o-color-bg-canvas);
-  color: var(--o-color-text);
+  background-color: var(--o-color-bg-canvas, #EAEBEF);
+  color: var(--o-color-text, #29292F);
 }
 
 body {
@@ -18,7 +18,7 @@ body {
   left: 300px;
   width: 30px;
   height: 30px;
-  background-color: var(--o-color-bg-warning);
+  background-color: var(--o-color-bg-warning, #FFA800);
 }
 .balloon2 {
   top: 600px;
@@ -32,12 +32,12 @@ body {
   left: 300px;
   width: 200px;
   height: 200px;
-  background-color: var(--o-color-bg-success);
+  background-color: var(--o-color-bg-success, #2E701B);
 }
 .balloon4 {
   top: 900px;
   left: 250px;
   width: 160px;
   height: 160px;
-  background-color: var(--o-color-bg-danger);
+  background-color: var(--o-color-bg-danger, #B70E1E);
 }

@@ -1,12 +1,12 @@
 export const style = `:host {
-  --background: var(--o-markdown-background, var(--o-color-bg));
-  --block-background: var(--o-markdown-block-background, var(--o-color-bg-tertiary));
-  --block-ribbon: var(--o-markdown-block-ribbon, var(--o-color-bg-brand));
-  --border: var(--o-markdown-border, var(--o-color-border));
-  --color: var(--o-markdown-color, var(--o-color-text));
-  --link: var(--o-markdown-link, var(--o-color-text-link));
-  --link-hover: var(--o-markdown-link-hover, var(--o-color-text-link-oninverse));
-  --table-header-background: var(--o-markdown-table-header-background, var(--o-color-hover-400));
+  --background: var(--o-markdown-background, var(--o-color-bg, #FFFFFF));
+  --block-background: var(--o-markdown-block-background, var(--o-color-bg-tertiary, #EAEBEF));
+  --block-ribbon: var(--o-markdown-block-ribbon, var(--o-color-bg-brand, #009DD3));
+  --border: var(--o-markdown-border, var(--o-color-border, #C7CBD4));
+  --color: var(--o-markdown-color, var(--o-color-text, #29292F));
+  --link: var(--o-markdown-link, var(--o-color-text-link, #0177A3));
+  --link-hover: var(--o-markdown-link-hover, var(--o-color-text-link-oninverse, #36CEFA));
+  --table-header-background: var(--o-markdown-table-header-background, var(--o-color-hover-400, rgba(0,0,0,0.1)));
   display: block;
   color: var(--color);
   background-color: var(--background);
@@ -33,12 +33,12 @@ table {
       border-bottom-style: solid;
       padding: 0.25rem 0.75rem; }
       table thead th:first-child {
-        border-top-left-radius: var(--radius-small); }
+        border-top-left-radius: var(--radius-small, 4px); }
       table thead th:last-child {
         border-right-width: 1px;
         border-right-color: var(--border);
         border-right-style: solid;
-        border-top-right-radius: var(--radius-small); }
+        border-top-right-radius: var(--radius-small, 4px); }
   table tbody td {
     border-left-width: 1px;
     border-left-color: var(--border);
@@ -52,9 +52,9 @@ table {
       border-right-color: var(--border);
       border-right-style: solid; }
   table tbody tr:last-child td:last-child {
-    border-bottom-right-radius: var(--radius-small); }
+    border-bottom-right-radius: var(--radius-small, 4px); }
   table tbody tr:last-child td:first-child {
-    border-bottom-left-radius: var(--radius-small); }
+    border-bottom-left-radius: var(--radius-small, 4px); }
 
 a {
   color: var(--link); }

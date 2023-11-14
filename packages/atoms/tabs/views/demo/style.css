@@ -1,6 +1,6 @@
 body {
-  background-color: var(--o-color-bg-canvas);
-  color: var(--o-color-text);
+  background-color: var(--o-color-bg-canvas, #EAEBEF);
+  color: var(--o-color-text, #29292F);
 }
 
 body {

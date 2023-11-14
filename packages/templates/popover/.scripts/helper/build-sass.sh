@@ -30,7 +30,7 @@ function compile() {
 
 # run on all sass files
 if [[ -z "$1" ]]; then
-  find ./src -name "*.scss" | while read -r file; do compile "$file"; done
+  find ./src -name "*.scss" | grep -v "\.skip\.scss$" | while read -r file; do compile "$file"; done
 else
   compile $1
 fi

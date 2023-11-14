@@ -1,18 +1,18 @@
 export const style = `:host {
   display: inline-block;
   --border-color-unselected: var(--o-steps-border-color-unselected, var(--o-color-canvas-400));
-  --border-color-selected: var(--o-steps-border-color-selected, var(--o-color-clear-blue-800));
+  --border-color-selected: var(--o-steps-border-color-selected, var(--o-color-clear-blue-800, #0059E6));
   --o-steps-circle-selected-color: var(--border-color-selected);
   --o-steps-circle-stale-color: var(--border-color-unselected); }
   :host o-typography {
-    padding-block: var(--padding-small); }
+    padding-block: var(--padding-small, 8px); }
   :host o-box-template {
     display: inline-flex;
     align-items: center;
-    gap: var(--unit-size5);
+    gap: var(--unit-size5, 32px);
     justify-content: space-between;
     background-color: var(--o-color-neutral-50);
-    padding: var(--padding-medium) var(--padding-large); }
+    padding: var(--padding-medium, 16px) var(--padding-large, 24px); }
     :host o-box-template div {
       width: 100%;
       display: flex;
@@ -27,7 +27,7 @@ export const style = `:host {
         top: 50%;
         left: 0;
         content: '';
-        width: calc(100% + var(--unit-size5));
+        width: calc(100% + var(--unit-size5, 32px));
         height: 2px; }
         :host o-box-template div span::before, :host o-box-template div span::after {
           content: '';
@@ -39,10 +39,10 @@ export const style = `:host {
           background-color: var(--border-color-unselected);
           transform: translateY(-50%); }
         :host o-box-template div span::before {
-          width: calc(50% - var(--unit-size4)); }
+          width: calc(50% - var(--unit-size4, 24px)); }
         :host o-box-template div span::after {
-          left: calc(50% - var(--unit-size2));
-          width: calc(50% + var(--unit-size4)); }
+          left: calc(50% - var(--unit-size2, 8px));
+          width: calc(50% + var(--unit-size4, 24px)); }
     :host o-box-template div.step.selected > div > span::before,
     :host o-box-template div.step.selected > div > span::after,
     :host o-box-template div.step.selected + div.step > div > span::before {

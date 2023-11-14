@@ -1,11 +1,11 @@
 :host {
   display: block;
 
-  --variant-bg-color: var(--o-color-bg-success);
-  --variant-text-color: var(--o-color-text-success);
+  --variant-bg-color: var(--o-color-bg-success, #2E701B);
+  --variant-text-color: var(--o-color-text-success, #29591B);
 }
 showcase-card {
-  margin-bottom: var(--margin-medium);
+  margin-bottom: var(--margin-medium, 16px);
 }
 showcase-card::part(box) {
   overflow: hidden;
@@ -24,26 +24,26 @@ showcase-card::part(box) {
 div {
   display: flex;
   align-items: flex-start;
-  gap: var(--gap-small);
+  gap: var(--gap-small, 8px);
 
   o-icon {
     background-color: var(--variant-bg-color);
     color: var(--variant-text-color);
-    padding: var(--padding-smaller);
-    border-radius: var(--radius-max);
+    padding: var(--padding-smaller, 4px);
+    border-radius: var(--radius-max, 1000px);
   }
 }
 
 // variants 
 :host([variant="success"]) {
-  --variant-bg-color: var(--o-color-bg-success);
-  --variant-text-color: var(--o-color-text-inverse);
+  --variant-bg-color: var(--o-color-bg-success, #2E701B);
+  --variant-text-color: var(--o-color-text-inverse, #FFFFFF);
 }
 :host([variant="error"]) {
-  --variant-bg-color: var(--o-color-bg-danger);
-  --variant-text-color: var(--o-color-text-inverse);
+  --variant-bg-color: var(--o-color-bg-danger, #B70E1E);
+  --variant-text-color: var(--o-color-text-inverse, #FFFFFF);
 }
 :host([variant="warning"]) {
-  --variant-bg-color: var(--o-color-bg-warning);
-  --variant-text-color: var(--o-color-text);
+  --variant-bg-color: var(--o-color-bg-warning, #FFA800);
+  --variant-text-color: var(--o-color-text, #29292F);
 }

@@ -1,7 +1,7 @@
 :host {
     
     header {
-        margin-bottom: var(--margin-small);
+        margin-bottom: var(--margin-small, 8px);
         display: grid;
         grid-template-columns: 1fr;
         overflow: hidden;
@@ -11,7 +11,7 @@
             
             display: flex;
             align-items: center;
-            gap: var(--gap-small);
+            gap: var(--gap-small, 8px);
 
             overflow-x: auto;
             -ms-overflow-style: none;  /* IE and Edge */
@@ -20,7 +20,7 @@
                 display: none;
             }
 
-            // height: var(--o-tab-height, var(--field-size-medium));
+            // height: var(--o-tab-height, var(--field-size-medium, 40px));
 
             span[part=indicator] {
                 content: '';
@@ -30,13 +30,13 @@
                 top: 100%;
                 translate: 0 -100%;
                 height: var(--tabs-indicator-height, var(--unit-size-1, 4px));
-                background-color: var(--tabs-indicator-color, var(--o-color-border-brand));
+                background-color: var(--tabs-indicator-color, var(--o-color-border-brand, #009DD3));
     
                 transition: all var(--tabs-indicator-animation-easing, ease) var(--tabs-indicator-animation-duration, 200ms);
     
                 // apply the radius 
-                border-top-left-radius: var(--radius-small);
-                border-top-right-radius: var(--radius-small);
+                border-top-left-radius: var(--radius-small, 4px);
+                border-top-right-radius: var(--radius-small, 4px);
             }
         }
     }
@@ -59,40 +59,3 @@
         display: block;
     }
 }
-
-// :host {
-//     display: grid;
-//     grid-template-rows: auto 1fr;
-
-//     div[part="header-wrapper"] {
-//         display: grid;
-//         grid-template-rows: var(--o-tabs-height, var(--unit-size7, 48px));
-//         // grid-template-columns: 1fr minmax(5rem, auto);
-//     }
-    
-//     header {
-//         display: flex;
-//         overflow-x: auto;
-//         position: relative;
-
-//         span[part=indicator] {
-//             content: '';
-//             display: inline-block;
-//             position: absolute;
-//             left: 0;
-//             top: 100%;
-//             transform: translateY(-100%);
-//             height: var(--tabs-indicator-height, 0.3rem);
-//             background-color: var(--tabs-indicator-color, var(--o-color-border-brand));
-
-//             transition: all var(--tabs-indicator-animation-easing, ease) var(--tabs-indicator-animation-duration, 200ms);
-//         }
-
-//         ::slotted(*[slot="header"]) {
-//             flex-grow: 1;
-//             z-index: 20;
-//         }
-//     }
-
-// }
-

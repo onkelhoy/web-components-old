@@ -72,31 +72,31 @@ declare global {
         padding: 0;
         gap: 0;
         height: auto;
-        border-radius: var(--radius-max);
-        margin-left: var(--margin-small);
-        // height: var(--field-size-smaller);
+        border-radius: var(--radius-max, 1000px);
+        margin-left: var(--margin-small, 8px);
+        // height: var(--field-size-smaller, 24px);
     }
 
     o-box-template.toggle {
         content: '';
         display: inline-block;
-        height: var(--field-size-smaller);
-        width: calc(var(--field-size-large));
+        height: var(--field-size-smaller, 24px);
+        width: calc(var(--field-size-large, 56px));
         background-color: var(--o-color-neutral-50);
-        padding: var(--padding-smaller);
+        padding: var(--padding-smaller, 4px);
 
         div {
             position: relative;
 
             span[part="indicator"] {
                 position: absolute;
-                transition: left ease var(--timing-fast);
+                transition: left ease var(--timing-fast, 80ms);
                 content: '';
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: var(--field-size-smaller);
-                height: var(--field-size-smaller);
+                width: var(--field-size-smaller, 24px);
+                height: var(--field-size-smaller, 24px);
                 border-radius: 50%;
                 background-color: var(--o-color-neutral-500);
             }
@@ -106,7 +106,7 @@ declare global {
 
 :host([checked="true"]) {
     span[part="indicator"] {
-        left: calc(100% - var(--field-size-smaller));
+        left: calc(100% - var(--field-size-smaller, 24px));
     }
 }
 :host([checked="false"]) {
