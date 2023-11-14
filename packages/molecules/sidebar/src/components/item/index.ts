@@ -75,7 +75,7 @@ export class Item extends BaseTemplate {
             element.addEventListener('child-select', this.hanlechildselect);
             
             const depthlevel = (Number(this.getAttribute('sidebar-subitem') || 0) + 1);
-            element.style.setProperty("--padding-left", `calc(${depthlevel} * var(--gap-small))`);
+            element.style.setProperty("--padding-left", `calc(${depthlevel} * var(--gap-small, 8px))`);
             element.setAttribute('sidebar-subitem', depthlevel.toString());
           }
         }

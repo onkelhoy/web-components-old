@@ -1,6 +1,6 @@
 :host {
-    --menu-background: var(--o-color-bg);
-    --menu-color: var(--o-color-text);
+    --menu-background: var(--o-color-bg, #FFFFFF);
+    --menu-color: var(--o-color-text, #29292F);
     display: inline-block;
 
     o-button {
@@ -18,7 +18,7 @@
     o-box-template {
         display: block;
         // padding: 1rem 1.5rem;
-        padding-block: var(--padding-small);
+        padding-block: var(--padding-small, 8px);
         min-width: 180px;
         background-color: var(--menu-background);
         max-height: 20rem;

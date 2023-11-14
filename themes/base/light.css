@@ -339,8 +339,8 @@
   --o-color-icon-oninverse-hover: var(--o-color-neutral-50);
   --o-color-icon-oninverse-pressed: var(--o-color-neutral-50);
   --o-color-icon-brand: var(--o-color-primary-700);
-  --o-color-icon-brand-hover: var(--o-color-primary-900);
-  --o-color-icon-brand-pressed: var(--o-color-primary-950);
+  --o-color-icon-brand-hover: var(--o-color-secondary-900);
+  --o-color-icon-brand-pressed: var(--o-color-secondary-950);
   --o-color-icon-onbrand: var(--o-color-neutral-50);
   --o-color-icon-onbrand-hover: var(--o-color-neutral-50);
   --o-color-icon-onbrand-pressed: var(--o-color-neutral-50);

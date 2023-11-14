@@ -16,14 +16,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: var(--field-size-medium);
-        height: var(--field-size-medium);
+        width: var(--field-size-medium, 40px);
+        height: var(--field-size-medium, 40px);
     }
 }
 
 img.avatar {
-    width: var(--field-size-medium);
-    height: var(--field-size-medium);
+    width: var(--field-size-medium, 40px);
+    height: var(--field-size-medium, 40px);
     border-radius: 50%;
 }
 
@@ -42,7 +42,7 @@ img.avatar {
     }
 }
 
-// overriding 
+// overriding // TODO fix as sidebar was done - on svg level instead !! 
 :host(.dark-mode) {
     o-icon[name="light-mode"] {
         display: none;

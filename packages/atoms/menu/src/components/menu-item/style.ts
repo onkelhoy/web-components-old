@@ -4,7 +4,7 @@ export const style = `:host div {
   gap: 0.5rem;
   cursor: pointer;
   user-select: none;
-  padding: var(--o-menuitem-padding, var(--padding-small)); }
+  padding: var(--o-menuitem-padding, var(--padding-small, 8px)); }
   :host div:hover {
     background-color: var(--o-menuitem-light-background-hover, var(--neutral-300, #F1F1F4)); }
 

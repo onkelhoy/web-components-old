@@ -1,18 +1,18 @@
 $size-map: (
   small: (
-    height: var(--field-size-small),
-    blockheight: var(--field-size-small),
-    padding: var(--padding-small),
+    height: var(--field-size-small, 32px),
+    blockheight: var(--field-size-small, 32px),
+    padding: var(--padding-small, 8px),
   ),
   medium: (
-    height: var(--field-size-medium),
-    blockheight: var(--field-size-small),
-    padding: var(--padding-medium),
+    height: var(--field-size-medium, 40px),
+    blockheight: var(--field-size-small, 32px),
+    padding: var(--padding-medium, 16px),
   ),
   large: (
-    height: var(--field-size-large),
-    blockheight: var(--field-size-small),
-    padding: var(--padding-medium),
+    height: var(--field-size-large, 56px),
+    blockheight: var(--field-size-small, 32px),
+    padding: var(--padding-medium, 16px),
   ),
 );
 
@@ -41,14 +41,14 @@ $size-map: (
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-inline: var(--padding-small);
+        padding-inline: var(--padding-small, 8px);
     }
 
     footer {
         div {
             display: none;
             align-items: center;
-            gap: var(--gap-small);
+            gap: var(--gap-small, 8px);
         }
     }
 
@@ -57,14 +57,14 @@ $size-map: (
         position: relative;
         display: flex;
         align-items: center;
-        padding-inline: var(--padding-medium);
+        padding-inline: var(--padding-medium, 16px);
         border: 1px solid var(--border);
 
         ::slotted(*:not([slot])),        
         input, select, textarea {
             color: inherit;
 
-            font-family: var(--input-fontfamily, var(--typography-c3-fontfamily));
+            font-family: var(--input-fontfamily, var(--typography-c3-fontfamily, 'Libre Franklin', helvetica, sans-serif));
             font-size: var(--input-fontsize, var(--typography-c3-fontsize, 16px));
             font-weight: var(--input-fontweight, var(--typography-c3-fontweight, 400));
             line-height: var(--input-lineheight, var(--typography-c3-lineheight, 24px));
@@ -78,10 +78,10 @@ $size-map: (
         }
 
         ::slotted(*[slot="prefix"]) {
-            margin-right: var(--gap-small);
+            margin-right: var(--gap-small, 8px);
         }
         ::slotted(*[slot="suffix"]) {
-            margin-left: var(--gap-small);
+            margin-left: var(--gap-small, 8px);
         }
     }
 

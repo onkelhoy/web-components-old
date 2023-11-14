@@ -1,5 +1,5 @@
 export const style = `:host header {
-  margin-bottom: var(--margin-small);
+  margin-bottom: var(--margin-small, 8px);
   display: grid;
   grid-template-columns: 1fr;
   overflow: hidden; }
@@ -7,7 +7,7 @@ export const style = `:host header {
     position: relative;
     display: flex;
     align-items: center;
-    gap: var(--gap-small);
+    gap: var(--gap-small, 8px);
     overflow-x: auto;
     -ms-overflow-style: none;
     /* IE and Edge */
@@ -23,10 +23,10 @@ export const style = `:host header {
       top: 100%;
       translate: 0 -100%;
       height: var(--tabs-indicator-height, var(--unit-size-1, 4px));
-      background-color: var(--tabs-indicator-color, var(--o-color-border-brand));
+      background-color: var(--tabs-indicator-color, var(--o-color-border-brand, #009DD3));
       transition: all var(--tabs-indicator-animation-easing, ease) var(--tabs-indicator-animation-duration, 200ms);
-      border-top-left-radius: var(--radius-small);
-      border-top-right-radius: var(--radius-small); }
+      border-top-left-radius: var(--radius-small, 4px);
+      border-top-right-radius: var(--radius-small, 4px); }
 
 ::slotted(*[slot="header-prefix"]) {
   margin-right: auto; }

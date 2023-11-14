@@ -8,7 +8,7 @@ export const style = `:host o-button {
 :host label {
   display: flex;
   align-items: center;
-  gap: var(--gap-small); }
+  gap: var(--gap-small, 8px); }
 
 :host([eye="true"]) o-icon[name="eye-close"] {
   display: flex; }

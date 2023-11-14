@@ -1,10 +1,10 @@
 export const style = `:host {
-  color: var(--o-color-text);
+  color: var(--o-color-text, #29292F);
   cursor: var(--select-pointer, pointer);
   user-select: none;
   white-space: nowrap;
-  height: var(--field-size-medium);
-  padding-inline: var(--padding-large);
+  height: var(--field-size-medium, 40px);
+  padding-inline: var(--padding-large, 24px);
   margin-top: auto;
   display: flex;
   justify-content: center;
@@ -19,14 +19,14 @@ export const style = `:host {
     width: 100%;
     bottom: 0;
     height: var(--unit-size-1, 4px);
-    border-top-left-radius: var(--radius-small);
-    border-top-right-radius: var(--radius-small);
-    background-color: var(--o-color-bg-tertiary); }
+    border-top-left-radius: var(--radius-small, 4px);
+    border-top-right-radius: var(--radius-small, 4px);
+    background-color: var(--o-color-bg-tertiary, #EAEBEF); }
 
 :host(:active) {
   color: var(--o-color-text-pressed); }
   :host(:active):after {
-    background-color: var(--o-color-bg-secondary); }
+    background-color: var(--o-color-bg-secondary, #F6F7F8); }
 
 ::slotted(*) {
   pointer-events: none; }`;

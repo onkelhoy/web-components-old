@@ -421,7 +421,7 @@ export class Codeblock extends BaseTemplate {
         {
             const divline = document.createElement("div");
             divline.className = "line";
-            divline.style.paddingLeft = `calc(${this.indentationLevel} * var(--padding-medium))`;
+            divline.style.paddingLeft = `calc(${this.indentationLevel} * var(--padding-medium, 16px))`;
             divline.innerHTML = value;
             this.main.appendChild(divline);
         }

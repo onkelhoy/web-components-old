@@ -8,8 +8,8 @@
 
     o-button[part="hamburger-outside"] {
         position: absolute;
-        top: var(--gap-large);
-        left: var(--gap-medium);
+        top: var(--gap-large, 24px);
+        left: var(--gap-medium, 16px);
         z-index: 3;
         display: none;
     }
@@ -28,47 +28,47 @@
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
 
-        padding-block: var(--padding-medium);
+        padding-block: var(--padding-medium, 16px);
         padding-bottom: 0;
 
         header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: var(--padding-small);
-            padding-left: var(--padding-medium);
-            padding-bottom: var(--padding-medium);
+            padding: var(--padding-small, 8px);
+            padding-left: var(--padding-medium, 16px);
+            padding-bottom: var(--padding-medium, 16px);
 
             o-icon {
-                color: var(--o-color-text-brand-strong);
+                color: var(--o-color-text-brand-strong, #002652);
             }
         }
 
         o-divider {
-            padding-right: var(--padding-small);
-            padding-left: var(--padding-medium);
+            padding-right: var(--padding-small, 8px);
+            padding-left: var(--padding-medium, 16px);
 
             &::part(line) {
-                background-color: var(--o-color-border-tertiary);
+                background-color: var(--o-color-border-tertiary, #EAEBEF);
             }
         }
 
         div[part="body"] {
             overflow-y: auto;
-            padding-top: var(--padding-small);
-            padding-bottom: var(--padding-medium);
-            padding-right: var(--padding-small);
+            padding-top: var(--padding-small, 8px);
+            padding-bottom: var(--padding-medium, 16px);
+            padding-right: var(--padding-small, 8px);
         }
 
         footer {
             margin-top: auto;
-            padding-bottom: var(--padding-medium);
-            padding-inline: var(--padding-small);
+            padding-bottom: var(--padding-medium, 16px);
+            padding-inline: var(--padding-small, 8px);
         }
     }
 
     o-box-template[elevation="medium"] {
-        box-shadow: var(--shadow-horizontal-m);
+        box-shadow: var(--shadow-horizontal-m, 4px 0 6px var(--o-color-shadow, color-mix(in oklab, var(--o-color-neutral-600, #6E7087), transparent 80%)));
     }
 
     &::before {
@@ -78,7 +78,7 @@
         top: 0;
         width: 100vw;
         height: 100vh;
-        background-color: var(--o-color-bg-overlay);
+        background-color: var(--o-color-bg-overlay, #29292F);
         opacity: 0;
         z-index: 1;
         pointer-events: none;
@@ -115,7 +115,7 @@
         &:hover {
             width: 320px;
             transition: width 60ms ease-in;
-            box-shadow: var(--shadow-horizontal-m);
+            box-shadow: var(--shadow-horizontal-m, 4px 0 6px var(--o-color-shadow, color-mix(in oklab, var(--o-color-neutral-600, #6E7087), transparent 80%)));
         }
         &:not(:hover) {
             box-shadow: none;
@@ -172,7 +172,7 @@
 
             header {
                 justify-content: center;
-                padding-left: var(--padding-small);
+                padding-left: var(--padding-small, 8px);
 
                 ::slotted(*) {
                     display: none;
@@ -183,7 +183,7 @@
             }
 
             o-divider {
-                padding-left: var(--padding-small);
+                padding-left: var(--padding-small, 8px);
             }
         }
     }

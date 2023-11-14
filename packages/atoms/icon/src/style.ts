@@ -25,16 +25,16 @@ export const style = `:host {
     height: var(--icon-custom-size); }
 
 :host([container="small"]) {
-  width: var(--field-size-small);
-  height: var(--field-size-small); }
+  width: var(--field-size-small, 32px);
+  height: var(--field-size-small, 32px); }
 
 :host([container="medium"]) {
-  width: var(--field-size-medium);
-  height: var(--field-size-medium); }
+  width: var(--field-size-medium, 40px);
+  height: var(--field-size-medium, 40px); }
 
 :host([container="large"]) {
-  width: var(--field-size-large);
-  height: var(--field-size-large); }
+  width: var(--field-size-large, 56px);
+  height: var(--field-size-large, 56px); }
 
 svg {
   fill: currentColor; }

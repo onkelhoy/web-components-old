@@ -121,7 +121,7 @@ declare global {
 ## STYLE-CODE:
 :host {
     div {
-        background-color: var(--o-divider-color, var(--o-color-border));
+        background-color: var(--o-divider-color, var(--o-color-border, #C7CBD4));
         content: '';
     }
 }

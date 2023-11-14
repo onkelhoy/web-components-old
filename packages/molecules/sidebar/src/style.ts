@@ -7,8 +7,8 @@ export const style = `:host {
   z-index: 1000; }
   :host o-button[part="hamburger-outside"] {
     position: absolute;
-    top: var(--gap-large);
-    left: var(--gap-medium);
+    top: var(--gap-large, 24px);
+    left: var(--gap-medium, 16px);
     z-index: 3;
     display: none; }
   :host o-box-template {
@@ -23,33 +23,33 @@ export const style = `:host {
     background-color: var(--o-sidebar-background-color, var(--o-color-bg, #FFFFFF));
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    padding-block: var(--padding-medium);
+    padding-block: var(--padding-medium, 16px);
     padding-bottom: 0; }
     :host o-box-template header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: var(--padding-small);
-      padding-left: var(--padding-medium);
-      padding-bottom: var(--padding-medium); }
+      padding: var(--padding-small, 8px);
+      padding-left: var(--padding-medium, 16px);
+      padding-bottom: var(--padding-medium, 16px); }
       :host o-box-template header o-icon {
-        color: var(--o-color-text-brand-strong); }
+        color: var(--o-color-text-brand-strong, #002652); }
     :host o-box-template o-divider {
-      padding-right: var(--padding-small);
-      padding-left: var(--padding-medium); }
+      padding-right: var(--padding-small, 8px);
+      padding-left: var(--padding-medium, 16px); }
       :host o-box-template o-divider::part(line) {
-        background-color: var(--o-color-border-tertiary); }
+        background-color: var(--o-color-border-tertiary, #EAEBEF); }
     :host o-box-template div[part="body"] {
       overflow-y: auto;
-      padding-top: var(--padding-small);
-      padding-bottom: var(--padding-medium);
-      padding-right: var(--padding-small); }
+      padding-top: var(--padding-small, 8px);
+      padding-bottom: var(--padding-medium, 16px);
+      padding-right: var(--padding-small, 8px); }
     :host o-box-template footer {
       margin-top: auto;
-      padding-bottom: var(--padding-medium);
-      padding-inline: var(--padding-small); }
+      padding-bottom: var(--padding-medium, 16px);
+      padding-inline: var(--padding-small, 8px); }
   :host o-box-template[elevation="medium"] {
-    box-shadow: var(--shadow-horizontal-m); }
+    box-shadow: var(--shadow-horizontal-m, 4px 0 6px var(--o-color-shadow, color-mix(in oklab, var(--o-color-neutral-600, #6E7087), transparent 80%))); }
   :host::before {
     content: '';
     position: absolute;
@@ -57,7 +57,7 @@ export const style = `:host {
     top: 0;
     width: 100vw;
     height: 100vh;
-    background-color: var(--o-color-bg-overlay);
+    background-color: var(--o-color-bg-overlay, #29292F);
     opacity: 0;
     z-index: 1;
     pointer-events: none; }
@@ -83,7 +83,7 @@ export const style = `:host {
     :host([mode="hover"]) o-box-template:hover {
       width: 320px;
       transition: width 60ms ease-in;
-      box-shadow: var(--shadow-horizontal-m); }
+      box-shadow: var(--shadow-horizontal-m, 4px 0 6px var(--o-color-shadow, color-mix(in oklab, var(--o-color-neutral-600, #6E7087), transparent 80%))); }
     :host([mode="hover"]) o-box-template:not(:hover) {
       box-shadow: none; }
 
@@ -129,10 +129,10 @@ export const style = `:host {
     transition: width 150ms ease-in; }
     :host o-box-template header {
       justify-content: center;
-      padding-left: var(--padding-small); }
+      padding-left: var(--padding-small, 8px); }
       :host o-box-template header ::slotted(*) {
         display: none; }
       :host o-box-template header o-icon.logo {
         display: none !important; }
     :host o-box-template o-divider {
-      padding-left: var(--padding-small); } }`;
+      padding-left: var(--padding-small, 8px); } }`;

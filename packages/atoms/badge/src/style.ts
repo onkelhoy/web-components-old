@@ -1,15 +1,15 @@
 export const style = `:host o-box-template {
-  background-color: var(--o-color-bg);
-  border: 1px solid var(--o-color-border);
-  color: var(--o-color-text);
+  background-color: var(--o-color-bg, #FFFFFF);
+  border: 1px solid var(--o-color-border, #C7CBD4);
+  color: var(--o-color-text, #29292F);
   display: inline-flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   min-width: 2rem;
-  padding: var(--padding-smaller) var(--padding-small); }
+  padding: var(--padding-smaller, 4px) var(--padding-small, 8px); }
 
 :host([mode="inactive"]) o-box-template {
-  background-color: var(--o-color-bg-secondary);
-  border: 1px solid var(--o-color-border-secondary);
-  color: var(--o-color-text-secondary); }`;
+  background-color: var(--o-color-bg-secondary, #F6F7F8);
+  border: 1px solid var(--o-color-border-secondary, #DADDE3);
+  color: var(--o-color-text-secondary, #6E7087); }`;

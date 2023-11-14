@@ -11,12 +11,12 @@
   }
 
   o-divider {
-    height: var(--unit-size2);
+    height: var(--unit-size2, 8px);
     display: none;
     width: 100%;
 
     &::part(line) {
-      background-color: var(--o-color-border-tertiary);
+      background-color: var(--o-color-border-tertiary, #EAEBEF);
     }
   }
   
@@ -91,7 +91,7 @@
 
   span[slot="prefix"].caret {
     display: inline-flex !important;
-    color: var(--o-color-icon-secondary);
+    color: var(--o-color-icon-secondary, #6E7087);
   }
 
   o-button::part(content) {
@@ -99,14 +99,14 @@
   }
 
   .group o-typography {
-    color: var(--o-color-text-secondary);
+    color: var(--o-color-text-secondary, #6E7087);
   }
 }
 
 :host(.selected:not([isparent="true"])) {
   o-button {
-    background-color: var(--o-sidebar-item-selected-bg, var(--o-color-bg-tertiary));
-    color: var(--o-sidebar-item-selected-text, var(--o-color-text));
+    background-color: var(--o-sidebar-item-selected-bg, var(--o-color-bg-tertiary, #EAEBEF));
+    color: var(--o-sidebar-item-selected-text, var(--o-color-text, #29292F));
 
     o-icon {
       &.selected {
@@ -123,9 +123,9 @@
 :host o-button:active,
 :host(.selected:not([isparent="true"])) o-button {
   o-badge::part(box) {
-    background-color: var(--o-color-bg) !important;
-    border-color: var(--o-color-border) !important;
-    color: var(--o-color-text) !important;
+    background-color: var(--o-color-bg, #FFFFFF) !important;
+    border-color: var(--o-color-border, #C7CBD4) !important;
+    color: var(--o-color-text, #29292F) !important;
   }
 }
 :host([open="false"]) {
@@ -153,12 +153,12 @@
   :host {
     o-button {
       display: inline-flex;
-      border-top-left-radius: var(--radius-max);
-      border-bottom-left-radius: var(--radius-max);
+      border-top-left-radius: var(--radius-max, 1000px);
+      border-bottom-left-radius: var(--radius-max, 1000px);
       min-width: 0;
       padding: 0;
-      width: var(--field-size-medium);
-      height: var(--field-size-medium);
+      width: var(--field-size-medium, 40px);
+      height: var(--field-size-medium, 40px);
 
       span.group {
         justify-content: center;
@@ -186,12 +186,12 @@
 
       &::after {
         content: '';
-        width: var(--unit-size3);
+        width: var(--unit-size3, 16px);
         height: 2px;
         position: absolute;
         top: 50%;
         left: 50%;
-        background-color: var(--o-color-border);
+        background-color: var(--o-color-border, #C7CBD4);
         transform: translate(-50%, -50%);
       }
     }

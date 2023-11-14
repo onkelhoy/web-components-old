@@ -204,7 +204,7 @@ declare global {
             top: 100%;
             transform: translateY(-100%);
             height: var(--tabs-indicator-height, 0.3rem);
-            background-color: var(--tabs-indicator-color, var(--o-color-border-brand));
+            background-color: var(--tabs-indicator-color, var(--o-color-border-brand, #009DD3));
 
             transition: all var(--tabs-indicator-animation-easing, ease) var(--tabs-indicator-animation-duration, 200ms);
         }

@@ -293,14 +293,14 @@ declare global {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: var(--field-size-medium);
-        height: var(--field-size-medium);
+        width: var(--field-size-medium, 40px);
+        height: var(--field-size-medium, 40px);
     }
 }
 
 img.avatar {
-    width: var(--field-size-medium);
-    height: var(--field-size-medium);
+    width: var(--field-size-medium, 40px);
+    height: var(--field-size-medium, 40px);
     border-radius: 50%;
 }
 
