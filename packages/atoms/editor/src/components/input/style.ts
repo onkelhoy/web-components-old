@@ -1,18 +1,18 @@
 export const style = `:host {
-  --color: var(--o-editor-input-text-color-light, var(--o-color-black, black));
+  --color: var(--pap-editor-input-text-color-light, var(--pap-color-black, black));
   display: block; }
 
 @media (prefers-color-scheme: dark) {
   :host {
-    --color: var(--o-editor-input-text-color-dark, var(--o-color-black, white)); } }
+    --color: var(--pap-editor-input-text-color-dark, var(--pap-color-black, white)); } }
 
 .controls {
   display: flex;
   gap: 0.5rem; }
-  .controls o-button {
+  .controls pap-button {
     gap: 0;
     padding: 0; }
-    .controls o-button o-icon {
+    .controls pap-button pap-icon {
       color: var(--color); }
 
 div#editor {

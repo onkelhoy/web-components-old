@@ -1,7 +1,7 @@
 export const style = `:host {
   display: block;
-  --variant-bg-color: var(--o-color-bg-success, #2E701B);
-  --variant-text-color: var(--o-color-text-success, #29591B); }
+  --variant-bg-color: var(--pap-color-bg-success, #2E701B);
+  --variant-text-color: var(--pap-color-text-success, #29591B); }
 
 showcase-card {
   margin-bottom: var(--margin-medium, 16px); }
@@ -22,20 +22,20 @@ div {
   display: flex;
   align-items: flex-start;
   gap: var(--gap-small, 8px); }
-  div o-icon {
+  div pap-icon {
     background-color: var(--variant-bg-color);
     color: var(--variant-text-color);
     padding: var(--padding-smaller, 4px);
     border-radius: var(--radius-max, 1000px); }
 
 :host([variant="success"]) {
-  --variant-bg-color: var(--o-color-bg-success, #2E701B);
-  --variant-text-color: var(--o-color-text-inverse, #FFFFFF); }
+  --variant-bg-color: var(--pap-color-bg-success, #2E701B);
+  --variant-text-color: var(--pap-color-text-inverse, #FFFFFF); }
 
 :host([variant="error"]) {
-  --variant-bg-color: var(--o-color-bg-danger, #B70E1E);
-  --variant-text-color: var(--o-color-text-inverse, #FFFFFF); }
+  --variant-bg-color: var(--pap-color-bg-danger, #B70E1E);
+  --variant-text-color: var(--pap-color-text-inverse, #FFFFFF); }
 
 :host([variant="warning"]) {
-  --variant-bg-color: var(--o-color-bg-warning, #FFA800);
-  --variant-text-color: var(--o-color-text, #29292F); }`;
+  --variant-bg-color: var(--pap-color-bg-warning, #FFA800);
+  --variant-text-color: var(--pap-color-text, #29292F); }`;

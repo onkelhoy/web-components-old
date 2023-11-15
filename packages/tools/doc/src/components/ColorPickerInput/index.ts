@@ -1,10 +1,10 @@
 // utils 
-import { html, property, suspense } from "@henry2/tools-utils";
-import "@henry2/templates-popover/wc";
+import { html, property, suspense } from "@papit/tools-utils";
+import "@papit/templates-popover/wc";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
-import { Color } from "@henry2/templates-color";
+import { BaseTemplate } from "@papit/templates-base";
+import { Color } from "@papit/templates-color";
 
 import { style } from "./style";
 import { ChangeEvent, Input } from "../Input";
@@ -115,14 +115,14 @@ export class ColorPickerInput extends BaseTemplate {
 
   render() {
     return html`
-      <o-popover-template 
+      <pap-popover-template 
         hideonoutsideclick="true"
         revealby="click" 
         placement="bottom-right"
       >
         <doc-input slot="target" value="${this.value}" @change=${this.handleinputchange} label="${this.label}" placeholder="Choose a color"></doc-input>
         <color-picker @change=${this.handlecolorchange}></color-picker>
-      </o-popover-template>
+      </pap-popover-template>
     `
   }
 }

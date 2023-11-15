@@ -1,52 +1,52 @@
 $success: (
   filled: (
     default: (
-      background: var(--o-color-bg-success, #2E701B),
-      text: var(--o-color-text-onsuccess, #FFFFFF),
-      icon: var(--o-color-icon-onsuccess, #FFFFFF),
+      background: var(--pap-color-bg-success, #2E701B),
+      text: var(--pap-color-text-onsuccess, #FFFFFF),
+      icon: var(--pap-color-icon-onsuccess, #FFFFFF),
     ),
     hover: (
-      background: var(--o-color-bg-success-hover, #29591B),
-      text: var(--o-color-text-onsuccess-hover, #FFFFFF),
-      icon: var(--o-color-icon-onsuccess-hover, #FFFFFF),
+      background: var(--pap-color-bg-success-hover, #29591B),
+      text: var(--pap-color-text-onsuccess-hover, #FFFFFF),
+      icon: var(--pap-color-icon-onsuccess-hover, #FFFFFF),
     ),
     pressed: (
-      background: var(--o-color-bg-success-pressed, #244C1B),
-      text: var(--o-color-text-onsuccess-pressed, #FFFFFF),
-      icon: var(--o-color-icon-onsuccess-pressed, #FFFFFF),
+      background: var(--pap-color-bg-success-pressed, #244C1B),
+      text: var(--pap-color-text-onsuccess-pressed, #FFFFFF),
+      icon: var(--pap-color-icon-onsuccess-pressed, #FFFFFF),
     ),
   ),
   outlined: (
     default: (
-      border: var(--o-color-border-success, #2E701B),
-      text: var(--o-color-text-success, #29591B),
-      icon: var(--o-color-icon-success, #29591B),
+      border: var(--pap-color-border-success, #2E701B),
+      text: var(--pap-color-text-success, #29591B),
+      icon: var(--pap-color-icon-success, #29591B),
     ),
     hover: (
-      background: var(--o-color-bg-success-hover, #29591B),
-      icon: var(--o-color-icon-onsuccess-hover, #FFFFFF),
-      text: var(--o-color-text-onsuccess-hover, #FFFFFF),
+      background: var(--pap-color-bg-success-hover, #29591B),
+      icon: var(--pap-color-icon-onsuccess-hover, #FFFFFF),
+      text: var(--pap-color-text-onsuccess-hover, #FFFFFF),
     ),
     pressed: (
-      background: var(--o-color-bg-success-pressed, #244C1B),
-      text: var(--o-color-text-onsuccess-pressed, #FFFFFF),
-      icon: var(--o-color-icon-onsuccess-pressed, #FFFFFF),
+      background: var(--pap-color-bg-success-pressed, #244C1B),
+      text: var(--pap-color-text-onsuccess-pressed, #FFFFFF),
+      icon: var(--pap-color-icon-onsuccess-pressed, #FFFFFF),
     ),
   ),
   clear: (
     default: (
-      text: var(--o-color-text-success, #29591B),
-      icon: var(--o-color-icon-success, #29591B),
+      text: var(--pap-color-text-success, #29591B),
+      icon: var(--pap-color-icon-success, #29591B),
     ),
     hover: (
-      background: var(--o-color-bg-success-hover, #29591B),
-      icon: var(--o-color-icon-onsuccess-hover, #FFFFFF),
-      text: var(--o-color-text-onsuccess-hover, #FFFFFF),
+      background: var(--pap-color-bg-success-hover, #29591B),
+      icon: var(--pap-color-icon-onsuccess-hover, #FFFFFF),
+      text: var(--pap-color-text-onsuccess-hover, #FFFFFF),
     ),
     pressed: (
-      background: var(--o-color-bg-success-pressed, #244C1B),
-      text: var(--o-color-text-onsuccess-pressed, #FFFFFF),
-      icon: var(--o-color-icon-onsuccess-pressed, #FFFFFF),
+      background: var(--pap-color-bg-success-pressed, #244C1B),
+      text: var(--pap-color-text-onsuccess-pressed, #FFFFFF),
+      icon: var(--pap-color-icon-onsuccess-pressed, #FFFFFF),
     ),
   ),
 )

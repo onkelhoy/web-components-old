@@ -9,12 +9,12 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-header')) {
-  cElements.define('o-header', Header);
+if (!cElements.get('pap-header')) {
+  cElements.define('pap-header', Header);
 }
-if (!cElements.get('o-language')) {
-  cElements.define('o-language', Language);
+if (!cElements.get('pap-language')) {
+  cElements.define('pap-language', Language);
 }
-if (!cElements.get('o-theme')) {
-  cElements.define('o-theme', Theme);
+if (!cElements.get('pap-theme')) {
+  cElements.define('pap-theme', Theme);
 }

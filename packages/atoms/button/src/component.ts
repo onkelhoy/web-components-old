@@ -1,5 +1,5 @@
-import { property, Size } from '@henry2/tools-utils';
-import { BoxTemplate } from '@henry2/templates-box';
+import { property, Size } from '@papit/tools-utils';
+import { BoxTemplate } from '@papit/templates-box';
 
 import { style } from './style.js';
 
@@ -89,6 +89,6 @@ export class Button extends BoxTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-button": Button;
+        "pap-button": Button;
     }
 }

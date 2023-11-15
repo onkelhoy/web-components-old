@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-auth-template')) {
-  cElements.define('o-auth-template', AuthTemplate);
+if (!cElements.get('pap-auth-template')) {
+  cElements.define('pap-auth-template', AuthTemplate);
 }

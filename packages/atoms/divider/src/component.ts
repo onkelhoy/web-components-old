@@ -1,8 +1,8 @@
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -21,6 +21,6 @@ export class Divider extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-divider": Divider;
+        "pap-divider": Divider;
     }
 }

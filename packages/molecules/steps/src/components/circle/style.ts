@@ -1,8 +1,8 @@
 export const style = `:host {
   display: inline-block;
   padding: var(--padding-smaller, 4px);
-  --color-selected: var(--o-steps-circle-selected-color, var(--o-color-CB-800));
-  --color-stale: var(--o-steps-circle-stale-color, var(--o-color-canvas-400)); }
+  --color-selected: var(--pap-steps-circle-selected-color, var(--pap-color-CB-800));
+  --color-stale: var(--pap-steps-circle-stale-color, var(--pap-color-canvas-400)); }
   :host span {
     border-radius: 50%;
     display: block;

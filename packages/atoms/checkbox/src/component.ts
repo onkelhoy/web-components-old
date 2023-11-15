@@ -1,8 +1,8 @@
 // utils
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // templates
-import { FieldTemplate } from "@henry2/templates-field";
+import { FieldTemplate } from "@papit/templates-field";
 
 // local
 import { style } from "./style";
@@ -40,6 +40,6 @@ export class Checkbox extends FieldTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-checkbox": Checkbox;
+        "pap-checkbox": Checkbox;
     }
 }

@@ -89,13 +89,13 @@ document
 
 // add the link in the sidebar 
 const navbaritem = document
-  .querySelector(`o-navbar-item#${ATOMICTYPE}`)
+  .querySelector(`pap-navbar-item#${ATOMICTYPE}`)
 
 if (navbaritem)
 {
   navbaritem.setAttribute('count', Number(navbaritem.getAttribute('count') || 0) + 1)
   navbaritem.appendChild(
-    parse(`<o-navbar-item id="${IDNAME}" text="${CLASSNAME}"></o-navbar-item>`)
+    parse(`<pap-navbar-item id="${IDNAME}" text="${CLASSNAME}"></pap-navbar-item>`)
   )
 }
 

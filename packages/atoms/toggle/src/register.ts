@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-toggle')) {
-  cElements.define('o-toggle', Toggle);
+if (!cElements.get('pap-toggle')) {
+  cElements.define('pap-toggle', Toggle);
 }

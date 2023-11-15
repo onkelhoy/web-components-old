@@ -23,9 +23,9 @@ if [ $CI_FLAG -eq 0 ]; then
 
   read -p "Enter the number corresponding to your choice: " choice
 
-  npm search --searchlimit=100 @henry2 --json | node $SCRIPT_DIR/main.js $choice
+  npm search --searchlimit=100 @papit --json | node $SCRIPT_DIR/main.js $choice
 else
-  npm search --searchlimit=100 @henry2 --json | node $SCRIPT_DIR/main.js 1 $NODE_AUTH_TOKEN
+  npm search --searchlimit=100 @papit --json | node $SCRIPT_DIR/main.js 1 $NODE_AUTH_TOKEN
 fi
 
 echo "packages built"

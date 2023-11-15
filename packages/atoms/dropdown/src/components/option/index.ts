@@ -1,8 +1,8 @@
 // utils 
-import { html, property, query, ExtractSlotValue } from "@henry2/tools-utils";
+import { html, property, query, ExtractSlotValue } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 import { style } from "./style";
 import { Dropdown } from "../../component";
@@ -36,7 +36,7 @@ export class Option extends BaseTemplate {
     }, true);
 
     setTimeout(() => {
-      const dropdown = this.shadow_closest<Dropdown>('o-dropdown');
+      const dropdown = this.shadow_closest<Dropdown>('pap-dropdown');
       if (dropdown)
       {
         dropdown.registerOption(this);

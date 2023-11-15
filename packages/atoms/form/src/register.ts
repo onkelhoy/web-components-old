@@ -8,9 +8,9 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-form')) {
-  cElements.define('o-form', Form);
+if (!cElements.get('pap-form')) {
+  cElements.define('pap-form', Form);
 }
-if (!cElements.get('o-message')) {
-  cElements.define('o-message', Message);
+if (!cElements.get('pap-message')) {
+  cElements.define('pap-message', Message);
 }

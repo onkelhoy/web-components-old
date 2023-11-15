@@ -1,5 +1,5 @@
 :host {
-  color: var(--o-color-text, #29292F);
+  color: var(--pap-color-text, #29292F);
   cursor: var(--select-pointer, pointer);
 
   user-select: none;
@@ -17,7 +17,7 @@
 }
 
 :host(:hover) {
-  color: var(--o-color-text-hover);
+  color: var(--pap-color-text-hover);
 
   &:after {
     content: '';
@@ -28,14 +28,14 @@
     border-top-left-radius: var(--radius-small, 4px);
     border-top-right-radius: var(--radius-small, 4px);
 
-    background-color: var(--o-color-bg-tertiary, #EAEBEF);
+    background-color: var(--pap-color-bg-tertiary, #EAEBEF);
   }
 }
 :host(:active) {
-  color: var(--o-color-text-pressed); // TODO replace color this doesn't exist
+  color: var(--pap-color-text-pressed); // TODO replace color this doesn't exist
 
   &:after {
-    background-color: var(--o-color-bg-secondary, #F6F7F8);
+    background-color: var(--pap-color-bg-secondary, #F6F7F8);
   }
 }
 

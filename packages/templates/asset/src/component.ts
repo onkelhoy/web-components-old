@@ -1,5 +1,5 @@
-import { BaseTemplate } from "@henry2/templates-base";
-import { property } from "@henry2/tools-utils";
+import { BaseTemplate } from "@papit/templates-base";
+import { property } from "@papit/tools-utils";
 
 export class AssetTemplate extends BaseTemplate {
     @property({ onUpdate: "assetBaseUpdate" }) assetBase:string = "/public";
@@ -14,7 +14,7 @@ export class AssetTemplate extends BaseTemplate {
 
             if (this.cache)
             {
-                const item = window.localStorage.getItem(`o-assets-${url}`);
+                const item = window.localStorage.getItem(`pap-assets-${url}`);
                 if (item)
                 {
                     return item;
@@ -47,12 +47,12 @@ export class AssetTemplate extends BaseTemplate {
 
         const url = `${this.assetBase}/${filename}`;
 
-        window.localStorage.setItem(`o-assets-${url}`, data);
+        window.localStorage.setItem(`pap-assets-${url}`, data);
     }
 }
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-asset-template": AssetTemplate;
+        "pap-asset-template": AssetTemplate;
     }
 }

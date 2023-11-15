@@ -9,7 +9,7 @@ const set = new Set();
 
 for (const name in packagelock.packages) 
 {
-  if (name.startsWith("node_modules/@henry2") && name !== "node_modules/@henry2/ecosystem")
+  if (name.startsWith("node_modules/@papit") && name !== "node_modules/@papit/ecosystem")
   {
     const mapname = name.split("node_modules/")[1];
     if (!map[mapname]) 
@@ -33,7 +33,7 @@ for (const name in packagelock.packages)
 
     for (const dep in package.dependencies) 
     {
-      if (dep.startsWith("@henry2") && dep !== mapname)
+      if (dep.startsWith("@papit") && dep !== mapname)
       {
         if (!map[dep]) map[dep] = { dep: [], has: [] };
         map[dep].has.push(mapname);

@@ -1,18 +1,18 @@
 // utils 
-import { html, property, query } from "@henry2/tools-utils";
-import { change as ChangeTheme, THEMECHANGE_NAME, THEMEADD_NAME } from "@henry2/tools-theme";
-import "@henry2/tools-translator/wc";
+import { html, property, query } from "@papit/tools-utils";
+import { change as ChangeTheme, THEMECHANGE_NAME, THEMEADD_NAME } from "@papit/tools-theme";
+import "@papit/tools-translator/wc";
 
 // atoms 
-import { Menu, MenuItem } from '@henry2/menu';
-import { Toggle } from '@henry2/toggle';
-import "@henry2/menu/wc";
-import "@henry2/typography/wc";
-import "@henry2/toggle/wc";
-import "@henry2/icon/wc";
+import { Menu, MenuItem } from '@papit/menu';
+import { Toggle } from '@papit/toggle';
+import "@papit/menu/wc";
+import "@papit/typography/wc";
+import "@papit/toggle/wc";
+import "@papit/icon/wc";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 import { style } from "./style";
 type LightDarkTheme = "light" | "dark";
@@ -22,14 +22,14 @@ export class Theme extends BaseTemplate {
 
   @query('span[slot].theme-color') themecolorElement!: HTMLSpanElement;
   @query('template') templateElement!: HTMLTemplateElement;
-  @query('o-toggle') toggleElement!: Toggle;
-  @query({ selector:'o-menu', onload: 'onloadmenu' }) menuElement!: Menu;
+  @query('pap-toggle') toggleElement!: Toggle;
+  @query({ selector:'pap-menu', onload: 'onloadmenu' }) menuElement!: Menu;
 
   // class functions
   connectedCallback() {
     super.connectedCallback();
 
-    if (!window.sessionStorage.getItem("o-lightdarktheme"))
+    if (!window.sessionStorage.getItem("pap-lightdarktheme"))
     {
       this.setlightdark(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     }
@@ -59,7 +59,7 @@ export class Theme extends BaseTemplate {
 
   // private functions 
   private setlightdark(value: LightDarkTheme) {
-    window.sessionStorage.setItem("o-lightdarktheme", value);
+    window.sessionStorage.setItem("pap-lightdarktheme", value);
     window.dispatchEvent(new CustomEvent("theme-appearance-change", { detail: { value } }));
     document.documentElement.classList.remove('theme-light', 'theme-dark');
     document.documentElement.classList.add(`theme-${value}`);
@@ -87,7 +87,7 @@ export class Theme extends BaseTemplate {
       this.menuElement.removeAttribute('hidden');
     }
   
-    const items = this.menuElement.querySelectorAll<MenuItem>("o-menu-item");
+    const items = this.menuElement.querySelectorAll<MenuItem>("pap-menu-item");
     const assigned = new Set<string>();
     items.forEach(item => {
       if (!window.oTheme.map.has(item.value))
@@ -105,7 +105,7 @@ export class Theme extends BaseTemplate {
       {
         const newitem = this.templateElement.content.cloneNode(true) as HTMLElement;
         
-        const itemElement = newitem.querySelector<MenuItem>('o-menu-item');
+        const itemElement = newitem.querySelector<MenuItem>('pap-menu-item');
         if (itemElement) 
         {
           itemElement.setAttribute('value', name);
@@ -114,7 +114,7 @@ export class Theme extends BaseTemplate {
         const spanElement = newitem.querySelector("span");
         if (spanElement) spanElement.style.backgroundColor = config.representColor;
 
-        const typographyElement = newitem.querySelector("o-typography");
+        const typographyElement = newitem.querySelector("pap-typography");
         if (typographyElement) typographyElement.innerHTML = config.name
 
         this.menuElement.appendChild(newitem);
@@ -153,21 +153,21 @@ export class Theme extends BaseTemplate {
   render() {
     return html`
       <template>
-        <o-menu-item>
+        <pap-menu-item>
           <span class="theme-color"></span>
-          <o-typography></o-typography>
-        </o-menu-item>
+          <pap-typography></pap-typography>
+        </pap-menu-item>
       </template>
 
-      <o-toggle value="${window.sessionStorage.getItem("o-lightdarktheme") === "dark" ? "true" : "false"}" @change="${this.handlechange}">
-        <o-icon name="light-mode"></o-icon>
-        <o-icon name="dark-mode"></o-icon>
-      </o-toggle>
+      <pap-toggle value="${window.sessionStorage.getItem("pap-lightdarktheme") === "dark" ? "true" : "false"}" @change="${this.handlechange}">
+        <pap-icon name="light-mode"></pap-icon>
+        <pap-icon name="dark-mode"></pap-icon>
+      </pap-toggle>
 
-      <o-menu placement="bottom-left" @select="${this.handleselect}">
+      <pap-menu placement="bottom-left" @select="${this.handleselect}">
         <span slot="button-prefix" class="theme-color"></span>
-        <o-typography slot="button-content" class="theme-name"><o-translator>Theme</o-translator></o-typography>
-      </o-menu>
+        <pap-typography slot="button-content" class="theme-name"><pap-translator>Theme</pap-translator></pap-typography>
+      </pap-menu>
     `
   }
 }

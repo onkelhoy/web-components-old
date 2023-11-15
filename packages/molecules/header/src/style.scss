@@ -8,7 +8,7 @@
 :host {
     justify-content: space-between;
 
-    o-menu::part(box) {
+    pap-menu::part(box) {
         min-width: 15rem;
     }
 
@@ -29,14 +29,14 @@ img.avatar {
 
 @media (prefers-color-scheme: light) {
     :host {
-        o-icon[name="dark-mode"] {
+        pap-icon[name="dark-mode"] {
             display: none;
         }
     }
 }
 @media (prefers-color-scheme: dark) {
     :host {
-        o-icon[name="light-mode"] {
+        pap-icon[name="light-mode"] {
             display: none;
         }
     }
@@ -44,18 +44,18 @@ img.avatar {
 
 // overriding // TODO fix as sidebar was done - on svg level instead !! 
 :host(.dark-mode) {
-    o-icon[name="light-mode"] {
+    pap-icon[name="light-mode"] {
         display: none;
     }
-    o-icon[name="dark-mode"] {
+    pap-icon[name="dark-mode"] {
         display: initial;
     }
 }
 :host(.light-mode) {
-    o-icon[name="dark-mode"] {
+    pap-icon[name="dark-mode"] {
         display: none;
     }
-    o-icon[name="light-mode"] {
+    pap-icon[name="light-mode"] {
         display: initial;
     }
 }

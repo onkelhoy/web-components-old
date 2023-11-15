@@ -1,52 +1,52 @@
 $primary: (
   filled: (
     default: (
-      background: var(--o-color-bg-brand, #009DD3),
-      text: var(--o-color-text-onbrand, #FFFFFF),
-      icon: var(--o-color-icon-onbrand, #FFFFFF),
+      background: var(--pap-color-bg-brand, #009DD3),
+      text: var(--pap-color-text-onbrand, #FFFFFF),
+      icon: var(--pap-color-icon-onbrand, #FFFFFF),
     ),
     hover: (
-      background: var(--o-color-bg-brand-hover, #0050B3),
-      text: var(--o-color-text-onbrand-hover, #FFFFFF),
-      icon: var(--o-color-icon-onbrand-hover, #FFFFFF),
+      background: var(--pap-color-bg-brand-hover, #0050B3),
+      text: var(--pap-color-text-onbrand-hover, #FFFFFF),
+      icon: var(--pap-color-icon-onbrand-hover, #FFFFFF),
     ),
     pressed: (
-      background: var(--o-color-bg-brand-pressed, #002652),
-      text: var(--o-color-text-onbrand-pressed, #FFFFFF),
-      icon: var(--o-color-icon-onbrand-pressed, #FFFFFF),
+      background: var(--pap-color-bg-brand-pressed, #002652),
+      text: var(--pap-color-text-onbrand-pressed, #FFFFFF),
+      icon: var(--pap-color-icon-onbrand-pressed, #FFFFFF),
     ),
   ),
   outlined: (
     default: (
-      border: var(--o-color-border-brand, #009DD3),
-      text: var(--o-color-text-brand, #0177A3),
-      icon: var(--o-color-icon-brand, #0177A3),
+      border: var(--pap-color-border-brand, #009DD3),
+      text: var(--pap-color-text-brand, #0177A3),
+      icon: var(--pap-color-icon-brand, #0177A3),
     ),
     hover: (
-      background: var(--o-color-bg-brand-hover, #0050B3),
-      icon: var(--o-color-icon-onbrand-hover, #FFFFFF),
-      text: var(--o-color-text-onbrand-hover, #FFFFFF),
+      background: var(--pap-color-bg-brand-hover, #0050B3),
+      icon: var(--pap-color-icon-onbrand-hover, #FFFFFF),
+      text: var(--pap-color-text-onbrand-hover, #FFFFFF),
     ),
     pressed: (
-      background: var(--o-color-bg-brand-pressed, #002652),
-      text: var(--o-color-text-onbrand-pressed, #FFFFFF),
-      icon: var(--o-color-icon-onbrand-pressed, #FFFFFF),
+      background: var(--pap-color-bg-brand-pressed, #002652),
+      text: var(--pap-color-text-onbrand-pressed, #FFFFFF),
+      icon: var(--pap-color-icon-onbrand-pressed, #FFFFFF),
     ),
   ),
   clear: (
     default: (
-      text: var(--o-color-text-brand, #0177A3),
-      icon: var(--o-color-icon-brand, #0177A3),
+      text: var(--pap-color-text-brand, #0177A3),
+      icon: var(--pap-color-icon-brand, #0177A3),
     ),
     hover: (
-      background: var(--o-color-bg-hover, #DADDE3),
-      icon: var(--o-color-icon-brand-hover, #0050B3),
-      text: var(--o-color-text-brand-hover, #0050B3),
+      background: var(--pap-color-bg-hover, #DADDE3),
+      icon: var(--pap-color-icon-brand-hover, #0050B3),
+      text: var(--pap-color-text-brand-hover, #0050B3),
     ),
     pressed: (
-      background: var(--o-color-bg-pressed, #C7CBD4),
-      text: var(--o-color-text-brand-pressed, #002652),
-      icon: var(--o-color-icon-brand-pressed, #002652),
+      background: var(--pap-color-bg-pressed, #C7CBD4),
+      text: var(--pap-color-text-brand-pressed, #002652),
+      icon: var(--pap-color-icon-brand-pressed, #002652),
     ),
   ),
 )

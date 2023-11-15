@@ -1,12 +1,12 @@
 // utils 
-import { html, property, FormatNumber } from "@henry2/tools-utils";
+import { html, property, FormatNumber } from "@papit/tools-utils";
 
 // atoms
-import "@henry2/typography/wc"
+import "@papit/typography/wc"
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
-import "@henry2/templates-box/wc"
+import { BaseTemplate } from "@papit/templates-base";
+import "@papit/templates-box/wc"
 
 // local 
 import { style } from './style';
@@ -18,9 +18,9 @@ export class Badge extends BaseTemplate {
 
     render() {
         return html`
-            <o-box-template part="box" radius="circular">
-                <o-typography variant="C4"><slot>${FormatNumber(this.count)}</slot></o-typography>
-            </o-box-template>
+            <pap-box-template part="box" radius="circular">
+                <pap-typography variant="C4"><slot>${FormatNumber(this.count)}</slot></pap-typography>
+            </pap-box-template>
         `
     }
 }
@@ -28,6 +28,6 @@ export class Badge extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-badge": Badge;
+        "pap-badge": Badge;
     }
 }

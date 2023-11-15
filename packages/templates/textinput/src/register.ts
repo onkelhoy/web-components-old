@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-textinput-template')) {
-  cElements.define('o-textinput-template', TextinputTemplate);
+if (!cElements.get('pap-textinput-template')) {
+  cElements.define('pap-textinput-template', TextinputTemplate);
 }

@@ -1,10 +1,10 @@
 // tools
-import '@henry2/tools-doc/wc';
-import '@henry2/templates-box/wc'
-import '@henry2/button/wc'
+import '@papit/tools-doc/wc';
+import '@papit/templates-box/wc'
+import '@papit/button/wc'
 
 // component
-import '@henry2/templates-field/wc';
+import '@papit/templates-field/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');

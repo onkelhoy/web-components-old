@@ -1,17 +1,17 @@
 // utils 
-import { html, property, query, DetectDevice, Devices, suspense } from "@henry2/tools-utils";
-import "@henry2/tools-translator/wc";
+import { html, property, query, DetectDevice, Devices, suspense } from "@papit/tools-utils";
+import "@papit/tools-translator/wc";
 
 // atoms 
-import "@henry2/button/wc";
-import "@henry2/icon/wc";
-import "@henry2/divider/wc";
-import "@henry2/typography/wc";
+import "@papit/button/wc";
+import "@papit/icon/wc";
+import "@papit/divider/wc";
+import "@papit/typography/wc";
 
 // templates
-import { BoxTemplate } from "@henry2/templates-box";
-import { BaseTemplate } from "@henry2/templates-base";
-import '@henry2/templates-box/wc'
+import { BoxTemplate } from "@papit/templates-box";
+import { BaseTemplate } from "@papit/templates-base";
+import '@papit/templates-box/wc'
 
 // local 
 import { style } from "./style";
@@ -25,7 +25,7 @@ export class Sidebar extends BaseTemplate {
     @property({ onUpdate: "updateSelected" }) selected?:string;
     @property() unit: Devices = "desktop";
 
-    @query('o-box-template') boxtemplateElement!: BoxTemplate;
+    @query('pap-box-template') boxtemplateElement!: BoxTemplate;
     
     private items: Array<Item> = [];
     private currentSelected?: Item;
@@ -159,25 +159,25 @@ export class Sidebar extends BaseTemplate {
 
     render() {
         return html`
-            <o-button part="hamburger-outside" color="inverse" circle="true" @click="${this.handlehamburgerclick}">
-                <o-icon size="small" name="hamburger"></o-icon>
-            </o-button>
-            <o-box-template part="base" radius="medium">
+            <pap-button part="hamburger-outside" color="inverse" circle="true" @click="${this.handlehamburgerclick}">
+                <pap-icon size="small" name="hamburger"></pap-icon>
+            </pap-button>
+            <pap-box-template part="base" radius="medium">
                 <header part="header">
-                    <o-icon class="logo" style="width:124px" size="large" name="interzero-logo"></o-icon>
-                    <!-- <o-icon class="logo dark" style="width:124px" size="large" name="interzero-logo-dark"></o-icon> -->
-                    <o-button part="hamburger-inside" color="secondary" circle="true" variant="clear" @click="${this.handlehamburgerclick}">
-                        <o-icon size="small" name="hamburger"></o-icon>
-                    </o-button>
+                    <pap-icon class="logo" style="width:124px" size="large" name="interzero-logo"></pap-icon>
+                    <!-- <pap-icon class="logo dark" style="width:124px" size="large" name="interzero-logo-dark"></pap-icon> -->
+                    <pap-button part="hamburger-inside" color="secondary" circle="true" variant="clear" @click="${this.handlehamburgerclick}">
+                        <pap-icon size="small" name="hamburger"></pap-icon>
+                    </pap-button>
                 </header>
-                <o-divider></o-divider>
+                <pap-divider></pap-divider>
                 <div part="body">
                     <slot @slotchange="${this.handleslotchange}"></slot>
                 </div>
                 <footer part="footer">
                     <slot name="footer"></slot>
                 </footer>
-            </o-box-template>
+            </pap-box-template>
         `
     }
 }
@@ -185,6 +185,6 @@ export class Sidebar extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-sidebar": Sidebar;
+        "pap-sidebar": Sidebar;
     }
 }

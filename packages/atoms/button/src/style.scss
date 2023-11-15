@@ -1,7 +1,7 @@
 @import "style-maps/_mapper.skip";
 
 :host {
-    cursor: var(--o-button-cursor, pointer);
+    cursor: var(--pap-button-cursor, pointer);
     align-items: center;
     display: flex;
     gap: var(--gap-small);
@@ -61,23 +61,23 @@ span.content {
 @include set-colors;
 
 :host([disabled]) {
-    cursor: var(--o-button-cursor-disabled, not-allowed);
-    color: var(--o-button-disabled-text, var(--o-color-text-disabled, #A3A9B7));
+    cursor: var(--pap-button-cursor-disabled, not-allowed);
+    color: var(--pap-button-disabled-text, var(--pap-color-text-disabled, #A3A9B7));
 }
-:host([disabled]) ::slotted(o-icon) {
-    color: var(--o-button-icon-disabled, var(--o-color-icon-disabled, #A3A9B7));
+:host([disabled]) ::slotted(pap-icon) {
+    color: var(--pap-button-icon-disabled, var(--pap-color-icon-disabled, #A3A9B7));
 }
 :host([variant="filled"][disabled]) {
-    background-color: var(--o-button-disabled-filled-background, var(--o-color-bg-disabled, #DADDE3));
+    background-color: var(--pap-button-disabled-filled-background, var(--pap-color-bg-disabled, #DADDE3));
 }
 :host([variant="outlined"][disabled]) {
-    border-color: var(--o-button-disabled-outlined-border, var(--o-color-border-disabled, #A3A9B7)) !important;
+    border-color: var(--pap-button-disabled-outlined-border, var(--pap-color-border-disabled, #A3A9B7)) !important;
 }
 
 :host(.focus),
 :host(:focus-visible) {
     outline-offset: 2px;
-    outline: 2px solid var(--o-color-border-strong, #29292F) !important;
+    outline: 2px solid var(--pap-color-border-strong, #29292F) !important;
 }
 :host([disabled]:focus),
 :host([disabled].focus),
@@ -129,11 +129,11 @@ $size-map: (
 
 @each $name, $value in $size-map {
     :host([size="#{$name}"]) {
-        min-height: var(--o-button-height-#{$name}, #{map-get($value, height)});
+        min-height: var(--pap-button-height-#{$name}, #{map-get($value, height)});
         height: fit-content;
     }
     :host([size="#{$name}"]:not([circle="true"])) {
-        min-width: var(--o-button-min-width-#{$name}, #{map-get($value, min-width)});
+        min-width: var(--pap-button-min-width-#{$name}, #{map-get($value, min-width)});
     }
     ::slotted(*[slot="prefix"]) {
         margin-left: var(--margin-smaller, 4px);
@@ -145,7 +145,7 @@ $size-map: (
         padding: 0;
         min-width: auto !important;
         justify-content: center;
-        width: var(--o-button-width-#{$name}, #{map-get($value, height)});
+        width: var(--pap-button-width-#{$name}, #{map-get($value, height)});
     }
 }
 

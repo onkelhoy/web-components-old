@@ -1,37 +1,37 @@
 export const style = `:host {
-  --button-background-color-clear-hover: var(--o-smiley-hover-background, var(--o-color-hover-200, rgba(0,0,0,0.05)));
-  --color: var(--o-chat-writer-text-color-light, var(--o-color-black, black)); }
+  --button-background-color-clear-hover: var(--pap-smiley-hover-background, var(--pap-color-hover-200, rgba(0,0,0,0.05)));
+  --color: var(--pap-chat-writer-text-color-light, var(--pap-color-black, black)); }
   :host div.accordion {
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows ease 500ms;
     overflow: hidden; }
-    :host div.accordion o-chat-smileys {
+    :host div.accordion pap-chat-smileys {
       overflow: hidden; }
   :host div {
     display: flex;
     align-items: center; }
-    :host div o-input {
+    :host div pap-input {
       flex-grow: 1;
       margin-inline: 0.5rem; }
-      :host div o-input::part(wrapper) {
+      :host div pap-input::part(wrapper) {
         gap: 0; }
-    :host div o-button {
+    :host div pap-button {
       padding: 0.4rem;
       gap: 0; }
-      :host div o-button o-icon {
+      :host div pap-button pap-icon {
         color: var(--color); }
-      :host div o-button.smiley-close {
+      :host div pap-button.smiley-close {
         display: none; }
 
 @media (prefers-color-scheme: dark) {
   :host {
-    --color: var(--o-chat-writer-text-color-dark, var(--o-color-black, white)); } }
+    --color: var(--pap-chat-writer-text-color-dark, var(--pap-color-black, white)); } }
 
 :host([smileyopen="true"]) div.accordion {
   grid-template-rows: 1fr;
   margin-bottom: 1rem;
   border-bottom: 1px solid grey; }
 
-:host([smileyopen="true"]) o-button.smiley-close {
+:host([smileyopen="true"]) pap-button.smiley-close {
   display: block; }`;

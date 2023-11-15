@@ -4,27 +4,27 @@ export const style = `:host {
   :host div.search {
     padding: 1rem;
     height: fit-content; }
-  :host o-tab {
+  :host pap-tab {
     flex-grow: 1; }
-  :host o-button {
+  :host pap-button {
     margin: 0;
     gap: 0;
     padding: 0;
     width: 40px;
     height: 40px;
     font-size: 15pt; }
-    :host o-button.clear {
+    :host pap-button.clear {
       display: none; }
 
-:host(:not([search=""])) o-tabs {
+:host(:not([search=""])) pap-tabs {
   grid-template-rows: 1fr; }
 
-:host(:not([search=""])) o-tabs::part(content),
-:host(:not([search=""])) o-tabs::part(header) {
+:host(:not([search=""])) pap-tabs::part(content),
+:host(:not([search=""])) pap-tabs::part(header) {
   display: none; }
 
-:host(:not([search=""])) o-icon[name="search"] {
+:host(:not([search=""])) pap-icon[name="search"] {
   display: none; }
 
-:host(:not([search=""])) o-button.clear {
+:host(:not([search=""])) pap-button.clear {
   display: flex; }`;

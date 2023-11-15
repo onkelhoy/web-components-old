@@ -1,6 +1,6 @@
 :host {
-  --button-background-color-clear-hover: var(--o-smiley-hover-background, var(--o-color-hover-200, rgba(0,0,0,0.05)));
-  --color: var(--o-chat-writer-text-color-light, var(--o-color-black, black));
+  --button-background-color-clear-hover: var(--pap-smiley-hover-background, var(--pap-color-hover-200, rgba(0,0,0,0.05)));
+  --color: var(--pap-chat-writer-text-color-light, var(--pap-color-black, black));
 
   div.accordion {
     display: grid;
@@ -8,7 +8,7 @@
     transition: grid-template-rows ease 500ms;
     overflow: hidden;
 
-    o-chat-smileys {
+    pap-chat-smileys {
       overflow: hidden;
     }
   }
@@ -17,7 +17,7 @@
     display: flex;
     align-items: center;
   
-    o-input {
+    pap-input {
       flex-grow: 1;
       margin-inline: 0.5rem;
       &::part(wrapper) {
@@ -25,11 +25,11 @@
       }
     }
   
-    o-button {
+    pap-button {
       padding: 0.4rem;
       gap: 0;
 
-      o-icon {
+      pap-icon {
         color: var(--color);
       }
 
@@ -42,7 +42,7 @@
 
 @media (prefers-color-scheme: dark) {
   :host {
-    --color: var(--o-chat-writer-text-color-dark, var(--o-color-black, white));
+    --color: var(--pap-chat-writer-text-color-dark, var(--pap-color-black, white));
   }
 }
 
@@ -54,7 +54,7 @@
     border-bottom: 1px solid grey;
   }
 
-  o-button.smiley-close {
+  pap-button.smiley-close {
     display: block;
   }
 }

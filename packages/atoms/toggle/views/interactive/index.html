@@ -13,10 +13,10 @@
 <body>
   <doc-controller>
     <div id="target">
-      <o-toggle>
+      <pap-toggle>
         
       <div slot="header" data-slotname="header">
-        <o-typography></o-typography>
+        <pap-typography></pap-typography>
       </div>
      
       <div slot="prefix" data-slotname="prefix">
@@ -31,16 +31,16 @@
         <span> </span>
       </div>
     
-      </o-toggle>
+      </pap-toggle>
   </div>
 
     <section class="control" slot="setting">
-      <o-tabs>
-        <o-tab id="html">HTML</o-tab>
-        <o-tab class="selected" id="properties">Properties</o-tab>
-        <o-tab id="css">CSS</o-tab>
-        <o-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: header" variant="textarea" name="slot-header" data-slotname="header" value="<o-typography></o-typography>"></doc-input><doc-input label="HTML slot: prefix" variant="textarea" name="slot-prefix" data-slotname="prefix" value="<span> </span>"></doc-input><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="<p>Hello World</p>"></doc-input><doc-input label="HTML slot: suffix" variant="textarea" name="slot-suffix" data-slotname="suffix" value="<span> </span>"></doc-input></div></o-tab-content>
-        <o-tab-content id="properties"><h3 data-subtitle="FieldTemplate Properties">FieldTemplate Properties</h3><div data-name="FieldTemplate Properties" class="properties">
+      <pap-tabs>
+        <pap-tab id="html">HTML</pap-tab>
+        <pap-tab class="selected" id="properties">Properties</pap-tab>
+        <pap-tab id="css">CSS</pap-tab>
+        <pap-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: header" variant="textarea" name="slot-header" data-slotname="header" value="<pap-typography></pap-typography>"></doc-input><doc-input label="HTML slot: prefix" variant="textarea" name="slot-prefix" data-slotname="prefix" value="<span> </span>"></doc-input><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="<p>Hello World</p>"></doc-input><doc-input label="HTML slot: suffix" variant="textarea" name="slot-suffix" data-slotname="suffix" value="<span> </span>"></doc-input></div></pap-tab-content>
+        <pap-tab-content id="properties"><h3 data-subtitle="FieldTemplate Properties">FieldTemplate Properties</h3><div data-name="FieldTemplate Properties" class="properties">
         <doc-input data-prop-name="counterElement" variant="textarea" value="" name="counterElement" label="counterElement - HTMLSpanElement"></doc-input>
       
         <doc-input data-prop-name="errorText" variant="textarea" value="" name="errorText" label="errorText - Typography"></doc-input>
@@ -76,13 +76,13 @@
           <doc-radio name="required" data-prop-name="required" label="required" value=""></doc-radio>
         
             <doc-input data-prop-name="name" value="" name="name" label="name"></doc-input>
-          </div></o-tab-content>
-        <o-tab-content id="css">
+          </div></pap-tab-content>
+        <pap-tab-content id="css">
       <div data-css-part="/Users/henry/Developer/projects/web-components/packages/atoms/toggle" class="style-source">
         <h3>toggle styles</h3>
-      <div class="style-group" data-style-name="--field-size-smaller"><doc-input data-css-input="true" name="--field-size-smaller" label="--field-size-smaller" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--margin-small"><doc-input data-css-input="true" name="--margin-small" label="--margin-small" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>margin-left</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--o-color-neutral-50"><color-picker-input data-css-input="true" name="--o-color-neutral-50" label="--o-color-neutral-50" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--o-color-neutral-500"><color-picker-input data-css-input="true" name="--o-color-neutral-500" label="--o-color-neutral-500" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--padding-smaller"><doc-input data-css-input="true" name="--padding-smaller" label="--padding-smaller" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--radius-max"><doc-input data-css-input="true" name="--radius-max" label="--radius-max" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>border-radius</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div></div>
-    </o-tab-content>
-      </o-tabs>
+      <div class="style-group" data-style-name="--field-size-smaller"><doc-input data-css-input="true" name="--field-size-smaller" label="--field-size-smaller" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li><li>width</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--margin-small"><doc-input data-css-input="true" name="--margin-small" label="--margin-small" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>margin-left</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--pap-color-neutral-50"><color-picker-input data-css-input="true" name="--pap-color-neutral-50" label="--pap-color-neutral-50" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--pap-color-neutral-500"><color-picker-input data-css-input="true" name="--pap-color-neutral-500" label="--pap-color-neutral-500" value=""></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--padding-smaller"><doc-input data-css-input="true" name="--padding-smaller" label="--padding-smaller" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--radius-max"><doc-input data-css-input="true" name="--radius-max" label="--radius-max" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>border-radius</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div></div>
+    </pap-tab-content>
+      </pap-tabs>
     </section>
   </doc-controller>
 </body>

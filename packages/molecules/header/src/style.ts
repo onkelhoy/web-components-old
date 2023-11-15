@@ -6,7 +6,7 @@ export const style = `:host,
 
 :host {
   justify-content: space-between; }
-  :host o-menu::part(box) {
+  :host pap-menu::part(box) {
     min-width: 15rem; }
   :host div.icon-wrapper {
     display: flex;
@@ -21,21 +21,21 @@ img.avatar {
   border-radius: 50%; }
 
 @media (prefers-color-scheme: light) {
-  :host o-icon[name="dark-mode"] {
+  :host pap-icon[name="dark-mode"] {
     display: none; } }
 
 @media (prefers-color-scheme: dark) {
-  :host o-icon[name="light-mode"] {
+  :host pap-icon[name="light-mode"] {
     display: none; } }
 
-:host(.dark-mode) o-icon[name="light-mode"] {
+:host(.dark-mode) pap-icon[name="light-mode"] {
   display: none; }
 
-:host(.dark-mode) o-icon[name="dark-mode"] {
+:host(.dark-mode) pap-icon[name="dark-mode"] {
   display: initial; }
 
-:host(.light-mode) o-icon[name="dark-mode"] {
+:host(.light-mode) pap-icon[name="dark-mode"] {
   display: none; }
 
-:host(.light-mode) o-icon[name="light-mode"] {
+:host(.light-mode) pap-icon[name="light-mode"] {
   display: initial; }`;

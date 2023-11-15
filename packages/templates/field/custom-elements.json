@@ -260,11 +260,11 @@
       },
       {
         "name": "property",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "BaseTemplate",
-        "from": "@henry2/templates-base"
+        "from": "@papit/templates-base"
       }
     ],
     "/Users/henry/Developer/projects/web-components/packages/templates/field": [
@@ -274,23 +274,23 @@
       },
       {
         "name": "html",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "query",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "property",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "suspense",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "FormElementTemplate",
-        "from": "@henry2/templates-form-element"
+        "from": "@papit/templates-form-element"
       },
       {
         "name": "style",
@@ -306,7 +306,7 @@
     "slots": [
       {
         "name": "header",
-        "html": "<o-typography></o-typography>"
+        "html": "<pap-typography></pap-typography>"
       },
       {
         "name": "prefix",
@@ -328,7 +328,7 @@
       },
       {
         "name": "wrapper",
-        "tag": "O-BOX-TEMPLATE"
+        "tag": "pap-BOX-TEMPLATE"
       },
       {
         "name": "footer",
@@ -340,7 +340,7 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/templates/field",
     "sources": [],
     "variables": {
-      "--o-field-height-small": {
+      "--pap-field-height-small": {
         "usecases": [
           "height"
         ],
@@ -354,7 +354,7 @@
         ],
         "fallbacks": []
       },
-      "--o-field-block-height-small": {
+      "--pap-field-block-height-small": {
         "usecases": [
           "height"
         ],
@@ -362,7 +362,7 @@
           "var(--field-size-small, 32px)"
         ]
       },
-      "--o-field-height-medium": {
+      "--pap-field-height-medium": {
         "usecases": [
           "height"
         ],
@@ -376,7 +376,7 @@
         ],
         "fallbacks": []
       },
-      "--o-field-block-height-medium": {
+      "--pap-field-block-height-medium": {
         "usecases": [
           "height"
         ],
@@ -384,7 +384,7 @@
           "var(--field-size-small, 32px)"
         ]
       },
-      "--o-field-height-large": {
+      "--pap-field-height-large": {
         "usecases": [
           "height"
         ],
@@ -398,7 +398,7 @@
         ],
         "fallbacks": []
       },
-      "--o-field-block-height-large": {
+      "--pap-field-block-height-large": {
         "usecases": [
           "height"
         ],
@@ -406,17 +406,17 @@
           "var(--field-size-small, 32px)"
         ]
       },
-      "--o-field-background-color-light": {
+      "--pap-field-background-color-light": {
         "usecases": [
           "--border",
           "--outline"
         ],
         "fallbacks": [
-          "var(--o-color-black, black)",
+          "var(--pap-color-black, black)",
           "rgb(90, 46, 250)"
         ]
       },
-      "--o-color-black": {
+      "--pap-color-black": {
         "usecases": [
           "--border",
           "--color"
@@ -426,12 +426,12 @@
           "white"
         ]
       },
-      "--o-field-text-color-light": {
+      "--pap-field-text-color-light": {
         "usecases": [
           "--color"
         ],
         "fallbacks": [
-          "var(--o-color-black, black)"
+          "var(--pap-color-black, black)"
         ]
       },
       "--color": {
@@ -538,22 +538,22 @@
           "0.01em"
         ]
       },
-      "--o-field-background-color-dark": {
+      "--pap-field-background-color-dark": {
         "usecases": [
           "--border",
           "--outline"
         ],
         "fallbacks": [
-          "var(--o-color-black, white)",
+          "var(--pap-color-black, white)",
           "rgb(195, 211, 255)"
         ]
       },
-      "--o-field-text-color-dark": {
+      "--pap-field-text-color-dark": {
         "usecases": [
           "--color"
         ],
         "fallbacks": [
-          "var(--o-color-black, white)"
+          "var(--pap-color-black, white)"
         ]
       }
     }

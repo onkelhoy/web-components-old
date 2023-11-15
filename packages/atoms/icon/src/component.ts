@@ -1,5 +1,5 @@
-import { property, html, Size } from '@henry2/tools-utils';
-import { AssetTemplate } from '@henry2/templates-asset';
+import { property, html, Size } from '@papit/tools-utils';
+import { AssetTemplate } from '@papit/templates-asset';
 
 import { style } from './style.js';
 import { ContainerTypes } from './types.js';
@@ -138,6 +138,6 @@ export class Icon extends AssetTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-icon": Icon;
+        "pap-icon": Icon;
     }
 }

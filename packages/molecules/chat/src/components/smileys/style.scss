@@ -9,11 +9,11 @@
     height: fit-content;
   }
 
-  o-tab {
+  pap-tab {
     flex-grow: 1;
   }
   
-  o-button {
+  pap-button {
     margin: 0;
     gap: 0;
     padding: 0;
@@ -28,19 +28,19 @@
 }
 
 :host(:not([search=""])) {
-  o-tabs {
+  pap-tabs {
     grid-template-rows: 1fr;
   }
 
-  o-tabs::part(content),
-  o-tabs::part(header) {
+  pap-tabs::part(content),
+  pap-tabs::part(header) {
     display: none;
   }
 
-  o-icon[name="search"] {
+  pap-icon[name="search"] {
     display: none;
   }
-  o-button.clear {
+  pap-button.clear {
     display: flex;
   }
 }

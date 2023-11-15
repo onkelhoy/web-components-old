@@ -1,5 +1,5 @@
 {
-    "name": "@henry2/TEMPLATE_PACKAGENAMETEMPLATE_NAME",
+    "name": "@papit/TEMPLATE_PACKAGENAMETEMPLATE_NAME",
     "version": "1.0.0",
     "scripts": {
         "init": "sh .scripts/init.sh",
@@ -33,11 +33,11 @@
         "url" : "https://github.com/onkelhoy/web-components.git"
     },
     "dependencies": {
-        "@henry2/tools-utils": "^1.0.0",
-        "@henry2/templates-base": "^1.0.0"
+        "@papit/tools-utils": "^0.0.0",
+        "@papit/templates-base": "^0.0.0"
     },
     "devDependencies": {
-        "@henry2/tools-doc": "^1.0.0",
+        "@papit/tools-doc": "^0.0.0",
         "esbuild": "^0.17.18",
         "tslib": "^2.5.0",
         "node-sass": "^9.0.0",

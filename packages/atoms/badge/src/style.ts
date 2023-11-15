@@ -1,7 +1,7 @@
-export const style = `:host o-box-template {
-  background-color: var(--o-color-bg, #FFFFFF);
-  border: 1px solid var(--o-color-border, #C7CBD4);
-  color: var(--o-color-text, #29292F);
+export const style = `:host pap-box-template {
+  background-color: var(--pap-color-bg, #FFFFFF);
+  border: 1px solid var(--pap-color-border, #C7CBD4);
+  color: var(--pap-color-text, #29292F);
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +9,7 @@ export const style = `:host o-box-template {
   min-width: 2rem;
   padding: var(--padding-smaller, 4px) var(--padding-small, 8px); }
 
-:host([mode="inactive"]) o-box-template {
-  background-color: var(--o-color-bg-secondary, #F6F7F8);
-  border: 1px solid var(--o-color-border-secondary, #DADDE3);
-  color: var(--o-color-text-secondary, #6E7087); }`;
+:host([mode="inactive"]) pap-box-template {
+  background-color: var(--pap-color-bg-secondary, #F6F7F8);
+  border: 1px solid var(--pap-color-border-secondary, #DADDE3);
+  color: var(--pap-color-text-secondary, #6E7087); }`;

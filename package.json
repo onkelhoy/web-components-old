@@ -1,5 +1,5 @@
 {
-  "name": "@henry2/web-components",
+  "name": "@papit/web-components",
   "version": "1.0.0",
   "description": "web-component library",
   "private": true,
@@ -32,6 +32,6 @@
     "packages/**/*"
   ],
   "dependencies": {
-    "@henry2/codeblock": "^1.0.0"
+    "@papit/codeblock": "^0.0.0"
   }
 }

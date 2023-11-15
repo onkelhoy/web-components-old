@@ -1,14 +1,14 @@
 export const style = `:host {
-  --menu-background: var(--o-color-bg, #FFFFFF);
-  --menu-color: var(--o-color-text, #29292F);
+  --menu-background: var(--pap-color-bg, #FFFFFF);
+  --menu-color: var(--pap-color-text, #29292F);
   display: inline-block; }
-  :host o-button span.caret-wrapper {
+  :host pap-button span.caret-wrapper {
     display: flex;
     justify-content: center;
     align-items: center; }
-  :host o-popover-template {
+  :host pap-popover-template {
     display: inline-block; }
-  :host o-box-template {
+  :host pap-box-template {
     display: block;
     padding-block: var(--padding-small, 8px);
     min-width: 180px;
@@ -16,8 +16,8 @@ export const style = `:host {
     max-height: 20rem;
     overflow-y: auto; }
 
-:host([open="true"]) o-button o-icon[name="caret"] {
+:host([open="true"]) pap-button pap-icon[name="caret"] {
   transform: rotate(180deg); }
 
-:host([open="false"]) o-button o-icon[name="caret"] {
+:host([open="false"]) pap-button pap-icon[name="caret"] {
   transform: rotate(0); }`;

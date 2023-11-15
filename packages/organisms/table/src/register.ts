@@ -10,15 +10,15 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-table')) {
-  cElements.define('o-table', Table);
+if (!cElements.get('pap-table')) {
+  cElements.define('pap-table', Table);
 }
-if (!cElements.get('o-cell')) {
-  cElements.define('o-cell', Cell);
+if (!cElements.get('pap-cell')) {
+  cElements.define('pap-cell', Cell);
 }
-if (!cElements.get('o-cell-title')) {
-  cElements.define('o-cell-title', CellTitle);
+if (!cElements.get('pap-cell-title')) {
+  cElements.define('pap-cell-title', CellTitle);
 }
-if (!cElements.get('o-menu')) {
-  cElements.define('o-menu', Menu);
+if (!cElements.get('pap-menu')) {
+  cElements.define('pap-menu', Menu);
 }

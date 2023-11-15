@@ -1,5 +1,5 @@
-import { BaseTemplate } from '@henry2/templates-base';
-import { property } from '@henry2/tools-utils';
+import { BaseTemplate } from '@papit/templates-base';
+import { property } from '@papit/tools-utils';
 
 // locals
 import { Color } from './Color';
@@ -47,6 +47,6 @@ export class ColorTemplate extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-color-template": ColorTemplate;
+        "pap-color-template": ColorTemplate;
     }
 }

@@ -3,10 +3,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-// import { html, property } from "@henry2/tools-utils";
+// import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -22,7 +22,7 @@ export class ThemeTool extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-theme-provider": ThemeTool;
+        "pap-theme-provider": ThemeTool;
     }
 }
 ## REGISTER-CODE:
@@ -35,6 +35,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-theme-tool')) {
-  cElements.define('o-theme-tool', ThemeTool);
+if (!cElements.get('pap-theme-tool')) {
+  cElements.define('pap-theme-tool', ThemeTool);
 }

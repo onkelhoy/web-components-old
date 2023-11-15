@@ -1,11 +1,11 @@
 // utils 
-import { html, property, query } from "@henry2/tools-utils";
+import { html, property, query } from "@papit/tools-utils";
 
 // atoms
-import "@henry2/typography/wc";
+import "@papit/typography/wc";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 import { style } from "./style";
 
@@ -18,8 +18,8 @@ export class Header extends BaseTemplate {
   render() {
     return html`
       <div>
-        <o-typography variant="H4">${this.title}</o-typography>
-        <o-typography>${this.subtitle}</o-typography>
+        <pap-typography variant="H4">${this.title}</pap-typography>
+        <pap-typography>${this.subtitle}</pap-typography>
       </div>
     `
   }

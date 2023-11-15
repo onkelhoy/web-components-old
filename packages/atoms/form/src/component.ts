@@ -1,8 +1,8 @@
 // utils 
-import { html, property, query } from "@henry2/tools-utils";
+import { html, property, query } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -16,7 +16,7 @@ export class Form extends BaseTemplate {
     @property({ rerender: false, onUpdate: "onwarningupdate" }) warning?:string;
     @property({ rerender: false, onUpdate: "onsuccessupdate" }) success?:string;
 
-    @query('o-message') messageElement!: Message;
+    @query('pap-message') messageElement!: Message;
     @query('form') formElement!: HTMLFormElement;
 
     // update handlers
@@ -44,7 +44,7 @@ export class Form extends BaseTemplate {
             if (data) data = Array.from(data as any);
 
             this.dispatchEvent(new SubmitEvent("submit"));
-            this.dispatchEvent(new CustomEvent<OSubmitEvent>("o-submit", {
+            this.dispatchEvent(new CustomEvent<OSubmitEvent>("pap-submit", {
                 detail: {
                     data,
                     element: e.target
@@ -77,7 +77,7 @@ export class Form extends BaseTemplate {
         return html`
             <form part="form" @submit="${this.handlesubmit}">
                 <div part="message-wrapper">
-                    <o-message part="message"></o-message>
+                    <pap-message part="message"></pap-message>
                 </div>
                 <slot></slot>
             </form>

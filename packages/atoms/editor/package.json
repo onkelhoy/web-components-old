@@ -1,6 +1,6 @@
 {
-    "name": "@henry2/editor",
-    "version": "1.1.1",
+    "name": "@papit/editor",
+    "version": "0.0.0",
     "scripts": {
         "init": "sh .scripts/init.sh",
         "test": ".scripts/test.sh",
@@ -33,14 +33,14 @@
         "url": "https://github.com/onkelhoy/web-components.git"
     },
     "dependencies": {
-        "@henry2/button": "^1.0.0",
-        "@henry2/icon": "^1.0.0",
-        "@henry2/templates-base": "^1.0.0",
-        "@henry2/templates-textinput": "^1.0.0",
-        "@henry2/tools-utils": "^1.0.0"
+        "@papit/button": "^0.0.0",
+        "@papit/icon": "^0.0.0",
+        "@papit/templates-base": "^0.0.0",
+        "@papit/templates-textinput": "^0.0.0",
+        "@papit/tools-utils": "^0.0.0"
     },
     "devDependencies": {
-        "@henry2/tools-showcase": "^1.0.0",
+        "@papit/tools-showcase": "^0.0.0",
         "esbuild": "^0.17.18",
         "node-html-parser": "^6.1.5",
         "node-sass": "^9.0.0",

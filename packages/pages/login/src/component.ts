@@ -1,14 +1,14 @@
 // utils 
-import { html, property } from "@henry2/tools-utils";
-import { Translator } from "@henry2/tools-translator";
-import "@henry2/tools-translator/wc";
+import { html, property } from "@papit/tools-utils";
+import { Translator } from "@papit/tools-translator";
+import "@papit/tools-translator/wc";
 
 // atoms 
-import "@henry2/typography/wc";
-import "@henry2/button/wc";
+import "@papit/typography/wc";
+import "@papit/button/wc";
 
 // templates
-import "@henry2/templates-auth/wc";
+import "@papit/templates-auth/wc";
 
 // local 
 import { style } from "./style";
@@ -31,22 +31,22 @@ export class LoginPage extends Translator {
         switch (this.project) {
             case "pfandportal":
                 form = html`
-                    <o-form @o-submit="${this.handlesubmit}" name="password">
-                        <o-username></o-username>
-                        <o-password></o-password>
+                    <pap-form @pap-submit="${this.handlesubmit}" name="password">
+                        <pap-username></pap-username>
+                        <pap-password></pap-password>
 
-                        <o-button color="primary" size="medium" mode="fill" type="submit">${this.translateKey("Log in")}</o-button>
-                    </o-form>
+                        <pap-button color="primary" size="medium" mode="fill" type="submit">${this.translateKey("Log in")}</pap-button>
+                    </pap-form>
                 `;
                 break;
             default:
                 form = html`
-                    <o-form @o-submit="${this.handlesubmit}" name="password">
-                        <o-email></o-email>
-                        <o-password></o-password>
+                    <pap-form @pap-submit="${this.handlesubmit}" name="password">
+                        <pap-email></pap-email>
+                        <pap-password></pap-password>
 
-                        <o-button color="primary" size="medium" mode="fill" type="submit">${this.translateKey("Log in")}</o-button>
-                    </o-form>
+                        <pap-button color="primary" size="medium" mode="fill" type="submit">${this.translateKey("Log in")}</pap-button>
+                    </pap-form>
                 `;
                 break;
         }
@@ -54,26 +54,26 @@ export class LoginPage extends Translator {
         switch (this.project) {
             case "KTV":
                 return html`
-                    <o-auth-template>
-                        <o-typography align="center" slot="welcome" variant="t2"><o-translator>Register your quantities with us conveniently and quickly.</o-translator></o-typography>
-                        <o-typography slot="note" align="center"><o-translator>Don't have an account?</o-translator></o-typography>
-                        <o-button slot="note" link="" variant="underlined"><o-translator>contact us</o-translator></o-button>
+                    <pap-auth-template>
+                        <pap-typography align="center" slot="welcome" variant="t2"><pap-translator>Register your quantities with us conveniently and quickly.</pap-translator></pap-typography>
+                        <pap-typography slot="note" align="center"><pap-translator>Don't have an account?</pap-translator></pap-typography>
+                        <pap-button slot="note" link="" variant="underlined"><pap-translator>contact us</pap-translator></pap-button>
                         ${form}
-                    </o-auth-template>
+                    </pap-auth-template>
                 `
             case "pfandportal":
                 return html`
-                    <o-auth-template>
+                    <pap-auth-template>
                         <span slot="note"></span>
                         ${form}
-                    </o-auth-template>
+                    </pap-auth-template>
                 `
             default: // case "PMP":
             {
                 return html`
-                    <o-auth-template>
+                    <pap-auth-template>
                         ${form}
-                    </o-auth-template>
+                    </pap-auth-template>
                 `
             }
         }
@@ -83,6 +83,6 @@ export class LoginPage extends Translator {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-login-page": LoginPage;
+        "pap-login-page": LoginPage;
     }
 }

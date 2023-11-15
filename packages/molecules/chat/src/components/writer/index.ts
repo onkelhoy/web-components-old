@@ -1,14 +1,14 @@
 // utils 
-import { html, property, query } from "@henry2/tools-utils";
+import { html, property, query } from "@papit/tools-utils";
 
 // atoms
-import { Textarea } from "@henry2/textarea";
-import '@henry2/textarea/wc';
-import '@henry2/button/wc';
-import '@henry2/icon/wc';
+import { Textarea } from "@papit/textarea";
+import '@papit/textarea/wc';
+import '@papit/button/wc';
+import '@papit/icon/wc';
 
 // templates 
-import { BoxTemplate } from '@henry2/templates-box';
+import { BoxTemplate } from '@papit/templates-box';
 
 // local 
 import { style } from "./style";
@@ -29,7 +29,7 @@ export class Writer extends BoxTemplate  {
     @property({ type: Boolean, rerender: false }) smileyopen = false;
 
     // queries
-    @query('o-textarea') textareaElement!: Textarea;
+    @query('pap-textarea') textareaElement!: Textarea;
     @query('#file-manager') fileElement!: HTMLInputElement;
 
     // event handlers
@@ -64,30 +64,30 @@ export class Writer extends BoxTemplate  {
       return html`
         <input hidden type="file" multiple id="file-manager" @change="${this.handlefileselect}" />
         <div class="accordion">
-          <o-chat-smileys @select="${this.handlesmileyselect}"></o-chat-smileys>
+          <pap-chat-smileys @select="${this.handlesmileyselect}"></pap-chat-smileys>
         </div>
         <div>
-          <o-button class="smiley-close" radius="none" @click="${this.handlecloseclick}" variant="clear">
-            <o-icon customSize="20" name="close">close</o-icon>
-          </o-button>
+          <pap-button class="smiley-close" radius="none" @click="${this.handlecloseclick}" variant="clear">
+            <pap-icon customSize="20" name="close">close</pap-icon>
+          </pap-button>
 
-          <o-button radius="none" @click="${this.handlesmileyclick}" variant="clear">
-            <o-icon customSize="20" name="smileys_emotion">smiley</o-icon>
-          </o-button>
+          <pap-button radius="none" @click="${this.handlesmileyclick}" variant="clear">
+            <pap-icon customSize="20" name="smileys_emotion">smiley</pap-icon>
+          </pap-button>
 
-            <o-button radius="none" @click="${this.handlefileclick}" variant="clear">
-            <o-icon customSize="20" name="file">file</o-icon>
-          </o-button>
+            <pap-button radius="none" @click="${this.handlefileclick}" variant="clear">
+            <pap-icon customSize="20" name="file">file</pap-icon>
+          </pap-button>
 
-          <o-button radius="none" @click="${this.handleformatclick}" variant="clear">
-            <o-icon customSize="20" name="format">format</o-icon>
-          </o-button>
+          <pap-button radius="none" @click="${this.handleformatclick}" variant="clear">
+            <pap-icon customSize="20" name="format">format</pap-icon>
+          </pap-button>
           
-          <o-textarea rows="1" size="medium"></o-textarea>
+          <pap-textarea rows="1" size="medium"></pap-textarea>
   
-          <o-button variant="clear" @click="${this.handlesendclick}" radius="none">
-            <o-icon customSize="24" name="send">send</o-icon>
-          </o-button>
+          <pap-button variant="clear" @click="${this.handlesendclick}" radius="none">
+            <pap-icon customSize="24" name="send">send</pap-icon>
+          </pap-button>
         </div>
       `
     }
@@ -96,6 +96,6 @@ export class Writer extends BoxTemplate  {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-chat-writer": Writer;
+        "pap-chat-writer": Writer;
     }
 }

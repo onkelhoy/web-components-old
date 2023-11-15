@@ -1,8 +1,8 @@
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BoxTemplate } from "@henry2/templates-box";
+import { BoxTemplate } from "@papit/templates-box";
 
 // local 
 import { style } from "./style";
@@ -22,6 +22,6 @@ export class Message extends BoxTemplate  {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-chat-message": Message;
+        "pap-chat-message": Message;
     }
 }

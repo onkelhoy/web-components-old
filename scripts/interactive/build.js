@@ -55,9 +55,9 @@ if (!/\w/.test(doccard.innerHTML))
 }
 
 // parts
-const html_part = body.querySelector('o-tab-content#html');
-const properties_part = body.querySelector('o-tab-content#properties');
-const css_part = body.querySelector('o-tab-content#css');
+const html_part = body.querySelector('pap-tab-content#html');
+const properties_part = body.querySelector('pap-tab-content#properties');
+const css_part = body.querySelector('pap-tab-content#css');
 
 //#region html part 
 if (!html_part.querySelector(`div[data-name="slot-html"]`)) 

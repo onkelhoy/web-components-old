@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-theme-tool')) {
-  cElements.define('o-theme-tool', ThemeTool);
+if (!cElements.get('pap-theme-tool')) {
+  cElements.define('pap-theme-tool', ThemeTool);
 }

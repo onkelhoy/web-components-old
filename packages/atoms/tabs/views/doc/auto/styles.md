@@ -6,10 +6,10 @@ slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -177,7 +177,7 @@ export class Tabs extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-tabs": Tabs;
+        "pap-tabs": Tabs;
     }
 }
 ## STYLE-CODE:
@@ -187,7 +187,7 @@ declare global {
 
     div[part="header-wrapper"] {
         display: grid;
-        grid-template-rows: var(--o-tabs-height, var(--unit-size7, 48px));
+        grid-template-rows: var(--pap-tabs-height, var(--unit-size7, 48px));
         grid-template-columns: 1fr minmax(5rem, auto);
     }
     
@@ -204,7 +204,7 @@ declare global {
             top: 100%;
             transform: translateY(-100%);
             height: var(--tabs-indicator-height, 0.3rem);
-            background-color: var(--tabs-indicator-color, var(--o-color-border-brand, #009DD3));
+            background-color: var(--tabs-indicator-color, var(--pap-color-border-brand, #009DD3));
 
             transition: all var(--tabs-indicator-animation-easing, ease) var(--tabs-indicator-animation-duration, 200ms);
         }
@@ -223,7 +223,7 @@ declare global {
         overflow-y: auto;
     }
 
-    ::slotted(o-tab-content) {
+    ::slotted(pap-tab-content) {
         display: block;
     }
 }

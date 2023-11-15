@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-markdown')) {
-  cElements.define('o-markdown', Markdown);
+if (!cElements.get('pap-markdown')) {
+  cElements.define('pap-markdown', Markdown);
 }

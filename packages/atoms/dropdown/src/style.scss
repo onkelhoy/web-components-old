@@ -1,7 +1,7 @@
 :host {
-    --background: var(--dropdown-background-light, var(--o-color-neutral-50));
+    --background: var(--dropdown-background-light, var(--pap-color-neutral-50));
 
-    o-popover-template {
+    pap-popover-template {
         --popover-gap: var(--gap-small, 8px);
         
         flex-grow: 1;
@@ -14,7 +14,7 @@
         &::part(wrapper) {
             width: 100%;
         }
-        o-box-template.options {
+        pap-box-template.options {
             box-sizing: border-box;
             padding: var(--padding-small, 8px);
             width: 100%;
@@ -50,12 +50,12 @@ $size-map: (
 
 @each $name, $value in $size-map {
     :host([size="#{$name}"]) {
-        o-box-template.wrapper {
-            height: var(--o-field-height-#{$name}, #{map-get($value, height)});
+        pap-box-template.wrapper {
+            height: var(--pap-field-height-#{$name}, #{map-get($value, height)});
         }
         footer,
         header {
-            height: var(--o-field-block-height-#{$name}, #{map-get($value, blockheight)});
+            height: var(--pap-field-block-height-#{$name}, #{map-get($value, blockheight)});
         }
     }
 }
@@ -64,7 +64,7 @@ $size-map: (
     :host([placement="bottom-left"][size="#{$name}"]),
     :host([placement="bottom-center"][size="#{$name}"]),
     :host([placement="bottom-right"][size="#{$name}"]) {
-        o-popover-template::part(wrapper) {
+        pap-popover-template::part(wrapper) {
             top: calc(var(--field-size-small, 32px) + var(--field-size-#{$name}));
         }
     }
@@ -74,10 +74,10 @@ $size-map: (
 
 @media (prefers-color-scheme: dark) {
     :host {
-        --background: var(--dropdown-background-dark, var(--o-color-neutral-50)); // NOTE in dark this is black
+        --background: var(--dropdown-background-dark, var(--pap-color-neutral-50)); // NOTE in dark this is black
     }
 }
 
-:host([popoveropen="true"]) o-icon[name="caret"] {
+:host([popoveropen="true"]) pap-icon[name="caret"] {
     transform: rotate(180deg);
 }

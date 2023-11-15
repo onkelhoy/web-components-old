@@ -13,10 +13,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 import { style } from "./style";
 import { Reveal, Placement } from './types';
@@ -106,7 +106,7 @@ export class PopoverTemplate extends BaseTemplate {
 
 declare global {
   interface HTMLElementTagNameMap {
-      "o-popover-template": PopoverTemplate;
+      "pap-popover-template": PopoverTemplate;
   }
 }
 ## REGISTER-CODE:
@@ -119,8 +119,8 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-popover-template')) {
-  cElements.define('o-popover-template', PopoverTemplate);
+if (!cElements.get('pap-popover-template')) {
+  cElements.define('pap-popover-template', PopoverTemplate);
 }
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and the types can you give me the following tables. 
@@ -130,10 +130,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
  // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 import { style } from "./style";
 import { Reveal, Placement } from './types';
@@ -223,7 +223,7 @@ export class PopoverTemplate extends BaseTemplate {
 
 declare global {
   interface HTMLElementTagNameMap {
-      "o-popover-template": PopoverTemplate;
+      "pap-popover-template": PopoverTemplate;
   }
 }
 
@@ -241,10 +241,10 @@ slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 import { style } from "./style";
 import { Reveal, Placement } from './types';
@@ -334,7 +334,7 @@ export class PopoverTemplate extends BaseTemplate {
 
 declare global {
   interface HTMLElementTagNameMap {
-      "o-popover-template": PopoverTemplate;
+      "pap-popover-template": PopoverTemplate;
   }
 }
 ## STYLE-CODE:

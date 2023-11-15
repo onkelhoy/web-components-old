@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-icon')) {
-  cElements.define('o-icon', Icon);
+if (!cElements.get('pap-icon')) {
+  cElements.define('pap-icon', Icon);
 }

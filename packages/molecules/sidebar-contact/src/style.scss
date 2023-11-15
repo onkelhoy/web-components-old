@@ -3,16 +3,16 @@
     justify-content: center;
     container-type: inline-size;
 
-    o-box-template[part="collapsed"] {
-        background-color: var(--o-color-bg-secondary, #F6F7F8);
+    pap-box-template[part="collapsed"] {
+        background-color: var(--pap-color-bg-secondary, #F6F7F8);
         padding: var(--padding-small, 8px);
         align-items: center;
         justify-content: center;
         display: none;
     }
 
-    o-box-template[part="base"] {
-        background-color: var(--o-color-bg-secondary, #F6F7F8);
+    pap-box-template[part="base"] {
+        background-color: var(--pap-color-bg-secondary, #F6F7F8);
         display: block;
         padding-inline: var(--padding-medium, 16px);
         flex-grow: 1;
@@ -23,15 +23,15 @@
             padding-block: var(--padding-medium, 16px);
             align-items: center;
             cursor: pointer;
-            color: var(--o-color-text-secondary, #6E7087);
+            color: var(--pap-color-text-secondary, #6E7087);
 
-            o-icon {
+            pap-icon {
                 rotate: -90deg;
                 transition: rotate ease 30ms;
             }
         }
 
-        o-accordion[open="true"] {
+        pap-accordion[open="true"] {
             padding-bottom: var(--padding-small, 8px);
 
             div {
@@ -41,7 +41,7 @@
             }
 
             div:has(a) {
-                color: var(--o-color-text-secondary, #6E7087);
+                color: var(--pap-color-text-secondary, #6E7087);
                 flex-direction: row;
                 height: var(--field-size-medium, 40px);
                 align-items: center;
@@ -52,7 +52,7 @@
                 }
             }
 
-            div:has(o-button) {
+            div:has(pap-button) {
                 flex-direction: row;
             }
         }
@@ -60,9 +60,9 @@
 }
 
 :host([open="true"]) {
-    o-box-template {
+    pap-box-template {
         header {
-            o-icon {
+            pap-icon {
                 rotate: 0deg;
             }
         }
@@ -72,10 +72,10 @@
 // 150px comes from sidebar-item
 @container (max-width: 150px) {
     :host {
-        o-box-template[part="base"] {
+        pap-box-template[part="base"] {
             display: none;
         }
-        o-box-template[part="collapsed"] {
+        pap-box-template[part="collapsed"] {
             display: inline-flex;
         }
     }

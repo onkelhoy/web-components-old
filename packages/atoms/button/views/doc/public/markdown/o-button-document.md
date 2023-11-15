@@ -12,8 +12,8 @@ PRE: just start the task given, dont include any starting lines so I can just co
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
 ## SOURCE-CODE:
-import { property, Size } from '@henry2/tools-utils';
-import { BoxTemplate } from '@henry2/templates-box';
+import { property, Size } from '@papit/tools-utils';
+import { BoxTemplate } from '@papit/templates-box';
 
 import { style } from './style.js';
 
@@ -95,7 +95,7 @@ export class Button extends BoxTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-button": Button;
+        "pap-button": Button;
     }
 }
 ## REGISTER-CODE:
@@ -108,8 +108,8 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-button')) {
-  cElements.define('o-button', Button);
+if (!cElements.get('pap-button')) {
+  cElements.define('pap-button', Button);
 }
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and the types can you give me the following tables. 
@@ -118,8 +118,8 @@ PRE: just start the task given, dont include any starting lines so I can just co
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
 ## SOURCE-CODE:
- import { property, Size } from '@henry2/tools-utils';
-import { BoxTemplate } from '@henry2/templates-box';
+ import { property, Size } from '@papit/tools-utils';
+import { BoxTemplate } from '@papit/templates-box';
 
 import { style } from './style.js';
 
@@ -201,7 +201,7 @@ export class Button extends BoxTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-button": Button;
+        "pap-button": Button;
     }
 }
 
@@ -216,8 +216,8 @@ parts should include all elements that have been exposed with the part attribute
 slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
-import { property, Size } from '@henry2/tools-utils';
-import { BoxTemplate } from '@henry2/templates-box';
+import { property, Size } from '@papit/tools-utils';
+import { BoxTemplate } from '@papit/templates-box';
 
 import { style } from './style.js';
 
@@ -299,7 +299,7 @@ export class Button extends BoxTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-button": Button;
+        "pap-button": Button;
     }
 }
 ## STYLE-CODE:
@@ -371,29 +371,29 @@ $colors: (
   $color: map-get($properties, 'color');
   
   :host([color="#{$name}"]) {
-    --button-background: var(--o-color-#{$base}-500);
-    --button-color: var(--o-color-#{$color});
+    --button-background: var(--pap-color-#{$base}-500);
+    --button-color: var(--pap-color-#{$color});
 
-    --button-background-hover: var(--o-color-#{$base}-700);
-    --button-color-hover: var(--o-color-#{$color});
+    --button-background-hover: var(--pap-color-#{$base}-700);
+    --button-color-hover: var(--pap-color-#{$color});
 
-    --button-background-active: var(--o-color-#{$base}-600);
-    --button-color-active: var(--o-color-#{$color});
+    --button-background-active: var(--pap-color-#{$base}-600);
+    --button-color-active: var(--pap-color-#{$color});
 
-    --button-background-disabled: var(--o-color-neutral-300);
-    --button-color-disabled: var(--o-color-neutral-700, #4D4E58);
+    --button-background-disabled: var(--pap-color-neutral-300);
+    --button-color-disabled: var(--pap-color-neutral-700, #4D4E58);
   }
 }
 
 // :host([color="secondary"]) {
-//     --button-background: var(--o-color-neutral-100);
-//     --button-color: var(--o-color-text, #29292F);
+//     --button-background: var(--pap-color-neutral-100);
+//     --button-color: var(--pap-color-text, #29292F);
 
-//     --button-background-hover: var(--o-color-neutral-300);
-//     --button-color-hover: var(--o-color-black);
+//     --button-background-hover: var(--pap-color-neutral-300);
+//     --button-color-hover: var(--pap-color-black);
 
-//     --button-background-active: var(--o-color-neutral-200);
-//     --button-color-active: var(--o-color-black);
+//     --button-background-active: var(--pap-color-neutral-200);
+//     --button-color-active: var(--pap-color-black);
 // }
 
 :host([disabled]) {
@@ -426,15 +426,15 @@ $colors: (
 }
 :host([variant="outlined"]:hover) {
     border-color: var(--button-border-color-outlined-hover, var(--button-background-hover));
-    --background: var(--o-button-outlined-hover-background, var(--o-color-hover-200, rgba(0,0,0,0.05)));
+    --background: var(--pap-button-outlined-hover-background, var(--pap-color-hover-200, rgba(0,0,0,0.05)));
 }
 :host([variant="outlined"]:active) {
     border-color: var(--button-border-color-outlined-active, var(--button-background-active));
-    --background: var(--o-button-outlined-active-background, var(--o-color-hover-400, rgba(0,0,0,0.1)));
+    --background: var(--pap-button-outlined-active-background, var(--pap-color-hover-400, rgba(0,0,0,0.1)));
 }
 :host([variant="outlined"][disabled]) {
     border-color: var(--button-border-color-outlined-disabled, var(--button-background-disabled));
-    --color: var(--o-button-outlined-disabled-text-color, var(--button-color-disabled));
+    --color: var(--pap-button-outlined-disabled-text-color, var(--button-color-disabled));
     --background: transparent;
 }
 
@@ -442,13 +442,13 @@ $colors: (
     --background: transparent;
 }
 :host([variant="clear"]:hover) {
-    --background: var(--o-button-clear-hover-background, var(--o-color-hover-200, rgba(0,0,0,0.05)));
+    --background: var(--pap-button-clear-hover-background, var(--pap-color-hover-200, rgba(0,0,0,0.05)));
 }
 :host([variant="clear"]:active) {
-    --background: var(--o-button-clear-active-background, var(--o-color-hover-400, rgba(0,0,0,0.1)));
+    --background: var(--pap-button-clear-active-background, var(--pap-color-hover-400, rgba(0,0,0,0.1)));
 }
 :host([variant="clear"][disabled]) {
-    --color: var(--o-button-clear-disabled-text-color, var(--button-color-disabled));
+    --color: var(--pap-button-clear-disabled-text-color, var(--button-color-disabled));
     --background: transparent;
 }
 
@@ -467,6 +467,6 @@ $colors: (
 }
 :host([variant="underlined"][disabled]) {
     text-decoration-thickness: var(--button-underlined-disabled-thickness, 1px);
-    --color: var(--o-button-underlined-disabled-text-color, var(--button-color-disabled));
+    --color: var(--pap-button-underlined-disabled-text-color, var(--button-color-disabled));
     --background: transparent;
 }

@@ -3,10 +3,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -174,7 +174,7 @@ export class Tabs extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-tabs": Tabs;
+        "pap-tabs": Tabs;
     }
 }
 ## REGISTER-CODE:
@@ -189,14 +189,14 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-tab')) {
-  cElements.define('o-tab', Tab);
+if (!cElements.get('pap-tab')) {
+  cElements.define('pap-tab', Tab);
 }
 
-if (!cElements.get('o-tab-content')) {
-  cElements.define('o-tab-content', TabContent);
+if (!cElements.get('pap-tab-content')) {
+  cElements.define('pap-tab-content', TabContent);
 }
 
-if (!cElements.get('o-tabs')) {
-  cElements.define('o-tabs', Tabs);
+if (!cElements.get('pap-tabs')) {
+  cElements.define('pap-tabs', Tabs);
 }
