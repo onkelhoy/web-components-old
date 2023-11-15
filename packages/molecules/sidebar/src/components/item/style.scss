@@ -34,7 +34,7 @@
       align-items: center;
 
       &.indicator {
-        margin-left: var(--margin-medium);
+        margin-left: var(--margin-medium, 16px);
         &::after {
           content: '';
           width: var(--unit-size2, 8px);
@@ -74,7 +74,7 @@
 }
 :host([isparent="false"][indicator="false"]) {
   span[slot="prefix"] {
-    margin-left: var(--margin-large);
+    margin-left: var(--margin-large, 24px);
   }
 }
 :host([counter]) o-button::part(content) {
