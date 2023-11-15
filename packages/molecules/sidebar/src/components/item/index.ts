@@ -28,6 +28,7 @@ export class Item extends BaseTemplate {
   @property({ type: Number }) counter?:number;
   @property({ type: Boolean }) isparent:boolean = false;
   @property({ type: Boolean }) indicator:boolean = false;
+  @property({ type: Boolean }) static: boolean = false;
   @property({ rerender: false, type: Boolean, onUpdate: "onaccordionopenupdate" }) open:boolean = true;
 
   // elements 
@@ -93,6 +94,7 @@ export class Item extends BaseTemplate {
     }
   }
   public handleclick = () => {
+    if (this.static) return;
     if (this.isparent)
     {
       if (this.getBoundingClientRect().width < 100)

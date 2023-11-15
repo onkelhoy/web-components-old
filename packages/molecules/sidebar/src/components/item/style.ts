@@ -23,7 +23,7 @@ export const style = `:host {
       justify-content: center;
       align-items: center; }
       :host o-button span[slot="prefix"].indicator {
-        margin-left: var(--margin-medium); }
+        margin-left: var(--margin-medium, 16px); }
         :host o-button span[slot="prefix"].indicator::after {
           content: '';
           width: var(--unit-size2, 8px);
@@ -47,7 +47,7 @@ export const style = `:host {
       display: none; }
 
 :host([isparent="false"][indicator="false"]) span[slot="prefix"] {
-  margin-left: var(--margin-large); }
+  margin-left: var(--margin-large, 24px); }
 
 :host([counter]) o-button::part(content) {
   max-width: calc(100% - 6rem); }
