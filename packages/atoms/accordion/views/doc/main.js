@@ -1,8 +1,8 @@
 // tools
-import '@henry2/tools-doc/wc';
+import '@papit/tools-doc/wc';
 
 // component
-import '@henry2/accordion/wc';
+import '@papit/accordion/wc';
 
 window.onload = () => {
     console.log('[doc]: window loaded');

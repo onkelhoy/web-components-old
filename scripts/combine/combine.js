@@ -45,7 +45,7 @@ const IDNAME = `${ATOMICTYPE}_${PACKAGENAME}_${SUBFOLDER}`
 
 // helper function
 function fixCSS(css, ids) {
-    const section = `${GLOBAL ? `div#${IDNAME}` : '' }o-tab-content[id="${SUBFOLDER}"]`;
+    const section = `${GLOBAL ? `div#${IDNAME}` : '' }pap-tab-content[id="${SUBFOLDER}"]`;
     const idselector = new RegExp(`#(${ids.join('|')})`);
 
     const lines = css.split(/\n/);
@@ -73,7 +73,7 @@ function fixCSS(css, ids) {
 
 }
 function fixJS(js, ids) {
-    const section = `${GLOBAL ? `div#${IDNAME}` : '' }o-tab-content[id="${SUBFOLDER}"]`;
+    const section = `${GLOBAL ? `div#${IDNAME}` : '' }pap-tab-content[id="${SUBFOLDER}"]`;
     const idsjoin = ids.join('|');
     const windowIdSelector = new RegExp(`window.(${idsjoin})\\W?`);
     const windowInsideIdSelector = new RegExp(`window\\[(['"])(${idsjoin})['"]\\]\\W?`);
@@ -230,12 +230,12 @@ document.querySelectorAll('style').forEach(style => {
 });
 
 // append the tab 
-const tabs = combinedDOM.querySelector('o-tabs');
+const tabs = combinedDOM.querySelector('pap-tabs');
 tabs.appendChild(parse(`
-    <o-tab id="${SUBFOLDER}" text="${config.name}"></o-tab>
+    <pap-tab id="${SUBFOLDER}" text="${config.name}"></pap-tab>
 `));
 tabs.appendChild(parse(`
-    <o-tab-content id="${SUBFOLDER}">${document.querySelector('body').innerHTML}</o-tab-content>
+    <pap-tab-content id="${SUBFOLDER}">${document.querySelector('body').innerHTML}</pap-tab-content>
 `));
 
 

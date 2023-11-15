@@ -1,8 +1,8 @@
 // tools
-import '@henry2/tools-doc/wc';
+import '@papit/tools-doc/wc';
 
 // component
-import '@henry2/table/wc';
+import '@papit/table/wc';
 
 window.onload = () => {
     console.log('[]: window loaded');

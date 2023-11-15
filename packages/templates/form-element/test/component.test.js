@@ -1,15 +1,15 @@
-import { fixture } from '@henry2/tools-test';
+import { fixture } from '@papit/tools-test';
 
 describe('Form-elementTemplate', function () {
   describe('base tests', function () {
     it('web-component should exists', function () {
-      const elm = fixture('o-form-element-template');
+      const elm = fixture('pap-form-element-template');
 
       if (!elm) {
         throw new Error('element not created')
       }
 
-      const docelm = document.querySelector(`o-form-element-template[data-testid="${elm.getAttribute('data-testid')}"]`);
+      const docelm = document.querySelector(`pap-form-element-template[data-testid="${elm.getAttribute('data-testid')}"]`);
       
       if (!docelm) {
         throw new Error('element not found');

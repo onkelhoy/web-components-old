@@ -1,8 +1,8 @@
 // tools
-import '@henry2/tools-doc/wc';
+import '@papit/tools-doc/wc';
 
 // component
-import '@henry2/header/wc';
+import '@papit/header/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');
@@ -382,7 +382,7 @@ window.onload = () => {
         ])
         
     }, 1000);
-    document.querySelector('o-header.with').user = {
+    document.querySelector('pap-header.with').user = {
         firstname: 'Oskar'
     }
 }

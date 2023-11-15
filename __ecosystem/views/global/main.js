@@ -1,12 +1,12 @@
-import "@henry2/icon/wc";
-import "@henry2/tools-doc/wc";
-import "@henry2/templates-sidebar-header/wc";
+import "@papit/icon/wc";
+import "@papit/tools-doc/wc";
+import "@papit/templates-sidebar-header/wc";
 
 window.onload = () => {
   window.oTheme.add({ name: "KTV", href: "ktv", representColor: "cornflowerblue" });
   window.oTheme.add({ name: "PMP", href: "pmp", representColor: "coral" });
 
-  document.querySelector('o-navbar').addEventListener('select', e => {
+  document.querySelector('pap-navbar').addEventListener('select', e => {
     const id = e.detail.id;
 
     // disable the others first 

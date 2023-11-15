@@ -8,9 +8,9 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-steps')) {
-  cElements.define('o-steps', Steps);
+if (!cElements.get('pap-steps')) {
+  cElements.define('pap-steps', Steps);
 }
-if (!cElements.get('o-circle')) {
-  cElements.define('o-circle', Circle);
+if (!cElements.get('pap-circle')) {
+  cElements.define('pap-circle', Circle);
 }

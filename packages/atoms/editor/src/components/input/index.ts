@@ -1,12 +1,12 @@
 // utils 
-import { html, property, query } from "@henry2/tools-utils";
+import { html, property, query } from "@papit/tools-utils";
 
 // atoms
-import "@henry2/button/wc";
-import "@henry2/icon/wc";
+import "@papit/button/wc";
+import "@papit/icon/wc";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 import { style } from "./style";
 import { GroupSelection } from "./Group";
@@ -178,18 +178,18 @@ export class Input extends BaseTemplate {
   render() {
     return html`
       <div class="controls">
-        <o-button @click="${this.handlemodify("bold")}" variant="clear" radius="small" size="medium">
-          <o-icon customsize="20" name="format_bold"></o-icon>
-        </o-button>
-        <o-button @click="${this.handlemodify('italic')}" variant="clear" radius="small" size="medium">
-          <o-icon customsize="20" name="format_italic"></o-icon>
-        </o-button>
-        <o-button @click="${this.handlemodify('underline')}" variant="clear" radius="small" size="medium">
-          <o-icon customsize="20" name="format_underline"></o-icon>
-        </o-button>
-        <o-button @click="${this.handlemodify('strikethrough')}" variant="clear" radius="small" size="medium">
-          <o-icon customsize="20" name="format_strikethrough"></o-icon>
-        </o-button>
+        <pap-button @click="${this.handlemodify("bold")}" variant="clear" radius="small" size="medium">
+          <pap-icon customsize="20" name="format_bold"></pap-icon>
+        </pap-button>
+        <pap-button @click="${this.handlemodify('italic')}" variant="clear" radius="small" size="medium">
+          <pap-icon customsize="20" name="format_italic"></pap-icon>
+        </pap-button>
+        <pap-button @click="${this.handlemodify('underline')}" variant="clear" radius="small" size="medium">
+          <pap-icon customsize="20" name="format_underline"></pap-icon>
+        </pap-button>
+        <pap-button @click="${this.handlemodify('strikethrough')}" variant="clear" radius="small" size="medium">
+          <pap-icon customsize="20" name="format_strikethrough"></pap-icon>
+        </pap-button>
       </div>
       <div id="editor" contenteditable="true">
         <u>He</u><i>l</i>lo

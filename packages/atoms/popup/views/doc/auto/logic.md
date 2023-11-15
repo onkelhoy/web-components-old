@@ -6,10 +6,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
  // utils 
-import { html, property, query } from "@henry2/tools-utils";
+import { html, property, query } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -125,18 +125,18 @@ export class Popup extends BaseTemplate {
   render() {
     return html`
       <div class=${['wrapper', this.state, this.variant].join(' ')}>
-        <o-card .headerTitle=${this.headerTitle} header footer>
-          <o-button
+        <pap-card .headerTitle=${this.headerTitle} header footer>
+          <pap-button
             @click=${this.hide}
             slot="header"
             variant="square"
             size="small"
           >
-            <o-icon-close size="small"></o-icon-close>
-          </o-button>
+            <pap-icon-close size="small"></pap-icon-close>
+          </pap-button>
           <slot></slot>
           <slot name="footer" slot="footer"></slot>
-        </o-card>
+        </pap-card>
       </div>
     `;
   }
@@ -144,7 +144,7 @@ export class Popup extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-popup": Popup;
+        "pap-popup": Popup;
     }
 }
 

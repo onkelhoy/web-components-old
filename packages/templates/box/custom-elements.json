@@ -39,11 +39,11 @@
       },
       {
         "name": "property",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "BaseTemplate",
-        "from": "@henry2/templates-base"
+        "from": "@papit/templates-base"
       },
       {
         "name": "style",
@@ -55,26 +55,26 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/templates/box",
     "sources": [],
     "variables": {
-      "--o-box-shadow-color-light": {
+      "--pap-box-shadow-color-light": {
         "usecases": [
           "--shadow-color"
         ],
         "fallbacks": [
-          "var(--o-color-shadow-500)"
+          "var(--pap-color-shadow-500)"
         ]
       },
-      "--o-color-shadow-500": {
+      "--pap-color-shadow-500": {
         "usecases": [
           "--shadow-color"
         ],
         "fallbacks": []
       },
-      "--o-box-shadow-color-dark": {
+      "--pap-box-shadow-color-dark": {
         "usecases": [
           "--shadow-color"
         ],
         "fallbacks": [
-          "var(--o-color-shadow-500)"
+          "var(--pap-color-shadow-500)"
         ]
       },
       "--box-radius-none": {

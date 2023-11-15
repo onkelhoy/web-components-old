@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-divider')) {
-  cElements.define('o-divider', Divider);
+if (!cElements.get('pap-divider')) {
+  cElements.define('pap-divider', Divider);
 }

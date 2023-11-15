@@ -1,8 +1,8 @@
 // utils 
-import { property } from "@henry2/tools-utils";
+import { property } from "@papit/tools-utils";
 
 // templates
-import { FieldTemplate } from '@henry2/templates-field';
+import { FieldTemplate } from '@papit/templates-field';
 
 // local
 import { style } from "./style";
@@ -58,6 +58,6 @@ export class TextinputTemplate<T extends HTMLElement = HTMLInputElement> extends
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-textinput-template": TextinputTemplate;
+        "pap-textinput-template": TextinputTemplate;
     }
 }

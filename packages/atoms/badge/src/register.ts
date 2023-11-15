@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-badge')) {
-  cElements.define('o-badge', Badge);
+if (!cElements.get('pap-badge')) {
+  cElements.define('pap-badge', Badge);
 }

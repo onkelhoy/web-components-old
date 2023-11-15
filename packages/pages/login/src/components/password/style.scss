@@ -1,10 +1,10 @@
 :host {
-  o-button {
+  pap-button {
     gap: 0;
     padding: 0;
     height: fit-content;
     
-    o-icon {
+    pap-icon {
       display: none;
     }
   }
@@ -16,12 +16,12 @@
   }
 }
 :host([eye="true"]) {
-  o-icon[name="eye-close"] {
+  pap-icon[name="eye-close"] {
     display: flex;
   }
 }
 :host([eye="false"]) {
-  o-icon[name="eye"] {
+  pap-icon[name="eye"] {
     display: flex;
   }
 }

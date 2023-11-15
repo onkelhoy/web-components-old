@@ -1,8 +1,8 @@
 // utils 
-import { html } from "@henry2/tools-utils";
+import { html } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -46,6 +46,6 @@ export class TabContent extends BaseTemplate {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "o-tab-content": TabContent;
+    "pap-tab-content": TabContent;
   }
 }

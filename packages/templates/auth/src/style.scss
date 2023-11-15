@@ -12,7 +12,7 @@
 
     justify-content: center;
     
-    background-color: var(--o-color-neutral-50);
+    background-color: var(--pap-color-neutral-50);
     position: relative;
     height: 100vh;
 
@@ -41,8 +41,8 @@
         gap: var(--gap-small, 8px);
     }
 
-    ::slotted(o-button),
-    o-button {
+    ::slotted(pap-button),
+    pap-button {
         gap: 0;
         padding: 0;
     }

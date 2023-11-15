@@ -6,10 +6,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
  // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -32,7 +32,7 @@ export class Typography extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-typography": Typography;
+        "pap-typography": Typography;
     }
 }
 

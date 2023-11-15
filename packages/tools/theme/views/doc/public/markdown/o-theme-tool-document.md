@@ -13,10 +13,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-// import { html, property } from "@henry2/tools-utils";
+// import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -32,7 +32,7 @@ export class ThemeTool extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-theme-provider": ThemeTool;
+        "pap-theme-provider": ThemeTool;
     }
 }
 ## REGISTER-CODE:
@@ -45,8 +45,8 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-theme-tool')) {
-  cElements.define('o-theme-tool', ThemeTool);
+if (!cElements.get('pap-theme-tool')) {
+  cElements.define('pap-theme-tool', ThemeTool);
 }
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and the types can you give me the following tables. 
@@ -56,10 +56,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
  // utils 
-// import { html, property } from "@henry2/tools-utils";
+// import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -75,12 +75,12 @@ export class ThemeTool extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-theme-provider": ThemeTool;
+        "pap-theme-provider": ThemeTool;
     }
 }
 
-## TYPE-CODE: export const THEMECHANGE_NAME = "o-theme-change";
-export const THEMEADD_NAME = "o-theme-add";
+## TYPE-CODE: export const THEMECHANGE_NAME = "pap-theme-change";
+export const THEMEADD_NAME = "pap-theme-add";
 
 export type ThemeConfig = {
   href: string;
@@ -105,10 +105,10 @@ slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
 // utils 
-// import { html, property } from "@henry2/tools-utils";
+// import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -124,7 +124,7 @@ export class ThemeTool extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-theme-provider": ThemeTool;
+        "pap-theme-provider": ThemeTool;
     }
 }
 ## STYLE-CODE:

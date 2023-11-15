@@ -33,15 +33,15 @@
       },
       {
         "name": "html",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "property",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "BaseTemplate",
-        "from": "@henry2/templates-base"
+        "from": "@papit/templates-base"
       },
       {
         "name": "style",
@@ -71,7 +71,7 @@
     "parts": [
       {
         "name": "card",
-        "tag": "O-BOX-TEMPLATE"
+        "tag": "pap-BOX-TEMPLATE"
       }
     ]
   },
@@ -79,15 +79,15 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/tooltip",
     "sources": [],
     "variables": {
-      "--o-tooltip-background-color-light": {
+      "--pap-tooltip-background-color-light": {
         "usecases": [
           "--background"
         ],
         "fallbacks": [
-          "var(--o-color-black, black)"
+          "var(--pap-color-black, black)"
         ]
       },
-      "--o-color-black": {
+      "--pap-color-black": {
         "usecases": [
           "--background"
         ],
@@ -96,15 +96,15 @@
           "white"
         ]
       },
-      "--o-tooltip-text-color-light": {
+      "--pap-tooltip-text-color-light": {
         "usecases": [
           "--color"
         ],
         "fallbacks": [
-          "var(--o-color-neutral-50, white)"
+          "var(--pap-color-neutral-50, white)"
         ]
       },
-      "--o-color-white": {
+      "--pap-color-white": {
         "usecases": [
           "--color"
         ],
@@ -113,7 +113,7 @@
           "black"
         ]
       },
-      "--o-tooltip-popover-gap": {
+      "--pap-tooltip-popover-gap": {
         "usecases": [
           "--popover-gap"
         ],
@@ -121,7 +121,7 @@
           "0.5rem"
         ]
       },
-      "--o-tooltip-card-padding": {
+      "--pap-tooltip-card-padding": {
         "usecases": [
           "padding"
         ],
@@ -141,7 +141,7 @@
         ],
         "fallbacks": []
       },
-      "--o-tooltip-card-minwidth": {
+      "--pap-tooltip-card-minwidth": {
         "usecases": [
           "min-width"
         ],
@@ -149,7 +149,7 @@
           "3rem"
         ]
       },
-      "--o-tooltip-arrow-size": {
+      "--pap-tooltip-arrow-size": {
         "usecases": [
           "width",
           "height"
@@ -158,7 +158,7 @@
           "0.5rem"
         ]
       },
-      "--o-tooltip-arrow-offset": {
+      "--pap-tooltip-arrow-offset": {
         "usecases": [
           "right",
           "left",
@@ -169,20 +169,20 @@
           "0.5rem"
         ]
       },
-      "--o-tooltip-background-color-dark": {
+      "--pap-tooltip-background-color-dark": {
         "usecases": [
           "--background"
         ],
         "fallbacks": [
-          "var(--o-color-black, white)"
+          "var(--pap-color-black, white)"
         ]
       },
-      "--o-tooltip-text-color-dark": {
+      "--pap-tooltip-text-color-dark": {
         "usecases": [
           "--color"
         ],
         "fallbacks": [
-          "var(--o-color-neutral-50, black)"
+          "var(--pap-color-neutral-50, black)"
         ]
       }
     }

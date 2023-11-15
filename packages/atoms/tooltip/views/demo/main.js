@@ -1,8 +1,8 @@
 // tools
-import '@henry2/tools-doc/wc';
+import '@papit/tools-doc/wc';
 
 // component
-import '@henry2/tooltip/wc';
+import '@papit/tooltip/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');

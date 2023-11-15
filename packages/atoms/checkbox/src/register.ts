@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-checkbox')) {
-  cElements.define('o-checkbox', Checkbox);
+if (!cElements.get('pap-checkbox')) {
+  cElements.define('pap-checkbox', Checkbox);
 }

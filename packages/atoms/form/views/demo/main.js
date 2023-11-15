@@ -1,14 +1,14 @@
 // tools
-import '@henry2/tools-doc/wc';
-import '@henry2/input/wc';
-import '@henry2/checkbox/wc';
-import '@henry2/textarea/wc';
-import '@henry2/toggle/wc';
-import '@henry2/button/wc';
-import '@henry2/dropdown/wc';
+import '@papit/tools-doc/wc';
+import '@papit/input/wc';
+import '@papit/checkbox/wc';
+import '@papit/textarea/wc';
+import '@papit/toggle/wc';
+import '@papit/button/wc';
+import '@papit/dropdown/wc';
 
 // component
-import '@henry2/form/wc';
+import '@papit/form/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');
@@ -23,11 +23,11 @@ window.onload = () => {
         window.form_warning.showMessage("Im the warning now!", "warning");
     }
 
-    document.querySelector('o-input[name="a.a"]').setAttribute('customWarning', JSON.stringify({
+    document.querySelector('pap-input[name="a.a"]').setAttribute('customWarning', JSON.stringify({
         valueMissing: 'Hey fool im missing!'
     }))
 
-    document.querySelectorAll('o-form').forEach(form => {
+    document.querySelectorAll('pap-form').forEach(form => {
         form.addEventListener('submit', (e) => {
             console.log('submitted', e)
         })

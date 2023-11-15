@@ -1,8 +1,8 @@
 // utils 
-// import { html, property } from "@henry2/tools-utils";
+// import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -18,6 +18,6 @@ export class ThemeTool extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-theme-provider": ThemeTool;
+        "pap-theme-provider": ThemeTool;
     }
 }

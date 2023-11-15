@@ -1,16 +1,16 @@
 // utils
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // atoms
-import "@henry2/accordion/wc";
-import "@henry2/button/wc";
-import "@henry2/icon/wc";
-import "@henry2/typography/wc";
-import "@henry2/divider/wc";
+import "@papit/accordion/wc";
+import "@papit/button/wc";
+import "@papit/icon/wc";
+import "@papit/typography/wc";
+import "@papit/divider/wc";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
-import "@henry2/templates-box/wc";
+import { BaseTemplate } from "@papit/templates-base";
+import "@papit/templates-box/wc";
 
 // local
 import { style } from "./style";
@@ -31,27 +31,27 @@ export class SidebarContact extends BaseTemplate {
         if (contact.email)
         {
             buttons.push(html`
-                <o-button
+                <pap-button
                     variant="clear"
                     mode="fill"
                     color="secondary"
                     href="mailto:${contact.email}"
                 >
-                    <o-translator>Write an email</o-translator>
-                </o-button>
+                    <pap-translator>Write an email</pap-translator>
+                </pap-button>
             `);
         }
         if (contact.teams)
         {
             buttons.push(html`
-                <o-button
+                <pap-button
                     variant="clear"
                     mode="fill"
                     color="secondary"
                     href="https://teams.microsoft.com/l/call/0/0?users=${contact.teams}"
                 >
-                    <o-translator>Call via Teams</o-translator>
-                </o-button>
+                    <pap-translator>Call via Teams</pap-translator>
+                </pap-button>
             `);
         }
 
@@ -59,17 +59,17 @@ export class SidebarContact extends BaseTemplate {
 
         return html`
             <div>
-                <o-typography variant="C4">${contact.role}</o-typography>
-                <o-typography variant="C2">${contact.name}</o-typography>
+                <pap-typography variant="C4">${contact.role}</pap-typography>
+                <pap-typography variant="C2">${contact.name}</pap-typography>
             </div>
             ${contact.phone ? html`
                 <div>
-                    <o-icon name="phone"></o-icon>
-                    <o-typography><a href="tel:${contact.phone}">${contact.phone}</a></o-typography>
+                    <pap-icon name="phone"></pap-icon>
+                    <pap-typography><a href="tel:${contact.phone}">${contact.phone}</a></pap-typography>
                 </div>
             ` : ''}
             ${buttons.length > 0 ? html`<div>${buttons}</div>` : ''}
-            ${index < this.contacts.length - 1 ? '<o-divider></o-divider>' : ''}
+            ${index < this.contacts.length - 1 ? '<pap-divider></pap-divider>' : ''}
         `;
     }
 
@@ -78,17 +78,17 @@ export class SidebarContact extends BaseTemplate {
         const contacts = this.contacts.map(this.getContact);
 
         return html`
-            <o-box-template part="collapsed"><o-icon name="phone"></o-icon></o-box-template>
-            <o-box-template radius="medium" part="base">
+            <pap-box-template part="collapsed"><pap-icon name="phone"></pap-icon></pap-box-template>
+            <pap-box-template radius="medium" part="base">
                 <header part="header" @click="${this.handleHeaderClick}">
-                    <o-typography variant="C4"> <o-translator>Contact</o-translator> </o-typography>
-                    <o-icon size="small" name="caret"></o-icon>
+                    <pap-typography variant="C4"> <pap-translator>Contact</pap-translator> </pap-typography>
+                    <pap-icon size="small" name="caret"></pap-icon>
                 </header>
-                <o-accordion open="${this.open}">
-                    <o-divider></o-divider>
-                    ${contacts.length > 0 ? contacts : '<o-typography> <o-translator>No available contacts</o-translator> </o-typography>'}
-                </o-accordion>
-            </o-box-template>
+                <pap-accordion open="${this.open}">
+                    <pap-divider></pap-divider>
+                    ${contacts.length > 0 ? contacts : '<pap-typography> <pap-translator>No available contacts</pap-translator> </pap-typography>'}
+                </pap-accordion>
+            </pap-box-template>
         `
     }
 }
@@ -96,6 +96,6 @@ export class SidebarContact extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-sidebar-contact": SidebarContact;
+        "pap-sidebar-contact": SidebarContact;
     }
 }

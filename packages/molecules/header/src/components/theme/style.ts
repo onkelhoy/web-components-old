@@ -3,7 +3,7 @@ export const style = `:host {
   align-items: center;
   gap: var(--gap-small, 8px); }
 
-:host([hidden]) o-menu {
+:host([hidden]) pap-menu {
   display: none; }
 
 .theme-color {
@@ -13,11 +13,11 @@ export const style = `:host {
   height: var(--field-size-small, 32px);
   border-radius: 50%; }
 
-o-toggle::part(indicator) {
+pap-toggle::part(indicator) {
   background-color: transparent; }
 
-o-toggle[checked="true"] o-icon[name="light-mode"] {
+pap-toggle[checked="true"] pap-icon[name="light-mode"] {
   display: none; }
 
-o-toggle[checked="false"] o-icon[name="dark-mode"] {
+pap-toggle[checked="false"] pap-icon[name="dark-mode"] {
   display: none; }`;

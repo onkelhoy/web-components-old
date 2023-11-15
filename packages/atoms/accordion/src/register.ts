@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-accordion')) {
-  cElements.define('o-accordion', Accordion);
+if (!cElements.get('pap-accordion')) {
+  cElements.define('pap-accordion', Accordion);
 }

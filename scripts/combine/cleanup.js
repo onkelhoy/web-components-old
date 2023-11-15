@@ -22,7 +22,7 @@ const combinedIndex_path = path.join("views", "combined", "index.html");
 const combinedIndexSRC = fs.readFileSync(combinedIndex_path, 'utf-8');
 const document = parse(combinedIndexSRC);
 
-const tabs = document.querySelectorAll('body > o-tabs > o-tab')
+const tabs = document.querySelectorAll('body > pap-tabs > pap-tab')
     .sort((a, b) => {
         let aIndex = config.tabs.order.indexOf(a.getAttribute('id'));
         let bIndex = config.tabs.order.indexOf(b.getAttribute('id'));
@@ -39,7 +39,7 @@ const tabs = document.querySelectorAll('body > o-tabs > o-tab')
 tabs[0].setAttribute('class', 'selected');
 document.querySelector('title').set_content(`${CLASSNAME} Component`);
 
-const tabcontainer = document.querySelector('o-tabs');
+const tabcontainer = document.querySelector('pap-tabs');
 tabs.forEach(element => {
     element.parentNode.removeChild(element);
     tabcontainer.appendChild(element);

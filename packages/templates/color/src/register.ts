@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-color-template')) {
-  cElements.define('o-color-template', ColorTemplate);
+if (!cElements.get('pap-color-template')) {
+  cElements.define('pap-color-template', ColorTemplate);
 }

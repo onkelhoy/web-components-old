@@ -3,5 +3,5 @@ export const style = `:host {
   :host form div {
     display: flex;
     justify-content: center; }
-    :host form div o-message {
+    :host form div pap-message {
       flex-grow: 1; }`;

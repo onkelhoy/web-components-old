@@ -1,17 +1,17 @@
 // utils 
-import { html, property, query } from "@henry2/tools-utils";
+import { html, property, query } from "@papit/tools-utils";
 
 // atoms 
-import { Typography } from "@henry2/typography";
-import { Toggle } from "@henry2/toggle";
-import "@henry2/typography/wc";
-import "@henry2/button/wc";
-import "@henry2/icon/wc";
-import "@henry2/toggle/wc";
+import { Typography } from "@papit/typography";
+import { Toggle } from "@papit/toggle";
+import "@papit/typography/wc";
+import "@papit/button/wc";
+import "@papit/icon/wc";
+import "@papit/toggle/wc";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
-import "@henry2/templates-box/wc";
+import { BaseTemplate } from "@papit/templates-base";
+import "@papit/templates-box/wc";
 
 // local 
 import { style } from "./style";
@@ -28,7 +28,7 @@ export class Codeblock extends BaseTemplate {
 
     @query({ selector: 'main', onload: 'onmainload' }) main!: HTMLElement;
     @query('#language') languageElement!: Typography;
-    @query('header > o-button > o-typography') copytext!: Typography;
+    @query('header > pap-button > pap-typography') copytext!: Typography;
     @query('fieldset') fieldsetElement!: HTMLFieldSetElement;
 
     @property() display: Display = "code";
@@ -443,33 +443,33 @@ export class Codeblock extends BaseTemplate {
     render() {
         return html`
             <code>
-                <o-box-template radius="small">
+                <pap-box-template radius="small">
                     <header>
-                        <o-typography id="language">${this.language}</o-typography>
-                        ${this.themetoggle ? html`<o-toggle 
+                        <pap-typography id="language">${this.language}</pap-typography>
+                        ${this.themetoggle ? html`<pap-toggle 
                             @change="${this.handletogglechange}" 
                             value="${(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
                         >
-                            <o-typography variant="C4" slot="prefix">light</o-typography>
-                            <o-typography variant="C4" slot="suffix">dark</o-typography>
-                        </o-toggle>`: ''}
-                        <o-button 
+                            <pap-typography variant="C4" slot="prefix">light</pap-typography>
+                            <pap-typography variant="C4" slot="suffix">dark</pap-typography>
+                        </pap-toggle>`: ''}
+                        <pap-button 
                             variant="clear" 
                             size="small" 
                             radius="none" 
                             @click="${this.handlecopy}" 
                         >
-                            <o-icon name="done" slot="prefix"></o-icon>
-                            <o-icon name="content_paste" slot="prefix"></o-icon>
-                            <o-typography>Copy code</o-typography>
-                        </o-button>
+                            <pap-icon name="done" slot="prefix"></pap-icon>
+                            <pap-icon name="content_paste" slot="prefix"></pap-icon>
+                            <pap-typography>Copy code</pap-typography>
+                        </pap-button>
                     </header>
                     <main></main>
-                </o-box-template>
+                </pap-box-template>
             </code>
             <fieldset part="fieldset">
                 <legend>
-                    <o-typography>result</o-typography>
+                    <pap-typography>result</pap-typography>
                 </legend>
                 <slot @slotchange="${this.handleslotchange}"></slot>
             </fieldset>
@@ -479,6 +479,6 @@ export class Codeblock extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-codeblock": Codeblock;
+        "pap-codeblock": Codeblock;
     }
 }

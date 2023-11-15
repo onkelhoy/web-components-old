@@ -10,15 +10,15 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-chat-smileys')) {
-  cElements.define('o-chat-smileys', Smileys);
+if (!cElements.get('pap-chat-smileys')) {
+  cElements.define('pap-chat-smileys', Smileys);
 }
-if (!cElements.get('o-chat-message')) {
-  cElements.define('o-chat-message', Message);
+if (!cElements.get('pap-chat-message')) {
+  cElements.define('pap-chat-message', Message);
 }
-if (!cElements.get('o-chat-writer')) {
-  cElements.define('o-chat-writer', Writer);
+if (!cElements.get('pap-chat-writer')) {
+  cElements.define('pap-chat-writer', Writer);
 }
-if (!cElements.get('o-chat')) {
-  cElements.define('o-chat', Chat);
+if (!cElements.get('pap-chat')) {
+  cElements.define('pap-chat', Chat);
 }

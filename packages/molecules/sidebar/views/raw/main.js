@@ -1,14 +1,14 @@
 // tools
-import '@henry2/tools-doc/wc';
+import '@papit/tools-doc/wc';
 
 // components
-import '@henry2/sidebar/wc';
-import '@henry2/sidebar-contact/wc';
+import '@papit/sidebar/wc';
+import '@papit/sidebar-contact/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');
 
-    const contactElement = document.querySelector('o-sidebar-contact');
+    const contactElement = document.querySelector('pap-sidebar-contact');
     if (contactElement)
     {
         contactElement.contacts = [

@@ -20,19 +20,19 @@
       },
       {
         "name": "html",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "property",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "FormatNumber",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "BaseTemplate",
-        "from": "@henry2/templates-base"
+        "from": "@papit/templates-base"
       },
       {
         "name": "style",
@@ -48,13 +48,13 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/badge",
     "sources": [],
     "variables": {
-      "--o-color-neutral-200": {
+      "--pap-color-neutral-200": {
         "usecases": [
           "--background"
         ],
         "fallbacks": []
       },
-      "--o-color-neutral-300": {
+      "--pap-color-neutral-300": {
         "usecases": [
           "--border"
         ],
@@ -66,7 +66,7 @@
         ],
         "fallbacks": []
       },
-      "--o-color-black": {
+      "--pap-color-black": {
         "usecases": [
           "color"
         ],

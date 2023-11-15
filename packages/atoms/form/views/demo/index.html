@@ -16,52 +16,52 @@
 <body>
     <doc-card>
         <h4 slot="header">With Error</h4>
-        <o-codeblock display="both">
-            <o-form id="form_error" error="Hello Im an error?">
-                <o-input required="true" label="AA" name="a.a"></o-input>
-                <o-input required="true" label="AAA" name="a.a.a"></o-input>
-                <o-input required="true" label="AAB" name="a.a.b"></o-input>
-                <o-input required="true" label="AB" name="a.b" type="number"></o-input>
-                <o-textarea required="true" label="AC" name="a.c"></o-textarea>
-                <o-checkbox required="true" label="AD" name="a.d"></o-checkbox>
-                <o-dropdown required="true" label="AE" name="a.e">
-                    <o-option value="1">first</o-option>
-                    <o-option value="2">second</o-option>
-                    <o-option value="3">third</o-option>
-                </o-dropdown>
+        <pap-codeblock display="both">
+            <pap-form id="form_error" error="Hello Im an error?">
+                <pap-input required="true" label="AA" name="a.a"></pap-input>
+                <pap-input required="true" label="AAA" name="a.a.a"></pap-input>
+                <pap-input required="true" label="AAB" name="a.a.b"></pap-input>
+                <pap-input required="true" label="AB" name="a.b" type="number"></pap-input>
+                <pap-textarea required="true" label="AC" name="a.c"></pap-textarea>
+                <pap-checkbox required="true" label="AD" name="a.d"></pap-checkbox>
+                <pap-dropdown required="true" label="AE" name="a.e">
+                    <pap-option value="1">first</pap-option>
+                    <pap-option value="2">second</pap-option>
+                    <pap-option value="3">third</pap-option>
+                </pap-dropdown>
 
-                <o-button color="danger" type="submit">submit</o-button>
-                <o-button color="primary" type="reset">reset</o-button>
-            </o-form>
-        </o-codeblock>
+                <pap-button color="danger" type="submit">submit</pap-button>
+                <pap-button color="primary" type="reset">reset</pap-button>
+            </pap-form>
+        </pap-codeblock>
 
         <button id="show_error">show error</button>
     </doc-card>
     <!-- <doc-card>
         <h4 slot="header">Testing</h4>
-        <o-codeblock display="both">
+        <pap-codeblock display="both">
             <form id="test-form">
                 <input placeholder="hello" required="true" name="hello" />
                 <input placeholder="foo" required="true" name="foo" />
                 <button type="submit">submit</button>
             </form>
-        </o-codeblock>
+        </pap-codeblock>
 
         <button id="show_warning">show warning</button>
     </doc-card> -->
     <doc-card>
         <h4 slot="header">With Warning</h4>
-        <o-codeblock display="both">
-            <o-form id="form_warning" warning="Hello Im an warning?"></o-form>
-        </o-codeblock>
+        <pap-codeblock display="both">
+            <pap-form id="form_warning" warning="Hello Im an warning?"></pap-form>
+        </pap-codeblock>
 
         <button id="show_warning">show warning</button>
     </doc-card>
     <doc-card>
         <h4 slot="header">With Success</h4>
-        <o-codeblock display="both">
-            <o-form id="form_success" success="Hello Im an success?"></o-form>
-        </o-codeblock>
+        <pap-codeblock display="both">
+            <pap-form id="form_success" success="Hello Im an success?"></pap-form>
+        </pap-codeblock>
 
         <button id="show_success">show success</button>
     </doc-card>

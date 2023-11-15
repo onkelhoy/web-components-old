@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-popup')) {
-  cElements.define('o-popup', Popup);
+if (!cElements.get('pap-popup')) {
+  cElements.define('pap-popup', Popup);
 }

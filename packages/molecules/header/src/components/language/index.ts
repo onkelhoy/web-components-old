@@ -1,14 +1,14 @@
 // utils 
-import { html, query } from "@henry2/tools-utils";
-import { TRANSLATION_ADDED, TRANSLATION_CHANGE_EVENTNAME, InitTranslations } from "@henry2/tools-translator";
-import "@henry2/tools-translator/wc";
+import { html, query } from "@papit/tools-utils";
+import { TRANSLATION_ADDED, TRANSLATION_CHANGE_EVENTNAME, InitTranslations } from "@papit/tools-translator";
+import "@papit/tools-translator/wc";
 
 // atoms
-import "@henry2/menu/wc";
-import { Menu, MenuItem } from "@henry2/menu";
+import "@papit/menu/wc";
+import { Menu, MenuItem } from "@papit/menu";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local imports
 import { style } from "./style";
@@ -18,7 +18,7 @@ export class Language extends BaseTemplate {
   static style = style;
 
   @query('span.display') displayElement!: HTMLSpanElement;
-  @query('o-menu') menuElement!: Menu;
+  @query('pap-menu') menuElement!: Menu;
   @query('template') templateElement!: HTMLTemplateElement;
 
   constructor() {
@@ -45,7 +45,7 @@ export class Language extends BaseTemplate {
   private handlenewlanguage = () => {
     if (window.oTranslation)
     {
-      const currentLanguages = this.menuElement.querySelectorAll<MenuItem>("o-menu-item");
+      const currentLanguages = this.menuElement.querySelectorAll<MenuItem>("pap-menu-item");
       const languages = Array.from(window.oTranslation.map);
       const exists = new Set();
   
@@ -66,13 +66,13 @@ export class Language extends BaseTemplate {
         {
           const newitem = this.templateElement.content.cloneNode(true) as HTMLElement;
         
-          const itemElement = newitem.querySelector<MenuItem>('o-menu-item');
+          const itemElement = newitem.querySelector<MenuItem>('pap-menu-item');
           if (itemElement) 
           {
             itemElement.setAttribute('value', set.id);
           }
   
-          const translatorElement = newitem.querySelector("o-translator");
+          const translatorElement = newitem.querySelector("pap-translator");
           if (translatorElement) translatorElement.innerHTML = set.name
   
           const spanElement = newitem.querySelector("span.flag > span");
@@ -108,28 +108,28 @@ export class Language extends BaseTemplate {
   render() {
     return html`
       <template>
-        <o-menu-item>
+        <pap-menu-item>
           <div class="grid">
             <span class="wrapper">
               <span class="flag">
                 <span></span>
               </span>
             </span>
-            <o-typography><o-translator></o-translator></o-typography>
+            <pap-typography><pap-translator></pap-translator></pap-typography>
           </div>
-        </o-menu-item>
+        </pap-menu-item>
       </template>
 
-      <o-menu placement="bottom-left" @select="${this.handlelanguageselect}">
+      <pap-menu placement="bottom-left" @select="${this.handlelanguageselect}">
         <span slot="button-prefix" class="wrapper">
           <span class="flag globe">
             <span class="display">
-              <o-icon name="globe">g</o-icon>
+              <pap-icon name="globe">g</pap-icon>
             </span>
           </span>
         </span>
-        <o-menu-item value="init"><o-translator>No Languages Available</o-translator></o-menu-item>
-      </o-menu>
+        <pap-menu-item value="init"><pap-translator>No Languages Available</pap-translator></pap-menu-item>
+      </pap-menu>
     `
   }
 }

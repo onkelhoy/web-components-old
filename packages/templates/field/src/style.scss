@@ -18,20 +18,20 @@ $size-map: (
 
 @each $name, $value in $size-map {
     :host([size="#{$name}"]) {
-        o-box-template.wrapper {
-            height: var(--o-field-height-#{$name}, #{map-get($value, height)});
+        pap-box-template.wrapper {
+            height: var(--pap-field-height-#{$name}, #{map-get($value, height)});
         }
         footer,
         header {
-            height: var(--o-field-block-height-#{$name}, #{map-get($value, blockheight)});
+            height: var(--pap-field-block-height-#{$name}, #{map-get($value, blockheight)});
         }
     }
 } 
 
 :host {
-    --border: var(--o-field-background-color-light, var(--o-color-black, black));
-    --outline: var(--o-field-background-color-light, rgb(90, 46, 250));
-    --color: var(--o-field-text-color-light, var(--o-color-black, black));
+    --border: var(--pap-field-background-color-light, var(--pap-color-black, black));
+    --outline: var(--pap-field-background-color-light, rgb(90, 46, 250));
+    --color: var(--pap-field-text-color-light, var(--pap-color-black, black));
 
     display: block;
     color: var(--color);
@@ -52,7 +52,7 @@ $size-map: (
         }
     }
 
-    o-box-template.wrapper {
+    pap-box-template.wrapper {
         box-sizing: border-box;
         position: relative;
         display: flex;
@@ -124,15 +124,15 @@ $size-map: (
 :host(:focus) {
     outline: none;
 
-    o-box-template.wrapper {
+    pap-box-template.wrapper {
         outline: 1px solid var(--outline);
     }
 }
 
 @media (prefers-color-scheme: dark) {
     :host {
-        --border: var(--o-field-background-color-dark, var(--o-color-black, white));
-        --outline: var(--o-field-background-color-dark, rgb(195, 211, 255));
-        --color: var(--o-field-text-color-dark, var(--o-color-black, white));
+        --border: var(--pap-field-background-color-dark, var(--pap-color-black, white));
+        --outline: var(--pap-field-background-color-dark, rgb(195, 211, 255));
+        --color: var(--pap-field-text-color-dark, var(--pap-color-black, white));
     }
 }

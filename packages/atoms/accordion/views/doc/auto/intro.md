@@ -3,10 +3,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -28,7 +28,7 @@ export class Accordion extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-accordion": Accordion;
+        "pap-accordion": Accordion;
     }
 }
 ## REGISTER-CODE:
@@ -41,6 +41,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-accordion')) {
-  cElements.define('o-accordion', Accordion);
+if (!cElements.get('pap-accordion')) {
+  cElements.define('pap-accordion', Accordion);
 }

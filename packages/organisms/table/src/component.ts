@@ -1,11 +1,11 @@
 // utils 
-import { html, property, query } from "@henry2/tools-utils";
+import { html, property, query } from "@papit/tools-utils";
 
 // molecules
-import "@henry2/pagination/wc";
+import "@papit/pagination/wc";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -32,7 +32,7 @@ export class Table extends BaseTemplate {
         if (e.target instanceof CellTitle)
         {
             this.tableElement
-                .querySelectorAll<CellTitle>('o-cell-title')
+                .querySelectorAll<CellTitle>('pap-cell-title')
                 .forEach(element => {
                     if (element !== e.target)
                     {
@@ -58,7 +58,7 @@ export class Table extends BaseTemplate {
 
             return html`
                 <td>
-                    <o-cell @change="${this.handlecellchange}" value="${value}" allowEdit="${allowEdit}"></o-cell>
+                    <pap-cell @change="${this.handlecellchange}" value="${value}" allowEdit="${allowEdit}"></pap-cell>
                 </td>
             `
         }
@@ -73,7 +73,7 @@ export class Table extends BaseTemplate {
 
             return html`
                 <th>
-                    <o-cell-title id="${colasheadercell.value}" @sorting="${this.handlesorting}" canSort="${cansort}">${colasheadercell.value}</o-cell-title>
+                    <pap-cell-title id="${colasheadercell.value}" @sorting="${this.handlesorting}" canSort="${cansort}">${colasheadercell.value}</pap-cell-title>
                 </th>
             `
         }
@@ -96,7 +96,7 @@ export class Table extends BaseTemplate {
             </table>
             <footer>
                 ${this.config.pagination ? html`
-                <o-pagination perpage="5" total="${this.config.pagination.size || this.rows.length}"></o-pagination> 
+                <pap-pagination perpage="5" total="${this.config.pagination.size || this.rows.length}"></pap-pagination> 
                 ` : ''}
             </footer>
         `
@@ -106,6 +106,6 @@ export class Table extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-table": Table;
+        "pap-table": Table;
     }
 }

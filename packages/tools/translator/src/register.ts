@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-translator')) {
-  cElements.define('o-translator', Translator);
+if (!cElements.get('pap-translator')) {
+  cElements.define('pap-translator', Translator);
 }

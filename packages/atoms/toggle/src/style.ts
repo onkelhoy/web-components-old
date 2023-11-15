@@ -2,7 +2,7 @@ export const style = `:host {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  color: var(--o-color-icon, #29292F); }
+  color: var(--pap-color-icon, #29292F); }
   :host input {
     display: none !important; }
   :host::part(wrapper) {
@@ -12,14 +12,14 @@ export const style = `:host {
     height: auto;
     border-radius: var(--radius-max, 1000px);
     margin-left: var(--margin-small, 8px); }
-  :host o-box-template.toggle {
+  :host pap-box-template.toggle {
     content: '';
     display: inline-block;
     padding: var(--padding-smaller, 4px);
-    border: 1px solid var(--o-color-border, #C7CBD4); }
-    :host o-box-template.toggle div {
+    border: 1px solid var(--pap-color-border, #C7CBD4); }
+    :host pap-box-template.toggle div {
       position: relative; }
-      :host o-box-template.toggle div span[part="indicator"] {
+      :host pap-box-template.toggle div span[part="indicator"] {
         position: absolute;
         transition: left ease var(--timing-fast, 80ms);
         content: '';
@@ -27,45 +27,45 @@ export const style = `:host {
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        background-color: var(--o-color-bg-inverse, #29292F); }
+        background-color: var(--pap-color-bg-inverse, #29292F); }
 
 :host([hasfocus="true"]),
 :host(:focus) {
   outline: none; }
-  :host([hasfocus="true"]) o-box-template.wrapper,
-  :host(:focus) o-box-template.wrapper {
+  :host([hasfocus="true"]) pap-box-template.wrapper,
+  :host(:focus) pap-box-template.wrapper {
     outline: none !important; }
-  :host([hasfocus="true"]) o-box-template.toggle,
-  :host(:focus) o-box-template.toggle {
-    outline: 1px solid var(--o-color-border-strong, #29292F); }
+  :host([hasfocus="true"]) pap-box-template.toggle,
+  :host(:focus) pap-box-template.toggle {
+    outline: 1px solid var(--pap-color-border-strong, #29292F); }
 
 :host([checked="false"]) span[part="indicator"] {
   left: 0; }
 
-:host([size="small"]) o-box-template.toggle {
+:host([size="small"]) pap-box-template.toggle {
   height: var(--unit-size3, 16px);
   width: var(--field-size-medium, 40px); }
-  :host([size="small"]) o-box-template.toggle div span[part="indicator"] {
+  :host([size="small"]) pap-box-template.toggle div span[part="indicator"] {
     width: var(--unit-size3, 16px);
     height: var(--unit-size3, 16px); }
 
 :host([size="small"][checked="true"]) span[part="indicator"] {
   left: calc(100% - var(--unit-size3, 16px)); }
 
-:host([size="medium"]) o-box-template.toggle {
+:host([size="medium"]) pap-box-template.toggle {
   height: var(--field-size-smaller, 24px);
   width: var(--field-size-large, 56px); }
-  :host([size="medium"]) o-box-template.toggle div span[part="indicator"] {
+  :host([size="medium"]) pap-box-template.toggle div span[part="indicator"] {
     width: var(--field-size-smaller, 24px);
     height: var(--field-size-smaller, 24px); }
 
 :host([size="medium"][checked="true"]) span[part="indicator"] {
   left: calc(100% - var(--field-size-smaller, 24px)); }
 
-:host([size="large"]) o-box-template.toggle {
+:host([size="large"]) pap-box-template.toggle {
   height: var(--field-size-small, 32px);
   width: calc(1.3 * var(--field-size-large, 56px)); }
-  :host([size="large"]) o-box-template.toggle div span[part="indicator"] {
+  :host([size="large"]) pap-box-template.toggle div span[part="indicator"] {
     width: var(--field-size-small, 32px);
     height: var(--field-size-small, 32px); }
 

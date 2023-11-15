@@ -1,13 +1,13 @@
 // utils 
-import { html, property, Size } from "@henry2/tools-utils";
+import { html, property, Size } from "@papit/tools-utils";
 
 // atoms 
-import "@henry2/typography/wc";
-import "@henry2/icon/wc";
+import "@papit/typography/wc";
+import "@papit/icon/wc";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
-import "@henry2/templates-box/wc";
+import { BaseTemplate } from "@papit/templates-base";
+import "@papit/templates-box/wc";
 
 import { style } from "./style";
 
@@ -24,11 +24,11 @@ export class Guideline extends BaseTemplate {
         <slot></slot>
       </showcase-card>
       <div>
-        ${this.variant === "success" ? html`<o-icon size="small" name="success"></o-icon>` : ''}
-        ${this.variant === "warning" ? html`<o-icon size="small" name="warning"></o-icon>` : ''}
-        ${this.variant === "error" ? html`<o-icon size="small" name="close"></o-icon>` : ''}
+        ${this.variant === "success" ? html`<pap-icon size="small" name="success"></pap-icon>` : ''}
+        ${this.variant === "warning" ? html`<pap-icon size="small" name="warning"></pap-icon>` : ''}
+        ${this.variant === "error" ? html`<pap-icon size="small" name="close"></pap-icon>` : ''}
 
-        <o-typography>${this.text}</o-typography>
+        <pap-typography>${this.text}</pap-typography>
       </div>
     `
   }

@@ -78,11 +78,11 @@
       },
       {
         "name": "BaseTemplate",
-        "from": "@henry2/templates-base"
+        "from": "@papit/templates-base"
       },
       {
         "name": "property",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       }
     ],
     "/Users/henry/Developer/projects/web-components/packages/atoms/icon": [
@@ -92,15 +92,15 @@
       },
       {
         "name": "property",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "html",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "AssetTemplate",
-        "from": "@henry2/templates-asset"
+        "from": "@papit/templates-asset"
       },
       {
         "name": "style",

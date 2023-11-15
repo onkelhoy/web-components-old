@@ -1,19 +1,19 @@
 body {
-  background-color: var(--o-color-bg-canvas, #EAEBEF);
-  color: var(--o-color-text, #29292F);
-  font-family: var(--o-font-family);
+  background-color: var(--pap-color-bg-canvas, #EAEBEF);
+  color: var(--pap-color-text, #29292F);
+  font-family: var(--pap-font-family);
 }
-o-codeblock::part(fieldset) {
+pap-codeblock::part(fieldset) {
   overflow-x: hidden;
 }
-o-sidebar {
+pap-sidebar {
   max-height: 60rem;
 }
-o-sidebar::part(base) {
+pap-sidebar::part(base) {
   max-height: 60rem;
   position: relative;
 }
-o-sidebar[mode="hover"]::part(base) {
+pap-sidebar[mode="hover"]::part(base) {
   position: absolute;
 }
 .balloon {
@@ -27,26 +27,26 @@ o-sidebar[mode="hover"]::part(base) {
   left: 300px;
   width: 30px;
   height: 30px;
-  background-color: var(--o-color-bg-warning, #FFA800);
+  background-color: var(--pap-color-bg-warning, #FFA800);
 }
 .balloon2 {
   top: 600px;
   left: 350px;
   width: 80px;
   height: 80px;
-  background-color: var(--o-color-accent-02-300);
+  background-color: var(--pap-color-accent-02-300);
 }
 .balloon3 {
   top: 800px;
   left: 300px;
   width: 200px;
   height: 200px;
-  background-color: var(--o-color-bg-success, #2E701B);
+  background-color: var(--pap-color-bg-success, #2E701B);
 }
 .balloon4 {
   top: 900px;
   left: 250px;
   width: 160px;
   height: 160px;
-  background-color: var(--o-color-bg-danger, #B70E1E);
+  background-color: var(--pap-color-bg-danger, #B70E1E);
 }

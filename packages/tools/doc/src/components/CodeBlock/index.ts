@@ -1,15 +1,15 @@
 // utils 
-import { html, property, query } from "@henry2/tools-utils";
+import { html, property, query } from "@papit/tools-utils";
 
 // atoms 
-import { Icon } from '@henry2/icon';
-import { Typography } from "@henry2/typography";
-import "@henry2/button/wc";
-import "@henry2/icon/wc";
-import "@henry2/typography/wc";
+import { Icon } from '@papit/icon';
+import { Typography } from "@papit/typography";
+import "@papit/button/wc";
+import "@papit/icon/wc";
+import "@papit/typography/wc";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 import { style } from "./style.js";
 
@@ -27,8 +27,8 @@ export class CodeBlock extends BaseTemplate {
 
     @property() lang: Language = "text";
     @property() display: Display = "code";
-    @query('o-button > o-icon#copy-status') copyIcon!: Icon;
-    @query('o-button > o-typography') copyText!: Typography;
+    @query('pap-button > pap-icon#copy-status') copyIcon!: Icon;
+    @query('pap-button > pap-typography') copyText!: Typography;
 
     private codeValue: string;
     private formatContent!: string;
@@ -166,23 +166,23 @@ export class CodeBlock extends BaseTemplate {
         return html`
             <code part="code">
                 <nav>
-                    <o-typography>${this.lang}</o-typography>
-                    <o-button 
+                    <pap-typography>${this.lang}</pap-typography>
+                    <pap-button 
                         variant="clear" 
                         size="small" 
                         radius="none" @click="${this.handleCopy}" 
                         id="copy"
                     >
-                        <o-icon id="copy-status" name="content_paste" slot="prefix"></o-icon>
-                        <o-typography>Copy code</o-typography>
-                    </o-button>
+                        <pap-icon id="copy-status" name="content_paste" slot="prefix"></pap-icon>
+                        <pap-typography>Copy code</pap-typography>
+                    </pap-button>
                 </nav>
                 <pre>
                     ${this.formatContent}
                 </pre>
             </code>
             <fieldset part="fieldset">
-                <legend><o-typography>Result</o-typography></legend>
+                <legend><pap-typography>Result</pap-typography></legend>
                 <span>
                 <slot @slotchange=${this.handleSlotChange}></slot>
                 </span>

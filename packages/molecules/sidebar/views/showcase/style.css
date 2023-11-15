@@ -70,9 +70,9 @@ section > * {
   left: 0;
 
   background-image: 
-    linear-gradient(to left, var(--o-color-border, #C7CBD4) 2px, transparent 2px),
-    linear-gradient(to bottom, transparent calc(50% - 1px), var(--o-color-border, #C7CBD4) calc(50% - 1px), var(--o-color-border, #C7CBD4) calc(50% + 1px), transparent calc(50% + 1px)),
-    linear-gradient(to right, var(--o-color-border, #C7CBD4) 2px, transparent 2px);
+    linear-gradient(to left, var(--pap-color-border, #C7CBD4) 2px, transparent 2px),
+    linear-gradient(to bottom, transparent calc(50% - 1px), var(--pap-color-border, #C7CBD4) calc(50% - 1px), var(--pap-color-border, #C7CBD4) calc(50% + 1px), transparent calc(50% + 1px)),
+    linear-gradient(to right, var(--pap-color-border, #C7CBD4) 2px, transparent 2px);
 }
 .messure-line::before {
   transform: translateY(-100%);
@@ -90,9 +90,9 @@ section > * {
   top: 0;
 
   background-image: 
-    linear-gradient(to bottom, var(--o-color-border, #C7CBD4) 2px, transparent 2px),
-    linear-gradient(to left, transparent calc(50% - 1px), var(--o-color-border, #C7CBD4) calc(50% - 1px), var(--o-color-border, #C7CBD4) calc(50% + 1px), transparent calc(50% + 1px)),
-    linear-gradient(to top, var(--o-color-border, #C7CBD4) 2px, transparent 2px);
+    linear-gradient(to bottom, var(--pap-color-border, #C7CBD4) 2px, transparent 2px),
+    linear-gradient(to left, transparent calc(50% - 1px), var(--pap-color-border, #C7CBD4) calc(50% - 1px), var(--pap-color-border, #C7CBD4) calc(50% + 1px), transparent calc(50% + 1px)),
+    linear-gradient(to top, var(--pap-color-border, #C7CBD4) 2px, transparent 2px);
 }
 .messure-line.vertical::before {
   transform: translateX(-100%);
@@ -132,14 +132,14 @@ div.card:has(div.page) {
   flex-direction: row;
   /* position: absolute; */
 }
-showcase-card div.page o-tabs::part(header) {
-  background-color: var(--o-color-bg, #FFFFFF);
+showcase-card div.page pap-tabs::part(header) {
+  background-color: var(--pap-color-bg, #FFFFFF);
   border-radius: var(--radius-medium, 8px);
   padding: var(--padding-medium, 16px);
   margin-top: 3rem;
 }
 showcase-card div.page div.page-card {
-  background-color: var(--o-color-bg, #FFFFFF);
+  background-color: var(--pap-color-bg, #FFFFFF);
   padding: var(--padding-medium, 16px);
   border-radius: var(--radius-medium, 8px);
   margin-bottom: var(--margin-small, 8px);
@@ -150,37 +150,37 @@ showcase-card div.page div.dropzone {
   content: '';
   height: 6rem;
   border-radius: var(--radius-medium, 8px);
-  background-color: var(--o-color-bg-secondary, #F6F7F8);
+  background-color: var(--pap-color-bg-secondary, #F6F7F8);
   border: 1px dashed grey;
 }
-o-sidebar {
+pap-sidebar {
   max-height: 60rem;
 }
-o-sidebar::part(base) {
+pap-sidebar::part(base) {
   max-height: 60rem;
   position: relative;
 }
-o-sidebar[mode="hover"]::part(base) {
+pap-sidebar[mode="hover"]::part(base) {
     position: absolute;
 }
-o-sidebar[mode="open"].mobile {
+pap-sidebar[mode="open"].mobile {
     width: 100%;
 }
-o-sidebar[mode="open"].mobile::part(base) {
+pap-sidebar[mode="open"].mobile::part(base) {
   position: absolute;
   max-width: 320px;
   width: 85%;
 }
-o-sidebar[mode="hover"].hover::part(base) {
+pap-sidebar[mode="hover"].hover::part(base) {
   width: 320px;
-  box-shadow: var(--shadow-horizontal-m, 4px 0 6px var(--o-color-shadow, color-mix(in oklab, var(--o-color-neutral-600, #6E7087), transparent 80%))) !important;
+  box-shadow: var(--shadow-horizontal-m, 4px 0 6px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%))) !important;
 }
 
 /* components */
-section#component + o-divider + section showcase-card::part(box) {
+section#component + pap-divider + section showcase-card::part(box) {
   overflow-y: hidden;
 }
-section#component + o-divider + section td {
+section#component + pap-divider + section td {
   min-width: 320px;
   padding: var(--padding-medium, 16px);
   overflow: hidden;
@@ -192,9 +192,9 @@ section#nav-group td:nth-child(2) {
   width: 320px;
 }
 
-section#responsive-width + section showcase-card > o-typography[variant="C2"],
-section#visibility + section showcase-card > o-typography[variant="C2"],
-section#expand-on-hover + section showcase-card > o-typography[variant="C2"] {
+section#responsive-width + section showcase-card > pap-typography[variant="C2"],
+section#visibility + section showcase-card > pap-typography[variant="C2"],
+section#expand-on-hover + section showcase-card > pap-typography[variant="C2"] {
   position: absolute;
   width: 100%;
 }
@@ -209,7 +209,7 @@ section#expand-on-hover + section div.card {
   margin-top: var(--margin-large, 24px);
 }
 
-section#scrolling o-sidebar {
+section#scrolling pap-sidebar {
   max-height: 110%;
 }
 
@@ -217,10 +217,10 @@ section#contact-section + section > showcase-card:first-child {
   flex-grow: 1;
   width: 100%;
 }
-section#contact-section + section .card > o-sidebar::part(base) {
+section#contact-section + section .card > pap-sidebar::part(base) {
   height: 40rem;
 }
-section#contact-section + section .card > o-sidebar {
+section#contact-section + section .card > pap-sidebar {
   height: 40rem;
   transform: translateY(-17.5rem);
 }
@@ -236,7 +236,7 @@ section#nav-heading-states td:nth-child(1) {
 section#nav-item-states td:nth-child(2),
 section#nav-heading-states td:nth-child(2) {
   min-width: 320px;
-  background-color: var(--o-color-bg, #FFFFFF);
+  background-color: var(--pap-color-bg, #FFFFFF);
 }
 
 section#counter-behaviour showcase-card::part(box) {
@@ -251,10 +251,10 @@ section#animation div.box {
   align-items: flex-start;
   gap: var(--gap-small, 0.5rem);
   border-radius: var(--radius-large, 16px);
-  background-color: var(--o-color-bg-tertiary, #EAEBEF);
+  background-color: var(--pap-color-bg-tertiary, #EAEBEF);
 }
 
-section#overlay + section o-sidebar {
+section#overlay + section pap-sidebar {
   position: static;
 }
 
@@ -271,12 +271,12 @@ section#responsive-width + section > showcase-card:first-child > div + div {
 }
 
 /* examples */
-section.example o-sidebar::part(base),
-section.example o-sidebar {
+section.example pap-sidebar::part(base),
+section.example pap-sidebar {
   height: 100%;
 }
 section.example showcase-card::part(box) {
-  background-color: var(--o-color-bg-canvas, #EAEBEF);
+  background-color: var(--pap-color-bg-canvas, #EAEBEF);
 }
 section.example showcase-card > div {
   flex-direction: row;
@@ -292,7 +292,7 @@ section.example showcase-card > div > div {
   flex-grow: 1;
 }
 section.example showcase-card .box {
-  background-color: var(--o-color-bg, #FFFFFF);
+  background-color: var(--pap-color-bg, #FFFFFF);
   border-radius: var(--radius-medium, 8px);
 }
 section.example showcase-card .box:nth-child(2) {
@@ -317,7 +317,7 @@ section.example showcase-card .btn:first-child {
   margin-left: auto;
 }
 section.example showcase-card .btn {
-  background-color: var(--o-color-bg, #FFFFFF);
+  background-color: var(--pap-color-bg, #FFFFFF);
   border-radius: var(--radius-max, 1000px);
   height: 2rem;
   width: 8rem;

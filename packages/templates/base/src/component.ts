@@ -1,4 +1,4 @@
-import { NextParent, property, suspense, findComments } from "@henry2/tools-utils";
+import { NextParent, property, suspense, findComments } from "@papit/tools-utils";
 
 import { FunctionCallback, RenderType } from "./types";
 
@@ -406,6 +406,6 @@ export class BaseTemplate extends HTMLElement {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-base-template": BaseTemplate;
+        "pap-base-template": BaseTemplate;
     }
 }

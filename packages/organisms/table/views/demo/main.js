@@ -1,12 +1,12 @@
 // tools
-import '@henry2/tools-doc/wc';
+import '@papit/tools-doc/wc';
 
 // component
-import '@henry2/table/wc';
+import '@papit/table/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');
-    document.querySelectorAll('o-table').forEach(table => {
+    document.querySelectorAll('pap-table').forEach(table => {
         table.rows = [
             [{value: "standards", header: true, sorting: true}, { value: "svenska", header: true, sorting: true }, { value: "deutch", header: true, sorting: true}],
             ["hello", "hejsan", "wunderbar"],

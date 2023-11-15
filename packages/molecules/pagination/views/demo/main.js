@@ -1,8 +1,8 @@
 // tools
-import '@henry2/tools-doc/wc';
+import '@papit/tools-doc/wc';
 
 // component
-import '@henry2/pagination/wc';
+import '@papit/pagination/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');

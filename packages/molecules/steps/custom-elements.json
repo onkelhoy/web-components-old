@@ -18,15 +18,15 @@
       },
       {
         "name": "html",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "property",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "BaseTemplate",
-        "from": "@henry2/templates-base"
+        "from": "@papit/templates-base"
       },
       {
         "name": "style",
@@ -42,29 +42,29 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/steps",
     "sources": [],
     "variables": {
-      "--o-steps-border-color-unselected": {
+      "--pap-steps-border-color-unselected": {
         "usecases": [
           "--border-color-unselected"
         ],
         "fallbacks": [
-          "var(--o-color-canvas-400)"
+          "var(--pap-color-canvas-400)"
         ]
       },
-      "--o-color-canvas-400": {
+      "--pap-color-canvas-400": {
         "usecases": [
           "--border-color-unselected"
         ],
         "fallbacks": []
       },
-      "--o-steps-border-color-selected": {
+      "--pap-steps-border-color-selected": {
         "usecases": [
           "--border-color-selected"
         ],
         "fallbacks": [
-          "var(--o-color-CB-800)"
+          "var(--pap-color-CB-800)"
         ]
       },
-      "--o-color-CB-800": {
+      "--pap-color-CB-800": {
         "usecases": [
           "--border-color-selected"
         ],
@@ -72,14 +72,14 @@
       },
       "--border-color-selected": {
         "usecases": [
-          "--o-steps-circle-selected-color",
+          "--pap-steps-circle-selected-color",
           "background-color"
         ],
         "fallbacks": []
       },
       "--border-color-unselected": {
         "usecases": [
-          "--o-steps-circle-stale-color",
+          "--pap-steps-circle-stale-color",
           "background-color"
         ],
         "fallbacks": []
@@ -96,7 +96,7 @@
         ],
         "fallbacks": []
       },
-      "--o-color-white": {
+      "--pap-color-white": {
         "usecases": [
           "background-color"
         ],

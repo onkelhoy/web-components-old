@@ -1,5 +1,5 @@
 export const style = `:host {
-  color: var(--o-color-text, #29292F);
+  color: var(--pap-color-text, #29292F);
   cursor: var(--select-pointer, pointer);
   user-select: none;
   white-space: nowrap;
@@ -12,7 +12,7 @@ export const style = `:host {
   position: relative; }
 
 :host(:hover) {
-  color: var(--o-color-text-hover); }
+  color: var(--pap-color-text-hover); }
   :host(:hover):after {
     content: '';
     position: absolute;
@@ -21,12 +21,12 @@ export const style = `:host {
     height: var(--unit-size-1, 4px);
     border-top-left-radius: var(--radius-small, 4px);
     border-top-right-radius: var(--radius-small, 4px);
-    background-color: var(--o-color-bg-tertiary, #EAEBEF); }
+    background-color: var(--pap-color-bg-tertiary, #EAEBEF); }
 
 :host(:active) {
-  color: var(--o-color-text-pressed); }
+  color: var(--pap-color-text-pressed); }
   :host(:active):after {
-    background-color: var(--o-color-bg-secondary, #F6F7F8); }
+    background-color: var(--pap-color-bg-secondary, #F6F7F8); }
 
 ::slotted(*) {
   pointer-events: none; }`;

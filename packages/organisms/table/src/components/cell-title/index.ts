@@ -1,12 +1,12 @@
 // utils 
-import { html, property, query } from "@henry2/tools-utils";
+import { html, property, query } from "@papit/tools-utils";
 
 // atoms 
-import "@henry2/typography/wc";
-import "@henry2/icon/wc";
+import "@papit/typography/wc";
+import "@papit/icon/wc";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 import { style } from "./style";
 
@@ -46,10 +46,10 @@ export class CellTitle extends BaseTemplate {
 
   render() {
     return html`
-      <o-typography variant="C2"><slot></slot></o-typography>
-      <o-icon name="table.sort.none">SORT</o-icon>
-      <o-icon name="table.sort.up">SORT UP</o-icon>
-      <o-icon name="table.sort.down">SORT DOWN</o-icon>
+      <pap-typography variant="C2"><slot></slot></pap-typography>
+      <pap-icon name="table.sort.none">SORT</pap-icon>
+      <pap-icon name="table.sort.up">SORT UP</pap-icon>
+      <pap-icon name="table.sort.down">SORT DOWN</pap-icon>
     `
   }
 }

@@ -8,10 +8,10 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-editor-input')) {
-  cElements.define('o-editor-input', Input);
+if (!cElements.get('pap-editor-input')) {
+  cElements.define('pap-editor-input', Input);
 }
 
-if (!cElements.get('o-editor')) {
-  cElements.define('o-editor', Editor);
+if (!cElements.get('pap-editor')) {
+  cElements.define('pap-editor', Editor);
 }

@@ -1,5 +1,5 @@
 export const style = `:host div {
-  background-color: var(--o-divider-color, var(--o-color-border, #C7CBD4));
+  background-color: var(--pap-divider-color, var(--pap-color-border, #C7CBD4));
   content: ''; }
 
 :host([mode="horizontal"]) {

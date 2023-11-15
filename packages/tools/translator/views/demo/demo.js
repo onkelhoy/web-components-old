@@ -1,12 +1,12 @@
-import { html } from "@henry2/tools-utils";
-import { BaseTemplate } from "@henry2/templates-base";
+import { html } from "@papit/tools-utils";
+import { BaseTemplate } from "@papit/templates-base";
 
-import { Translator } from '@henry2/tools-translator';
+import { Translator } from '@papit/tools-translator';
 
 class InsideDemo extends BaseTemplate {
   render() {
     return html`
-      <o-translator>${this.getAttribute('text')}</o-translator>
+      <pap-translator>${this.getAttribute('text')}</pap-translator>
     `
   }
 }

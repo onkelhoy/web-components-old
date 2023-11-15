@@ -6,10 +6,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
  // utils 
-import { property } from "@henry2/tools-utils";
+import { property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 export class FormElementTemplate extends BaseTemplate {
 
@@ -22,7 +22,7 @@ export class FormElementTemplate extends BaseTemplate {
     protected findForm() {
 
         setTimeout(() => {
-            const closestOFORM = this.shadow_closest("o-form");
+            const closestOFORM = this.shadow_closest("pap-form");
             if (closestOFORM)
             {
                 const form = closestOFORM.querySelector<HTMLFormElement>('form');
@@ -56,7 +56,7 @@ export class FormElementTemplate extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-form-element-template": FormElementTemplate;
+        "pap-form-element-template": FormElementTemplate;
     }
 }
 

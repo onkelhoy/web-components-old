@@ -1,5 +1,5 @@
 :root {
-  --o-font-family: 'Libre Franklin', helvetica, sans-serif;
+  --pap-font-family: 'Libre Franklin', helvetica, sans-serif;
 
   --fontweight-extrabold: 800;
   --fontweight-bold: 700;
@@ -7,91 +7,91 @@
   --fontweight-medium: 500; 
   --fontweight-regular: 400;
   
-  --typography-h1-fontfamily: var(--o-font-family);
+  --typography-h1-fontfamily: var(--pap-font-family);
   --typography-h1-fontsize: 8.75rem;
   --typography-h1-fontweight: var(--fontweight-extrabold);
   --typography-h1-lineheight: 120%;
   --typography-h1-letterspacing: 0;
 
-  --typography-h2-fontfamily: var(--o-font-family);
+  --typography-h2-fontfamily: var(--pap-font-family);
   --typography-h2-fontsize: 5.5rem;
   --typography-h2-fontweight: var(--fontweight-extrabold);
   --typography-h2-lineheight: 120%;
   --typography-h2-letterspacing: 0;
 
-  --typography-h3-fontfamily: var(--o-font-family);
+  --typography-h3-fontfamily: var(--pap-font-family);
   --typography-h3-fontsize: 5rem;
   --typography-h3-fontweight: var(--fontweight-bold);
   --typography-h3-lineheight: 120%;
   --typography-h3-letterspacing: 0;
 
-  --typography-h4-fontfamily: var(--o-font-family);
+  --typography-h4-fontfamily: var(--pap-font-family);
   --typography-h4-fontsize: 4rem;
   --typography-h4-fontweight: var(--fontweight-bold);
   --typography-h4-lineheight: 120%;
   --typography-h4-letterspacing: 0;
 
-  --typography-h5-fontfamily: var(--o-font-family);
+  --typography-h5-fontfamily: var(--pap-font-family);
   --typography-h5-fontsize: 3.5rem;
   --typography-h5-fontweight: var(--fontweight-regular);
   --typography-h5-lineheight: 120%;
   --typography-h5-letterspacing: 0;
 
-  --typography-t1-fontfamily: var(--o-font-family);
+  --typography-t1-fontfamily: var(--pap-font-family);
   --typography-t1-fontsize: 3rem;
   --typography-t1-fontweight: var(--fontweight-bold);
   --typography-t1-lineheight: 120%;
   --typography-t1-letterspacing: 0;
 
-  --typography-t2-fontfamily: var(--o-font-family);
+  --typography-t2-fontfamily: var(--pap-font-family);
   --typography-t2-fontsize: 2.5rem;
   --typography-t2-fontweight: var(--fontweight-bold);
   --typography-t2-lineheight: 120%;
   --typography-t2-letterspacing: 0;
 
-  --typography-t3-fontfamily: var(--o-font-family);
+  --typography-t3-fontfamily: var(--pap-font-family);
   --typography-t3-fontsize: 2rem;
   --typography-t3-fontweight: var(--fontweight-semibold);
   --typography-t3-lineheight: 120%;
   --typography-t3-letterspacing: 0;
 
-  --typography-t4-fontfamily: var(--o-font-family);
+  --typography-t4-fontfamily: var(--pap-font-family);
   --typography-t4-fontsize: 1.5rem;
   --typography-t4-fontweight: var(--fontweight-semibold);
   --typography-t4-lineheight: 140%;
   --typography-t4-letterspacing: 0;
 
-  --typography-c1-fontfamily: var(--o-font-family);
+  --typography-c1-fontfamily: var(--pap-font-family);
   --typography-c1-fontsize: 1.5rem;
   --typography-c1-fontweight: var(--fontweight-medium);
   --typography-c1-lineheight: 140%;
   --typography-c1-letterspacing: 0.01rem;
 
-  --typography-c2-fontfamily: var(--o-font-family);
+  --typography-c2-fontfamily: var(--pap-font-family);
   --typography-c2-fontsize: 1rem;
   --typography-c2-fontweight: var(--fontweight-semibold);
   --typography-c2-lineheight: 140%;
   --typography-c2-letterspacing: 0.01rem;
 
-  --typography-c3-fontfamily: var(--o-font-family);
+  --typography-c3-fontfamily: var(--pap-font-family);
   --typography-c3-fontsize: 1rem;
   --typography-c3-fontweight: var(--fontweight-regular);
   --typography-c3-lineheight: 140%;
   --typography-c3-letterspacing: 0.01rem;
 
-  --typography-c4-fontfamily: var(--o-font-family);
+  --typography-c4-fontfamily: var(--pap-font-family);
   --typography-c4-fontsize: 0.75rem;
   --typography-c4-fontweight: var(--fontweight-regular);
   --typography-c4-lineheight: 140%;
   --typography-c4-letterspacing: 0.01rem;
 
-  --typography-b1-fontfamily: var(--o-font-family);
+  --typography-b1-fontfamily: var(--pap-font-family);
   --typography-b1-fontsize: 1rem;
   --typography-b1-fontweight: var(--fontweight-semibold);
   --typography-b1-lineheight: 140%;
   --typography-b1-letterspacing: 0.01rem;
 
-  --typography-b2-fontfamily: var(--o-font-family);
+  --typography-b2-fontfamily: var(--pap-font-family);
   --typography-b2-fontsize: 1rem;
   --typography-b2-fontweight: var(--fontweight-semibold);
   --typography-b2-lineheight: 140%;
@@ -129,7 +129,7 @@
   font-weight: var(--typography-h1-fontweight);
   line-height: var(--typography-h1-lineheight);
   letter-spacing: var(--typography-h1-letterspacing);
-  color: var(--o-text-color);
+  color: var(--pap-text-color);
 }
 .typography-heading2-clean,
 .typography-heading2,
@@ -140,7 +140,7 @@
   font-weight: var(--typography-h2-fontweight);
   line-height: var(--typography-h2-lineheight);
   letter-spacing: var(--typography-h2-letterspacing);
-  color: var(--o-text-color);
+  color: var(--pap-text-color);
 }
 .typography-heading2-clean,
 .typography-heading2,
@@ -151,7 +151,7 @@
   font-weight: var(--typography-h3-fontweight);
   line-height: var(--typography-h3-lineheight);
   letter-spacing: var(--typography-h3-letterspacing);
-  color: var(--o-text-color);
+  color: var(--pap-text-color);
 }
 .typography-heading4-clean,
 .typography-heading4,
@@ -162,7 +162,7 @@
   font-weight: var(--typography-h4-fontweight);
   line-height: var(--typography-h4-lineheight);
   letter-spacing: var(--typography-h4-letterspacing);
-  color: var(--o-text-color);
+  color: var(--pap-text-color);
 }
 .typography-heading5-clean,
 .typography-heading5,
@@ -173,7 +173,7 @@
   font-weight: var(--typography-h5-fontweight);
   line-height: var(--typography-h5-lineheight);
   letter-spacing: var(--typography-h5-letterspacing);
-  color: var(--o-text-color);
+  color: var(--pap-text-color);
 }
 
 /* TITLE */
@@ -186,7 +186,7 @@
   font-weight: var(--typography-t1-fontweight);
   line-height: var(--typography-t1-lineheight);
   letter-spacing: var(--typography-t1-letterspacing);
-  color: var(--o-text-color);
+  color: var(--pap-text-color);
 }
 .typography-title2-clean,
 .typography-title2,
@@ -197,7 +197,7 @@
   font-weight: var(--typography-t2-fontweight);
   line-height: var(--typography-t2-lineheight);
   letter-spacing: var(--typography-t2-letterspacing);
-  color: var(--o-text-color);
+  color: var(--pap-text-color);
 }
 .typography-title3-clean,
 .typography-title3,
@@ -208,7 +208,7 @@
   font-weight: var(--typography-t3-fontweight);
   line-height: var(--typography-t3-lineheight);
   letter-spacing: var(--typography-t3-letterspacing);
-  color: var(--o-text-color);
+  color: var(--pap-text-color);
 }
 .typography-title4-clean,
 .typography-title4,
@@ -219,7 +219,7 @@
   font-weight: var(--typography-t4-fontweight);
   line-height: var(--typography-t4-lineheight);
   letter-spacing: var(--typography-t4-letterspacing);
-  color: var(--o-text-color);
+  color: var(--pap-text-color);
 }
 
 /* COPY */
@@ -232,7 +232,7 @@
   font-weight: var(--typography-c1-fontweight);
   line-height: var(--typography-c1-lineheight);
   letter-spacing: var(--typography-c1-letterspacing);
-  color: var(--o-text-color);
+  color: var(--pap-text-color);
 }
 .typography-copy2-clean,
 .typography-copy2,
@@ -243,7 +243,7 @@
   font-weight: var(--typography-c2-fontweight);
   line-height: var(--typography-c2-lineheight);
   letter-spacing: var(--typography-c2-letterspacing);
-  color: var(--o-text-color);
+  color: var(--pap-text-color);
 }
 /* default case */
 .typography, 
@@ -257,7 +257,7 @@
   font-weight: var(--typography-c3-fontweight);
   line-height: var(--typography-c3-lineheight);
   letter-spacing: var(--typography-c3-letterspacing);
-  color: var(--o-text-color);
+  color: var(--pap-text-color);
 }
 .typography-copy4-clean,
 .typography-copy4,
@@ -268,7 +268,7 @@
   font-weight: var(--typography-c4-fontweight);
   line-height: var(--typography-c4-lineheight);
   letter-spacing: var(--typography-c4-letterspacing);
-  color: var(--o-text-color);
+  color: var(--pap-text-color);
 }
 
 .typography-button1-clean,
@@ -280,7 +280,7 @@
   font-weight: var(--typography-b1-fontweight, 600);
   line-height: var(--typography-b1-lineheight, 140%);
   letter-spacing: var(--typography-b1-letterspacing, 0.01rem);
-  color: var(--o-text-color);
+  color: var(--pap-text-color);
 }
 
 .typography-button2-clean,
@@ -292,7 +292,7 @@
   font-weight: var(--typography-b2-fontweight, 600);
   line-height: var(--typography-b2-lineheight, 140%);
   letter-spacing: var(--typography-b2-letterspacing, 0.01rem);
-  color: var(--o-text-color);
+  color: var(--pap-text-color);
   text-decoration: underline;
 }
 

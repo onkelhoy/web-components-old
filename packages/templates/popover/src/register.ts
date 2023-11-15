@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-popover-template')) {
-  cElements.define('o-popover-template', PopoverTemplate);
+if (!cElements.get('pap-popover-template')) {
+  cElements.define('pap-popover-template', PopoverTemplate);
 }

@@ -1,9 +1,9 @@
 // utils 
-import { html } from "@henry2/tools-utils";
+import { html } from "@papit/tools-utils";
 
 // templates
-import { FieldTemplate } from "@henry2/templates-field";
-import "@henry2/templates-box/wc";
+import { FieldTemplate } from "@papit/templates-field";
+import "@papit/templates-box/wc";
 
 // local 
 import { style } from "./style";
@@ -37,11 +37,11 @@ export class Toggle extends FieldTemplate {
     render() {
         return super.render(html`
             <input type="checkbox" hidden />
-            <o-box-template class="toggle" radius="circular">
+            <pap-box-template class="toggle" radius="circular">
                 <div>
                     <span part="indicator"><slot></slot></span>
                 </div>
-            </o-box-template>
+            </pap-box-template>
         `);
     }
 }
@@ -49,6 +49,6 @@ export class Toggle extends FieldTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-toggle": Toggle;
+        "pap-toggle": Toggle;
     }
 }

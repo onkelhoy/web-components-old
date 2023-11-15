@@ -1,7 +1,7 @@
 export const style = `:host {
   --size: var(--colorpicker-size, 300px);
-  --border-outer: var(--o-color-black);
-  --border-inner: var(--o-color-neutral-50);
+  --border-outer: var(--pap-color-black);
+  --border-inner: var(--pap-color-neutral-50);
   width: calc(var(--size) + 2.5rem);
   height: calc(var(--size) + 2.5rem);
   display: grid;

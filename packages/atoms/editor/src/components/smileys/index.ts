@@ -1,17 +1,17 @@
 // utils 
-import { html, property, query } from "@henry2/tools-utils";
-import '@henry2/tools-translator/wc';
+import { html, property, query } from "@papit/tools-utils";
+import '@papit/tools-translator/wc';
 
 // atoms
-import { Input } from "@henry2/input";
-import { Button } from "@henry2/button";
-import '@henry2/button/wc';
-import '@henry2/typography/wc';
-import '@henry2/icon/wc';
-import '@henry2/tooltip/wc';
+import { Input } from "@papit/input";
+import { Button } from "@papit/button";
+import '@papit/button/wc';
+import '@papit/typography/wc';
+import '@papit/icon/wc';
+import '@papit/tooltip/wc';
 
 // templates 
-import { BaseTemplate } from '@henry2/templates-base';
+import { BaseTemplate } from '@papit/templates-base';
 
 // local 
 import { style } from "./style";
@@ -37,7 +37,7 @@ export class Smileys extends BaseTemplate  {
   static style = style;
 
   @property({ rerender: false }) private search: string = "";
-  @query('o-input') inputElement!: Input;
+  @query('pap-input') inputElement!: Input;
   @query('div.search-results') searchResults!: HTMLDivElement;
 
   // event handlers
@@ -58,7 +58,7 @@ export class Smileys extends BaseTemplate  {
           if (emoji.name.startsWith(this.search))
           {
             this.searchResults.appendChild(html`
-              <o-button variant="clear" size="small" class="emoji" title="${emoji.name}" @click="${this.handleclick(emoji)}">${emoji.emoji}</o-button>
+              <pap-button variant="clear" size="small" class="emoji" title="${emoji.name}" @click="${this.handleclick(emoji)}">${emoji.emoji}</pap-button>
             `);
           }
         })
@@ -76,40 +76,40 @@ export class Smileys extends BaseTemplate  {
 
   render() {
     return html`
-      <o-tabs indicator="true" scrolling="true">
+      <pap-tabs indicator="true" scrolling="true">
         <div class="search" slot="between">
-          <o-input placeholder="Search Emoji" @suspended-input="${this.handleinput}">
-            <o-icon size="small" name="search" slot="suffix">search</o-icon>
-            <o-button @click="${this.handleclear}" class="clear" size="small" variant="clear" slot="suffix">
-              <o-icon size="small" name="close">clear</o-icon>
-            </o-button>
-          </o-input>
+          <pap-input placeholder="Search Emoji" @suspended-input="${this.handleinput}">
+            <pap-icon size="small" name="search" slot="suffix">search</pap-icon>
+            <pap-button @click="${this.handleclear}" class="clear" size="small" variant="clear" slot="suffix">
+              <pap-icon size="small" name="close">clear</pap-icon>
+            </pap-button>
+          </pap-input>
 
           <div class="search-results"></div>
         </div>
         ${emojidata.map((info:Emoji, index) => html`
-          <o-tab class="${index === 0 ? "selected" : ""}" title="${info.name}">
-            <o-icon customSize="20" name="${info.slug}"></o-icon>
-          </o-tab>
+          <pap-tab class="${index === 0 ? "selected" : ""}" title="${info.name}">
+            <pap-icon customSize="20" name="${info.slug}"></pap-icon>
+          </pap-tab>
           
-          <o-tab-content>
-            <o-typography variant="C4">
-              <o-translator>${info.name}</o-translator>
-            </o-typography>
+          <pap-tab-content>
+            <pap-typography variant="C4">
+              <pap-translator>${info.name}</pap-translator>
+            </pap-typography>
             <div>
               ${info.emojis.map((emoji:Emojicon) => html`
-                  <o-button class="emoji" variant="clear" title="${emoji.name}" slot="target" @click="${this.handleclick(emoji)}">${emoji.emoji}</o-button>
+                  <pap-button class="emoji" variant="clear" title="${emoji.name}" slot="target" @click="${this.handleclick(emoji)}">${emoji.emoji}</pap-button>
               `)}
             </div>
-          </o-tab-content>
+          </pap-tab-content>
         `)}
-      </o-tabs>
+      </pap-tabs>
     `
   }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    "o-chat-smileys": Smileys;
+    "pap-chat-smileys": Smileys;
   }
 }

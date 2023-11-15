@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-tooltip')) {
-  cElements.define('o-tooltip', Tooltip);
+if (!cElements.get('pap-tooltip')) {
+  cElements.define('pap-tooltip', Tooltip);
 }

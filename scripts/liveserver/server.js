@@ -49,7 +49,7 @@ function build_dependency(name) {
     {
         for (let packagename in packagejson[destination])
         {
-            if (packagename.startsWith("@henry2"))
+            if (packagename.startsWith("@papit"))
             {
                 if (!DEPENDENCY[packagename]) {
                     DEPENDENCY[packagename] = getLocalModule(packagename);
@@ -63,7 +63,7 @@ function build_dependency(name) {
 build_dependency(PACKAGE_JSON.name);
 
 function getLocalModule(name) {
-    if (!name.startsWith('@henry2')) return null;
+    if (!name.startsWith('@papit')) return null;
 
     const data = LOCKFILE.packages[`node_modules/${name}`];
     if (!data) return null;

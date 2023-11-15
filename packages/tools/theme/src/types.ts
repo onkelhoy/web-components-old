@@ -1,5 +1,5 @@
-export const THEMECHANGE_NAME = "o-theme-change";
-export const THEMEADD_NAME = "o-theme-add";
+export const THEMECHANGE_NAME = "pap-theme-change";
+export const THEMEADD_NAME = "pap-theme-add";
 
 export type ThemeConfig = {
   href: string;

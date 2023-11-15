@@ -1,11 +1,11 @@
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
-import { Placement } from "@henry2/templates-popover";
-import "@henry2/templates-popover/wc";
-import "@henry2/templates-box/wc";
+import { BaseTemplate } from "@papit/templates-base";
+import { Placement } from "@papit/templates-popover";
+import "@papit/templates-popover/wc";
+import "@papit/templates-box/wc";
 
 // local 
 import { style } from "./style";
@@ -18,12 +18,12 @@ export class Tooltip extends BaseTemplate {
 
     render() {
         return html`
-            <o-popover-template revealby="hover" placement="${this.placement}">
+            <pap-popover-template revealby="hover" placement="${this.placement}">
                 <slot slot="target" name="target"></slot>
-                <o-box-template elevation="small"  part="card" radius="medium">
+                <pap-box-template elevation="small"  part="card" radius="medium">
                     <slot></slot>
-                </o-box-template>
-            </o-popover-template>
+                </pap-box-template>
+            </pap-popover-template>
         `
     }
 }
@@ -31,6 +31,6 @@ export class Tooltip extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-tooltip": Tooltip;
+        "pap-tooltip": Tooltip;
     }
 }

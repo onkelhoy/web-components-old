@@ -1,8 +1,8 @@
 // tools
-import '@henry2/tools-doc/wc';
+import '@papit/tools-doc/wc';
 
 // component
-import '@henry2/button/wc';
+import '@papit/button/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');
@@ -20,17 +20,17 @@ function insertComponent (tr, color, variant, size, state) {
     const td = document.createElement("td");
     td.innerHTML = `
         <div>
-            <o-button 
+            <pap-button 
                 ${state !== "normal" ? `class="${state}"` : ''} 
                 ${color === "disabled" ? "disabled" : ""} 
                 variant="${variant}" 
                 size="${size}" 
                 color="${color}"
             >
-                <o-icon slot="prefix" name="check" cache="true">OK</o-icon>
+                <pap-icon slot="prefix" name="check" cache="true">OK</pap-icon>
                 Button
-            </o-button>
-            <o-button 
+            </pap-button>
+            <pap-button 
                 circle
                 ${state !== "normal" ? `class="${state}"` : ''} 
                 ${color === "disabled" ? "disabled" : ""} 
@@ -38,8 +38,8 @@ function insertComponent (tr, color, variant, size, state) {
                 size="${size}" 
                 color="${color}"
             >
-                <o-icon cache="true" name="arrow-right">-></o-icon>
-            </o-button>
+                <pap-icon cache="true" name="arrow-right">-></pap-icon>
+            </pap-button>
         </div>
     `
 
@@ -51,7 +51,7 @@ function generateComponent (table, size, colors) {
         const tr = document.createElement("tr");
         
         const first_column = document.createElement("td");
-        first_column.innerHTML = `<o-typography align="center" variant="C2">${variant}</o-typography>`;
+        first_column.innerHTML = `<pap-typography align="center" variant="C2">${variant}</pap-typography>`;
         tr.appendChild(first_column);
 
         for (let color of colors)

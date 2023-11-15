@@ -1,9 +1,9 @@
 :host {
-    --menu-background: var(--o-color-bg, #FFFFFF);
-    --menu-color: var(--o-color-text, #29292F);
+    --menu-background: var(--pap-color-bg, #FFFFFF);
+    --menu-color: var(--pap-color-text, #29292F);
     display: inline-block;
 
-    o-button {
+    pap-button {
         span.caret-wrapper {
             display: flex;
             justify-content: center;
@@ -11,11 +11,11 @@
         }
     }
 
-    o-popover-template {
+    pap-popover-template {
         display: inline-block;
     }
 
-    o-box-template {
+    pap-box-template {
         display: block;
         // padding: 1rem 1.5rem;
         padding-block: var(--padding-small, 8px);
@@ -27,15 +27,15 @@
 }
 
 :host([open="true"]) {
-    o-button {
-        o-icon[name="caret"] {
+    pap-button {
+        pap-icon[name="caret"] {
             transform: rotate(180deg);
         }
     }
 }
 :host([open="false"]) {
-    o-button {
-        o-icon[name="caret"] {
+    pap-button {
+        pap-icon[name="caret"] {
             transform: rotate(0);
         }
     }

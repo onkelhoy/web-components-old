@@ -1,14 +1,14 @@
 // utils 
-import { html, property, query } from "@henry2/tools-utils";
+import { html, property, query } from "@papit/tools-utils";
 
 // atoms 
-import { Input } from "@henry2/input";
-import { Typography } from "@henry2/typography";
-import "@henry2/input/wc";
-import "@henry2/typography/wc";
+import { Input } from "@papit/input";
+import { Typography } from "@papit/typography";
+import "@papit/input/wc";
+import "@papit/typography/wc";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 import { style } from "./style";
 
@@ -22,8 +22,8 @@ export class Cell extends BaseTemplate {
   @property({ type: Boolean, rerender: false }) allowEdit: boolean = false;
   @property({ type: Number, rerender: false }) tabIndex: number = 1;
 
-  @query('o-input') inputElement!: Input;
-  @query('o-typography') typographyElement!: Typography;
+  @query('pap-input') inputElement!: Input;
+  @query('pap-typography') typographyElement!: Typography;
 
   constructor() {
     super();
@@ -68,8 +68,8 @@ export class Cell extends BaseTemplate {
 
   render() {
     return html`
-      <o-typography>${this.value}</o-typography>
-      <o-input radius="none" size="large" value="${this.value}"></o-input>
+      <pap-typography>${this.value}</pap-typography>
+      <pap-input radius="none" size="large" value="${this.value}"></pap-input>
     `
   }
 }

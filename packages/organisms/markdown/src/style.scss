@@ -1,12 +1,12 @@
 :host {
-    --background: var(--o-markdown-background, var(--o-color-bg, #FFFFFF));
-    --block-background: var(--o-markdown-block-background, var(--o-color-bg-tertiary, #EAEBEF));
-    --block-ribbon: var(--o-markdown-block-ribbon, var(--o-color-bg-brand, #009DD3));
-    --border: var(--o-markdown-border, var(--o-color-border, #C7CBD4));
-    --color: var(--o-markdown-color, var(--o-color-text, #29292F));
-    --link: var(--o-markdown-link, var(--o-color-text-link, #0177A3));
-    --link-hover: var(--o-markdown-link-hover, var(--o-color-text-link-oninverse, #36CEFA));
-    --table-header-background: var(--o-markdown-table-header-background, var(--o-color-hover-400, rgba(0,0,0,0.1)));
+    --background: var(--pap-markdown-background, var(--pap-color-bg, #FFFFFF));
+    --block-background: var(--pap-markdown-block-background, var(--pap-color-bg-tertiary, #EAEBEF));
+    --block-ribbon: var(--pap-markdown-block-ribbon, var(--pap-color-bg-brand, #009DD3));
+    --border: var(--pap-markdown-border, var(--pap-color-border, #C7CBD4));
+    --color: var(--pap-markdown-color, var(--pap-color-text, #29292F));
+    --link: var(--pap-markdown-link, var(--pap-color-text-link, #0177A3));
+    --link-hover: var(--pap-markdown-link-hover, var(--pap-color-text-link-oninverse, #36CEFA));
+    --table-header-background: var(--pap-markdown-table-header-background, var(--pap-color-hover-400, rgba(0,0,0,0.1)));
 
     display: block;
     color: var(--color);

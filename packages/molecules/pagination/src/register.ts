@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-pagination')) {
-  cElements.define('o-pagination', Pagination);
+if (!cElements.get('pap-pagination')) {
+  cElements.define('pap-pagination', Pagination);
 }

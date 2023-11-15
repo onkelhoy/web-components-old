@@ -6,17 +6,17 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
  // utils 
-import { html, property, query } from "@henry2/tools-utils";
-import "@henry2/tools-translator/wc";
+import { html, property, query } from "@papit/tools-utils";
+import "@papit/tools-translator/wc";
 
 // atoms
-import "@henry2/badge/wc";
-import "@henry2/typography/wc";
-import "@henry2/menu/wc";
-import { Menu } from "@henry2/menu";
+import "@papit/badge/wc";
+import "@papit/typography/wc";
+import "@papit/menu/wc";
+import { Menu } from "@papit/menu";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -53,20 +53,20 @@ export class Header extends BaseTemplate {
                 <slot></slot>
             </div>
             <div class="suffix">
-                <o-theme></o-theme>
-                <o-language></o-language>
+                <pap-theme></pap-theme>
+                <pap-language></pap-language>
 
-                ${this.user ? html`<o-menu placement="bottom-left" @select="${this.handleuserselect}">
+                ${this.user ? html`<pap-menu placement="bottom-left" @select="${this.handleuserselect}">
                     <img class="avatar" slot="button-prefix" src="${avatarlink}" alt="${this.user?.firstname || "no-name"} profile picture" />
-                    <o-typography slot="button-content">${this.user?.firstname || "no-name"}</o-typography>
+                    <pap-typography slot="button-content">${this.user?.firstname || "no-name"}</pap-typography>
 
-                    <o-menu-item value="settings">
-                        <o-typography><o-translator>User Settings</o-translator></o-typography>
-                    </o-menu-item>
-                    <o-menu-item value="logout">
-                        <o-typography><o-translator>Logout</o-translator></o-typography>
-                    </o-menu-item>
-                </o-menu>` : ''}
+                    <pap-menu-item value="settings">
+                        <pap-typography><pap-translator>User Settings</pap-translator></pap-typography>
+                    </pap-menu-item>
+                    <pap-menu-item value="logout">
+                        <pap-typography><pap-translator>Logout</pap-translator></pap-typography>
+                    </pap-menu-item>
+                </pap-menu>` : ''}
             </div>
             
         `
@@ -76,7 +76,7 @@ export class Header extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-header": Header;
+        "pap-header": Header;
     }
 }
 
