@@ -23,7 +23,7 @@ export const style = `:host header {
       top: 100%;
       translate: 0 -100%;
       height: var(--tabs-indicator-height, var(--unit-size-1, 4px));
-      background-color: var(--tabs-indicator-color, var(--o-color-border-brand, #009DD3));
+      background-color: var(--tabs-indicator-color, var(--pap-color-border-brand, #009DD3));
       transition: all var(--tabs-indicator-animation-easing, ease) var(--tabs-indicator-animation-duration, 200ms);
       border-top-left-radius: var(--radius-small, 4px);
       border-top-right-radius: var(--radius-small, 4px); }
@@ -39,5 +39,5 @@ export const style = `:host header {
   overflow-y: auto;
   scroll-snap-type: y proximity; }
 
-:host([scrolling="true"]) ::slotted(o-tab-content) {
+:host([scrolling="true"]) ::slotted(pap-tab-content) {
   display: block; }`;

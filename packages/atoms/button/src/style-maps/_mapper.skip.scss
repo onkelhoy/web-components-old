@@ -66,24 +66,24 @@
           :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled]).#{$state-name}),
           :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled])#{$pointer-state}) {
               @if $border {
-                  border-color: var(--o-button-#{$color-name}-#{$variant}-#{$state-name}-border, $border);
+                  border-color: var(--pap-button-#{$color-name}-#{$variant}-#{$state-name}-border, $border);
               }
               @if $background {
                   border-color: transparent;
-                  background-color: var(--o-button-#{$color-name}-#{$variant}-#{$state-name}-background, $background);
+                  background-color: var(--pap-button-#{$color-name}-#{$variant}-#{$state-name}-background, $background);
               }
           
-              color: var(--o-button-#{$color-name}-#{$variant}-#{$state-name}-text, $text);
+              color: var(--pap-button-#{$color-name}-#{$variant}-#{$state-name}-text, $text);
           }
-          :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled]).#{$state-name}) ::slotted(o-icon),
-          :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled])#{$pointer-state}) ::slotted(o-icon) {
-              color: var(--o-button-#{$color-name}-#{$variant}-#{$state-name}-icon, $icon);
+          :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled]).#{$state-name}) ::slotted(pap-icon),
+          :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled])#{$pointer-state}) ::slotted(pap-icon) {
+              color: var(--pap-button-#{$color-name}-#{$variant}-#{$state-name}-icon, $icon);
           }
 
           :host([variant="#{$variant}"][color="#{$color-name}"][loading="true"]:not([disabled]).#{$state-name}),
           :host([variant="#{$variant}"][color="#{$color-name}"][loading="true"]:not([disabled])#{$pointer-state}) {
               &::after {
-                  border-top: 2px solid var(--o-button-#{$color-name}-#{$variant}-#{$state-name}-icon, $icon);
+                  border-top: 2px solid var(--pap-button-#{$color-name}-#{$variant}-#{$state-name}-icon, $icon);
               }
           }
       }

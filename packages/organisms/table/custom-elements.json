@@ -68,19 +68,19 @@
       },
       {
         "name": "html",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "property",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "query",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "BaseTemplate",
-        "from": "@henry2/templates-base"
+        "from": "@papit/templates-base"
       },
       {
         "name": "style",
@@ -104,7 +104,7 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/organisms/table",
     "sources": [],
     "variables": {
-      "--o-table-row-color-light": {
+      "--pap-table-row-color-light": {
         "usecases": [
           "--table-row-color"
         ],
@@ -120,7 +120,7 @@
           "#FFF"
         ]
       },
-      "--o-table-background-color-light": {
+      "--pap-table-background-color-light": {
         "usecases": [
           "--table-background-color"
         ],
@@ -136,7 +136,7 @@
           "#F8F8F8"
         ]
       },
-      "--o-table-border-color-light": {
+      "--pap-table-border-color-light": {
         "usecases": [
           "--table-border-color"
         ],
@@ -152,19 +152,19 @@
           "#A6ADBA"
         ]
       },
-      "--o-table-background-color": {
+      "--pap-table-background-color": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": []
       },
-      "--o-table-border-color": {
+      "--pap-table-border-color": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": []
       },
-      "--o-table-row-color": {
+      "--pap-table-row-color": {
         "usecases": [
           "background-color"
         ],
@@ -178,15 +178,15 @@
           "8px"
         ]
       },
-      "--o-table-dark-background-color": {
+      "--pap-table-dark-background-color": {
         "usecases": [
           "--background"
         ],
         "fallbacks": [
-          "var(--o-color-black, black)"
+          "var(--pap-color-black, black)"
         ]
       },
-      "--o-color-black": {
+      "--pap-color-black": {
         "usecases": [
           "--background"
         ],
@@ -194,15 +194,15 @@
           "black"
         ]
       },
-      "--o-table-dark-text-color": {
+      "--pap-table-dark-text-color": {
         "usecases": [
           "--color"
         ],
         "fallbacks": [
-          "var(--o-color-neutral-50, white)"
+          "var(--pap-color-neutral-50, white)"
         ]
       },
-      "--o-color-white": {
+      "--pap-color-white": {
         "usecases": [
           "--color"
         ],

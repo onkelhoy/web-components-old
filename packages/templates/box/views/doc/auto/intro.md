@@ -3,10 +3,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-import { property } from "@henry2/tools-utils";
+import { property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate, RenderType } from "@henry2/templates-base";
+import { BaseTemplate, RenderType } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -27,7 +27,7 @@ export class BoxTemplate extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-box-template": BoxTemplate;
+        "pap-box-template": BoxTemplate;
     }
 }
 ## REGISTER-CODE:
@@ -40,6 +40,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-box-template')) {
-  cElements.define('o-box-template', BoxTemplate);
+if (!cElements.get('pap-box-template')) {
+  cElements.define('pap-box-template', BoxTemplate);
 }

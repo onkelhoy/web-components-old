@@ -6,19 +6,19 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
  // utils 
-import { html, property, query } from "@henry2/tools-utils";
-import "@henry2/tools-translator/wc";
+import { html, property, query } from "@papit/tools-utils";
+import "@papit/tools-translator/wc";
 
 // atoms 
-import "@henry2/button/wc";
-import "@henry2/icon/wc";
-import "@henry2/divider/wc";
-import "@henry2/typography/wc";
+import "@papit/button/wc";
+import "@papit/icon/wc";
+import "@papit/divider/wc";
+import "@papit/typography/wc";
 
 // templates
-import { BoxTemplate } from "@henry2/templates-box";
-import { BaseTemplate } from "@henry2/templates-base";
-import '@henry2/templates-box/wc'
+import { BoxTemplate } from "@papit/templates-box";
+import { BaseTemplate } from "@papit/templates-base";
+import '@papit/templates-box/wc'
 
 // local 
 import { style } from "./style";
@@ -31,7 +31,7 @@ export class Sidebar extends BaseTemplate {
     @property({ rerender: false }) mode:Mode = "open";
     @property({ onUpdate: "updateSelected" }) selected?:string;
 
-    @query('o-box-template') boxtemplateElement!: BoxTemplate;
+    @query('pap-box-template') boxtemplateElement!: BoxTemplate;
     
     private items: Array<Item> = [];
     private currentSelected?: Item;
@@ -142,21 +142,21 @@ export class Sidebar extends BaseTemplate {
 
     render() {
         return html`
-            <o-box-template radius="medium">
+            <pap-box-template radius="medium">
                 <header>
-                    <o-icon class="logo light" style="width:124px" size="large" name="interzero-logo"></o-icon>
-                    <o-icon class="logo dark" style="width:124px" size="large" name="interzero-logo-dark"></o-icon>
-                    <o-button color="secondary" circle variant="clear" @click="${this.handlehamburgerclick}">
-                        <!-- <o-icon customSize="32" class="hover" name="circular-logo"></o-icon> -->
-                        <o-icon size="small" class="open" name="hamburger.open"></o-icon>
-                        <!-- <o-icon size="small" class="collapsed" name="hamburger.collapse"></o-icon> -->
-                    </o-button>
+                    <pap-icon class="logo light" style="width:124px" size="large" name="interzero-logo"></pap-icon>
+                    <pap-icon class="logo dark" style="width:124px" size="large" name="interzero-logo-dark"></pap-icon>
+                    <pap-button color="secondary" circle variant="clear" @click="${this.handlehamburgerclick}">
+                        <!-- <pap-icon customSize="32" class="hover" name="circular-logo"></pap-icon> -->
+                        <pap-icon size="small" class="open" name="hamburger.open"></pap-icon>
+                        <!-- <pap-icon size="small" class="collapsed" name="hamburger.collapse"></pap-icon> -->
+                    </pap-button>
                 </header>
-                <o-divider></o-divider>
+                <pap-divider></pap-divider>
                 <div class="body">
                     <slot @slotchange="${this.handleslotchange}"></slot>
                 </div>
-            </o-box-template>
+            </pap-box-template>
         `
     }
 }
@@ -164,7 +164,7 @@ export class Sidebar extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-sidebar": Sidebar;
+        "pap-sidebar": Sidebar;
     }
 }
 

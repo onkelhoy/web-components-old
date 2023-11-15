@@ -1,2 +1,2 @@
-import '@henry2/tools-doc/wc';
-import "@henry2/templates-form-element/wc";
+import '@papit/tools-doc/wc';
+import "@papit/templates-form-element/wc";

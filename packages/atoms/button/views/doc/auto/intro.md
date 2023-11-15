@@ -2,8 +2,8 @@ PRE: just start the task given, dont include any starting lines so I can just co
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
 ## SOURCE-CODE:
-import { property, Size } from '@henry2/tools-utils';
-import { BoxTemplate } from '@henry2/templates-box';
+import { property, Size } from '@papit/tools-utils';
+import { BoxTemplate } from '@papit/templates-box';
 
 import { style } from './style.js';
 
@@ -85,7 +85,7 @@ export class Button extends BoxTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-button": Button;
+        "pap-button": Button;
     }
 }
 ## REGISTER-CODE:
@@ -98,6 +98,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-button')) {
-  cElements.define('o-button', Button);
+if (!cElements.get('pap-button')) {
+  cElements.define('pap-button', Button);
 }

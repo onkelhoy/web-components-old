@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-input')) {
-  cElements.define('o-input', Input);
+if (!cElements.get('pap-input')) {
+  cElements.define('pap-input', Input);
 }

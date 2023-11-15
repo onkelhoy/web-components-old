@@ -1,8 +1,8 @@
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 import { style } from "./style";
 import { Reveal, Placement } from './types';
@@ -92,6 +92,6 @@ export class PopoverTemplate extends BaseTemplate {
 
 declare global {
   interface HTMLElementTagNameMap {
-      "o-popover-template": PopoverTemplate;
+      "pap-popover-template": PopoverTemplate;
   }
 }

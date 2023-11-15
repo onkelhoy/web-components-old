@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-asset-template')) {
-  cElements.define('o-asset-template', AssetTemplate);
+if (!cElements.get('pap-asset-template')) {
+  cElements.define('pap-asset-template', AssetTemplate);
 }

@@ -118,27 +118,27 @@
       },
       {
         "name": "html",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "property",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "query",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "DetectDevice",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "suspense",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "BaseTemplate",
-        "from": "@henry2/templates-base"
+        "from": "@papit/templates-base"
       },
       {
         "name": "style",
@@ -164,11 +164,11 @@
     "parts": [
       {
         "name": "hamburger-outside",
-        "tag": "O-BUTTON"
+        "tag": "pap-BUTTON"
       },
       {
         "name": "base",
-        "tag": "O-BOX-TEMPLATE"
+        "tag": "pap-BOX-TEMPLATE"
       },
       {
         "name": "header",
@@ -176,7 +176,7 @@
       },
       {
         "name": "hamburger-inside",
-        "tag": "O-BUTTON"
+        "tag": "pap-BUTTON"
       },
       {
         "name": "body",
@@ -204,15 +204,15 @@
         ],
         "fallbacks": []
       },
-      "--o-sidebar-background-color": {
+      "--pap-sidebar-background-color": {
         "usecases": [
           "background-color"
         ],
         "fallbacks": [
-          "var(--o-color-bg, #FFFFFF)"
+          "var(--pap-color-bg, #FFFFFF)"
         ]
       },
-      "--o-color-bg": {
+      "--pap-color-bg": {
         "usecases": [
           "background-color"
         ],
@@ -238,7 +238,7 @@
         ],
         "fallbacks": []
       },
-      "--o-color-border-tertiary": {
+      "--pap-color-border-tertiary": {
         "usecases": [
           "background-color"
         ],
@@ -250,7 +250,7 @@
         ],
         "fallbacks": []
       },
-      "--o-color-bg-overlay": {
+      "--pap-color-bg-overlay": {
         "usecases": [
           "background-color"
         ],

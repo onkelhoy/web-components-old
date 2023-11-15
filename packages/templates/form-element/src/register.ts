@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-form-element-template')) {
-  cElements.define('o-form-element-template', FormElementTemplate);
+if (!cElements.get('pap-form-element-template')) {
+  cElements.define('pap-form-element-template', FormElementTemplate);
 }

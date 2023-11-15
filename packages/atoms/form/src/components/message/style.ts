@@ -2,23 +2,23 @@ export const style = `:host {
   display: block;
   max-width: 30rem;
   min-width: 10rem; }
-  :host o-box-template {
-    background-color: var(--o-color-bg-canvas, #EAEBEF);
+  :host pap-box-template {
+    background-color: var(--pap-color-bg-canvas, #EAEBEF);
     display: grid;
     grid-template-columns: 72px 1fr;
     gap: var(--gap-medium, 16px);
     overflow: hidden;
     height: 97px;
     position: relative; }
-    :host o-box-template div {
+    :host pap-box-template div {
       display: flex;
       align-items: center; }
-      :host o-box-template div.left {
+      :host pap-box-template div.left {
         justify-content: center; }
-      :host o-box-template div o-icon {
-        color: var(--o-color-icon-inverse, #FFFFFF);
+      :host pap-box-template div pap-icon {
+        color: var(--pap-color-icon-inverse, #FFFFFF);
         display: none; }
-    :host o-box-template o-button {
+    :host pap-box-template pap-button {
       position: absolute;
       right: 0;
       top: 0;
@@ -27,17 +27,17 @@ export const style = `:host {
       width: var(--field-size-medium, 40px);
       height: var(--field-size-medium, 40px); }
 
-:host([variant="error"]) o-box-template div.left {
-  background-color: var(--o-color-danger-500, #FD3649); }
-  :host([variant="error"]) o-box-template div.left o-icon[name="form.error"] {
+:host([variant="error"]) pap-box-template div.left {
+  background-color: var(--pap-color-danger-500, #FD3649); }
+  :host([variant="error"]) pap-box-template div.left pap-icon[name="form.error"] {
     display: initial; }
 
-:host([variant="warning"]) o-box-template div.left {
-  background-color: var(--o-color-warning-500, #FFA800); }
-  :host([variant="warning"]) o-box-template div.left o-icon[name="form.warning"] {
+:host([variant="warning"]) pap-box-template div.left {
+  background-color: var(--pap-color-warning-500, #FFA800); }
+  :host([variant="warning"]) pap-box-template div.left pap-icon[name="form.warning"] {
     display: initial; }
 
-:host([variant="success"]) o-box-template div.left {
-  background-color: var(--o-color-success-500, #4FB82A); }
-  :host([variant="success"]) o-box-template div.left o-icon[name="form.success"] {
+:host([variant="success"]) pap-box-template div.left {
+  background-color: var(--pap-color-success-500, #4FB82A); }
+  :host([variant="success"]) pap-box-template div.left pap-icon[name="form.success"] {
     display: initial; }`;

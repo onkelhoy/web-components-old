@@ -1,5 +1,5 @@
-import "@henry2/tools-doc/wc";
-import "@henry2/header/wc";
+import "@papit/tools-doc/wc";
+import "@papit/header/wc";
 
 
 window.onload = () => {

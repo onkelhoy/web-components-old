@@ -1,14 +1,14 @@
 // utils 
-import { html, query, property, suspense, Radius, Size } from "@henry2/tools-utils";
+import { html, query, property, suspense, Radius, Size } from "@papit/tools-utils";
 
 // atoms
-import { Typography } from "@henry2/typography";
-import "@henry2/icon/wc";
-import "@henry2/typography/wc";
+import { Typography } from "@papit/typography";
+import "@papit/icon/wc";
+import "@papit/typography/wc";
 
 // templates
-import { FormElementTemplate } from "@henry2/templates-form-element";
-import "@henry2/templates-box/wc";
+import { FormElementTemplate } from "@papit/templates-form-element";
+import "@papit/templates-box/wc";
 
 // local 
 import { style } from "./style";
@@ -19,8 +19,8 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
 
     // queries
     @query('.counter') public counterElement?: HTMLSpanElement;
-    @query('.error > o-typography') errorText?: Typography;
-    @query('.warning > o-typography') warningText?: Typography;
+    @query('.error > pap-typography') errorText?: Typography;
+    @query('.warning > pap-typography') warningText?: Typography;
 
     @property({ type: Object }) message?: Message;
     @property() label?: string;
@@ -333,31 +333,31 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
         }
         return html`
             <header part="header">
-                <slot name="header"><o-typography>${this.label || ""}</o-typography></slot>
-                ${this.maxLength ? html`<o-typography><span class="counter"></span>/${this.maxLength}</o-typography>` : ''}
+                <slot name="header"><pap-typography>${this.label || ""}</pap-typography></slot>
+                ${this.maxLength ? html`<pap-typography><span class="counter"></span>/${this.maxLength}</pap-typography>` : ''}
             </header>
-            <o-box-template radius="${this.radius}" class="wrapper" part="wrapper">
+            <pap-box-template radius="${this.radius}" class="wrapper" part="wrapper">
                 <slot name="prefix">${this._prefix}</slot>
                 ${element ? element : '<slot></slot>'}
                 <slot name="suffix">${this._suffix}</slot>
-            </o-box-template>
+            </pap-box-template>
             <footer part="footer">
                 <div class="warning">
-                    <o-icon name="warning"></o-icon>
-                    <o-typography>This is a placeholder for warning</o-typography>
+                    <pap-icon name="warning"></pap-icon>
+                    <pap-typography>This is a placeholder for warning</pap-typography>
                 </div>
                 <div class="error">
-                    <o-icon name="error"></o-icon>
-                    <o-typography>This is a placeholder for error</o-typography>
+                    <pap-icon name="error"></pap-icon>
+                    <pap-typography>This is a placeholder for error</pap-typography>
                 </div>
             </footer>
             `
     }
 }
-// <!-- <slot name="footer"><o-typography class="${this.message?.type || "hidden"}">${this.message?.message || ""}</o-typography></slot> -->
+// <!-- <slot name="footer"><pap-typography class="${this.message?.type || "hidden"}">${this.message?.message || ""}</pap-typography></slot> -->
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-field-template": FieldTemplate;
+        "pap-field-template": FieldTemplate;
     }
 }

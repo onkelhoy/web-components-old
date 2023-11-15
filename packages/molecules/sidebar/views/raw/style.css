@@ -1,5 +1,5 @@
 body {
-  background-color: var(--o-color-bg-canvas, #EAEBEF);
+  background-color: var(--pap-color-bg-canvas, #EAEBEF);
   margin: 0;
   display: flex;
   /* overscroll-behavior-y: none; */
@@ -11,7 +11,7 @@ main {
 
 main > div {
   margin: 0.5rem;
-  background-color: var(--o-color-bg-secondary, #F6F7F8);
+  background-color: var(--pap-color-bg-secondary, #F6F7F8);
   content: '';
   padding: 5rem;
   border-radius: 1rem;

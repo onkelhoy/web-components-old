@@ -1,4 +1,4 @@
-import '@henry2/tools-doc/wc';
+import '@papit/tools-doc/wc';
 
 let TARGET_ELEMENT = null;
 window.onload = () => {

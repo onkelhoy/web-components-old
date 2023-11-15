@@ -1,5 +1,5 @@
 {
-  "name": "@henry2/web-components",
+  "name": "@papit/web-components",
   "version": "1.0.0",
   "description": "web-component library",
   "private": true,
@@ -9,6 +9,7 @@
   },
   "scripts": {
     "init": "sh ./scripts/init.sh",
+    "init:workspaces": "npm run init --workspaces",
     "build:workspaces": "npm run build --workspaces",
     "build": "bash ./scripts/build/run.sh",
     "create": "sh ./scripts/generator/copy.sh",
@@ -32,6 +33,6 @@
     "packages/**/*"
   ],
   "dependencies": {
-    "@henry2/codeblock": "^1.0.0"
+    "@papit/codeblock": "^0.0.0"
   }
 }

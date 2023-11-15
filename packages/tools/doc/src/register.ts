@@ -6,14 +6,14 @@ import { Input } from './components/Input';
 import { Radio } from './components/Radio';
 
 // include packages
-import '@henry2/tabs/wc';
-import "@henry2/codeblock/wc";
-import "@henry2/markdown/wc";
-import "@henry2/typography/wc";
-import "@henry2/icon/wc";
-import "@henry2/divider/wc";
-import "@henry2/header/wc";
-import "@henry2/tools-showcase/wc";
+import '@papit/tabs/wc';
+import "@papit/codeblock/wc";
+import "@papit/markdown/wc";
+import "@papit/typography/wc";
+import "@papit/icon/wc";
+import "@papit/divider/wc";
+import "@papit/header/wc";
+import "@papit/tools-showcase/wc";
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;

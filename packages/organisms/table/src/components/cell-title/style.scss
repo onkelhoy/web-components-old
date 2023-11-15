@@ -9,19 +9,19 @@
   color: var(--tblecelltitle-text-color-light, var(--color-primary-600, black));
   background-color: var(--tablecelltitle-background-light, var(--color-neutral-300, #F1F1F4));
   
-  o-typography {
+  pap-typography {
     white-space: nowrap;       /* Prevents the text from wrapping */
     overflow: hidden;          /* Ensures the text is clipped */
     text-overflow: ellipsis;   /* Apply the ellipsis */
   }
   
-  o-icon {
+  pap-icon {
     user-select: none;
   }
 }
 
 :host([cansort="false"]) {
-  o-icon {
+  pap-icon {
     display: none;
   }
 }
@@ -29,7 +29,7 @@
 $sorting-variants: none, up, down;
 @each $name in $sorting-variants {
   :host([sorting="#{$name}"]) {
-    o-icon:not([name="table.sort.#{$name}"]) {
+    pap-icon:not([name="table.sort.#{$name}"]) {
       display: none;
     }
   }

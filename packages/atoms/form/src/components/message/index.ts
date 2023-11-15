@@ -1,17 +1,17 @@
 // utils 
-import { html, property, query } from "@henry2/tools-utils";
-import "@henry2/tools-translator/wc";
+import { html, property, query } from "@papit/tools-utils";
+import "@papit/tools-translator/wc";
 
 // atoms 
-import { Accordion } from "@henry2/accordion";
-import "@henry2/icon/wc";
-import "@henry2/button/wc";
-import "@henry2/accordion/wc";
-import "@henry2/typography/wc";
+import { Accordion } from "@papit/accordion";
+import "@papit/icon/wc";
+import "@papit/button/wc";
+import "@papit/accordion/wc";
+import "@papit/typography/wc";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
-import "@henry2/templates-box/wc";
+import { BaseTemplate } from "@papit/templates-base";
+import "@papit/templates-box/wc";
 
 import { style } from "./style";
 
@@ -23,7 +23,7 @@ export class Message extends BaseTemplate {
   @property({ rerender: false }) variant: Variant = "success";
   @property({ rerender: false, type: Boolean, onUpdate: "onopenupdate" }) open = false;
 
-  @query('o-accordion') accordionElement!: Accordion;
+  @query('pap-accordion') accordionElement!: Accordion;
 
   // update handlers
   private onopenupdate = () => {
@@ -40,20 +40,20 @@ export class Message extends BaseTemplate {
 
   render() {
     return html`
-      <o-accordion open="${this.open}">
-        <o-box-template radius="medium">
+      <pap-accordion open="${this.open}">
+        <pap-box-template radius="medium">
           <div class="left">
-            <o-icon customSize="40" name="form.error"></o-icon>
-            <o-icon customSize="40" name="form.success"></o-icon>
+            <pap-icon customSize="40" name="form.error"></pap-icon>
+            <pap-icon customSize="40" name="form.success"></pap-icon>
           </div>
           <div>
-            <o-typography><slot></slot></o-typography>
+            <pap-typography><slot></slot></pap-typography>
           </div>
-          <o-button @click="${this.handleclose}" radius="none" variant="clear">
-            <o-icon customSize="32" name="close" cache></o-icon>
-          </o-button>
-        </o-box-template>
-      </o-accordion>
+          <pap-button @click="${this.handleclose}" radius="none" variant="clear">
+            <pap-icon customSize="32" name="close" cache></pap-icon>
+          </pap-button>
+        </pap-box-template>
+      </pap-accordion>
     `
   }
 }

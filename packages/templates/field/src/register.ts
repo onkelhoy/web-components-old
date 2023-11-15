@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-field-template')) {
-  cElements.define('o-field-template', FieldTemplate);
+if (!cElements.get('pap-field-template')) {
+  cElements.define('pap-field-template', FieldTemplate);
 }

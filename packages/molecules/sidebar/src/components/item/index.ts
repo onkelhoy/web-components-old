@@ -1,19 +1,19 @@
 // utils 
-import { ExtractSlotValue, FormatNumber, html, property, query } from "@henry2/tools-utils";
-import "@henry2/tools-translator/wc";
+import { ExtractSlotValue, FormatNumber, html, property, query } from "@papit/tools-utils";
+import "@papit/tools-translator/wc";
 
 // atoms 
-import { Accordion } from "@henry2/accordion";
-import "@henry2/button/wc";
-import "@henry2/icon/wc";
-import "@henry2/divider/wc";
-import "@henry2/badge/wc";
-import "@henry2/typography/wc";
-import "@henry2/accordion/wc";
+import { Accordion } from "@papit/accordion";
+import "@papit/button/wc";
+import "@papit/icon/wc";
+import "@papit/divider/wc";
+import "@papit/badge/wc";
+import "@papit/typography/wc";
+import "@papit/accordion/wc";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
-import '@henry2/templates-box/wc'
+import { BaseTemplate } from "@papit/templates-base";
+import '@papit/templates-box/wc'
 
 import { style } from "./style";
 
@@ -32,7 +32,7 @@ export class Item extends BaseTemplate {
   @property({ rerender: false, type: Boolean, onUpdate: "onaccordionopenupdate" }) open:boolean = true;
 
   // elements 
-  @query('o-accordion') accordionElement!: Accordion;
+  @query('pap-accordion') accordionElement!: Accordion;
 
   private subitems: Array<Item> = [];
   private currentsubitemselected = 0;
@@ -162,7 +162,7 @@ export class Item extends BaseTemplate {
 
     return html`
       <div>
-        <o-button 
+        <pap-button 
           variant="clear" 
           color="secondary" 
           part="button" 
@@ -174,26 +174,26 @@ export class Item extends BaseTemplate {
           class="${this.className}"
         >
           <span class="indicator" slot="prefix"></span>
-          <span class="caret" slot="prefix"><o-icon customsize="10" name="caret"></o-icon></span>
+          <span class="caret" slot="prefix"><pap-icon customsize="10" name="caret"></pap-icon></span>
 
           <span class="group">
-            ${icon ? html`<o-icon size="small" class="unselected" name="${icon}">${fallback}</o-icon>` : ''}
-            ${icon_selected ? html`<o-icon size="small" class="selected" name="${icon_selected}">${fallback}</o-icon>` : ''}
-            <o-typography truncate="true" variant="${this.isparent ? "C4" : "C3"}">${this.text}</o-typography>
+            ${icon ? html`<pap-icon size="small" class="unselected" name="${icon}">${fallback}</pap-icon>` : ''}
+            ${icon_selected ? html`<pap-icon size="small" class="selected" name="${icon_selected}">${fallback}</pap-icon>` : ''}
+            <pap-typography truncate="true" variant="${this.isparent ? "C4" : "C3"}">${this.text}</pap-typography>
           </span>
-          ${this.counter !== undefined ? html`<o-badge mode="inactive" slot="suffix" count="${this.counter}"></o-badge>` : ''}
-        </o-button>
-        ${this.isparent ? '<o-divider></o-divider>' : ''}
+          ${this.counter !== undefined ? html`<pap-badge mode="inactive" slot="suffix" count="${this.counter}"></pap-badge>` : ''}
+        </pap-button>
+        ${this.isparent ? '<pap-divider></pap-divider>' : ''}
       </div>
-      <o-accordion class="sub">
+      <pap-accordion class="sub">
         <slot @slotchange="${this.handleslotchange}"></slot>
-      </o-accordion>
+      </pap-accordion>
     `
   }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-      "o-sidebar-item": Item;
+      "pap-sidebar-item": Item;
   }
 }

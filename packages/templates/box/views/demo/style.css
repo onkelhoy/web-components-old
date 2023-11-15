@@ -1,9 +1,9 @@
 body {
-  background-color: var(--o-color-bg-canvas, #EAEBEF);
-  color: var(--o-color-text, #29292F);
+  background-color: var(--pap-color-bg-canvas, #EAEBEF);
+  color: var(--pap-color-text, #29292F);
 }
 
-o-box-template {
+pap-box-template {
   width: 200px;
   height: 200px;
   display: flex;
@@ -11,7 +11,7 @@ o-box-template {
   align-items: center;
 }
 
-o-codeblock::part(fieldset) {
+pap-codeblock::part(fieldset) {
   padding: var(--padding-large, 24px);
   display: flex;
   gap: 4rem;

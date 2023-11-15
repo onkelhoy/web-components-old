@@ -1,12 +1,12 @@
 // utils 
-import { html, property } from "@henry2/tools-utils";
-import { Translator } from "@henry2/tools-translator";
-import "@henry2/tools-translator/wc";
+import { html, property } from "@papit/tools-utils";
+import { Translator } from "@papit/tools-translator";
+import "@papit/tools-translator/wc";
 
 // atoms 
-import "@henry2/input/wc";
-import "@henry2/icon/wc";
-import "@henry2/typography/wc";
+import "@papit/input/wc";
+import "@papit/icon/wc";
+import "@papit/typography/wc";
 
 import { style } from "./style";
 
@@ -18,17 +18,17 @@ export class Email extends Translator {
 
   render() {
     return html`
-      <o-input 
+      <pap-input 
         size="medium" 
         type="mail"
         name="email"
         placeholder="${this.translateKey(this.placeholder)}"
       >
         <label slot="header">
-          <o-icon container="medium" name="mail">EM</o-icon>
-          <o-typography><o-translator>${this.label}</o-translator></o-typography>
+          <pap-icon container="medium" name="mail">EM</pap-icon>
+          <pap-typography><pap-translator>${this.label}</pap-translator></pap-typography>
         </label>
-      </o-input>
+      </pap-input>
     `
   }
 }

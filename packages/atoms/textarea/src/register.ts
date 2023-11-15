@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-textarea')) {
-  cElements.define('o-textarea', Textarea);
+if (!cElements.get('pap-textarea')) {
+  cElements.define('pap-textarea', Textarea);
 }

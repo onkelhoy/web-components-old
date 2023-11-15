@@ -1,9 +1,9 @@
 // utils 
-import { html, property, Size } from "@henry2/tools-utils";
+import { html, property, Size } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
-import "@henry2/templates-box/wc";
+import { BaseTemplate } from "@papit/templates-base";
+import "@papit/templates-box/wc";
 
 import { style } from "./style";
 
@@ -14,9 +14,9 @@ export class Card extends BaseTemplate {
 
   render() {
     return html`
-      <o-box-template part="box" radius="medium">
+      <pap-box-template part="box" radius="medium">
         <slot></slot>
-      </o-box-template>
+      </pap-box-template>
     `
   }
 }

@@ -1,15 +1,15 @@
-import { fixture } from '@henry2/tools-test';
+import { fixture } from '@papit/tools-test';
 
 describe('Editor', function () {
   describe('base tests', function () {
     it('web-component should exists', function () {
-      const elm = fixture('o-editor');
+      const elm = fixture('pap-editor');
 
       if (!elm) {
         throw new Error('element not created')
       }
 
-      const docelm = document.querySelector(`o-editor[data-testid="${elm.getAttribute('data-testid')}"]`);
+      const docelm = document.querySelector(`pap-editor[data-testid="${elm.getAttribute('data-testid')}"]`);
       
       if (!docelm) {
         throw new Error('element not found');

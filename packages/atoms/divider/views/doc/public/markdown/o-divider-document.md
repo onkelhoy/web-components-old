@@ -13,10 +13,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -35,7 +35,7 @@ export class Divider extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-divider": Divider;
+        "pap-divider": Divider;
     }
 }
 ## REGISTER-CODE:
@@ -48,8 +48,8 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-divider')) {
-  cElements.define('o-divider', Divider);
+if (!cElements.get('pap-divider')) {
+  cElements.define('pap-divider', Divider);
 }
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and the types can you give me the following tables. 
@@ -59,10 +59,10 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 ## SOURCE-CODE:
  // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -81,7 +81,7 @@ export class Divider extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-divider": Divider;
+        "pap-divider": Divider;
     }
 }
 
@@ -93,10 +93,10 @@ slots should include columns: (name, default-value, description)
 
 ## SOURCE-CODE:
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -115,13 +115,13 @@ export class Divider extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-divider": Divider;
+        "pap-divider": Divider;
     }
 }
 ## STYLE-CODE:
 :host {
     div {
-        background-color: var(--o-divider-color, var(--o-color-border, #C7CBD4));
+        background-color: var(--pap-divider-color, var(--pap-color-border, #C7CBD4));
         content: '';
     }
 }

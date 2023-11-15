@@ -53,15 +53,15 @@
       },
       {
         "name": "html",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "property",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "BaseTemplate",
-        "from": "@henry2/templates-base"
+        "from": "@papit/templates-base"
       },
       {
         "name": "style",
@@ -85,21 +85,21 @@
       },
       {
         "name": "button-suffix",
-        "html": "\n                        <span class=\"caret-wrapper\">\n                            <o-icon customsize=\"15\" name=\"caret\">v</o-icon>\n                        </span>\n                    "
+        "html": "\n                        <span class=\"caret-wrapper\">\n                            <pap-icon customsize=\"15\" name=\"caret\">v</pap-icon>\n                        </span>\n                    "
       },
       {
         "name": "default",
-        "html": "\n                        <o-menu-item>Missing Items</o-menu-item>\n                    "
+        "html": "\n                        <pap-menu-item>Missing Items</pap-menu-item>\n                    "
       }
     ],
     "parts": [
       {
         "name": "button",
-        "tag": "O-BUTTON"
+        "tag": "pap-BUTTON"
       },
       {
         "name": "box",
-        "tag": "O-BOX-TEMPLATE"
+        "tag": "pap-BOX-TEMPLATE"
       }
     ]
   },
@@ -107,13 +107,13 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/menu",
     "sources": [],
     "variables": {
-      "--o-color-white": {
+      "--pap-color-white": {
         "usecases": [
           "--menu-background"
         ],
         "fallbacks": []
       },
-      "--o-color-black": {
+      "--pap-color-black": {
         "usecases": [
           "--menu-color"
         ],

@@ -1,21 +1,21 @@
 :host {
     display: inline-block;
-    --border-color-unselected: var(--o-steps-border-color-unselected, var(--o-color-bg-canvas, #EAEBEF));
-    --border-color-selected: var(--o-steps-border-color-selected, var(--o-color-clear-blue-800, #0059E6));
-    --o-steps-circle-selected-color: var(--border-color-selected);
-    --o-steps-circle-stale-color: var(--border-color-unselected);
+    --border-color-unselected: var(--pap-steps-border-color-unselected, var(--pap-color-bg-canvas, #EAEBEF));
+    --border-color-selected: var(--pap-steps-border-color-selected, var(--pap-color-clear-blue-800, #0059E6));
+    --pap-steps-circle-selected-color: var(--border-color-selected);
+    --pap-steps-circle-stale-color: var(--border-color-unselected);
 
-    o-typography {
+    pap-typography {
         padding-block: var(--padding-small, 8px);
     }
 
-    o-box-template {
+    pap-box-template {
         display: inline-flex;
         align-items: center;
         gap: var(--unit-size5, 32px);
         justify-content: space-between;
 
-        background-color: var(--o-color-bg, #FFFFFF);
+        background-color: var(--pap-color-bg, #FFFFFF);
         padding: var(--padding-medium, 16px) var(--padding-large, 24px);
         
         div {
@@ -25,7 +25,7 @@
             align-items: center;
             position: relative;
 
-            o-typography {
+            pap-typography {
                 white-space:nowrap;
             }
             span {

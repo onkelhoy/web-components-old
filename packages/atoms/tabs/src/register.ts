@@ -9,14 +9,14 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-tab')) {
-  cElements.define('o-tab', Tab);
+if (!cElements.get('pap-tab')) {
+  cElements.define('pap-tab', Tab);
 }
 
-if (!cElements.get('o-tab-content')) {
-  cElements.define('o-tab-content', TabContent);
+if (!cElements.get('pap-tab-content')) {
+  cElements.define('pap-tab-content', TabContent);
 }
 
-if (!cElements.get('o-tabs')) {
-  cElements.define('o-tabs', Tabs);
+if (!cElements.get('pap-tabs')) {
+  cElements.define('pap-tabs', Tabs);
 }

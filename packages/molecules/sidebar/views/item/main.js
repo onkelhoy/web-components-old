@@ -1,8 +1,8 @@
 // tools
-import '@henry2/tools-doc/wc';
+import '@papit/tools-doc/wc';
 
 // component
-import '@henry2/sidebar/wc';
+import '@papit/sidebar/wc';
 
 window.onload = () => {
     console.log('[sidebar-item]: window loaded');
@@ -11,7 +11,7 @@ window.onload = () => {
         console.log('event-listener item clicked');
     })
 
-    document.querySelectorAll('o-sidebar-item').forEach(element => {
+    document.querySelectorAll('pap-sidebar-item').forEach(element => {
         element.onselect = (e) => {
             console.log('im selected chum!', e.target)
         }

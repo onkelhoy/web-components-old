@@ -3,29 +3,29 @@ export const style = `:host {
   :host code {
     overflow: hidden;
     position: relative;
-    background-color: var(--o-color-bg-secondary, #F6F7F8);
+    background-color: var(--pap-color-bg-secondary, #F6F7F8);
     display: block;
     border-radius: var(--radius-small, 4px);
     min-height: 3rem; }
     :host code nav {
       width: 100%;
-      background-color: var(--o-color-bg-tertiary, #EAEBEF);
+      background-color: var(--pap-color-bg-tertiary, #EAEBEF);
       padding-inline: var(--padding-small, 8px);
       box-sizing: border-box;
       display: flex;
       align-items: center;
       justify-content: space-between; }
     :host code span.attribute {
-      color: var(--o-color-text-brand, #0177A3);
+      color: var(--pap-color-text-brand, #0177A3);
       margin-left: var(--margin-medium, 16px); }
     :host code span.attribute-value {
-      color: var(--o-color-accent-01-800); }
+      color: var(--pap-color-accent-01-800); }
     :host code span.tag {
-      color: var(--o-color-text-secondary, #6E7087); }
+      color: var(--pap-color-text-secondary, #6E7087); }
     :host code span.tag-name {
-      color: var(--o-color-text-success, #29591B); }
+      color: var(--pap-color-text-success, #29591B); }
     :host code span.content {
-      color: var(--o-color-text, #29292F); }
+      color: var(--pap-color-text, #29292F); }
     :host code pre {
       margin: 0;
       padding: var(--padding-medium, 16px); }

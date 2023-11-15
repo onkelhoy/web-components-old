@@ -141,15 +141,15 @@
     "/Users/henry/Developer/projects/web-components/packages/tools/translator": [
       {
         "name": "ExtractSlotValue",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "html",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "BaseTemplate",
-        "from": "@henry2/templates-base"
+        "from": "@papit/templates-base"
       },
       {
         "name": "style",
@@ -167,27 +167,27 @@
       },
       {
         "name": "html",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "property",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "query",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "Translator",
-        "from": "@henry2/tools-translator"
+        "from": "@papit/tools-translator"
       },
       {
         "name": "Dropdown",
-        "from": "@henry2/dropdown"
+        "from": "@papit/dropdown"
       },
       {
         "name": "BaseTemplate",
-        "from": "@henry2/templates-base"
+        "from": "@papit/templates-base"
       },
       {
         "name": "style",
@@ -224,10 +224,10 @@
           "--background"
         ],
         "fallbacks": [
-          "var(--o-color-black, black)"
+          "var(--pap-color-black, black)"
         ]
       },
-      "--o-color-black": {
+      "--pap-color-black": {
         "usecases": [
           "--background"
         ],
@@ -240,10 +240,10 @@
           "--color"
         ],
         "fallbacks": [
-          "var(--o-color-neutral-50, white)"
+          "var(--pap-color-neutral-50, white)"
         ]
       },
-      "--o-color-white": {
+      "--pap-color-white": {
         "usecases": [
           "--color"
         ],

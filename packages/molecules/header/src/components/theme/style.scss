@@ -4,7 +4,7 @@
   gap: var(--gap-small, 8px);
 }
 :host([hidden]) {
-  o-menu {
+  pap-menu {
     display: none;
   }
 }
@@ -17,18 +17,18 @@
   border-radius: 50%;
 }
 
-o-toggle {
+pap-toggle {
   &::part(indicator) {
     background-color: transparent;
   }
 
   &[checked="true"] {
-    o-icon[name="light-mode"] {
+    pap-icon[name="light-mode"] {
       display: none;
     }
   }
   &[checked="false"] {
-    o-icon[name="dark-mode"] {
+    pap-icon[name="dark-mode"] {
       display: none;
     }
   }

@@ -1,8 +1,8 @@
 // utils 
-import { ExtractSlotValue, html } from "@henry2/tools-utils";
+import { ExtractSlotValue, html } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
+import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -59,7 +59,7 @@ export class Translator extends BaseTemplate {
     firstUpdate(): void {
         if (this.shadowRoot)
         {
-            const span = this.shadowRoot.querySelector<HTMLSpanElement>('span.o-translation-span');
+            const span = this.shadowRoot.querySelector<HTMLSpanElement>('span.pap-translation-span');
             if (span)
             {
                 this.spanElement = span;
@@ -127,7 +127,7 @@ export class Translator extends BaseTemplate {
 
     render() {
         return html`
-            <span class="o-translation-span"></span>
+            <span class="pap-translation-span"></span>
             <slot style="display:none;" @slotchange="${this.handletranslateslotchange}"></slot>
         `
     }
@@ -135,6 +135,6 @@ export class Translator extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-translator": Translator;
+        "pap-translator": Translator;
     }
 }

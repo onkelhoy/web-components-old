@@ -1,9 +1,9 @@
-import "@henry2/icon/wc";
-import "@henry2/tools-doc/wc";
-import "@henry2/sidebar/wc";
+import "@papit/icon/wc";
+import "@papit/tools-doc/wc";
+import "@papit/sidebar/wc";
 
 window.onload = () => {
-  document.querySelector('o-navbar').addEventListener('select', e => {
+  document.querySelector('pap-navbar').addEventListener('select', e => {
     const id = e.detail.id;
 
     // disable the others first 

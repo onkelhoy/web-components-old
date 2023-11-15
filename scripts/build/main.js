@@ -29,7 +29,7 @@ async function getjsonData() {
 
 for (const name in packagelock.packages) 
 {
-  if (name.startsWith("node_modules/@henry2") && name !== "node_modules/@henry2/ecosystem")
+  if (name.startsWith("node_modules/@papit") && name !== "node_modules/@papit/ecosystem")
   {
     const mapname = name.split("node_modules/")[1];
     if (!map[mapname]) map[mapname] = { dep: [], has: [] };
@@ -43,7 +43,7 @@ for (const name in packagelock.packages)
 
     for (const dep in package.dependencies) 
     {
-      if (dep.startsWith("@henry2") && dep !== mapname)
+      if (dep.startsWith("@papit") && dep !== mapname)
       {
         if (!map[dep]) map[dep] = { dep: [], has: [] };
         map[dep].has.push(mapname);
@@ -81,6 +81,7 @@ function execute_individual(name, versionData) {
     let package_version = versionData.find(d => d.name === name)?.version;
     exec(path.join(__dirname, `individual.sh ${map[name].location} ${SEMANTIC_VERSION} ${package_version || "0.0.0"} ${CICD_NODE_TOKEN || ""}`), (error, stdout, stderr) => {
       if (error) {
+        console.log(error);
         if (error.code === 2)
         {
           console.log("\t[skipped]\t", name);

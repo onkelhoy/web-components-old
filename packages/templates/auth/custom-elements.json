@@ -7,11 +7,11 @@
     "/Users/henry/Developer/projects/web-components/packages/templates/auth": [
       {
         "name": "html",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "BaseTemplate",
-        "from": "@henry2/templates-base"
+        "from": "@papit/templates-base"
       },
       {
         "name": "style",
@@ -23,15 +23,15 @@
     "slots": [
       {
         "name": "logo",
-        "html": "<o-icon customsize=\"200\" name=\"interzero-logo\"></o-icon>"
+        "html": "<pap-icon customsize=\"200\" name=\"interzero-logo\"></pap-icon>"
       },
       {
         "name": "welcome",
-        "html": "<o-typography variant=\"t2\"><o-translator>ðŸ‘‹ Welcome to Interzero.</o-translator></o-typography>"
+        "html": "<pap-typography variant=\"t2\"><pap-translator>ðŸ‘‹ Welcome to Interzero.</pap-translator></pap-typography>"
       },
       {
         "name": "note",
-        "html": "\n                    <o-typography nowrap=\"\"><o-translator>Don't have an account?</o-translator></o-typography>\n                    <o-button variant=\"underlined\"><o-typography nowrap=\"\"><o-translator>Register here</o-translator></o-typography></o-button>\n                "
+        "html": "\n                    <pap-typography nowrap=\"\"><pap-translator>Don't have an account?</pap-translator></pap-typography>\n                    <pap-button variant=\"underlined\"><pap-typography nowrap=\"\"><pap-translator>Register here</pap-translator></pap-typography></pap-button>\n                "
       },
       {
         "name": "default",
@@ -39,7 +39,7 @@
       },
       {
         "name": "footer",
-        "html": "\n                    <o-button link=\"https://www.interzero.de/\" variant=\"underlined\"><o-translator>Interzero</o-translator></o-button>\n                    <o-button link=\"https://www.interzero.de/kontakt\" variant=\"underlined\"><o-translator>Contact</o-translator></o-button>\n                    <o-typography><o-translator>Â© 2022 - Interzero Circular Solutions Germany Gmbh</o-translator></o-typography>\n                "
+        "html": "\n                    <pap-button link=\"https://www.interzero.de/\" variant=\"underlined\"><pap-translator>Interzero</pap-translator></pap-button>\n                    <pap-button link=\"https://www.interzero.de/kontakt\" variant=\"underlined\"><pap-translator>Contact</pap-translator></pap-button>\n                    <pap-typography><pap-translator>Â© 2022 - Interzero Circular Solutions Germany Gmbh</pap-translator></pap-typography>\n                "
       }
     ],
     "parts": []
@@ -48,7 +48,7 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/templates/auth",
     "sources": [],
     "variables": {
-      "--o-color-white": {
+      "--pap-color-white": {
         "usecases": [
           "background-color"
         ],

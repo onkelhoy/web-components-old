@@ -1,12 +1,12 @@
 // tools
-import '@henry2/tools-doc/wc';
+import '@papit/tools-doc/wc';
 
 // component
-import '@henry2/toggle/wc';
+import '@papit/toggle/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');
-    const toggle = document.querySelector('o-toggle');
+    const toggle = document.querySelector('pap-toggle');
 
     toggle.addEventListener('change', () => console.log('change'));
 }

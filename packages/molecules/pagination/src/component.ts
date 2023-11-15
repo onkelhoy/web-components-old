@@ -1,17 +1,17 @@
 // utils 
-import { html, property, query } from "@henry2/tools-utils";
-import { Translator } from "@henry2/tools-translator";
-import "@henry2/tools-translator/wc";
+import { html, property, query } from "@papit/tools-utils";
+import { Translator } from "@papit/tools-translator";
+import "@papit/tools-translator/wc";
 
 // atoms 
-import { Dropdown } from "@henry2/dropdown";
-import "@henry2/icon/wc";
-import "@henry2/typography/wc";
-import "@henry2/button/wc";
-import "@henry2/dropdown/wc";
+import { Dropdown } from "@papit/dropdown";
+import "@papit/icon/wc";
+import "@papit/typography/wc";
+import "@papit/button/wc";
+import "@papit/dropdown/wc";
 
 // templates
-// import { BaseTemplate } from "@henry2/templates-base";
+// import { BaseTemplate } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -24,9 +24,9 @@ export class Pagination extends Translator {
     @property({ type: Number, rerender: false, onUpdate: "onperpageupdate" }) perpage: number = 0;
     @property({ type: Number, rerender: false, onUpdate: "setInfo" }) total: number = 0; // maybe rerender on this ? 
 
-    @query({ selector: 'o-dropdown[name="page"]', onload: 'onpagedload' }) pagedropdownElement!: Dropdown;
-    @query('o-dropdown[name="perpage"]') perpagedropdownElement!: Dropdown;
-    @query('o-translator') infoElement!: Translator;
+    @query({ selector: 'pap-dropdown[name="page"]', onload: 'onpagedload' }) pagedropdownElement!: Dropdown;
+    @query('pap-dropdown[name="perpage"]') perpagedropdownElement!: Dropdown;
+    @query('pap-translator') infoElement!: Translator;
 
     // on load functions
     private onpagedload = () => {
@@ -128,36 +128,36 @@ export class Pagination extends Translator {
         console.log('page is', this.page)
         return html`
             <div>
-                <o-dropdown 
+                <pap-dropdown 
                     @change="${this.handlepagechange}"
                     variant="clear" 
                     name="page"
                     value="${this.page}"
-                ></o-dropdown>
+                ></pap-dropdown>
             </div>
             <div>
-                <o-dropdown 
+                <pap-dropdown 
                     @change="${this.handleperpagechange}"
                     variant="clear" 
                     name="perpage"
                     value="${this.perpage}"
                 >
-                    ${this.getrowpagearray().map(v => html`<o-option>${v}</o-option>`)}
-                </o-dropdown>
+                    ${this.getrowpagearray().map(v => html`<pap-option>${v}</pap-option>`)}
+                </pap-dropdown>
             </div>
-            <o-typography>
-                <o-translator 
+            <pap-typography>
+                <pap-translator 
                     start="${this.page * this.perpage}"
                     end="${this.page * this.perpage + this.perpage}"
                     total="${this.total}"
-                >{start} - {end} of {total}</o-translator>
-            </o-typography>
+                >{start} - {end} of {total}</pap-translator>
+            </pap-typography>
 
             <span class="button-group">
-                <o-button variant="outlined" color="gray" @click="${this.handlefirstclick}"><o-icon name="pagination.first">|<</o-icon></o-button>
-                <o-button variant="outlined" color="gray" @click="${this.handleprevclick}"><o-icon name="pagination.prev"><</o-icon></o-button>
-                <o-button variant="outlined" color="gray" @click="${this.handlenextclick}"><o-icon name="pagination.next">></o-icon></o-button>
-                <o-button variant="outlined" color="gray" @click="${this.handlelastclick}"><o-icon name="pagination.last">>|</o-icon></o-button>
+                <pap-button variant="outlined" color="gray" @click="${this.handlefirstclick}"><pap-icon name="pagination.first">|<</pap-icon></pap-button>
+                <pap-button variant="outlined" color="gray" @click="${this.handleprevclick}"><pap-icon name="pagination.prev"><</pap-icon></pap-button>
+                <pap-button variant="outlined" color="gray" @click="${this.handlenextclick}"><pap-icon name="pagination.next">></pap-icon></pap-button>
+                <pap-button variant="outlined" color="gray" @click="${this.handlelastclick}"><pap-icon name="pagination.last">>|</pap-icon></pap-button>
             </span>
         `
     }
@@ -166,6 +166,6 @@ export class Pagination extends Translator {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-pagination": Pagination;
+        "pap-pagination": Pagination;
     }
 }

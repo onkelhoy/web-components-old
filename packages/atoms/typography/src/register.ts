@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-typography')) {
-  cElements.define('o-typography', Typography);
+if (!cElements.get('pap-typography')) {
+  cElements.define('pap-typography', Typography);
 }

@@ -1,6 +1,6 @@
-import { LanguageSet, EventCallback } from '@henry2/tools-utils';
-export const TRANSLATION_CHANGE_EVENTNAME = 'o-translation-change';
-export const TRANSLATION_ADDED = 'o-translation-added';
+import { LanguageSet, EventCallback } from '@papit/tools-utils';
+export const TRANSLATION_CHANGE_EVENTNAME = 'pap-translation-change';
+export const TRANSLATION_ADDED = 'pap-translation-added';
 
 export function load(set: LanguageSet) {
   if (!set.translations || typeof set.translations !== 'object')

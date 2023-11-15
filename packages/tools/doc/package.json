@@ -1,11 +1,12 @@
 {
-    "name": "@henry2/tools-doc",
-    "version": "1.1.1",
+    "name": "@papit/tools-doc",
+    "version": "0.0.0",
     "scripts": {
         "init": "sh .scripts/init.sh",
         "test": ".scripts/test.sh",
         "build": ".scripts/build.sh",
         "watch": ".scripts/watch.sh",
+        "publish": ".scripts/publish.sh",
         "combine": ".scripts/combine.sh && .scripts/start.sh combined",
         "start": ".scripts/start.sh"
     },
@@ -30,18 +31,18 @@
         "url": "https://github.com/onkelhoy/web-components.git"
     },
     "dependencies": {
-        "@henry2/button": "^1.0.5",
-        "@henry2/divider": "^1.0.5",
-        "@henry2/header": "^1.0.5",
-        "@henry2/icon": "^1.0.5",
-        "@henry2/markdown": "^1.0.0",
-        "@henry2/tabs": "^1.0.0",
-        "@henry2/templates-base": "^1.0.0",
-        "@henry2/templates-color": "^1.0.0",
-        "@henry2/templates-popover": "^1.0.0",
-        "@henry2/tools-showcase": "^1.0.0",
-        "@henry2/tools-utils": "^1.0.0",
-        "@henry2/typography": "^1.0.5"
+        "@papit/button": "^0.0.0",
+        "@papit/divider": "^0.0.0",
+        "@papit/header": "^0.0.0",
+        "@papit/icon": "^0.0.0",
+        "@papit/markdown": "^0.0.0",
+        "@papit/tabs": "^0.0.0",
+        "@papit/templates-base": "^0.0.0",
+        "@papit/templates-color": "^0.0.0",
+        "@papit/templates-popover": "^0.0.0",
+        "@papit/tools-showcase": "^0.0.0",
+        "@papit/tools-utils": "^0.0.0",
+        "@papit/typography": "^0.0.0"
     },
     "devDependencies": {
         "esbuild": "^0.17.18",

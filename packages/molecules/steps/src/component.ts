@@ -1,12 +1,12 @@
 // utils 
-import { html, property } from "@henry2/tools-utils";
+import { html, property } from "@papit/tools-utils";
 
 // atoms
-import "@henry2/typography/wc";
+import "@papit/typography/wc";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
-import "@henry2/templates-box/wc";
+import { BaseTemplate } from "@papit/templates-base";
+import "@papit/templates-box/wc";
 
 // local 
 import { style } from "./style";
@@ -20,7 +20,7 @@ export class Steps extends BaseTemplate {
 
     render() {
         return html`
-            <o-box-template radius="medium">
+            <pap-box-template radius="medium">
                 ${this.steps.map((step, index) => {
                     let status = "incomplete";
                     if (this.current === index) status = 'active';
@@ -28,15 +28,15 @@ export class Steps extends BaseTemplate {
 
                     return html`
                         <div class="step ${this.current > index ? 'selected' : ''}">
-                            <o-typography align="center">${step}</o-typography>
+                            <pap-typography align="center">${step}</pap-typography>
                             <div>
-                                <o-circle status="${status}"></o-circle>
+                                <pap-circle status="${status}"></pap-circle>
                                 <span></span>
                             </div>
                         </div>
                     `
                 })}
-            </o-box-template>
+            </pap-box-template>
         `
     }
 }
@@ -44,6 +44,6 @@ export class Steps extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-steps": Steps;
+        "pap-steps": Steps;
     }
 }

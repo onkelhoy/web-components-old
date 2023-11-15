@@ -1,11 +1,12 @@
 {
-    "name": "@henry2/header",
-    "version": "1.1.1",
+    "name": "@papit/header",
+    "version": "0.0.0",
     "scripts": {
         "init": "sh .scripts/init.sh",
         "test": ".scripts/test.sh",
         "build": ".scripts/build.sh",
         "watch": ".scripts/watch.sh",
+        "publish": ".scripts/publish.sh",
         "combine": ".scripts/combine.sh && .scripts/start.sh combined",
         "start": ".scripts/start.sh",
         "interactive": "sh .scripts/helper/build-interactive.sh",
@@ -33,16 +34,16 @@
         "url": "https://github.com/onkelhoy/web-components.git"
     },
     "dependencies": {
-        "@henry2/badge": "^1.0.0",
-        "@henry2/icon": "^1.0.0",
-        "@henry2/menu": "^1.0.0",
-        "@henry2/templates-base": "^1.0.0",
-        "@henry2/toggle": "^1.0.0",
-        "@henry2/tools-translator": "^1.0.0",
-        "@henry2/tools-utils": "^1.0.0"
+        "@papit/badge": "^0.0.0",
+        "@papit/icon": "^0.0.0",
+        "@papit/menu": "^0.0.0",
+        "@papit/templates-base": "^0.0.0",
+        "@papit/toggle": "^0.0.0",
+        "@papit/tools-translator": "^0.0.0",
+        "@papit/tools-utils": "^0.0.0"
     },
     "devDependencies": {
-        "@henry2/tools-doc": "^1.0.0",
+        "@papit/tools-doc": "^0.0.0",
         "esbuild": "^0.17.18",
         "node-html-parser": "^6.1.5",
         "node-sass": "^9.0.0",

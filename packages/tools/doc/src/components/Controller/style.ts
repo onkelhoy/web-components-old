@@ -3,16 +3,16 @@ export const style = `:host {
   height: 100%;
   position: relative;
   overflow: hidden;
-  --background: var(--controller-background-light, var(--o-color-canvas-100));
-  --color: var(--controller-color-light, var(--o-color-black));
-  --border: var(--controller-border-light, var(--o-color-canvas-600));
+  --background: var(--controller-background-light, var(--pap-color-canvas-100));
+  --color: var(--controller-color-light, var(--pap-color-black));
+  --border: var(--controller-border-light, var(--pap-color-canvas-600));
   color: var(--color); }
 
 @media (prefers-color-scheme: dark) {
   :host {
-    --background: var(--controller-background-dark, var(--o-color-canvas-100));
-    --color: var(--controller-color-dark, var(--o-color-black));
-    --border: var(--controller-border-dark, var(--o-color-canvas-600)); } }
+    --background: var(--controller-background-dark, var(--pap-color-canvas-100));
+    --color: var(--controller-color-dark, var(--pap-color-black));
+    --border: var(--controller-border-dark, var(--pap-color-canvas-600)); } }
 
 main {
   display: block;

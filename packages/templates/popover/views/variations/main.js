@@ -1,2 +1,2 @@
-import '@henry2/tools-doc/wc';
-import "@henry2/templates-popover/wc";
+import '@papit/tools-doc/wc';
+import "@papit/templates-popover/wc";

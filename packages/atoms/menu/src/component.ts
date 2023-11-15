@@ -1,16 +1,16 @@
 // utils 
-import { html, property, Size, Radius } from "@henry2/tools-utils";
+import { html, property, Size, Radius } from "@papit/tools-utils";
 
 // atoms
-import { ButtonVariant, ButtonColorVariant } from "@henry2/button";
-import "@henry2/icon/wc";
-import "@henry2/button/wc";
+import { ButtonVariant, ButtonColorVariant } from "@papit/button";
+import "@papit/icon/wc";
+import "@papit/button/wc";
 
 // templates
-import { BaseTemplate } from "@henry2/templates-base";
-import { Placement } from "@henry2/templates-popover";
-import "@henry2/templates-popover/wc";
-import "@henry2/templates-box/wc";
+import { BaseTemplate } from "@papit/templates-base";
+import { Placement } from "@papit/templates-popover";
+import "@papit/templates-popover/wc";
+import "@papit/templates-box/wc";
 
 // local 
 import { style } from "./style";
@@ -84,8 +84,8 @@ export class Menu extends BaseTemplate {
 
     render() {
         return html`
-            <o-popover-template @hide="${this.handlehide}" @show="${this.handleshow}" revealby="click" hideonoutsideclick placement="${this.placement}">
-                <o-button 
+            <pap-popover-template @hide="${this.handlehide}" @show="${this.handleshow}" revealby="click" hideonoutsideclick placement="${this.placement}">
+                <pap-button 
                     variant="${this.buttonVariant}" 
                     color="${this.buttonColor}" 
                     radius="${this.buttonRadius}" 
@@ -96,15 +96,15 @@ export class Menu extends BaseTemplate {
                     <slot name="button-prefix" slot="prefix"></slot>
                     <slot name="button-content"></slot>
                     <slot name="button-suffix" slot="suffix">
-                        <o-icon customSize="15" name="caret">v</o-icon>
+                        <pap-icon customSize="15" name="caret">v</pap-icon>
                     </slot>
-                </o-button>
-                <o-box-template part="box" class="options" radius="small" elevation="small">
+                </pap-button>
+                <pap-box-template part="box" class="options" radius="small" elevation="small">
                     <slot @slotchange="${this.handleslotchange}">
-                        <o-menu-item>Missing Items</o-menu-item>
+                        <pap-menu-item>Missing Items</pap-menu-item>
                     </slot>
-                </o-box-template>
-            </o-popover-template>
+                </pap-box-template>
+            </pap-popover-template>
         `
     }
 }
@@ -112,6 +112,6 @@ export class Menu extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-menu": Menu;
+        "pap-menu": Menu;
     }
 }

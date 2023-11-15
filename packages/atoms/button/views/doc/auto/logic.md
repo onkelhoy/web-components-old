@@ -5,8 +5,8 @@ PRE: just start the task given, dont include any starting lines so I can just co
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
 ## SOURCE-CODE:
- import { property, Size } from '@henry2/tools-utils';
-import { BoxTemplate } from '@henry2/templates-box';
+ import { property, Size } from '@papit/tools-utils';
+import { BoxTemplate } from '@papit/templates-box';
 
 import { style } from './style.js';
 
@@ -88,7 +88,7 @@ export class Button extends BoxTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-button": Button;
+        "pap-button": Button;
     }
 }
 

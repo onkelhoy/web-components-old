@@ -1,8 +1,8 @@
 // utils 
-import { property, Radius } from "@henry2/tools-utils";
+import { property, Radius } from "@papit/tools-utils";
 
 // templates
-import { BaseTemplate, RenderType } from "@henry2/templates-base";
+import { BaseTemplate, RenderType } from "@papit/templates-base";
 
 // local 
 import { style } from "./style";
@@ -24,6 +24,6 @@ export class BoxTemplate extends BaseTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-box-template": BoxTemplate;
+        "pap-box-template": BoxTemplate;
     }
 }

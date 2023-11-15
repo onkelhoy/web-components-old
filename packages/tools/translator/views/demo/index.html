@@ -20,7 +20,7 @@
     </doc-card>
 
     <doc-card>
-        <o-codeblock lang="javascript" display="code">
+        <pap-codeblock lang="javascript" display="code">
             class ExtendDemo extends Translator {
                 render() {
                     return html`
@@ -28,14 +28,14 @@
                     `
                 }
             }
-        </o-codeblock>
-        <o-codeblock display="both">
+        </pap-codeblock>
+        <pap-codeblock display="both">
             <translate-extenddemo></translate-extenddemo>
-        </o-codeblock>
+        </pap-codeblock>
     </doc-card>
     
     <doc-card>
-        <o-codeblock lang="javascript" display="code">
+        <pap-codeblock lang="javascript" display="code">
             class ExtendDemo2 extends Translator {
                 render() {
                     const label = this.translateKey('Your email address');
@@ -47,46 +47,46 @@
                     `
                 }
             }
-        </o-codeblock>
-        <o-codeblock display="both">
+        </pap-codeblock>
+        <pap-codeblock display="both">
             <translate-extenddemo2></translate-extenddemo2>
-        </o-codeblock>
+        </pap-codeblock>
     </doc-card>
 
     <doc-card>
-        <o-codeblock display="both">
-            <o-translator>Hello World</o-translator>
+        <pap-codeblock display="both">
+            <pap-translator>Hello World</pap-translator>
             <br />
-            <o-translator name="Henry">Hello {name}</o-translator>
-        </o-codeblock>
+            <pap-translator name="Henry">Hello {name}</pap-translator>
+        </pap-codeblock>
     </doc-card>
 
     <doc-card>
-        <o-codeblock display="both">
-            <o-translator name="Henry">I dont exist {name}</o-translator>
-            <o-translator 
+        <pap-codeblock display="both">
+            <pap-translator name="Henry">I dont exist {name}</pap-translator>
+            <pap-translator 
                 start="4"
                 end="7"
                 total="19"
             >
                 {start} - {end} of {total}
-            </o-translator>
-        </o-codeblock>
+            </pap-translator>
+        </pap-codeblock>
     </doc-card>
 
     <doc-card>
-        <o-codeblock lang="javascript" display="code">
+        <pap-codeblock lang="javascript" display="code">
             class InsideDemo extends BaseTemplate {
                 render() {
                     return html`
-                        <o-translator>${this.getAttribute('text')}</o-translator>
+                        <pap-translator>${this.getAttribute('text')}</pap-translator>
                     `
                 }
             }
-        </o-codeblock>
-        <o-codeblock display="both">
+        </pap-codeblock>
+        <pap-codeblock display="both">
             <translate-insidedemo text="bajs"></translate-insidedemo>
-        </o-codeblock>
+        </pap-codeblock>
     </doc-card>
 </body>
 </html>

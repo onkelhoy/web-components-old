@@ -1,14 +1,14 @@
 // utils 
-import { html, property, query } from "@henry2/tools-utils";
-import { Translator } from "@henry2/tools-translator";
-import "@henry2/tools-translator/wc";
+import { html, property, query } from "@papit/tools-utils";
+import { Translator } from "@papit/tools-translator";
+import "@papit/tools-translator/wc";
 
 // atoms 
-import { Input } from "@henry2/input";
-import "@henry2/input/wc";
-import "@henry2/icon/wc";
-import "@henry2/button/wc";
-import "@henry2/typography/wc";
+import { Input } from "@papit/input";
+import "@papit/input/wc";
+import "@papit/icon/wc";
+import "@papit/button/wc";
+import "@papit/typography/wc";
 
 import { style } from "./style";
 
@@ -19,7 +19,7 @@ export class Password extends Translator {
   @property() label = "Your password";
   @property() placeholder = "Type here";
 
-  @query('o-input') inputElement!: Input;
+  @query('pap-input') inputElement!: Input;
 
   // event handlers 
   private handleeyeclick = () => {
@@ -29,7 +29,7 @@ export class Password extends Translator {
 
   render() {
     return html`
-      <o-input 
+      <pap-input 
         size="medium" 
         type="password"
         name="password"
@@ -37,14 +37,14 @@ export class Password extends Translator {
         placeholder="${this.translateKey(this.placeholder)}"
       >
         <label slot="header">
-          <o-icon container="medium" name="key">PW</o-icon>
-          <o-typography><o-translator>${this.label}</o-translator></o-typography>
+          <pap-icon container="medium" name="key">PW</pap-icon>
+          <pap-typography><pap-translator>${this.label}</pap-translator></pap-typography>
         </label>
-        <o-button variant="clear" slot="suffix" @click="${this.handleeyeclick}">
-          <o-icon container="medium" name="eye">show</o-icon>
-          <o-icon container="medium" name="eye-close">hide</o-icon>
-        </o-button>
-      </o-input>
+        <pap-button variant="clear" slot="suffix" @click="${this.handleeyeclick}">
+          <pap-icon container="medium" name="eye">show</pap-icon>
+          <pap-icon container="medium" name="eye-close">hide</pap-icon>
+        </pap-button>
+      </pap-input>
     `
   }
 }

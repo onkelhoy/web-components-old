@@ -1,7 +1,8 @@
 {
-    "name": "@henry2/tools-utils",
-    "version": "1.1.1",
+    "name": "@papit/tools-utils",
+    "version": "0.0.0",
     "scripts": {
+        "init": "sh .scripts/init.sh",
         "build": "tsc",
         "watch": "tsc --watch"
     },
@@ -25,8 +26,8 @@
         "url": "https://github.com/onkelhoy/web-components.git"
     },
     "devDependencies": {
-        "@henry2/tools-showcase": "^1.0.0",
-        "@henry2/typography": "^1.0.5",
+        "@papit/tools-showcase": "^0.0.0",
+        "@papit/typography": "^0.0.0",
         "typescript": "^5.0.4"
     },
     "keywords": [

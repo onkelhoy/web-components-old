@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-sidebar-contact')) {
-  cElements.define('o-sidebar-contact', SidebarContact);
+if (!cElements.get('pap-sidebar-contact')) {
+  cElements.define('pap-sidebar-contact', SidebarContact);
 }

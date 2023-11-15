@@ -121,7 +121,7 @@ function extract_import(line) {
     return null;
 }
 function getLocalModule(name) {
-    if (!name.startsWith('@henry2')) return null;
+    if (!name.startsWith('@papit')) return null;
 
     const data = LOCKFILE.packages[`node_modules/${name}`];
     if (!data) return null;

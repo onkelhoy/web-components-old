@@ -7,6 +7,6 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-base-template')) {
-  cElements.define('o-base-template', BaseTemplate);
+if (!cElements.get('pap-base-template')) {
+  cElements.define('pap-base-template', BaseTemplate);
 }

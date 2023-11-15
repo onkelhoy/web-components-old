@@ -1,52 +1,52 @@
 $warning: (
   filled: (
     default: (
-      background: var(--o-color-bg-warning, #FFA800),
-      text: var(--o-color-text-onwarning, #29292F),
-      icon: var(--o-color-icon-onwarning, #29292F),
+      background: var(--pap-color-bg-warning, #FFA800),
+      text: var(--pap-color-text-onwarning, #29292F),
+      icon: var(--pap-color-icon-onwarning, #29292F),
     ),
     hover: (
-      background: var(--o-color-bg-warning-hover, #E27F00),
-      text: var(--o-color-text-onwarning-hover, #FFFFFF),
-      icon: var(--o-color-icon-onwarning-hover, #FFFFFF),
+      background: var(--pap-color-bg-warning-hover, #E27F00),
+      text: var(--pap-color-text-onwarning-hover, #FFFFFF),
+      icon: var(--pap-color-icon-onwarning-hover, #FFFFFF),
     ),
     pressed: (
-      background: var(--o-color-bg-warning-pressed, #BB5802),
-      text: var(--o-color-text-onwarning-pressed, #FFFFFF),
-      icon: var(--o-color-icon-onwarning-pressed, #FFFFFF),
+      background: var(--pap-color-bg-warning-pressed, #BB5802),
+      text: var(--pap-color-text-onwarning-pressed, #FFFFFF),
+      icon: var(--pap-color-icon-onwarning-pressed, #FFFFFF),
     ),
   ),
   outlined: (
     default: (
-      border: var(--o-color-border-warning, #E27F00),
-      text: var(--o-color-text-warning, #984308),
-      icon: var(--o-color-icon-warning, #E27F00),
+      border: var(--pap-color-border-warning, #E27F00),
+      text: var(--pap-color-text-warning, #984308),
+      icon: var(--pap-color-icon-warning, #E27F00),
     ),
     hover: (
-      background: var(--o-color-bg-warning-hover, #E27F00),
-      icon: var(--o-color-icon-onwarning-hover, #FFFFFF),
-      text: var(--o-color-text-onwarning-hover, #FFFFFF),
+      background: var(--pap-color-bg-warning-hover, #E27F00),
+      icon: var(--pap-color-icon-onwarning-hover, #FFFFFF),
+      text: var(--pap-color-text-onwarning-hover, #FFFFFF),
     ),
     pressed: (
-      background: var(--o-color-bg-warning-pressed, #BB5802),
-      text: var(--o-color-text-onwarning-pressed, #FFFFFF),
-      icon: var(--o-color-icon-onwarning-pressed, #FFFFFF),
+      background: var(--pap-color-bg-warning-pressed, #BB5802),
+      text: var(--pap-color-text-onwarning-pressed, #FFFFFF),
+      icon: var(--pap-color-icon-onwarning-pressed, #FFFFFF),
     ),
   ),
   clear: (
     default: (
-      text: var(--o-color-text-warning, #984308),
-      icon: var(--o-color-icon-warning, #E27F00),
+      text: var(--pap-color-text-warning, #984308),
+      icon: var(--pap-color-icon-warning, #E27F00),
     ),
     hover: (
-      background: var(--o-color-bg-warning-hover, #E27F00),
-      text: var(--o-color-text-onwarning-hover, #FFFFFF),
-      icon: var(--o-color-icon-onwarning-hover, #FFFFFF),
+      background: var(--pap-color-bg-warning-hover, #E27F00),
+      text: var(--pap-color-text-onwarning-hover, #FFFFFF),
+      icon: var(--pap-color-icon-onwarning-hover, #FFFFFF),
     ),
     pressed: (
-      background: var(--o-color-bg-warning-pressed, #BB5802),
-      text: var(--o-color-text-onwarning-pressed, #FFFFFF),
-      icon: var(--o-color-icon-onwarning-pressed, #FFFFFF),
+      background: var(--pap-color-bg-warning-pressed, #BB5802),
+      text: var(--pap-color-text-onwarning-pressed, #FFFFFF),
+      icon: var(--pap-color-icon-onwarning-pressed, #FFFFFF),
     ),
   ),
 )

@@ -6,7 +6,7 @@
     height: 100vh;
     z-index: 1000;
 
-    o-button[part="hamburger-outside"] {
+    pap-button[part="hamburger-outside"] {
         position: absolute;
         top: var(--gap-large, 24px);
         left: var(--gap-medium, 16px);
@@ -14,7 +14,7 @@
         display: none;
     }
 
-    o-box-template {
+    pap-box-template {
         position: fixed;
         container-type: inline-size;
         z-index: 2;
@@ -24,7 +24,7 @@
         overflow: hidden;
         box-sizing: border-box;
 
-        background-color: var(--o-sidebar-background-color, var(--o-color-bg, #FFFFFF));
+        background-color: var(--pap-sidebar-background-color, var(--pap-color-bg, #FFFFFF));
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
 
@@ -39,17 +39,17 @@
             padding-left: var(--padding-medium, 16px);
             padding-bottom: var(--padding-medium, 16px);
 
-            o-icon {
-                color: var(--o-color-text-brand-strong, #002652);
+            pap-icon {
+                color: var(--pap-color-text-brand-strong, #002652);
             }
         }
 
-        o-divider {
+        pap-divider {
             padding-right: var(--padding-small, 8px);
             padding-left: var(--padding-medium, 16px);
 
             &::part(line) {
-                background-color: var(--o-color-border-tertiary, #EAEBEF);
+                background-color: var(--pap-color-border-tertiary, #EAEBEF);
             }
         }
 
@@ -67,8 +67,8 @@
         }
     }
 
-    o-box-template[elevation="medium"] {
-        box-shadow: var(--shadow-horizontal-m, 4px 0 6px var(--o-color-shadow, color-mix(in oklab, var(--o-color-neutral-600, #6E7087), transparent 80%)));
+    pap-box-template[elevation="medium"] {
+        box-shadow: var(--shadow-horizontal-m, 4px 0 6px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)));
     }
 
     &::before {
@@ -78,7 +78,7 @@
         top: 0;
         width: 100vw;
         height: 100vh;
-        background-color: var(--o-color-bg-overlay, #29292F);
+        background-color: var(--pap-color-bg-overlay, #29292F);
         opacity: 0;
         z-index: 1;
         pointer-events: none;
@@ -91,7 +91,7 @@
     min-width: 320px;
     width: 320px;
 
-    o-box-template {
+    pap-box-template {
         width: 320px;
     }
 }
@@ -99,7 +99,7 @@
     min-width: 3.5rem;
     width: 3.5rem;
 
-    o-box-template {
+    pap-box-template {
         width: 3.5rem;
     }
 }
@@ -109,13 +109,13 @@
     width: 3.5rem;
     z-index: 1000;
     
-    o-box-template {
+    pap-box-template {
         width: 3.5rem;
 
         &:hover {
             width: 320px;
             transition: width 60ms ease-in;
-            box-shadow: var(--shadow-horizontal-m, 4px 0 6px var(--o-color-shadow, color-mix(in oklab, var(--o-color-neutral-600, #6E7087), transparent 80%)));
+            box-shadow: var(--shadow-horizontal-m, 4px 0 6px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)));
         }
         &:not(:hover) {
             box-shadow: none;
@@ -130,11 +130,11 @@
     min-width: 0;
     width: 0;
 
-    o-box-template {
+    pap-box-template {
         width: 0;
     }
 
-    o-button[part="hamburger-outside"] {
+    pap-button[part="hamburger-outside"] {
         display: flex;
     }
 
@@ -148,7 +148,7 @@
     min-width: 0;
     width: 0;
 
-    o-box-template {
+    pap-box-template {
         width: 85vw;
         max-width: 320px;
     }
@@ -160,14 +160,14 @@
 
 @container (min-width: 3.5rem) {
     :host {
-        o-box-template {
+        pap-box-template {
             transition: width 60ms ease-in;
         }
     }
 }
 @container (max-width: 3.5rem) {
     :host {
-        o-box-template {
+        pap-box-template {
             transition: width 150ms ease-in;
 
             header {
@@ -177,12 +177,12 @@
                 ::slotted(*) {
                     display: none;
                 }
-                o-icon.logo {
+                pap-icon.logo {
                     display: none !important;
                 }
             }
 
-            o-divider {
+            pap-divider {
                 padding-left: var(--padding-small, 8px);
             }
         }

@@ -8,9 +8,9 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-dropdown')) {
-  cElements.define('o-dropdown', Dropdown);
+if (!cElements.get('pap-dropdown')) {
+  cElements.define('pap-dropdown', Dropdown);
 }
-if (!cElements.get('o-option')) {
-  cElements.define('o-option', Option);
+if (!cElements.get('pap-option')) {
+  cElements.define('pap-option', Option);
 }

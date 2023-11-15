@@ -38,15 +38,15 @@
       },
       {
         "name": "html",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "property",
-        "from": "@henry2/tools-utils"
+        "from": "@papit/tools-utils"
       },
       {
         "name": "BaseTemplate",
-        "from": "@henry2/templates-base"
+        "from": "@papit/templates-base"
       },
       {
         "name": "style",
@@ -84,15 +84,15 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/editor",
     "sources": [],
     "variables": {
-      "--o-editor-background-color-light": {
+      "--pap-editor-background-color-light": {
         "usecases": [
           "--background"
         ],
         "fallbacks": [
-          "var(--o-color-neutral-50, white)"
+          "var(--pap-color-neutral-50, white)"
         ]
       },
-      "--o-color-white": {
+      "--pap-color-white": {
         "usecases": [
           "--background"
         ],
@@ -101,15 +101,15 @@
           "black"
         ]
       },
-      "--o-editor-text-color-light": {
+      "--pap-editor-text-color-light": {
         "usecases": [
           "--color"
         ],
         "fallbacks": [
-          "var(--o-color-black, black)"
+          "var(--pap-color-black, black)"
         ]
       },
-      "--o-color-black": {
+      "--pap-color-black": {
         "usecases": [
           "--color"
         ],
@@ -130,20 +130,20 @@
         ],
         "fallbacks": []
       },
-      "--o-editor-background-color-dark": {
+      "--pap-editor-background-color-dark": {
         "usecases": [
           "--background"
         ],
         "fallbacks": [
-          "var(--o-color-neutral-50, black)"
+          "var(--pap-color-neutral-50, black)"
         ]
       },
-      "--o-editor-text-color-dark": {
+      "--pap-editor-text-color-dark": {
         "usecases": [
           "--color"
         ],
         "fallbacks": [
-          "var(--o-color-black, white)"
+          "var(--pap-color-black, white)"
         ]
       }
     }

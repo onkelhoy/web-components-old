@@ -1,12 +1,12 @@
 export const style = `:host {
   display: block; }
-  :host o-typography {
+  :host pap-typography {
     height: 56px;
     line-height: 56px;
     text-indent: 0.7rem; }
 
-:host([mode="edit"]) o-typography {
+:host([mode="edit"]) pap-typography {
   display: none; }
 
-:host([mode="view"]) o-input {
+:host([mode="view"]) pap-input {
   display: none; }`;

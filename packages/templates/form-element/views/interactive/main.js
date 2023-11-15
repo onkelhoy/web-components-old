@@ -1,4 +1,4 @@
-import '@henry2/tools-doc/wc';
+import '@papit/tools-doc/wc';
 
 let TARGET_ELEMENT = null;
 window.onload = () => {
@@ -44,4 +44,4 @@ function update(name, value, element) {
     TARGET_ELEMENT.setAttribute(name, value);
   }
 }
-import "@henry2/templates-form-element/wc";
+import "@papit/templates-form-element/wc";

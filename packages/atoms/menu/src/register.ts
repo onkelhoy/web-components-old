@@ -8,9 +8,9 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('o-menu')) {
-  cElements.define('o-menu', Menu);
+if (!cElements.get('pap-menu')) {
+  cElements.define('pap-menu', Menu);
 }
-if (!cElements.get('o-menu-item')) {
-  cElements.define('o-menu-item', MenuItem);
+if (!cElements.get('pap-menu-item')) {
+  cElements.define('pap-menu-item', MenuItem);
 }

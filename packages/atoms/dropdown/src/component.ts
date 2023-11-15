@@ -1,14 +1,14 @@
 // utils 
-import { html, property, query, suspense } from "@henry2/tools-utils";
+import { html, property, query, suspense } from "@papit/tools-utils";
 
 // atoms
-import '@henry2/icon/wc';
+import '@papit/icon/wc';
 
 // templates
-import { TextinputTemplate } from '@henry2/templates-textinput';
-import { Placement, PopoverTemplate } from "@henry2/templates-popover";
-import '@henry2/templates-popover/wc';
-import '@henry2/templates-box/wc';
+import { TextinputTemplate } from '@papit/templates-textinput';
+import { Placement, PopoverTemplate } from "@papit/templates-popover";
+import '@papit/templates-popover/wc';
+import '@papit/templates-box/wc';
 
 // local 
 import { style } from "./style";
@@ -24,7 +24,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
     @property({ type: Array, rerender: false, onUpdate: "onoptionupdate" }) options?: Array<OptionType>;
     // @property({ type: Array, rerender: false, attribute: false }) values: string[] = [];
     @property({ rerender: false, type: Boolean }) popoveropen: boolean = false;
-    @query('o-popover-template') popoverElement!: PopoverTemplate;
+    @query('pap-popover-template') popoverElement!: PopoverTemplate;
 
     // NOTE when we need values to be preselected... its gonna be a pain
     private __options:IOption[] = [];
@@ -60,7 +60,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
         super();
 
         this.debouncedCheckValue = suspense(this.checkValue, 100);
-        this._suffix = '<o-icon customsize="13" name="caret">^</o-icon>'
+        this._suffix = '<pap-icon customsize="13" name="caret">^</pap-icon>'
     }
     // private functions
     private debouncedCheckValue () {}
@@ -163,24 +163,24 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
         `)
 
         return html`
-            <o-popover-template @show="${this.handleShow}" @hide="${this.handleHide}" revealby="click">
+            <pap-popover-template @show="${this.handleShow}" @hide="${this.handleHide}" revealby="click">
                 <span slot="target">
                     ${superrender}
                 </span>
-                <o-box-template class="options" radius="small" elevation="small">
+                <pap-box-template class="options" radius="small" elevation="small">
                     
                     <slot>
-                        ${this.__options.map(v => html`<o-option key="${v.value}" value="${v.value}">${v.text}</o-option>`)}
-                        ${this.__options?.length === 0 ? '<o-option key="missing-value">Missing Options</o-option>' : ''}
+                        ${this.__options.map(v => html`<pap-option key="${v.value}" value="${v.value}">${v.text}</pap-option>`)}
+                        ${this.__options?.length === 0 ? '<pap-option key="missing-value">Missing Options</pap-option>' : ''}
                     </slot>
-                </o-box-template>
-            </o-popover-template>
+                </pap-box-template>
+            </pap-popover-template>
         `
     }
 }
 
 declare global {
     interface HTMLElementTagNameMap {
-        "o-dropdown": Dropdown;
+        "pap-dropdown": Dropdown;
     }
 }
