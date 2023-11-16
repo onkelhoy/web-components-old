@@ -9,6 +9,7 @@
   },
   "scripts": {
     "init": "sh ./scripts/init.sh",
+    "init:workspaces": "npm run init --workspaces",
     "build:workspaces": "npm run build --workspaces",
     "build": "bash ./scripts/build/run.sh",
     "create": "sh ./scripts/generator/copy.sh",

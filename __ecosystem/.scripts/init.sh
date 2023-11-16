@@ -5,3 +5,4 @@ chmod +x .scripts/start.sh
 chmod +x .scripts/build.sh
 chmod +x .scripts/watch.sh
 chmod +x .scripts/combine.sh
+chmod +x .scripts/publish.sh

@@ -2,6 +2,7 @@
     "name": "@papit/tools-utils",
     "version": "0.0.0",
     "scripts": {
+        "init": "sh .scripts/init.sh",
         "build": "tsc",
         "watch": "tsc --watch"
     },

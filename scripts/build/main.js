@@ -81,6 +81,7 @@ function execute_individual(name, versionData) {
     let package_version = versionData.find(d => d.name === name)?.version;
     exec(path.join(__dirname, `individual.sh ${map[name].location} ${SEMANTIC_VERSION} ${package_version || "0.0.0"} ${CICD_NODE_TOKEN || ""}`), (error, stdout, stderr) => {
       if (error) {
+        console.log(error);
         if (error.code === 2)
         {
           console.log("\t[skipped]\t", name);
