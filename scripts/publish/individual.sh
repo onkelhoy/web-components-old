@@ -21,10 +21,11 @@ fi
 # Extract name and version from package.json
 CURRENT_VERSION=$(node -p "require('./package.json').version")
 
-if [[ $CURRENT_VERSION == $NPM_VERSION ]] && [[ ! -z "$CICD_NODE_TOKEN" ]]; then
+
+if [ $CURRENT_VERSION == $NPM_VERSION ] && [ -n "$CICD_NODE_TOKEN" ]; then
   exit 2
 else 
-  if [[ ! -z "$CICD_NODE_TOKEN" ]]; then 
+  if [ -n "$CICD_NODE_TOKEN" ]; then 
     # install 
     npm ci 
 

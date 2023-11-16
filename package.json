@@ -11,7 +11,7 @@
     "init": "sh ./scripts/init.sh",
     "init:workspaces": "npm run init --workspaces",
     "build:workspaces": "npm run build --workspaces",
-    "build": "bash ./scripts/build/run.sh",
+    "publish": "bash ./scripts/publish/run.sh",
     "create": "sh ./scripts/generator/copy.sh",
     "clean": "sh ./scripts/clean.sh",
     "ecosystem:build": "sh ./scripts/ecosystem/build.sh",

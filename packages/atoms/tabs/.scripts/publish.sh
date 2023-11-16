@@ -2,6 +2,7 @@
 
 echo "Global semantic versioning?"
 echo "answer:"
+echo "[0] none"
 echo "[1] patch"
 echo "[2] minor"
 echo "[3] major"
