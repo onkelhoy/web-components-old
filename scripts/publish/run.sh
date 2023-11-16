@@ -12,7 +12,7 @@ for arg in "$@"; do
   fi
 done
 
-# If the flag is set, run the command
+ If the flag is set, run the command
 if [ $CI_FLAG -eq 0 ]; then
   echo "Global semantic versioning?"
   echo "answer:"
@@ -26,6 +26,9 @@ if [ $CI_FLAG -eq 0 ]; then
   npm search --searchlimit=100 @papit --json | node $SCRIPT_DIR/main.js $choice
 else
   npm search --searchlimit=100 @papit --json | node $SCRIPT_DIR/main.js 1 $NODE_AUTH_TOKEN
+  # used for testing
+  # bash $SCRIPT_DIR/individual.sh $SCRIPT_DIR/../../packages/atoms/button 1 -0.0.0 $NODE_AUTH_TOKEN
+  # bash $SCRIPT_DIR/individual.sh $SCRIPT_DIR/../../packages/atoms/typography 1 -0.0.0 $NODE_AUTH_TOKEN
 fi
 
 echo "packages built"
