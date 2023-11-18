@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@papit/button": "^0.0.0",
-    "@papit/icon": "^0.0.0",
+    "@papit/icon": "0.0.1",
     "@papit/templates-base": "^0.0.0",
     "@papit/tools-translator": "^0.0.0",
     "@papit/typography": "^0.0.0",

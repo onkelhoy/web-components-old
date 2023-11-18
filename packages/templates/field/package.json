@@ -35,7 +35,7 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@papit/icon": "^0.0.0",
+    "@papit/icon": "0.0.1",
     "@papit/templates-form-element": "^0.0.0",
     "@papit/typography": "^0.0.0",
     "@papit/tools-utils": "^0.0.0"

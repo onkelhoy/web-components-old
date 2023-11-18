@@ -35,7 +35,7 @@
     "@papit/button": "^0.0.0",
     "@papit/divider": "^0.0.0",
     "@papit/header": "^0.0.0",
-    "@papit/icon": "^0.0.0",
+    "@papit/icon": "0.0.1",
     "@papit/markdown": "^0.0.0",
     "@papit/tabs": "^0.0.0",
     "@papit/templates-base": "^0.0.0",
