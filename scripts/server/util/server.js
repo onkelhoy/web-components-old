@@ -1,0 +1,132 @@
+// packages
+const fs = require('fs');
+const path = require('path');
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const { parse } = require('node-html-parser');
+
+// local packages
+const { getFilePath } = require('./file-path');
+const { watch, build } = require('./watch');
+const { server:socketserver } = require('./socket');
+
+const app = express();
+app.use(cookieParser());
+
+let liveHTML = null;
+
+app.get('*', async (req, res) => 
+{
+  try 
+  {
+    let filepath = getFilePath(req, res);
+    let file = null;
+
+    if (filepath === null)
+    {
+      res.status(404).end('Not found');
+    }
+    else 
+    {
+      // safety check 
+      if (safeCheck(filepath)) 
+      {
+        return res.status(302).end('forbidden');
+      }
+
+      if (process.env.LIVEMODE)
+      {
+        if (filepath.endsWith('.js'))
+        {
+          if (!filepath.includes('.temp')) 
+          {
+            await watch(filepath);
+            filepath = getFilePath(req, res); // should update to the newly created file inside .temp
+          }
+        }
+        if (liveHTML && filepath.endsWith('.html'))
+        {
+          file = fs.readFileSync(filepath, 'utf-8');
+          const document = parse(file);
+          document.querySelector('head').appendChild(parse(liveHTML));
+          file = document.toString();
+        }
+      }
+      else 
+      {
+        if (filepath.endsWith('.js'))
+        {
+          if (!filepath.includes('.temp')) 
+          {
+            await build(filepath);
+            filepath = getFilePath(req, res); // should update to the newly created file inside .temp
+          }
+        }
+      }
+
+      if (file === null) file = fs.readFileSync(filepath);
+
+      res.status(200).end(file);
+    }
+  }
+  catch (e) 
+  {
+    console.log('[error] internal error', e);
+    res.status(500).end('internal server error');
+  }
+});
+
+function safeCheck(filepath) 
+{
+  const normalizedPath = path.resolve(filepath);
+
+  if (!normalizedPath.startsWith(process.env.ROOT_DIR)) return true;
+
+  // add all file types we dont want clients to see 
+  if (filepath.endsWith('.env')) return true;
+
+  // no error
+  return false; 
+}
+
+let server_start_attempts = 0;
+function start(CONFIG) 
+{
+  const port = Number(CONFIG.port) + server_start_attempts;
+
+  if (process.env.LIVEMODE)
+  {
+    liveHTML = fs
+      .readFileSync(path.join(process.env.SCRIPT_DIR, "template/live.html"), 'utf-8')
+      .replace('PORT', CONFIG.port);
+  }
+
+  const httpServer = app.listen(port, () => 
+  {
+    console.log(`devserver started on port ${port}`);
+  }).on('error', () => 
+  {
+    server_start_attempts++;
+    if (server_start_attempts < 1000)
+    {
+      StartServer();
+    }
+    else 
+    {
+      console.log(`[ERROR] port spaces between [${CONFIG.PORT}, ${port}] are all taken, please free up some ports`);
+    }
+  });
+
+  httpServer.on('upgrade', (request, socket, head) => 
+  {
+    socketserver.handleUpgrade(request, socket, head, (socket) => 
+    {
+      socketserver.emit('connection', socket, request);
+    });
+  });
+}
+
+
+module.exports = {
+  start,
+}

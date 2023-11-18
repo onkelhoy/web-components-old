@@ -1,0 +1,22 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2020, // or a later version
+    "sourceType": "module" // if you're using ES6 modules
+  },
+  "env": {
+    "es6": true // Make sure ES6 globals are enabled
+  },
+  "rules": {
+    "brace-style": [
+      "error",
+      "allman",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "indent": [
+      "error",
+      2
+    ]
+  }
+}

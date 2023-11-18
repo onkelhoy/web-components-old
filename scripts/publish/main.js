@@ -29,7 +29,7 @@ async function getjsonData() {
 
 for (const name in packagelock.packages) 
 {
-  if (name.startsWith("node_modules/@papit") && name !== "node_modules/@papit/ecosystem")
+  if (name.startsWith("node_modules/@papit") && name !== "node_modules/@papit/server")
   {
     const mapname = name.split("node_modules/")[1];
     if (!map[mapname]) map[mapname] = { dep: [], has: [] };
@@ -53,6 +53,8 @@ for (const name in packagelock.packages)
     map[mapname].dep = dependencies
   }
 }
+// // we also add the @papit/server 
+// map['@papit/server'] = { dep: [], has: [], location: packagelock.packages['node_modules/@papit/server'].resolved }
 
 async function execute(list, versionData) {
   let executions = [];

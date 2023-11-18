@@ -272,7 +272,7 @@ window.onload = () => {
                 "China": "Kina",
                 "Portugal": "Portugal",
                 "Netherlands": "Nederland",
-                "Yemen": "Jemen",
+                "Yemen": "Jemen"
             } },
             { id: "NK", name: "North Korea", translations: {
                 "Hungary": "헝가리",
