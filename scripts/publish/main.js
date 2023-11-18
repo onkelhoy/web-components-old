@@ -78,11 +78,9 @@ function wait(n = 1000) {
 
 function execute_individual(name, versionData) {
   return new Promise((res, rej) => {
-    let package_version = versionData.find(d => d.name === name)?.version;
-    exec(path.join(__dirname, `individual.sh ${map[name].location} ${SEMANTIC_VERSION} ${package_version || "0.0.0"} ${CICD_NODE_TOKEN || ""}`), 
-      (error, stdout, stderr) => {
+    let package_version = versionData.find(d => d.name === name)?.version || '-0.0.0';
+    exec(path.join(__dirname, `individual.sh ${map[name].location} ${SEMANTIC_VERSION} ${package_version} ${CICD_NODE_TOKEN || ""}`), (error, stdout, stderr) => {
       if (error) {
-        console.log(error);
         if (error.code === 2)
         {
           console.log("\t[skipped]\t", name);
@@ -92,9 +90,6 @@ function execute_individual(name, versionData) {
           console.log("\t[failed]\t", name);
         }
       }
-      // else if (stderr) {
-      //   console.log("ST-ERROR", stderr);
-      // }
       else if (stdout) {
         console.log("\t[success]\t", name);
         // console.log("\t[success]\t", name);
@@ -116,16 +111,6 @@ async function run(versionData) {
       set.delete(name);
       list.push(name);
     }
-    /** NOTE could do improvement here to check what has been build already, 
-     * was gonna check the package.version but this would not trigger any change ever.. 
-     * need to somehow increase the version each time build is called - if something has changed I guess ? 
-     * no could extend the build of indivdual packages so it increases package version by major, minor and the third 
-     * - with a flag to be able to cancel this response like for watch we wish maybe not to call with updating etc
-     * 
-     * only when npm run build is called we could have this running 
-     * so when we run "npm run build" within the watch script we could run as: "npm run build -n" -n for no? no 
-     */
-    // else if (latestjson[name] && latestjson[name] !== )
   }
 
   console.log(`package-batch, size=${list.length}`)

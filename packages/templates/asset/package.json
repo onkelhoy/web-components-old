@@ -6,7 +6,7 @@
         "test": ".scripts/test.sh",
         "build": ".scripts/build.sh",
         "watch": ".scripts/watch.sh",
-        "publish": ".scripts/publish.sh",
+        "manual-publish": ".scripts/publish.sh",
         "combine": ".scripts/combine.sh && .scripts/start.sh combined",
         "start": ".scripts/start.sh",
         "types": "sh ../../../scripts/extract_types/run.sh $(pwd)"
