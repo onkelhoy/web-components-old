@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# ask versioning
 echo "Global semantic versioning?"
 echo "answer:"
 echo "[0] none"
