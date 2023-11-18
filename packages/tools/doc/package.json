@@ -7,6 +7,7 @@
         "build": ".scripts/build.sh",
         "watch": ".scripts/watch.sh",
         "manual-publish": ".scripts/publish.sh",
+        "postversion": "sh .scripts/postversion.sh",
         "combine": ".scripts/combine.sh && .scripts/start.sh combined",
         "start": ".scripts/start.sh"
     },

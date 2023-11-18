@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# ask versioning
 echo "Global semantic versioning?"
 echo "answer:"
 echo "[0] none"
@@ -22,5 +23,5 @@ fi
 npm run build
 
 # Authenticate and publish 
-npm login
-npm publish
+# npm login
+# npm publish
