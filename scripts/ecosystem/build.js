@@ -1,137 +1,97 @@
-const fs = require("fs");
+const fs = require('fs');
 const path = require("path");
+const { parse } = require('node-html-parser');
 const { exec } = require('child_process');
 
-const packagelock = JSON.parse(fs.readFileSync(path.join(__dirname, "../../package-lock.json")));
+const { iterate, initializePackages } = require('../utils/package-list-dependency-order');
 
-const map = {};
-const set = new Set();
+// variables 
+process.env.ROOT_DIR = process.argv[2];
+process.env.WEB_DIR = path.join(process.env.ROOT_DIR, "web");
+const LOCKFILE = JSON.parse(fs.readFileSync(path.join(process.env.ROOT_DIR, "package-lock.json")));
 
-for (const name in packagelock.packages) 
+// FILES
+// package 
+const ECOSYSTEMPACKAGE_PATH = path.join(process.env.WEB_DIR, "package.json");
+const ECOSYSTEMPACKAGE = JSON.parse(fs.readFileSync(ECOSYSTEMPACKAGE_PATH));
+// html 
+const HTML_PATH = path.join(process.env.WEB_DIR, "index.html");
+const HTMLFILE = fs.readFileSync(HTML_PATH, 'utf-8');
+const HTMLDOCUMENT = parse(HTMLFILE);
+// javascript 
+const MAIN_PATH = path.join(process.env.WEB_DIR, "main.js");
+let MAIN_FILE = fs.readFileSync(MAIN_PATH, "utf-8");
+
+// HTML variables
+const sidebarElement = HTMLDOCUMENT.querySelector("pap-sidebar");
+const itemmap = {};
+
+// setup
+initializePackages(process.env.ROOT_DIR, LOCKFILE);
+
+async function init () 
 {
-  if (name.startsWith("node_modules/@papit") && name !== "node_modules/@papit/ecosystem")
+  await iterate(async list => 
   {
-    const mapname = name.split("node_modules/")[1];
-    if (!map[mapname]) 
+    for (let info of list)
     {
-      map[mapname] = { dep: [], has: [] };
-    }
-
-    if (!fs.existsSync(path.resolve(packagelock.packages[name].resolved, ".scripts/combine.sh"))) 
-    {
-      map[mapname].skip = true;
-      console.log(mapname, 'its added?', map[mapname])
-      // continue;
-    }
-
-    set.add(mapname);
-
-    const package = packagelock.packages[packagelock.packages[name].resolved];
-    const dependencies = [];
-
-    map[mapname].location = packagelock.packages[name].resolved;
-
-    for (const dep in package.dependencies) 
-    {
-      if (dep.startsWith("@papit") && dep !== mapname)
+      await new Promise(res => 
       {
-        if (!map[dep]) map[dep] = { dep: [], has: [] };
-        map[dep].has.push(mapname);
-        dependencies.push(dep);
-      }
+        exec(path.join(__dirname, `individual.sh ${info.location}`), (error, envinfo, stderr) => 
+        {
+          if (error)
+          {
+            if (error.code === 2)
+            {
+              console.log('\t[skipped]\t', info.name);
+            }
+            else 
+            {
+              console.log('\t[error]\t', info.name, error);
+            }
+          }
+          else if (stderr)
+          {
+            console.log('\t[failed]\t', info.name, stderr);
+          }
+          else 
+          {
+            // update ecosystem-dependency
+            ECOSYSTEMPACKAGE.dependencies[info.name] = info.version;
+
+            // update javascript import 
+            MAIN_FILE += `\nimport "${info.name}/wc";`
+
+            // add sidebar
+            const [atomictype, prefixname, classname, name] = envinfo.split('#');
+            if (!itemmap[atomictype])
+            {
+              itemmap[atomictype] = sidebarElement.querySelector(`pap-sidebar-item#${atomictype}`);
+            }
+            
+            itemmap[atomictype].setAttribute('count', Number(itemmap[atomictype].getAttribute('count') || 0) + 1)
+            itemmap[atomictype].appendChild(
+              parse(`<pap-sidebar-item id="${prefixname}" text="${name}"></pap-navbar-item>`)
+            );
+
+            console.log('\t[success]\t', info.name);
+          }
+  
+          res();
+        })
+      })
     }
-    map[mapname].dep = dependencies
-  }
-}
-
-function execute(name) {
-  return new Promise((res, rej) => {
-    if (map[name].skip) 
-    {
-      console.log("\t[skipped]\t", name);
-      res();
-      return
-    } 
-
-    exec(path.join(__dirname, `individual.sh ${map[name].location}`), (error, stdout, stderr) => {
-      if (error) {
-        if (error.code === 2)
-        {
-          console.log("\t[skipped]\t", name);
-        }
-        else 
-        {
-          console.log("\t[failed]\t", name);
-        }
-      }
-      // else if (stderr) {
-      //   console.log("ST-ERROR", stderr);
-      // }
-      else if (stdout) {
-        console.log("\t[success]\t", name);
-        // console.log("\t[success]\t", name);
-      }
-
-      res();
-    })
   });
+
+  // save file 
+  const HTMLFILE_latest = fs.readFileSync(HTML_PATH, 'utf-8');
+  const HTMLDOCUMENT_latest = parse(HTMLFILE_latest);
+  const sidebar_latest = HTMLDOCUMENT_latest.querySelector('pap-sidebar');
+  sidebar_latest.replaceWith(sidebarElement);
+
+  fs.writeFileSync(ECOSYSTEMPACKAGE_PATH, JSON.stringify(ECOSYSTEMPACKAGE, null, 2));
+  fs.writeFileSync(HTML_PATH, HTMLDOCUMENT_latest.toString(), "utf-8");
+  fs.writeFileSync(MAIN_PATH, MAIN_FILE, 'utf-8');
 }
 
-let attempts = 0;
-async function run() {
-  const list = [];
-  const arr = Array.from(set);
-  for (const name of arr) 
-  {
-    if (map[name].dep.length === 0)
-    {
-      set.delete(name);
-      list.push(name);
-    }
-    /** NOTE could do improvement here to check what has been build already, 
-     * was gonna check the package.version but this would not trigger any change ever.. 
-     * need to somehow increase the version each time build is called - if something has changed I guess ? 
-     * no could extend the build of indivdual packages so it increases package version by major, minor and the third 
-     * - with a flag to be able to cancel this response like for watch we wish maybe not to call with updating etc
-     * 
-     * only when npm run build is called we could have this running 
-     * so when we run "npm run build" within the watch script we could run as: "npm run build -n" -n for no? no 
-     */
-    // else if (latestjson[name] && latestjson[name] !== )
-  }
-
-  console.log(`package-batch, size=${list.length}`)
-  // this is a batch that could all be run in parallel 
-  for (const name of list) 
-  {
-    await execute(name);
-  }
-
-  for (const name of list) 
-  {
-    // remove this package as dependency for rest 
-    for (const other of map[name].has) 
-    {
-      map[other].dep = map[other].dep.filter(n => n !== name);
-    }
-  }
-
-  if (set.size > 0)
-  {
-    if (list.length === 0)
-    {
-      if (attempts >= 10)
-      {
-        console.log(set, map)
-        throw new Error("could not reach all packages");
-      }
-      attempts++;
-    }
-    run();
-  }
-}
-
-async function init() {
-  await run();
-}
 init();

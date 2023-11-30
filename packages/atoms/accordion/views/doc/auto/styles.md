@@ -4,17 +4,18 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
-import { html, property } from "@papit/tools-utils";
+## SOURCE-CODE
+
+// utils
+import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 
-export class Accordion extends BaseTemplate {
+export class Accordion extends BaseSystem {
     static style = style;
 
     @property({ rerender: false, type: Boolean }) open = false;
@@ -28,13 +29,14 @@ export class Accordion extends BaseTemplate {
     }
 }
 
-
 declare global {
     interface HTMLElementTagNameMap {
         "pap-accordion": Accordion;
     }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     display: grid;
     grid-template-rows: 0fr;

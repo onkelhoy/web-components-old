@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,50 +10,25 @@
   <link rel="stylesheet" href="style.css" />
   <script defer src="main.js"></script>
 </head>
+
 <body>
-  <pap-navbar selected="atoms" slot="sidebar">
-    <pap-navbar-item 
-      id="atoms"
-      icon="atoms" 
-      icon_selected="atoms" 
-      text="Atoms" 
-    ></pap-navbar-item>
+  <pap-sidebar class="designsystem">
 
-    <pap-navbar-item 
-      id="molecules"
-      icon="molecules" 
-      icon_selected="molecules" 
-      text="Molecules" 
-    ></pap-navbar-item>
+    <pap-sidebar-item id="system" text="System"></pap-sidebar-item>
 
-    <pap-navbar-item 
-      id="organisms"  
-      icon="organisms" 
-      icon_selected="organisms" 
-      text="Organisms" 
-    ></pap-navbar-item>
-    
-    <pap-navbar-item 
-      id="pages"  
-      icon="pages" 
-      icon_selected="pages" 
-      text="Pages" 
-    ></pap-navbar-item>
-    
-    <pap-navbar-item 
-      id="templates"  
-      icon="templates" 
-      icon_selected="templates" 
-      text="Templates" 
-    ></pap-navbar-item>
-    
-    <pap-navbar-item 
-      id="tools"  
-      icon="tools" 
-      icon_selected="tools" 
-      text="Tools" 
-    ></pap-navbar-item>
-  </pap-navbar>
+    <pap-sidebar-item id="atoms" text="Atoms"></pap-sidebar-item>
+
+    <pap-sidebar-item id="molecules" text="Molecules"></pap-sidebar-item>
+
+    <pap-sidebar-item id="organisms" text="Organisms"></pap-sidebar-item>
+
+    <pap-sidebar-item id="pages" text="Pages"></pap-sidebar-item>
+
+    <pap-sidebar-item id="templates" text="Templates"></pap-sidebar-item>
+
+    <pap-sidebar-item id="tools" text="Tools"></pap-sidebar-item>
+  </pap-sidebar>
   <main class="designsystem"></main>
 </body>
+
 </html>

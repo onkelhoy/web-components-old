@@ -79,19 +79,19 @@
       },
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "query",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@papit/templates-base"
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
       },
       {
         "name": "style",
@@ -117,7 +117,7 @@
       },
       {
         "name": "message",
-        "tag": "pap-MESSAGE"
+        "tag": "PAP-MESSAGE"
       }
     ]
   },

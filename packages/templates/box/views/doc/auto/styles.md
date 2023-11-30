@@ -4,18 +4,19 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
-import { property } from "@papit/tools-utils";
+## SOURCE-CODE
+
+// utils
+import { property } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate, RenderType } from "@papit/templates-base";
+import { BaseSystem, RenderType } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 import { Elevation, Radius } from "./types";
 
-export class BoxTemplate extends BaseTemplate {
+export class BoxTemplate extends BaseSystem {
     static styles = [style];
 
     @property({ rerender: false }) radius: Radius = "circular";
@@ -33,7 +34,9 @@ declare global {
         "pap-box-template": BoxTemplate;
     }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     --shadow-color: var(--pap-box-shadow-color-light, var(--pap-color-shadow-500));
 }
@@ -69,4 +72,4 @@ $elevation-map: (
     :host([elevation="#{$name}"]) {
         box-shadow: var(--box-shadow-#{$name}, var(--shadow-#{$name}, $value));
     }
-} 
+}

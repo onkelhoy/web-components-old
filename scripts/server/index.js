@@ -7,8 +7,8 @@ process.env.PACKAGE_DIR = process.argv[3];
 process.env.ROOT_DIR = process.argv[4];
 process.env.SUBFOLDER = process.argv[5];
 process.env.HTMLFILE = process.argv[6];
-process.env.LIVEMODE = process.argv[7] === "live";
-process.env.VIEW_DIR = path.join(process.env.PACKAGE_DIR, 'views', process.env.SUBFOLDER);
+process.env.LIVEMODE = process.argv[7];
+process.env.VIEW_DIR = process.env.SUBFOLDER === "no-view-folder" ? process.env.PACKAGE_DIR : path.join(process.env.PACKAGE_DIR, 'views', process.env.SUBFOLDER);
 
 const { start } = require('./util/server');
 const { init } = require('./util/dependency');

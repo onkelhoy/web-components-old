@@ -33,15 +33,15 @@
       },
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@papit/templates-base"
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
       },
       {
         "name": "style",
@@ -71,7 +71,7 @@
     "parts": [
       {
         "name": "card",
-        "tag": "pap-BOX-TEMPLATE"
+        "tag": "PAP-BOX-TEMPLATE"
       }
     ]
   },
@@ -84,16 +84,15 @@
           "--background"
         ],
         "fallbacks": [
-          "var(--pap-color-black, black)"
+          "var(--pap-color-bg-inverse, #29292F)"
         ]
       },
-      "--pap-color-black": {
+      "--pap-color-bg-inverse": {
         "usecases": [
           "--background"
         ],
         "fallbacks": [
-          "black",
-          "white"
+          "#29292F"
         ]
       },
       "--pap-tooltip-text-color-light": {
@@ -101,16 +100,15 @@
           "--color"
         ],
         "fallbacks": [
-          "var(--pap-color-neutral-50, white)"
+          "var(--pap-color-text-inverse, #FFFFFF)"
         ]
       },
-      "--pap-color-white": {
+      "--pap-color-text-inverse": {
         "usecases": [
           "--color"
         ],
         "fallbacks": [
-          "white",
-          "black"
+          "#FFFFFF"
         ]
       },
       "--pap-tooltip-popover-gap": {
@@ -167,22 +165,6 @@
         ],
         "fallbacks": [
           "0.5rem"
-        ]
-      },
-      "--pap-tooltip-background-color-dark": {
-        "usecases": [
-          "--background"
-        ],
-        "fallbacks": [
-          "var(--pap-color-black, white)"
-        ]
-      },
-      "--pap-tooltip-text-color-dark": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "var(--pap-color-neutral-50, black)"
         ]
       }
     }

@@ -1,28 +1,29 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
-## SOURCE-CODE:
-// utils 
-import { html, property, query } from "@papit/tools-utils";
-import "@papit/tools-translator/wc";
+## SOURCE-CODE
 
-// atoms 
-import "@papit/button/wc";
-import "@papit/icon/wc";
-import "@papit/divider/wc";
-import "@papit/typography/wc";
+// utils
+import { html, property, query } from "@pap-it/system-utils";
+import "@pap-it/tools-translator/wc";
+
+// atoms
+import "@pap-it/button/wc";
+import "@pap-it/icon/wc";
+import "@pap-it/divider/wc";
+import "@pap-it/typography/wc";
 
 // templates
-import { BoxTemplate } from "@papit/templates-box";
-import { BaseTemplate } from "@papit/templates-base";
-import '@papit/templates-box/wc'
+import { BoxTemplate } from "@pap-it/templates-box";
+import { BaseSystem } from "@pap-it/system-base";
+import '@pap-it/templates-box/wc'
 
-// local 
+// local
 import { style } from "./style";
 import { Mode, SelectEvent } from "./types";
 import { Item } from "./components/item";
 
-export class Sidebar extends BaseTemplate {
+export class Sidebar extends BaseSystem {
     static style = style;
 
     @property({ rerender: false }) mode:Mode = "open";
@@ -158,13 +159,14 @@ export class Sidebar extends BaseTemplate {
     }
 }
 
-
 declare global {
     interface HTMLElementTagNameMap {
         "pap-sidebar": Sidebar;
     }
 }
-## REGISTER-CODE:
+
+## REGISTER-CODE
+
 import { Item } from './components/item';
 import { Sidebar } from './component.js';
 

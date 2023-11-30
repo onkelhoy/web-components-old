@@ -1,4 +1,4 @@
-import '@papit/tools-doc/wc';
+import '@pap-it/system-doc/wc';
 
 let TARGET_ELEMENT = null;
 window.onload = () => {
@@ -44,4 +44,4 @@ function update(name, value, element) {
     TARGET_ELEMENT.setAttribute(name, value);
   }
 }
-import "@papit/divider/wc";
+import "@pap-it/divider/wc";

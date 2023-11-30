@@ -1,30 +1,27 @@
 // utils 
-import { html, property } from "@papit/tools-utils";
+import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
 // local 
 import { style } from "./style";
 
-export type ClickEvent = { sectionHeight: number }; 
+export type ClickEvent = { sectionHeight: number };
 
-export class Tab extends BaseTemplate {
+export class Tab extends BaseSystem {
   static style = style;
 
   @property() text: string = "Tab";
 
   public init(parent: HTMLElement) {
-    parent.addEventListener('tab-select', (e:Event) => {
-      if (e instanceof CustomEvent)
-      {
-        if (this.getAttribute('data-tab-id') === e.detail.id)
-        {
+    parent.addEventListener('tab-select', (e: Event) => {
+      if (e instanceof CustomEvent) {
+        if (this.getAttribute('data-tab-id') === e.detail.id) {
           this.classList.add('selected');
           // this.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'center' });
         }
-        else 
-        {
+        else {
           this.classList.remove('selected');
         }
       }
@@ -37,14 +34,13 @@ export class Tab extends BaseTemplate {
     this.setAttribute('slot', 'tab');
   }
   firstUpdate(): void {
-    if (this.classList.contains('selected'))
-    {
+    if (this.classList.contains('selected')) {
       setTimeout(() => {
         this.dispatchEvent(new Event('click', {
           composed: false,
           cancelable: false
         }));
-      }, 130) 
+      }, 130)
       // TODO - tab self select
       /** NOTE I dont know why 130 works 
        * 

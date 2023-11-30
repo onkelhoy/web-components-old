@@ -4,13 +4,181 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Variations</title>
+  <title>Tabs - Variations</title>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css" >
 
   <script defer type="module" src="main.js"></script>
 </head>
 <body>
   
-</body>
+<h1 data-title="class">Tabs Properties</h1>
+        <doc-card class="property" data-name="indicatorElement">
+            <h2 slot="header"><span class="deemphasize">Property: </span>indicatorElement</h2>
+
+            <div class="property-info">
+              <p>type: HTMLSpanElement</p>
+              <p>default-value: undefined</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="headerElement">
+            <h2 slot="header"><span class="deemphasize">Property: </span>headerElement</h2>
+
+            <div class="property-info">
+              <p>type: HTMLElement</p>
+              <p>default-value: undefined</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="mainElement">
+            <h2 slot="header"><span class="deemphasize">Property: </span>mainElement</h2>
+
+            <div class="property-info">
+              <p>type: HTMLElement</p>
+              <p>default-value: undefined</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="preselect">
+            <h2 slot="header"><span class="deemphasize">Property: </span>preselect</h2>
+
+            <div class="property-info">
+              <p>type: number</p>
+              <p>default-value: 0</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="1">
+                    <h4><span class="deemphasize">Property-Value: </span>1</h4>
+                    <pap-codeblock display="both">
+                      <pap-tabs 
+                        preselect="1"
+                        
+                      >
+                        <pap-tab>A</pap-tab><pap-tab>B</pap-tab><pap-tab-content>A Content</pap-tab-content><pap-tab-content>B Content</pap-tab-content>
+                      </pap-tabs>
+                    </pap-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="10">
+                    <h4><span class="deemphasize">Property-Value: </span>10</h4>
+                    <pap-codeblock display="both">
+                      <pap-tabs 
+                        preselect="10"
+                        
+                      >
+                        <pap-tab>A</pap-tab><pap-tab>B</pap-tab><pap-tab-content>A Content</pap-tab-content><pap-tab-content>B Content</pap-tab-content>
+                      </pap-tabs>
+                    </pap-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="1000">
+                    <h4><span class="deemphasize">Property-Value: </span>1000</h4>
+                    <pap-codeblock display="both">
+                      <pap-tabs 
+                        preselect="1000"
+                        
+                      >
+                        <pap-tab>A</pap-tab><pap-tab>B</pap-tab><pap-tab-content>A Content</pap-tab-content><pap-tab-content>B Content</pap-tab-content>
+                      </pap-tabs>
+                    </pap-codeblock>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="indicator">
+            <h2 slot="header"><span class="deemphasize">Property: </span>indicator</h2>
+
+            <div class="property-info">
+              <p>type: boolean</p>
+              <p>default-value: true</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="true">
+                    <h4><span class="deemphasize">Property-Value: </span>true</h4>
+                    <pap-codeblock display="both">
+                      <pap-tabs 
+                        indicator="true"
+                        
+                      >
+                        <pap-tab>A</pap-tab><pap-tab>B</pap-tab><pap-tab-content>A Content</pap-tab-content><pap-tab-content>B Content</pap-tab-content>
+                      </pap-tabs>
+                    </pap-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="false">
+                    <h4><span class="deemphasize">Property-Value: </span>false</h4>
+                    <pap-codeblock display="both">
+                      <pap-tabs 
+                        indicator="false"
+                        
+                      >
+                        <pap-tab>A</pap-tab><pap-tab>B</pap-tab><pap-tab-content>A Content</pap-tab-content><pap-tab-content>B Content</pap-tab-content>
+                      </pap-tabs>
+                    </pap-codeblock>
+                  </div>
+                
+            </div>
+        </doc-card>
+    
+        <doc-card class="property" data-name="scrolling">
+            <h2 slot="header"><span class="deemphasize">Property: </span>scrolling</h2>
+
+            <div class="property-info">
+              <p>type: boolean</p>
+              <p>default-value: false</p>
+              <p>required: true</p>
+            </div>
+            <div class="variations">
+                
+                  <div class="variant" data-variant="true">
+                    <h4><span class="deemphasize">Property-Value: </span>true</h4>
+                    <pap-codeblock display="both">
+                      <pap-tabs 
+                        scrolling="true"
+                        
+                      >
+                        <pap-tab>A</pap-tab><pap-tab>B</pap-tab><pap-tab-content>A Content</pap-tab-content><pap-tab-content>B Content</pap-tab-content>
+                      </pap-tabs>
+                    </pap-codeblock>
+                  </div>
+                 
+                  <div class="variant" data-variant="false">
+                    <h4><span class="deemphasize">Property-Value: </span>false</h4>
+                    <pap-codeblock display="both">
+                      <pap-tabs 
+                        scrolling="false"
+                        
+                      >
+                        <pap-tab>A</pap-tab><pap-tab>B</pap-tab><pap-tab-content>A Content</pap-tab-content><pap-tab-content>B Content</pap-tab-content>
+                      </pap-tabs>
+                    </pap-codeblock>
+                  </div>
+                
+            </div>
+        </doc-card>
+    <h1 data-title="inherit">Inherited Properties</h1></body>
 </html>

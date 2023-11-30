@@ -19,16 +19,32 @@
         "variant": [
           "C1",
           "C2",
-          "C3",
-          "C4",
           "T1",
           "T2",
-          "T3",
-          "T4",
           "H1",
           "H2",
+          "copy1",
+          "copy2",
+          "title1",
+          "title2",
+          "heading1",
+          "heading2",
+          "B1",
+          "B2",
+          "button1",
+          "button2",
+          "C3",
+          "C4",
+          "T3",
+          "T4",
           "H3",
           "H4",
+          "copy3",
+          "copy4",
+          "title3",
+          "title4",
+          "heading3",
+          "heading4",
           "H5"
         ],
         "align": [
@@ -43,6 +59,7 @@
           "initial"
         ],
         "nowrap": null,
+        "truncate": null,
         "render": null
       },
       "primitive": false,
@@ -55,16 +72,32 @@
         "variant": [
           "C1",
           "C2",
-          "C3",
-          "C4",
           "T1",
           "T2",
-          "T3",
-          "T4",
           "H1",
           "H2",
+          "copy1",
+          "copy2",
+          "title1",
+          "title2",
+          "heading1",
+          "heading2",
+          "B1",
+          "B2",
+          "button1",
+          "button2",
+          "C3",
+          "C4",
+          "T3",
+          "T4",
           "H3",
           "H4",
+          "copy3",
+          "copy4",
+          "title3",
+          "title4",
+          "heading3",
+          "heading4",
           "H5"
         ],
         "align": [
@@ -79,6 +112,7 @@
           "initial"
         ],
         "nowrap": null,
+        "truncate": null,
         "render": null
       },
       "primitive": false,
@@ -260,11 +294,11 @@
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@papit/templates-base"
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
       }
     ],
     "/Users/henry/Developer/projects/web-components/packages/templates/field": [
@@ -274,23 +308,23 @@
       },
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "query",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "suspense",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "FormElementTemplate",
-        "from": "@papit/templates-form-element"
+        "from": "@pap-it/templates-form-element"
       },
       {
         "name": "style",
@@ -328,7 +362,7 @@
       },
       {
         "name": "wrapper",
-        "tag": "pap-BOX-TEMPLATE"
+        "tag": "PAP-BOX-TEMPLATE"
       },
       {
         "name": "footer",
@@ -352,7 +386,9 @@
         "usecases": [
           "height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "32px"
+        ]
       },
       "--pap-field-block-height-small": {
         "usecases": [
@@ -374,7 +410,9 @@
         "usecases": [
           "height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "40px"
+        ]
       },
       "--pap-field-block-height-medium": {
         "usecases": [
@@ -396,7 +434,9 @@
         "usecases": [
           "height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "56px"
+        ]
       },
       "--pap-field-block-height-large": {
         "usecases": [
@@ -444,7 +484,9 @@
         "usecases": [
           "padding-inline"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "8px"
+        ]
       },
       "--gap-small": {
         "usecases": [
@@ -452,27 +494,33 @@
           "margin-right",
           "margin-left"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "8px"
+        ]
       },
       "--padding-medium": {
         "usecases": [
           "padding-inline"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "16px"
+        ]
       },
       "--input-fontfamily": {
         "usecases": [
           "font-family"
         ],
         "fallbacks": [
-          "var(--typography-c3-fontfamily, 'Libre Franklin', helvetica, sans-serif)"
+          "var(--typography-c3-fontfamily, \"Libre Franklin\", helvetica, sans-serif)"
         ]
       },
       "--typography-c3-fontfamily": {
         "usecases": [
           "font-family"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "\"Libre Franklin\", helvetica, sans-serif"
+        ]
       },
       "--input-fontsize": {
         "usecases": [

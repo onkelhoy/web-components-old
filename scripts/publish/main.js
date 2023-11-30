@@ -1,99 +1,85 @@
 const fs = require("fs");
 const path = require("path");
 const { exec } = require('child_process');
+const { iterate, initializePackages } = require('../utils/package-list-dependency-order');
 
-const packagelock = JSON.parse(fs.readFileSync(path.join(__dirname, "../../package-lock.json")));
-
-const map = {};
-const set = new Set();
-
+// variables
 const SEMANTIC_VERSION = process.argv[2];
 const CICD_NODE_TOKEN = process.argv[3];
+const ROOT_DIR = path.join(__dirname, "../../");
+const LOCKFILE = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, "package-lock.json")));
+let VERSIONDATA = null;
 
-async function getjsonData() {
-  return new Promise((res, rej) => {
+// setup 
+initializePackages(ROOT_DIR, LOCKFILE);
+
+async function getjsonData() 
+{
+  return new Promise((res, rej) => 
+  {
     let jsonData = '';
-    process.stdin.on('data', (chunk) => {
+    process.stdin.on('data', (chunk) => 
+    {
       jsonData += chunk;
     });
     
-    process.stdin.on('end', () => {
+    process.stdin.on('end', () => 
+    {
       res(JSON.parse(jsonData));
     });
 
-    process.stdin.on("error", (e) => {
+    process.stdin.on("error", (e) => 
+    {
       rej(e);
     })
   })
 }
 
-for (const name in packagelock.packages) 
+async function execute(list) 
 {
-  if (name.startsWith("node_modules/@papit") && name !== "node_modules/@papit/server")
-  {
-    const mapname = name.split("node_modules/")[1];
-    if (!map[mapname]) map[mapname] = { dep: [], has: [] };
-
-    set.add(mapname);
-
-    const package = packagelock.packages[packagelock.packages[name].resolved];
-    const dependencies = [];
-
-    map[mapname].location = packagelock.packages[name].resolved;
-
-    for (const dep in package.dependencies) 
-    {
-      if (dep.startsWith("@papit") && dep !== mapname)
-      {
-        if (!map[dep]) map[dep] = { dep: [], has: [] };
-        map[dep].has.push(mapname);
-        dependencies.push(dep);
-      }
-    }
-    map[mapname].dep = dependencies
-  }
-}
-// // we also add the @papit/server 
-// map['@papit/server'] = { dep: [], has: [], location: packagelock.packages['node_modules/@papit/server'].resolved }
-
-async function execute(list, versionData) {
   let executions = [];
-  for (const name of list) 
+  for (const info of list) 
   {
     if (CICD_NODE_TOKEN)
     {
-      await execute_individual(name, versionData);
+      await execute_individual(info, VERSIONDATA);
       await wait();
     }
     else 
     {
-      executions.push(execute_individual(name, versionData))
+      executions.push(execute_individual(info, VERSIONDATA))
     }
   }
 
   if (executions.length > 0) return Promise.all(executions);
 }
 
-function wait(n = 1000) {
+function wait(n = 1000) 
+{
   return new Promise(res => setTimeout(res, n));
 }
 
-function execute_individual(name, versionData) {
-  return new Promise((res, rej) => {
-    let package_version = versionData.find(d => d.name === name)?.version || '-0.0.0';
-    exec(path.join(__dirname, `individual.sh ${map[name].location} ${SEMANTIC_VERSION} ${package_version} ${CICD_NODE_TOKEN || ""}`), (error, stdout, stderr) => {
-      if (error) {
+function execute_individual(info) 
+{
+  return new Promise((res, rej) => 
+  {
+    let package_version = VERSIONDATA.find(d => d.name === info.name)?.version || '-0.0.0';
+    exec(path.join(__dirname, `individual.sh ${info.location} ${SEMANTIC_VERSION} ${package_version} ${CICD_NODE_TOKEN || ""}`), (error, stdout, stderr) => 
+    {
+      if (error) 
+      {
         if (error.code === 2)
         {
-          console.log("\t[skipped]\t", name);
+          console.log("\t[skipped]\t", info.name);
         }
         else 
         {
-          console.log("\t[failed]\t", name);
+          console.log("\t[failed]\t", info.name);
         }
       }
-      else if (stdout) {
-        console.log("\t[success]\t", name);
+      else if (stdout) 
+      {
+        console.log("\t[success]\t", info.name);
         // console.log("\t[success]\t", name);
       }
 
@@ -102,50 +88,9 @@ function execute_individual(name, versionData) {
   })
 }
 
-let attempts = 0;
-async function run(versionData) {
-  const list = [];
-  const arr = Array.from(set);
-  for (const name of arr) 
-  {
-    if (map[name].dep.length === 0)
-    {
-      set.delete(name);
-      list.push(name);
-    }
-  }
-
-  console.log(`package-batch, size=${list.length}`)
-  // this is a batch that could all be run in parallel 
-  await execute(list, versionData);
-  console.log('');
-
-  for (const name of list) 
-  {
-    // remove this package as dependency for rest 
-    for (const other of map[name].has) 
-    {
-      map[other].dep = map[other].dep.filter(n => n !== name);
-    }
-  }
-
-  if (set.size > 0)
-  {
-    if (list.length === 0)
-    {
-      if (attempts >= 10)
-      {
-        console.log(set, map)
-        throw new Error("could not reach all packages");
-      }
-      attempts++;
-    }
-    run(versionData);
-  }
-}
-
-async function init() {
-  const versionData = await getjsonData();
-  run(versionData);
+async function init() 
+{
+  VERSIONDATA = await getjsonData();
+  await iterate(execute);
 }
 init();

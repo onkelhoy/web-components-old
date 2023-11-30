@@ -23,16 +23,32 @@
           "variant": [
             "C1",
             "C2",
-            "C3",
-            "C4",
             "T1",
             "T2",
-            "T3",
-            "T4",
             "H1",
             "H2",
+            "copy1",
+            "copy2",
+            "title1",
+            "title2",
+            "heading1",
+            "heading2",
+            "B1",
+            "B2",
+            "button1",
+            "button2",
+            "C3",
+            "C4",
+            "T3",
+            "T4",
             "H3",
             "H4",
+            "copy3",
+            "copy4",
+            "title3",
+            "title4",
+            "heading3",
+            "heading4",
             "H5"
           ],
           "align": [
@@ -47,6 +63,7 @@
             "initial"
           ],
           "nowrap": null,
+          "truncate": null,
           "render": null
         },
         "primitive": false,
@@ -59,16 +76,32 @@
           "variant": [
             "C1",
             "C2",
-            "C3",
-            "C4",
             "T1",
             "T2",
-            "T3",
-            "T4",
             "H1",
             "H2",
+            "copy1",
+            "copy2",
+            "title1",
+            "title2",
+            "heading1",
+            "heading2",
+            "B1",
+            "B2",
+            "button1",
+            "button2",
+            "C3",
+            "C4",
+            "T3",
+            "T4",
             "H3",
             "H4",
+            "copy3",
+            "copy4",
+            "title3",
+            "title4",
+            "heading3",
+            "heading4",
             "H5"
           ],
           "align": [
@@ -83,6 +116,7 @@
             "initial"
           ],
           "nowrap": null,
+          "truncate": null,
           "render": null
         },
         "primitive": false,
@@ -265,11 +299,11 @@
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@papit/templates-base"
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
       }
     ],
     "/Users/henry/Developer/projects/web-components/packages/templates/field": [
@@ -279,23 +313,23 @@
       },
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "query",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "suspense",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "FormElementTemplate",
-        "from": "@papit/templates-form-element"
+        "from": "@pap-it/templates-form-element"
       },
       {
         "name": "style",
@@ -309,11 +343,11 @@
     "/Users/henry/Developer/projects/web-components/packages/atoms/toggle": [
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "FieldTemplate",
-        "from": "@papit/templates-field"
+        "from": "@pap-it/templates-field"
       },
       {
         "name": "style",
@@ -347,7 +381,7 @@
       },
       {
         "name": "wrapper",
-        "tag": "pap-BOX-TEMPLATE"
+        "tag": "PAP-BOX-TEMPLATE"
       },
       {
         "name": "indicator",
@@ -363,42 +397,88 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/toggle",
     "sources": [],
     "variables": {
+      "--pap-color-icon": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "#29292F"
+        ]
+      },
       "--radius-max": {
         "usecases": [
           "border-radius"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "1000px"
+        ]
       },
       "--margin-small": {
         "usecases": [
           "margin-left"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "8px"
+        ]
+      },
+      "--padding-smaller": {
+        "usecases": [
+          "padding"
+        ],
+        "fallbacks": [
+          "4px"
+        ]
+      },
+      "--pap-color-bg-inverse": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "#29292F"
+        ]
+      },
+      "--unit-size3": {
+        "usecases": [
+          "height",
+          "width"
+        ],
+        "fallbacks": [
+          "16px"
+        ]
+      },
+      "--field-size-medium": {
+        "usecases": [
+          "width"
+        ],
+        "fallbacks": [
+          "40px"
+        ]
       },
       "--field-size-smaller": {
         "usecases": [
           "height",
           "width"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "24px"
+        ]
       },
-      "--pap-color-neutral-50": {
+      "--field-size-large": {
         "usecases": [
-          "background-color"
+          "width"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "56px"
+        ]
       },
-      "--padding-smaller": {
+      "--field-size-small": {
         "usecases": [
-          "padding"
+          "height",
+          "width"
         ],
-        "fallbacks": []
-      },
-      "--pap-color-neutral-500": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": []
+        "fallbacks": [
+          "32px"
+        ]
       }
     }
   }

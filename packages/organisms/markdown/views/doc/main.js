@@ -1,8 +1,8 @@
 // tools
-import '@papit/tools-doc/wc';
+import '@pap-it/system-doc/wc';
 
 // component
-import '@papit/markdown/wc';
+import '@pap-it/markdown/wc';
 
 window.onload = () => {
     console.log('[doc]: window loaded');

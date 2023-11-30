@@ -1,0 +1,82 @@
+body {
+  background-color: var(--pap-color-bg-canvas, #EAEBEF);
+  color: var(--pap-color-text, #29292F);
+}
+
+body {
+  font-family: var(--pap-font-family);
+}
+
+:root {
+  --color-secondary: #363636;
+  --line-color: cornflowerblue;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-secondary: #d9d9d9;
+    --line-color: hsl(52, 79%, 60%);
+  }
+}
+
+.chip {
+  padding: 0.5rem;
+}
+
+.chip[data-variant="primary"] {
+  background-color: rgb(237, 160, 135);
+}
+.chip[data-variant="secondary"] {
+  background-color: rgb(135, 174, 237);
+}
+
+.property-info {
+  position: relative;
+  padding-left: 0.7rem;
+  margin-left: 0.15rem;
+  margin-bottom: 2rem;
+}
+.property-info::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0.2rem;
+  background-color: var(--line-color);
+  height: 100%;
+  content: '';
+}
+.property-info p {
+  margin: 0;
+}
+.deemphasize {
+  font-weight: 400;
+  color: var(--color-secondary);
+}
+doc-card h2 {
+  margin: 0;
+  margin-bottom: 0.3rem;
+  font-size: 22pt;
+}
+
+h1 {
+  font-size: 25pt;
+}
+
+doc-card h4 {
+  font-size: 16pt;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+pap-codeblock::part(code) {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.variant {
+  margin-bottom: 2rem;
+}
+
+.property {
+  margin-bottom: 1rem;
+}

@@ -68,19 +68,19 @@
       },
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "query",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@papit/templates-base"
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
       },
       {
         "name": "style",
@@ -202,7 +202,7 @@
           "var(--pap-color-neutral-50, white)"
         ]
       },
-      "--pap-color-white": {
+      "--pap-color-neutral-50": {
         "usecases": [
           "--color"
         ],

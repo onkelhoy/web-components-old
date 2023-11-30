@@ -7,11 +7,11 @@
     "/Users/henry/Developer/projects/web-components/packages/molecules/chat": [
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@papit/templates-base"
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
       },
       {
         "name": "style",

@@ -4,25 +4,26 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
-import { html, property, query } from "@papit/tools-utils";
-import "@papit/tools-translator/wc";
+## SOURCE-CODE
+
+// utils
+import { html, property, query } from "@pap-it/system-utils";
+import "@pap-it/tools-translator/wc";
 
 // atoms
-import "@papit/badge/wc";
-import "@papit/typography/wc";
-import "@papit/menu/wc";
-import { Menu } from "@papit/menu";
+import "@pap-it/badge/wc";
+import "@pap-it/typography/wc";
+import "@pap-it/menu/wc";
+import { Menu } from "@pap-it/menu";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 import { UserModel } from "./types";
 
-export class Header extends BaseTemplate {
+export class Header extends BaseSystem {
     static style = style;
 
     @property({ type: Object }) user?: UserModel;
@@ -73,13 +74,14 @@ export class Header extends BaseTemplate {
     }
 }
 
-
 declare global {
     interface HTMLElementTagNameMap {
         "pap-header": Header;
     }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host,
 :host > div {
     display: flex;
@@ -124,7 +126,7 @@ img.avatar {
     }
 }
 
-// overriding 
+// overriding
 :host(.dark-mode) {
     pap-icon[name="light-mode"] {
         display: none;

@@ -1,15 +1,27 @@
 body {
   background-color: var(--pap-color-bg-canvas, #EAEBEF);
   margin: 0;
-  display: flex;
   /* overscroll-behavior-y: none; */
 }
+
+div.wrapper {
+  display: flex;
+}
+
+pap-sidebar::part(base) {
+  position: relative;
+}
+
+pap-sidebar[mode="hover"]::part(base) {
+  position: absolute;
+}
+
 
 main {
   flex-grow: 1;
 }
 
-main > div {
+main>div {
   margin: 0.5rem;
   background-color: var(--pap-color-bg-secondary, #F6F7F8);
   content: '';
@@ -17,7 +29,7 @@ main > div {
   border-radius: 1rem;
 }
 
-main > div:first-child {
+main>div:first-child {
   margin: 0.5rem;
   padding: 1rem;
   width: 8rem;

@@ -1,8 +1,8 @@
 // tools
-import '@papit/tools-doc/wc';
+import '@pap-it/system-doc/wc';
 
 // component
-import '@papit/sidebar/wc';
+import '@pap-it/sidebar/wc';
 
 window.onload = () => {
     console.log('[sidebar-item]: window loaded');

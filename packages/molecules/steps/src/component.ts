@@ -1,32 +1,32 @@
 // utils 
-import { html, property } from "@papit/tools-utils";
+import { html, property } from "@pap-it/system-utils";
 
 // atoms
-import "@papit/typography/wc";
+import "@pap-it/typography/wc";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
-import "@papit/templates-box/wc";
+import { BaseSystem } from "@pap-it/system-base";
+import "@pap-it/templates-box/wc";
 
 // local 
 import { style } from "./style";
 
-export class Steps extends BaseTemplate {
-    static style = style;
+export class Steps extends BaseSystem {
+  static style = style;
 
-    @property({ type: Array }) steps:string[] = [];
+  @property({ type: Array }) steps: string[] = [];
 
-    @property({ type: Number }) current = 0;
+  @property({ type: Number }) current = 0;
 
-    render() {
-        return html`
+  render() {
+    return html`
             <pap-box-template radius="medium">
                 ${this.steps.map((step, index) => {
-                    let status = "incomplete";
-                    if (this.current === index) status = 'active';
-                    else if (this.current > index) status="complete";
+      let status = "incomplete";
+      if (this.current === index) status = 'active';
+      else if (this.current > index) status = "complete";
 
-                    return html`
+      return html`
                         <div class="step ${this.current > index ? 'selected' : ''}">
                             <pap-typography align="center">${step}</pap-typography>
                             <div>
@@ -35,15 +35,15 @@ export class Steps extends BaseTemplate {
                             </div>
                         </div>
                     `
-                })}
+    })}
             </pap-box-template>
         `
-    }
+  }
 }
 
 
 declare global {
-    interface HTMLElementTagNameMap {
-        "pap-steps": Steps;
-    }
+  interface HTMLElementTagNameMap {
+    "pap-steps": Steps;
+  }
 }

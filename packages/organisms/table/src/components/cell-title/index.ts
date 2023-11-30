@@ -1,18 +1,18 @@
 // utils 
-import { html, property, query } from "@papit/tools-utils";
+import { html, property, query } from "@pap-it/system-utils";
 
 // atoms 
-import "@papit/typography/wc";
-import "@papit/icon/wc";
+import "@pap-it/typography/wc";
+import "@pap-it/icon/wc";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
 import { style } from "./style";
 
 export type SortDirection = "none" | "up" | "down";
 
-export class CellTitle extends BaseTemplate {
+export class CellTitle extends BaseSystem {
   static style = style;
 
   @property({ rerender: false }) sorting: SortDirection = "none";
@@ -27,17 +27,14 @@ export class CellTitle extends BaseTemplate {
   // event handlers 
   private handleclick = () => {
     if (!this.canSort) return;
-    
-    if (this.sorting === "none")
-    {
+
+    if (this.sorting === "none") {
       this.sorting = "up";
     }
-    else if (this.sorting === "up")
-    {
+    else if (this.sorting === "up") {
       this.sorting = "down";
     }
-    else 
-    {
+    else {
       this.sorting = "none";
     }
 

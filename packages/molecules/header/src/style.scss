@@ -1,61 +1,20 @@
 :host,
-:host > div {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+:host>div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 :host {
-    justify-content: space-between;
+  justify-content: space-between;
 
-    pap-menu::part(box) {
-        min-width: 15rem;
-    }
-
-    div.icon-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: var(--field-size-medium, 40px);
-        height: var(--field-size-medium, 40px);
-    }
+  pap-menu::part(box) {
+    min-width: 15rem;
+  }
 }
 
 img.avatar {
-    width: var(--field-size-medium, 40px);
-    height: var(--field-size-medium, 40px);
-    border-radius: 50%;
-}
-
-@media (prefers-color-scheme: light) {
-    :host {
-        pap-icon[name="dark-mode"] {
-            display: none;
-        }
-    }
-}
-@media (prefers-color-scheme: dark) {
-    :host {
-        pap-icon[name="light-mode"] {
-            display: none;
-        }
-    }
-}
-
-// overriding // TODO fix as sidebar was done - on svg level instead !! 
-:host(.dark-mode) {
-    pap-icon[name="light-mode"] {
-        display: none;
-    }
-    pap-icon[name="dark-mode"] {
-        display: initial;
-    }
-}
-:host(.light-mode) {
-    pap-icon[name="dark-mode"] {
-        display: none;
-    }
-    pap-icon[name="light-mode"] {
-        display: initial;
-    }
+  width: var(--field-size-medium, 40px);
+  height: var(--field-size-medium, 40px);
+  border-radius: 50%;
 }

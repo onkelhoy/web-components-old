@@ -1,23 +1,23 @@
 // utils 
-import { html, property, ExtractSlotValue } from "@papit/tools-utils";
+import { html, property, ExtractSlotValue } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
-import "@papit/templates-box/wc";
+import { BaseSystem } from "@pap-it/system-base";
+import "@pap-it/templates-box/wc";
 
 import { style } from "./style";
 
-export class MenuItem extends BaseTemplate {
+export class MenuItem extends BaseSystem {
   static style = style;
 
   @property({ type: Boolean, rerender: false }) checked = false;
   @property({ attribute: false, rerender: false }) value = "";
   private slottext = "";
 
-  public getvalue () {
+  public getvalue() {
     return this.value || this.slottext;
   }
-  public gettext () {
+  public gettext() {
     return this.slottext;
   }
 
@@ -31,9 +31,8 @@ export class MenuItem extends BaseTemplate {
     this.checked = true; // can only select
     this.dispatchEvent(new Event("select"))
   }
-  private handleslotchange = (e:Event) => {
-    if (e.target instanceof HTMLSlotElement)
-    {
+  private handleslotchange = (e: Event) => {
+    if (e.target instanceof HTMLSlotElement) {
       const values = ExtractSlotValue(e.target);
       this.slottext = values.join(' ');
     }

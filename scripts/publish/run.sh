@@ -16,16 +16,16 @@ done
 if [ $CI_FLAG -eq 0 ]; then
   echo "Global semantic versioning?"
   echo "answer:"
-  echo "[1] none"
-  echo "[2] patch"
-  echo "[3] minor"
-  echo "[4] major"
+  echo "[0] none"
+  echo "[1] patch"
+  echo "[2] minor"
+  echo "[3] major"
 
   read -p "Enter the number corresponding to your choice: " choice
 
-  npm search --searchlimit=100 @papit --json | node $SCRIPT_DIR/main.js $choice
+  npm search --searchlimit=100 @pap-it --json | node $SCRIPT_DIR/main.js $choice
 else
-  npm search --searchlimit=100 @papit --json | node $SCRIPT_DIR/main.js 1 $NODE_AUTH_TOKEN
+  npm search --searchlimit=100 @pap-it --json | node $SCRIPT_DIR/main.js 0 $NODE_AUTH_TOKEN
   # used for testing
   # bash $SCRIPT_DIR/individual.sh $SCRIPT_DIR/../../packages/atoms/button 1 -0.0.0 $NODE_AUTH_TOKEN
   # bash $SCRIPT_DIR/individual.sh $SCRIPT_DIR/../../packages/atoms/typography 1 -0.0.0 $NODE_AUTH_TOKEN

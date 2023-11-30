@@ -1,36 +1,35 @@
 // utils
-import { html, property } from "@papit/tools-utils";
+import { html, property } from "@pap-it/system-utils";
 
 // atoms
-import "@papit/accordion/wc";
-import "@papit/button/wc";
-import "@papit/icon/wc";
-import "@papit/typography/wc";
-import "@papit/divider/wc";
+import "@pap-it/accordion/wc";
+import "@pap-it/button/wc";
+import "@pap-it/icon/wc";
+import "@pap-it/typography/wc";
+import "@pap-it/divider/wc";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
-import "@papit/templates-box/wc";
+import { BaseSystem } from "@pap-it/system-base";
+import "@pap-it/templates-box/wc";
 
 // local
 import { style } from "./style";
 import { Contact } from "./types";
 
-export class SidebarContact extends BaseTemplate {
-    static style = style;
+export class SidebarContact extends BaseSystem {
+  static style = style;
 
-    @property({ type: Boolean }) open:boolean = false;
-    @property({ type: Array }) contacts: Contact[] = [];
+  @property({ type: Boolean }) open: boolean = false;
+  @property({ type: Array }) contacts: Contact[] = [];
 
-    private handleHeaderClick = () => {
-        this.open = !this.open;
-    }
+  private handleHeaderClick = () => {
+    this.open = !this.open;
+  }
 
-    private getContact = (contact: Contact, index: number) => {
-        const buttons = [];
-        if (contact.email)
-        {
-            buttons.push(html`
+  private getContact = (contact: Contact, index: number) => {
+    const buttons = [];
+    if (contact.email) {
+      buttons.push(html`
                 <pap-button
                     variant="clear"
                     mode="fill"
@@ -40,10 +39,9 @@ export class SidebarContact extends BaseTemplate {
                     <pap-translator>Write an email</pap-translator>
                 </pap-button>
             `);
-        }
-        if (contact.teams)
-        {
-            buttons.push(html`
+    }
+    if (contact.teams) {
+      buttons.push(html`
                 <pap-button
                     variant="clear"
                     mode="fill"
@@ -53,11 +51,11 @@ export class SidebarContact extends BaseTemplate {
                     <pap-translator>Call via Teams</pap-translator>
                 </pap-button>
             `);
-        }
+    }
 
-        console.log('has phone?', contact.phone)
+    console.log('has phone?', contact.phone)
 
-        return html`
+    return html`
             <div>
                 <pap-typography variant="C4">${contact.role}</pap-typography>
                 <pap-typography variant="C2">${contact.name}</pap-typography>
@@ -71,13 +69,13 @@ export class SidebarContact extends BaseTemplate {
             ${buttons.length > 0 ? html`<div>${buttons}</div>` : ''}
             ${index < this.contacts.length - 1 ? '<pap-divider></pap-divider>' : ''}
         `;
-    }
+  }
 
-    render() {
+  render() {
 
-        const contacts = this.contacts.map(this.getContact);
+    const contacts = this.contacts.map(this.getContact);
 
-        return html`
+    return html`
             <pap-box-template part="collapsed"><pap-icon name="phone"></pap-icon></pap-box-template>
             <pap-box-template radius="medium" part="base">
                 <header part="header" @click="${this.handleHeaderClick}">
@@ -90,12 +88,12 @@ export class SidebarContact extends BaseTemplate {
                 </pap-accordion>
             </pap-box-template>
         `
-    }
+  }
 }
 
 
 declare global {
-    interface HTMLElementTagNameMap {
-        "pap-sidebar-contact": SidebarContact;
-    }
+  interface HTMLElementTagNameMap {
+    "pap-sidebar-contact": SidebarContact;
+  }
 }

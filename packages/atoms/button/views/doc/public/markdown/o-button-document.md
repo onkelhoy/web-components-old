@@ -2,18 +2,21 @@
 
 Atomic Type: atoms
 
-Version: 1.0.0
+Version: 0.0.0
 
-## Development 
+## Development
+
 Development servers can be started and should all exist inside `"views"` folder
 
-## Scripts 
+## Scripts
+
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
-## SOURCE-CODE:
-import { property, Size } from '@papit/tools-utils';
-import { BoxTemplate } from '@papit/templates-box';
+## SOURCE-CODE
+
+import { property, Size } from '@pap-it/system-utils';
+import { BoxTemplate } from '@pap-it/templates-box';
 
 import { style } from './style.js';
 
@@ -22,7 +25,7 @@ import type { ButtonMode, ButtonVariant, ButtonColorVariant } from './types';
 // TODO extend form-element-template
 export class Button extends BoxTemplate {
     static style = style;
-    
+
     @property({ rerender: false, onUpdate: "ontypeupdate" }) type: "button" | "link" | "submit" | "reset" = "button"; // TODO link
     @property({ rerender: false }) size: Size = "medium";
     @property({ rerender: false }) mode: ButtonMode = "hug";
@@ -98,7 +101,9 @@ declare global {
         "pap-button": Button;
     }
 }
-## REGISTER-CODE:
+
+## REGISTER-CODE
+
 import { Button } from './component.js';
 
 // Register the element with the browser
@@ -112,14 +117,16 @@ if (!cElements.get('pap-button')) {
   cElements.define('pap-button', Button);
 }
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- import { property, Size } from '@papit/tools-utils';
-import { BoxTemplate } from '@papit/templates-box';
+## SOURCE-CODE
+
+ import { property, Size } from '@pap-it/system-utils';
+import { BoxTemplate } from '@pap-it/templates-box';
 
 import { style } from './style.js';
 
@@ -128,7 +135,7 @@ import type { ButtonMode, ButtonVariant, ButtonColorVariant } from './types';
 // TODO extend form-element-template
 export class Button extends BoxTemplate {
     static style = style;
-    
+
     @property({ rerender: false, onUpdate: "ontypeupdate" }) type: "button" | "link" | "submit" | "reset" = "button"; // TODO link
     @property({ rerender: false }) size: Size = "medium";
     @property({ rerender: false }) mode: ButtonMode = "hug";
@@ -205,7 +212,8 @@ declare global {
     }
 }
 
-## TYPE-CODE: 
+## TYPE-CODE
+
 export type ButtonVariant = 'filled'|'outlined'|'underlined'|'clear';
 export type ButtonType = 'button' | 'reset' | 'submit';
 export type ButtonMode = 'hug' | 'fill'
@@ -215,9 +223,10 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-import { property, Size } from '@papit/tools-utils';
-import { BoxTemplate } from '@papit/templates-box';
+## SOURCE-CODE
+
+import { property, Size } from '@pap-it/system-utils';
+import { BoxTemplate } from '@pap-it/templates-box';
 
 import { style } from './style.js';
 
@@ -226,7 +235,7 @@ import type { ButtonMode, ButtonVariant, ButtonColorVariant } from './types';
 // TODO extend form-element-template
 export class Button extends BoxTemplate {
     static style = style;
-    
+
     @property({ rerender: false, onUpdate: "ontypeupdate" }) type: "button" | "link" | "submit" | "reset" = "button"; // TODO link
     @property({ rerender: false }) size: Size = "medium";
     @property({ rerender: false }) mode: ButtonMode = "hug";
@@ -302,7 +311,9 @@ declare global {
         "pap-button": Button;
     }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 // value maps
 $size-map: (
   small: (

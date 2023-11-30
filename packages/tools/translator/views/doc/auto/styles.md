@@ -4,18 +4,19 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
-import { ExtractSlotValue, html } from "@papit/tools-utils";
+## SOURCE-CODE
+
+// utils
+import { ExtractSlotValue, html } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 import { InitTranslations } from "./translator";
 
-export class Translator extends BaseTemplate {
+export class Translator extends BaseSystem {
     static style = style;
 
     private spanElement!: HTMLSpanElement;
@@ -145,7 +146,9 @@ declare global {
         "pap-translator": Translator;
     }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
   padding: auto;
 }

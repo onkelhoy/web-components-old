@@ -20,7 +20,7 @@ echo ""
 echo ""
 
 # init bash script executions 
-chmod +x ./scripts/build/individual.sh
+chmod +x ./scripts/publish/individual.sh
 chmod +x ./scripts/ecosystem/individual.sh
 
 echo "### install node dependancies"
@@ -28,7 +28,7 @@ npm install
 echo ""
 
 echo "### init the python chatgtp documentation"
-cd ./scripts/auto-doc/documentation/
+cd ./scripts/auto-doc/
 sh init.sh
 echo ""
 # cd ../

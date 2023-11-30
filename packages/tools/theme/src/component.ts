@@ -1,23 +1,23 @@
 // utils 
-// import { html, property } from "@papit/tools-utils";
+// import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
 // local 
 import { style } from "./style";
 
-export class ThemeTool extends BaseTemplate {
-    static style = style;
+export class ThemeTool extends BaseSystem {
+  static style = style;
 
-    render() {
-        return '';
-    }
+  render() {
+    return '';
+  }
 }
 
 
 declare global {
-    interface HTMLElementTagNameMap {
-        "pap-theme-provider": ThemeTool;
-    }
+  interface HTMLElementTagNameMap {
+    "pap-theme-provider": ThemeTool;
+  }
 }

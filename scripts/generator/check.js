@@ -2,16 +2,17 @@ const fs = require('fs');
 const path = require('path');
 
 let LOCKFILE;
-try {
+try 
+{
   const url = path.join(process.argv[2], "package-lock.json");
   LOCKFILE = JSON.parse(fs.readFileSync(url));
   if (LOCKFILE)
   {
-    const package = process.argv[3];
+    const packagename = process.argv[3];
     const destination = process.argv[4].slice(2);
 
     
-    const pkg = LOCKFILE.packages[`node_modules/${package}`];
+    const pkg = LOCKFILE.packages[`node_modules/${packagename}`];
     if (pkg)
     {
       if (pkg.resolved === destination)

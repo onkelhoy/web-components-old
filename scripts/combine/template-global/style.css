@@ -1,0 +1,25 @@
+div[data-target=""] {
+  background-color: var(--pap-color-bg-canvas, #EAEBEF);
+  color: var(--pap-color-text, #29292F);
+  font-family: var(--pap-font-family);
+
+  margin: 0;
+  height: auto !important;
+  min-height: 100vh;
+}
+
+div[data-target=""] pap-tabs::part(header) {
+  position: sticky;
+  background-color: var(--pap-color-bg-canvas, #EAEBEF);
+  top: 0;
+  left: 0;
+  z-index: 1001;
+}
+
+div[data-target=""]>pap-tabs>pap-tab-content {
+  margin: 1rem;
+}
+
+div[data-target=""]>pap-tabs>pap-tab-content[id="interactive"] {
+  height: calc(100vh - 5rem) !important;
+}

@@ -8,34 +8,8 @@ export const style = `:host,
   justify-content: space-between; }
   :host pap-menu::part(box) {
     min-width: 15rem; }
-  :host div.icon-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: var(--field-size-medium, 40px);
-    height: var(--field-size-medium, 40px); }
 
 img.avatar {
   width: var(--field-size-medium, 40px);
   height: var(--field-size-medium, 40px);
-  border-radius: 50%; }
-
-@media (prefers-color-scheme: light) {
-  :host pap-icon[name="dark-mode"] {
-    display: none; } }
-
-@media (prefers-color-scheme: dark) {
-  :host pap-icon[name="light-mode"] {
-    display: none; } }
-
-:host(.dark-mode) pap-icon[name="light-mode"] {
-  display: none; }
-
-:host(.dark-mode) pap-icon[name="dark-mode"] {
-  display: initial; }
-
-:host(.light-mode) pap-icon[name="dark-mode"] {
-  display: none; }
-
-:host(.light-mode) pap-icon[name="light-mode"] {
-  display: initial; }`;
+  border-radius: 50%; }`;

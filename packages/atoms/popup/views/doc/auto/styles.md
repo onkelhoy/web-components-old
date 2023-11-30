@@ -4,18 +4,19 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
-import { html, property, query } from "@papit/tools-utils";
+## SOURCE-CODE
+
+// utils
+import { html, property, query } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 import { State, Variant } from "./types";
 
-export class Popup extends BaseTemplate {
+export class Popup extends BaseSystem {
   static style = style;
 
   @query('iz-card') private cardElement!: HTMLDivElement;
@@ -56,7 +57,7 @@ export class Popup extends BaseTemplate {
     _old: string | null,
     value: string | null
   ): void {
-    super.attributeChangedCallback(name, _old, value);
+    super.attributeChangedCallback(name,_old, value);
 
     if (name === 'state') {
       if (value === 'show') {
@@ -147,7 +148,9 @@ declare global {
         "pap-popup": Popup;
     }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 div.wrapper {
     display: none;
     position: absolute;

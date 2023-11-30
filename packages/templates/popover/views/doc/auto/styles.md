@@ -4,17 +4,18 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
-import { html, property } from "@papit/tools-utils";
+## SOURCE-CODE
+
+// utils
+import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
 import { style } from "./style";
 import { Reveal, Placement } from './types';
 
-export class PopoverTemplate extends BaseTemplate {
+export class PopoverTemplate extends BaseSystem {
   static styles = [style];
 
   @property() revealby: Reveal = 'hover';
@@ -52,7 +53,7 @@ export class PopoverTemplate extends BaseTemplate {
   }
   private handlemouseleave = () => {
     this.outside = true;
-    
+
     if (this.revealby === "hover")
     {
       this.hide();
@@ -83,8 +84,8 @@ export class PopoverTemplate extends BaseTemplate {
 
   render() {
     return html`
-      <div 
-        class="target" 
+      <div
+        class="target"
         part="target"
         @mousedown="${this.handlemousedown}"
       >
@@ -102,7 +103,9 @@ declare global {
       "pap-popover-template": PopoverTemplate;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
   position: relative;
   display: block;
@@ -124,7 +127,6 @@ declare global {
 :host([open="false"]) div.wrapper {
   display: none;
 }
-
 
 // placement:: TOP
 :host([placement="top-right"]) div.wrapper {

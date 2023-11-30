@@ -1,12 +1,12 @@
 {
-  "name": "@papit/ecosystem",
+  "name": "@pap-it/ecosystem",
   "version": "1.0.0",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
     "build": ".scripts/build.sh",
     "watch": ".scripts/watch.sh",
-    "manual-publish": ".scripts/publish.sh",
+    "manual-publish": "sh .scripts/publish.sh",
     "postversion": "sh .scripts/postversion.sh",
     "combine": ".scripts/combine.sh",
     "start": ".scripts/start.sh"
@@ -28,22 +28,20 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "devDependencies": {
-    "@papit/icon": "^0.0.0",
-    "@papit/tools-doc": "^0.0.0",
+    "@pap-it/icon": "^0.0.0",
+    "@pap-it/system-doc": "^0.0.0",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "node-sass": "^9.0.0",
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "@papit/templates-base": "^0.0.0",
-    "@papit/tools-utils": "^0.0.0"
+    "@pap-it/system-base": "^0.0.0",
+    "@pap-it/system-utils": "^0.0.0"
   },
   "keywords": [
     "web-component",
     "typescript",
-    "demoing",
-    "testing",
     "sass"
   ],
   "description": ""

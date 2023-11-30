@@ -60,19 +60,41 @@
       },
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@papit/templates-base"
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
       },
       {
         "name": "style",
         "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "target",
+        "html": ""
+      },
+      {
+        "name": "default",
+        "html": ""
+      }
+    ],
+    "parts": [
+      {
+        "name": "target",
+        "tag": "DIV"
+      },
+      {
+        "name": "wrapper",
+        "tag": "DIV"
       }
     ]
   },

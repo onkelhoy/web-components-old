@@ -22,6 +22,5 @@ fi
 # Run build 
 npm run build
 
-# Authenticate and publish 
-npm login
+# NPM Publish 
 npm publish

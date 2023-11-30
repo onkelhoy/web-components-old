@@ -1,0 +1,366 @@
+{
+  "className": "Codeblock",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/codeblock",
+  "properties": [
+    {
+      "name": "main",
+      "type": "HTMLElement",
+      "type_value": {
+        "accessKey": null,
+        "accessKeyLabel": null,
+        "autocapitalize": null,
+        "dir": null,
+        "draggable": null,
+        "hidden": null,
+        "inert": null,
+        "innerText": null,
+        "lang": null,
+        "offsetHeight": null,
+        "offsetLeft": null,
+        "offsetParent": [
+          null,
+          null
+        ],
+        "offsetTop": null,
+        "offsetWidth": null,
+        "outerText": null,
+        "spellcheck": null,
+        "title": null,
+        "translate": null,
+        "attachInternals": null,
+        "click": null,
+        "addEventListener": null,
+        "removeEventListener": null
+      },
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "languageElement",
+      "type": "Typography",
+      "type_value": {
+        "variant": [
+          "C1",
+          "C2",
+          "T1",
+          "T2",
+          "H1",
+          "H2",
+          "copy1",
+          "copy2",
+          "title1",
+          "title2",
+          "heading1",
+          "heading2",
+          "B1",
+          "B2",
+          "button1",
+          "button2",
+          "C3",
+          "C4",
+          "T3",
+          "T4",
+          "H3",
+          "H4",
+          "copy3",
+          "copy4",
+          "title3",
+          "title4",
+          "heading3",
+          "heading4",
+          "H5"
+        ],
+        "align": [
+          "center",
+          "justify",
+          "start",
+          "end",
+          "left",
+          "right",
+          "unset",
+          "inherit",
+          "initial"
+        ],
+        "nowrap": null,
+        "truncate": null,
+        "render": null
+      },
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "copytext",
+      "type": "Typography",
+      "type_value": {
+        "variant": [
+          "C1",
+          "C2",
+          "T1",
+          "T2",
+          "H1",
+          "H2",
+          "copy1",
+          "copy2",
+          "title1",
+          "title2",
+          "heading1",
+          "heading2",
+          "B1",
+          "B2",
+          "button1",
+          "button2",
+          "C3",
+          "C4",
+          "T3",
+          "T4",
+          "H3",
+          "H4",
+          "copy3",
+          "copy4",
+          "title3",
+          "title4",
+          "heading3",
+          "heading4",
+          "H5"
+        ],
+        "align": [
+          "center",
+          "justify",
+          "start",
+          "end",
+          "left",
+          "right",
+          "unset",
+          "inherit",
+          "initial"
+        ],
+        "nowrap": null,
+        "truncate": null,
+        "render": null
+      },
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "fieldsetElement",
+      "type": "HTMLFieldSetElement",
+      "type_value": {
+        "disabled": null,
+        "elements": null,
+        "form": [
+          null,
+          null
+        ],
+        "name": null,
+        "type": null,
+        "validationMessage": null,
+        "validity": null,
+        "willValidate": null,
+        "checkValidity": null,
+        "reportValidity": null,
+        "setCustomValidity": null,
+        "addEventListener": null,
+        "removeEventListener": null
+      },
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "display",
+      "type": "Display",
+      "default_value": "code",
+      "type_value": [
+        "both",
+        "code"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "themetoggle",
+      "type": "boolean",
+      "default_value": true,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "lang",
+      "type": "string",
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    }
+  ],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/molecules/codeblock": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "query",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "default",
+        "html": ""
+      }
+    ],
+    "parts": [
+      {
+        "name": "fieldset",
+        "tag": "FIELDSET"
+      }
+    ]
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/codeblock",
+    "sources": [],
+    "variables": {
+      "--margin-medium": {
+        "usecases": [
+          "margin-block"
+        ],
+        "fallbacks": [
+          "16px"
+        ]
+      },
+      "--pap-color-text": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "#29292F"
+        ]
+      },
+      "--pap-color-text-warning": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "#984308"
+        ]
+      },
+      "--pap-color-text-danger": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "#A3111F"
+        ]
+      },
+      "--pap-color-primary-500": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "#0CB9Eb"
+        ]
+      },
+      "--pap-color-text-brand-strong": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "#002652"
+        ]
+      },
+      "--padding-smaller": {
+        "usecases": [
+          "padding-left"
+        ],
+        "fallbacks": [
+          "4px"
+        ]
+      },
+      "--pap-color-primary-700": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "#0177A3"
+        ]
+      },
+      "--pap-color-neutral-700": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "#4D4E58"
+        ]
+      },
+      "--pap-color-bg-secondary": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "#F6F7F8"
+        ]
+      },
+      "--pap-color-bg-tertiary": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "#EAEBEF"
+        ]
+      },
+      "--padding-medium": {
+        "usecases": [
+          "text-indent",
+          "padding"
+        ],
+        "fallbacks": [
+          "16px",
+          "16px) var(--padding-large, 24px"
+        ]
+      },
+      "--unit-size5": {
+        "usecases": [
+          "min-height"
+        ],
+        "fallbacks": [
+          "32px"
+        ]
+      },
+      "--padding-large": {
+        "usecases": [
+          "padding"
+        ],
+        "fallbacks": [
+          "24p"
+        ]
+      },
+      "--pap-color-bg": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "#FFFFFF"
+        ]
+      }
+    }
+  }
+}

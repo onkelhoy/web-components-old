@@ -1,9 +1,9 @@
-import "@papit/icon/wc";
-import "@papit/tools-doc/wc";
-import "@papit/sidebar/wc";
+import "@pap-it/system-doc/wc";
 
-window.onload = () => {
-  document.querySelector('pap-navbar').addEventListener('select', e => {
+window.onload = () => 
+{
+  document.querySelector('pap-sidebar.designsystem').addEventListener('select', e => 
+  {
     const id = e.detail.id;
 
     // disable the others first 

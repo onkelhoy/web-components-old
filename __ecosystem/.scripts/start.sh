@@ -25,7 +25,7 @@ watcher_pid=$!
 # sh .scripts/build.sh
 
 # watch demo project
-sh $ROOTDIR/scripts/liveserver/run.sh $SUBFOLDER &
+sh $ROOTDIR/scripts/server/run.sh $SUBFOLDER --live &
 watch_server_pid=$!
 
 # Wait for the script to receive a SIGINT, or EXIT (from parent process) (Ctrl+C)

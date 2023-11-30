@@ -1,0 +1,200 @@
+PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
+ Based on the source code and style code probided. Can you create a documentation that includes titles, short descrition and the table for each tables: css-variables, parts, slots.
+css-variables should be a table with columns: (name, default-value, type - ex. CSS unit, description).
+parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
+slots should include columns: (name, default-value, description)
+
+## SOURCE-CODE:
+import { property, html, Size } from '@pap-it/system-utils';
+import { AssetTemplate } from '@pap-it/templates-asset';
+
+import { style } from './style.js';
+import { ContainerTypes } from './types.js';
+
+export class Icon extends AssetTemplate {
+  static style = style;
+
+  private content: string = "";
+  private svgElement!: SVGSVGElement;
+
+  @property({ rerender: false }) container?: ContainerTypes;
+  @property({ onUpdate: "updateName", rerender: false }) name?: string;
+  @property({ onUpdate: "updateColor", rerender: false }) color?: string;
+  @property({ onUpdate: "updateSize", rerender: false }) size: Size = "medium";
+  @property({ onUpdate: "updateCustomSize", rerender: false, type: Number }) customSize?: number;
+
+  // class functions
+  constructor() {
+    super();
+
+    this.render_mode = "greedy";
+    this.assetBase = "/icons";
+  }
+  public firstUpdate() {
+    if (this.shadowRoot) {
+      const element = this.shadowRoot.querySelector<SVGSVGElement>("svg");
+      if (element === null) throw new Error('Could not find svg element');
+      this.svgElement = element;
+
+      if (this.content) {
+        this.setSVG();
+      }
+    }
+  }
+
+  // update functions
+  private async updateName(): Promise<void> {
+    const file = `${this.name}.svg`;
+    try {
+      const response = await this.loadAsset(file);
+
+      if (response) {
+        let content, viewbox = "0 96 960 960"; // default google icon's
+        if (typeof response === "string") {
+          content = response;
+        }
+        else {
+          content = await response.text();
+          const [parsed_content, parsed_viewbox] = this.extractSvgContent(content);
+
+          if (parsed_viewbox) {
+            viewbox = parsed_viewbox;
+          }
+          if (parsed_content) {
+            content = `SVG:${viewbox}##${parsed_content.trim()}`;
+            this.cacheData(file, content);
+          }
+        }
+
+
+        if (content.startsWith("SVG:")) {
+          this.setAttribute('data-hide-slot', 'true');
+          this.content = content;
+          if (this.getAttribute("show")) console.log(content)
+          this.setSVG();
+        }
+        else {
+          this.setAttribute('data-hide-slot', 'false');
+        }
+      }
+      else {
+        this.setAttribute('data-hide-slot', 'false');
+      }
+    }
+    catch {
+      console.log('im hidden')
+      this.setAttribute('data-hide-slot', 'false');
+    }
+  }
+  private updateColor() {
+    if (this.color) this.style.color = this.color;
+  }
+  private updateSize() {
+    this.style.removeProperty("--icon-custom-size");
+  }
+  private updateCustomSize() {
+    if (this.customSize !== undefined) this.style.setProperty("--icon-custom-size", this.customSize + "px");
+  }
+
+  // helper functions
+  private extractSvgContent(svgString: string) {
+    const parser = new DOMParser();
+    const svgDoc = parser.parseFromString(svgString, 'image/svg+xml');
+    const svgElement = svgDoc.querySelector('svg');
+    if (svgElement) {
+      return [svgElement.innerHTML, svgElement.getAttribute("viewBox")];
+    }
+    return ["", ""];
+  }
+  private setSVG() {
+    if (this.svgElement) {
+
+      const parsed = /SVG:(.*)##/.exec(this.content);
+      if (parsed) {
+        const content = this.content.split(parsed[1])[1];
+        this.svgElement.setAttribute('viewBox', parsed[1]);
+        if (this.getAttribute("show")) console.log(this.content, parsed, content)
+        this.svgElement.innerHTML = content;
+      }
+    }
+  }
+
+  render() {
+    return html`
+      <slot part="fallback"></slot>
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 96 960 960"
+        part="svg"
+      >
+        ${this.content}
+      </svg>
+    `
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "pap-icon": Icon;
+  }
+}
+## STYLE-CODE:
+:host {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: var(--icon-custom-size);
+    height: var(--icon-custom-size);
+}
+
+:host([size="small"]) {
+    --icon-custom-size: var(--icon-size-small, 16px);
+}
+:host([size="medium"]) {
+    --icon-custom-size: var(--icon-size-medium, 20px);
+}
+:host([size="large"]) {
+    --icon-custom-size: var(--icon-size-large, 40px);
+}
+:host(:not([container])) {
+    svg {
+        width: inherit;
+        height: inherit;
+    }
+}
+:host([container]) {
+    display: flex;
+
+    svg {
+        width: var(--icon-custom-size);
+        height: var(--icon-custom-size);
+    }
+}
+:host([container="small"]) {
+    width: var(--field-size-small, 32px);
+    height: var(--field-size-small, 32px);
+}
+:host([container="medium"]) {
+    width: var(--field-size-medium, 40px);
+    height: var(--field-size-medium, 40px);
+}
+:host([container="large"]) {
+    width: var(--field-size-large, 56px);
+    height: var(--field-size-large, 56px);
+}
+svg {
+    fill: currentColor;
+}
+
+:host([data-hide-slot="true"]) {
+    &::part(fallback) {
+        display: none;
+    }
+}
+:host([data-hide-slot="false"]) {
+    svg {
+        display: none;
+    }
+    width: fit-content;
+}

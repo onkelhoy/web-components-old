@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive</title>
+
+  <link rel="stylesheet" href="style.css" >
+
+  <script defer type="module" src="main.js"></script>
+</head>
+<body>
+  <doc-controller>
+    <div id="target">
+      <pap-form>
+        
+      <div  data-slotname="default">
+        <p>Hello World</p>
+      </div>
+    
+      </pap-form>
+  </div>
+
+    <section class="control" slot="setting">
+      <pap-tabs>
+        <pap-tab id="html">HTML</pap-tab>
+        <pap-tab class="selected" id="properties">Properties</pap-tab>
+        <pap-tab id="css">CSS</pap-tab>
+        <pap-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="<p>Hello World</p>"></doc-input></div></pap-tab-content>
+        <pap-tab-content id="properties"><h3 data-subtitle="Form Properties">Form Properties</h3><div data-name="Form Properties" class="properties">
+            
+            
+            
+            <doc-input data-prop-name="error" value="" name="error" label="error"></doc-input>
+          
+          
+          
+          
+            
+            
+            
+            <doc-input data-prop-name="warning" value="" name="warning" label="warning"></doc-input>
+          
+          
+          
+          
+            
+            
+            
+            <doc-input data-prop-name="success" value="" name="success" label="success"></doc-input>
+          
+          
+          
+          
+        
+        
+        
+        <doc-input data-prop-name="messageElement" variant="textarea" value="" name="messageElement" label="messageElement - Message"></doc-input>
+      
+      
+      
+      
+        
+        
+        
+        <doc-input data-prop-name="formElement" variant="textarea" value="" name="formElement" label="formElement - HTMLFormElement"></doc-input>
+      
+      
+      
+      </div></pap-tab-content>
+        <pap-tab-content id="css">
+      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/atoms/form" class="style-source">
+        <h3>form styles</h3>
+      </div>
+    </pap-tab-content>
+      </pap-tabs>
+    </section>
+  </doc-controller>
+</body>
+</html>

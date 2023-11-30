@@ -1,14 +1,14 @@
 // tools
-import '@papit/tools-doc/wc';
-import '@papit/input/wc';
-import '@papit/checkbox/wc';
-import '@papit/textarea/wc';
-import '@papit/toggle/wc';
-import '@papit/button/wc';
-import '@papit/dropdown/wc';
+import '@pap-it/system-doc/wc';
+import '@pap-it/input/wc';
+import '@pap-it/checkbox/wc';
+import '@pap-it/textarea/wc';
+import '@pap-it/toggle/wc';
+import '@pap-it/button/wc';
+import '@pap-it/dropdown/wc';
 
 // component
-import '@papit/form/wc';
+import '@pap-it/form/wc';
 
 window.onload = () => {
     console.log('[demo]: window loaded');

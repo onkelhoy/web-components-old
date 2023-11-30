@@ -1,13 +1,13 @@
 // utils 
-import { html } from "@papit/tools-utils";
+import { html } from "@pap-it/system-utils";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
 // local 
 import { style } from "./style";
 
-export class TabContent extends BaseTemplate {
+export class TabContent extends BaseSystem {
   static style = style;
 
   constructor() {
@@ -17,11 +17,9 @@ export class TabContent extends BaseTemplate {
   }
 
   public init(parent: HTMLElement) {
-    parent.addEventListener('tab-select', (e:Event) => {
-      if (e instanceof CustomEvent)
-      {
-        if (this.getAttribute('data-tab-id') === e.detail.id)
-        {
+    parent.addEventListener('tab-select', (e: Event) => {
+      if (e instanceof CustomEvent) {
+        if (this.getAttribute('data-tab-id') === e.detail.id) {
           this.classList.add('selected');
 
           // if (e.detail.scrolling)
@@ -29,8 +27,7 @@ export class TabContent extends BaseTemplate {
           //   this.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
           // }
         }
-        else 
-        {
+        else {
           this.classList.remove('selected');
         }
       }

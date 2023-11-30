@@ -1,0 +1,44 @@
+{
+  "className": "Translator",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/tools/translator",
+  "properties": [],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/tools/translator": [
+      {
+        "name": "ExtractSlotValue",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "html",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      },
+      {
+        "name": "InitTranslations",
+        "from": "./translator"
+      }
+    ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "default",
+        "html": ""
+      }
+    ],
+    "parts": []
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/tools/translator",
+    "sources": [],
+    "variables": {}
+  }
+}

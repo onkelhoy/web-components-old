@@ -77,12 +77,12 @@
         "from": "tslib"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@papit/templates-base"
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       }
     ],
     "/Users/henry/Developer/projects/web-components/packages/atoms/icon": [
@@ -92,15 +92,15 @@
       },
       {
         "name": "property",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "AssetTemplate",
-        "from": "@papit/templates-asset"
+        "from": "@pap-it/templates-asset"
       },
       {
         "name": "style",
@@ -166,21 +166,27 @@
           "width",
           "height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "32px"
+        ]
       },
       "--field-size-medium": {
         "usecases": [
           "width",
           "height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "40px"
+        ]
       },
       "--field-size-large": {
         "usecases": [
           "width",
           "height"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "56px"
+        ]
       }
     }
   }

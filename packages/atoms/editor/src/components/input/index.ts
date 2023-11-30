@@ -1,21 +1,21 @@
 // utils 
-import { html, property, query } from "@papit/tools-utils";
+import { html, property, query } from "@pap-it/system-utils";
 
 // atoms
-import "@papit/button/wc";
-import "@papit/icon/wc";
+import "@pap-it/button/wc";
+import "@pap-it/icon/wc";
 
 // templates
-import { BaseTemplate } from "@papit/templates-base";
+import { BaseSystem } from "@pap-it/system-base";
 
 import { style } from "./style";
 import { GroupSelection } from "./Group";
 import { basic_modify } from "./utils";
 
-export type Modifier = "bold"|"italic"|"underline"|"strikethrough"
+export type Modifier = "bold" | "italic" | "underline" | "strikethrough"
 
 // this is used to check nodes whom parent is of target type
-type ExtendedNode = { node: Node, parent: Node|null };
+type ExtendedNode = { node: Node, parent: Node | null };
 const ModifierMap = {
   bold: "STRONG",
   italic: "I",
@@ -23,19 +23,18 @@ const ModifierMap = {
   underline: "U"
 }
 
-export class Input extends BaseTemplate {
+export class Input extends BaseSystem {
   static style = style;
 
   @query('#editor') editorElement!: HTMLDivElement;
 
   // event handlers
-  private handlemodify (modifier: Modifier) {
+  private handlemodify(modifier: Modifier) {
     return () => {
       // Get the current selection
       const selection = this.getSelection();
 
-      if (selection && selection.type !== "None")
-      {
+      if (selection && selection.type !== "None") {
         basic_modify(selection, ModifierMap[modifier], this.editorElement);
 
         // const info = GroupSelection(selection, ModifierMap[modifier], this.editorElement);
@@ -50,7 +49,7 @@ export class Input extends BaseTemplate {
         // for (let i=0; i<info.leafnodes.length; i++)
         // {
         //   const node = info.leafnodes[i];
-          
+
         //   let foundinparent = false;
         //   let target:Node|null = node;
         //   let parent:Node|null = null;
@@ -62,7 +61,7 @@ export class Input extends BaseTemplate {
         //       mode = 'insert';
         //       break;
         //     }
-    
+
         //     // check if a parent has already
         //     if (target.nodeName.toLowerCase() === ModifierMap[modifier])
         //     {
@@ -90,7 +89,7 @@ export class Input extends BaseTemplate {
         //   const {node, parent} = extendedNodes[i];
 
         //   console.log({node, parent});
-          
+
         //   if (i === 0)
         //   {
 
@@ -114,7 +113,7 @@ export class Input extends BaseTemplate {
       }
     }
   }
-  private splitNode(node:Node, at?:number) {
+  private splitNode(node: Node, at?: number) {
     if (at === undefined) return [node];
 
     // do {
@@ -130,12 +129,10 @@ export class Input extends BaseTemplate {
     //   const b = textContent.slice(at, textContent.length);
     // }
   }
-  private surroundNode(surround:Node, node:Node, at?:number) {
-    if (!at)
-    {
+  private surroundNode(surround: Node, node: Node, at?: number) {
+    if (!at) {
       const parent = node.parentNode;
-      if (parent)
-      {
+      if (parent) {
         parent.insertBefore(surround, node);
         surround.appendChild(node);
       }
@@ -144,28 +141,26 @@ export class Input extends BaseTemplate {
 
   // public functions
   private getSelection() {
-    const selection:Selection|null = (this.shadowRoot as any).getSelection ? (this.shadowRoot as any).getSelection() : document.getSelection();
+    const selection: Selection | null = (this.shadowRoot as any).getSelection ? (this.shadowRoot as any).getSelection() : document.getSelection();
     return selection;
   }
-  private insert (text:string) {
+  private insert(text: string) {
     // Get the current selection
     const selection = this.getSelection();
-    
+
     // Check if there is a selection
-    if (selection) 
-    {
+    if (selection) {
       console.log(selection)
-      if (selection.rangeCount) 
-      {
+      if (selection.rangeCount) {
         // Get the first range of the selection
         const range = selection.getRangeAt(0);
-        
+
         // Create a text node with the text to insert
         const textNode = document.createTextNode(text);
-        
+
         // Insert the text node at the current cursor position
         range.insertNode(textNode);
-        
+
         // Move the cursor to after the inserted text
         range.setStartAfter(textNode);
         range.setEndAfter(textNode);

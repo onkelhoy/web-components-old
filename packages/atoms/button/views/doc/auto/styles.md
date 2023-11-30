@@ -4,9 +4,10 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-import { property, Size } from '@papit/tools-utils';
-import { BoxTemplate } from '@papit/templates-box';
+## SOURCE-CODE
+
+import { property, Size } from '@pap-it/system-utils';
+import { BoxTemplate } from '@pap-it/templates-box';
 
 import { style } from './style.js';
 
@@ -15,7 +16,7 @@ import type { ButtonMode, ButtonVariant, ButtonColorVariant } from './types';
 // TODO extend form-element-template
 export class Button extends BoxTemplate {
     static style = style;
-    
+
     @property({ rerender: false, onUpdate: "ontypeupdate" }) type: "button" | "link" | "submit" | "reset" = "button"; // TODO link
     @property({ rerender: false }) size: Size = "medium";
     @property({ rerender: false }) mode: ButtonMode = "hug";
@@ -91,7 +92,9 @@ declare global {
         "pap-button": Button;
     }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 // value maps
 $size-map: (
   small: (

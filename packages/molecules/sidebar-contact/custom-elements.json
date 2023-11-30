@@ -1,0 +1,118 @@
+{
+  "className": "SidebarContact",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar-contact",
+  "properties": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "contacts",
+      "type_value": null,
+      "primitive": false,
+      "conditional": false
+    }
+  ],
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar-contact": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [],
+    "parts": [
+      {
+        "name": "collapsed",
+        "tag": "PAP-BOX-TEMPLATE"
+      },
+      {
+        "name": "base",
+        "tag": "PAP-BOX-TEMPLATE"
+      },
+      {
+        "name": "header",
+        "tag": "HEADER"
+      }
+    ]
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar-contact",
+    "sources": [],
+    "variables": {
+      "--pap-color-bg-secondary": {
+        "usecases": [
+          "background-color"
+        ],
+        "fallbacks": [
+          "#F6F7F8"
+        ]
+      },
+      "--padding-small": {
+        "usecases": [
+          "padding",
+          "padding-bottom"
+        ],
+        "fallbacks": [
+          "8px"
+        ]
+      },
+      "--padding-medium": {
+        "usecases": [
+          "padding-inline",
+          "padding-block"
+        ],
+        "fallbacks": [
+          "16px"
+        ]
+      },
+      "--pap-color-text-secondary": {
+        "usecases": [
+          "color"
+        ],
+        "fallbacks": [
+          "#6E7087"
+        ]
+      },
+      "--gap-small": {
+        "usecases": [
+          "gap"
+        ],
+        "fallbacks": [
+          "8px"
+        ]
+      },
+      "--field-size-medium": {
+        "usecases": [
+          "height"
+        ],
+        "fallbacks": [
+          "40px"
+        ]
+      }
+    }
+  }
+}

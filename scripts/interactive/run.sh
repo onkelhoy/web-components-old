@@ -15,7 +15,7 @@ if [ ! -f $PACKAGE_DIR/views/interactive/style.css ]; then
 fi
 if [ ! -f $PACKAGE_DIR/views/interactive/main.js ]; then 
   cp $SCRIPT_DIR/template/main.js $PACKAGE_DIR/views/interactive
-  echo "\nimport \"@papit/$PACKAGENAME$NAME/wc\";" >> $PACKAGE_DIR/views/interactive/main.js
+  echo "\nimport \"@pap-it/$PACKAGENAME$NAME/wc\";" >> $PACKAGE_DIR/views/interactive/main.js
 fi
 
 # run the build

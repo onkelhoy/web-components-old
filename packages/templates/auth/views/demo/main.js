@@ -1,9 +1,10 @@
 // tools
-import '@papit/tools-doc/wc';
+import '@pap-it/system-doc/wc';
 
 // component
-import '@papit/templates-auth/wc';
+import '@pap-it/templates-auth/wc';
 
-window.onload = () => {
-    console.log('[demo]: window loaded');
+window.onload = () => 
+{
+  console.log('[demo]: window loaded');
 }

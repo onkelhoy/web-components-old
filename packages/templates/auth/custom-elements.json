@@ -7,11 +7,11 @@
     "/Users/henry/Developer/projects/web-components/packages/templates/auth": [
       {
         "name": "html",
-        "from": "@papit/tools-utils"
+        "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseTemplate",
-        "from": "@papit/templates-base"
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
       },
       {
         "name": "style",
@@ -48,7 +48,7 @@
     "folder": "/Users/henry/Developer/projects/web-components/packages/templates/auth",
     "sources": [],
     "variables": {
-      "--pap-color-white": {
+      "--pap-color-neutral-50": {
         "usecases": [
           "background-color"
         ],
@@ -58,7 +58,9 @@
         "usecases": [
           "gap"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "8px"
+        ]
       }
     }
   }
