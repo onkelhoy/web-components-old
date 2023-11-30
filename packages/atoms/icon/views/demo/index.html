@@ -1,75 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Icon demo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Icon demo</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
+  <script defer src="main.js"></script>
 </head>
+
 <body>
-    <doc-card>
-        <h4 slot="header">Normal</h4>
-        <pap-codeblock display="both">
-            <pap-icon 
-                assetbase="public/icons"
-                name="circle"
-                cache="false"
-            >
-                fallback
-            </pap-icon>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <h4 slot="header">Normal</h4>
+    <pap-codeblock display="both">
+      <pap-icon asset-base="public/icons" name="circle" cache="false">
+        fallback
+      </pap-icon>
+    </pap-codeblock>
+  </doc-card>
 
-    <doc-card>
-        <h4 slot="header">With Container</h4>
-        <pap-codeblock display="both">
-            <pap-icon name="circle" container="small">
-                fallback
-            </pap-icon>
-            <pap-icon name="circle" container="medium">
-                fallback
-            </pap-icon>
-            <pap-icon name="circle" container="large">
-                fallback
-            </pap-icon>
+  <doc-card>
+    <h4 slot="header">With Container</h4>
+    <pap-codeblock display="both">
+      <pap-icon name="circle" container="small">
+        fallback
+      </pap-icon>
+      <pap-icon name="circle" container="medium">
+        fallback
+      </pap-icon>
+      <pap-icon name="circle" container="large">
+        fallback
+      </pap-icon>
 
 
-            <pap-icon size="large" name="circle" container="medium">
-                fallback
-            </pap-icon>
-            <pap-icon customSize="30" name="circle" container="medium">
-                fallback
-            </pap-icon>
-        </pap-codeblock>
-    </doc-card>
+      <pap-icon size="large" name="circle" container="medium">
+        fallback
+      </pap-icon>
+      <pap-icon customSize="30" name="circle" container="medium">
+        fallback
+      </pap-icon>
+    </pap-codeblock>
+  </doc-card>
 
-    <doc-card>
-        <h4 slot="header">Funcase</h4>
-        <pap-codeblock display="both">
-            <pap-icon 
-                customSize="200" 
-                id="animation" 
-                cache="true" 
-                color="orange" 
-                name="circle"
-            >
-                fallback
-            </pap-icon>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <h4 slot="header">Funcase</h4>
+    <pap-codeblock display="both">
+      <pap-icon customSize="200" id="animation" cache="true" color="orange" name="circle">
+        fallback
+      </pap-icon>
+    </pap-codeblock>
+  </doc-card>
 
-    <doc-card>
-        <h4 slot="header">With fallback</h4>
-        <pap-codeblock display="both">
-            <pap-icon name="notfoundicon">fallback</pap-icon>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <h4 slot="header">With fallback</h4>
+    <pap-codeblock display="both">
+      <pap-icon name="notfoundicon">fallback</pap-icon>
+    </pap-codeblock>
+  </doc-card>
 </body>
+
 </html>

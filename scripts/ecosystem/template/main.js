@@ -1,15 +1,46 @@
 import "@pap-it/system-doc/wc";
+import "@pap-it/sidebar/wc";
+import "@pap-it/tools-routing/wc";
+
+function changeSelected() 
+{
+  // we need to pre-select something 
+  const [atomic, name] = window.location.pathname.split('/').filter(v => !!v);
+  if (atomic && name)
+  {
+    // select the item if exist 
+    const item = document.querySelector(`#${atomic}_${name}`);
+    if (item)
+    {
+      item.click();
+    }
+  }
+}
 
 window.onload = () => 
 {
-  document.querySelector('pap-sidebar.designsystem').addEventListener('select', e => 
+  // check if we already have a url 
+  const sidebar = document.querySelector('pap-sidebar.designsystem');
+
+  window.addEventListener('popstate', changeSelected);
+
+  if (window.location.pathname !== "/")
   {
-    const id = e.detail.id;
+    setTimeout(changeSelected, 100);
+  }
 
-    // disable the others first 
-    document.querySelector('main.designsystem div[data-target].selected')?.classList.remove('selected');
+  sidebar.addEventListener('select', e => 
+  {
+    const [atomic, name] = e.detail.id.split('_') // used in "ecosystem/build.js"
+    const router = document.querySelector('pap-routing-tool');
+      
+    const newURL = `/${atomic}/${name}/`
+    router.setAttribute('asset-base', `packages${newURL}`);
+    router.setAttribute('url', 'index.html');
 
-    // add the curent 
-    document.querySelector(`main.designsystem div[data-target="${id}"]`)?.classList.add('selected')
+    window.history.pushState({
+      url: newURL,
+    }, name, newURL);
+
   })
 }

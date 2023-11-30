@@ -57,7 +57,7 @@ export class Sidebar extends BaseSystem {
   private updateSelected = () => {
     const element = this.items.find(e => e.id === this.selected || e.text === this.selected);
     if (element) {
-      element.handleclick();
+      element.click();
     }
     else {
       return 10;

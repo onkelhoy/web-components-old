@@ -2,7 +2,7 @@ import { BaseSystem } from "@pap-it/system-base";
 import { property } from "@pap-it/system-utils";
 
 export class AssetTemplate extends BaseSystem {
-  @property({ onUpdate: "assetBaseUpdate" }) assetBase: string = "/public";
+  @property({ onUpdate: "assetBaseUpdate", attribute: "asset-base" }) assetBase: string = "/public";
   @property({ type: Boolean }) cache: boolean = false;
 
   protected async loadAsset(file: string, isurl = false): Promise<string | Response | null> {
@@ -32,7 +32,7 @@ export class AssetTemplate extends BaseSystem {
     return null;
   }
 
-  private assetBaseUpdate() {
+  protected assetBaseUpdate(_value: string, _old: string) {
     if (this.assetBase[this.assetBase.length - 1] === "/") {
       this.assetBase = this.assetBase.slice(0, this.assetBase.length - 1);
     }

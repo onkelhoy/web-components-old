@@ -4,6 +4,7 @@ const path = require('path');
 
 // local packages
 const { DEPENDENCY, LOCKFILE } = require('./dependency');
+const WEB_DIR = path.join(process.env.ROOT_DIR, 'web/');
 
 
 /**

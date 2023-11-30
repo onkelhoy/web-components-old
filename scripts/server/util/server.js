@@ -69,7 +69,11 @@ app.get('*', async (req, res) =>
         {
           file = fs.readFileSync(filepath, 'utf-8');
           const document = parse(file);
-          document.querySelector('head').appendChild(parse(commonHTML));
+          if (document.querySelector('head')) document.querySelector('head').appendChild(parse(commonHTML));
+          else 
+          {
+            document.appendChild(parse(`<head>${commonHTML}</head>`));
+          }
           file = document.toString();
         }
       }

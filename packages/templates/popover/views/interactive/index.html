@@ -1,109 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive</title>
 
-  <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="style.css">
 
   <script defer type="module" src="main.js"></script>
 </head>
+
 <body>
   <doc-controller>
     <div id="target">
       <pap-popover-template>
-        
-      <div slot="target" data-slotname="target">
-        
-      </div>
-     
-      <div  data-slotname="default">
-        Hello World
-      </div>
-    
+
+        <div slot="target" data-slotname="target">
+
+        </div>
+
+        <div data-slotname="default">
+          Hello World
+        </div>
+
       </pap-popover-template>
-  </div>
+    </div>
 
     <section class="control" slot="setting">
       <pap-tabs>
         <pap-tab id="html">HTML</pap-tab>
         <pap-tab class="selected" id="properties">Properties</pap-tab>
         <pap-tab id="css">CSS</pap-tab>
-        <pap-tab-content id="html"><div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: target" variant="textarea" name="slot-target" data-slotname="target" value=""></doc-input><doc-input label="HTML" variant="textarea" name="slot-default" data-slotname="default" value="Hello World"></doc-input></div></pap-tab-content>
-        <pap-tab-content id="properties"><h3 data-subtitle="PopoverTemplate Properties">PopoverTemplate Properties</h3><div data-name="PopoverTemplate Properties" class="properties">
-        
-        
-        
-        
-        
-        
-        
+        <pap-tab-content id="html">
+          <div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: target" variant="textarea"
+              name="slot-target" data-slotname="target" value=""></doc-input><doc-input label="HTML" variant="textarea"
+              name="slot-default" data-slotname="default" value="Hello World"></doc-input></div>
+        </pap-tab-content>
+        <pap-tab-content id="properties">
+          <h3 data-subtitle="PopoverTemplate Properties">PopoverTemplate Properties</h3>
+          <div data-name="PopoverTemplate Properties" class="properties">
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="revealby" variant="select" value="hover" name="revealby" label="revealby" options='["hover","click"]'></doc-input>
       
-      
-      
-      
-      
-      
-      
-      
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         <doc-input data-prop-name="placement" variant="select" value="bottom-center" name="placement" label="placement" options='["top-left","top-right","top-center","bottom-left","bottom-right","bottom-center","left-top","left-bottom","left-center","right-top","right-bottom","right-center"]'></doc-input>
       
-      
-      
-      
-      
-      
-      
-      
-          
-          
-          
-          
-          
-          
-          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           <doc-radio name="hideonoutsideclick" data-prop-name="hideonoutsideclick" label="hideonoutsideclick" value="true"></doc-radio>
         
-        
-        
-        
-        
-        
-        
-        
-          
-          
-          
-          
-          
-          
-          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           <doc-radio name="open" data-prop-name="open" label="open" value=""></doc-radio>
         
-        
-        
-        
-        
-        
-        
-        </div></pap-tab-content>
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+        </pap-tab-content>
         <pap-tab-content id="css">
-      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/templates/popover" class="style-source">
-        <h3>popover styles</h3>
-      <div class="style-group" data-style-name="--gap"><doc-input data-css-input="true" name="--gap" label="--gap" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding-bottom</li><li>padding-top</li><li>padding-right</li><li>padding-left</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div><div class="style-group" data-style-name="--popover-gap"><doc-input data-css-input="true" name="--popover-gap" label="--popover-gap" value="1rem"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--gap</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>1rem</li></ul></div></div></div></div>
-    </pap-tab-content>
+          <div data-css-part="/Users/henry/Developer/projects/web-components/packages/templates/popover"
+            class="style-source">
+            <h3>popover styles</h3>
+            <div class="style-group" data-style-name="--gap"><doc-input data-css-input="true" name="--gap" label="--gap" value=""></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding-bottom</li><li>padding-top</li><li>padding-right</li><li>padding-left</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"></ul></div></div></div>
+            <div class="style-group" data-style-name="--popover-gap"><doc-input data-css-input="true" name="--popover-gap" label="--popover-gap" value="1rem"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>--gap</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>1rem</li></ul></div></div></div>
+          </div>
+        </pap-tab-content>
       </pap-tabs>
     </section>
   </doc-controller>
 </body>
+
 </html>

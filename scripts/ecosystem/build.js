@@ -60,7 +60,7 @@ async function init ()
             ECOSYSTEMPACKAGE.dependencies[info.name] = info.version;
 
             // update javascript import 
-            MAIN_FILE += `\nimport "${info.name}/wc";`
+            // MAIN_FILE += `\nimport "${info.name}/wc";`
 
             // add sidebar
             const [atomictype, prefixname, classname, name] = envinfo.split('#');
@@ -71,7 +71,7 @@ async function init ()
             
             itemmap[atomictype].setAttribute('count', Number(itemmap[atomictype].getAttribute('count') || 0) + 1)
             itemmap[atomictype].appendChild(
-              parse(`<pap-sidebar-item id="${prefixname}" text="${name}"></pap-navbar-item>`)
+              parse(`<pap-sidebar-item id="${(atomictype + "_" + name).trim()}" data-atomic-type="${atomictype}" data-name="${name}" text="${name}"></pap-navbar-item>`)
             );
 
             console.log('\t[success]\t', info.name);

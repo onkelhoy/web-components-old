@@ -30,6 +30,7 @@ main {
   flex-direction: column;
   gap: calc(3 * var(--gap-large, 24px));
   padding: var(--padding-large, 24px);
+  background-color: var(--pap-color-bg, #FFFFFF);
   padding-inline: 10%;
   padding-block: calc(3 * var(--gap-large, 24px));
 }

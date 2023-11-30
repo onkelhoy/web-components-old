@@ -1,85 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive</title>
 
-  <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="style.css">
 
   <script defer type="module" src="main.js"></script>
 </head>
+
 <body>
   <doc-controller>
     <div id="target">
       <pap-form-element-template>
-        
+
       </pap-form-element-template>
-  </div>
+    </div>
 
     <section class="control" slot="setting">
       <pap-tabs>
         <pap-tab id="html">HTML</pap-tab>
         <pap-tab class="selected" id="properties">Properties</pap-tab>
         <pap-tab id="css">CSS</pap-tab>
-        <pap-tab-content id="html"><div data-name="slot-html" class="slot"><br></div></pap-tab-content>
-        <pap-tab-content id="properties"><h3 data-subtitle="FormElementTemplate Properties">FormElementTemplate Properties</h3><div data-name="FormElementTemplate Properties" class="properties">
-          
-          
-          
-          
-          
-          
-          
+        <pap-tab-content id="html">
+          <div data-name="slot-html" class="slot"><br></div>
+        </pap-tab-content>
+        <pap-tab-content id="properties">
+          <h3 data-subtitle="FormElementTemplate Properties">FormElementTemplate Properties</h3>
+          <div data-name="FormElementTemplate Properties" class="properties">
+
+
+
+
+
+
+
+
+
+
+
+            
           <doc-radio name="disabled" data-prop-name="disabled" label="disabled" value=""></doc-radio>
         
-        
-        
-        
-        
-        
-        
-        
-          
-          
-          
-          
-          
-          
-          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
           <doc-radio name="required" data-prop-name="required" label="required" value=""></doc-radio>
         
-        
-        
-        
-        
-        
-        
-        
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             
             <doc-input data-prop-name="name" value="" name="name" label="name"></doc-input>
           
-          
-          
-          
-          
-          
-          
-          </div></pap-tab-content>
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+        </pap-tab-content>
         <pap-tab-content id="css">
-      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/templates/form-element" class="style-source">
-        <h3>form-element styles</h3>
-      </div>
-    </pap-tab-content>
+          <div data-css-part="/Users/henry/Developer/projects/web-components/packages/templates/form-element"
+            class="style-source">
+            <h3>form-element styles</h3>
+          </div>
+        </pap-tab-content>
       </pap-tabs>
     </section>
   </doc-controller>
 </body>
+
 </html>

@@ -12,21 +12,17 @@ if [ ! -f .scripts/combine.sh ]; then
 fi
 
 # run combine script
-# sh .scripts/combine.sh "global" &> /dev/null 
+sh .scripts/combine.sh &> /dev/null 
 
 # come back to root 
 cd $ROOTDIR
 
-mkdir web/packages/$ATOMICTYPE-$NAME &> /dev/null 
+mkdir -p web/packages/$ATOMICTYPE/$NAME &> /dev/null 
 
-cp -r $PACKAGE/views/combined/* $ROOTDIR/web/packages/$ATOMICTYPE-$NAME &> /dev/null 
-
-node $ROOTDIR/scripts/ecosystem/combine.js $ROOTDIR $PACKAGE $ATOMICTYPE $NAME $PREFIXNAME $CLASSNAME &
-
-wait 
+cp -r $PACKAGE/views/combined/* $ROOTDIR/web/packages/$ATOMICTYPE/$NAME &> /dev/null 
 
 # add all folders inside subfolder to doc
-for folder_path in $ROOTDIR/web/packages/$ATOMICTYPE-$NAME/*/ ; do
+for folder_path in $ROOTDIR/web/packages/$ATOMICTYPE/$NAME/*/ ; do
   folder_name=$(basename "$folder_path")
 
   if [[ $folder_name != "auto" && $folder_name != sources ]]; then 

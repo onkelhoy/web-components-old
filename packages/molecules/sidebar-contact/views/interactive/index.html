@@ -1,45 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive</title>
 
-  <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="style.css">
 
   <script defer type="module" src="main.js"></script>
 </head>
+
 <body>
   <doc-controller>
     <div id="target">
       <pap-sidebar-contact>
-        
+
       </pap-sidebar-contact>
-  </div>
+    </div>
 
     <section class="control" slot="setting">
       <pap-tabs>
         <pap-tab id="html">HTML</pap-tab>
         <pap-tab class="selected" id="properties">Properties</pap-tab>
         <pap-tab id="css">CSS</pap-tab>
-        <pap-tab-content id="html"><div data-name="slot-html" class="slot"><br></div></pap-tab-content>
-        <pap-tab-content id="properties"><h3 data-subtitle="SidebarContact Properties">SidebarContact Properties</h3><div data-name="SidebarContact Properties" class="properties">
-          
-          
-          
+        <pap-tab-content id="html">
+          <div data-name="slot-html" class="slot"><br></div>
+        </pap-tab-content>
+        <pap-tab-content id="properties">
+          <h3 data-subtitle="SidebarContact Properties">SidebarContact Properties</h3>
+          <div data-name="SidebarContact Properties" class="properties">
+
+
+
+
+
+
+
+            
           <doc-radio name="open" data-prop-name="open" label="open" value=""></doc-radio>
         
-        
-        
-        </div></pap-tab-content>
+
+
+
+
+
+
+
+          </div>
+        </pap-tab-content>
         <pap-tab-content id="css">
-      <div data-css-part="/Users/henry/Developer/projects/web-components/packages/molecules/sidebar-contact" class="style-source">
-        <h3>sidebar-contact styles</h3>
-      <div class="style-group" data-style-name="--field-size-medium"><doc-input data-css-input="true" name="--field-size-medium" label="--field-size-medium" value="40px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>40px</li></ul></div></div></div><div class="style-group" data-style-name="--gap-small"><doc-input data-css-input="true" name="--gap-small" label="--gap-small" value="8px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>gap</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>8px</li></ul></div></div></div><div class="style-group" data-style-name="--padding-medium"><doc-input data-css-input="true" name="--padding-medium" label="--padding-medium" value="16px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding-inline</li><li>padding-block</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>16px</li></ul></div></div></div><div class="style-group" data-style-name="--padding-small"><doc-input data-css-input="true" name="--padding-small" label="--padding-small" value="8px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding</li><li>padding-bottom</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>8px</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-bg-secondary"><color-picker-input data-css-input="true" name="--pap-color-bg-secondary" label="--pap-color-bg-secondary" value="#F6F7F8"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#F6F7F8</li></ul></div></div></div><div class="style-group" data-style-name="--pap-color-text-secondary"><color-picker-input data-css-input="true" name="--pap-color-text-secondary" label="--pap-color-text-secondary" value="#6E7087"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#6E7087</li></ul></div></div></div></div>
-    </pap-tab-content>
+          <div data-css-part="/Users/henry/Developer/projects/web-components/packages/molecules/sidebar-contact"
+            class="style-source">
+            <h3>sidebar-contact styles</h3>
+            <div class="style-group" data-style-name="--field-size-medium"><doc-input data-css-input="true" name="--field-size-medium" label="--field-size-medium" value="40px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>40px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--gap-small"><doc-input data-css-input="true" name="--gap-small" label="--gap-small" value="8px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>gap</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>8px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--padding-medium"><doc-input data-css-input="true" name="--padding-medium" label="--padding-medium" value="16px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding-inline</li><li>padding-block</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>16px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--padding-small"><doc-input data-css-input="true" name="--padding-small" label="--padding-small" value="8px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>padding</li><li>padding-bottom</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>8px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--pap-color-bg-secondary"><color-picker-input data-css-input="true" name="--pap-color-bg-secondary" label="--pap-color-bg-secondary" value="#F6F7F8"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#F6F7F8</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--pap-color-text-secondary"><color-picker-input data-css-input="true" name="--pap-color-text-secondary" label="--pap-color-text-secondary" value="#6E7087"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#6E7087</li></ul></div></div></div>
+          </div>
+        </pap-tab-content>
       </pap-tabs>
     </section>
   </doc-controller>
 </body>
+
 </html>

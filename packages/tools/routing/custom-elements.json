@@ -1,0 +1,80 @@
+{
+  "className": "RoutingTool",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/tools/routing",
+  "properties": [
+    {
+      "name": "url",
+      "type": "string",
+      "default_value": "",
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    }
+  ],
+  "extend_class": {
+    "className": "AssetTemplate",
+    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/asset",
+    "properties": [
+      {
+        "name": "assetBase",
+        "type": "string",
+        "default_value": "/public",
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "name": "cache",
+        "type": "boolean",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      }
+    ],
+    "extend_class": null
+  },
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/templates/asset": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "BaseSystem",
+        "from": "@pap-it/system-base"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      }
+    ],
+    "/Users/henry/Developer/projects/web-components/packages/tools/routing": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "suspense",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "AssetTemplate",
+        "from": "@pap-it/templates-asset"
+      }
+    ]
+  },
+  "html": {
+    "slots": [],
+    "parts": []
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/tools/routing",
+    "sources": [],
+    "variables": {}
+  }
+}

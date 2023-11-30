@@ -1,25 +1,24 @@
 import { THEMECHANGE_NAME, THEMEADD_NAME, ThemeConfig } from './types';
 
-export function change(name:string) {
-  if (!window.oTheme.map.has(name))
-  {
+export function change(name: string) {
+  if (!window.oTheme.map.has(name)) {
     throw new Error(`Theme: ${name} not found`);
   }
 
   const config = window.oTheme.map.get(name);
-  if (!config) 
-  {
+  if (!config) {
     throw new Error(`Theme: ${name} config not found`)
   }
 
   const previoustheme = document.querySelector(`link[theme]`);
-  if (previoustheme)
-  {
+  //  && previoustheme.name !== base (dont remove base theme..)
+  if (previoustheme) {
     previoustheme.parentElement?.removeChild(previoustheme);
   }
 
-  if (name === "base")
-  {
+  console.log('changing theme')
+
+  if (name === "base") {
     window.oTheme.current = "base";
     window.dispatchEvent(new Event(THEMECHANGE_NAME))
     return;
