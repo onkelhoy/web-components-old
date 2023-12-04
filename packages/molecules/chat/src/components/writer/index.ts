@@ -67,25 +67,25 @@ export class Writer extends BoxTemplate {
         </div>
         <div>
           <pap-button class="smiley-close" radius="none" @click="${this.handlecloseclick}" variant="clear">
-            <pap-icon customSize="20" name="close">close</pap-icon>
+            <pap-icon custom-size="20" name="close">close</pap-icon>
           </pap-button>
 
           <pap-button radius="none" @click="${this.handlesmileyclick}" variant="clear">
-            <pap-icon customSize="20" name="smileys_emotion">smiley</pap-icon>
+            <pap-icon custom-size="20" name="smileys_emotion">smiley</pap-icon>
           </pap-button>
 
             <pap-button radius="none" @click="${this.handlefileclick}" variant="clear">
-            <pap-icon customSize="20" name="file">file</pap-icon>
+            <pap-icon custom-size="20" name="file">file</pap-icon>
           </pap-button>
 
           <pap-button radius="none" @click="${this.handleformatclick}" variant="clear">
-            <pap-icon customSize="20" name="format">format</pap-icon>
+            <pap-icon custom-size="20" name="format">format</pap-icon>
           </pap-button>
           
           <pap-textarea rows="1" size="medium"></pap-textarea>
   
           <pap-button variant="clear" @click="${this.handlesendclick}" radius="none">
-            <pap-icon customSize="24" name="send">send</pap-icon>
+            <pap-icon custom-size="24" name="send">send</pap-icon>
           </pap-button>
         </div>
       `

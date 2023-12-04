@@ -1,35 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Textarea demo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Textarea demo</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
+  <script defer src="main.js"></script>
 </head>
+
 <body>
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-textarea></pap-textarea>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Default</pap-typography>
+    <pap-codeblock display="both">
+      <pap-textarea></pap-textarea>
+    </pap-codeblock>
+  </doc-card>
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-textarea label="HELLO" resize="vertical"></pap-textarea>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Label</pap-typography>
+    <pap-typography>Attribute Label</pap-typography>
+    <pap-codeblock display="both">
+      <pap-textarea label="label"></pap-textarea>
+    </pap-codeblock>
+    <pap-typography>Slot Label</pap-typography>
+    <pap-codeblock display="both">
+      <pap-textarea>
+        <pap-typography variant="T3" slot="header">label</pap-typography>
+      </pap-textarea>
+    </pap-codeblock>
+  </doc-card>
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-textarea resize="auto"></pap-textarea>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Resize</pap-typography>
+    <pap-typography>Vertical:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-textarea resize="vertical"></pap-textarea>
+    </pap-codeblock>
+    <pap-typography>Auto:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-textarea resize="auto"></pap-textarea>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">With value</pap-typography>
+    <pap-codeblock display="both">
+      <pap-textarea value="i have a value"></pap-textarea>
+    </pap-codeblock>
+  </doc-card>
 </body>
+
 </html>

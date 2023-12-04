@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component: TableFormMenu</title>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C2">Global example:</pap-typography>
+    <button id="btn-global">Toggle</button>
+    <pap-codeblock display="both">
+      <pap-table-form-menu header-title="Supplier data" id="global">
+        <pap-typography>These fields are a group and must be modified simutaneously.</pap-typography>
+
+        <pap-input label="Address Code" name="Address-Code"></pap-input>
+        <pap-input label="Group" name="Group"></pap-input>
+        <pap-input label="Name" name="Name"></pap-input>
+        <pap-input label="Street" name="Street"></pap-input>
+        <pap-input label="Post Code" name="Post-Code"></pap-input>
+        <pap-input label="City" name="City"></pap-input>
+
+      </pap-table-form-menu>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C2">Inline example</pap-typography>
+
+    <button id="btn-inline">Toggle</button>
+    <pap-codeblock display="both">
+      <pap-table-form-menu header-title="Supplier data" inline id="inline">
+        <pap-typography>These fields are a group and must be modified simutaneously.</pap-typography>
+
+        <pap-input label="Address Code" name="Address-Code"></pap-input>
+        <pap-input label="Group" name="Group"></pap-input>
+        <pap-input label="Name" name="Name"></pap-input>
+        <pap-input label="Street" name="Street"></pap-input>
+        <pap-input label="Post Code" name="Post-Code"></pap-input>
+        <pap-input label="City" name="City"></pap-input>
+
+      </pap-table-form-menu>
+    </pap-codeblock>
+  </doc-card>
+</body>
+
+</html>

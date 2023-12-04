@@ -14,7 +14,7 @@ export class Icon extends AssetTemplate {
   @property({ onUpdate: "updateName", rerender: false }) name?: string;
   @property({ onUpdate: "updateColor", rerender: false }) color?: string;
   @property({ onUpdate: "updateSize", rerender: false }) size: Size = "medium";
-  @property({ onUpdate: "updateCustomSize", rerender: false, type: Number }) customSize?: number;
+  @property({ onUpdate: "updateCustomSize", rerender: false, type: Number, attribute: "custom-size" }) customSize?: number;
 
   // class functions
   constructor() {
@@ -37,6 +37,8 @@ export class Icon extends AssetTemplate {
 
   // update functions
   private async updateName(): Promise<void> {
+    if (this.name === "") return;
+
     const file = `${this.name}.svg`;
     try {
       const response = await this.loadAsset(file);

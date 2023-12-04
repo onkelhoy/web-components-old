@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Component: Menu-item</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component: Menu-item</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
+  <script defer src="main.js"></script>
 </head>
+
 <body>
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-menu-item>Hello</pap-menu-item>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <pap-typography variant="C1">Normal</pap-typography>
+    <pap-codeblock display="both">
+      <pap-menu-item>Hello</pap-menu-item>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography variant="C1">Custom Prefix & Suffix</pap-typography>
+    <pap-codeblock display="both">
+      <pap-menu-item>
+        <span slot="prefix">PRE</span>
+        Hello Im the menu
+        <span slot="suffix">SUF</span>
+      </pap-menu-item>
+    </pap-codeblock>
+  </doc-card>
 </body>
+
 </html>

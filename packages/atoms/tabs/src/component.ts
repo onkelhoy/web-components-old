@@ -85,6 +85,7 @@ export class Tabs extends BaseSystem {
 
       const id = e.target.getAttribute('data-tab-id') as string
       this.dispatchEvent(new CustomEvent<SelectEvent>("tab-select", { detail: { id } }));
+      this.dispatchEvent(new Event('change'));
 
       if (this.headerElement) {
         const SX = e.target.offsetLeft - this.headerElement.offsetLeft - this.offsetLeft;

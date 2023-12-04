@@ -1,6 +1,6 @@
 {
-  "parser": "babel-eslint",
   "parserOptions": {
+    "requireConfigFile": false,
     "ecmaVersion": 2021, // or a later version
     "sourceType": "module", // if you're using ES6 modules
     "ecmaFeatures": {

@@ -1,7 +1,5 @@
-// utils 
+// system
 import { html, property } from "@pap-it/system-utils";
-
-// templates
 import { BaseSystem } from "@pap-it/system-base";
 
 import { style } from "./style";

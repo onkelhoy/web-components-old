@@ -4,12 +4,13 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
+## SOURCE-CODE
+
+// utils
 import { html } from "@pap-it/system-utils";
 import "@pap-it/tools-translator/wc";
 
-// atoms 
+// atoms
 import "@pap-it/button/wc";
 import "@pap-it/typography/wc";
 import "@pap-it/icon/wc";
@@ -17,7 +18,7 @@ import "@pap-it/icon/wc";
 // templates
 import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 
 export class AuthTemplate extends BaseSystem {
@@ -26,7 +27,7 @@ export class AuthTemplate extends BaseSystem {
   render() {
     return html`
             <div class="logo flex">
-                <slot name="logo"><pap-icon customSize="200" name="interzero-logo"></pap-icon></slot>
+                <slot name="logo"><pap-icon custom-size="200" name="interzero-logo"></pap-icon></slot>
             </div>
             <div class="welcome flex">
                 <slot name="welcome"><pap-typography variant="t2"><pap-translator>👋 Welcome to Interzero.</pap-translator></pap-typography></slot>
@@ -51,19 +52,20 @@ export class AuthTemplate extends BaseSystem {
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-auth-template": AuthTemplate;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     container-type: inline-size;
     display: grid;
     grid-template-rows: auto minmax(80px, auto) 55px 1fr 89px;
     grid-template-columns: 2fr 4fr 50% 4fr 2fr;
-    grid-template-areas: 
+    grid-template-areas:
         "t t logo t2 t2"
         "z welcome welcome welcome z2"
         "k k note k2 k2"

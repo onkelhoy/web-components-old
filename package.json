@@ -32,7 +32,6 @@
     "packages/**/*"
   ],
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
     "eslint": "^8.53.0",
     "node-html-parser": "^6.1.11"
   }

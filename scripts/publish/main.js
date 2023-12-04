@@ -63,6 +63,12 @@ function execute_individual(info)
 {
   return new Promise((res, rej) => 
   {
+    if (info.name.endsWith('-depricated')) 
+    {
+      console.log("\t[depricated]\t", info.name);
+      res();
+      return;
+    }
     let package_version = VERSIONDATA.find(d => d.name === info.name)?.version || '-0.0.0';
     exec(path.join(__dirname, `individual.sh ${info.location} ${SEMANTIC_VERSION} ${package_version} ${CICD_NODE_TOKEN || ""}`), (error, stdout, stderr) => 
     {

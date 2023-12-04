@@ -75,7 +75,7 @@ export class Smileys extends BaseSystem {
     return html`
       <pap-tabs indicator="true" scrolling="true">
         <div class="search" slot="between">
-          <pap-input placeholder="Search Emoji" @suspended-input="${this.handleinput}">
+          <pap-input placeholder="Search Emoji" @debounced-input="${this.handleinput}">
             <pap-icon size="small" name="search" slot="suffix">search</pap-icon>
             <pap-button @click="${this.handleclear}" class="clear" size="small" variant="clear" slot="suffix">
               <pap-icon size="small" name="close">clear</pap-icon>
@@ -86,7 +86,7 @@ export class Smileys extends BaseSystem {
         </div>
         ${emojidata.map((info: Emoji, index) => html`
           <pap-tab class="${index === 0 ? "selected" : ""}" title="${info.name}">
-            <pap-icon customSize="20" name="${info.slug}"></pap-icon>
+            <pap-icon custom-size="20" name="${info.slug}"></pap-icon>
           </pap-tab>
           
           <pap-tab-content>

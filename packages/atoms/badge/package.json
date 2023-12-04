@@ -36,13 +36,12 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-base": "1.0.0",
+    "@pap-it/system-base": "1.0.1",
     "@pap-it/templates-box": "1.0.0",
     "@pap-it/typography": "1.0.0",
-    "@pap-it/system-utils": "1.0.0"
+    "@pap-it/system-utils": "1.0.1"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
     "eslint": "^8.53.0",
     "@pap-it/system-doc": "1.0.0",
     "esbuild": "^0.17.18",

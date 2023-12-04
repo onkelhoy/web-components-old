@@ -199,12 +199,7 @@
         "html": ""
       }
     ],
-    "parts": [
-      {
-        "name": "content",
-        "tag": "SPAN"
-      }
-    ]
+    "parts": []
   },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/button",
@@ -217,20 +212,6 @@
         "fallbacks": [
           "pointer"
         ]
-      },
-      "--padding-small": {
-        "usecases": [
-          "padding-inline"
-        ],
-        "fallbacks": [
-          "8px"
-        ]
-      },
-      "--gap-small": {
-        "usecases": [
-          "gap"
-        ],
-        "fallbacks": []
       },
       "--typography-b1-fontfamily": {
         "usecases": [
@@ -2190,7 +2171,16 @@
           "min-height"
         ],
         "fallbacks": [
-          "2rem"
+          "calc(var(--field-size-small, 32px) - 4px)"
+        ]
+      },
+      "--field-size-small": {
+        "usecases": [
+          "min-height",
+          "width"
+        ],
+        "fallbacks": [
+          "32px) - 4px"
         ]
       },
       "--pap-button-min-width-small": {
@@ -2206,7 +2196,7 @@
           "width"
         ],
         "fallbacks": [
-          "2rem"
+          "calc(var(--field-size-small, 32px) - 4px)"
         ]
       },
       "--pap-button-height-medium": {
@@ -2214,7 +2204,16 @@
           "min-height"
         ],
         "fallbacks": [
-          "2.5rem"
+          "calc(var(--field-size-medium, 40px) - 4px)"
+        ]
+      },
+      "--field-size-medium": {
+        "usecases": [
+          "min-height",
+          "width"
+        ],
+        "fallbacks": [
+          "40px) - 4px"
         ]
       },
       "--pap-button-min-width-medium": {
@@ -2230,7 +2229,7 @@
           "width"
         ],
         "fallbacks": [
-          "2.5rem"
+          "calc(var(--field-size-medium, 40px) - 4px)"
         ]
       },
       "--pap-button-height-large": {
@@ -2238,7 +2237,16 @@
           "min-height"
         ],
         "fallbacks": [
-          "3rem"
+          "calc(var(--unit-size7, 48px) - 4px)"
+        ]
+      },
+      "--unit-size7": {
+        "usecases": [
+          "min-height",
+          "width"
+        ],
+        "fallbacks": [
+          "48px) - 4px"
         ]
       },
       "--pap-button-min-width-large": {
@@ -2254,7 +2262,7 @@
           "width"
         ],
         "fallbacks": [
-          "3rem"
+          "calc(var(--unit-size7, 48px) - 4px)"
         ]
       }
     }

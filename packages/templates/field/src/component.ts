@@ -1,5 +1,5 @@
 // utils 
-import { html, query, property, suspense, Radius, Size } from "@pap-it/system-utils";
+import { html, query, property, debounce, Radius, Size, ExtractSlotValue } from "@pap-it/system-utils";
 
 // atoms
 import { Typography } from "@pap-it/typography";
@@ -9,33 +9,34 @@ import "@pap-it/typography/wc";
 // templates
 import { FormElementTemplate } from "@pap-it/templates-form-element";
 import "@pap-it/templates-box/wc";
+import "@pap-it/templates-prefix-suffix/wc";
 
 // local 
 import { style } from "./style";
-import { FieldValidityState, FieldValidityStateName, Message, ValidationAttributes } from "./types";
+import { FieldValidityState, FieldValidityStateName, Message, MessageType, ValidationAttributes } from "./types";
 
 export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends FormElementTemplate {
   static styles = [style];
 
   // queries
   @query('.counter') public counterElement?: HTMLSpanElement;
-  @query('.error > pap-typography') errorText?: Typography;
-  @query('.warning > pap-typography') warningText?: Typography;
+  @query('.message > pap-typography') messageText?: Typography;
 
-  @property({ type: Object }) message?: Message;
+  @property() message?: string;
+  @property({ attribute: "message-type" }) messageType?: MessageType;
   @property() label?: string;
+  @property() radius: Radius = "small";
   @property({ rerender: false }) size: Size = "medium";
-  @property({ rerender: false }) radius: Radius = "small";
   @property({ rerender: false, type: Boolean, onUpdate: "oncheckedupdate" }) checked?: boolean;
-  @property({ rerender: false, type: Number }) tabIndex = 1;
+  @property({ rerender: false, type: Number }) tabIndex: number = 1;
   @property({ type: Boolean }) readonly: boolean = false;
   @property({ rerender: false, onUpdate: "onvalueupdate" }) value: string = "";
+  @property({ type: Boolean, rerender: false }) private footerslotcontent: boolean = false;
+  @property({ type: Boolean, rerender: false }) private headerslotcontent: boolean = false;
 
   // error/warning 
-  @property({ rerender: false, type: Object }) customError?: FieldValidityState;
-  @property({ rerender: false, type: Object }) customWarning?: FieldValidityState;
-  @property({ rerender: false, type: Boolean }) isError = false;
-  @property({ rerender: false, type: Boolean }) isWarning = false;
+  @property({ rerender: false, type: Object, onUpdate: 'oncustommessageupdate' }) customError?: FieldValidityState;
+  @property({ rerender: false, type: Object, onUpdate: 'oncustommessageupdate' }) customWarning?: FieldValidityState;
 
   // common regulations
   @property({ rerender: false, type: Number }) max?: number;
@@ -48,10 +49,41 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
   public inputElement!: T;
   private hiddenElement?: HTMLInputElement;
   private attributequeue: [string, string | null][] = [];
+  private helpertext?: string;
+  private passedInitialChange = false; // used to not dispatch value change on init
+
+  // class functions
+  constructor(delay = 100) {
+    super();
+
+    this.debouncedInput = debounce(this.debouncedInput, delay);
+    this.validitycheck = debounce(this.validitycheck, 10);
+    super.addEventListener("form-element-loaded", this.handleformelementload);
+  }
+  connectedCallback(): void {
+    super.connectedCallback();
+    this.addEventListener('focus', this.handlefocus);
+  }
+  attributeChangedCallback(name: string, oldValue: string | null, newValue: string | null) {
+    if (ValidationAttributes.includes(name.toLowerCase())) {
+      if (this.hiddenElement) {
+        if (newValue) this.hiddenElement.setAttribute(name, newValue);
+        else this.hiddenElement.removeAttribute(name);
+      }
+      else {
+        this.attributequeue.push([name, newValue]);
+      }
+      if (this.inputElement) {
+        if (newValue) this.inputElement.setAttribute(name, newValue);
+        else this.inputElement.removeAttribute(name);
+      }
+    }
+  }
 
   // on update functions
-  private onvalueupdate = (value: string) => {
-    if (!this.inputElement) return;
+  protected onvalueupdate = (value: string) => {
+    if (!this.inputElement)
+      return 0;
 
     const type = this.inputElement.getAttribute('type')
     if ('checked' in this.inputElement && (type === "radio" || type === "checkbox")) {
@@ -60,14 +92,14 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
       if (this.hiddenElement) {
         this.hiddenElement.checked = this.checked;
         this.hiddenElement.value = this.value;
-        this.updateHidden();
+        this.validitycheck();
       }
 
       if (!this.checked) {
         this.inputElement.removeAttribute("checked");
         if (this.hiddenElement) {
           this.hiddenElement.removeAttribute("checked");
-          this.updateHidden();
+          this.validitycheck();
         }
       }
     }
@@ -75,12 +107,20 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
       this.inputElement.value = this.value;
     }
 
-    if (type === "radio" || type === "checkbox" || this.inputElement.getAttribute('data-tagname') === "select" || this.inputElement.tagName === "select") {
-      this.inputElement.dispatchEvent(new Event('change'));
+    if (this.passedInitialChange) {
+      if (type === "radio" || type === "checkbox" || this.inputElement.getAttribute('data-tagname') === "select" || this.inputElement.tagName === "select")
+        this.inputElement.dispatchEvent(new Event('change'));
+      else
+        this.inputElement.dispatchEvent(new Event('input'));
     }
     else {
-      this.inputElement.dispatchEvent(new Event('input'));
+      this.passedInitialChange = true;
     }
+
+    this.dispatchEvent(new Event('after-update'));
+  }
+  private oncustommessageupdate = () => {
+    this.assignHiddenElement();
   }
   protected oncheckedupdate = (value: boolean) => {
     this.onvalueupdate(value.toString());
@@ -111,14 +151,14 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
         this.value = (e.target.checked || false).toString();
         if (this.hiddenElement) {
           this.hiddenElement.value = this.value;
-          this.updateHidden();
+          this.validitycheck();
         }
       }
       else if ('value' in e.target) {
         this.value = e.target.value as string;
         if (this.hiddenElement) {
           this.hiddenElement.value = this.value;
-          this.updateHidden();
+          this.validitycheck();
         }
       }
 
@@ -131,21 +171,45 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
     this.assignHiddenElement();
   }
   private handlevalid = () => {
-    this.isError = false;
-    this.isWarning = false;
+    this.messageType = undefined;
+    this.message = this.helpertext;
   }
   private handleinvalid = (e: Event) => {
     // from a submit 
-    if (!(this.isError && this.isWarning)) this.updateHidden();
+    if (!this.messageType) this.validitycheck();
+  }
+  private handlefooterslotchange = (e: Event) => {
+    if (e.target instanceof HTMLSlotElement) {
+      const values = ExtractSlotValue(e.target);
+
+      if (values.length > 0) {
+        this.footerslotcontent = true;
+      }
+      else {
+        this.footerslotcontent = false;
+      }
+    }
+  }
+  private handleheaderslotchange = (e: Event) => {
+    if (e.target instanceof HTMLSlotElement) {
+      const values = ExtractSlotValue(e.target);
+
+      if (values.length > 0) {
+        this.headerslotcontent = true;
+      }
+      else {
+        this.headerslotcontent = false;
+      }
+    }
   }
 
   // private functions ¨
   protected debouncedInput = () => {
-    this.dispatchEvent(new Event('suspended-input'));
+    this.dispatchEvent(new Event('debounced-input'));
   }
   private assignHiddenElement() {
     if (!this.formElement) this.findForm();
-    if (!this.hiddenElement && this.getAttribute("name")) {
+    if (!this.hiddenElement && (this.getAttribute("name") || this.customError || this.customWarning)) {
       // form in case of initial and not dynamic (most cases) needs to load ?
       this.hiddenElement = document.createElement("input");
       this.hiddenElement.value = this.value;
@@ -172,42 +236,37 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
         }
       }
 
-      this.formElement.appendChild(this.hiddenElement);
+      if (this.formElement) this.formElement.appendChild(this.hiddenElement);
     }
   }
-  private updateHidden() {
+  private validitycheck() {
+
     if (this.hiddenElement) {
       const valid = this.hiddenElement.checkValidity();
       if (!valid) {
+        if (this.helpertext !== this.message && !this.messageType && this.message) {
+          this.helpertext = this.message;
+        }
+
         const validity = this.hiddenElement.validity;
         for (let type in validity) {
           if (!validity[type as FieldValidityStateName]) continue;
 
           if (this.customError && this.customError[type as FieldValidityStateName]) {
-            if (this.errorText) {
-              this.errorText.innerHTML = this.customError[type as FieldValidityStateName];
-              this.isWarning = false;
-              this.isError = true;
-              return
-            }
+            this.message = this.customError[type as FieldValidityStateName];
+            this.messageType = "error"
+            return
           }
           else if (this.customWarning && this.customWarning[type as FieldValidityStateName]) {
-            if (this.warningText) {
-              this.warningText.innerHTML = this.customWarning[type as FieldValidityStateName];
-              this.isWarning = true;
-              this.isError = false;
-              return
-            }
+            this.message = this.customWarning[type as FieldValidityStateName];
+            this.messageType = "warning"
+            return
           }
           else {
             // we going to show the auto message as an error
-            const auto_message = this.hiddenElement.validationMessage;
-            if (this.errorText) {
-              this.errorText.innerHTML = auto_message;
-              this.isWarning = false;
-              this.isError = true;
-              return
-            }
+            this.message = this.hiddenElement.validationMessage;
+            this.messageType = "error"
+            return
           }
         }
       }
@@ -233,36 +292,8 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
     return false;
   }
 
-  // class functions
-  constructor(delay = 100) {
-    super();
-
-    this.debouncedInput = suspense(this.debouncedInput, delay);
-    this.updateHidden = suspense(this.updateHidden, 10);
-    super.addEventListener("form-element-loaded", this.handleformelementload);
-  }
-  connectedCallback(): void {
-    super.connectedCallback();
-    this.addEventListener('focus', this.handlefocus);
-  }
-  attributeChangedCallback(name: string, oldValue: string | null, newValue: string | null) {
-    if (ValidationAttributes.includes(name.toLowerCase())) {
-      if (this.hiddenElement) {
-        if (newValue) this.hiddenElement.setAttribute(name, newValue);
-        else this.hiddenElement.removeAttribute(name);
-      }
-      else {
-        this.attributequeue.push([name, newValue]);
-      }
-      if (this.inputElement) {
-        if (newValue) this.inputElement.setAttribute(name, newValue);
-        else this.inputElement.removeAttribute(name);
-      }
-    }
-  }
-
   render(element: DocumentFragment, selector = "input") {
-    if (element) {
+    if (element && !this.inputElement) {
       const input = element.querySelector<T>(selector);
       if (input && !input.hasAttribute('data-field-init')) {
         input.addEventListener('invalid', this.handleinvalid_field);
@@ -294,26 +325,27 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
       }
     }
     return html`
-            <header part="header">
-                <slot name="header"><pap-typography>${this.label || ""}</pap-typography></slot>
-                ${this.maxLength ? html`<pap-typography><span class="counter"></span>/${this.maxLength}</pap-typography>` : ''}
-            </header>
-            <pap-box-template radius="${this.radius}" class="wrapper" part="wrapper">
-                <slot name="prefix">${this._prefix}</slot>
-                ${element ? element : '<slot></slot>'}
-                <slot name="suffix">${this._suffix}</slot>
-            </pap-box-template>
-            <footer part="footer">
-                <div class="warning">
-                    <pap-icon name="warning"></pap-icon>
-                    <pap-typography>This is a placeholder for warning</pap-typography>
-                </div>
-                <div class="error">
-                    <pap-icon name="error"></pap-icon>
-                    <pap-typography>This is a placeholder for error</pap-typography>
-                </div>
-            </footer>
-            `
+      <header part="header">
+        <slot @slotchange="${this.handleheaderslotchange}" name="header"><pap-typography>${this.label || ""}</pap-typography></slot>
+        ${this.maxLength ? html`<pap-typography><span class="counter">0</span>/${this.maxLength}</pap-typography>` : ''}
+      </header>
+
+      <pap-box-template radius="${this.radius}" class="wrapper" part="wrapper">
+        <pap-prefix-suffix-template streched>
+          <slot slot="prefix" name="prefix">${this._prefix}</slot>
+          ${element ? element : '<slot></slot>'}
+          <slot slot="suffix" name="suffix">${this._suffix}</slot>
+        </pap-prefix-suffix-template>
+      </pap-box-template>
+
+      <footer part="footer">
+        <div class="message">
+          <pap-icon name=${this.messageType ? this.messageType : ''}></pap-icon>
+          <pap-typography>${this.message}</pap-typography>
+        </div>
+        <slot @slotchange="${this.handlefooterslotchange}" name="footer"></slot>
+      </footer>
+    `
   }
 }
 // <!-- <slot name="footer"><pap-typography class="${this.message?.type || "hidden"}">${this.message?.message || ""}</pap-typography></slot> -->

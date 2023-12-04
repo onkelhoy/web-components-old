@@ -1,26 +1,28 @@
 :host {
-    div {
-        background-color: var(--pap-divider-color, var(--pap-color-border, #C7CBD4));
-        content: '';
-    }
+  div {
+    background-color: var(--pap-divider-color, var(--pap-color-border, #C7CBD4));
+    content: '';
+  }
 }
 
 :host([mode="horizontal"]) {
-    display: flex;
-    align-items: center;
-    height: 16px;
-    
-    div {
-        height: 1px;
-        flex-grow: 1;
-        transform: translateY(0.5px);
-    }
+  display: flex;
+  align-items: center;
+  height: 16px;
+
+  div {
+    height: 1px;
+    flex-grow: 1;
+    transform: translateY(0.5px);
+  }
 }
+
 :host([mode="vertical"]) {
-    margin-inline: var(--divider-margin, 8px);
+  margin-inline: var(--divider-margin, 8px);
+  height: 100%;
+
+  div {
+    width: 1px;
     height: 100%;
-    div {
-        width: '1px';
-        height: 100%;
-    }
+  }
 }

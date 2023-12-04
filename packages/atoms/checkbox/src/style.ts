@@ -2,9 +2,8 @@ export const style = `:host {
   display: inline-grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr auto;
-  grid-template-areas: "label input" "message message";
+  grid-template-areas: "input label" "message message";
   align-items: center;
-  column-gap: var(--gap-small, 8px);
   cursor: pointer; }
   :host::part(label) {
     grid-area: label; }
@@ -13,21 +12,32 @@ export const style = `:host {
     display: block;
     border: none;
     height: auto;
+    --pap-prefix-suffix-padding: 0;
+    --pap-prefix-suffix-content-padding: 0;
     grid-area: input; }
   :host::part(message) {
     grid-area: message; }
 
 :host([size="small"]) input[type="checkbox"] {
-  height: var(--checkbox-size-small, var(--size-small, 15px));
-  width: var(--checkbox-size-small, var(--size-small, 15px)); }
+  height: var(--checkbox-size-small, 14px);
+  width: var(--checkbox-size-small, 14px); }
+
+:host([size="small"]:not([label]))::part(wrapper) {
+  min-width: var(--checkbox-container-size-small, var(--field-size-small, 32px)); }
 
 :host([size="medium"]) input[type="checkbox"] {
-  height: var(--checkbox-size-medium, var(--size-medium, 20px));
-  width: var(--checkbox-size-medium, var(--size-medium, 20px)); }
+  height: var(--checkbox-size-medium, 17px);
+  width: var(--checkbox-size-medium, 17px); }
+
+:host([size="medium"]:not([label]))::part(wrapper) {
+  min-width: var(--checkbox-container-size-medium, var(--field-size-medium, 40px)); }
 
 :host([size="large"]) input[type="checkbox"] {
-  height: var(--checkbox-size-large, var(--size-large, 28px));
-  width: var(--checkbox-size-large, var(--size-large, 28px)); }
+  height: var(--checkbox-size-large, 20px);
+  width: var(--checkbox-size-large, 20px); }
+
+:host([size="large"]:not([label]))::part(wrapper) {
+  min-width: var(--checkbox-container-size-large, var(--field-size-large, 48px)); }
 
 :host(:focus)::part(wrapper),
 :host([hasfocus="true"])::part(wrapper) {

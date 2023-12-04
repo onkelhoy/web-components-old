@@ -15,5 +15,5 @@ export const style = `:host div {
   margin-inline: var(--divider-margin, 8px);
   height: 100%; }
   :host([mode="vertical"]) div {
-    width: '1px';
+    width: 1px;
     height: 100%; }`;

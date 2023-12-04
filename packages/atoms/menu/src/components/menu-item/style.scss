@@ -1,14 +1,23 @@
 :host {
-  div {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  font-family: var(--typography-c3-fontfamily, 'Libre Franklin', helvetica, sans-serif);
+  font-size: var(--typography-c3-fontsize, 1rem);
+  font-weight: var(--typography-c3-fontweight, 400);
+  line-height: var(--typography-c3-lineheight, 140%);
+  letter-spacing: var(--typography-c3-letterspacing, 0.01rem);
+
+  pap-prefix-suffix-template {
     cursor: pointer;
     user-select: none;
-    padding: var(--pap-menuitem-padding, var(--padding-small, 8px));
+    padding: var(--padding-small, 8px);
+    padding-inline: var(--padding-medium, 16px);
 
     &:hover {
-      background-color: var(--pap-menuitem-light-background-hover, var(--neutral-300, #F1F1F4));
+      background-color: var(--pap-color-hover-200, rgba(0, 0, 0, 0.05));
+    }
+
+    &::part(content) {
+      flex: 1;
+      justify-content: flex-start;
     }
   }
 }

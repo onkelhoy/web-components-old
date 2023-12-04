@@ -1,8 +1,9 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
-## SOURCE-CODE:
-// utils 
+## SOURCE-CODE
+
+// utils
 import { html, property, Size, Radius } from "@pap-it/system-utils";
 
 // atoms
@@ -16,7 +17,7 @@ import { Placement } from "@pap-it/templates-popover";
 import "@pap-it/templates-popover/wc";
 import "@pap-it/templates-box/wc";
 
-// local 
+// local
 import { style } from "./style";
 import { MenuItem } from "./components/menu-item";
 
@@ -83,18 +84,18 @@ export class Menu extends BaseSystem {
   render() {
     return html`
       <pap-popover-template @hide="${this.handlehide}" @show="${this.handleshow}" revealby="click" hideonoutsideclick placement="${this.placement}">
-        <pap-button 
-          variant="${this.buttonVariant}" 
-          color="${this.buttonColor}" 
-          radius="${this.buttonRadius}" 
-          part="button" 
-          slot="target" 
+        <pap-button
+          variant="${this.buttonVariant}"
+          color="${this.buttonColor}"
+          radius="${this.buttonRadius}"
+          part="button"
+          slot="target"
           size="${this.size}"
         >
           <slot name="button-prefix" slot="prefix"></slot>
           <slot name="button-content"></slot>
           <slot name="button-suffix" slot="suffix">
-            <pap-icon customSize="15" name="caret">v</pap-icon>
+            <pap-icon custom-size="15" name="caret">v</pap-icon>
           </slot>
         </pap-button>
         <pap-box-template part="box" class="options" radius="small" elevation="small">
@@ -107,13 +108,14 @@ export class Menu extends BaseSystem {
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-menu": Menu;
   }
 }
-## REGISTER-CODE:
+
+## REGISTER-CODE
+
 import { MenuItem } from './components/menu-item';
 import { Menu } from './component.js';
 

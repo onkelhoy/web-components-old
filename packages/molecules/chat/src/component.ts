@@ -1,4 +1,4 @@
-// utils 
+// system
 import { html, property } from "@pap-it/system-utils";
 import "@pap-it/tools-translator/wc";
 
@@ -32,10 +32,10 @@ export class Chat extends BaseSystem {
             <pap-input size="medium">
                 <div class="button-group" slot="suffix">
                     <pap-button radius="none" @click="${this.handlesmileyclick}" variant="clear">
-                        <pap-icon customSize="20" name="smileys_emotion">smiley</pap-icon>
+                        <pap-icon custom-size="20" name="smileys_emotion">smiley</pap-icon>
                     </pap-button>
                     <pap-button variant="clear" @click="${this.handlesendclick}" radius="none">
-                        <pap-icon customSize="23" name="send">send</pap-icon>
+                        <pap-icon custom-size="23" name="send">send</pap-icon>
                     </pap-button>
                 </div>
             </pap-input>

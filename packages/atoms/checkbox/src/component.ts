@@ -1,5 +1,5 @@
 // utils
-import { html, property } from "@pap-it/system-utils";
+import { ExtractSlotValue, html, property } from "@pap-it/system-utils";
 
 // templates
 import { FieldTemplate } from "@pap-it/templates-field";
@@ -28,11 +28,20 @@ export class Checkbox extends FieldTemplate {
     e.stopPropagation();
     this.checked = !this.checked;
   }
+  private handleslotchange = (e: Event) => {
+    if (e.target instanceof HTMLSlotElement) {
+      // console.log('slot chanfed', e.target.assignedNodes());
+      const extractedtexts = ExtractSlotValue(e.target);
+
+      this.label = extractedtexts.join(' ');
+    }
+  }
 
   render() {
     return super.render(html`
-            <input readonly type="checkbox" />
-        `)
+      <input readonly type="checkbox" />
+      <slot style="display:none" @slotchange="${this.handleslotchange}"></slot>
+    `)
   }
 }
 

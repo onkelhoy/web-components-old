@@ -1,8 +1,8 @@
 # Table
 
-Atomic Type: molecules
+Atomic Type: organisms
 
-Version: 1.0.0
+Version: 0.0.0
 
 ## Development
 

@@ -29,7 +29,6 @@ export class Option extends BaseSystem {
     if (this.hasAttribute('data-dropdown-option')) return;
 
     this.checkboxElement.addEventListener('change', (e: Event) => {
-      console.log('well?')
       e.preventDefault();
       e.stopPropagation();
       return false;
@@ -40,7 +39,7 @@ export class Option extends BaseSystem {
       if (dropdown) {
         dropdown.registerOption(this);
         dropdown.addEventListener("change", this.handledropdownchange);
-        dropdown.addEventListener("suspended-input", this.handledropdowninput);
+        dropdown.addEventListener("debounced-input", this.handledropdowninput);
 
         if (dropdown.values.includes(this.getValue())) {
           this.checkboxElement.checked = true;
@@ -69,8 +68,6 @@ export class Option extends BaseSystem {
     if (e.target instanceof HTMLSlotElement) {
       const values = ExtractSlotValue(e.target);
       this.text = values.join(' ');
-
-      this.dispatchEvent(new Event('registered'));
     }
   }
   private handleclick = (e: Event) => {
@@ -80,6 +77,8 @@ export class Option extends BaseSystem {
     }
   }
   private handledropdownchange = (e: Event) => {
+    // console.log('change?', e.target)
+
     if (e.target instanceof Dropdown) {
       if (e.target.values.includes(this.getValue())) {
         this.checkboxElement.checked = true;

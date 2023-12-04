@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/table",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -36,20 +36,27 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/button": "1.0.0",
-    "@pap-it/icon": "1.0.0",
-    "@pap-it/input": "1.0.0",
-    "@pap-it/pagination": "1.0.0",
-    "@pap-it/system-base": "1.0.0",
-    "@pap-it/templates-box": "1.0.0",
-    "@pap-it/templates-popover": "1.0.0",
-    "@pap-it/typography": "1.0.0",
-    "@pap-it/system-utils": "1.0.0"
+    "@pap-it/accordion": "^1.0.0",
+    "@pap-it/button": "^1.0.1",
+    "@pap-it/checkbox": "^1.0.0",
+    "@pap-it/divider": "^1.0.0",
+    "@pap-it/drag-list": "^0.0.0",
+    "@pap-it/form": "^1.0.0",
+    "@pap-it/icon": "^1.0.1",
+    "@pap-it/input": "^1.0.1",
+    "@pap-it/menu": "^1.0.0",
+    "@pap-it/pagination": "^1.0.1",
+    "@pap-it/search": "^0.0.0",
+    "@pap-it/system-utils": "1.0.1",
+    "@pap-it/tabs": "1.0.1",
+    "@pap-it/templates-box": "^1.0.0",
+    "@pap-it/textarea": "^1.0.0",
+    "@pap-it/tools-translator": "^1.0.0",
+    "@pap-it/tooltip": "^1.0.0",
+    "@pap-it/typography": "^1.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^8.53.0",
-    "@pap-it/system-doc": "1.0.0",
+    "@pap-it/system-doc": "^1.0.0",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "node-sass": "^9.0.0",

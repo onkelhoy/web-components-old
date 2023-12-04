@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDFviewer demo</title>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Loading with different data types</pap-typography>
+
+    <pap-typography>With URL:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-pdf-viewer name="with url example" height="300" url="/pdf/example.pdf"></pap-pdf-viewer>
+    </pap-codeblock>
+
+    <pap-typography>With file:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-pdf-viewer name="with file example" height="300" uuid="very-specific-id-file"></pap-pdf-viewer>
+      <script>
+        fetch('/pdf/example.pdf')
+          .then(data => data.blob())
+          .then(data => {
+            const element = document.querySelector('pap-pdf-viewer[uuid="very-specific-id-file"]');
+            if (element) {
+              element.file = data;
+            }
+            else {
+              console.error('could not find element')
+            }
+          })
+          .catch(error => {
+            console.error('could not fetch pdf example file', error)
+          })
+      </script>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Engine types</pap-typography>
+
+    <pap-typography>Object (default):</pap-typography>
+    <pap-codeblock display="both">
+      <pap-pdf-viewer type="object" name="with url example" height="300" url="/pdf/example.pdf"></pap-pdf-viewer>
+    </pap-codeblock>
+
+    <pap-typography>Iframe:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-pdf-viewer type="iframe" name="with url example" height="300" url="/pdf/example.pdf"></pap-pdf-viewer>
+    </pap-codeblock>
+
+    <pap-typography>Embed:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-pdf-viewer type="embed" name="with url example" height="300" url="/pdf/example.pdf"></pap-pdf-viewer>
+    </pap-codeblock>
+
+  </doc-card>
+</body>
+
+</html>

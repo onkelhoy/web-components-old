@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/system-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "build": "tsc",
@@ -28,7 +28,6 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
     "eslint": "^8.53.0",
     "@pap-it/system-showcase": "1.0.0",
     "@pap-it/typography": "1.0.0",

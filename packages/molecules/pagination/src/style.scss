@@ -1,20 +1,41 @@
 :host {
-    display: grid;
-    grid-template-columns: 4fr 4fr 2fr 3fr;
+  container-type: inline-size;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: var(--unit-size7, 48px);
+  gap: var(--gap-small, 8px);
+  padding-inline: var(--padding-medium, 16px);
+
+  span.flex {
+    display: flex;
     align-items: center;
     gap: var(--gap-small, 8px);
+  }
 
-    pap-button {
-        gap: 0;
-    }
-    pap-typography {
-        white-space: nowrap;
-        margin-inline: 1rem;
-        text-align: center;
-    }
+  span:has(pap-button) {
+    min-width: max-content;
+  }
 
-    span.button-group {
-        display: flex;
-        justify-content: flex-end;
+  pap-dropdown {
+    width: 6rem;
+
+    &::part(menu) {
+      max-height: 30rem;
     }
+  }
+}
+
+@container (max-width: 768px) {
+  :host {
+
+    pap-button[data-type="last"],
+    pap-button[data-type="first"],
+    span.page pap-dropdown+pap-typography,
+    span.flex:not(.page)+pap-divider,
+    span.flex:not(.page)+pap-divider+pap-typography,
+    span.flex:not(.page) {
+      display: none !important;
+    }
+  }
 }

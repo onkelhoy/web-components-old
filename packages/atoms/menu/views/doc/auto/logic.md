@@ -1,11 +1,13 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- // utils 
+## SOURCE-CODE
+
+ // utils
 import { html, property, Size, Radius } from "@pap-it/system-utils";
 
 // atoms
@@ -19,7 +21,7 @@ import { Placement } from "@pap-it/templates-popover";
 import "@pap-it/templates-popover/wc";
 import "@pap-it/templates-box/wc";
 
-// local 
+// local
 import { style } from "./style";
 import { MenuItem } from "./components/menu-item";
 
@@ -86,18 +88,18 @@ export class Menu extends BaseSystem {
   render() {
     return html`
       <pap-popover-template @hide="${this.handlehide}" @show="${this.handleshow}" revealby="click" hideonoutsideclick placement="${this.placement}">
-        <pap-button 
-          variant="${this.buttonVariant}" 
-          color="${this.buttonColor}" 
-          radius="${this.buttonRadius}" 
-          part="button" 
-          slot="target" 
+        <pap-button
+          variant="${this.buttonVariant}"
+          color="${this.buttonColor}"
+          radius="${this.buttonRadius}"
+          part="button"
+          slot="target"
           size="${this.size}"
         >
           <slot name="button-prefix" slot="prefix"></slot>
           <slot name="button-content"></slot>
           <slot name="button-suffix" slot="suffix">
-            <pap-icon customSize="15" name="caret">v</pap-icon>
+            <pap-icon custom-size="15" name="caret">v</pap-icon>
           </slot>
         </pap-button>
         <pap-box-template part="box" class="options" radius="small" elevation="small">
@@ -109,7 +111,6 @@ export class Menu extends BaseSystem {
     `
   }
 }
-
 
 declare global {
   interface HTMLElementTagNameMap {

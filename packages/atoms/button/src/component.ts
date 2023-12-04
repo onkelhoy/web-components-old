@@ -1,5 +1,9 @@
+// system
 import { property, Size } from '@pap-it/system-utils';
+
+// templates
 import { BoxTemplate } from '@pap-it/templates-box';
+import "@pap-it/templates-prefix-suffix/wc";
 
 import { style } from './style.js';
 
@@ -73,10 +77,12 @@ export class Button extends BoxTemplate {
 
   render() {
     return `
-            <slot name="prefix"></slot>
-            <span part="content" class="content"><slot></slot></span>
-            <slot name="suffix"></slot>
-        `;
+      <pap-prefix-suffix-template part="prefix-suffix">
+        <slot slot="prefix" name="prefix"></slot>
+        <slot></slot>
+        <slot slot="suffix" name="suffix"></slot>
+      </pap-prefix-suffix-template>
+    `;
   }
 }
 

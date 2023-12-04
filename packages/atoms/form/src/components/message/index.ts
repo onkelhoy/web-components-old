@@ -42,14 +42,14 @@ export class Message extends BaseSystem {
       <pap-accordion open="${this.open}">
         <pap-box-template radius="medium">
           <div class="left">
-            <pap-icon customSize="40" name="form.error"></pap-icon>
-            <pap-icon customSize="40" name="form.success"></pap-icon>
+            <pap-icon custom-size="40" name="form.error"></pap-icon>
+            <pap-icon custom-size="40" name="form.success"></pap-icon>
           </div>
           <div>
             <pap-typography><slot></slot></pap-typography>
           </div>
           <pap-button @click="${this.handleclose}" radius="none" variant="clear">
-            <pap-icon customSize="32" name="close" cache></pap-icon>
+            <pap-icon custom-size="32" name="close" cache></pap-icon>
           </pap-button>
         </pap-box-template>
       </pap-accordion>

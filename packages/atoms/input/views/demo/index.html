@@ -1,34 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input demo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input demo</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
+  <script defer src="main.js"></script>
 </head>
-<body>
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-input label="label" counter placeholder="write something" name="demo">
-                <span slot="suffix">SUF</span>
-                <span slot="prefix">PRE</span>
-            </pap-input>
-        </pap-codeblock>
-    </doc-card>
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-input counter="10" label="label" counter placeholder="write something" name="demo">
-                <span slot="suffix">SUF</span>
-            </pap-input>
-        </pap-codeblock>
-    </doc-card>
+<body>
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Default</pap-typography>
+
+    <pap-codeblock display="both">
+      <pap-input name="demo" placeholder="write something"></pap-input>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Prefix & Suffix</pap-typography>
+
+    <pap-codeblock display="both">
+      <pap-input name="demo" label="label" placeholder="write something">
+        <span slot="suffix">SUF</span>
+        <span slot="prefix">PRE</span>
+      </pap-input>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Counter</pap-typography>
+
+    <pap-codeblock display="both">
+      <pap-input name="demo" maxLength="10" label="label" placeholder="write something">
+        <span slot="suffix">SUF</span>
+      </pap-input>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Messages</pap-typography>
+
+    <pap-typography>Helper:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-input name="demo" message="Helper text"></pap-input>
+    </pap-codeblock>
+
+    <pap-typography>Success:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-input name="demo" message="Helper text" message-type="success"></pap-input>
+    </pap-codeblock>
+
+    <pap-typography>Warning:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-input customWarning='{ "valueMissing": "This value is missing" }' required></pap-input>
+    </pap-codeblock>
+
+    <pap-typography>Warning (with default help text):</pap-typography>
+    <pap-codeblock display="both">
+      <pap-input customWarning='{ "valueMissing": "This value is missing" }' message="default help text"
+        required></pap-input>
+    </pap-codeblock>
+
+    <pap-typography>Error:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-input customError='{ "valueMissing": "This value is missing" }' required></pap-input>
+    </pap-codeblock>
+
+    <pap-typography>Error (with default help text):</pap-typography>
+    <pap-codeblock display="both">
+      <pap-input customError='{ "valueMissing": "This value is missing" }' message="default help text" required
+        id="error"></pap-input>
+    </pap-codeblock>
+  </doc-card>
 </body>
+
 </html>

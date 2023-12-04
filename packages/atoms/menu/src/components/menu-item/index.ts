@@ -3,7 +3,7 @@ import { html, property, ExtractSlotValue } from "@pap-it/system-utils";
 
 // templates
 import { BaseSystem } from "@pap-it/system-base";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-prefix-suffix/wc";
 
 import { style } from "./style";
 
@@ -40,10 +40,11 @@ export class MenuItem extends BaseSystem {
 
   render() {
     return html`
-      <div>
-        <pap-icon name="check" slot="prefix"></pap-icon>
+      <pap-prefix-suffix-template part="prefix-suffix">
+        <slot slot="prefix" name="prefix"><pap-icon name="check"></pap-icon></slot>
         <slot @slotchange="${this.handleslotchange}"></slot>
-      </div>
+        <slot slot="suffix" name="suffix"></slot>
+      </pap-prefix-suffix-template>
     `
   }
 }

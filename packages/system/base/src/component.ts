@@ -1,4 +1,4 @@
-import { NextParent, property, suspense, findComments } from "@pap-it/system-utils";
+import { NextParent, property, debounce } from "@pap-it/system-utils";
 
 import { FunctionCallback, RenderType } from "./types";
 
@@ -30,7 +30,7 @@ export class BaseSystem extends HTMLElement {
     this.styleComperator = document.createElement('style');
     this.templateComperator = document.createElement('template');
 
-    this.debouncedRequestUpdate = suspense(this.requestUpdate, 100);
+    this.debouncedRequestUpdate = debounce(this.requestUpdate, 100);
     this.attachShadow({ mode: 'open' });
     this.callAfterUpdate.push(this.firstUpdate);
   }
@@ -85,6 +85,10 @@ export class BaseSystem extends HTMLElement {
   }
 
   public querySelector(selector: string) {
+    if (!selector) {
+      console.log('empty string')
+      return null;
+    }
     if (this.shadowRoot) return this.shadowRoot.querySelector(selector);
     return null;
   }
@@ -172,6 +176,26 @@ export class BaseSystem extends HTMLElement {
       targetElement.innerHTML = this.styleComperator.innerHTML;
     }
   }
+  /** 
+   * this element is made so we can find if the current element should be inserted infront a element 
+   * so we dont just blindly append to end of parent using the appendChild 
+   * 
+   * so we need to traverser the next sibling and check if it exists in the real element 
+   */
+  private getNextElement(clone: HTMLTemplateElement, node: Element): Element | null {
+    if (node.nextElementSibling) {
+      const path = this.getComposedPath(clone, node.nextElementSibling);
+      const shadowNode = this.querySelector(path.join(" > "));
+
+      if (shadowNode) {
+        return shadowNode;
+      }
+
+      return this.getNextElement(clone, node.nextElementSibling);
+    }
+
+    return null;
+  }
   private renderHTML(content: RenderType) {
     if (!this.shadowRoot) return;
 
@@ -182,32 +206,48 @@ export class BaseSystem extends HTMLElement {
 
     this.templateComperator.appendChild(this.styleComperator);
 
-
+    // NOTE we render to template first
+    // and then we clone, which results in loss of event stuff
     this.renderContent(content, this.templateComperator);
+    // TODO figure out the reason why we clone, there was a very strong reason but I dont remember..
     const clone = this.templateComperator.cloneNode(true) as HTMLTemplateElement;
 
     clone.querySelectorAll('*:not(style)').forEach(node => {
       const path = this.getComposedPath(clone, node);
+
       const shadowNode = this.querySelector(path.join(" > "));
+
       if (!shadowNode) {
         // we need to traverse up the path until we find one node then insert until the end 
         let shadowtarget: ShadowRoot | Element | null = this.shadowRoot;
         let target: Element | null = node;
 
-        for (let i = path.length - 1; i >= 0; i--) { // we need not to start at end as this case has just been checked
-          const _shadownode = this.querySelector(path.slice(0, i).join(' > '));
-          if (_shadownode) {
-            // we found a node, now we can start inserting until we reach end of path (i==path.lenght - 1)
-            shadowtarget = _shadownode;
-            break;
-          }
-          else {
-            target = node.parentElement;
+        if (path.length > 1) {
+          for (let i = path.length - 1; i >= 0; i--) { // we need not to start at end as this case has just been checked
+            const _shadownode = this.querySelector(path.slice(0, i).join(' > '));
+            if (_shadownode) {
+              // we found a node, now we can start inserting until we reach end of path (i==path.lenght - 1)
+              shadowtarget = _shadownode;
+              break;
+            }
+            else {
+              target = node.parentElement;
+            }
           }
         }
 
         if (target) {
-          shadowtarget?.appendChild(target);
+          // we check if we can insert it before a element 
+          // this function selects this element (if exists by traversing the next until its found in targetShadow)
+          const nextElement = this.getNextElement(clone, node);
+          if (nextElement) {
+            shadowtarget?.insertBefore(target, nextElement);
+          }
+          else {
+            shadowtarget?.appendChild(target);
+          }
+
+          // reapplyEventListeners(target);
         }
         else {
           console.error('[ERROR] this case should not happen')
@@ -268,15 +308,18 @@ export class BaseSystem extends HTMLElement {
               }
             }
             else {
-              // NOTE this case seems not to show up really thus not implement for now
-              console.error('[ERROR] if this can be seen we must update (2)')
-              console.log({ child, content: child.textContent })
+              if (shadowNode.childNodes.length === 0) {
+                shadowNode.textContent = child.textContent;
+              }
+              else {
+                console.error('[ERROR] if this can be seen we must update (2)')
+                console.log({ child, content: child.textContent, shadowNode })
+              }
             }
           }
         })
       }
     })
-
 
     this.shadowRoot.querySelectorAll('*:not(style)').forEach(node => {
       // NOTE this node can already been removed now from a previous deletion 
@@ -369,7 +412,6 @@ export class BaseSystem extends HTMLElement {
     }
   }
 }
-
 
 declare global {
   interface HTMLElementTagNameMap {

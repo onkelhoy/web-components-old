@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typography Showcase</title>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+  <showcase-header title="Checkbox" subtitle="">
+  </showcase-header>
+  <main>
+    <section id="overview">
+      <div class="flex-vertical">
+        <pap-typography variant="T3">Overview</pap-typography>
+        <pap-typography>Checkboxes are input controls that allow users to select one or multiple items from a list, or
+          mark an individual item as selected.</pap-typography>
+      </div>
+      <showcase-card padding="medium">
+        <table>
+          <tr>
+            <td><pap-typography align="right" variant="C1">Default</pap-typography></td>
+            <td><pap-checkbox size="medium">Option</pap-checkbox></td>
+          </tr>
+          <tr>
+            <td><pap-typography align="right" variant="C1">Small</pap-typography></td>
+            <td><pap-checkbox size="small">Option</pap-checkbox></td>
+          </tr>
+          <tr>
+            <td><pap-typography align="right" variant="C1">Large</pap-typography></td>
+            <td><pap-checkbox size="large">Option</pap-checkbox></td>
+          </tr>
+        </table>
+      </showcase-card>
+    </section>
+  </main>
+</body>
+
+</html>
