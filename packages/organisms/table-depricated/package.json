@@ -1,5 +1,5 @@
 {
-  "name": "@pap-it/table",
+  "name": "@pap-it/table-depricated",
   "version": "1.0.0",
   "scripts": {
     "init": "sh .scripts/init.sh",
