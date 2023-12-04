@@ -1,7 +1,5 @@
-// utils 
+// system
 import { html, property } from "@pap-it/system-utils";
-
-// templates
 import { BaseSystem } from "@pap-it/system-base";
 import { Placement } from "@pap-it/templates-popover";
 import "@pap-it/templates-popover/wc";

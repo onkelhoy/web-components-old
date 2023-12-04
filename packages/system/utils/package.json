@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/system-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "build": "tsc",

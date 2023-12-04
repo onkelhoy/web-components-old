@@ -1,104 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dropdown demo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown demo</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
+  <script defer src="main.js"></script>
 </head>
+
 <body>
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-dropdown placeholder="select something"></pap-dropdown>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Default</pap-typography>
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-dropdown label="Single Value" placeholder="select something">
-                <pap-option>Hello</pap-option>
-                <pap-option>Apa</pap-option>
-                <pap-option>Bajs</pap-option>
-                <pap-option>Snoskeposke</pap-option>
-            </pap-dropdown>
-        </pap-codeblock>
-    </doc-card>
+    <pap-typography>Empty:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-dropdown placeholder="select something"></pap-dropdown>
+    </pap-codeblock>
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-dropdown label="Multiple Values" multiple="true" placeholder="select something">
-                <pap-option value="1">Hello</pap-option>
-                <pap-option value="2">Apa</pap-option>
-                <pap-option value="3">Bajs</pap-option>
-                <pap-option value="4">Snoskeposke</pap-option>
-                <pap-option value="5">Hello</pap-option>
-                <pap-option value="6">Apa</pap-option>
-                <pap-option value="7">Bajs</pap-option>
-                <pap-option value="8">Snoskeposke</pap-option>
-                <pap-option value="9">Hello</pap-option>
-                <pap-option value="10">Snoskeposke</pap-option>
-                <pap-option value="11">Hello</pap-option>
-                <pap-option value="12">Apa</pap-option>
-                <pap-option value="13">Bajs</pap-option>
-                <pap-option value="14">Snoskeposke</pap-option>
-                <pap-option value="15">Hello</pap-option>
-                <pap-option value="16">Apa</pap-option>
-                <pap-option value="17">Bajs</pap-option>
-                <pap-option value="18">Snoskeposke</pap-option>
-                <pap-option value="19">Hello</pap-option>
-            </pap-dropdown>
-        </pap-codeblock>
-    </doc-card>
+    <pap-typography>With values:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-dropdown label="Single Value" placeholder="select something">
+        <pap-option>Hello</pap-option>
+        <pap-option>Apa</pap-option>
+        <pap-option>Bajs</pap-option>
+        <pap-option>Snoskeposke</pap-option>
+      </pap-dropdown>
+    </pap-codeblock>
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-dropdown value="4" label="With Value" placeholder="select something">
-                <pap-option value="1">Hello</pap-option>
-                <pap-option value="2">Apa</pap-option>
-                <pap-option value="3">Bajs</pap-option>
-                <pap-option value="4">Snoskeposke</pap-option>
-                <pap-option value="5">Hello</pap-option>
-            </pap-dropdown>
-        </pap-codeblock>
-    </doc-card>
+    <pap-typography>With values (multiple):</pap-typography>
+    <pap-codeblock display="both">
+      <pap-dropdown label="Multiple Values" multiple="true" placeholder="select something">
+        <pap-option value="1">Hello</pap-option>
+        <pap-option value="2">Apa</pap-option>
+        <pap-option value="3">Bajs</pap-option>
+        <pap-option value="4">Snoskeposke</pap-option>
+        <pap-option value="5">Hello</pap-option>
+        <pap-option value="6">Apa</pap-option>
+        <pap-option value="7">Bajs</pap-option>
+        <pap-option value="8">Snoskeposke</pap-option>
+        <pap-option value="9">Hello</pap-option>
+        <pap-option value="10">Snoskeposke</pap-option>
+        <pap-option value="11">Hello</pap-option>
+        <pap-option value="12">Apa</pap-option>
+        <pap-option value="13">Bajs</pap-option>
+        <pap-option value="14">Snoskeposke</pap-option>
+        <pap-option value="15">Hello</pap-option>
+        <pap-option value="16">Apa</pap-option>
+        <pap-option value="17">Bajs</pap-option>
+        <pap-option value="18">Snoskeposke</pap-option>
+        <pap-option value="19">Hello</pap-option>
+      </pap-dropdown>
+    </pap-codeblock>
+  </doc-card>
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-dropdown value="4, 1, 5" multiple label="With Value (multiple)" placeholder="select something">
-                <pap-option value="1">Hello</pap-option>
-                <pap-option value="2">Apa</pap-option>
-                <pap-option value="3">Bajs</pap-option>
-                <pap-option value="4">Snoskeposke</pap-option>
-                <pap-option value="5">Hello</pap-option>
-            </pap-dropdown>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Preselected</pap-typography>
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-dropdown value="4" search label="Search" placeholder="select something">
-                <pap-option value="1">Hello</pap-option>
-                <pap-option value="2">Apa</pap-option>
-                <pap-option value="3">Bajs</pap-option>
-                <pap-option value="4">Snoskeposke</pap-option>
-                <pap-option value="5">Hello</pap-option>
-            </pap-dropdown>
-        </pap-codeblock>
-    </doc-card>
+    <pap-typography>Not multiple:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-dropdown name="log" namebla="blabla" value="4" label="With Value" placeholder="select something">
+        <pap-option value="1">Hello</pap-option>
+        <pap-option value="2">Apa</pap-option>
+        <pap-option value="3">Bajs</pap-option>
+        <pap-option value="4">Snoskeposke</pap-option>
+        <pap-option value="5">Hello</pap-option>
+      </pap-dropdown>
+    </pap-codeblock>
 
-    <doc-card> 
-        <pap-typography slot="header">Dynamic Content</pap-typography>
-        <button slot="header" id="dynamic_content_btn">Toggle</button>
-        <pap-codeblock display="both">
-            <pap-dropdown label="Dynamic dropdown" multiple name="dynamic-content"></pap-dropdown>
-        </pap-codeblock>
-    </doc-card>
+    <pap-typography>Multiple:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-dropdown value="4, 1, 5" multiple label="With Value (multiple)" placeholder="select something">
+        <pap-option value="1">Hello</pap-option>
+        <pap-option value="2">Apa</pap-option>
+        <pap-option value="3">Bajs</pap-option>
+        <pap-option value="4">Snoskeposke</pap-option>
+        <pap-option value="5">Hello</pap-option>
+      </pap-dropdown>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Search</pap-typography>
+
+    <pap-codeblock display="both">
+      <pap-dropdown value="4" search label="Search" placeholder="select something">
+        <pap-option value="1">Hello</pap-option>
+        <pap-option value="2">Apa</pap-option>
+        <pap-option value="3">Bajs</pap-option>
+        <pap-option value="4">Snoskeposke</pap-option>
+        <pap-option value="5">Hello</pap-option>
+      </pap-dropdown>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Dynamic content</pap-typography>
+
+    <pap-typography>Click the button to dynamically add new options</pap-typography>
+    <button id="dynamic_content_btn">Toggle</button>
+
+    <pap-codeblock display="both">
+      <pap-dropdown label="Dynamic dropdown" multiple name="dynamic-content"></pap-dropdown>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Pagination case</pap-typography>
+
+    <pap-typography>Init options</pap-typography>
+    <button id="pagination_case_INIT">INIT</button>
+
+    <pap-typography>Click the buttons to increase/decrease the value</pap-typography>
+    <button id="pagination_case_INC">INC</button>
+    <button id="pagination_case_DEC">DEC</button>
+
+    <pap-codeblock display="both">
+      <pap-dropdown id="pagination_case"></pap-dropdown>
+    </pap-codeblock>
+  </doc-card>
 </body>
+
 </html>

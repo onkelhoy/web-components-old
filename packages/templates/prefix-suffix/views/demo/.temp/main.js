@@ -215,8 +215,8 @@
   // ../../system/utils/dist/src/functions/html.js
   function findComments(element) {
     let arr = [];
-    for (let i7 = 0; i7 < element.childNodes.length; i7++) {
-      let node = element.childNodes[i7];
+    for (let i6 = 0; i6 < element.childNodes.length; i6++) {
+      let node = element.childNodes[i6];
       if (node.nodeType === 8) {
         arr.push(node);
       } else {
@@ -229,8 +229,8 @@
     if (indexes === null)
       return;
     let target = values;
-    for (let i7 = 0; i7 < indexes.length; i7++) {
-      const index = Number(indexes[i7]);
+    for (let i6 = 0; i6 < indexes.length; i6++) {
+      const index = Number(indexes[i6]);
       target = target[index];
     }
     try {
@@ -242,31 +242,31 @@
   }
   function html(strings, ...values) {
     let result = "";
-    for (let i7 = 0; i7 < values.length; i7++) {
-      if (values[i7] instanceof Array) {
+    for (let i6 = 0; i6 < values.length; i6++) {
+      if (values[i6] instanceof Array) {
         let arr = [];
-        for (let j2 = 0; j2 < values[i7].length; j2++) {
-          if (values[i7][j2] instanceof DocumentFragment) {
-            arr.push(`<!-- comment-node-${i7}.${j2} -->`);
+        for (let j2 = 0; j2 < values[i6].length; j2++) {
+          if (values[i6][j2] instanceof DocumentFragment) {
+            arr.push(`<!-- comment-node-${i6}.${j2} -->`);
           }
         }
         if (arr.length > 0) {
-          result += strings[i7] + arr.join(" ");
+          result += strings[i6] + arr.join(" ");
           continue;
         }
       }
-      if (values[i7] instanceof DocumentFragment) {
-        result += strings[i7] + `<!-- comment-node-${i7} -->`;
+      if (values[i6] instanceof DocumentFragment) {
+        result += strings[i6] + `<!-- comment-node-${i6} -->`;
         continue;
       }
-      const trimmed = strings[i7].trim();
+      const trimmed = strings[i6].trim();
       const match = trimmed.match(/.*\s(on|@)([\w-]*)=/);
       if (match) {
         const [_whole, eventtype, name] = match;
         const split = trimmed.split(eventtype + name);
-        result += split[0] + ` @${name}="${i7}"`;
+        result += split[0] + ` @${name}="${i6}"`;
       } else {
-        result += strings[i7] + values[i7];
+        result += strings[i6] + values[i6];
       }
     }
     result += strings[values.length];
@@ -303,13 +303,13 @@
 
   // ../../../node_modules/tslib/tslib.es6.mjs
   function __decorate(decorators, target, key, desc) {
-    var c6 = arguments.length, r9 = c6 < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d8;
+    var c6 = arguments.length, r9 = c6 < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d7;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
       r9 = Reflect.decorate(decorators, target, key, desc);
     else
-      for (var i7 = decorators.length - 1; i7 >= 0; i7--)
-        if (d8 = decorators[i7])
-          r9 = (c6 < 3 ? d8(r9) : c6 > 3 ? d8(target, key, r9) : d8(target, key)) || r9;
+      for (var i6 = decorators.length - 1; i6 >= 0; i6--)
+        if (d7 = decorators[i6])
+          r9 = (c6 < 3 ? d7(r9) : c6 > 3 ? d7(target, key, r9) : d7(target, key)) || r9;
     return c6 > 3 && r9 && Object.defineProperty(target, key, r9), r9;
   }
 
@@ -351,7 +351,7 @@
         }
       });
       this.attributeObserver.observe(this, { attributes: true });
-      this._pendingOperations.forEach((o6) => o6());
+      this._pendingOperations.forEach((o5) => o5());
       this._pendingOperations = [];
     }
     disconnectedCallback() {
@@ -460,8 +460,8 @@
         if (!shadowNode) {
           let shadowtarget = this.shadowRoot;
           let target = node;
-          for (let i7 = path.length - 1; i7 >= 0; i7--) {
-            const _shadownode = this.querySelector(path.slice(0, i7).join(" > "));
+          for (let i6 = path.length - 1; i6 >= 0; i6--) {
+            const _shadownode = this.querySelector(path.slice(0, i6).join(" > "));
             if (_shadownode) {
               shadowtarget = _shadownode;
               break;
@@ -476,9 +476,9 @@
             console.log({ shadowtarget, node, target, path });
           }
         } else {
-          for (let i7 = 0; i7 < node.attributes.length; i7++) {
-            const name = node.attributes[i7].name;
-            const value = node.attributes[i7].value;
+          for (let i6 = 0; i6 < node.attributes.length; i6++) {
+            const name = node.attributes[i6].name;
+            const value = node.attributes[i6].value;
             const shadowValue = shadowNode.getAttribute(name);
             if (shadowValue !== value)
               shadowNode.setAttribute(name, value);
@@ -557,9 +557,9 @@
         if (node.parentNode) {
           if (node.parentNode.children.length > 1) {
             let index = 0;
-            for (let i7 = 0; i7 < node.parentNode.children.length; i7++) {
-              if (node.parentNode.children[i7] === node) {
-                index = i7;
+            for (let i6 = 0; i6 < node.parentNode.children.length; i6++) {
+              if (node.parentNode.children[i6] === node) {
+                index = i6;
                 break;
               }
             }
@@ -689,8 +689,8 @@ section {
       };
       this.handlemousemove = (e4) => {
         if (this.pressed) {
-          const y6 = this.original_y - e4.pageY;
-          this.section.style.height = this.original_height + y6 + "px";
+          const y5 = this.original_y - e4.pageY;
+          this.section.style.height = this.original_height + y5 + "px";
         }
       };
     }
@@ -831,20 +831,20 @@ div {
       };
       this.handlemousemove = (e4) => {
         if (this.pressed && e4.target === this.areaElement) {
-          let x5 = e4.offsetX;
-          let y6 = e4.offsetY;
-          if (x5 < 0)
-            x5 = 0;
-          if (y6 < 0)
-            y6 = 0;
-          if (x5 > this.areabox.width)
-            x5 = this.areabox.width;
-          if (y6 > this.areabox.height)
-            y6 = this.areabox.height;
-          this.pickerElement.style.left = x5 + "px";
-          this.pickerElement.style.top = y6 + "px";
-          this.saturation = x5 / this.areabox.width * 100;
-          this.lightness = (1 - y6 / this.areabox.height) * (100 - this.saturation * 0.5);
+          let x4 = e4.offsetX;
+          let y5 = e4.offsetY;
+          if (x4 < 0)
+            x4 = 0;
+          if (y5 < 0)
+            y5 = 0;
+          if (x4 > this.areabox.width)
+            x4 = this.areabox.width;
+          if (y5 > this.areabox.height)
+            y5 = this.areabox.height;
+          this.pickerElement.style.left = x4 + "px";
+          this.pickerElement.style.top = y5 + "px";
+          this.saturation = x4 / this.areabox.width * 100;
+          this.lightness = (1 - y5 / this.areabox.height) * (100 - this.saturation * 0.5);
           this._setColor();
         }
       };
@@ -876,10 +876,10 @@ div {
         this.areabox = this.areaElement.getBoundingClientRect();
       }
       if (this.areabox) {
-        const x5 = hsl[1] * this.areabox.width;
-        const y6 = Math.max(0, Math.min(this.areabox.height, (this.lightness / (100 - this.saturation * 0.5) - 1) * -this.areabox.height));
-        this.pickerElement.style.left = x5 + "px";
-        this.pickerElement.style.top = y6 + "px";
+        const x4 = hsl[1] * this.areabox.width;
+        const y5 = Math.max(0, Math.min(this.areabox.height, (this.lightness / (100 - this.saturation * 0.5) - 1) * -this.areabox.height));
+        this.pickerElement.style.left = x4 + "px";
+        this.pickerElement.style.top = y5 + "px";
       }
       if (this.sliderElement) {
         this.sliderElement.value = this.hue.toString();
@@ -930,10 +930,10 @@ div {
   // ../popover/dist/register.bundle.mjs
   var c = Object.defineProperty;
   var m = Object.getOwnPropertyDescriptor;
-  var r = (n4, a5, o6, p8) => {
-    for (var t6 = p8 > 1 ? void 0 : p8 ? m(a5, o6) : a5, s3 = n4.length - 1, l9; s3 >= 0; s3--)
-      (l9 = n4[s3]) && (t6 = (p8 ? l9(a5, o6, t6) : l9(t6)) || t6);
-    return p8 && t6 && c(a5, o6, t6), t6;
+  var r = (n3, a4, o5, p7) => {
+    for (var t5 = p7 > 1 ? void 0 : p7 ? m(a4, o5) : a4, s3 = n3.length - 1, l8; s3 >= 0; s3--)
+      (l8 = n3[s3]) && (t5 = (p7 ? l8(a4, o5, t5) : l8(t5)) || t5);
+    return p7 && t5 && c(a4, o5, t5), t5;
   };
   var h = `:host {
   position: relative;
@@ -1028,7 +1028,7 @@ div {
       this.handlemousedown = () => {
         this.revealby === "click" && this.show();
       };
-      this.handlewindowclick = (o6) => {
+      this.handlewindowclick = (o5) => {
         this.hideonoutsideclick && this.outside && this.revealby === "click" && this.hide();
       };
       this.addEventListener("mouseenter", this.handlemouseenter), this.addEventListener("mouseleave", this.handlemouseleave);
@@ -1084,8 +1084,8 @@ div {
     static extractRootColors() {
       let rootvariables = [];
       const styleSheets = document.styleSheets;
-      for (let i7 = 0; i7 < styleSheets.length; i7++) {
-        const cssRules = styleSheets[i7].cssRules || styleSheets[i7].rules;
+      for (let i6 = 0; i6 < styleSheets.length; i6++) {
+        const cssRules = styleSheets[i6].cssRules || styleSheets[i6].rules;
         for (let j2 = 0; j2 < cssRules.length; j2++) {
           const rule = cssRules[j2];
           if (rule.selectorText === ":root") {
@@ -1149,12 +1149,12 @@ div {
           remainingSideColors.splice(index, 1);
         if (!prev || prev.css !== color.value) {
           const rgb = Color.cssToRGB(color.value);
-          const [h8, s3, l9] = Color.rgbToHSL(rgb[0], rgb[1], rgb[2]);
+          const [h7, s3, l8] = Color.rgbToHSL(rgb[0], rgb[1], rgb[2]);
           const data = {
             css: color.value,
-            h: h8,
+            h: h7,
             s: s3,
-            l: l9
+            l: l8
           };
           Color.sideColors.set(name, data);
           changedSideColors.add(color.name);
@@ -1233,62 +1233,62 @@ div {
       if (computedColor.startsWith("#")) {
         const hex = computedColor.substring(1);
         const r9 = parseInt(hex.slice(0, 2), 16);
-        const g6 = parseInt(hex.slice(2, 4), 16);
+        const g5 = parseInt(hex.slice(2, 4), 16);
         const b4 = parseInt(hex.slice(4, 6), 16);
-        return [r9, g6, b4];
+        return [r9, g5, b4];
       }
       return computedColor.replace(/rgba?\(|\)|\s/g, "").split(",").map((str) => Number(str));
     }
-    static rgbToHSL(r9, g6, b4) {
-      r9 /= 255, g6 /= 255, b4 /= 255;
-      const max = Math.max(r9, g6, b4), min = Math.min(r9, g6, b4);
-      let h8, s3, l9 = (max + min) / 2;
+    static rgbToHSL(r9, g5, b4) {
+      r9 /= 255, g5 /= 255, b4 /= 255;
+      const max = Math.max(r9, g5, b4), min = Math.min(r9, g5, b4);
+      let h7, s3, l8 = (max + min) / 2;
       if (max === min) {
-        h8 = s3 = 0;
+        h7 = s3 = 0;
       } else {
-        const d8 = max - min;
-        s3 = l9 > 0.5 ? d8 / (2 - max - min) : d8 / (max + min);
+        const d7 = max - min;
+        s3 = l8 > 0.5 ? d7 / (2 - max - min) : d7 / (max + min);
         switch (max) {
           case r9:
-            h8 = (g6 - b4) / d8 + (g6 < b4 ? 6 : 0);
+            h7 = (g5 - b4) / d7 + (g5 < b4 ? 6 : 0);
             break;
-          case g6:
-            h8 = (b4 - r9) / d8 + 2;
+          case g5:
+            h7 = (b4 - r9) / d7 + 2;
             break;
           case b4:
           default:
-            h8 = (r9 - g6) / d8 + 4;
+            h7 = (r9 - g5) / d7 + 4;
             break;
         }
-        h8 /= 6;
+        h7 /= 6;
       }
-      return [h8, s3, l9];
+      return [h7, s3, l8];
     }
-    static hslToRgb(h8, s3, l9) {
-      let r9, g6, b4;
+    static hslToRgb(h7, s3, l8) {
+      let r9, g5, b4;
       if (s3 === 0) {
-        r9 = g6 = b4 = l9;
+        r9 = g5 = b4 = l8;
       } else {
-        const hue2rgb = (p9, q2, t6) => {
-          if (t6 < 0)
-            t6 += 1;
-          if (t6 > 1)
-            t6 -= 1;
-          if (t6 < 1 / 6)
-            return p9 + (q2 - p9) * 6 * t6;
-          if (t6 < 1 / 2)
+        const hue2rgb = (p8, q2, t5) => {
+          if (t5 < 0)
+            t5 += 1;
+          if (t5 > 1)
+            t5 -= 1;
+          if (t5 < 1 / 6)
+            return p8 + (q2 - p8) * 6 * t5;
+          if (t5 < 1 / 2)
             return q2;
-          if (t6 < 2 / 3)
-            return p9 + (q2 - p9) * (2 / 3 - t6) * 6;
-          return p9;
+          if (t5 < 2 / 3)
+            return p8 + (q2 - p8) * (2 / 3 - t5) * 6;
+          return p8;
         };
-        const q = l9 < 0.5 ? l9 * (1 + s3) : l9 + s3 - l9 * s3;
-        const p8 = 2 * l9 - q;
-        r9 = hue2rgb(p8, q, h8 + 1 / 3);
-        g6 = hue2rgb(p8, q, h8);
-        b4 = hue2rgb(p8, q, h8 - 1 / 3);
+        const q = l8 < 0.5 ? l8 * (1 + s3) : l8 + s3 - l8 * s3;
+        const p7 = 2 * l8 - q;
+        r9 = hue2rgb(p7, q, h7 + 1 / 3);
+        g5 = hue2rgb(p7, q, h7);
+        b4 = hue2rgb(p7, q, h7 - 1 / 3);
       }
-      return [Math.round(r9 * 255), Math.round(g6 * 255), Math.round(b4 * 255)];
+      return [Math.round(r9 * 255), Math.round(g5 * 255), Math.round(b4 * 255)];
     }
     static spectrum(css, name, force = false) {
       Color.init();
@@ -1296,59 +1296,59 @@ div {
       if (pre && !force)
         return pre.spectrum;
       const rgb = Color.cssToRGB(css);
-      const [h8, s3, l9] = Color.rgbToHSL(rgb[0], rgb[1], rgb[2]);
-      const lum_step = Math.min(l9, 1 - l9) / 5;
+      const [h7, s3, l8] = Color.rgbToHSL(rgb[0], rgb[1], rgb[2]);
+      const lum_step = Math.min(l8, 1 - l8) / 5;
       const data = {};
-      for (let i7 = -4; i7 <= 4; i7++) {
-        const number = (9 - (i7 + 4)) * 100;
+      for (let i6 = -4; i6 <= 4; i6++) {
+        const number = (9 - (i6 + 4)) * 100;
         if (Color.checkSideColor(name, number, data)) {
           continue;
         }
-        const newl = Math.min(Math.max(l9 + lum_step * i7, 0), 1);
+        const newl = Math.min(Math.max(l8 + lum_step * i6, 0), 1);
         data[number] = {
-          h: h8,
+          h: h7,
           s: s3,
           l: newl,
-          css: `hsl(${h8 * 360}, ${s3 * 100}%, ${newl * 100}%)`
+          css: `hsl(${h7 * 360}, ${s3 * 100}%, ${newl * 100}%)`
         };
       }
-      const complimentaryHue = (h8 + 0.5) % 1;
+      const complimentaryHue = (h7 + 0.5) % 1;
       if (!Color.checkSideColor(name, 2e3, data)) {
         data[2e3] = {
           h: complimentaryHue,
           s: s3,
-          l: l9,
-          css: `hsl(${complimentaryHue * 360}, ${s3 * 100}%, ${l9 * 100}%)`
+          l: l8,
+          css: `hsl(${complimentaryHue * 360}, ${s3 * 100}%, ${l8 * 100}%)`
         };
       }
       if (!Color.checkSideColor(name, 2e3, data)) {
         data["3000"] = {
-          h: h8,
+          h: h7,
           s: 0.05,
           l: 0.97,
-          css: `hsl(${h8 * 360}, 5%, 97%)`
+          css: `hsl(${h7 * 360}, 5%, 97%)`
         };
       }
       if (!Color.checkSideColor(name, 2e3, data)) {
         data["3100"] = {
-          h: h8,
+          h: h7,
           s: 0.05,
           l: 0.4,
-          css: `hsl(${h8 * 360}, 5%, 40%)`
+          css: `hsl(${h7 * 360}, 5%, 40%)`
         };
       }
       const sat_step = s3 / 6;
-      for (let i7 = 0; i7 < 5; i7++) {
-        const number = (11 + i7) * 100;
+      for (let i6 = 0; i6 < 5; i6++) {
+        const number = (11 + i6) * 100;
         if (Color.checkSideColor(name, number, data)) {
           continue;
         }
-        const news = Math.min(Math.max(l9 - sat_step * i7, 0), 1);
-        data[(11 + i7) * 100] = {
-          h: h8,
+        const news = Math.min(Math.max(l8 - sat_step * i6, 0), 1);
+        data[(11 + i6) * 100] = {
+          h: h7,
           s: news,
-          l: l9,
-          css: `hsl(${h8 * 360}, ${news * 100}%, ${l9 * 100}%)`
+          l: l8,
+          css: `hsl(${h7 * 360}, ${news * 100}%, ${l8 * 100}%)`
         };
       }
       return data;
@@ -1423,10 +1423,10 @@ doc-input::part(span-wrapper) {
 
   // ../../system/doc/dist/src/components/ColorPickerInput/index.js
   function toHEX(value) {
-    const h8 = value.toString(16);
-    if (h8.length === 1)
-      return `0${h8}`;
-    return h8;
+    const h7 = value.toString(16);
+    if (h7.length === 1)
+      return `0${h7}`;
+    return h7;
   }
   var ColorPickerInput = class extends BaseSystem {
     // class functions 
@@ -1439,8 +1439,8 @@ doc-input::part(span-wrapper) {
       this.handleinputchange = (e4) => {
         const value = e4.detail.value;
         if (!this.manual) {
-          const [r9, g6, b4] = Color.cssToRGB(value);
-          const hsl = Color.rgbToHSL(r9, g6, b4);
+          const [r9, g5, b4] = Color.cssToRGB(value);
+          const hsl = Color.rgbToHSL(r9, g5, b4);
           if (this.colorpicker_element) {
             this.colorpicker_element.setColor(hsl);
           }
@@ -1450,8 +1450,8 @@ doc-input::part(span-wrapper) {
         this.manual = false;
       };
       this.handlecolorchange = (e4) => {
-        const [r9, g6, b4] = Color.cssToRGB(e4.detail.value);
-        const hex = `#${toHEX(r9)}${toHEX(g6)}${toHEX(b4)}`;
+        const [r9, g5, b4] = Color.cssToRGB(e4.detail.value);
+        const hex = `#${toHEX(r9)}${toHEX(g5)}${toHEX(b4)}`;
         if (this.input_element) {
           this.manual = true;
           this.input_element.value = hex;
@@ -1490,8 +1490,8 @@ doc-input::part(span-wrapper) {
     setColor(value) {
       Color.init();
       try {
-        const [r9, g6, b4] = Color.cssToRGB(value);
-        const hsl = Color.rgbToHSL(r9, g6, b4);
+        const [r9, g5, b4] = Color.cssToRGB(value);
+        const hsl = Color.rgbToHSL(r9, g5, b4);
         this.colorpicker_element.setColor(hsl);
       } catch (_a) {
         throw new Error("invalid color");
@@ -1725,10 +1725,10 @@ div {
   // ../../atoms/tabs/dist/register.bundle.mjs
   var y = Object.defineProperty;
   var x = Object.getOwnPropertyDescriptor;
-  var r2 = (h8, l9, s3, a5) => {
-    for (var e4 = a5 > 1 ? void 0 : a5 ? x(l9, s3) : l9, t6 = h8.length - 1, n4; t6 >= 0; t6--)
-      (n4 = h8[t6]) && (e4 = (a5 ? n4(l9, s3, e4) : n4(e4)) || e4);
-    return a5 && e4 && y(l9, s3, e4), e4;
+  var r2 = (h7, l8, s3, a4) => {
+    for (var e4 = a4 > 1 ? void 0 : a4 ? x(l8, s3) : l8, t5 = h7.length - 1, n3; t5 >= 0; t5--)
+      (n3 = h7[t5]) && (e4 = (a4 ? n3(l8, s3, e4) : n3(e4)) || e4);
+    return a4 && e4 && y(l8, s3, e4), e4;
   };
   var g = `:host header div {
   position: relative;
@@ -1812,8 +1812,8 @@ div {
       this.setAttribute("slot", "tab");
     }
     init(s3) {
-      s3.addEventListener("tab-select", (a5) => {
-        a5 instanceof CustomEvent && (this.getAttribute("data-tab-id") === a5.detail.id ? this.classList.add("selected") : this.classList.remove("selected"));
+      s3.addEventListener("tab-select", (a4) => {
+        a4 instanceof CustomEvent && (this.getAttribute("data-tab-id") === a4.detail.id ? this.classList.add("selected") : this.classList.remove("selected"));
       });
     }
     firstUpdate() {
@@ -1837,8 +1837,8 @@ div {
     constructor() {
       super(), this.setAttribute("slot", "content");
     }
-    init(l9) {
-      l9.addEventListener("tab-select", (s3) => {
+    init(l8) {
+      l8.addEventListener("tab-select", (s3) => {
         s3 instanceof CustomEvent && (this.getAttribute("data-tab-id") === s3.detail.id ? this.classList.add("selected") : this.classList.remove("selected"));
       });
     }
@@ -1862,13 +1862,13 @@ div {
       this.scrolling = false;
       this.handleslotchange = (s3) => {
         if (s3.target instanceof HTMLSlotElement) {
-          let a5 = null, e4 = null;
-          s3.target.assignedElements().forEach((t6, n4) => {
-            if (!t6.hasAttribute("data-tabs-pass")) {
-              let b4 = t6 instanceof c2, u6 = t6 instanceof o, p8 = n4.toString();
-              b4 && (p8 = this.contents.length.toString(), this.contents.push(t6)), u6 && (!e4 && n4 === this.preselect && (e4 = t6), p8 = this.tabs.length.toString(), t6.addEventListener("click", this.handletabclick), t6.classList.contains("selected") && (a5 = n4), this.tabs.push(t6)), t6.hasAttribute("id") && (p8 = t6.getAttribute("id")), (b4 || u6) && (t6.init(this), t6.setAttribute("data-tab-id", p8), t6.setAttribute("data-tabs-pass", "true"));
+          let a4 = null, e4 = null;
+          s3.target.assignedElements().forEach((t5, n3) => {
+            if (!t5.hasAttribute("data-tabs-pass")) {
+              let b4 = t5 instanceof c2, u5 = t5 instanceof o, p7 = n3.toString();
+              b4 && (p7 = this.contents.length.toString(), this.contents.push(t5)), u5 && (!e4 && n3 === this.preselect && (e4 = t5), p7 = this.tabs.length.toString(), t5.addEventListener("click", this.handletabclick), t5.classList.contains("selected") && (a4 = n3), this.tabs.push(t5)), t5.hasAttribute("id") && (p7 = t5.getAttribute("id")), (b4 || u5) && (t5.init(this), t5.setAttribute("data-tab-id", p7), t5.setAttribute("data-tabs-pass", "true"));
             }
-          }), a5 === null && e4 !== null && setTimeout(() => {
+          }), a4 === null && e4 !== null && setTimeout(() => {
             e4.click();
           }, 100);
         }
@@ -1876,13 +1876,13 @@ div {
       this.handletabclick = (s3) => {
         if (s3.target instanceof o) {
           this.scrollclick || (this.internalclick = true);
-          let a5 = s3.target.getAttribute("data-tab-id");
-          if (this.dispatchEvent(new CustomEvent("tab-select", { detail: { id: a5 } })), this.headerElement) {
+          let a4 = s3.target.getAttribute("data-tab-id");
+          if (this.dispatchEvent(new CustomEvent("tab-select", { detail: { id: a4 } })), this.headerElement) {
             let e4 = s3.target.offsetLeft - this.headerElement.offsetLeft - this.offsetLeft;
             (e4 + s3.target.clientWidth > this.headerElement.scrollLeft + this.headerElement.clientWidth || e4 < this.headerElement.scrollLeft) && this.headerElement.scrollTo({ left: e4, behavior: "smooth" }), this.indicator && this.indicatorElement && (this.indicatorElement.style.left = e4 + "px", this.indicatorElement.style.width = s3.target.clientWidth + "px");
           }
           if (this.scrolling && this.mainElement && !this.currentlyscrolling) {
-            let e4 = this.contents.find((t6) => t6.getAttribute("data-tab-id") === a5);
+            let e4 = this.contents.find((t5) => t5.getAttribute("data-tab-id") === a4);
             e4 && this.mainElement.scrollTo({ top: e4.offsetTop - this.mainElement.offsetTop, behavior: "smooth" });
           }
         }
@@ -1890,10 +1890,10 @@ div {
       this.handlescroll = (s3) => {
         if (this.scrolling && this.mainElement) {
           this.currentlyscrolling = true;
-          let a5 = this.mainElement.scrollTop, e4 = 0;
-          for (let t6 = 0; t6 < this.contents.length; t6++)
-            if (e4 += this.contents[t6].clientHeight, a5 < e4) {
-              this.tabs[t6].classList.contains("selected") || (this.scrollclick = true, this.internalclick || this.tabs[t6].click());
+          let a4 = this.mainElement.scrollTop, e4 = 0;
+          for (let t5 = 0; t5 < this.contents.length; t5++)
+            if (e4 += this.contents[t5].clientHeight, a4 < e4) {
+              this.tabs[t5].classList.contains("selected") || (this.scrollclick = true, this.internalclick || this.tabs[t5].click());
               break;
             }
         }
@@ -1934,10 +1934,10 @@ div {
   // ../../atoms/typography/dist/register.bundle.mjs
   var y2 = Object.defineProperty;
   var f = Object.getOwnPropertyDescriptor;
-  var i2 = (h8, e4, o6, r9) => {
-    for (var a5 = r9 > 1 ? void 0 : r9 ? f(e4, o6) : e4, p8 = h8.length - 1, s3; p8 >= 0; p8--)
-      (s3 = h8[p8]) && (a5 = (r9 ? s3(e4, o6, a5) : s3(a5)) || a5);
-    return r9 && a5 && y2(e4, o6, a5), a5;
+  var i2 = (h7, e4, o5, r9) => {
+    for (var a4 = r9 > 1 ? void 0 : r9 ? f(e4, o5) : e4, p7 = h7.length - 1, s3; p7 >= 0; p7--)
+      (s3 = h7[p7]) && (a4 = (r9 ? s3(e4, o5, a4) : s3(a4)) || a4);
+    return r9 && a4 && y2(e4, o5, a4), a4;
   };
   var l = `:host {
   text-align: left;
@@ -2202,10 +2202,10 @@ div {
   // ../../atoms/button/dist/register.bundle.mjs
   var v2 = Object.defineProperty;
   var u = Object.getOwnPropertyDescriptor;
-  var r3 = (d8, n4, t6, l9) => {
-    for (var e4 = l9 > 1 ? void 0 : l9 ? u(n4, t6) : n4, i7 = d8.length - 1, s3; i7 >= 0; i7--)
-      (s3 = d8[i7]) && (e4 = (l9 ? s3(n4, t6, e4) : s3(e4)) || e4);
-    return l9 && e4 && v2(n4, t6, e4), e4;
+  var r3 = (d7, n3, t5, l8) => {
+    for (var e4 = l8 > 1 ? void 0 : l8 ? u(n3, t5) : n3, i6 = d7.length - 1, s3; i6 >= 0; i6--)
+      (s3 = d7[i6]) && (e4 = (l8 ? s3(n3, t5, e4) : s3(e4)) || e4);
+    return l8 && e4 && v2(n3, t5, e4), e4;
   };
   var p = `:host {
   cursor: var(--pap-button-cursor, pointer);
@@ -3107,8 +3107,8 @@ span.content {
           this.formelement || (this.formelement = this.shadow_closest("form"));
         }, 100) : this.formelement = void 0;
       };
-      this.handlekeyup = (t6) => {
-        (t6.key || t6.code).toLowerCase() === "enter" && this.hasFocus && this.dispatchEvent(new Event("click"));
+      this.handlekeyup = (t5) => {
+        (t5.key || t5.code).toLowerCase() === "enter" && this.hasFocus && this.dispatchEvent(new Event("click"));
       };
       this.handleclick = () => {
         this.href ? window.location.href = this.href : this.formelement && (this.type === "submit" ? this.formelement.requestSubmit() : this.type === "reset" && this.formelement.reset());
@@ -3187,10 +3187,10 @@ span.content {
   // ../../atoms/icon/dist/register.bundle.mjs
   var p2 = Object.defineProperty;
   var u2 = Object.getOwnPropertyDescriptor;
-  var n = (c6, a5, t6, s3) => {
-    for (var e4 = s3 > 1 ? void 0 : s3 ? u2(a5, t6) : a5, i7 = c6.length - 1, r9; i7 >= 0; i7--)
-      (r9 = c6[i7]) && (e4 = (s3 ? r9(a5, t6, e4) : r9(e4)) || e4);
-    return s3 && e4 && p2(a5, t6, e4), e4;
+  var n = (c6, a4, t5, s3) => {
+    for (var e4 = s3 > 1 ? void 0 : s3 ? u2(a4, t5) : a4, i6 = c6.length - 1, r9; i6 >= 0; i6--)
+      (r9 = c6[i6]) && (e4 = (s3 ? r9(a4, t5, e4) : r9(e4)) || e4);
+    return s3 && e4 && p2(a4, t5, e4), e4;
   };
   var d3 = `:host {
   display: inline-flex;
@@ -3249,24 +3249,24 @@ svg {
     }
     firstUpdate() {
       if (this.shadowRoot) {
-        let t6 = this.shadowRoot.querySelector("svg");
-        if (t6 === null)
+        let t5 = this.shadowRoot.querySelector("svg");
+        if (t5 === null)
           throw new Error("Could not find svg element");
-        this.svgElement = t6, this.content && this.setSVG();
+        this.svgElement = t5, this.content && this.setSVG();
       }
     }
     async updateName() {
-      let t6 = `${this.name}.svg`;
+      let t5 = `${this.name}.svg`;
       try {
-        let s3 = await this.loadAsset(t6);
+        let s3 = await this.loadAsset(t5);
         if (s3) {
-          let e4, i7 = "0 96 960 960";
+          let e4, i6 = "0 96 960 960";
           if (typeof s3 == "string")
             e4 = s3;
           else {
             e4 = await s3.text();
             let [r9, m8] = this.extractSvgContent(e4);
-            m8 && (i7 = m8), r9 && (e4 = `SVG:${i7}##${r9.trim()}`, this.cacheData(t6, e4));
+            m8 && (i6 = m8), r9 && (e4 = `SVG:${i6}##${r9.trim()}`, this.cacheData(t5, e4));
           }
           e4.startsWith("SVG:") ? (this.setAttribute("data-hide-slot", "true"), this.content = e4, this.getAttribute("show") && console.log(e4), this.setSVG()) : this.setAttribute("data-hide-slot", "false");
         } else
@@ -3284,16 +3284,16 @@ svg {
     updateCustomSize() {
       this.customSize !== void 0 && this.style.setProperty("--icon-custom-size", this.customSize + "px");
     }
-    extractSvgContent(t6) {
-      let i7 = new DOMParser().parseFromString(t6, "image/svg+xml").querySelector("svg");
-      return i7 ? [i7.innerHTML, i7.getAttribute("viewBox")] : ["", ""];
+    extractSvgContent(t5) {
+      let i6 = new DOMParser().parseFromString(t5, "image/svg+xml").querySelector("svg");
+      return i6 ? [i6.innerHTML, i6.getAttribute("viewBox")] : ["", ""];
     }
     setSVG() {
       if (this.svgElement) {
-        let t6 = /SVG:(.*)##/.exec(this.content);
-        if (t6) {
-          let s3 = this.content.split(t6[1])[1];
-          this.svgElement.setAttribute("viewBox", t6[1]), this.getAttribute("show") && console.log(this.content, t6, s3), this.svgElement.innerHTML = s3;
+        let t5 = /SVG:(.*)##/.exec(this.content);
+        if (t5) {
+          let s3 = this.content.split(t5[1])[1];
+          this.svgElement.setAttribute("viewBox", t5[1]), this.getAttribute("show") && console.log(this.content, t5, s3), this.svgElement.innerHTML = s3;
         }
       }
     }
@@ -3358,10 +3358,10 @@ svg {
   // ../box/dist/register.bundle.mjs
   var x2 = Object.defineProperty;
   var h3 = Object.getOwnPropertyDescriptor;
-  var l2 = (s3, o6, t6, e4) => {
-    for (var r9 = e4 > 1 ? void 0 : e4 ? h3(o6, t6) : o6, i7 = s3.length - 1, n4; i7 >= 0; i7--)
-      (n4 = s3[i7]) && (r9 = (e4 ? n4(o6, t6, r9) : n4(r9)) || r9);
-    return e4 && r9 && x2(o6, t6, r9), r9;
+  var l2 = (s3, o5, t5, e4) => {
+    for (var r9 = e4 > 1 ? void 0 : e4 ? h3(o5, t5) : o5, i6 = s3.length - 1, n3; i6 >= 0; i6--)
+      (n3 = s3[i6]) && (r9 = (e4 ? n3(o5, t5, r9) : n3(r9)) || r9);
+    return e4 && r9 && x2(o5, t5, r9), r9;
   };
   var v3 = `:host([radius="none"]) {
   border-radius: var(--box-radius-none, var(--radius-none, 0px)); }
@@ -3420,53 +3420,43 @@ svg {
     throw new Error("Custom Elements not supported");
   p3.get("pap-box-template") || p3.define("pap-box-template", a);
 
-  // dist/src/style.js
-  var style8 = `:host([size="small"]) pap-box-template.wrapper {
-  height: var(--pap-field-height-small, var(--field-size-small, 32px)); }
-
-:host([size="small"]) footer,
-:host([size="small"]) header {
-  height: var(--pap-field-block-height-small, var(--field-size-small, 32px)); }
-
-:host([size="medium"]) pap-box-template.wrapper {
-  height: var(--pap-field-height-medium, var(--field-size-medium, 40px)); }
-
-:host([size="medium"]) footer,
-:host([size="medium"]) header {
-  height: var(--pap-field-block-height-medium, var(--field-size-small, 32px)); }
-
-:host([size="large"]) pap-box-template.wrapper {
-  height: var(--pap-field-height-large, var(--field-size-large, 56px)); }
-
-:host([size="large"]) footer,
-:host([size="large"]) header {
-  height: var(--pap-field-block-height-large, var(--field-size-small, 32px)); }
-
-:host {
-  --border: var(--pap-field-background-color-light, var(--pap-color-black, black));
-  --outline: var(--pap-field-background-color-light, rgb(90, 46, 250));
-  --color: var(--pap-field-text-color-light, var(--pap-color-black, black));
+  // ../field/dist/src/style.js
+  var style8 = `:host {
+  --border-color: var(--pap-color-border-secondary, #DADDE3);
+  --height: var(--field-size-medium, 40px);
+  --message-text: var(--pap-color-text, #29292F);
+  --message-icon: var(--pap-color-icon, #29292F);
   display: block;
-  color: var(--color); }
+  color: var(--pap-color-text, #29292F); }
   :host footer,
   :host header {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: space-between;
-    padding-inline: var(--padding-small, 8px); }
-  :host footer div {
+    padding-inline: var(--padding-small, 8px);
+    height: var(--height); }
+  :host footer div.message {
     display: none;
     align-items: center;
     gap: var(--gap-small, 8px); }
+    :host footer div.message pap-typography {
+      color: var(--message-text); }
+    :host footer div.message pap-icon {
+      color: var(--message-icon); }
   :host pap-box-template.wrapper {
     box-sizing: border-box;
     position: relative;
     display: flex;
     align-items: center;
     padding-inline: var(--padding-medium, 16px);
-    border: 1px solid var(--border); }
+    border: 1px solid var(--border-color);
+    height: var(--height); }
+    :host pap-box-template.wrapper:hover {
+      --border-color: var(--pap-color-border-strong, #29292F); }
     :host pap-box-template.wrapper ::slotted(*:not([slot])),
-    :host pap-box-template.wrapper input, :host pap-box-template.wrapper select, :host pap-box-template.wrapper textarea {
+    :host pap-box-template.wrapper input,
+    :host pap-box-template.wrapper select,
+    :host pap-box-template.wrapper textarea {
       color: inherit;
       font-family: var(--input-fontfamily, var(--typography-c3-fontfamily, "Libre Franklin", helvetica, sans-serif));
       font-size: var(--input-fontsize, var(--typography-c3-fontsize, 16px));
@@ -3485,35 +3475,53 @@ svg {
   :host:focus {
     outline: none; }
 
-:host([isWarning="true"]) footer div:not(.warning) {
-  display: none; }
+:host([size="small"]) {
+  --height: var(--field-size-small, 32px); }
 
-:host([isWarning="true"]) footer div.warning {
-  display: flex; }
+:host([size="medium"]) {
+  --height: var(--field-size-medium, 40px); }
 
-:host([isError="true"]) footer div:not(.error) {
-  display: none; }
+:host([size="large"]) {
+  --height: var(--field-size-large, 48px); }
 
-:host([isError="true"]) footer div.error {
-  display: flex; }
+:host([isSuccess="true"]) {
+  --border-color: var(--pap-color-border-success, #2E701B);
+  --message-text: var(--pap-color-text-success, #94E274);
+  --message-icon: var(--pap-color-icon-success, #94E274); }
+  :host([isSuccess="true"]) pap-box-template.wrapper:hover {
+    --border-color: var(--pap-color-border-success, #2E701B); }
+  :host([isSuccess="true"]) footer div.message {
+    display: flex; }
+
+:host([isWarning="true"]) {
+  --border-color: var(--pap-color-border-warning, #E27F00);
+  --message-text: var(--pap-color-text-warning, #FFA800);
+  --message-icon: var(--pap-color-icon-warning, #FFA800); }
+  :host([isWarning="true"]) pap-box-template.wrapper:hover {
+    --border-color: var(--pap-color-border-warning, #E27F00); }
+  :host([isWarning="true"]) footer div.message {
+    display: flex; }
+
+:host([isError="true"]) {
+  --border-color: var(--pap-color-border-danger, #B70E1E);
+  --message-text: var(--pap-color-text-danger, #FF9EA7);
+  --message-icon: var(--pap-color-icon-danger, #FF9EA7); }
+  :host([isError="true"]) pap-box-template.wrapper:hover {
+    --border-color: var(--pap-color-border-danger, #B70E1E); }
+  :host([isError="true"]) footer div.message {
+    display: flex; }
 
 :host([hasfocus="true"]),
 :host(:focus) {
   outline: none; }
   :host([hasfocus="true"]) pap-box-template.wrapper,
   :host(:focus) pap-box-template.wrapper {
-    outline: 1px solid var(--outline); }
+    outline: 1px solid var(--border-color); }`;
 
-@media (prefers-color-scheme: dark) {
-  :host {
-    --border: var(--pap-field-background-color-dark, var(--pap-color-black, white));
-    --outline: var(--pap-field-background-color-dark, rgb(195, 211, 255));
-    --color: var(--pap-field-text-color-dark, var(--pap-color-black, white)); } }`;
-
-  // dist/src/types.js
+  // ../field/dist/src/types.js
   var ValidationAttributes = ["min", "max", "pattern", "type", "minlenght", "maxlenght", "required", "multiple", "novalidate", "formnovalidate", "autofocus"];
 
-  // dist/src/component.js
+  // ../field/dist/src/component.js
   var FieldTemplate = class extends FormElementTemplate {
     assignHiddenElement() {
       if (!this.formElement)
@@ -3553,23 +3561,23 @@ svg {
             if (!validity[type])
               continue;
             if (this.customError && this.customError[type]) {
-              if (this.errorText) {
-                this.errorText.innerHTML = this.customError[type];
+              if (this.messageText) {
+                this.messageText.innerHTML = this.customError[type];
                 this.isWarning = false;
                 this.isError = true;
                 return;
               }
             } else if (this.customWarning && this.customWarning[type]) {
-              if (this.warningText) {
-                this.warningText.innerHTML = this.customWarning[type];
+              if (this.messageText) {
+                this.messageText.innerHTML = this.customWarning[type];
                 this.isWarning = true;
                 this.isError = false;
                 return;
               }
             } else {
               const auto_message = this.hiddenElement.validationMessage;
-              if (this.errorText) {
-                this.errorText.innerHTML = auto_message;
+              if (this.messageText) {
+                this.messageText.innerHTML = auto_message;
                 this.isWarning = false;
                 this.isError = true;
                 return;
@@ -3601,6 +3609,7 @@ svg {
       this.value = "";
       this.isError = false;
       this.isWarning = false;
+      this.isSuccess = false;
       this._suffix = "<span> </span>";
       this._prefix = "<span> </span>";
       this.attributequeue = [];
@@ -3753,14 +3762,11 @@ svg {
         <slot name="suffix">${this._suffix}</slot>
       </pap-box-template>
       <footer part="footer">
-        <div class="warning">
-          <pap-icon name="warning"></pap-icon>
-          <pap-typography>This is a placeholder for warning</pap-typography>
+        <div class="message">
+          <pap-icon name=${this.isError ? "error" : this.isWarning ? "warning" : this.isSuccess ? "success" : ""}></pap-icon>
+          <pap-typography>This is a placeholder for message</pap-typography>
         </div>
-        <div class="error">
-          <pap-icon name="error"></pap-icon>
-          <pap-typography>This is a placeholder for error</pap-typography>
-        </div>
+        <slot name="footer"></slot>
       </footer>
     `;
     }
@@ -3770,11 +3776,8 @@ svg {
     query(".counter")
   ], FieldTemplate.prototype, "counterElement", void 0);
   __decorate([
-    query(".error > pap-typography")
-  ], FieldTemplate.prototype, "errorText", void 0);
-  __decorate([
-    query(".warning > pap-typography")
-  ], FieldTemplate.prototype, "warningText", void 0);
+    query(".message > pap-typography")
+  ], FieldTemplate.prototype, "messageText", void 0);
   __decorate([
     property({ type: Object })
   ], FieldTemplate.prototype, "message", void 0);
@@ -3811,6 +3814,9 @@ svg {
   __decorate([
     property({ rerender: false, type: Boolean })
   ], FieldTemplate.prototype, "isWarning", void 0);
+  __decorate([
+    property({ rerender: false, type: Boolean })
+  ], FieldTemplate.prototype, "isSuccess", void 0);
   __decorate([
     property({ rerender: false, type: Number })
   ], FieldTemplate.prototype, "max", void 0);
@@ -3904,8 +3910,8 @@ svg {
   var e2 = class extends FieldTemplate {
     constructor() {
       super();
-      this.handlekeyup = (a5) => {
-        (a5.key || a5.code).toLowerCase() === "enter" && this.hasFocus && (this.value = (!this.checked).toString());
+      this.handlekeyup = (a4) => {
+        (a4.key || a4.code).toLowerCase() === "enter" && this.hasFocus && (this.value = (!this.checked).toString());
       };
       this.handleclick = () => {
         this.value = (!this.checked).toString();
@@ -3932,10 +3938,10 @@ svg {
   // ../../molecules/codeblock/dist/register.bundle.mjs
   var j = Object.defineProperty;
   var B = Object.getOwnPropertyDescriptor;
-  var m2 = (y6, u6, t6, e4) => {
-    for (var a5 = e4 > 1 ? void 0 : e4 ? B(u6, t6) : u6, s3 = y6.length - 1, o6; s3 >= 0; s3--)
-      (o6 = y6[s3]) && (a5 = (e4 ? o6(u6, t6, a5) : o6(a5)) || a5);
-    return e4 && a5 && j(u6, t6, a5), a5;
+  var m2 = (y5, u5, t5, e4) => {
+    for (var a4 = e4 > 1 ? void 0 : e4 ? B(u5, t5) : u5, s3 = y5.length - 1, o5; s3 >= 0; s3--)
+      (o5 = y5[s3]) && (a4 = (e4 ? o5(u5, t5, a4) : o5(a4)) || a4);
+    return e4 && a4 && j(u5, t5, a4), a4;
   };
   var $ = `:host {
   display: block;
@@ -4018,134 +4024,134 @@ svg {
           console.log("Copied to clipboard"), clearTimeout(this.timer), this.copytext.innerHTML = "Copied!", this.timer = setTimeout(() => {
             this.copytext.innerHTML = "Copy code";
           }, 2e3);
-        }, (t6) => {
-          console.error("Failed to copy text: ", t6);
+        }, (t5) => {
+          console.error("Failed to copy text: ", t5);
         });
       };
-      this.handletogglechange = (t6) => {
-        t6.target.checked ? (this.classList.remove("theme-light"), this.classList.add("theme-dark")) : (this.classList.add("theme-light"), this.classList.remove("theme-dark"));
+      this.handletogglechange = (t5) => {
+        t5.target.checked ? (this.classList.remove("theme-light"), this.classList.add("theme-dark")) : (this.classList.add("theme-light"), this.classList.remove("theme-dark"));
       };
-      this.handleslotchange = (t6) => {
-        if (t6.target instanceof HTMLSlotElement) {
+      this.handleslotchange = (t5) => {
+        if (t5.target instanceof HTMLSlotElement) {
           if (this.value)
             return;
-          let e4 = [], a5 = t6.target.assignedNodes();
-          for (let s3 of a5)
+          let e4 = [], a4 = t5.target.assignedNodes();
+          for (let s3 of a4)
             s3.nodeType === Node.TEXT_NODE ? s3.textContent && s3.textContent.trim() !== "" && e4.push(s3.textContent) : "originalHTML" in s3 ? e4.push(s3.originalHTML) : e4.push(s3.outerHTML);
           this.format(e4.join(`
 `));
         }
       };
     }
-    set indentationLevel(t6) {
-      this._indentationLevel = Math.max(0, t6);
+    set indentationLevel(t5) {
+      this._indentationLevel = Math.max(0, t5);
     }
     get indentationLevel() {
       return this._indentationLevel;
     }
-    FormatLine(t6, e4 = "") {
-      let a5 = this.formatHTML(t6, e4);
-      return a5 !== null ? a5 || null : this.formatCODE(t6, e4);
+    FormatLine(t5, e4 = "") {
+      let a4 = this.formatHTML(t5, e4);
+      return a4 !== null ? a4 || null : this.formatCODE(t5, e4);
     }
-    format(t6) {
-      if (this.value = t6, !this.main)
+    format(t5) {
+      if (this.value = t5, !this.main)
         return;
       let e4 = this.value.split(`
 `);
-      for (let a5 = 0; a5 < e4.length; a5++) {
-        let o6 = e4[a5].trim();
-        if (o6 === "" && (a5 === 0 || a5 === e4.length - 1))
+      for (let a4 = 0; a4 < e4.length; a4++) {
+        let o5 = e4[a4].trim();
+        if (o5 === "" && (a4 === 0 || a4 === e4.length - 1))
           continue;
-        let c6 = this.FormatLine(o6);
+        let c6 = this.FormatLine(o5);
         c6 !== null && this.appendLine(c6);
       }
     }
-    formatCODE(t6, e4) {
-      let a5 = t6, s3 = "\\b(def|print|async|await|this|export|switch|if|else|for|while|case|break|return|let|const|var|continue)\\b", o6 = `(["'])(?:\\\\.|[^\\\\])*?\\1`, c6 = "\\b(function)\\s+([a-zA-Z_$][0-9a-zA-Z_$]*)?\\s*\\(([^)]*)\\)", h8 = "\\b(class)\\s+([a-zA-Z_$][0-9a-zA-Z_$]*)\\s*(extends\\s+([a-zA-Z_$][0-9a-zA-Z_$]*))?\\s*(implements\\s+([a-zA-Z_$][0-9a-zA-Z_$]*))?", p8 = new RegExp(`${o6}|${c6}|${h8}|${s3}`, "g");
-      a5 = a5.replace(p8, (i7, d8, E4, g6, T3, M2, F, _, H, A2, C2) => {
-        if (d8)
-          return `<span class="string">${i7}</span>`;
+    formatCODE(t5, e4) {
+      let a4 = t5, s3 = "\\b(def|print|async|await|this|export|switch|if|else|for|while|case|break|return|let|const|var|continue)\\b", o5 = `(["'])(?:\\\\.|[^\\\\])*?\\1`, c6 = "\\b(function)\\s+([a-zA-Z_$][0-9a-zA-Z_$]*)?\\s*\\(([^)]*)\\)", h7 = "\\b(class)\\s+([a-zA-Z_$][0-9a-zA-Z_$]*)\\s*(extends\\s+([a-zA-Z_$][0-9a-zA-Z_$]*))?\\s*(implements\\s+([a-zA-Z_$][0-9a-zA-Z_$]*))?", p7 = new RegExp(`${o5}|${c6}|${h7}|${s3}`, "g");
+      a4 = a4.replace(p7, (i6, d7, E4, g5, T3, M2, F, _, H, A2, C2) => {
+        if (d7)
+          return `<span class="string">${i6}</span>`;
         if (E4) {
           this.lang !== "html" && this.setLanguage("javascript");
-          let L = g6 ? `<span class="function-name">${g6}</span>` : "", f6 = "";
-          return T3 && (f6 = T3.split(",").map((b4) => `<span class="function-arg">${b4.trim()}</span>`).join(", ")), `<span class="keyword function">function</span> ${L}(<span class="function-args">${f6}</span>)`;
+          let L = g5 ? `<span class="function-name">${g5}</span>` : "", f5 = "";
+          return T3 && (f5 = T3.split(",").map((b4) => `<span class="function-arg">${b4.trim()}</span>`).join(", ")), `<span class="keyword function">function</span> ${L}(<span class="function-args">${f5}</span>)`;
         }
         if (M2) {
           this.lang !== "html" && this.setLanguage("javascript");
-          let L = `<span class="class-name">${F}</span>`, f6 = _ ? `<span class="keyword extends"> extends</span> <span class="extends-class">${H}</span>` : "", b4 = A2 ? `<span class="keyword implements"> implements</span> <span class="implements-class">${C2}</span>` : "";
-          return `<span class="keyword class">class</span> ${L}${f6}${b4}`;
+          let L = `<span class="class-name">${F}</span>`, f5 = _ ? `<span class="keyword extends"> extends</span> <span class="extends-class">${H}</span>` : "", b4 = A2 ? `<span class="keyword implements"> implements</span> <span class="implements-class">${C2}</span>` : "";
+          return `<span class="keyword class">class</span> ${L}${f5}${b4}`;
         }
-        return this.lang !== "html" && this.setLanguage("javascript"), `<span class="keyword ${i7}">${i7}</span>`;
+        return this.lang !== "html" && this.setLanguage("javascript"), `<span class="keyword ${i6}">${i6}</span>`;
       });
-      let n4 = 0;
-      for (let i7 of S)
-        a5.endsWith(i7) && (this.stack.push(i7), n4++);
-      let r9 = a5.match(new RegExp(`^(${Z.map((i7) => "\\" + i7).join("|")})+`));
+      let n3 = 0;
+      for (let i6 of S)
+        a4.endsWith(i6) && (this.stack.push(i6), n3++);
+      let r9 = a4.match(new RegExp(`^(${Z.map((i6) => "\\" + i6).join("|")})+`));
       if (r9) {
-        let i7 = r9[0].length;
-        for (let d8 = 0; d8 < i7; d8++)
+        let i6 = r9[0].length;
+        for (let d7 = 0; d7 < i6; d7++)
           this.stack.length > 0 && (this.stack.pop(), this.indentationLevel = Math.max(0, this.indentationLevel - 1));
       }
-      return n4 === 0 ? e4 + a5 : (this.appendLine(e4 + a5), this.indentationLevel += n4, null);
+      return n3 === 0 ? e4 + a4 : (this.appendLine(e4 + a4), this.indentationLevel += n3, null);
     }
-    formatHTML(t6, e4) {
-      let a5 = /([^<]*)(<[^>]*>?)/, s3 = t6.match(a5);
+    formatHTML(t5, e4) {
+      let a4 = /([^<]*)(<[^>]*>?)/, s3 = t5.match(a4);
       if (!s3)
         return null;
       ["javascript", "jsx"].includes(this.language) ? this.setLanguage("jsx") : this.setLanguage("html");
-      let o6 = s3[1] || null, c6 = s3[2], h8 = t6.split(s3[0])[1], p8 = t6.length > O, n4 = e4;
-      if (o6) {
+      let o5 = s3[1] || null, c6 = s3[2], h7 = t5.split(s3[0])[1], p7 = t5.length > O, n3 = e4;
+      if (o5) {
         if (["script", "style"].includes(this.peek())) {
-          let i7 = this.formatCODE(o6, e4);
-          i7 && (o6 = i7);
+          let i6 = this.formatCODE(o5, e4);
+          i6 && (o5 = i6);
         }
-        n4 += o6, p8 && n4 && (this.appendLine(n4), n4 = "");
+        n3 += o5, p7 && n3 && (this.appendLine(n3), n3 = "");
       }
-      let r9 = this.formatHtmlTag(c6, p8, h8);
-      if (r9 && (n4 ? n4 += r9 : n4 = r9), p8 && n4 && (console.warn("[codeblock] multiline but we see content!"), this.appendLine(n4), n4 = ""), h8) {
-        let i7 = this.FormatLine(h8, e4);
-        i7 && (p8 ? this.appendLine(i7) : n4 += i7);
+      let r9 = this.formatHtmlTag(c6, p7, h7);
+      if (r9 && (n3 ? n3 += r9 : n3 = r9), p7 && n3 && (console.warn("[codeblock] multiline but we see content!"), this.appendLine(n3), n3 = ""), h7) {
+        let i6 = this.FormatLine(h7, e4);
+        i6 && (p7 ? this.appendLine(i6) : n3 += i6);
       }
-      return n4;
+      return n3;
     }
-    formatHtmlTag(t6, e4 = false, a5) {
-      let s3 = t6.match(/<\/([\w-]+)>/);
+    formatHtmlTag(t5, e4 = false, a4) {
+      let s3 = t5.match(/<\/([\w-]+)>/);
       if (s3) {
         let r9 = s3[1];
         this.peek() === r9 && (this.stack.pop(), this.indentationLevel--);
-        let i7 = `<span class="html-tag">&lt;/</span><span class="html-tag-name">${r9}</span><span class="html-tag">&gt;</span>`;
+        let i6 = `<span class="html-tag">&lt;/</span><span class="html-tag-name">${r9}</span><span class="html-tag">&gt;</span>`;
         if (e4)
-          this.appendLine(i7);
+          this.appendLine(i6);
         else
-          return i7;
+          return i6;
       }
-      let o6 = t6.match(/<([\w-]+)([^>]*)/);
-      if (!o6)
+      let o5 = t5.match(/<([\w-]+)([^>]*)/);
+      if (!o5)
         return console.error("[codeblock] html but no html error"), null;
-      let c6 = o6[1], h8 = o6[2] ? o6[2].trim().split(/\s/) : [], p8 = e4 || h8.length > N, n4 = `<span class="html-tag">&lt;</span><span class="html-tag-name">${c6}</span>`;
-      p8 && (this.stack.push(c6), this.appendLine(n4), n4 = "", this.indentationLevel++);
-      for (let r9 of h8) {
-        let [i7, d8] = r9.split("="), g6 = `<span class="html-attribute ${p8 ? "indent" : ""}"><span class="html-attribute-name">${i7}</span>`;
-        d8 && (g6 += `=<span class="html-attribute-value">${d8}</span>`), g6 += "</span>", p8 ? this.appendLine(g6) : n4 += g6;
+      let c6 = o5[1], h7 = o5[2] ? o5[2].trim().split(/\s/) : [], p7 = e4 || h7.length > N, n3 = `<span class="html-tag">&lt;</span><span class="html-tag-name">${c6}</span>`;
+      p7 && (this.stack.push(c6), this.appendLine(n3), n3 = "", this.indentationLevel++);
+      for (let r9 of h7) {
+        let [i6, d7] = r9.split("="), g5 = `<span class="html-attribute ${p7 ? "indent" : ""}"><span class="html-attribute-name">${i6}</span>`;
+        d7 && (g5 += `=<span class="html-attribute-value">${d7}</span>`), g5 += "</span>", p7 ? this.appendLine(g5) : n3 += g5;
       }
-      if (!t6.endsWith("/>") && t6.endsWith(">")) {
+      if (!t5.endsWith("/>") && t5.endsWith(">")) {
         let r9 = '<span class="html-tag">&gt;</span>';
-        if (p8)
+        if (p7)
           return this.indentationLevel--, this.appendLine(r9), this.indentationLevel++, null;
-        if (p8 || !a5)
-          return this.stack.push(c6), this.appendLine(n4 + r9), this.indentationLevel++, null;
-        n4 += r9;
+        if (p7 || !a4)
+          return this.stack.push(c6), this.appendLine(n3 + r9), this.indentationLevel++, null;
+        n3 += r9;
       }
-      return n4;
+      return n3;
     }
-    appendLine(t6) {
+    appendLine(t5) {
       if (this.main) {
         let e4 = document.createElement("div");
-        e4.className = "line", e4.style.paddingLeft = `calc(${this.indentationLevel} * var(--padding-medium, 16px))`, e4.innerHTML = t6, this.main.appendChild(e4);
+        e4.className = "line", e4.style.paddingLeft = `calc(${this.indentationLevel} * var(--padding-medium, 16px))`, e4.innerHTML = t5, this.main.appendChild(e4);
       }
     }
-    setLanguage(t6) {
-      t6 !== this.language && (this.lang && t6 !== this.lang || (this.language = t6, this.languageElement && (this.languageElement.innerHTML = this.language)));
+    setLanguage(t5) {
+      t5 !== this.language && (this.lang && t5 !== this.lang || (this.language = t5, this.languageElement && (this.languageElement.innerHTML = this.language)));
     }
     peek() {
       return this.stack[this.stack.length - 1];
@@ -4195,10 +4201,10 @@ svg {
   // ../../organisms/markdown/dist/register.bundle.mjs
   var g3 = Object.defineProperty;
   var f2 = Object.getOwnPropertyDescriptor;
-  var p4 = (h8, n4, o6, r9) => {
-    for (var t6 = r9 > 1 ? void 0 : r9 ? f2(n4, o6) : n4, l9 = h8.length - 1, a5; l9 >= 0; l9--)
-      (a5 = h8[l9]) && (t6 = (r9 ? a5(n4, o6, t6) : a5(t6)) || t6);
-    return r9 && t6 && g3(n4, o6, t6), t6;
+  var p4 = (h7, n3, o5, r9) => {
+    for (var t5 = r9 > 1 ? void 0 : r9 ? f2(n3, o5) : n3, l8 = h7.length - 1, a4; l8 >= 0; l8--)
+      (a4 = h7[l8]) && (t5 = (r9 ? a4(n3, o5, t5) : a4(t5)) || t5);
+    return r9 && t5 && g3(n3, o5, t5), t5;
   };
   var m3 = `:host {
   --background: var(--pap-markdown-background, var(--pap-color-bg, #FFFFFF));
@@ -4293,90 +4299,90 @@ div.blockquote {
     }
     async updateFILE() {
       try {
-        let o6 = this.url ? this.url : this.file;
-        if (!o6)
+        let o5 = this.url ? this.url : this.file;
+        if (!o5)
           throw new Error("must have a target");
-        let r9 = await this.loadAsset(o6, !!this.url);
+        let r9 = await this.loadAsset(o5, !!this.url);
         if (!r9)
           throw new Error("something went wrong");
         if (typeof r9 == "string")
           return this.markdown(r9);
-        let t6 = await r9.text();
-        this.markdown(t6);
-      } catch (o6) {
+        let t5 = await r9.text();
+        this.markdown(t5);
+      } catch (o5) {
         console.error("failed to load markdown file");
       }
     }
-    markdown(o6) {
-      let r9 = o6.split(`
-`), t6 = [], l9 = null;
-      for (let a5 = 0; a5 < r9.length; a5++) {
-        let e4 = r9[a5], s3 = this.block(r9, a5);
+    markdown(o5) {
+      let r9 = o5.split(`
+`), t5 = [], l8 = null;
+      for (let a4 = 0; a4 < r9.length; a4++) {
+        let e4 = r9[a4], s3 = this.block(r9, a4);
         if (s3) {
-          l9 && (t6.push(`</${l9}>`), l9 = null), t6 = t6.concat(s3[0]), a5 = s3[1];
+          l8 && (t5.push(`</${l8}>`), l8 = null), t5 = t5.concat(s3[0]), a4 = s3[1];
           continue;
         }
-        e4.startsWith(">") ? (l9 === "p" ? (t6.push("</p>"), l9 = null) : l9 === null && (t6.push('<div class="blockquote">'), l9 = "div"), e4 = e4.slice(1).trim()) : e4 !== "" && l9 === null && (t6.push("<p>"), l9 = "p"), e4 === "" ? l9 && (t6.push(`</${l9}>`), l9 = null) : t6.push(this.generalLine(e4) + " ");
+        e4.startsWith(">") ? (l8 === "p" ? (t5.push("</p>"), l8 = null) : l8 === null && (t5.push('<div class="blockquote">'), l8 = "div"), e4 = e4.slice(1).trim()) : e4 !== "" && l8 === null && (t5.push("<p>"), l8 = "p"), e4 === "" ? l8 && (t5.push(`</${l8}>`), l8 = null) : t5.push(this.generalLine(e4) + " ");
       }
-      this.shadowRoot && (this.content = t6.join(""), this.requestUpdate());
+      this.shadowRoot && (this.content = t5.join(""), this.requestUpdate());
     }
     updateCodeBlocks() {
-      this.shadowRoot && this.shadowRoot.querySelectorAll("pap-codeblock").forEach((r9, t6) => r9.format(this.codeblocks[t6]));
+      this.shadowRoot && this.shadowRoot.querySelectorAll("pap-codeblock").forEach((r9, t5) => r9.format(this.codeblocks[t5]));
     }
-    block(o6, r9) {
-      let t6 = [];
-      if (o6[r9].startsWith("```")) {
-        if (o6[r9].length > 3 && o6[r9].endsWith("```"))
-          this.codeblocks.push(o6[r9].split("```")[1]), t6.push("<pap-codeblock themetoggle='false'></pap-codeblock>");
+    block(o5, r9) {
+      let t5 = [];
+      if (o5[r9].startsWith("```")) {
+        if (o5[r9].length > 3 && o5[r9].endsWith("```"))
+          this.codeblocks.push(o5[r9].split("```")[1]), t5.push("<pap-codeblock themetoggle='false'></pap-codeblock>");
         else {
-          let e4 = r9 + 1, s3 = o6[r9].split("```")[1].trim(), d8 = [];
-          for (; !o6[e4].startsWith("```"); )
-            d8.push(o6[e4]), e4++;
-          this.codeblocks.push(d8.join(`
-`)), t6.push(`<pap-codeblock themetoggle='false' lang="${s3}"></pap-codeblock>`), r9 = e4 + 1;
+          let e4 = r9 + 1, s3 = o5[r9].split("```")[1].trim(), d7 = [];
+          for (; !o5[e4].startsWith("```"); )
+            d7.push(o5[e4]), e4++;
+          this.codeblocks.push(d7.join(`
+`)), t5.push(`<pap-codeblock themetoggle='false' lang="${s3}"></pap-codeblock>`), r9 = e4 + 1;
         }
-        return [t6, r9];
+        return [t5, r9];
       }
-      if (o6[r9].startsWith("|")) {
-        let e4 = o6[r9].split("|").filter((d8) => d8 !== "").map((d8) => `<th>${this.generalLine(d8).trim()}</th>`);
-        t6.push(`<table cellspacing="0" cellpadding="5"><thead><tr>${e4.join("")}</tr></thead><tbody>`);
+      if (o5[r9].startsWith("|")) {
+        let e4 = o5[r9].split("|").filter((d7) => d7 !== "").map((d7) => `<th>${this.generalLine(d7).trim()}</th>`);
+        t5.push(`<table cellspacing="0" cellpadding="5"><thead><tr>${e4.join("")}</tr></thead><tbody>`);
         let s3 = r9 + 2;
-        for (; o6[s3].startsWith("|"); ) {
-          let d8 = o6[s3].split("|").filter((i7) => i7 !== "").map((i7) => `<td>${this.generalLine(i7).trim()}</td>`);
-          t6.push(`<tr>${d8.join("")}</tr>`), s3++;
+        for (; o5[s3].startsWith("|"); ) {
+          let d7 = o5[s3].split("|").filter((i6) => i6 !== "").map((i6) => `<td>${this.generalLine(i6).trim()}</td>`);
+          t5.push(`<tr>${d7.join("")}</tr>`), s3++;
         }
-        return t6.push("</tbody></table>"), r9 = s3 - 1, [t6, r9];
+        return t5.push("</tbody></table>"), r9 = s3 - 1, [t5, r9];
       }
-      let l9 = o6[r9].match(/^(#*)\s(\w*)/);
-      if (l9) {
-        let [e4, s3, d8] = l9, i7 = s3.length;
-        return t6.push(`<h${i7}>${this.generalLine(d8)}</h${i7}>`), [t6, r9];
+      let l8 = o5[r9].match(/^(#*)\s(\w*)/);
+      if (l8) {
+        let [e4, s3, d7] = l8, i6 = s3.length;
+        return t5.push(`<h${i6}>${this.generalLine(d7)}</h${i6}>`), [t5, r9];
       }
-      let a5 = o6[r9].match(/^(-|\d\.)\s/);
-      if (a5) {
-        a5[1] === "-" ? t6.push("<ul>") : t6.push("<ol>");
+      let a4 = o5[r9].match(/^(-|\d\.)\s/);
+      if (a4) {
+        a4[1] === "-" ? t5.push("<ul>") : t5.push("<ol>");
         let e4 = r9, s3;
-        for (; s3 = o6[e4].match(/^(-|\d*\.)\s/); )
-          t6.push(`<li>${this.generalLine(o6[e4].slice(s3[1].length + 1))}</li>`), e4++;
-        return a5[1] === "-" ? t6.push("</ul>") : t6.push("</ol>"), r9 = e4 - 1, [t6, r9];
+        for (; s3 = o5[e4].match(/^(-|\d*\.)\s/); )
+          t5.push(`<li>${this.generalLine(o5[e4].slice(s3[1].length + 1))}</li>`), e4++;
+        return a4[1] === "-" ? t5.push("</ul>") : t5.push("</ol>"), r9 = e4 - 1, [t5, r9];
       }
       return null;
     }
-    generalLine(o6) {
-      let r9 = o6, t6 = o6.match(/\[(\w*)\]\(([\w:\/\.]*)\)/g);
-      if (t6)
-        for (let a5 of t6) {
-          let e4 = o6.match(/\[(\w*)\]\(([\w:\/\.]*)\)/);
+    generalLine(o5) {
+      let r9 = o5, t5 = o5.match(/\[(\w*)\]\(([\w:\/\.]*)\)/g);
+      if (t5)
+        for (let a4 of t5) {
+          let e4 = o5.match(/\[(\w*)\]\(([\w:\/\.]*)\)/);
           if (e4) {
-            let [s3, d8, i7] = e4;
-            r9 = o6.replace(a5, `<a href="${i7}">${d8}</a>`);
+            let [s3, d7, i6] = e4;
+            r9 = o5.replace(a4, `<a href="${i6}">${d7}</a>`);
           }
         }
-      let l9 = o6.match(/[^`]`([^`]+)`/g);
-      if (l9)
-        for (let a5 of l9) {
-          let e4 = a5.replace(/\`/g, "").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-          r9 = o6.replace(a5, `<code>${e4}</code>`);
+      let l8 = o5.match(/[^`]`([^`]+)`/g);
+      if (l8)
+        for (let a4 of l8) {
+          let e4 = a4.replace(/\`/g, "").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+          r9 = o5.replace(a4, `<code>${e4}</code>`);
         }
       return r9;
     }
@@ -4393,10 +4399,10 @@ div.blockquote {
   // ../../atoms/divider/dist/register.bundle.mjs
   var s = Object.defineProperty;
   var h4 = Object.getOwnPropertyDescriptor;
-  var l4 = (i7, r9, a5, o6) => {
-    for (var e4 = o6 > 1 ? void 0 : o6 ? h4(r9, a5) : r9, d8 = i7.length - 1, n4; d8 >= 0; d8--)
-      (n4 = i7[d8]) && (e4 = (o6 ? n4(r9, a5, e4) : n4(e4)) || e4);
-    return o6 && e4 && s(r9, a5, e4), e4;
+  var l4 = (i6, r9, a4, o5) => {
+    for (var e4 = o5 > 1 ? void 0 : o5 ? h4(r9, a4) : r9, d7 = i6.length - 1, n3; d7 >= 0; d7--)
+      (n3 = i6[d7]) && (e4 = (o5 ? n3(r9, a4, e4) : n3(e4)) || e4);
+    return o5 && e4 && s(r9, a4, e4), e4;
   };
   var p5 = `:host div {
   background-color: var(--pap-divider-color, var(--pap-color-border, #C7CBD4));
@@ -4485,29 +4491,29 @@ div.blockquote {
   padding: auto; }`;
   var r4 = "pap-translation-change";
   var T = "pap-translation-added";
-  function m5(n4) {
-    if (!n4.translations || typeof n4.translations != "object")
+  function m5(n3) {
+    if (!n3.translations || typeof n3.translations != "object")
       throw new Error("you have to load a translation-data object<string,string>");
-    window.oTranslation.map.set(n4.id, n4), window.oTranslation.change(n4.id), window.dispatchEvent(new Event(T));
+    window.oTranslation.map.set(n3.id, n3), window.oTranslation.change(n3.id), window.dispatchEvent(new Event(T));
   }
-  function f3(n4) {
-    let e4 = window.oTranslation.map.get(n4);
+  function f3(n3) {
+    let e4 = window.oTranslation.map.get(n3);
     if (!e4)
-      throw new Error(`[error] translator-load-all: Could not find language set based on lang provided - ${n4}`);
+      throw new Error(`[error] translator-load-all: Could not find language set based on lang provided - ${n3}`);
     window.oTranslation.current = e4, window.dispatchEvent(new Event(r4));
   }
-  function b2(n4) {
+  function b2(n3) {
     try {
-      n4.forEach((e4) => window.oTranslation.map.set(e4.id, e4)), window.dispatchEvent(new Event(T));
+      n3.forEach((e4) => window.oTranslation.map.set(e4.id, e4)), window.dispatchEvent(new Event(T));
     } catch (e4) {
       console.error("[error] translator-load-all", e4);
     }
   }
-  function E2(n4) {
-    window.addEventListener(r4, n4);
+  function E2(n3) {
+    window.addEventListener(r4, n3);
   }
-  function y3(n4) {
-    window.removeEventListener(r4, n4);
+  function y3(n3) {
+    window.removeEventListener(r4, n3);
   }
   function g4() {
     window.oTranslation = window.oTranslation || {}, window.oTranslation.load = window.oTranslation.load || m5, window.oTranslation.change = window.oTranslation.change || f3, window.oTranslation.loadAll = window.oTranslation.loadAll || b2, window.oTranslation.subscribe = window.oTranslation.subscribe || E2, window.oTranslation.unsubscribe = window.oTranslation.unsubscribe || y3, window.oTranslation.current = window.oTranslation.current || {}, window.oTranslation.map = window.oTranslation.map || /* @__PURE__ */ new Map();
@@ -4517,22 +4523,22 @@ div.blockquote {
       super(...arguments);
       this.dynamicAttributes = /* @__PURE__ */ new Set();
       this.noupdate = false;
-      this.handletranslateslotchange = (t6) => {
-        if (t6.target instanceof HTMLSlotElement) {
-          let o6 = ExtractSlotValue(t6.target).join(" ");
-          this.Key = o6;
+      this.handletranslateslotchange = (t5) => {
+        if (t5.target instanceof HTMLSlotElement) {
+          let o5 = ExtractSlotValue(t5.target).join(" ");
+          this.Key = o5;
         }
       };
       this.updateText = () => {
-        var d8, c6, p8;
-        let t6 = ((p8 = (c6 = (d8 = window.oTranslation) == null ? void 0 : d8.current) == null ? void 0 : c6.translations) == null ? void 0 : p8[this.key]) || this.key;
-        if (t6 === void 0 && this.key === void 0)
+        var d7, c6, p7;
+        let t5 = ((p7 = (c6 = (d7 = window.oTranslation) == null ? void 0 : d7.current) == null ? void 0 : c6.translations) == null ? void 0 : p7[this.key]) || this.key;
+        if (t5 === void 0 && this.key === void 0)
           return;
-        let o6 = /{([^{}]+)}/g, i7 = t6.match(o6);
-        i7 && i7.forEach((w) => {
-          let s3 = w.slice(1, -1), u6 = this.getAttribute(s3);
-          u6 && (t6 = t6.replace(w, u6), this.dynamicAttributes.has(s3) || this.dynamicAttributes.add(s3));
-        }), this.text = t6, this.spanElement ? this.spanElement.innerText = t6 : this.noupdate || this.debouncedRequestUpdate(), this.noupdate = false;
+        let o5 = /{([^{}]+)}/g, i6 = t5.match(o5);
+        i6 && i6.forEach((w) => {
+          let s3 = w.slice(1, -1), u5 = this.getAttribute(s3);
+          u5 && (t5 = t5.replace(w, u5), this.dynamicAttributes.has(s3) || this.dynamicAttributes.add(s3));
+        }), this.text = t5, this.spanElement ? this.spanElement.innerText = t5 : this.noupdate || this.debouncedRequestUpdate(), this.noupdate = false;
       };
     }
     get Text() {
@@ -4541,28 +4547,28 @@ div.blockquote {
     get Key() {
       return this.key;
     }
-    set Key(t6) {
-      typeof t6 == "string" ? this.key = t6 : this.key = "", this.updateText();
+    set Key(t5) {
+      typeof t5 == "string" ? this.key = t5 : this.key = "", this.updateText();
     }
     connectedCallback() {
-      var t6;
-      super.connectedCallback(), g4(), (t6 = window.oTranslation) == null || t6.subscribe(this.updateText);
+      var t5;
+      super.connectedCallback(), g4(), (t5 = window.oTranslation) == null || t5.subscribe(this.updateText);
     }
     disconnectedCallback() {
-      var t6;
-      super.disconnectedCallback(), (t6 = window.oTranslation) == null || t6.unsubscribe(this.updateText);
+      var t5;
+      super.disconnectedCallback(), (t5 = window.oTranslation) == null || t5.unsubscribe(this.updateText);
     }
-    attributeChangedCallback(t6, o6, i7) {
-      this.dynamicAttributes.has(t6) && this.updateText();
+    attributeChangedCallback(t5, o5, i6) {
+      this.dynamicAttributes.has(t5) && this.updateText();
     }
     firstUpdate() {
       if (this.shadowRoot) {
-        let t6 = this.shadowRoot.querySelector("span.pap-translation-span");
-        t6 && (this.spanElement = t6);
+        let t5 = this.shadowRoot.querySelector("span.pap-translation-span");
+        t5 && (this.spanElement = t5);
       }
     }
-    translateKey(t6) {
-      return this.key !== t6 && (this.noupdate = true, this.Key = t6), this.text;
+    translateKey(t5) {
+      return this.key !== t5 && (this.noupdate = true, this.Key = t5), this.text;
     }
     render() {
       return html`
@@ -4580,10 +4586,10 @@ div.blockquote {
   // ../../atoms/menu/dist/register.bundle.mjs
   var f4 = Object.defineProperty;
   var v4 = Object.getOwnPropertyDescriptor;
-  var n2 = (p8, i7, t6, o6) => {
-    for (var e4 = o6 > 1 ? void 0 : o6 ? v4(i7, t6) : i7, c6 = p8.length - 1, m8; c6 >= 0; c6--)
-      (m8 = p8[c6]) && (e4 = (o6 ? m8(i7, t6, e4) : m8(e4)) || e4);
-    return o6 && e4 && f4(i7, t6, e4), e4;
+  var n2 = (p7, i6, t5, o5) => {
+    for (var e4 = o5 > 1 ? void 0 : o5 ? v4(i6, t5) : i6, c6 = p7.length - 1, m8; c6 >= 0; c6--)
+      (m8 = p7[c6]) && (e4 = (o5 ? m8(i6, t5, e4) : m8(e4)) || e4);
+    return o5 && e4 && f4(i6, t5, e4), e4;
   };
   var u3 = `:host div {
   display: flex;
@@ -4606,10 +4612,10 @@ div.blockquote {
       this.handleclick = () => {
         this.checked = true, this.dispatchEvent(new Event("select"));
       };
-      this.handleslotchange = (t6) => {
-        if (t6.target instanceof HTMLSlotElement) {
-          let o6 = ExtractSlotValue(t6.target);
-          this.slottext = o6.join(" ");
+      this.handleslotchange = (t5) => {
+        if (t5.target instanceof HTMLSlotElement) {
+          let o5 = ExtractSlotValue(t5.target);
+          this.slottext = o5.join(" ");
         }
       };
       this.addEventListener("click", this.handleclick);
@@ -4663,13 +4669,13 @@ div.blockquote {
       this.buttonColor = "secondary";
       this.buttonRadius = "medium";
       this.items = [];
-      this.handleslotchange = (t6) => {
-        t6.target instanceof HTMLSlotElement && t6.target.assignedElements().forEach((e4) => {
+      this.handleslotchange = (t5) => {
+        t5.target instanceof HTMLSlotElement && t5.target.assignedElements().forEach((e4) => {
           e4 instanceof r5 && (e4.hasAttribute("data-menu-init") || (e4.addEventListener("select", this.handleitemselected), e4.setAttribute("data-menu-init", "true"), this.items.push(e4)));
         });
       };
-      this.handleitemselected = (t6) => {
-        t6.target instanceof r5 && (this.current && t6.target !== this.current && (this.current.checked = false), this.current = t6.target, this.dispatchEvent(new Event("select")));
+      this.handleitemselected = (t5) => {
+        t5.target instanceof r5 && (this.current && t5.target !== this.current && (this.current.checked = false), this.current = t5.target, this.dispatchEvent(new Event("select")));
       };
       this.handlehide = () => {
         this.open = false;
@@ -4679,16 +4685,16 @@ div.blockquote {
       };
     }
     get value() {
-      var t6;
-      return ((t6 = this.current) == null ? void 0 : t6.getvalue()) || "";
+      var t5;
+      return ((t5 = this.current) == null ? void 0 : t5.getvalue()) || "";
     }
-    set value(t6) {
-      let o6 = this.items.find((e4) => e4.getvalue() === t6);
-      o6 && o6.click();
+    set value(t5) {
+      let o5 = this.items.find((e4) => e4.getvalue() === t5);
+      o5 && o5.click();
     }
     get text() {
-      var t6;
-      return (t6 = this.current) == null ? void 0 : t6.gettext();
+      var t5;
+      return (t5 = this.current) == null ? void 0 : t5.gettext();
     }
     render() {
       return html`
@@ -4868,10 +4874,10 @@ div.blockquote {
   // ../../atoms/badge/dist/register.bundle.mjs
   var c5 = Object.defineProperty;
   var d5 = Object.getOwnPropertyDescriptor;
-  var m6 = (p8, e4, a5, t6) => {
-    for (var o6 = t6 > 1 ? void 0 : t6 ? d5(e4, a5) : e4, l9 = p8.length - 1, n4; l9 >= 0; l9--)
-      (n4 = p8[l9]) && (o6 = (t6 ? n4(e4, a5, o6) : n4(o6)) || o6);
-    return t6 && o6 && c5(e4, a5, o6), o6;
+  var m6 = (p7, e4, a4, t5) => {
+    for (var o5 = t5 > 1 ? void 0 : t5 ? d5(e4, a4) : e4, l8 = p7.length - 1, n3; l8 >= 0; l8--)
+      (n3 = p7[l8]) && (o5 = (t5 ? n3(e4, a4, o5) : n3(o5)) || o5);
+    return t5 && o5 && c5(e4, a4, o5), o5;
   };
   var i4 = `:host pap-box-template {
   background-color: var(--pap-color-bg, #FFFFFF);
@@ -4910,10 +4916,10 @@ div.blockquote {
   // ../../molecules/header/dist/register.bundle.mjs
   var C = Object.defineProperty;
   var A = Object.getOwnPropertyDescriptor;
-  var r7 = (u6, s3, e4, a5) => {
-    for (var t6 = a5 > 1 ? void 0 : a5 ? A(s3, e4) : s3, i7 = u6.length - 1, n4; i7 >= 0; i7--)
-      (n4 = u6[i7]) && (t6 = (a5 ? n4(s3, e4, t6) : n4(t6)) || t6);
-    return a5 && t6 && C(s3, e4, t6), t6;
+  var r7 = (u5, s3, e4, a4) => {
+    for (var t5 = a4 > 1 ? void 0 : a4 ? A(s3, e4) : s3, i6 = u5.length - 1, n3; i6 >= 0; i6--)
+      (n3 = u5[i6]) && (t5 = (a4 ? n3(s3, e4, t5) : n3(t5)) || t5);
+    return a4 && t5 && C(s3, e4, t5), t5;
   };
   var E3 = `:host {
   display: inline-flex;
@@ -4957,17 +4963,17 @@ pap-toggle[checked="false"] pap-icon[name="dark-mode"] {
           return;
         } else
           this.menuElement.hasAttribute("hidden") && this.menuElement.removeAttribute("hidden");
-        let e4 = this.menuElement.querySelectorAll("pap-menu-item"), a5 = /* @__PURE__ */ new Set();
-        e4.forEach((t6) => {
-          window.oTheme.map.has(t6.value) ? a5.add(t6.value) : this.menuElement.removeChild(t6);
-        }), Array.from(window.oTheme.map).forEach(([t6, i7]) => {
-          if (!a5.has(t6)) {
-            let n4 = this.templateElement.content.cloneNode(true), p8 = n4.querySelector("pap-menu-item");
-            p8 && p8.setAttribute("value", t6);
-            let h8 = n4.querySelector("span");
-            h8 && (h8.style.backgroundColor = i7.representColor);
-            let c6 = n4.querySelector("pap-typography");
-            c6 && (c6.innerHTML = i7.name), this.menuElement.appendChild(n4);
+        let e4 = this.menuElement.querySelectorAll("pap-menu-item"), a4 = /* @__PURE__ */ new Set();
+        e4.forEach((t5) => {
+          window.oTheme.map.has(t5.value) ? a4.add(t5.value) : this.menuElement.removeChild(t5);
+        }), Array.from(window.oTheme.map).forEach(([t5, i6]) => {
+          if (!a4.has(t5)) {
+            let n3 = this.templateElement.content.cloneNode(true), p7 = n3.querySelector("pap-menu-item");
+            p7 && p7.setAttribute("value", t5);
+            let h7 = n3.querySelector("span");
+            h7 && (h7.style.backgroundColor = i6.representColor);
+            let c6 = n3.querySelector("pap-typography");
+            c6 && (c6.innerHTML = i6.name), this.menuElement.appendChild(n3);
           }
         });
       };
@@ -4978,12 +4984,12 @@ pap-toggle[checked="false"] pap-icon[name="dark-mode"] {
         }
       };
       this.handleselect = (e4) => {
-        let a5 = e4.target;
-        a5 && window.oTheme.current !== a5.value && window.oTheme.change(a5.value);
+        let a4 = e4.target;
+        a4 && window.oTheme.current !== a4.value && window.oTheme.change(a4.value);
       };
       this.handlechange = (e4) => {
-        let a5 = e4.target;
-        a5 && this.setlightdark(a5.checked ? "dark" : "light");
+        let a4 = e4.target;
+        a4 && this.setlightdark(a4.checked ? "dark" : "light");
       };
     }
     connectedCallback() {
@@ -5050,35 +5056,35 @@ span.wrapper {
       super();
       this.handlenewlanguage = () => {
         if (window.oTranslation) {
-          let e4 = this.menuElement.querySelectorAll("pap-menu-item"), a5 = Array.from(window.oTranslation.map), t6 = /* @__PURE__ */ new Set();
-          e4.forEach((i7) => {
-            let n4 = i7.value;
-            window.oTranslation.map.has(n4) ? t6.add(n4) : this.menuElement.removeChild(i7);
-          }), a5.forEach(([i7, n4]) => {
-            if (!t6.has(i7)) {
-              let p8 = this.templateElement.content.cloneNode(true), h8 = p8.querySelector("pap-menu-item");
-              h8 && h8.setAttribute("value", n4.id);
-              let c6 = p8.querySelector("pap-translator");
-              c6 && (c6.innerHTML = n4.name);
-              let w = p8.querySelector("span.flag > span");
-              w && (w.innerHTML = y4[n4.name]), this.menuElement.appendChild(p8);
+          let e4 = this.menuElement.querySelectorAll("pap-menu-item"), a4 = Array.from(window.oTranslation.map), t5 = /* @__PURE__ */ new Set();
+          e4.forEach((i6) => {
+            let n3 = i6.value;
+            window.oTranslation.map.has(n3) ? t5.add(n3) : this.menuElement.removeChild(i6);
+          }), a4.forEach(([i6, n3]) => {
+            if (!t5.has(i6)) {
+              let p7 = this.templateElement.content.cloneNode(true), h7 = p7.querySelector("pap-menu-item");
+              h7 && h7.setAttribute("value", n3.id);
+              let c6 = p7.querySelector("pap-translator");
+              c6 && (c6.innerHTML = n3.name);
+              let w = p7.querySelector("span.flag > span");
+              w && (w.innerHTML = y4[n3.name]), this.menuElement.appendChild(p7);
             }
           });
         }
       };
       this.handlelanguagechange = () => {
-        var e4, a5;
-        this.menuElement && ((e4 = window.oTranslation) != null && e4.current) && (this.displayElement && ((a5 = this.displayElement.parentElement) == null || a5.classList.remove("globe"), this.displayElement.innerHTML = y4[window.oTranslation.current.name]), this.menuElement.value !== window.oTranslation.current.id && (this.menuElement.value = window.oTranslation.current.id));
+        var e4, a4;
+        this.menuElement && ((e4 = window.oTranslation) != null && e4.current) && (this.displayElement && ((a4 = this.displayElement.parentElement) == null || a4.classList.remove("globe"), this.displayElement.innerHTML = y4[window.oTranslation.current.name]), this.menuElement.value !== window.oTranslation.current.id && (this.menuElement.value = window.oTranslation.current.id));
       };
       this.handlelanguageselect = (e4) => {
-        let a5 = e4.target;
-        a5 && this.displayElement && a5.value !== "init" && window.oTranslation.change(a5.value);
+        let a4 = e4.target;
+        a4 && this.displayElement && a4.value !== "init" && window.oTranslation.change(a4.value);
       };
       InitTranslations();
     }
     connectedCallback() {
-      var e4, a5;
-      super.connectedCallback(), window.addEventListener(TRANSLATION_ADDED, this.handlenewlanguage), window.addEventListener(TRANSLATION_CHANGE_EVENTNAME, this.handlelanguagechange), ((a5 = (e4 = window.oTranslation) == null ? void 0 : e4.map) == null ? void 0 : a5.size) > 0 && this.handlenewlanguage();
+      var e4, a4;
+      super.connectedCallback(), window.addEventListener(TRANSLATION_ADDED, this.handlenewlanguage), window.addEventListener(TRANSLATION_CHANGE_EVENTNAME, this.handlelanguagechange), ((a4 = (e4 = window.oTranslation) == null ? void 0 : e4.map) == null ? void 0 : a4.size) > 0 && this.handlenewlanguage();
     }
     disconnectedCallback() {
       super.disconnectedCallback(), window.removeEventListener(TRANSLATION_ADDED, this.handlenewlanguage);
@@ -5135,8 +5141,8 @@ img.avatar {
       };
     }
     render() {
-      var a5, t6, i7;
-      let e4 = ((a5 = this.user) == null ? void 0 : a5.avatar) || `public/images/avatar${Math.round(Math.random() * 4) + 1}.png`;
+      var a4, t5, i6;
+      let e4 = ((a4 = this.user) == null ? void 0 : a4.avatar) || `public/images/avatar${Math.round(Math.random() * 4) + 1}.png`;
       return html`
       <div class="prefix">
         <slot name="prefix"></slot>
@@ -5149,8 +5155,8 @@ img.avatar {
         <pap-language></pap-language>
 
         ${this.user ? html`<pap-menu placement="bottom-left" @select="${this.handleuserselect}">
-          <img class="avatar" slot="button-prefix" src="${e4}" alt="${((t6 = this.user) == null ? void 0 : t6.firstname) || "no-name"} profile picture" />
-          <pap-typography slot="button-content">${((i7 = this.user) == null ? void 0 : i7.firstname) || "no-name"}</pap-typography>
+          <img class="avatar" slot="button-prefix" src="${e4}" alt="${((t5 = this.user) == null ? void 0 : t5.firstname) || "no-name"} profile picture" />
+          <pap-typography slot="button-content">${((i6 = this.user) == null ? void 0 : i6.firstname) || "no-name"}</pap-typography>
 
           <pap-menu-item value="settings">
             <pap-typography><pap-translator>User Settings</pap-translator></pap-typography>
@@ -5174,10 +5180,10 @@ img.avatar {
   // ../../system/showcase/dist/register.bundle.mjs
   var b3 = Object.defineProperty;
   var u4 = Object.getOwnPropertyDescriptor;
-  var r8 = (s3, a5, l9, n4) => {
-    for (var o6 = n4 > 1 ? void 0 : n4 ? u4(a5, l9) : a5, m8 = s3.length - 1, d8; m8 >= 0; m8--)
-      (d8 = s3[m8]) && (o6 = (n4 ? d8(a5, l9, o6) : d8(o6)) || o6);
-    return n4 && o6 && b3(a5, l9, o6), o6;
+  var r8 = (s3, a4, l8, n3) => {
+    for (var o5 = n3 > 1 ? void 0 : n3 ? u4(a4, l8) : a4, m8 = s3.length - 1, d7; m8 >= 0; m8--)
+      (d7 = s3[m8]) && (o5 = (n3 ? d7(a4, l8, o5) : d7(o5)) || o5);
+    return n3 && o5 && b3(a4, l8, o5), o5;
   };
   var v5 = `:host {
   display: block; }
@@ -5332,70 +5338,15 @@ div {
   }
 
   // dist/register.bundle.mjs
-  var __defProp = Object.defineProperty;
-  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-  var __decorateClass = (decorators, target, key, kind) => {
-    var result = kind > 1 ? void 0 : kind ? __getOwnPropDesc(target, key) : target;
-    for (var i22 = decorators.length - 1, decorator; i22 >= 0; i22--)
-      if (decorator = decorators[i22])
-        result = (kind ? decorator(target, key, result) : decorator(result)) || result;
-    if (kind && result)
-      __defProp(target, key, result);
-    return result;
-  };
-  function query2(options) {
-    const selector = typeof options === "string" ? options : options.selector;
-    return function(target, propertyKey) {
-      const renderattemptsKey = propertyKey + "rerender_attempts_";
-      const timeoutattemptsKey = propertyKey + "timeout_attempts_";
-      const originalConnectedCallback = target.connectedCallback || function() {
-      };
-      target.connectedCallback = function() {
-        originalConnectedCallback.call(this);
-        initsearch.call(this);
-      };
-      function initsearch() {
-        if (!search.call(this)) {
-          rendersearch.call(this);
-        }
-      }
-      function rendersearch() {
-        let attempts = this[renderattemptsKey] || 0;
-        attempts++;
-        if (!search.call(this) && attempts < 5) {
-          this[timeoutattemptsKey] = 0;
-          this[renderattemptsKey] = attempts;
-          setTimeout(() => timeoutsearch.call(this), 100);
-          if (this.callAfterUpdate)
-            this.callAfterUpdate.push(() => rendersearch.call(this));
-        }
-      }
-      function timeoutsearch() {
-        let attempts = this[timeoutattemptsKey] || 0;
-        attempts++;
-        if (!search.call(this) && attempts < 3) {
-          this[timeoutattemptsKey] = attempts;
-          setTimeout(() => timeoutsearch.call(this), 100);
-        }
-      }
-      function search() {
-        if (this[propertyKey])
-          return true;
-        if (this.shadowRoot) {
-          const element = this.shadowRoot.querySelector(selector);
-          if (element) {
-            this[propertyKey] = element;
-            if (typeof options === "object" && options.onload) {
-              if (this[options.onload]) {
-                this[options.onload].call(this, element);
-              }
-            }
-            return true;
-          }
-        }
-        return false;
-      }
-    };
+  function __decorate2(decorators, target, key, desc) {
+    var c6 = arguments.length, r9 = c6 < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d7;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
+      r9 = Reflect.decorate(decorators, target, key, desc);
+    else
+      for (var i6 = decorators.length - 1; i6 >= 0; i6--)
+        if (d7 = decorators[i6])
+          r9 = (c6 < 3 ? d7(r9) : c6 > 3 ? d7(target, key, r9) : d7(target, key)) || r9;
+    return c6 > 3 && r9 && Object.defineProperty(target, key, r9), r9;
   }
   var DefaultOptions2 = {
     type: String,
@@ -5523,103 +5474,6 @@ div {
       return root.host;
     return null;
   }
-  function findComments2(element) {
-    let arr = [];
-    for (let i22 = 0; i22 < element.childNodes.length; i22++) {
-      let node = element.childNodes[i22];
-      if (node.nodeType === 8) {
-        arr.push(node);
-      } else {
-        arr.push.apply(arr, findComments2(node));
-      }
-    }
-    return arr;
-  }
-  function insertElement2(parent, comment, indexes, values) {
-    if (indexes === null)
-      return;
-    let target = values;
-    for (let i22 = 0; i22 < indexes.length; i22++) {
-      const index = Number(indexes[i22]);
-      target = target[index];
-    }
-    try {
-      parent.insertBefore(target, comment);
-    } catch (e4) {
-      console.error(e4);
-      console.log("what is going on here", parent);
-    }
-  }
-  function html2(strings, ...values) {
-    let result = "";
-    for (let i22 = 0; i22 < values.length; i22++) {
-      if (values[i22] instanceof Array) {
-        let arr = [];
-        for (let j2 = 0; j2 < values[i22].length; j2++) {
-          if (values[i22][j2] instanceof DocumentFragment) {
-            arr.push(`<!-- comment-node-${i22}.${j2} -->`);
-          }
-        }
-        if (arr.length > 0) {
-          result += strings[i22] + arr.join(" ");
-          continue;
-        }
-      }
-      if (values[i22] instanceof DocumentFragment) {
-        result += strings[i22] + `<!-- comment-node-${i22} -->`;
-        continue;
-      }
-      const trimmed = strings[i22].trim();
-      const match = trimmed.match(/.*\s(on|@)([\w-]*)=/);
-      if (match) {
-        const [_whole, eventtype, name] = match;
-        const split = trimmed.split(eventtype + name);
-        result += split[0] + ` @${name}="${i22}"`;
-      } else {
-        result += strings[i22] + values[i22];
-      }
-    }
-    result += strings[values.length];
-    const template = document.createElement("template");
-    template.innerHTML = result.trim();
-    const content = template.content;
-    findComments2(content).forEach((comment) => {
-      var _a;
-      const parent = comment.parentNode;
-      if (parent) {
-        const trimmedCommentName = (_a = comment.nodeValue) === null || _a === void 0 ? void 0 : _a.trim();
-        if (trimmedCommentName === null || trimmedCommentName === void 0 ? void 0 : trimmedCommentName.startsWith("comment-node")) {
-          if (comment.textContent) {
-            const indexes = comment.textContent.match(/\d+/g);
-            insertElement2(parent, comment, indexes, values);
-          }
-        }
-        parent.removeChild(comment);
-      }
-    });
-    content.querySelectorAll("*").forEach((element) => {
-      Array.from(element.attributes).forEach((attr) => {
-        if (attr.name.startsWith("@")) {
-          const eventName = attr.name.slice(1);
-          const indexValue = Number(element.getAttribute(attr.name));
-          element.removeAttribute(attr.name);
-          element.addEventListener(eventName, values[indexValue]);
-        }
-      });
-      element.removeAttribute('"');
-    });
-    return content;
-  }
-  function __decorate2(decorators, target, key, desc) {
-    var c6 = arguments.length, r9 = c6 < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d22;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function")
-      r9 = Reflect.decorate(decorators, target, key, desc);
-    else
-      for (var i22 = decorators.length - 1; i22 >= 0; i22--)
-        if (d22 = decorators[i22])
-          r9 = (c6 < 3 ? d22(r9) : c6 > 3 ? d22(target, key, r9) : d22(target, key)) || r9;
-    return c6 > 3 && r9 && Object.defineProperty(target, key, r9), r9;
-  }
   var BaseSystem2 = class extends HTMLElement {
     // class functions
     constructor() {
@@ -5657,7 +5511,7 @@ div {
         }
       });
       this.attributeObserver.observe(this, { attributes: true });
-      this._pendingOperations.forEach((o22) => o22());
+      this._pendingOperations.forEach((o5) => o5());
       this._pendingOperations = [];
     }
     disconnectedCallback() {
@@ -5766,8 +5620,8 @@ div {
         if (!shadowNode) {
           let shadowtarget = this.shadowRoot;
           let target = node;
-          for (let i22 = path.length - 1; i22 >= 0; i22--) {
-            const _shadownode = this.querySelector(path.slice(0, i22).join(" > "));
+          for (let i6 = path.length - 1; i6 >= 0; i6--) {
+            const _shadownode = this.querySelector(path.slice(0, i6).join(" > "));
             if (_shadownode) {
               shadowtarget = _shadownode;
               break;
@@ -5782,9 +5636,9 @@ div {
             console.log({ shadowtarget, node, target, path });
           }
         } else {
-          for (let i22 = 0; i22 < node.attributes.length; i22++) {
-            const name = node.attributes[i22].name;
-            const value = node.attributes[i22].value;
+          for (let i6 = 0; i6 < node.attributes.length; i6++) {
+            const name = node.attributes[i6].name;
+            const value = node.attributes[i6].value;
             const shadowValue = shadowNode.getAttribute(name);
             if (shadowValue !== value)
               shadowNode.setAttribute(name, value);
@@ -5863,9 +5717,9 @@ div {
         if (node.parentNode) {
           if (node.parentNode.children.length > 1) {
             let index = 0;
-            for (let i22 = 0; i22 < node.parentNode.children.length; i22++) {
-              if (node.parentNode.children[i22] === node) {
-                index = i22;
+            for (let i6 = 0; i6 < node.parentNode.children.length; i6++) {
+              if (node.parentNode.children[i6] === node) {
+                index = i6;
                 break;
               }
             }
@@ -5894,892 +5748,36 @@ div {
   __decorate2([
     property2({ rerender: false, type: Boolean })
   ], BaseSystem2.prototype, "hasFocus", void 0);
-  var AssetTemplate2 = class extends BaseSystem2 {
-    constructor() {
-      super(...arguments);
-      this.assetBase = "/public";
-      this.cache = false;
-    }
-    async loadAsset(file, isurl = false) {
-      try {
-        let filename = file;
-        if (filename[0] === "/")
-          filename = filename.slice(1, filename.length);
-        const url = isurl ? file : `${this.assetBase}/${filename}`;
-        if (this.cache) {
-          const item = window.localStorage.getItem(`pap-assets-${url}`);
-          if (item) {
-            return item;
-          }
-        }
-        const response = await fetch(url);
-        if (response.ok) {
-          return response;
-        } else {
-          console.error("Error fetching asset:", response.status, response.statusText);
-        }
-      } catch (error) {
-        console.error("Error fetching asset:", error);
-      }
-      return null;
-    }
-    assetBaseUpdate(_value, _old) {
-      if (this.assetBase[this.assetBase.length - 1] === "/") {
-        this.assetBase = this.assetBase.slice(0, this.assetBase.length - 1);
-      }
-    }
-    cacheData(file, data) {
-      let filename = file;
-      if (filename[0] === "/")
-        filename = filename.slice(1, filename.length);
-      const url = `${this.assetBase}/${filename}`;
-      window.localStorage.setItem(`pap-assets-${url}`, data);
-    }
-  };
-  __decorate2([
-    property2({ onUpdate: "assetBaseUpdate", attribute: "asset-base" })
-  ], AssetTemplate2.prototype, "assetBase", void 0);
-  __decorate2([
-    property2({ type: Boolean })
-  ], AssetTemplate2.prototype, "cache", void 0);
-  var p7 = Object.defineProperty;
-  var u5 = Object.getOwnPropertyDescriptor;
-  var n3 = (c6, a22, t22, s3) => {
-    for (var e4 = s3 > 1 ? void 0 : s3 ? u5(a22, t22) : a22, i22 = c6.length - 1, r9; i22 >= 0; i22--)
-      (r9 = c6[i22]) && (e4 = (s3 ? r9(a22, t22, e4) : r9(e4)) || e4);
-    return s3 && e4 && p7(a22, t22, e4), e4;
-  };
-  var d7 = `:host {
-  display: inline-flex;
-  justify-content: center;
+  var style10 = `:host {
   align-items: center;
-  width: var(--icon-custom-size);
-  height: var(--icon-custom-size); }
+  display: flex;
+  padding-inline: var(--padding-small, 8px);
+  box-sizing: border-box;
+  position: relative; }
 
-:host([size="small"]) {
-  --icon-custom-size: var(--icon-size-small, 16px); }
-
-:host([size="medium"]) {
-  --icon-custom-size: var(--icon-size-medium, 20px); }
-
-:host([size="large"]) {
-  --icon-custom-size: var(--icon-size-large, 40px); }
-
-:host(:not([container])) svg {
-  width: inherit;
-  height: inherit; }
-
-:host([container]) {
-  display: flex; }
-  :host([container]) svg {
-    width: var(--icon-custom-size);
-    height: var(--icon-custom-size); }
-
-:host([container="small"]) {
-  width: var(--field-size-small, 32px);
-  height: var(--field-size-small, 32px); }
-
-:host([container="medium"]) {
-  width: var(--field-size-medium, 40px);
-  height: var(--field-size-medium, 40px); }
-
-:host([container="large"]) {
-  width: var(--field-size-large, 56px);
-  height: var(--field-size-large, 56px); }
-
-svg {
-  fill: currentColor; }
-
-:host([data-hide-slot="true"])::part(fallback) {
-  display: none; }
-
-:host([data-hide-slot="false"]) {
-  width: fit-content; }
-  :host([data-hide-slot="false"]) svg {
-    display: none; }`;
-  var o5 = class extends AssetTemplate2 {
-    constructor() {
-      super();
-      this.content = "";
-      this.size = "medium";
-      this.render_mode = "greedy", this.assetBase = "/icons";
-    }
-    firstUpdate() {
-      if (this.shadowRoot) {
-        let t22 = this.shadowRoot.querySelector("svg");
-        if (t22 === null)
-          throw new Error("Could not find svg element");
-        this.svgElement = t22, this.content && this.setSVG();
-      }
-    }
-    async updateName() {
-      let t22 = `${this.name}.svg`;
-      try {
-        let s3 = await this.loadAsset(t22);
-        if (s3) {
-          let e4, i22 = "0 96 960 960";
-          if (typeof s3 == "string")
-            e4 = s3;
-          else {
-            e4 = await s3.text();
-            let [r9, m8] = this.extractSvgContent(e4);
-            m8 && (i22 = m8), r9 && (e4 = `SVG:${i22}##${r9.trim()}`, this.cacheData(t22, e4));
-          }
-          e4.startsWith("SVG:") ? (this.setAttribute("data-hide-slot", "true"), this.content = e4, this.getAttribute("show") && console.log(e4), this.setSVG()) : this.setAttribute("data-hide-slot", "false");
-        } else
-          this.setAttribute("data-hide-slot", "false");
-      } catch (s3) {
-        console.log("im hidden"), this.setAttribute("data-hide-slot", "false");
-      }
-    }
-    updateColor() {
-      this.color && (this.style.color = this.color);
-    }
-    updateSize() {
-      this.style.removeProperty("--icon-custom-size");
-    }
-    updateCustomSize() {
-      this.customSize !== void 0 && this.style.setProperty("--icon-custom-size", this.customSize + "px");
-    }
-    extractSvgContent(t22) {
-      let i22 = new DOMParser().parseFromString(t22, "image/svg+xml").querySelector("svg");
-      return i22 ? [i22.innerHTML, i22.getAttribute("viewBox")] : ["", ""];
-    }
-    setSVG() {
-      if (this.svgElement) {
-        let t22 = /SVG:(.*)##/.exec(this.content);
-        if (t22) {
-          let s3 = this.content.split(t22[1])[1];
-          this.svgElement.setAttribute("viewBox", t22[1]), this.getAttribute("show") && console.log(this.content, t22, s3), this.svgElement.innerHTML = s3;
-        }
-      }
-    }
-    render() {
-      return html2`
-      <slot part="fallback"></slot>
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        viewBox="0 96 960 960"
-        part="svg"
-      >
-        ${this.content}
-      </svg>
-    `;
-    }
-  };
-  o5.style = d7, n3([property2({ rerender: false })], o5.prototype, "container", 2), n3([property2({ onUpdate: "updateName", rerender: false })], o5.prototype, "name", 2), n3([property2({ onUpdate: "updateColor", rerender: false })], o5.prototype, "color", 2), n3([property2({ onUpdate: "updateSize", rerender: false })], o5.prototype, "size", 2), n3([property2({ onUpdate: "updateCustomSize", rerender: false, type: Number })], o5.prototype, "customSize", 2);
-  var h7 = customElements != null ? customElements : window == null ? void 0 : window.customElements;
-  if (!h7)
-    throw new Error("Custom Elements not supported");
-  h7.get("pap-icon") || h7.define("pap-icon", o5);
-  var y5 = Object.defineProperty;
-  var f5 = Object.getOwnPropertyDescriptor;
-  var i6 = (h32, e4, o22, r9) => {
-    for (var a22 = r9 > 1 ? void 0 : r9 ? f5(e4, o22) : e4, p32 = h32.length - 1, s3; p32 >= 0; p32--)
-      (s3 = h32[p32]) && (a22 = (r9 ? s3(e4, o22, a22) : s3(a22)) || a22);
-    return r9 && a22 && y5(e4, o22, a22), a22;
-  };
-  var l8 = `:host {
-  text-align: left;
-  display: block;
-  color: inherit; }
-
-:host([inline]) {
-  display: inline; }
-
-:host([alignment="center"]),
-:host([align="center"]) {
-  text-align: center; }
-
-:host([alignment="justify"]),
-:host([align="justify"]) {
-  text-align: justify; }
-
-:host([alignment="start"]),
-:host([align="start"]) {
-  text-align: start; }
-
-:host([alignment="end"]),
-:host([align="end"]) {
-  text-align: end; }
-
-:host([alignment="left"]),
-:host([align="left"]) {
-  text-align: left; }
-
-:host([alignment="right"]),
-:host([align="right"]) {
-  text-align: right; }
-
-:host([alignment="unset"]),
-:host([align="unset"]) {
-  text-align: unset; }
-
-:host([alignment="inherit"]),
-:host([align="inherit"]) {
-  text-align: inherit; }
-
-:host([alignment="initial"]),
-:host([align="initial"]) {
-  text-align: initial; }
-
-:host([nowrap="true"]) {
-  white-space: nowrap; }
-
-:host([truncate="true"]) {
-  white-space: nowrap;
-  /* this ensures text remains on a single line */
-  overflow: hidden;
-  /* hides any overflow */
-  text-overflow: ellipsis;
-  /* shows ellipsis for any overflow */ }
-
-:host([variant="heading1"]),
-:host([variant="H1"]) {
-  font-family: var(--typography-h1-fontfamily, "Libre Franklin", helvetica, sans-serif);
-  font-size: var(--typography-h1-fontsize, 8.75rem);
-  font-weight: var(--typography-h1-fontweight, 800);
-  line-height: var(--typography-h1-lineheight, 120%);
-  letter-spacing: var(--typography-h1-letterspacing, 0); }
-
-:host([variant="heading2"]),
-:host([variant="H2"]) {
-  font-family: var(--typography-h2-fontfamily, "Libre Franklin", helvetica, sans-serif);
-  font-size: var(--typography-h2-fontsize, 5.5rem);
-  font-weight: var(--typography-h2-fontweight, 800);
-  line-height: var(--typography-h2-lineheight, 120%);
-  letter-spacing: var(--typography-h2-letterspacing, 0); }
-
-:host([variant="heading3"]),
-:host([variant="H3"]) {
-  font-family: var(--typography-h3-fontfamily, "Libre Franklin", helvetica, sans-serif);
-  font-size: var(--typography-h3-fontsize, 5rem);
-  font-weight: var(--typography-h3-fontweight, 700);
-  line-height: var(--typography-h3-lineheight, 120%);
-  letter-spacing: var(--typography-h3-letterspacing, 0); }
-
-:host([variant="heading4"]),
-:host([variant="H4"]) {
-  font-family: var(--typography-h4-fontfamily, "Libre Franklin", helvetica, sans-serif);
-  font-size: var(--typography-h4-fontsize, 4rem);
-  font-weight: var(--typography-h4-fontweight, 700);
-  line-height: var(--typography-h4-lineheight, 120%);
-  letter-spacing: var(--typography-h4-letterspacing, 0); }
-
-:host([variant="heading5"]),
-:host([variant="H5"]) {
-  font-family: var(--typography-h5-fontfamily, "Libre Franklin", helvetica, sans-serif);
-  font-size: var(--typography-h5-fontsize, 3.5rem);
-  font-weight: var(--typography-h5-fontweight, 400);
-  line-height: var(--typography-h5-lineheight, 120%);
-  letter-spacing: var(--typography-h5-letterspacing, 0); }
-
-:host([variant="title1"]),
-:host([variant="T1"]) {
-  font-family: var(--typography-t1-fontfamily, "Libre Franklin", helvetica, sans-serif);
-  font-size: var(--typography-t1-fontsize, 3rem);
-  font-weight: var(--typography-t1-fontweight, 700);
-  line-height: var(--typography-t1-lineheight, 120%);
-  letter-spacing: var(--typography-t1-letterspacing, 0); }
-
-:host([variant="title2"]),
-:host([variant="T2"]) {
-  font-family: var(--typography-t2-fontfamily, "Libre Franklin", helvetica, sans-serif);
-  font-size: var(--typography-t2-fontsize, 2.5rem);
-  font-weight: var(--typography-t2-fontweight, 700);
-  line-height: var(--typography-t2-lineheight, 120%);
-  letter-spacing: var(--typography-t2-letterspacing, 0); }
-
-:host([variant="title3"]),
-:host([variant="T3"]) {
-  font-family: var(--typography-t3-fontfamily, "Libre Franklin", helvetica, sans-serif);
-  font-size: var(--typography-t3-fontsize, 2rem);
-  font-weight: var(--typography-t3-fontweight, 600);
-  line-height: var(--typography-t3-lineheight, 120%);
-  letter-spacing: var(--typography-t3-letterspacing, 0); }
-
-:host([variant="title4"]),
-:host([variant="T4"]) {
-  font-family: var(--typography-t4-fontfamily, "Libre Franklin", helvetica, sans-serif);
-  font-size: var(--typography-t4-fontsize, 1.5rem);
-  font-weight: var(--typography-t4-fontweight, 600);
-  line-height: var(--typography-t4-lineheight, 140%);
-  letter-spacing: var(--typography-t4-letterspacing, 0); }
-
-:host([variant="copy1"]),
-:host([variant="C1"]) {
-  font-family: var(--typography-c1-fontfamily, "Libre Franklin", helvetica, sans-serif);
-  font-size: var(--typography-c1-fontsize, 1.5rem);
-  font-weight: var(--typography-c1-fontweight, 500);
-  line-height: var(--typography-c1-lineheight, 140%);
-  letter-spacing: var(--typography-c1-letterspacing, 0.01rem); }
-
-:host([variant="copy2"]),
-:host([variant="C2"]) {
-  font-family: var(--typography-c2-fontfamily, "Libre Franklin", helvetica, sans-serif);
-  font-size: var(--typography-c2-fontsize, 1rem);
-  font-weight: var(--typography-c2-fontweight, 600);
-  line-height: var(--typography-c2-lineheight, 140%);
-  letter-spacing: var(--typography-c2-letterspacing, 0.01rem); }
-
-:host([variant="copy3"]),
-:host([variant="C3"]) {
-  font-family: var(--typography-c3-fontfamily, "Libre Franklin", helvetica, sans-serif);
-  font-size: var(--typography-c3-fontsize, 1rem);
-  font-weight: var(--typography-c3-fontweight, 400);
-  line-height: var(--typography-c3-lineheight, 140%);
-  letter-spacing: var(--typography-c3-letterspacing, 0.01rem); }
-
-:host([variant="copy4"]),
-:host([variant="C4"]) {
-  font-family: var(--typography-c4-fontfamily, "Libre Franklin", helvetica, sans-serif);
-  font-size: var(--typography-c4-fontsize, 0.75rem);
-  font-weight: var(--typography-c4-fontweight, 400);
-  line-height: var(--typography-c4-lineheight, 140%);
-  letter-spacing: var(--typography-c4-letterspacing, 0.01rem); }
-
-:host([variant="button1"]),
-:host([variant="B1"]) {
-  font-family: var(--typography-b1-fontfamily, "Libre Franklin", helvetica, sans-serif);
-  font-size: var(--typography-b1-fontsize, 1rem);
-  font-weight: var(--typography-b1-fontweight, 600);
-  line-height: var(--typography-b1-lineheight, 140%);
-  letter-spacing: var(--typography-b1-letterspacing, 0.01rem); }
-
-:host([variant="button2"]),
-:host([variant="B2"]) {
-  font-family: var(--typography-b2-fontfamily, "Libre Franklin", helvetica, sans-serif);
-  font-size: var(--typography-b2-fontsize, 1rem);
-  font-weight: var(--typography-b2-fontweight, 600);
-  line-height: var(--typography-b2-lineheight, 140%);
-  letter-spacing: var(--typography-b2-letterspacing, 0.01rem);
-  text-decoration: underline; }`;
-  var t5 = class extends BaseSystem2 {
-    constructor() {
-      super(...arguments);
-      this.variant = "C3";
-      this.align = "initial";
-      this.nowrap = false;
-      this.truncate = false;
-    }
-    render() {
-      return html2`
-            <slot></slot>
-        `;
-    }
-  };
-  t5.style = l8, i6([property2({ rerender: false })], t5.prototype, "variant", 2), i6([property2({ rerender: false })], t5.prototype, "align", 2), i6([property2({ rerender: false, type: Boolean })], t5.prototype, "nowrap", 2), i6([property2({ rerender: false, type: Boolean })], t5.prototype, "truncate", 2);
-  var g5 = customElements != null ? customElements : window == null ? void 0 : window.customElements;
-  if (!g5)
-    throw new Error("Custom Elements not supported");
-  g5.get("pap-typography") || g5.define("pap-typography", t5);
-  var FormElementTemplate2 = class extends BaseSystem2 {
-    findForm() {
-      setTimeout(() => {
-        const closestOFORM = this.shadow_closest("pap-form");
-        if (closestOFORM) {
-          const form = closestOFORM.querySelector("form");
-          if (form)
-            this.assignForm(form);
-        } else {
-          const form = this.shadow_closest("form");
-          if (form)
-            this.assignForm(form);
-        }
-      }, 100);
-    }
-    assignForm(form) {
-      this.formElement = form;
-      this.dispatchEvent(new Event("form-element-loaded"));
-    }
-    connectedCallback() {
-      super.connectedCallback();
-      this.findForm();
-    }
-    firstUpdate() {
-      if (!this.formElement)
-        this.findForm();
-    }
-  };
-  __decorate2([
-    property2({ type: Boolean, rerender: false })
-  ], FormElementTemplate2.prototype, "disabled", void 0);
-  __decorate2([
-    property2({ type: Boolean, rerender: false })
-  ], FormElementTemplate2.prototype, "required", void 0);
-  __decorate2([
-    property2({ rerender: false })
-  ], FormElementTemplate2.prototype, "name", void 0);
-  var x4 = Object.defineProperty;
-  var h22 = Object.getOwnPropertyDescriptor;
-  var l22 = (s3, o22, t22, e4) => {
-    for (var r9 = e4 > 1 ? void 0 : e4 ? h22(o22, t22) : o22, i22 = s3.length - 1, n22; i22 >= 0; i22--)
-      (n22 = s3[i22]) && (r9 = (e4 ? n22(o22, t22, r9) : n22(r9)) || r9);
-    return e4 && r9 && x4(o22, t22, r9), r9;
-  };
-  var v6 = `:host([radius="none"]) {
-  border-radius: var(--box-radius-none, var(--radius-none, 0px)); }
-
-:host([radius="small"]) {
-  border-radius: var(--box-radius-small, var(--radius-small, var(--radius-small, 4px))); }
-
-:host([radius="medium"]) {
-  border-radius: var(--box-radius-medium, var(--radius-medium, var(--radius-medium, 8px))); }
-
-:host([radius="large"]) {
-  border-radius: var(--box-radius-large, var(--radius-large, var(--radius-large, 16px))); }
-
-:host([radius="circular"]) {
-  border-radius: var(--box-radius-circular, var(--radius-circular, var(--radius-max, 1000px))); }
-
-:host([elevation="small"]) {
-  box-shadow: var(--box-shadow-small, var(--shadow-s, 0 2px 4px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)))); }
-
-:host([elevation="medium"]) {
-  box-shadow: var(--box-shadow-medium, var(--shadow-m, 0 4px 6px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)))); }
-
-:host([elevation="large"]) {
-  box-shadow: var(--box-shadow-large, var(--shadow-l, 0 8px 12px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)))); }
-
-:host([elevation="x-large"]) {
-  box-shadow: var(--box-shadow-x-large, var(--shadow-xl, 0 16px 20px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)))); }
-
-:host([elevation-direction="horizontal"][elevation="small"]) {
-  box-shadow: var(--box-shadow-small, var(--shadow-horizontal-s, 2px 0 4px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)))); }
-
-:host([elevation-direction="horizontal"][elevation="medium"]) {
-  box-shadow: var(--box-shadow-medium, var(--shadow-horizontal-m, 4px 0 6px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)))); }
-
-:host([elevation-direction="horizontal"][elevation="large"]) {
-  box-shadow: var(--box-shadow-large, var(--shadow-horizontal-l, 8px 0 12px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)))); }
-
-:host([elevation-direction="horizontal"][elevation="x-large"]) {
-  box-shadow: var(--box-shadow-x-large, var(--shadow-horizontal-xl, 16px 0 20px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)))); }`;
-  var a4 = class extends BaseSystem2 {
-    constructor() {
-      super(...arguments);
-      this.radius = "circular";
-      this.elevation = "none";
-      this.elevationdirection = "vertical";
-    }
+span.content {
+  padding-inline: var(--padding-small, 8px);
+  margin-inline: auto;
+  gap: var(--gap-small);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; }`;
+  var PrefixSuffixTemplate = class extends BaseSystem2 {
     render() {
       return `
-            <slot></slot>
-        `;
-    }
-  };
-  a4.styles = [v6], l22([property2({ rerender: false })], a4.prototype, "radius", 2), l22([property2({ rerender: false })], a4.prototype, "elevation", 2), l22([property2({ rerender: false, attribute: "elevation-direction" })], a4.prototype, "elevationdirection", 2);
-  var p22 = customElements != null ? customElements : window == null ? void 0 : window.customElements;
-  if (!p22)
-    throw new Error("Custom Elements not supported");
-  p22.get("pap-box-template") || p22.define("pap-box-template", a4);
-  var style10 = `:host([size="small"]) pap-box-template.wrapper {
-  height: var(--pap-field-height-small, var(--field-size-small, 32px)); }
-
-:host([size="small"]) footer,
-:host([size="small"]) header {
-  height: var(--pap-field-block-height-small, var(--field-size-small, 32px)); }
-
-:host([size="medium"]) pap-box-template.wrapper {
-  height: var(--pap-field-height-medium, var(--field-size-medium, 40px)); }
-
-:host([size="medium"]) footer,
-:host([size="medium"]) header {
-  height: var(--pap-field-block-height-medium, var(--field-size-small, 32px)); }
-
-:host([size="large"]) pap-box-template.wrapper {
-  height: var(--pap-field-height-large, var(--field-size-large, 56px)); }
-
-:host([size="large"]) footer,
-:host([size="large"]) header {
-  height: var(--pap-field-block-height-large, var(--field-size-small, 32px)); }
-
-:host {
-  --border: var(--pap-field-background-color-light, var(--pap-color-black, black));
-  --outline: var(--pap-field-background-color-light, rgb(90, 46, 250));
-  --color: var(--pap-field-text-color-light, var(--pap-color-black, black));
-  display: block;
-  color: var(--color); }
-  :host footer,
-  :host header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-inline: var(--padding-small, 8px); }
-  :host footer div {
-    display: none;
-    align-items: center;
-    gap: var(--gap-small, 8px); }
-  :host pap-box-template.wrapper {
-    box-sizing: border-box;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding-inline: var(--padding-medium, 16px);
-    border: 1px solid var(--border); }
-    :host pap-box-template.wrapper ::slotted(*:not([slot])),
-    :host pap-box-template.wrapper input, :host pap-box-template.wrapper select, :host pap-box-template.wrapper textarea {
-      color: inherit;
-      font-family: var(--input-fontfamily, var(--typography-c3-fontfamily, "Libre Franklin", helvetica, sans-serif));
-      font-size: var(--input-fontsize, var(--typography-c3-fontsize, 16px));
-      font-weight: var(--input-fontweight, var(--typography-c3-fontweight, 400));
-      line-height: var(--input-lineheight, var(--typography-c3-lineheight, 24px));
-      letter-spacing: var(--input-letterspacing, var(--typography-c3-letterspacing, 0.01em));
-      flex-grow: 1;
-      display: block;
-      border: none;
-      background-color: transparent;
-      outline: none !important; }
-    :host pap-box-template.wrapper ::slotted(*[slot="prefix"]) {
-      margin-right: var(--gap-small, 8px); }
-    :host pap-box-template.wrapper ::slotted(*[slot="suffix"]) {
-      margin-left: var(--gap-small, 8px); }
-  :host:focus {
-    outline: none; }
-
-:host([isWarning="true"]) footer div:not(.warning) {
-  display: none; }
-
-:host([isWarning="true"]) footer div.warning {
-  display: flex; }
-
-:host([isError="true"]) footer div:not(.error) {
-  display: none; }
-
-:host([isError="true"]) footer div.error {
-  display: flex; }
-
-:host([hasfocus="true"]),
-:host(:focus) {
-  outline: none; }
-  :host([hasfocus="true"]) pap-box-template.wrapper,
-  :host(:focus) pap-box-template.wrapper {
-    outline: 1px solid var(--outline); }
-
-@media (prefers-color-scheme: dark) {
-  :host {
-    --border: var(--pap-field-background-color-dark, var(--pap-color-black, white));
-    --outline: var(--pap-field-background-color-dark, rgb(195, 211, 255));
-    --color: var(--pap-field-text-color-dark, var(--pap-color-black, white)); } }`;
-  var ValidationAttributes2 = ["min", "max", "pattern", "type", "minlenght", "maxlenght", "required", "multiple", "novalidate", "formnovalidate", "autofocus"];
-  var FieldTemplate2 = class extends FormElementTemplate2 {
-    // class functions
-    constructor(delay = 100) {
-      super();
-      this.size = "medium";
-      this.radius = "small";
-      this.tabIndex = 1;
-      this.readonly = false;
-      this.value = "";
-      this.isError = false;
-      this.isWarning = false;
-      this._suffix = "<span> </span>";
-      this._prefix = "<span> </span>";
-      this.attributequeue = [];
-      this.onvalueupdate = (value) => {
-        if (!this.inputElement)
-          return;
-        const type = this.inputElement.getAttribute("type");
-        if ("checked" in this.inputElement && (type === "radio" || type === "checkbox")) {
-          this.checked = value === "true";
-          this.inputElement.checked = this.checked;
-          if (this.hiddenElement) {
-            this.hiddenElement.checked = this.checked;
-            this.hiddenElement.value = this.value;
-            this.updateHidden();
-          }
-          if (!this.checked) {
-            this.inputElement.removeAttribute("checked");
-            if (this.hiddenElement) {
-              this.hiddenElement.removeAttribute("checked");
-              this.updateHidden();
-            }
-          }
-        } else if ("value" in this.inputElement) {
-          this.inputElement.value = this.value;
-        }
-        if (type === "radio" || type === "checkbox" || this.inputElement.getAttribute("data-tagname") === "select" || this.inputElement.tagName === "select") {
-          this.inputElement.dispatchEvent(new Event("change"));
-        } else {
-          this.inputElement.dispatchEvent(new Event("input"));
-        }
-      };
-      this.oncheckedupdate = (value) => {
-        this.onvalueupdate(value.toString());
-      };
-      this.handleinvalid_field = (e4) => {
-        console.log("invalid");
-      };
-      this.handlevalid_field = (e4) => {
-        console.log("valid");
-      };
-      this.handleinput_field = (e4) => {
-        this.handlechange_field(e4, false);
-        this.dispatchEvent(new Event("input"));
-        this.debouncedInput();
-        if (this.maxLength && this.counterElement) {
-          this.counterElement.innerHTML = this.value.length.toString();
-        }
-      };
-      this.handlechange_field = (e4, dispatch = true) => {
-        if (e4.target instanceof HTMLElement) {
-          const type = e4.target.getAttribute("type");
-          if ("checked" in e4.target && (type === "radio" || type === "checkbox")) {
-            this.value = (e4.target.checked || false).toString();
-            if (this.hiddenElement) {
-              this.hiddenElement.value = this.value;
-              this.updateHidden();
-            }
-          } else if ("value" in e4.target) {
-            this.value = e4.target.value;
-            if (this.hiddenElement) {
-              this.hiddenElement.value = this.value;
-              this.updateHidden();
-            }
-          }
-          if (dispatch) {
-            this.dispatchEvent(new Event("change"));
-          }
-        }
-      };
-      this.handleformelementload = () => {
-        this.assignHiddenElement();
-      };
-      this.handlevalid = () => {
-        this.isError = false;
-        this.isWarning = false;
-      };
-      this.handleinvalid = (e4) => {
-        if (!(this.isError && this.isWarning))
-          this.updateHidden();
-      };
-      this.debouncedInput = () => {
-        this.dispatchEvent(new Event("debounced-input"));
-      };
-      this.handlefocus = () => {
-        if (this.inputElement) {
-          this.inputElement.focus();
-        }
-      };
-      this.debouncedInput = debounce2(this.debouncedInput, delay);
-      this.updateHidden = debounce2(this.updateHidden, 10);
-      super.addEventListener("form-element-loaded", this.handleformelementload);
-    }
-    assignHiddenElement() {
-      if (!this.formElement)
-        this.findForm();
-      if (!this.hiddenElement && this.getAttribute("name")) {
-        this.hiddenElement = document.createElement("input");
-        this.hiddenElement.value = this.value;
-        this.hiddenElement.setAttribute("name", this.getAttribute("name"));
-        this.hiddenElement.style.overflow = "hidden";
-        this.hiddenElement.style.position = "absolute";
-        this.hiddenElement.style.height = "0";
-        this.hiddenElement.style.width = "0";
-        this.hiddenElement.style.visibility = "hidden";
-        this.hiddenElement.style.padding = "0";
-        this.hiddenElement.style.margin = "0";
-        this.hiddenElement.style.float = "right";
-        this.hiddenElement.addEventListener("valid", this.handlevalid);
-        this.hiddenElement.addEventListener("invalid", this.handleinvalid);
-        while (this.attributequeue.length > 0) {
-          const next = this.attributequeue.pop();
-          if (next) {
-            if (next[1] !== null)
-              this.hiddenElement.setAttribute(next[0], next[1]);
-            else
-              this.hiddenElement.removeAttribute(next[0]);
-          }
-        }
-        this.formElement.appendChild(this.hiddenElement);
-      }
-    }
-    updateHidden() {
-      if (this.hiddenElement) {
-        const valid = this.hiddenElement.checkValidity();
-        if (!valid) {
-          const validity = this.hiddenElement.validity;
-          for (let type in validity) {
-            if (!validity[type])
-              continue;
-            if (this.customError && this.customError[type]) {
-              if (this.errorText) {
-                this.errorText.innerHTML = this.customError[type];
-                this.isWarning = false;
-                this.isError = true;
-                return;
-              }
-            } else if (this.customWarning && this.customWarning[type]) {
-              if (this.warningText) {
-                this.warningText.innerHTML = this.customWarning[type];
-                this.isWarning = true;
-                this.isError = false;
-                return;
-              }
-            } else {
-              const auto_message = this.hiddenElement.validationMessage;
-              if (this.errorText) {
-                this.errorText.innerHTML = auto_message;
-                this.isWarning = false;
-                this.isError = true;
-                return;
-              }
-            }
-          }
-        } else {
-          this.handlevalid();
-        }
-      }
-    }
-    checkValidity() {
-      if (this.hiddenElement)
-        return this.hiddenElement.checkValidity();
-      return false;
-    }
-    reportValidity() {
-      if (this.hiddenElement)
-        return this.hiddenElement.reportValidity();
-      return false;
-    }
-    connectedCallback() {
-      super.connectedCallback();
-      this.addEventListener("focus", this.handlefocus);
-    }
-    attributeChangedCallback(name, oldValue, newValue) {
-      if (ValidationAttributes2.includes(name.toLowerCase())) {
-        if (this.hiddenElement) {
-          if (newValue)
-            this.hiddenElement.setAttribute(name, newValue);
-          else
-            this.hiddenElement.removeAttribute(name);
-        } else {
-          this.attributequeue.push([name, newValue]);
-        }
-        if (this.inputElement) {
-          if (newValue)
-            this.inputElement.setAttribute(name, newValue);
-          else
-            this.inputElement.removeAttribute(name);
-        }
-      }
-    }
-    render(element, selector = "input") {
-      if (element) {
-        const input = element.querySelector(selector);
-        if (input && !input.hasAttribute("data-field-init")) {
-          input.addEventListener("invalid", this.handleinvalid_field);
-          input.addEventListener("valid", this.handlevalid_field);
-          input.addEventListener("input", this.handleinput_field);
-          input.addEventListener("change", this.handlechange_field);
-          const type = input.getAttribute("type");
-          if (type === "radio" || type === "checkbox") {
-            if (this.checked) {
-              input.setAttribute("checked", this.checked.toString());
-            } else {
-              input.removeAttribute("checked");
-            }
-          } else {
-            if (this.value !== void 0) {
-              input.setAttribute("value", this.value);
-            }
-          }
-          if (this.readonly)
-            input.setAttribute("readonly", "true");
-          input.setAttribute("data-field-init", "true");
-          this.inputElement = input;
-          this.onvalueupdate(this.value);
-        }
-      }
-      return html2`
-      <header part="header">
-        <slot name="header"><pap-typography>${this.label || ""}</pap-typography></slot>
-        ${this.maxLength ? html2`<pap-typography><span class="counter"></span>/${this.maxLength}</pap-typography>` : ""}
-      </header>
-      <pap-box-template radius="${this.radius}" class="wrapper" part="wrapper">
-        <slot name="prefix">${this._prefix}</slot>
-        ${element ? element : "<slot></slot>"}
-        <slot name="suffix">${this._suffix}</slot>
-      </pap-box-template>
-      <footer part="footer">
-        <div class="warning">
-          <pap-icon name="warning"></pap-icon>
-          <pap-typography>This is a placeholder for warning</pap-typography>
-        </div>
-        <div class="error">
-          <pap-icon name="error"></pap-icon>
-          <pap-typography>This is a placeholder for error</pap-typography>
-        </div>
-      </footer>
+      <slot name="prefix"></slot>
+      <span part="content" class="content"><slot></slot></span>
+      <slot name="suffix"></slot>
     `;
     }
   };
-  FieldTemplate2.styles = [style10];
-  __decorateClass([
-    query2(".counter")
-  ], FieldTemplate2.prototype, "counterElement", 2);
-  __decorateClass([
-    query2(".error > pap-typography")
-  ], FieldTemplate2.prototype, "errorText", 2);
-  __decorateClass([
-    query2(".warning > pap-typography")
-  ], FieldTemplate2.prototype, "warningText", 2);
-  __decorateClass([
-    property2({ type: Object })
-  ], FieldTemplate2.prototype, "message", 2);
-  __decorateClass([
-    property2()
-  ], FieldTemplate2.prototype, "label", 2);
-  __decorateClass([
-    property2({ rerender: false })
-  ], FieldTemplate2.prototype, "size", 2);
-  __decorateClass([
-    property2({ rerender: false })
-  ], FieldTemplate2.prototype, "radius", 2);
-  __decorateClass([
-    property2({ rerender: false, type: Boolean, onUpdate: "oncheckedupdate" })
-  ], FieldTemplate2.prototype, "checked", 2);
-  __decorateClass([
-    property2({ rerender: false, type: Number })
-  ], FieldTemplate2.prototype, "tabIndex", 2);
-  __decorateClass([
-    property2({ type: Boolean })
-  ], FieldTemplate2.prototype, "readonly", 2);
-  __decorateClass([
-    property2({ rerender: false, onUpdate: "onvalueupdate" })
-  ], FieldTemplate2.prototype, "value", 2);
-  __decorateClass([
-    property2({ rerender: false, type: Object })
-  ], FieldTemplate2.prototype, "customError", 2);
-  __decorateClass([
-    property2({ rerender: false, type: Object })
-  ], FieldTemplate2.prototype, "customWarning", 2);
-  __decorateClass([
-    property2({ rerender: false, type: Boolean })
-  ], FieldTemplate2.prototype, "isError", 2);
-  __decorateClass([
-    property2({ rerender: false, type: Boolean })
-  ], FieldTemplate2.prototype, "isWarning", 2);
-  __decorateClass([
-    property2({ rerender: false, type: Number })
-  ], FieldTemplate2.prototype, "max", 2);
-  __decorateClass([
-    property2({ rerender: false, type: Number })
-  ], FieldTemplate2.prototype, "min", 2);
-  __decorateClass([
-    property2({ rerender: false, type: Number })
-  ], FieldTemplate2.prototype, "maxLength", 2);
-  __decorateClass([
-    property2({ type: Object, attribute: false })
-  ], FieldTemplate2.prototype, "_suffix", 2);
-  __decorateClass([
-    property2({ type: Object, attribute: false })
-  ], FieldTemplate2.prototype, "_prefix", 2);
+  PrefixSuffixTemplate.style = style10;
   var cElements2 = customElements != null ? customElements : window == null ? void 0 : window.customElements;
   if (!cElements2) {
     throw new Error("Custom Elements not supported");
   }
-  if (!cElements2.get("pap-field-template")) {
-    cElements2.define("pap-field-template", FieldTemplate2);
+  if (!cElements2.get("pap-prefix-suffix-template")) {
+    cElements2.define("pap-prefix-suffix-template", PrefixSuffixTemplate);
   }
 
   // views/demo/main.js

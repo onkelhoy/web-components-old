@@ -4,8 +4,9 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
+## SOURCE-CODE
+
+// system
 import { html, property } from "@pap-it/system-utils";
 
 // atoms
@@ -15,7 +16,7 @@ import "@pap-it/typography/wc";
 import { BaseSystem } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
-// local 
+// local
 import { style } from "./style";
 
 export class Steps extends BaseSystem {
@@ -48,13 +49,14 @@ export class Steps extends BaseSystem {
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-steps": Steps;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     display: inline-block;
     --border-color-unselected: var(--pap-steps-border-color-unselected, var(--pap-color-bg-canvas, #EAEBEF));

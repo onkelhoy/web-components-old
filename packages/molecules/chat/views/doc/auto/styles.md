@@ -4,12 +4,13 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
+## SOURCE-CODE
+
+// system
 import { html, property } from "@pap-it/system-utils";
 import "@pap-it/tools-translator/wc";
 
-// atoms 
+// atoms
 import "@pap-it/button/wc";
 import "@pap-it/icon/wc";
 import "@pap-it/input/wc";
@@ -17,7 +18,7 @@ import "@pap-it/input/wc";
 // templates
 import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 
 export class Chat extends BaseSystem {
@@ -35,7 +36,6 @@ export class Chat extends BaseSystem {
     return html`
             <main></main>
 
-            
             <pap-input size="medium">
                 <div class="button-group" slot="suffix">
                     <pap-button radius="none" @click="${this.handlesmileyclick}" variant="clear">
@@ -50,13 +50,14 @@ export class Chat extends BaseSystem {
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-chat": Chat;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     --button-background-color-clear-hover: var(--smiley-hover-background, rgba(0, 0, 0, 0.05));
 

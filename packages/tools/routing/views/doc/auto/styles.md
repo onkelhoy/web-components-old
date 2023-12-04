@@ -4,14 +4,13 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
-import { html, property } from "@pap-it/system-utils";
+## SOURCE-CODE
 
-// templates
+// system
+import { html, property } from "@pap-it/system-utils";
 import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 import { Foo, ClickEvent } from "./types";
 
@@ -48,13 +47,14 @@ export class RoutingTool extends BaseSystem {
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-routing-tool": RoutingTool;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     display: block;
     padding: var(--padding-medium, 16px);

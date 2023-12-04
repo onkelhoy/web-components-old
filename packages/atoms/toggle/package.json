@@ -37,8 +37,8 @@
   },
   "dependencies": {
     "@pap-it/templates-box": "1.0.0",
-    "@pap-it/templates-field": "1.0.0",
-    "@pap-it/system-utils": "1.0.0"
+    "@pap-it/templates-field": "1.0.1",
+    "@pap-it/system-utils": "1.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

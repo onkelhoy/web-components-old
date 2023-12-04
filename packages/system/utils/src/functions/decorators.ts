@@ -3,37 +3,35 @@ export interface QueryOption<T> {
   onload?: string;
   selector: string;
 }
-type queryParam<T> = string|QueryOption<T>;
+type queryParam<T> = string | QueryOption<T>;
 
-export function query<T extends Element = HTMLElement>(options:queryParam<T>) {
+export function query<T extends Element = HTMLElement>(options: queryParam<T>) {
   const selector = typeof options === "string" ? options : options.selector;
 
-  return function (target:HTMLElement, propertyKey: string) {
-    const renderattemptsKey = propertyKey+'rerender_attempts_';
-    const timeoutattemptsKey = propertyKey+'timeout_attempts_';
+  return function (target: HTMLElement, propertyKey: string) {
+    const renderattemptsKey = propertyKey + 'rerender_attempts_';
+    const timeoutattemptsKey = propertyKey + 'timeout_attempts_';
 
     // Store the original connectedCallback, if it exists
-    const originalConnectedCallback = (target as any).connectedCallback || function() {};
+    const originalConnectedCallback = (target as any).connectedCallback || function () { };
 
     // Override connectedCallback
-    (target as any).connectedCallback = function() {
+    (target as any).connectedCallback = function () {
       // Call the original connectedCallback
       originalConnectedCallback.call(this);
 
       // init the search
       initsearch.call(this);
     };
-    function initsearch(this:any) {
-      if (!search.call(this)) 
-      {
+    function initsearch(this: any) {
+      if (!search.call(this)) {
         rendersearch.call(this);
       }
     }
-    function rendersearch(this:any) {
+    function rendersearch(this: any) {
       let attempts = this[renderattemptsKey] || 0;
       attempts++;
-      if (!search.call(this) && attempts < 5)
-      {
+      if (!search.call(this) && attempts < 5) {
         this[timeoutattemptsKey] = 0;
         this[renderattemptsKey] = attempts;
         setTimeout(() => timeoutsearch.call(this), 100);
@@ -41,29 +39,24 @@ export function query<T extends Element = HTMLElement>(options:queryParam<T>) {
         if (this.callAfterUpdate) this.callAfterUpdate.push(() => rendersearch.call(this));
       }
     }
-    function timeoutsearch(this:any) {
+    function timeoutsearch(this: any) {
       let attempts = this[timeoutattemptsKey] || 0;
       attempts++;
-      if (!search.call(this) && attempts < 3)
-      {
+      if (!search.call(this) && attempts < 3) {
         this[timeoutattemptsKey] = attempts;
         setTimeout(() => timeoutsearch.call(this), 100);
       }
     }
-    function search(this:HTMLElement) {
+    function search(this: HTMLElement) {
       if ((this as any)[propertyKey]) return true;
 
-      if (this.shadowRoot)
-      {
+      if (this.shadowRoot) {
         const element = this.shadowRoot.querySelector<T>(selector);
-        if (element)
-        {
+        if (element) {
           (this as any)[propertyKey] = element;
 
-          if (typeof options === "object" && options.onload)
-          {
-            if ((this as any)[options.onload])
-            {
+          if (typeof options === "object" && options.onload) {
+            if ((this as any)[options.onload]) {
               (this as any)[options.onload].call(this, element);
             }
           }
@@ -80,15 +73,15 @@ export function query<T extends Element = HTMLElement>(options:queryParam<T>) {
 // property.ts
 export interface PropertyOption {
   type: Function;
-  attribute: boolean|string;
+  attribute: boolean | string;
   rerender: boolean;
   onUpdate?: string;
   verbose?: boolean;
-  set?: (value:any)=>any;
-  get?: (value:any)=>any;
+  set?: (value: any) => any;
+  get?: (value: any) => any;
 }
 
-const DefaultOptions:PropertyOption = {
+const DefaultOptions: PropertyOption = {
   type: String,
   attribute: true,
   rerender: true,
@@ -96,7 +89,7 @@ const DefaultOptions:PropertyOption = {
 }
 
 export function property(options?: Partial<PropertyOption>) {
-  const _options = options === undefined ? DefaultOptions : {...DefaultOptions, ...(options as PropertyOption)};
+  const _options = options === undefined ? DefaultOptions : { ...DefaultOptions, ...(options as PropertyOption) };
 
   return function (target: HTMLElement, propertyKey: string) {
     const attributeName = (typeof _options.attribute === "string" ? _options.attribute : propertyKey).toLowerCase();
@@ -120,7 +113,7 @@ export function property(options?: Partial<PropertyOption>) {
     // Define property getter and setter
     Object.defineProperty(target, propertyKey, {
       get() {
-        const data:any = this[`_${propertyKey}`];
+        const data: any = this[`_${propertyKey}`];
         return options?.get ? options.get(data) : data;
       },
       set(value: any) {
@@ -136,24 +129,27 @@ export function property(options?: Partial<PropertyOption>) {
         const operation = () => {
           if (_options.attribute) {
             internal = true;
-            this.setAttribute(attributeName, valuestring);
+            if (value === undefined) {
+              // TODO need to check if this would cause issues with type:boolean = true values - is value true or undefined?
+              this.removeAttribute(attributeName);
+            }
+            else {
+              this.setAttribute(attributeName, valuestring);
+            }
             internal = false;
           }
-  
-          if (_options.onUpdate)
-          {
-            this[_options.onUpdate+"_attempts"] = 0;
+
+          if (_options.onUpdate) {
+            this[_options.onUpdate + "_attempts"] = 0;
             tryupdate.call(this, _options.onUpdate, value, old, !!_options.verbose);
           }
-  
-          if (_options.rerender)
-          {
+
+          if (_options.rerender) {
             this.debouncedRequestUpdate();
           }
         }
 
-        if (!this.connected)
-        {
+        if (!this.connected) {
           this._pendingOperations.push(operation)
           return;
         }
@@ -164,28 +160,24 @@ export function property(options?: Partial<PropertyOption>) {
   };
 }
 
-async function tryupdate(this:any, update:string, value:any, old:any, verbose:boolean) {
-  if (verbose) 
-  {
+async function tryupdate(this: any, update: string, value: any, old: any, verbose: boolean) {
+  if (verbose) {
     console.log({
-      message: 'calling update', 
-      property: update, 
+      message: 'calling update',
+      property: update,
       value: this[update],
-      attempt: this[update+"_attempts"]
+      attempt: this[update + "_attempts"]
     })
   }
 
-  let ans:number|undefined = 10;
-  if (this[update])
-  {
+  let ans: number | undefined = 10;
+  if (this[update]) {
     ans = await this[update](value, old);
   }
 
-  if (typeof ans === "number")
-  {
-    if (this[update+"_attempts"] < ans)
-    {
-      this[update+"_attempts"]++;
+  if (typeof ans === "number") {
+    if (this[update + "_attempts"] < ans) {
+      this[update + "_attempts"]++;
       setTimeout(() => {
         tryupdate.call(this, update, value, old, verbose);
       }, 100)
@@ -193,9 +185,8 @@ async function tryupdate(this:any, update:string, value:any, old:any, verbose:bo
   }
 }
 
-function convertFromString(value:string|null, type:Function) {
-  switch (type.name) 
-  {
+function convertFromString(value: string | null, type: Function) {
+  switch (type.name) {
     case "Boolean":
       if (value === null) return false;
       return value === "" || value.toLowerCase() === "true" ? true : false;
@@ -209,9 +200,8 @@ function convertFromString(value:string|null, type:Function) {
       return type(value);
   }
 }
-function convertToString(value:any, type:Function) {
-  switch (type.name) 
-  {
+function convertToString(value: any, type: Function) {
+  switch (type.name) {
     case "Object":
     case "Array":
       return JSON.stringify(value);

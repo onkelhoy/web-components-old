@@ -13,7 +13,8 @@ export class FormElementTemplate extends BaseSystem {
   protected formElement!: HTMLFormElement;
 
   protected findForm() {
-
+    if (this.formElement) return;
+    
     setTimeout(() => {
       const closestOFORM = this.shadow_closest("pap-form");
       if (closestOFORM) {
@@ -39,6 +40,7 @@ export class FormElementTemplate extends BaseSystem {
   }
 
   firstUpdate(): void {
+    super.firstUpdate();
     if (!this.formElement) this.findForm();
   }
 }

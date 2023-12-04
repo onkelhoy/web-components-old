@@ -1,5 +1,5 @@
 // utils 
-import { html, property, query, debounce } from "@pap-it/system-utils";
+import { html, property, query, debounce, ifDefined } from "@pap-it/system-utils";
 
 // atoms
 import '@pap-it/icon/wc';
@@ -9,6 +9,9 @@ import { TextinputTemplate } from '@pap-it/templates-textinput';
 import { Placement, PopoverTemplate } from "@pap-it/templates-popover";
 import '@pap-it/templates-popover/wc';
 import '@pap-it/templates-box/wc';
+
+// tools
+import "@pap-it/tools-translator/wc";
 
 // local 
 import { style } from "./style";
@@ -23,47 +26,30 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
   @property({ type: Boolean }) search: boolean = false;
   @property({ type: Array, rerender: false, onUpdate: "onoptionupdate" }) options?: Array<OptionType>;
   @property({ rerender: false, type: Boolean }) popoveropen: boolean = false;
+
   @query('pap-popover-template') popoverElement!: PopoverTemplate;
 
-  // NOTE when we need values to be preselected... its gonna be a pain
   private __options: IOption[] = [];
+  private handleafterupdate_attemps = 0;
 
   public get values() {
-    return this.value.split(',').map(v => v.trim());
+    return this.value.split(',').map(v => v.trim()).filter(v => !!v);
   };
   public set values(values: string[]) {
     this.value = values.join(',');
-
-    const texts = new Array<string>();
-    values.forEach(v => {
-      const option = this.__options.find(o => o.value === v);
-      if (option) {
-        texts.push(option.text);
-      }
-    })
-
-    const text = texts.join(', ');
-
-    if (text.length > 25 && texts.length > 1) {
-      this.inputElement.value = `${texts.length} items selected`;
-    }
-    else {
-      this.inputElement.value = text;
-    }
   };
 
+  // class functions
   constructor() {
     super();
 
     this.debouncedCheckValue = debounce(this.checkValue, 100);
-    this._suffix = '<pap-icon customsize="13" name="caret">^</pap-icon>'
+    this.addEventListener('after-update', this.handleafterupdate);
   }
+
   // private functions
-  private debouncedCheckValue() { }
+  private debouncedCheckValue() { };
   private checkValue = () => {
-    if (this.value && this.values.length === 0) {
-      this.values = this.value.split(',').map(v => v.trim());
-    }
 
     let newvalues = [...this.values];
     for (let i = 0; i < newvalues.length; i++) {
@@ -74,6 +60,9 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
     }
 
     this.values = newvalues;
+
+    // calling after update bcs the values did not trigger the onvalueupdate to be triggered when init 
+    this.handleafterupdate();
   }
 
   // public functions
@@ -81,8 +70,12 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
     if (!element.hasAttribute('data-dropdown-option')) {
       element.setAttribute('data-dropdown-option', 'true');
       element.addEventListener('click', this.handleoptionclick);
-      element.addEventListener('registered', this.handleoptionregister);
-      this.__options.push({ text: element.getText(), value: element.getValue() })
+
+      const value = element.getValue();
+      if (!this.__options.some(o => o.value === value)) {
+        this.__options.push({ text: element.getText(), value });
+      }
+
       this.debouncedCheckValue();
     }
   }
@@ -97,22 +90,19 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
         return value;
       });
 
+      this.handleafterupdate();
       this.debouncedRequestUpdate();
     }
   }
 
-  // event handlers 
+  // event handlers  
   override handlefocus = () => {
     this.hasFocus = true;
     if (!this.popoverElement.open) this.popoverElement.show();
   }
-  private handleoptionregister = (e: Event) => {
-    if (e.target instanceof Option) {
-      this.__options.push({ text: e.target.getText(), value: e.target.getValue() })
-    }
-  }
   private handleoptionclick = (e: Event) => {
     if (e instanceof CustomEvent) {
+
       let values = this.values;
       const index = values.findIndex(v => v === e.detail.value);
       if (index >= 0) {
@@ -136,27 +126,47 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
     this.popoveropen = false;
   }
 
+  private handleafterupdate = () => {
+    if (!this.inputElement) return;
+
+    const values = this.values;
+    const texts = new Array<string>();
+    values.forEach(v => {
+      const option = this.__options.find(o => o.value === v);
+      if (option) {
+        texts.push(option.text);
+      }
+    })
+
+    const text = texts.join(', ');
+    if (text.length > 25 && texts.length > 1)
+      this.inputElement.value = `${texts.length} items selected`; // TODO should be translated.. 
+    else
+      this.inputElement.value = text;
+  }
+
   render() {
     const superrender = super.render(html`
       <input 
         @click="${this.handlekeyup}" 
         @keyup="${this.handlekeyup}" 
-        data-tagname="select" 
-        ${!this.search ? "readonly='true'" : ""} 
-        placeholder="${this.placeholder || ""}" 
-        value="${this.value || ""}"
+        data-tagname="select"
+        readonly="${ifDefined(this.search ? undefined : true)}"
+        placeholder="${ifDefined(this.placeholder)}" 
+        value="${ifDefined(this.value)}"
       />
-    `)
+      <pap-icon slot="suffix" customsize="13" name="caret">^</pap-icon>
+    `);
 
     return html`
       <pap-popover-template @show="${this.handleShow}" @hide="${this.handleHide}" revealby="click">
-        <span slot="target">
+        <span part="button" slot="target">
           ${superrender}
         </span>
-        <pap-box-template class="options" radius="small" elevation="small">
+        <pap-box-template part="menu" class="options" radius="small" elevation="small">
           <slot>
             ${this.__options.map(v => html`<pap-option key="${v.value}" value="${v.value}">${v.text}</pap-option>`)}
-            ${this.__options?.length === 0 ? '<pap-option key="missing-value">Missing Options</pap-option>' : ''}
+            ${this.__options?.length === 0 ? '<pap-option disabled key="missing-value"><pap-translate>Missing Options</pap-translate></pap-option>' : ''}
           </slot>
         </pap-box-template>
       </pap-popover-template>

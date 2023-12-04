@@ -1,4 +1,4 @@
-// utils 
+// system
 import { html, property } from "@pap-it/system-utils";
 import "@pap-it/tools-translator/wc";
 

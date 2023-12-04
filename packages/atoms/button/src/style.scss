@@ -2,12 +2,6 @@
 
 :host {
   cursor: var(--pap-button-cursor, pointer);
-  align-items: center;
-  display: flex;
-  padding-inline: var(--padding-small, 8px);
-
-  box-sizing: border-box;
-  position: relative;
 
   -webkit-user-select: none;
   /* Safari */
@@ -23,26 +17,17 @@
   transition: background-color ease-in 80ms;
 }
 
-span.content {
-  padding-inline: var(--padding-small, 8px);
-  margin-inline: auto;
-  gap: var(--gap-small);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
 :host([variant="outlined"]:is(:active)),
 :host([variant="outlined"]:is(:hover)) {
   border-color: transparent !important;
 }
 
 :host([mode="hug"]) {
-  display: inline-flex;
+  display: inline-block;
 }
 
 :host([mode="fill"]) {
-  display: flex;
+  display: block;
   width: 100%;
 }
 
@@ -117,7 +102,7 @@ span.content {
     /* This line sets up the animation */
   }
 
-  span.content,
+  pap-prefix-suffix-template,
   ::slotted(*) {
     display: none !important;
   }
@@ -139,18 +124,15 @@ $size-map: (
   ),
 );
 
-// ::slotted(*[slot="prefix"]) {
-//   margin-left: var(--margin-small, 8px);
-// }
-
-// ::slotted(*[slot="suffix"]) {
-//   margin-right: var(--margin-small, 8px);
-// }
-
 @each $name, $value in $size-map {
   :host([size="#{$name}"]) {
     min-height: var(--pap-button-height-#{$name}, #{map-get($value, height)});
     height: fit-content;
+
+    pap-prefix-suffix-template {
+      min-height: var(--pap-button-height-#{$name}, #{map-get($value, height)});
+      height: 100%;
+    }
   }
 
   :host([size="#{$name}"]:not([circle="true"])) {
@@ -160,7 +142,11 @@ $size-map: (
   :host([circle="true"][size="#{$name}"]) {
     padding: 0;
     min-width: auto !important;
-    justify-content: center;
+
+    pap-prefix-suffix-template {
+      justify-content: center;
+    }
+
     width: var(--pap-button-width-#{$name}, #{map-get($value, height)});
   }
 }

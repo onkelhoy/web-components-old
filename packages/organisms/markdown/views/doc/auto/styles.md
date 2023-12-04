@@ -4,8 +4,9 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
+## SOURCE-CODE
+
+// system
 import { html, property } from "@pap-it/system-utils";
 
 // molecules
@@ -222,7 +223,9 @@ export class Markdown extends AssetTemplate {
     return this.content;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     --background: var(--pap-markdown-background, var(--pap-color-bg, #FFFFFF));
     --block-background: var(--pap-markdown-block-background, var(--pap-color-bg-tertiary, #EAEBEF));
@@ -249,7 +252,7 @@ export class Markdown extends AssetTemplate {
 table {
     color: inherit;
     width: 100%;
-    
+
     thead {
         @include table_border(bottom);
         

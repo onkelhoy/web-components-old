@@ -37,6 +37,8 @@ export class Icon extends AssetTemplate {
 
   // update functions
   private async updateName(): Promise<void> {
+    if (this.name === "") return;
+
     const file = `${this.name}.svg`;
     try {
       const response = await this.loadAsset(file);

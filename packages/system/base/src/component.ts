@@ -268,9 +268,13 @@ export class BaseSystem extends HTMLElement {
               }
             }
             else {
-              // NOTE this case seems not to show up really thus not implement for now
-              console.error('[ERROR] if this can be seen we must update (2)')
-              console.log({ child, content: child.textContent })
+              if (shadowNode.childNodes.length === 0) {
+                shadowNode.textContent = child.textContent;
+              }
+              else {
+                console.error('[ERROR] if this can be seen we must update (2)')
+                console.log({ child, content: child.textContent, shadowNode })
+              }
             }
           }
         })

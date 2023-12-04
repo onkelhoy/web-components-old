@@ -1,7 +1,5 @@
-// utils 
+// system
 import { html, property } from "@pap-it/system-utils";
-
-// templates
 import { BaseSystem } from "@pap-it/system-base";
 
 // local 
@@ -22,22 +20,22 @@ export class TEMPLATE_CLASSNAME extends BaseSystem {
 
   render() {
     return html`
-            <header part="header">
-                <slot name="header">
-                    <h1>llama drama trauma</h1>
-                </slot>
-            </header>
-            <main onclick=${this.handleMainClick}>
-                <slot>
-                    <p>Why did the llama go to therapy? Because it had a lot of spitting issues!</p>
-                </slot>
-            </main>
-            <footer part="footer">
-                <slot name="footer">
-                    <p>Why did the llama enter the door? To attend the llamazing party inside!</p>
-                </slot>
-            </footer>
-        `
+      <header part="header">
+        <slot name="header">
+          <h1>llama drama trauma</h1>
+        </slot>
+      </header>
+      <main onclick=${this.handleMainClick}>
+        <slot>
+          <p>Why did the llama go to therapy? Because it had a lot of spitting issues!</p>
+        </slot>
+      </main>
+      <footer part="footer">
+        <slot name="footer">
+          <p>Why did the llama enter the door? To attend the llamazing party inside!</p>
+        </slot>
+      </footer>
+    `
   }
 }
 

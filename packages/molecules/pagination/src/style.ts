@@ -7,4 +7,9 @@ export const style = `:host {
 span.flex {
   display: flex;
   align-items: center;
-  gap: var(--gap-small); }`;
+  gap: var(--gap-small); }
+
+pap-dropdown {
+  width: 6rem; }
+  pap-dropdown::part(menu) {
+    max-height: 30rem; }`;

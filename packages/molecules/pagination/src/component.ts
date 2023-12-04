@@ -1,5 +1,5 @@
 // utils 
-import { html, property, debounce } from "@pap-it/system-utils";
+import { html, property, debounce, query } from "@pap-it/system-utils";
 import { Translator } from "@pap-it/tools-translator";
 import "@pap-it/tools-translator/wc";
 
@@ -20,12 +20,47 @@ export class Pagination extends Translator {
 
   @property({ type: Number }) page: number = 0;
   @property({ type: Number, onUpdate: "onperpageupdate" }) perpage: number = 0;
-  @property({ type: Number, onUpdate: "setInfo" }) total: number = 0;
+  @property({ type: Number, onUpdate: "ontotal" }) total: number = 0;
 
+  @query('#page-selector') pageselector!: Dropdown;
+  @query({ selector: '#perpage-selector', onload: "onperpageselectorload" }) perpageselector!: Dropdown;
+
+  // class functions 
   constructor() {
     super();
 
     this.clearlocalchange = debounce(() => this.localchange = false, 10);
+  }
+
+  private ontotal = () => {
+    if (this.perpageselector) {
+      this.perpageselector.options = [5, 10, 15, 20, 30, 50, 75, 100].filter(v => v <= this.total);
+    }
+  }
+  private onperpageselectorload = () => {
+    if (this.perpageselector) {
+      this.perpageselector.options = [5, 10, 15, 20, 30, 50, 75, 100].filter(v => v <= this.total);
+    }
+  }
+  private onperpageupdate = (value: number, old: number) => {
+    if (!this.pageselector) return 10;
+
+    // calculate the row of the first item on the current page view
+    if (!old) this.page = 0;
+    else {
+      const firstRow = old * this.page;
+
+      // determine the new page number
+      this.page = Math.max(0, Math.ceil(firstRow / value));
+    }
+
+    this.setpageoptions();
+    this.pageselector.value = this.page.toString();
+
+    // setTimeout(() => {
+    //   // update the page dropdown to reflect the new page number
+    //   this.pageselector.value = this.page.toString();
+    // }, 1);
   }
 
   // private variables and functions 
@@ -34,33 +69,29 @@ export class Pagination extends Translator {
   private get MaxPage() {
     return Math.ceil(this.total / this.perpage) - 1;
   }
-  private getrowpagearray() {
-    if (this.total < 5) return [5];
-
-    const arr = [5, 10, 15, 20, 30, 50, 75, 100].filter(v => v <= this.total);
-    console.log('wtf is arr', arr);
-    return arr;
+  private setpageoptions() {
+    if (!this.pageselector) return;
+    if (this.perpage === 0) {
+      this.pageselector.options = [];
+      return;
+    }
+    this.pageselector.options = new Array(this.MaxPage + 1).fill(0).map((_v, i) => ({ value: i.toString(), text: (i + 1).toString() }));
   }
 
   // event handlers
-  private handlepageselect = (e: Event) => {
+  private handledropdownchange = (e: Event) => {
     if (this.localchange) {
       this.clearlocalchange();
     }
-    else if (e.target && 'value' in e.target) {
-      console.log('page change', e.target.value)
-      this.page = Number(e.target.value);
-      this.localchange = true;
-    }
-  }
-  private handleperpageselect = (e: Event) => {
-    if (this.localchange) {
-      this.clearlocalchange();
-    }
-    else if (e.target && 'value' in e.target) {
-      console.log('per page change', e.target.value)
-      this.perpage = Number(e.target.value);
-      this.localchange = true;
+    else {
+      if (e.target === this.pageselector) {
+        const value = Number(this.pageselector.value);
+        this.page = value;
+      }
+      if (e.target === this.perpageselector) {
+        const value = Number(this.perpageselector.value);
+        this.perpage = value;
+      }
     }
   }
   private handlebuttonclick = (type: NavigationButtonType) => {
@@ -90,24 +121,22 @@ export class Pagination extends Translator {
     }
   }
 
+  // ${new Array(this.MaxPage).fill(0).map((_v, i) => html`<pap-option key="${i}" value="${i}">${i}</pap-option>`)}
+  // ${this.getrowpagearray().map(value => html`<pap-option key="${value}" value="${value}">${value}</pap-option>`)}
+
   render() {
     return html`
       <span class="flex">
         <pap-typography>
           <pap-translator>Items</pap-translator>
         </pap-typography>
-        <pap-dropdown value="${this.perpage}" @change="${this.handleperpageselect}">
-          ${this.getrowpagearray().map(value => {
-      console.log('rendering array', value)
-      return html`<pap-option value="${value}">${value}</pap-option>`
-    })}
-        </pap-dropdown>
+        <pap-dropdown id="perpage-selector" value="${this.perpage || 5}" @change="${this.handledropdownchange}"></pap-dropdown>
       </span>
       <pap-divider mode="vertical"></pap-divider>
       <pap-typography>
         <pap-translator 
           start="${this.page * this.perpage}"
-          end="${this.page * this.perpage + this.perpage}"
+          end="${Math.min(this.page * this.perpage + this.perpage, this.total)}"
           total="${this.total}"
         >{start} - {end} of {total} items</pap-translator>
       </pap-typography>
@@ -116,9 +145,7 @@ export class Pagination extends Translator {
         <pap-typography>
           <pap-translator>Page</pap-translator>
         </pap-typography>
-        <pap-dropdown value="${this.page}" @change="${this.handlepageselect}">
-          ${new Array(this.MaxPage).fill(0).map((_v, i) => html`<pap-option value="${i}">${i}</pap-option>`)}
-        </pap-dropdown>
+        <pap-dropdown id="page-selector" value="${Math.min(this.page || 0, this.MaxPage)}" @change="${this.handledropdownchange}"></pap-dropdown>
         <pap-typography>
           <pap-translator maxpage="${this.MaxPage + 1}">of {maxpage}</pap-translator>
         </pap-typography>
@@ -127,37 +154,37 @@ export class Pagination extends Translator {
       <span>
         <pap-button 
           @click="${this.handlebuttonclick('first')}"
-          disabled="${this.page === 0}" 
           color="secondary" 
           variant="clear" 
-          circle="true" 
+          circle="true"
+          size="small" 
         >
           <pap-icon name="pagination.first">|<</pap-icon>
         </pap-button>
         <pap-button 
           @click="${this.handlebuttonclick('prev')}"
-          disabled="${this.page === 0}" 
           color="secondary" 
           variant="clear" 
-          circle="true" 
+          circle="true"
+          size="small" 
         >
           <pap-icon name="pagination.prev"><</pap-icon>
         </pap-button>
         <pap-button 
           @click="${this.handlebuttonclick('next')}"
-          disabled="${this.page === this.MaxPage}" 
           variant="clear" 
           color="secondary" 
-          circle="true" 
+          circle="true"
+          size="small" 
         >
           <pap-icon name="pagination.next">></pap-icon>
         </pap-button>
         <pap-button 
           @click="${this.handlebuttonclick('last')}"
-          disabled="${this.page === this.MaxPage}" 
           variant="clear" 
           color="secondary"
-          circle="true" 
+          circle="true"
+          size="small" 
         >
           <pap-icon name="pagination.last">>|</pap-icon>
         </pap-button>

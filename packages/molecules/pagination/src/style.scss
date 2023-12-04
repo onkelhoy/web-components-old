@@ -10,3 +10,11 @@ span.flex {
   align-items: center;
   gap: var(--gap-small);
 }
+
+pap-dropdown {
+  width: 6rem;
+
+  &::part(menu) {
+    max-height: 30rem;
+  }
+}
