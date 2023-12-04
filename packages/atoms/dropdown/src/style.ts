@@ -1,5 +1,5 @@
 export const style = `:host {
-  --background: var(--dropdown-background-light, var(--pap-color-neutral-50)); }
+  --background: var(--dropdown-background, var(--pap-color-neutral-50)); }
   :host pap-popover-template {
     --popover-gap: var(--gap-small, 8px);
     flex-grow: 1;
@@ -53,10 +53,6 @@ export const style = `:host {
 :host([placement="bottom-center"][size="large"]) pap-popover-template::part(wrapper),
 :host([placement="bottom-right"][size="large"]) pap-popover-template::part(wrapper) {
   top: calc(var(--field-size-small, 32px) + var(--field-size-large)); }
-
-@media (prefers-color-scheme: dark) {
-  :host {
-    --background: var(--dropdown-background-dark, var(--pap-color-neutral-50)); } }
 
 :host([popoveropen="true"]) pap-icon[name="caret"] {
   transform: rotate(180deg); }`;

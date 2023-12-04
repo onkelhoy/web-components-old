@@ -1,5 +1,5 @@
 // utils 
-import { html, property, suspense } from "@pap-it/system-utils";
+import { html, property, debounce } from "@pap-it/system-utils";
 import "@pap-it/templates-popover/wc";
 
 // templates
@@ -32,7 +32,7 @@ export class ColorPickerInput extends BaseSystem {
   constructor() {
     super();
 
-    this.debouncedChange = suspense(this.debouncedChange, 250);
+    this.debouncedChange = debounce(this.debouncedChange, 250);
   }
   firstUpdate(): void {
     super.firstUpdate();

@@ -792,17 +792,17 @@ span.content {
 :host([variant="clear"][color="warning"][loading="true"]:not([disabled]):active)::after {
   border-top: 2px solid var(--pap-button-warning-clear-pressed-icon, var(--pap-color-icon-onwarning-pressed, #FFFFFF)); }
 
-:host([disabled]) {
+:host([disabled="true"]) {
   cursor: var(--pap-button-cursor-disabled, not-allowed);
   color: var(--pap-button-disabled-text, var(--pap-color-text-disabled, #A3A9B7)); }
 
-:host([disabled]) ::slotted(pap-icon) {
+:host([disabled="true"]) ::slotted(pap-icon) {
   color: var(--pap-button-icon-disabled, var(--pap-color-icon-disabled, #A3A9B7)); }
 
-:host([variant="filled"][disabled]) {
+:host([variant="filled"][disabled="true"]) {
   background-color: var(--pap-button-disabled-filled-background, var(--pap-color-bg-disabled, #DADDE3)); }
 
-:host([variant="outlined"][disabled]) {
+:host([variant="outlined"][disabled="true"]) {
   border-color: var(--pap-button-disabled-outlined-border, var(--pap-color-border-disabled, #A3A9B7)) !important; }
 
 :host(.focus),
@@ -810,10 +810,10 @@ span.content {
   outline-offset: 2px;
   outline: 2px solid var(--pap-color-border-strong, #29292F) !important; }
 
-:host([disabled]:focus),
-:host([disabled].focus),
-:host([disabled]:focus-visible),
-:host([disabled]:focus-within) {
+:host([disabled="true"]:focus),
+:host([disabled="true"].focus),
+:host([disabled="true"]:focus-visible),
+:host([disabled="true"]:focus-within) {
   outline: none !important; }
 
 :host([loading="true"])::after {

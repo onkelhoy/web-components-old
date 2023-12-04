@@ -40,7 +40,7 @@ export class Option extends BaseSystem {
       if (dropdown) {
         dropdown.registerOption(this);
         dropdown.addEventListener("change", this.handledropdownchange);
-        dropdown.addEventListener("suspended-input", this.handledropdowninput);
+        dropdown.addEventListener("debounced-input", this.handledropdowninput);
 
         if (dropdown.values.includes(this.getValue())) {
           this.checkboxElement.checked = true;

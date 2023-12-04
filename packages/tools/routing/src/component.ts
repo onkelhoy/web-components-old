@@ -1,5 +1,5 @@
 // utils 
-import { html, property, suspense } from "@pap-it/system-utils";
+import { html, property, debounce } from "@pap-it/system-utils";
 
 // templates
 import { AssetTemplate } from "@pap-it/templates-asset";
@@ -15,7 +15,7 @@ export class RoutingTool extends AssetTemplate {
     super();
 
     this.render_mode = 'greedy';
-    this.debouncedFetch = suspense(this.fetchHTML, 100);
+    this.debouncedFetch = debounce(this.fetchHTML, 100);
   }
 
   // private functions

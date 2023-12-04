@@ -115,9 +115,9 @@ export class Translator extends BaseSystem {
 
   render() {
     return html`
-            <span class="pap-translation-span"></span>
-            <slot style="display:none;" @slotchange="${this.handletranslateslotchange}"></slot>
-        `
+      <span class="pap-translation-span"></span>
+      <slot style="display:none;" @slotchange="${this.handletranslateslotchange}"></slot>
+    `
   }
 }
 

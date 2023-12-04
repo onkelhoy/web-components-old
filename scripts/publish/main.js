@@ -63,7 +63,7 @@ function execute_individual(info)
 {
   return new Promise((res, rej) => 
   {
-    if (info.name.endswith('-depricated')) 
+    if (info.name.endsWith('-depricated')) 
     {
       console.log("\t[depricated]\t", info.name);
       res();

@@ -1,4 +1,4 @@
-import { NextParent, property, suspense, findComments } from "@pap-it/system-utils";
+import { NextParent, property, debounce, findComments } from "@pap-it/system-utils";
 
 import { FunctionCallback, RenderType } from "./types";
 
@@ -30,7 +30,7 @@ export class BaseSystem extends HTMLElement {
     this.styleComperator = document.createElement('style');
     this.templateComperator = document.createElement('template');
 
-    this.debouncedRequestUpdate = suspense(this.requestUpdate, 100);
+    this.debouncedRequestUpdate = debounce(this.requestUpdate, 100);
     this.attachShadow({ mode: 'open' });
     this.callAfterUpdate.push(this.firstUpdate);
   }

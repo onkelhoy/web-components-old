@@ -125,7 +125,7 @@
         "from": "@pap-it/system-utils"
       },
       {
-        "name": "suspense",
+        "name": "debounce",
         "from": "@pap-it/system-utils"
       },
       {

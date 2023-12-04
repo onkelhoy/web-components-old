@@ -9,12 +9,14 @@ Version: 1.0.0
 Development servers can be started and should all exist inside `"views"` folder
 
 ## Scripts
+
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
-## SOURCE-CODE:
-// utils 
-import { html, property, query, suspense } from "@pap-it/system-utils";
+## SOURCE-CODE
+
+// utils
+import { html, property, query, debounce } from "@pap-it/system-utils";
 
 // atoms
 import '@pap-it/icon/wc';
@@ -25,7 +27,7 @@ import { Placement, PopoverTemplate } from "@pap-it/templates-popover";
 import '@pap-it/templates-popover/wc';
 import '@pap-it/templates-box/wc';
 
-// local 
+// local
 import { style } from "./style";
 import { IOption, OptionType } from "./types";
 import { Option } from "./components/option";
@@ -71,7 +73,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
   constructor() {
     super();
 
-    this.debouncedCheckValue = suspense(this.checkValue, 100);
+    this.debouncedCheckValue = debounce(this.checkValue, 100);
     this._suffix = '<pap-icon customsize="13" name="caret">^</pap-icon>'
   }
   // private functions
@@ -117,7 +119,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
     }
   }
 
-  // event handlers 
+  // event handlers
   override handlefocus = () => {
     this.hasFocus = true;
     if (!this.popoverElement.open) this.popoverElement.show();
@@ -154,12 +156,12 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
 
   render() {
     const superrender = super.render(html`
-            <input 
-                @click="${this.handlekeyup}" 
-                @keyup="${this.handlekeyup}" 
-                data-tagname="select" 
-                ${!this.search ? "readonly='true'" : ""} 
-                placeholder="${this.placeholder || ""}" 
+            <input
+                @click="${this.handlekeyup}"
+                @keyup="${this.handlekeyup}"
+                data-tagname="select"
+                ${!this.search ? "readonly='true'" : ""}
+                placeholder="${this.placeholder || ""}"
                 value="${this.value || ""}"
             />
         `)
@@ -186,7 +188,9 @@ declare global {
     "pap-dropdown": Dropdown;
   }
 }
-## REGISTER-CODE:
+
+## REGISTER-CODE
+
 import { Dropdown } from './component.js';
 import { Option } from './components/option';
 
@@ -204,14 +208,16 @@ if (!cElements.get('pap-option')) {
   cElements.define('pap-option', Option);
 }
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- // utils 
-import { html, property, query, suspense } from "@pap-it/system-utils";
+## SOURCE-CODE
+
+ // utils
+import { html, property, query, debounce } from "@pap-it/system-utils";
 
 // atoms
 import '@pap-it/icon/wc';
@@ -222,7 +228,7 @@ import { Placement, PopoverTemplate } from "@pap-it/templates-popover";
 import '@pap-it/templates-popover/wc';
 import '@pap-it/templates-box/wc';
 
-// local 
+// local
 import { style } from "./style";
 import { IOption, OptionType } from "./types";
 import { Option } from "./components/option";
@@ -268,7 +274,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
   constructor() {
     super();
 
-    this.debouncedCheckValue = suspense(this.checkValue, 100);
+    this.debouncedCheckValue = debounce(this.checkValue, 100);
     this._suffix = '<pap-icon customsize="13" name="caret">^</pap-icon>'
   }
   // private functions
@@ -314,7 +320,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
     }
   }
 
-  // event handlers 
+  // event handlers
   override handlefocus = () => {
     this.hasFocus = true;
     if (!this.popoverElement.open) this.popoverElement.show();
@@ -351,12 +357,12 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
 
   render() {
     const superrender = super.render(html`
-            <input 
-                @click="${this.handlekeyup}" 
-                @keyup="${this.handlekeyup}" 
-                data-tagname="select" 
-                ${!this.search ? "readonly='true'" : ""} 
-                placeholder="${this.placeholder || ""}" 
+            <input
+                @click="${this.handlekeyup}"
+                @keyup="${this.handlekeyup}"
+                data-tagname="select"
+                ${!this.search ? "readonly='true'" : ""}
+                placeholder="${this.placeholder || ""}"
                 value="${this.value || ""}"
             />
         `)
@@ -385,6 +391,7 @@ declare global {
 }
 
 ## TYPE-CODE: export type IOption = {
+
   text: string;
   value: string;
 }
@@ -395,9 +402,10 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
-import { html, property, query, suspense } from "@pap-it/system-utils";
+## SOURCE-CODE
+
+// utils
+import { html, property, query, debounce } from "@pap-it/system-utils";
 
 // atoms
 import '@pap-it/icon/wc';
@@ -408,7 +416,7 @@ import { Placement, PopoverTemplate } from "@pap-it/templates-popover";
 import '@pap-it/templates-popover/wc';
 import '@pap-it/templates-box/wc';
 
-// local 
+// local
 import { style } from "./style";
 import { IOption, OptionType } from "./types";
 import { Option } from "./components/option";
@@ -454,7 +462,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
   constructor() {
     super();
 
-    this.debouncedCheckValue = suspense(this.checkValue, 100);
+    this.debouncedCheckValue = debounce(this.checkValue, 100);
     this._suffix = '<pap-icon customsize="13" name="caret">^</pap-icon>'
   }
   // private functions
@@ -500,7 +508,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
     }
   }
 
-  // event handlers 
+  // event handlers
   override handlefocus = () => {
     this.hasFocus = true;
     if (!this.popoverElement.open) this.popoverElement.show();
@@ -537,12 +545,12 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
 
   render() {
     const superrender = super.render(html`
-            <input 
-                @click="${this.handlekeyup}" 
-                @keyup="${this.handlekeyup}" 
-                data-tagname="select" 
-                ${!this.search ? "readonly='true'" : ""} 
-                placeholder="${this.placeholder || ""}" 
+            <input
+                @click="${this.handlekeyup}"
+                @keyup="${this.handlekeyup}"
+                data-tagname="select"
+                ${!this.search ? "readonly='true'" : ""}
+                placeholder="${this.placeholder || ""}"
                 value="${this.value || ""}"
             />
         `)
@@ -569,7 +577,9 @@ declare global {
     "pap-dropdown": Dropdown;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     --background: var(--dropdown-background-light, var(--pap-color-neutral-50));
 
@@ -600,8 +610,7 @@ declare global {
     }
 }
 
-
-// for now its only for bottom cases... 
+// for now its only for bottom cases...
 $size-map: (
   small: (
     height: var(--field-size-small, 32px),
@@ -641,8 +650,6 @@ $size-map: (
         }
     }
 }
-
-
 
 @media (prefers-color-scheme: dark) {
     :host {

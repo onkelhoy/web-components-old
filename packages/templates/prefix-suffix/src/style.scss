@@ -1,0 +1,7 @@
+:host {
+    display: block;
+    padding: var(--padding-medium, 16px);
+
+    background-color: var(--prefix-suffix-background-color, var(--pap-color-bg, white));
+    color: var(--prefix-suffix-text-color, var(--pap-color-text, black));
+}

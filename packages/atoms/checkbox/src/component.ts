@@ -30,9 +30,7 @@ export class Checkbox extends FieldTemplate {
   }
 
   render() {
-    return super.render(html`
-            <input readonly type="checkbox" />
-        `)
+    return super.render(html`<input readonly type="checkbox" />`)
   }
 }
 

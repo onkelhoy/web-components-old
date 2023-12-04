@@ -1,5 +1,5 @@
 // utils 
-import { html, query, property, suspense, Radius, Size } from "@pap-it/system-utils";
+import { html, query, property, debounce, Radius, Size } from "@pap-it/system-utils";
 
 // atoms
 import { Typography } from "@pap-it/typography";
@@ -141,7 +141,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
 
   // private functions ¨
   protected debouncedInput = () => {
-    this.dispatchEvent(new Event('suspended-input'));
+    this.dispatchEvent(new Event('debounced-input'));
   }
   private assignHiddenElement() {
     if (!this.formElement) this.findForm();
@@ -237,8 +237,8 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
   constructor(delay = 100) {
     super();
 
-    this.debouncedInput = suspense(this.debouncedInput, delay);
-    this.updateHidden = suspense(this.updateHidden, 10);
+    this.debouncedInput = debounce(this.debouncedInput, delay);
+    this.updateHidden = debounce(this.updateHidden, 10);
     super.addEventListener("form-element-loaded", this.handleformelementload);
   }
   connectedCallback(): void {
@@ -294,26 +294,26 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
       }
     }
     return html`
-            <header part="header">
-                <slot name="header"><pap-typography>${this.label || ""}</pap-typography></slot>
-                ${this.maxLength ? html`<pap-typography><span class="counter"></span>/${this.maxLength}</pap-typography>` : ''}
-            </header>
-            <pap-box-template radius="${this.radius}" class="wrapper" part="wrapper">
-                <slot name="prefix">${this._prefix}</slot>
-                ${element ? element : '<slot></slot>'}
-                <slot name="suffix">${this._suffix}</slot>
-            </pap-box-template>
-            <footer part="footer">
-                <div class="warning">
-                    <pap-icon name="warning"></pap-icon>
-                    <pap-typography>This is a placeholder for warning</pap-typography>
-                </div>
-                <div class="error">
-                    <pap-icon name="error"></pap-icon>
-                    <pap-typography>This is a placeholder for error</pap-typography>
-                </div>
-            </footer>
-            `
+      <header part="header">
+        <slot name="header"><pap-typography>${this.label || ""}</pap-typography></slot>
+        ${this.maxLength ? html`<pap-typography><span class="counter"></span>/${this.maxLength}</pap-typography>` : ''}
+      </header>
+      <pap-box-template radius="${this.radius}" class="wrapper" part="wrapper">
+        <slot name="prefix">${this._prefix}</slot>
+        ${element ? element : '<slot></slot>'}
+        <slot name="suffix">${this._suffix}</slot>
+      </pap-box-template>
+      <footer part="footer">
+        <div class="warning">
+          <pap-icon name="warning"></pap-icon>
+          <pap-typography>This is a placeholder for warning</pap-typography>
+        </div>
+        <div class="error">
+          <pap-icon name="error"></pap-icon>
+          <pap-typography>This is a placeholder for error</pap-typography>
+        </div>
+      </footer>
+    `
   }
 }
 // <!-- <slot name="footer"><pap-typography class="${this.message?.type || "hidden"}">${this.message?.message || ""}</pap-typography></slot> -->

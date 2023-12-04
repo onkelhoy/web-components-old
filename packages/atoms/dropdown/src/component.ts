@@ -1,5 +1,5 @@
 // utils 
-import { html, property, query, suspense } from "@pap-it/system-utils";
+import { html, property, query, debounce } from "@pap-it/system-utils";
 
 // atoms
 import '@pap-it/icon/wc';
@@ -22,7 +22,6 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
   @property() placement: Placement = "bottom-left";
   @property({ type: Boolean }) search: boolean = false;
   @property({ type: Array, rerender: false, onUpdate: "onoptionupdate" }) options?: Array<OptionType>;
-  // @property({ type: Array, rerender: false, attribute: false }) values: string[] = [];
   @property({ rerender: false, type: Boolean }) popoveropen: boolean = false;
   @query('pap-popover-template') popoverElement!: PopoverTemplate;
 
@@ -56,7 +55,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
   constructor() {
     super();
 
-    this.debouncedCheckValue = suspense(this.checkValue, 100);
+    this.debouncedCheckValue = debounce(this.checkValue, 100);
     this._suffix = '<pap-icon customsize="13" name="caret">^</pap-icon>'
   }
   // private functions
@@ -139,30 +138,29 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
 
   render() {
     const superrender = super.render(html`
-            <input 
-                @click="${this.handlekeyup}" 
-                @keyup="${this.handlekeyup}" 
-                data-tagname="select" 
-                ${!this.search ? "readonly='true'" : ""} 
-                placeholder="${this.placeholder || ""}" 
-                value="${this.value || ""}"
-            />
-        `)
+      <input 
+        @click="${this.handlekeyup}" 
+        @keyup="${this.handlekeyup}" 
+        data-tagname="select" 
+        ${!this.search ? "readonly='true'" : ""} 
+        placeholder="${this.placeholder || ""}" 
+        value="${this.value || ""}"
+      />
+    `)
 
     return html`
-            <pap-popover-template @show="${this.handleShow}" @hide="${this.handleHide}" revealby="click">
-                <span slot="target">
-                    ${superrender}
-                </span>
-                <pap-box-template class="options" radius="small" elevation="small">
-                    
-                    <slot>
-                        ${this.__options.map(v => html`<pap-option key="${v.value}" value="${v.value}">${v.text}</pap-option>`)}
-                        ${this.__options?.length === 0 ? '<pap-option key="missing-value">Missing Options</pap-option>' : ''}
-                    </slot>
-                </pap-box-template>
-            </pap-popover-template>
-        `
+      <pap-popover-template @show="${this.handleShow}" @hide="${this.handleHide}" revealby="click">
+        <span slot="target">
+          ${superrender}
+        </span>
+        <pap-box-template class="options" radius="small" elevation="small">
+          <slot>
+            ${this.__options.map(v => html`<pap-option key="${v.value}" value="${v.value}">${v.text}</pap-option>`)}
+            ${this.__options?.length === 0 ? '<pap-option key="missing-value">Missing Options</pap-option>' : ''}
+          </slot>
+        </pap-box-template>
+      </pap-popover-template>
+    `
   }
 }
 

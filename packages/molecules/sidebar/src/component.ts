@@ -1,5 +1,5 @@
 // utils 
-import { html, property, query, DetectDevice, Devices, suspense } from "@pap-it/system-utils";
+import { html, property, query, DetectDevice, Devices, debounce } from "@pap-it/system-utils";
 import "@pap-it/tools-translator/wc";
 
 // atoms 
@@ -34,7 +34,7 @@ export class Sidebar extends BaseSystem {
   constructor() {
     super();
 
-    this.handlewindowresize_debounced = suspense(this.handlewindowresize_debounced, 20);
+    this.handlewindowresize_debounced = debounce(this.handlewindowresize_debounced, 20);
   }
 
   // class functions 

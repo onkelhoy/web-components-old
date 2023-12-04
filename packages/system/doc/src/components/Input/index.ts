@@ -1,5 +1,5 @@
 // utils 
-import { html, property, suspense } from "@pap-it/system-utils";
+import { html, property, debounce } from "@pap-it/system-utils";
 
 // templates
 import { BaseSystem } from "@pap-it/system-base";
@@ -20,7 +20,7 @@ export class Input extends BaseSystem {
   constructor() {
     super();
 
-    this.debouncedInput = suspense(this.debouncedInput, 250);
+    this.debouncedInput = debounce(this.debouncedInput, 250);
   }
 
   @property() label: string = "";
