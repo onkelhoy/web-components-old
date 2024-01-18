@@ -12,7 +12,7 @@ if [ ! -f .scripts/combine.sh ]; then
 fi
 
 # run combine script
-sh .scripts/combine.sh &> /dev/null 
+# sh .scripts/combine.sh &> /dev/null 
 
 # come back to root 
 cd $ROOTDIR

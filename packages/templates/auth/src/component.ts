@@ -19,7 +19,7 @@ export class AuthTemplate extends BaseSystem {
   render() {
     return html`
             <div class="logo flex">
-                <slot name="logo"><pap-icon customSize="200" name="interzero-logo"></pap-icon></slot>
+                <slot name="logo"><pap-icon custom-size="200" name="interzero-logo"></pap-icon></slot>
             </div>
             <div class="welcome flex">
                 <slot name="welcome"><pap-typography variant="t2"><pap-translator>👋 Welcome to Interzero.</pap-translator></pap-typography></slot>

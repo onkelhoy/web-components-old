@@ -1,0 +1,24 @@
+pap-form {
+  flex: 1;
+  display: inline-flex;
+  position: relative;
+}
+
+main {
+  padding: var(--padding-medium, 16px);
+  padding-inline: var(--padding-large, 24px);
+  box-sizing: border-box;
+  overflow-y: auto;
+  height: calc(100% - var(--field-size-medium, 40px) - calc(var(--padding-medium, 16px) * 2));
+}
+
+footer {
+  background-color: var(--pap-color-bg-secondary, #F6F7F8);
+  padding-inline: var(--padding-small, 8px);
+  padding-block: var(--padding-medium, 16px);
+
+  width: 100%;
+  box-sizing: border-box;
+  bottom: 0;
+  position: absolute;
+}

@@ -1,5 +1,5 @@
-// utils 
-import { html, property } from "@pap-it/system-utils";
+// system
+import { html, property, ifDefined } from "@pap-it/system-utils";
 
 // templates
 import { TextinputTemplate } from '@pap-it/templates-textinput';
@@ -15,8 +15,16 @@ export class Input extends TextinputTemplate<HTMLInputElement> {
 
   render() {
     return super.render(html`
-            <input @click="${this.handlekeyup}" @keyup="${this.handlekeyup}" placeholder="${this.placeholder || ""}" type="${this.type}" value="${this.value || ""}" />
-        `)
+      <input 
+        @click="${this.handlekeyup}" 
+        @keyup="${this.handlekeyup}" 
+        placeholder="${this.placeholder || ""}" 
+        value="${this.value || ""}" 
+        type="${this.type}" 
+        maxlength="${ifDefined(this.maxLength)}"
+        style="width: 100%"
+      />
+    `)
   }
 }
 

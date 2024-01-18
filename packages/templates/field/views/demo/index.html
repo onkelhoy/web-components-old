@@ -1,51 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FieldTemplate demo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FieldTemplate demo</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
+  <script defer src="main.js"></script>
 </head>
+
 <body>
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-field-template label="Label">
-                <span slot="prefix">PRE</span>
-                <pap-box-template></pap-box-template>
-                <span slot="suffix">SUF</span>
-            </pap-field-template>
-        </pap-codeblock>
-    </doc-card>
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-field-template size="large" radius="circular" label="Label">
-                <span slot="prefix">PRE</span>
-                <pap-box-template></pap-box-template>
-                <span slot="suffix">SUF</span>
-            </pap-field-template>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <pap-typography variant="C1" slot="header">Standard</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template>
+        <pap-box-template></pap-box-template>
+      </pap-field-template>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography variant="C1" slot="header">With label</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template label="Label">
+        <pap-box-template></pap-box-template>
+      </pap-field-template>
+    </pap-codeblock>
+  </doc-card>
 
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-field-template label="Label">
-                <span slot="prefix">PRE</span>
-                <pap-box-template></pap-box-template>
-                <span slot="suffix">SUF</span>
+  <doc-card>
+    <pap-typography variant="C1" slot="header">Prefix & Suffix</pap-typography>
 
-                <p slot="footer">footer left</p>
-                <p slot="footer">footer right</p>
-            </pap-field-template>
-        </pap-codeblock>
-    </doc-card>
+    <pap-typography variant="C3">Prefix:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template label="Label">
+        <span slot="prefix">PRE</span>
+        <pap-box-template></pap-box-template>
+      </pap-field-template>
+    </pap-codeblock>
+
+    <pap-typography variant="C3">Suffix:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template label="Label">
+        <pap-box-template></pap-box-template>
+        <span slot="suffix">SUF</span>
+      </pap-field-template>
+    </pap-codeblock>
+
+    <pap-typography variant="C3">Both:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template label="Label">
+        <span slot="prefix">PRE</span>
+        <pap-box-template></pap-box-template>
+        <span slot="suffix">SUF</span>
+      </pap-field-template>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography variant="C1" slot="header">Footer</pap-typography>
+    <pap-typography variant="C3">Help message:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template message="Custom message" label="Label">
+        <span slot="prefix">PRE</span>
+        <pap-box-template></pap-box-template>
+        <span slot="suffix">SUF</span>
+      </pap-field-template>
+    </pap-codeblock>
+
+    <pap-typography variant="C3">Success message:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template message="Custom message" message-type="success" label="Label">
+        <span slot="prefix">PRE</span>
+        <pap-box-template></pap-box-template>
+        <span slot="suffix">SUF</span>
+      </pap-field-template>
+    </pap-codeblock>
+
+    <pap-typography variant="C3">Warning message:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template message="Custom message" message-type="warning" label="Label">
+        <span slot="prefix">PRE</span>
+        <pap-box-template></pap-box-template>
+        <span slot="suffix">SUF</span>
+      </pap-field-template>
+    </pap-codeblock>
+
+    <pap-typography variant="C3">Error message:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template message="Custom message" message-type="error" label="Label">
+        <span slot="prefix">PRE</span>
+        <pap-box-template></pap-box-template>
+        <span slot="suffix">SUF</span>
+      </pap-field-template>
+    </pap-codeblock>
+
+    <pap-typography variant="C3">Footer slot:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template label="Label">
+        <span slot="prefix">PRE</span>
+        <pap-box-template></pap-box-template>
+        <span slot="suffix">SUF</span>
+
+        <p slot="footer">footer left</p>
+        <p slot="footer">footer right</p>
+      </pap-field-template>
+    </pap-codeblock>
+
+    <pap-typography variant="C3">Footer slot + help message:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template message="Custom message" label="Label">
+        <span slot="prefix">PRE</span>
+        <pap-box-template></pap-box-template>
+        <span slot="suffix">SUF</span>
+
+        <p slot="footer">footer content</p>
+      </pap-field-template>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography variant="C1" slot="header">Size</pap-typography>
+    <pap-typography variant="C3">Small:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template size="small" label="Label">
+        <span slot="prefix">PRE</span>
+        <pap-box-template></pap-box-template>
+        <span slot="suffix">SUF</span>
+
+        <p slot="footer">footer content</p>
+      </pap-field-template>
+    </pap-codeblock>
+
+    <pap-typography variant="C3">Medium:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template size="medium" label="Label">
+        <span slot="prefix">PRE</span>
+        <pap-box-template></pap-box-template>
+        <span slot="suffix">SUF</span>
+
+        <p slot="footer">footer content</p>
+      </pap-field-template>
+    </pap-codeblock>
+
+    <pap-typography variant="C3">Large:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template size="large" label="Label">
+        <span slot="prefix">PRE</span>
+        <pap-box-template></pap-box-template>
+        <span slot="suffix">SUF</span>
+
+        <p slot="footer">footer content</p>
+      </pap-field-template>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography variant="C1" slot="header">Radius</pap-typography>
+    <pap-typography variant="C3">none:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template radius="none" label="Label">
+        <span slot="prefix">PRE</span>
+        <pap-box-template></pap-box-template>
+        <span slot="suffix">SUF</span>
+
+        <p slot="footer">footer content</p>
+      </pap-field-template>
+    </pap-codeblock>
+
+    <pap-typography variant="C3">small:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template radius="small" label="Label">
+        <span slot="prefix">PRE</span>
+        <pap-box-template></pap-box-template>
+        <span slot="suffix">SUF</span>
+
+        <p slot="footer">footer content</p>
+      </pap-field-template>
+    </pap-codeblock>
+
+    <pap-typography variant="C3">medium:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template radius="medium" label="Label">
+        <span slot="prefix">PRE</span>
+        <pap-box-template></pap-box-template>
+        <span slot="suffix">SUF</span>
+
+        <p slot="footer">footer content</p>
+      </pap-field-template>
+    </pap-codeblock>
+
+    <pap-typography variant="C3">large:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template radius="large" label="Label">
+        <span slot="prefix">PRE</span>
+        <pap-box-template></pap-box-template>
+        <span slot="suffix">SUF</span>
+
+        <p slot="footer">footer content</p>
+      </pap-field-template>
+    </pap-codeblock>
+
+    <pap-typography variant="C3">circular:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-field-template radius="circular" label="Label">
+        <span slot="prefix">PRE</span>
+        <pap-box-template></pap-box-template>
+        <span slot="suffix">SUF</span>
+
+        <p slot="footer">footer content</p>
+      </pap-field-template>
+    </pap-codeblock>
+  </doc-card>
 </body>
+
 </html>

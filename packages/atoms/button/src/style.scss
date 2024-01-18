@@ -2,12 +2,6 @@
 
 :host {
   cursor: var(--pap-button-cursor, pointer);
-  align-items: center;
-  display: flex;
-  padding-inline: var(--padding-small, 8px);
-
-  box-sizing: border-box;
-  position: relative;
 
   -webkit-user-select: none;
   /* Safari */
@@ -23,27 +17,19 @@
   transition: background-color ease-in 80ms;
 }
 
-span.content {
-  padding-inline: var(--padding-small, 8px);
-  margin-inline: auto;
-  gap: var(--gap-small);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
 :host([variant="outlined"]:is(:active)),
 :host([variant="outlined"]:is(:hover)) {
   border-color: transparent !important;
 }
 
 :host([mode="hug"]) {
-  display: inline-flex;
+  display: inline-block;
 }
 
 :host([mode="fill"]) {
-  display: flex;
+  display: block;
   width: 100%;
+  box-sizing: border-box;
 }
 
 :host([textvariant="B1"]),
@@ -69,20 +55,20 @@ span.content {
 
 @include set-colors;
 
-:host([disabled]) {
+:host([disabled="true"]) {
   cursor: var(--pap-button-cursor-disabled, not-allowed);
   color: var(--pap-button-disabled-text, var(--pap-color-text-disabled, #A3A9B7));
 }
 
-:host([disabled]) ::slotted(pap-icon) {
+:host([disabled="true"]) ::slotted(pap-icon) {
   color: var(--pap-button-icon-disabled, var(--pap-color-icon-disabled, #A3A9B7));
 }
 
-:host([variant="filled"][disabled]) {
+:host([variant="filled"][disabled="true"]) {
   background-color: var(--pap-button-disabled-filled-background, var(--pap-color-bg-disabled, #DADDE3));
 }
 
-:host([variant="outlined"][disabled]) {
+:host([variant="outlined"][disabled="true"]) {
   border-color: var(--pap-button-disabled-outlined-border, var(--pap-color-border-disabled, #A3A9B7)) !important;
 }
 
@@ -92,10 +78,10 @@ span.content {
   outline: 2px solid var(--pap-color-border-strong, #29292F) !important;
 }
 
-:host([disabled]:focus),
-:host([disabled].focus),
-:host([disabled]:focus-visible),
-:host([disabled]:focus-within) {
+:host([disabled="true"]:focus),
+:host([disabled="true"].focus),
+:host([disabled="true"]:focus-visible),
+:host([disabled="true"]:focus-within) {
   outline: none !important;
 }
 
@@ -117,7 +103,7 @@ span.content {
     /* This line sets up the animation */
   }
 
-  span.content,
+  pap-prefix-suffix-template,
   ::slotted(*) {
     display: none !important;
   }
@@ -129,28 +115,25 @@ span.content {
 
 $size-map: (
   small: (min-width: 4.5rem,
-    height: 2rem, // border
+    height: calc(var(--field-size-small, 32px) - 4px), // - border
   ),
   medium: (min-width: 5.625rem,
-    height: 2.5rem,
+    height: calc(var(--field-size-medium, 40px) - 4px),
   ),
   large: (min-width: 6.75rem,
-    height: 3rem,
+    height: calc(var(--unit-size7, 48px) - 4px),
   ),
 );
-
-// ::slotted(*[slot="prefix"]) {
-//   margin-left: var(--margin-small, 8px);
-// }
-
-// ::slotted(*[slot="suffix"]) {
-//   margin-right: var(--margin-small, 8px);
-// }
 
 @each $name, $value in $size-map {
   :host([size="#{$name}"]) {
     min-height: var(--pap-button-height-#{$name}, #{map-get($value, height)});
     height: fit-content;
+
+    pap-prefix-suffix-template {
+      min-height: var(--pap-button-height-#{$name}, #{map-get($value, height)});
+      height: 100%;
+    }
   }
 
   :host([size="#{$name}"]:not([circle="true"])) {
@@ -158,9 +141,12 @@ $size-map: (
   }
 
   :host([circle="true"][size="#{$name}"]) {
-    padding: 0;
     min-width: auto !important;
-    justify-content: center;
+
+    pap-prefix-suffix-template {
+      justify-content: center;
+    }
+
     width: var(--pap-button-width-#{$name}, #{map-get($value, height)});
   }
 }

@@ -18,7 +18,7 @@ import { style } from "./style";
 import { HTMLFormat, Display } from "./types";
 
 const MAX_ATTRIBUTES = 2;
-const MAX_HTMLCONTENT = 180;
+const MAX_HTMLCONTENT = 80;
 
 const OPEN_BRACKETS = ["(", "[", "{"];
 const CLOSE_BRACKETS = [")", "]", "}"];
@@ -61,8 +61,10 @@ export class Codeblock extends BaseSystem {
       console.log(`Copied to clipboard`);
       clearTimeout(this.timer);
 
+      this.classList.add('copied');
       this.copytext.innerHTML = "Copied!";
       this.timer = setTimeout(() => {
+        this.classList.remove('copied');
         this.copytext.innerHTML = "Copy code";
       }, 2000);
     }, (err) => {
@@ -317,7 +319,18 @@ export class Codeblock extends BaseSystem {
       return null;
     }
     const tagname = tagmatch[1];
-    const attributes = tagmatch[2] ? tagmatch[2].trim().split(/\s/) : [];
+    const attributesString = tagmatch[2] ? tagmatch[2].trim() : "";
+    const attributesRegex = /([\w-]+)(?:=(".*?"|'.*?'|\S+))?/g;
+    let match;
+    let attributes = [];
+    let attributesize = 0;
+
+    while ((match = attributesRegex.exec(attributesString)) !== null) {
+      attributes.push(match);
+      attributesize += match[0].length;
+    }
+
+    // const attributes = tagmatch[2] ? tagmatch[2].trim().split(/\s/) : [];
     const multilines = multiline || attributes.length > MAX_ATTRIBUTES;
 
     let output = `<span class="html-tag">&lt;</span><span class="html-tag-name">${tagname}</span>`;
@@ -331,13 +344,13 @@ export class Codeblock extends BaseSystem {
       this.indentationLevel++;
     }
     // loop the attributes
-    for (let attribute of attributes) {
+    for (let [_full, name, value] of attributes) {
       // split by the "=" if exists 
-      const [name, value] = attribute.split("=");
+      // const  = attribute;
       // so if attributes are added as new lines we need not to add a margin-left
       let attributeinlineindent = multilines ? "indent" : "";
       let attributestring = `<span class="html-attribute ${attributeinlineindent}"><span class="html-attribute-name">${name}</span>`;
-      if (value) {
+      if (value && value !== '""') {
         // yes value exists 
         attributestring += `=<span class="html-attribute-value">${value}</span>`
       }

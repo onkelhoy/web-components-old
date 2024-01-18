@@ -157,7 +157,7 @@ export class Sidebar extends BaseSystem {
                     <pap-icon class="logo light" style="width:124px" size="large" name="interzero-logo"></pap-icon>
                     <pap-icon class="logo dark" style="width:124px" size="large" name="interzero-logo-dark"></pap-icon>
                     <pap-button color="secondary" circle variant="clear" @click="${this.handlehamburgerclick}">
-                        <!-- <pap-icon customSize="32" class="hover" name="circular-logo"></pap-icon> -->
+                        <!-- <pap-icon custom-size="32" class="hover" name="circular-logo"></pap-icon> -->
                         <pap-icon size="small" class="open" name="hamburger.open"></pap-icon>
                         <!-- <pap-icon size="small" class="collapsed" name="hamburger.collapse"></pap-icon> -->
                     </pap-button>
@@ -346,7 +346,7 @@ export class Sidebar extends BaseSystem {
                     <pap-icon class="logo light" style="width:124px" size="large" name="interzero-logo"></pap-icon>
                     <pap-icon class="logo dark" style="width:124px" size="large" name="interzero-logo-dark"></pap-icon>
                     <pap-button color="secondary" circle variant="clear" @click="${this.handlehamburgerclick}">
-                        <!-- <pap-icon customSize="32" class="hover" name="circular-logo"></pap-icon> -->
+                        <!-- <pap-icon custom-size="32" class="hover" name="circular-logo"></pap-icon> -->
                         <pap-icon size="small" class="open" name="hamburger.open"></pap-icon>
                         <!-- <pap-icon size="small" class="collapsed" name="hamburger.collapse"></pap-icon> -->
                     </pap-button>
@@ -518,7 +518,7 @@ export class Sidebar extends BaseSystem {
                     <pap-icon class="logo light" style="width:124px" size="large" name="interzero-logo"></pap-icon>
                     <pap-icon class="logo dark" style="width:124px" size="large" name="interzero-logo-dark"></pap-icon>
                     <pap-button color="secondary" circle variant="clear" @click="${this.handlehamburgerclick}">
-                        <!-- <pap-icon customSize="32" class="hover" name="circular-logo"></pap-icon> -->
+                        <!-- <pap-icon custom-size="32" class="hover" name="circular-logo"></pap-icon> -->
                         <pap-icon size="small" class="open" name="hamburger.open"></pap-icon>
                         <!-- <pap-icon size="small" class="collapsed" name="hamburger.collapse"></pap-icon> -->
                     </pap-button>

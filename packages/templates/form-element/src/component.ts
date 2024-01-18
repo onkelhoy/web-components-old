@@ -11,8 +11,15 @@ export class FormElementTemplate extends BaseSystem {
   @property({ rerender: false }) name?: string;
 
   protected formElement!: HTMLFormElement;
+  private findAttempts = 0;
 
   protected findForm() {
+    const name = this.getAttribute('name');
+    const type = this.getAttribute('type') || "";
+    if (!(name || ['submit', 'reset'].includes(type))) {
+      return;
+    }
+    if (this.formElement) return;
 
     setTimeout(() => {
       const closestOFORM = this.shadow_closest("pap-form");
@@ -24,7 +31,15 @@ export class FormElementTemplate extends BaseSystem {
         const form = this.shadow_closest<HTMLFormElement>("form");
         if (form) this.assignForm(form);
       }
-    }, 100);
+
+      if (!this.formElement && this.findAttempts < 10) {
+        this.findAttempts++;
+        this.findForm();
+      }
+      else {
+        console.warn('[WARNING] form not found');
+      }
+    }, 100 + this.findAttempts * 100);
   }
 
   private assignForm(form: HTMLFormElement) {
@@ -39,6 +54,7 @@ export class FormElementTemplate extends BaseSystem {
   }
 
   firstUpdate(): void {
+    super.firstUpdate();
     if (!this.formElement) this.findForm();
   }
 }

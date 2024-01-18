@@ -1,4 +1,4 @@
-export type MessageType = ""
+export type MessageType = "error" | "warning" | "success";
 export type Message = {
   type: MessageType;
   message: string;

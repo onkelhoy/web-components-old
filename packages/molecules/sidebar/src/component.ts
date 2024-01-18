@@ -1,5 +1,5 @@
 // utils 
-import { html, property, query, DetectDevice, Devices, suspense } from "@pap-it/system-utils";
+import { html, property, query, DetectDevice, Devices, debounce } from "@pap-it/system-utils";
 import "@pap-it/tools-translator/wc";
 
 // atoms 
@@ -30,11 +30,12 @@ export class Sidebar extends BaseSystem {
   private items: Array<Item> = [];
   private currentSelected?: Item;
   private currentAncestorSelected?: Item;
+  private internalclick: boolean = false;
 
   constructor() {
     super();
 
-    this.handlewindowresize_debounced = suspense(this.handlewindowresize_debounced, 20);
+    this.handlewindowresize_debounced = debounce(this.handlewindowresize_debounced, 20);
   }
 
   // class functions 
@@ -57,6 +58,7 @@ export class Sidebar extends BaseSystem {
   private updateSelected = () => {
     const element = this.items.find(e => e.id === this.selected || e.text === this.selected);
     if (element) {
+      this.internalclick = true;
       element.click();
     }
     else {
@@ -122,7 +124,12 @@ export class Sidebar extends BaseSystem {
       }
       this.currentSelected = e.target;
 
-      this.dispatchEvent(new CustomEvent<SelectEvent>("select", { detail: { id: e.target.id || e.target.text } }));
+      if (this.internalclick) {
+        this.internalclick = false;
+      }
+      else {
+        this.dispatchEvent(new CustomEvent<SelectEvent>("select", { detail: { id: e.target.id || e.target.text } }));
+      }
     }
   }
   private handleancestorselect = (e: Event) => {

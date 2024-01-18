@@ -1,29 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table demo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table demo</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
+  <script defer src="main.js"></script>
 </head>
-<body>
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-table></pap-table>
-        </pap-codeblock>
-    </doc-card>
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-table config='{"canEdit": true, "pagination": true}'></pap-table>
-        </pap-codeblock>
-    </doc-card>
+<body>
+  <doc-card>
+    <pap-typography variant="C2" slot="header">Basic Table</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table class="basic-config" table-title="Basic Table">
+      </pap-table>
+    </pap-codeblock>
+  </doc-card>
+
+  <!-- <doc-card>
+    <pap-typography variant="C2" slot="header">Title</pap-typography>
+    <pap-typography>by attribute:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table header-title="Hello World"></pap-table>
+    </pap-codeblock>
+
+    <pap-typography>by slot:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table>
+        <div slot="title">
+          <strong>Hello</strong>
+          <em>World</em>
+        </div>
+      </pap-table>
+    </pap-codeblock>
+  </doc-card>
+
+
+  <doc-card>
+    <pap-typography variant="C2" slot="header">Config</pap-typography>
+    <pap-typography>search:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table config='{"search": true}'></pap-table>
+    </pap-codeblock>
+
+    <pap-typography>filter:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table config='{"filter": true}'></pap-table>
+    </pap-codeblock>
+
+    <pap-typography>manage:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table config='{"manage": true}'></pap-table>
+    </pap-codeblock>
+
+    <pap-typography>export:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table config='{"export": true}'></pap-table>
+    </pap-codeblock>
+
+    <pap-typography>setting:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table config='{"setting": true}'></pap-table>
+    </pap-codeblock>
+
+
+    <pap-typography>more:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table config='{"more": true}'></pap-table>
+    </pap-codeblock>
+
+    <pap-typography>all:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table
+        config='{"search": true, "filter": true, "manage": true, "export": true, "setting": true, "more": true}'>
+        Hello world
+      </pap-table>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography variant="C2" slot="header">Pagination</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table config='{"pagination": true}'></pap-table>
+    </pap-codeblock>
+  </doc-card> -->
 </body>
+
 </html>

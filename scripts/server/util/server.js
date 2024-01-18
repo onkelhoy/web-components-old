@@ -129,7 +129,7 @@ function start(CONFIG)
     server_start_attempts++;
     if (server_start_attempts < 1000)
     {
-      StartServer();
+      start(CONFIG);
     }
     else 
     {

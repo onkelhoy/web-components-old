@@ -1,5 +1,5 @@
 :root {
-  /* UNITS */ 
+  /* UNITS */
   --unit-size1: 4px;
   --unit-size2: 8px;
   --unit-size3: 16px;
@@ -9,7 +9,7 @@
   --unit-size7: 48px;
   --unit-size8: 56px;
 
-  /* PADDINGS */ 
+  /* PADDINGS */
   --padding-smaller: var(--unit-size1);
   --padding-small: var(--unit-size2);
   --padding-medium: var(--unit-size3);
@@ -31,7 +31,8 @@
   --field-size-smaller: var(--unit-size4);
   --field-size-small: var(--unit-size5);
   --field-size-medium: var(--unit-size6);
-  --field-size-large: var(--unit-size8);
+  --field-size-large: var(--unit-size7);
+  --field-size-larger: var(--unit-size8);
 
   /* TIMINGS */
   --timing-fast: 80ms;
@@ -44,7 +45,7 @@
   --radius-large: var(--unit-size3);
   --radius-max: 1000px;
 
-  /* BREAKPOINTS */ 
+  /* BREAKPOINTS */
   --breakpoint-mobile: 320px;
   --breakpoint-pad: 768px;
   --breakpoint-laptop: 1024px;

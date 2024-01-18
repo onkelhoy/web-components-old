@@ -9,15 +9,17 @@ Version: 1.0.0
 Development servers can be started and should all exist inside `"views"` folder
 
 ## Scripts
+
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
-## SOURCE-CODE:
-// utils 
+## SOURCE-CODE
+
+// utils
 import { html } from "@pap-it/system-utils";
 import "@pap-it/tools-translator/wc";
 
-// atoms 
+// atoms
 import "@pap-it/button/wc";
 import "@pap-it/typography/wc";
 import "@pap-it/icon/wc";
@@ -25,7 +27,7 @@ import "@pap-it/icon/wc";
 // templates
 import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 
 export class AuthTemplate extends BaseSystem {
@@ -34,7 +36,7 @@ export class AuthTemplate extends BaseSystem {
   render() {
     return html`
             <div class="logo flex">
-                <slot name="logo"><pap-icon customSize="200" name="interzero-logo"></pap-icon></slot>
+                <slot name="logo"><pap-icon custom-size="200" name="interzero-logo"></pap-icon></slot>
             </div>
             <div class="welcome flex">
                 <slot name="welcome"><pap-typography variant="t2"><pap-translator>👋 Welcome to Interzero.</pap-translator></pap-typography></slot>
@@ -59,13 +61,14 @@ export class AuthTemplate extends BaseSystem {
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-auth-template": AuthTemplate;
   }
 }
-## REGISTER-CODE:
+
+## REGISTER-CODE
+
 import { AuthTemplate } from './component.js';
 
 // Register the element with the browser
@@ -79,17 +82,19 @@ if (!cElements.get('pap-auth-template')) {
   cElements.define('pap-auth-template', AuthTemplate);
 }
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- // utils 
+## SOURCE-CODE
+
+ // utils
 import { html } from "@pap-it/system-utils";
 import "@pap-it/tools-translator/wc";
 
-// atoms 
+// atoms
 import "@pap-it/button/wc";
 import "@pap-it/typography/wc";
 import "@pap-it/icon/wc";
@@ -97,7 +102,7 @@ import "@pap-it/icon/wc";
 // templates
 import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 
 export class AuthTemplate extends BaseSystem {
@@ -106,7 +111,7 @@ export class AuthTemplate extends BaseSystem {
   render() {
     return html`
             <div class="logo flex">
-                <slot name="logo"><pap-icon customSize="200" name="interzero-logo"></pap-icon></slot>
+                <slot name="logo"><pap-icon custom-size="200" name="interzero-logo"></pap-icon></slot>
             </div>
             <div class="welcome flex">
                 <slot name="welcome"><pap-typography variant="t2"><pap-translator>👋 Welcome to Interzero.</pap-translator></pap-typography></slot>
@@ -131,25 +136,26 @@ export class AuthTemplate extends BaseSystem {
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-auth-template": AuthTemplate;
   }
 }
 
-## TYPE-CODE: export {}PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
+## TYPE-CODE: export {}PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is
+
  Based on the source code and style code probided. Can you create a documentation that includes titles, short descrition and the table for each tables: css-variables, parts, slots.
 css-variables should be a table with columns: (name, default-value, type - ex. CSS unit, description).
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
+## SOURCE-CODE
+
+// utils
 import { html } from "@pap-it/system-utils";
 import "@pap-it/tools-translator/wc";
 
-// atoms 
+// atoms
 import "@pap-it/button/wc";
 import "@pap-it/typography/wc";
 import "@pap-it/icon/wc";
@@ -157,7 +163,7 @@ import "@pap-it/icon/wc";
 // templates
 import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 
 export class AuthTemplate extends BaseSystem {
@@ -166,7 +172,7 @@ export class AuthTemplate extends BaseSystem {
   render() {
     return html`
             <div class="logo flex">
-                <slot name="logo"><pap-icon customSize="200" name="interzero-logo"></pap-icon></slot>
+                <slot name="logo"><pap-icon custom-size="200" name="interzero-logo"></pap-icon></slot>
             </div>
             <div class="welcome flex">
                 <slot name="welcome"><pap-typography variant="t2"><pap-translator>👋 Welcome to Interzero.</pap-translator></pap-typography></slot>
@@ -191,19 +197,20 @@ export class AuthTemplate extends BaseSystem {
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-auth-template": AuthTemplate;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     container-type: inline-size;
     display: grid;
     grid-template-rows: auto minmax(80px, auto) 55px 1fr 89px;
     grid-template-columns: 2fr 4fr 50% 4fr 2fr;
-    grid-template-areas: 
+    grid-template-areas:
         "t t logo t2 t2"
         "z welcome welcome welcome z2"
         "k k note k2 k2"

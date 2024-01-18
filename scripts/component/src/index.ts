@@ -1,9 +1,8 @@
-// utils 
+// system 
 import { html, property, query } from "@pap-it/system-utils";
-
-// templates
 import { BaseSystem } from "@pap-it/system-base";
 
+// local
 import { style } from "./style";
 
 export class COMPONENT_CLASSNAME extends BaseSystem {

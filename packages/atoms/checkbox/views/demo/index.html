@@ -1,31 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkbox demo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkbox demo</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
+  <script defer src="main.js"></script>
 </head>
-<body>
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-checkbox label="Checkbox Demo" ></pap-checkbox>
-        </pap-codeblock>
-    </doc-card>
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-checkbox id="checkbox_readonly" readonly="true" label="Readonly" checked="false"></pap-checkbox>
-        </pap-codeblock>
 
-        <button id="checked_btn">checked</button>
-        <button id="unchecked_btn">unchecked</button>
-    </doc-card>
+<body>
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Normal case</pap-typography>
+
+    <pap-typography>With Label</pap-typography>
+    <pap-codeblock display="both">
+      <pap-checkbox label="Checkbox Demo"></pap-checkbox>
+      <pap-checkbox>I can also have label here as slot</pap-checkbox>
+    </pap-codeblock>
+
+    <pap-typography>Without Label</pap-typography>
+    <pap-codeblock display="both">
+      <pap-checkbox></pap-checkbox>
+      <pap-checkbox size="small"></pap-checkbox>
+      <pap-checkbox size="medium"></pap-checkbox>
+      <pap-checkbox size="large"></pap-checkbox>
+    </pap-codeblock>
+  </doc-card>
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Special case</pap-typography>
+    <pap-typography>Controlled</pap-typography>
+    <pap-codeblock display="both">
+      <pap-checkbox id="checkbox_readonly" readonly="true" label="Readonly" checked="false"></pap-checkbox>
+    </pap-codeblock>
+
+    <button id="checked_btn">checked</button>
+    <button id="unchecked_btn">unchecked</button>
+
+    <br />
+    <br />
+    <pap-typography>Slots</pap-typography>
+    <pap-codeblock display="both">
+      <pap-checkbox>
+        <span slot="prefix">PRE</span>
+        <span slot="suffix">SUF</span>
+
+        <div style="display: flex" slot="header">
+          <p>Im some label text</p>
+          <button>CLICK ME</button>
+        </div>
+      </pap-checkbox>
+    </pap-codeblock>
+  </doc-card>
 </body>
+
 </html>

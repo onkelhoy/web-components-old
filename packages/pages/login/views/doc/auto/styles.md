@@ -4,20 +4,21 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
+## SOURCE-CODE
+
+// system
 import { html, property } from "@pap-it/system-utils";
 import { Translator } from "@pap-it/tools-translator";
 import "@pap-it/tools-translator/wc";
 
-// atoms 
+// atoms
 import "@pap-it/typography/wc";
 import "@pap-it/button/wc";
 
 // templates
 import "@pap-it/templates-auth/wc";
 
-// local 
+// local
 import { style } from "./style";
 import { Project } from "./types";
 
@@ -26,7 +27,7 @@ export class LoginPage extends Translator {
 
   @property() project: Project = "PMP";
 
-  // event handlers 
+  // event handlers
   private handlesubmit = (e: Event) => {
     if (e instanceof CustomEvent) {
       console.log(e.detail.data);
@@ -87,13 +88,14 @@ export class LoginPage extends Translator {
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-login-page": LoginPage;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
   pap-button[type="submit"] {
     margin-top: var(--margin-large, 24px);

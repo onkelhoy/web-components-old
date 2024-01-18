@@ -1,1 +1,1 @@
-export {}
+export type NavigationButtonType = "first" | "prev" | "next" | "last";

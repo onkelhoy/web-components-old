@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/system-base",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -32,10 +32,9 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-utils": "1.0.0"
+    "@pap-it/system-utils": "1.0.1"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
     "eslint": "^8.53.0",
     "@pap-it/system-showcase": "1.0.0",
     "@pap-it/typography": "1.0.0",

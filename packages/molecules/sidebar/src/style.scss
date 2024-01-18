@@ -1,190 +1,196 @@
 :host {
-    display: block;
-    position: sticky;
+  display: block;
+  position: sticky;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 1000;
+
+  pap-button[part="hamburger-outside"] {
+    position: absolute;
+    top: var(--gap-large, 24px);
+    left: var(--gap-medium, 16px);
+    z-index: 3;
+    display: none;
+  }
+
+  pap-box-template {
+    position: fixed;
+    container-type: inline-size;
+    z-index: 2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    background-color: var(--pap-sidebar-background-color, var(--pap-color-bg, #FFFFFF));
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    padding-block: var(--padding-medium, 16px);
+    padding-bottom: 0;
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--padding-small, 8px);
+      padding-left: var(--padding-medium, 16px);
+      padding-bottom: var(--padding-medium, 16px);
+
+      pap-icon {
+        color: var(--pap-color-text-brand-strong, #002652);
+      }
+    }
+
+    pap-divider {
+      padding-right: var(--padding-small, 8px);
+      padding-left: var(--padding-medium, 16px);
+
+      &::part(line) {
+        background-color: var(--pap-color-border-tertiary, #EAEBEF);
+      }
+    }
+
+    div[part="body"] {
+      overflow-y: auto;
+      padding-top: var(--padding-small, 8px);
+      padding-bottom: var(--padding-medium, 16px);
+      padding-right: var(--padding-small, 8px);
+    }
+
+    footer {
+      margin-top: auto;
+      padding-bottom: var(--padding-medium, 16px);
+      padding-inline: var(--padding-small, 8px);
+    }
+  }
+
+  pap-box-template[elevation="medium"] {
+    box-shadow: var(--shadow-horizontal-m, 4px 0 6px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)));
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
     left: 0;
     top: 0;
+    width: 100vw;
     height: 100vh;
-    z-index: 1000;
-
-    pap-button[part="hamburger-outside"] {
-        position: absolute;
-        top: var(--gap-large, 24px);
-        left: var(--gap-medium, 16px);
-        z-index: 3;
-        display: none;
-    }
-
-    pap-box-template {
-        position: fixed;
-        container-type: inline-size;
-        z-index: 2;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        box-sizing: border-box;
-
-        background-color: var(--pap-sidebar-background-color, var(--pap-color-bg, #FFFFFF));
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-
-        padding-block: var(--padding-medium, 16px);
-        padding-bottom: 0;
-
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: var(--padding-small, 8px);
-            padding-left: var(--padding-medium, 16px);
-            padding-bottom: var(--padding-medium, 16px);
-
-            pap-icon {
-                color: var(--pap-color-text-brand-strong, #002652);
-            }
-        }
-
-        pap-divider {
-            padding-right: var(--padding-small, 8px);
-            padding-left: var(--padding-medium, 16px);
-
-            &::part(line) {
-                background-color: var(--pap-color-border-tertiary, #EAEBEF);
-            }
-        }
-
-        div[part="body"] {
-            overflow-y: auto;
-            padding-top: var(--padding-small, 8px);
-            padding-bottom: var(--padding-medium, 16px);
-            padding-right: var(--padding-small, 8px);
-        }
-
-        footer {
-            margin-top: auto;
-            padding-bottom: var(--padding-medium, 16px);
-            padding-inline: var(--padding-small, 8px);
-        }
-    }
-
-    pap-box-template[elevation="medium"] {
-        box-shadow: var(--shadow-horizontal-m, 4px 0 6px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)));
-    }
-
-    &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: var(--pap-color-bg-overlay, #29292F);
-        opacity: 0;
-        z-index: 1;
-        pointer-events: none;
-        // transition: opacity ease-in 60ms;
-    }
+    background-color: var(--pap-color-bg-overlay, #29292F);
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+    // transition: opacity ease-in 60ms;
+  }
 }
+
 // NOTE we use min-width to avoid flex issues when used like in raw
 // we need to still set width on host to avoid bigger then wished
 :host([mode="open"]) {
-    min-width: 320px;
+  min-width: 320px;
+  width: 320px;
+
+  pap-box-template {
     width: 320px;
-
-    pap-box-template {
-        width: 320px;
-    }
+  }
 }
+
 :host([mode="collapsed"]) {
-    min-width: 3.5rem;
-    width: 3.5rem;
+  min-width: 3.5rem;
+  width: 3.5rem;
 
-    pap-box-template {
-        width: 3.5rem;
-    }
+  pap-box-template {
+    width: 3.5rem;
+  }
 }
 
-:host([mode="hover"]) {    
-    min-width: 3.5rem;
-    width: 3.5rem;
-    z-index: 1000;
-    
-    pap-box-template {
-        width: 3.5rem;
+:host([mode="hover"]) {
+  min-width: 3.5rem;
+  width: 3.5rem;
+  z-index: 1000;
 
-        &:hover {
-            width: 320px;
-            transition: width 60ms ease-in;
-            box-shadow: var(--shadow-horizontal-m, 4px 0 6px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)));
-        }
-        &:not(:hover) {
-            box-shadow: none;
-        }
+  pap-box-template {
+    width: 3.5rem;
+
+    &:hover {
+      width: 320px;
+      transition: width 60ms ease-in;
+      box-shadow: var(--shadow-horizontal-m, 4px 0 6px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)));
     }
+
+    &:not(:hover) {
+      box-shadow: none;
+    }
+  }
 }
 
 // mobile
 :host(.mobile:not([mode="open"])),
 :host([unit="pad"]:not([mode="open"])),
 :host([unit="mobile"]:not([mode="open"])) {
-    min-width: 0;
+  min-width: 0;
+  width: 0;
+
+  pap-box-template {
     width: 0;
+  }
 
-    pap-box-template {
-        width: 0;
-    }
+  pap-button[part="hamburger-outside"] {
+    display: flex;
+  }
 
-    pap-button[part="hamburger-outside"] {
-        display: flex;
-    }
-
-    &::before {
-        opacity: 0;
-    }
+  &::before {
+    opacity: 0;
+  }
 }
+
 :host([mode="open"].mobile),
 :host([mode="open"][unit="pad"]),
 :host([mode="open"][unit="mobile"]) {
-    min-width: 0;
-    width: 0;
+  min-width: 0;
+  width: 0;
 
-    pap-box-template {
-        width: 85vw;
-        max-width: 320px;
-    }
+  pap-box-template {
+    width: 85vw;
+    max-width: 320px;
+  }
 
-    &::before {
-        opacity: 0.7;
-    }
+  &::before {
+    opacity: 0.7;
+  }
 }
 
 @container (min-width: 3.5rem) {
-    :host {
-        pap-box-template {
-            transition: width 60ms ease-in;
-        }
+  :host {
+    pap-box-template {
+      transition: width 60ms ease-in;
     }
+  }
 }
+
 @container (max-width: 3.5rem) {
-    :host {
-        pap-box-template {
-            transition: width 150ms ease-in;
+  :host {
+    pap-box-template {
+      transition: width 150ms ease-in;
 
-            header {
-                justify-content: center;
-                padding-left: var(--padding-small, 8px);
+      header {
+        justify-content: center;
+        padding-left: var(--padding-small, 8px);
 
-                ::slotted(*) {
-                    display: none;
-                }
-                pap-icon.logo {
-                    display: none !important;
-                }
-            }
-
-            pap-divider {
-                padding-left: var(--padding-small, 8px);
-            }
+        ::slotted(*) {
+          display: none;
         }
+
+        pap-icon.logo {
+          display: none !important;
+        }
+      }
+
+      pap-divider {
+        padding-left: var(--padding-small, 8px);
+      }
     }
+  }
 }

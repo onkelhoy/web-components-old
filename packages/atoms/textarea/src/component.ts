@@ -1,4 +1,4 @@
-// utils 
+// system
 import { html, property } from "@pap-it/system-utils";
 
 // templates
@@ -11,7 +11,7 @@ import { Resize } from './types';
 export class Textarea extends TextinputTemplate<HTMLTextAreaElement> {
   static style = style;
 
-  @property({ type: Number }) rows: number = 4;
+  @property({ type: Number }) rows: number = 2;
   @property({ rerender: false }) resize: Resize = "auto";
 
   // event functions

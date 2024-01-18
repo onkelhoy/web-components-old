@@ -9,6 +9,7 @@ Version: 1.0.0
 Development servers can be started and should all exist inside `"views"` folder
 
 ## Scripts
+
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
@@ -156,7 +157,7 @@ export class Sidebar extends BaseSystem {
                     <pap-icon class="logo light" style="width:124px" size="large" name="interzero-logo"></pap-icon>
                     <pap-icon class="logo dark" style="width:124px" size="large" name="interzero-logo-dark"></pap-icon>
                     <pap-button color="secondary" circle variant="clear" @click="${this.handlehamburgerclick}">
-                        <!-- <pap-icon customSize="32" class="hover" name="circular-logo"></pap-icon> -->
+                        <!-- <pap-icon custom-size="32" class="hover" name="circular-logo"></pap-icon> -->
                         <pap-icon size="small" class="open" name="hamburger.open"></pap-icon>
                         <!-- <pap-icon size="small" class="collapsed" name="hamburger.collapse"></pap-icon> -->
                     </pap-button>
@@ -345,7 +346,7 @@ export class Sidebar extends BaseSystem {
                     <pap-icon class="logo light" style="width:124px" size="large" name="interzero-logo"></pap-icon>
                     <pap-icon class="logo dark" style="width:124px" size="large" name="interzero-logo-dark"></pap-icon>
                     <pap-button color="secondary" circle variant="clear" @click="${this.handlehamburgerclick}">
-                        <!-- <pap-icon customSize="32" class="hover" name="circular-logo"></pap-icon> -->
+                        <!-- <pap-icon custom-size="32" class="hover" name="circular-logo"></pap-icon> -->
                         <pap-icon size="small" class="open" name="hamburger.open"></pap-icon>
                         <!-- <pap-icon size="small" class="collapsed" name="hamburger.collapse"></pap-icon> -->
                     </pap-button>
@@ -518,7 +519,7 @@ export class Sidebar extends BaseSystem {
                     <pap-icon class="logo light" style="width:124px" size="large" name="interzero-logo"></pap-icon>
                     <pap-icon class="logo dark" style="width:124px" size="large" name="interzero-logo-dark"></pap-icon>
                     <pap-button color="secondary" circle variant="clear" @click="${this.handlehamburgerclick}">
-                        <!-- <pap-icon customSize="32" class="hover" name="circular-logo"></pap-icon> -->
+                        <!-- <pap-icon custom-size="32" class="hover" name="circular-logo"></pap-icon> -->
                         <pap-icon size="small" class="open" name="hamburger.open"></pap-icon>
                         <!-- <pap-icon size="small" class="collapsed" name="hamburger.collapse"></pap-icon> -->
                     </pap-button>

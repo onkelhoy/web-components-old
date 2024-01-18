@@ -1,15 +1,17 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- // utils 
+## SOURCE-CODE
+
+ // utils
 import { html } from "@pap-it/system-utils";
 import "@pap-it/tools-translator/wc";
 
-// atoms 
+// atoms
 import "@pap-it/button/wc";
 import "@pap-it/typography/wc";
 import "@pap-it/icon/wc";
@@ -17,7 +19,7 @@ import "@pap-it/icon/wc";
 // templates
 import { BaseSystem } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 
 export class AuthTemplate extends BaseSystem {
@@ -26,7 +28,7 @@ export class AuthTemplate extends BaseSystem {
   render() {
     return html`
             <div class="logo flex">
-                <slot name="logo"><pap-icon customSize="200" name="interzero-logo"></pap-icon></slot>
+                <slot name="logo"><pap-icon custom-size="200" name="interzero-logo"></pap-icon></slot>
             </div>
             <div class="welcome flex">
                 <slot name="welcome"><pap-typography variant="t2"><pap-translator>👋 Welcome to Interzero.</pap-translator></pap-typography></slot>
@@ -50,7 +52,6 @@ export class AuthTemplate extends BaseSystem {
         `
   }
 }
-
 
 declare global {
   interface HTMLElementTagNameMap {

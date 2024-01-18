@@ -9,12 +9,14 @@ Version: 1.0.0
 Development servers can be started and should all exist inside `"views"` folder
 
 ## Scripts
+
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
-## SOURCE-CODE:
-// utils 
-import { html, query, property, suspense, Radius, Size } from "@pap-it/system-utils";
+## SOURCE-CODE
+
+// utils
+import { html, query, property, debounce, Radius, Size } from "@pap-it/system-utils";
 
 // atoms
 import { Typography } from "@pap-it/typography";
@@ -25,7 +27,7 @@ import "@pap-it/typography/wc";
 import { FormElementTemplate } from "@pap-it/templates-form-element";
 import "@pap-it/templates-box/wc";
 
-// local 
+// local
 import { style } from "./style";
 import { FieldValidityState, FieldValidityStateName, Message, ValidationAttributes } from "./types";
 
@@ -46,7 +48,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
   @property({ type: Boolean }) readonly: boolean = false;
   @property({ rerender: false, onUpdate: "onvalueupdate" }) value: string = "";
 
-  // error/warning 
+  // error/warning
   @property({ rerender: false, type: Object }) customError?: FieldValidityState;
   @property({ rerender: false, type: Object }) customWarning?: FieldValidityState;
   @property({ rerender: false, type: Boolean }) isError = false;
@@ -58,7 +60,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
   @property({ rerender: false, type: Number }) maxLength?: number;
 
   @property({ type: Object, attribute: false }) protected _suffix?: DocumentFragment | string = "<span> </span>";
-  @property({ type: Object, attribute: false }) protected _prefix?: DocumentFragment | string = "<span> </span>";
+  @property({ type: Object, attribute: false }) protected_prefix?: DocumentFragment | string = "<span> </span>";
 
   public inputElement!: T;
   private hiddenElement?: HTMLInputElement;
@@ -101,7 +103,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
     this.onvalueupdate(value.toString());
   }
 
-  // event handlers 
+  // event handlers
   private handleinvalid_field = (e: Event) => {
     console.log('invalid')
   }
@@ -150,13 +152,13 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
     this.isWarning = false;
   }
   private handleinvalid = (e: Event) => {
-    // from a submit 
+    // from a submit
     if (!(this.isError && this.isWarning)) this.updateHidden();
   }
 
   // private functions ¨
   protected debouncedInput = () => {
-    this.dispatchEvent(new Event('suspended-input'));
+    this.dispatchEvent(new Event('debounced-input'));
   }
   private assignHiddenElement() {
     if (!this.formElement) this.findForm();
@@ -252,8 +254,8 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
   constructor(delay = 100) {
     super();
 
-    this.debouncedInput = suspense(this.debouncedInput, delay);
-    this.updateHidden = suspense(this.updateHidden, 10);
+    this.debouncedInput = debounce(this.debouncedInput, delay);
+    this.updateHidden = debounce(this.updateHidden, 10);
     super.addEventListener("form-element-loaded", this.handleformelementload);
   }
   connectedCallback(): void {
@@ -338,7 +340,9 @@ declare global {
     "pap-field-template": FieldTemplate;
   }
 }
-## REGISTER-CODE:
+
+## REGISTER-CODE
+
 import { FieldTemplate } from './component.js';
 
 // Register the element with the browser
@@ -352,14 +356,16 @@ if (!cElements.get('pap-field-template')) {
   cElements.define('pap-field-template', FieldTemplate);
 }
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- // utils 
-import { html, query, property, suspense, Radius, Size } from "@pap-it/system-utils";
+## SOURCE-CODE
+
+ // utils
+import { html, query, property, debounce, Radius, Size } from "@pap-it/system-utils";
 
 // atoms
 import { Typography } from "@pap-it/typography";
@@ -370,7 +376,7 @@ import "@pap-it/typography/wc";
 import { FormElementTemplate } from "@pap-it/templates-form-element";
 import "@pap-it/templates-box/wc";
 
-// local 
+// local
 import { style } from "./style";
 import { FieldValidityState, FieldValidityStateName, Message, ValidationAttributes } from "./types";
 
@@ -391,7 +397,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
   @property({ type: Boolean }) readonly: boolean = false;
   @property({ rerender: false, onUpdate: "onvalueupdate" }) value: string = "";
 
-  // error/warning 
+  // error/warning
   @property({ rerender: false, type: Object }) customError?: FieldValidityState;
   @property({ rerender: false, type: Object }) customWarning?: FieldValidityState;
   @property({ rerender: false, type: Boolean }) isError = false;
@@ -403,7 +409,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
   @property({ rerender: false, type: Number }) maxLength?: number;
 
   @property({ type: Object, attribute: false }) protected _suffix?: DocumentFragment | string = "<span> </span>";
-  @property({ type: Object, attribute: false }) protected _prefix?: DocumentFragment | string = "<span> </span>";
+  @property({ type: Object, attribute: false }) protected_prefix?: DocumentFragment | string = "<span> </span>";
 
   public inputElement!: T;
   private hiddenElement?: HTMLInputElement;
@@ -446,7 +452,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
     this.onvalueupdate(value.toString());
   }
 
-  // event handlers 
+  // event handlers
   private handleinvalid_field = (e: Event) => {
     console.log('invalid')
   }
@@ -495,13 +501,13 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
     this.isWarning = false;
   }
   private handleinvalid = (e: Event) => {
-    // from a submit 
+    // from a submit
     if (!(this.isError && this.isWarning)) this.updateHidden();
   }
 
   // private functions ¨
   protected debouncedInput = () => {
-    this.dispatchEvent(new Event('suspended-input'));
+    this.dispatchEvent(new Event('debounced-input'));
   }
   private assignHiddenElement() {
     if (!this.formElement) this.findForm();
@@ -597,8 +603,8 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
   constructor(delay = 100) {
     super();
 
-    this.debouncedInput = suspense(this.debouncedInput, delay);
-    this.updateHidden = suspense(this.updateHidden, 10);
+    this.debouncedInput = debounce(this.debouncedInput, delay);
+    this.updateHidden = debounce(this.updateHidden, 10);
     super.addEventListener("form-element-loaded", this.handleformelementload);
   }
   connectedCallback(): void {
@@ -685,6 +691,7 @@ declare global {
 }
 
 ## TYPE-CODE: export type MessageType = ""
+
 export type Message = {
   type: MessageType;
   message: string;
@@ -696,19 +703,19 @@ export type FieldValidityState = {
   /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/badInput) */
   badInput: string;
   customError: string;
-  /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/patternMismatch) */
+  /**[MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/patternMismatch) */
   patternMismatch: string;
   /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/rangeOverflow) */
   rangeOverflow: string;
-  /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/rangeUnderflow) */
+  /**[MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/rangeUnderflow) */
   rangeUnderflow: string;
   /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/stepMismatch) */
   stepMismatch: string;
-  /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/tooLong) */
+  /**[MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/tooLong) */
   tooLong: string;
   /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/tooShort) */
   tooShort: string;
-  /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/typeMismatch) */
+  /**[MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/typeMismatch)*/
   typeMismatch: string;
   valid: string;
   valueMissing: string;
@@ -720,9 +727,10 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
-import { html, query, property, suspense, Radius, Size } from "@pap-it/system-utils";
+## SOURCE-CODE
+
+// utils
+import { html, query, property, debounce, Radius, Size } from "@pap-it/system-utils";
 
 // atoms
 import { Typography } from "@pap-it/typography";
@@ -733,7 +741,7 @@ import "@pap-it/typography/wc";
 import { FormElementTemplate } from "@pap-it/templates-form-element";
 import "@pap-it/templates-box/wc";
 
-// local 
+// local
 import { style } from "./style";
 import { FieldValidityState, FieldValidityStateName, Message, ValidationAttributes } from "./types";
 
@@ -754,7 +762,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
   @property({ type: Boolean }) readonly: boolean = false;
   @property({ rerender: false, onUpdate: "onvalueupdate" }) value: string = "";
 
-  // error/warning 
+  // error/warning
   @property({ rerender: false, type: Object }) customError?: FieldValidityState;
   @property({ rerender: false, type: Object }) customWarning?: FieldValidityState;
   @property({ rerender: false, type: Boolean }) isError = false;
@@ -766,7 +774,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
   @property({ rerender: false, type: Number }) maxLength?: number;
 
   @property({ type: Object, attribute: false }) protected _suffix?: DocumentFragment | string = "<span> </span>";
-  @property({ type: Object, attribute: false }) protected _prefix?: DocumentFragment | string = "<span> </span>";
+  @property({ type: Object, attribute: false }) protected_prefix?: DocumentFragment | string = "<span> </span>";
 
   public inputElement!: T;
   private hiddenElement?: HTMLInputElement;
@@ -809,7 +817,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
     this.onvalueupdate(value.toString());
   }
 
-  // event handlers 
+  // event handlers
   private handleinvalid_field = (e: Event) => {
     console.log('invalid')
   }
@@ -858,13 +866,13 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
     this.isWarning = false;
   }
   private handleinvalid = (e: Event) => {
-    // from a submit 
+    // from a submit
     if (!(this.isError && this.isWarning)) this.updateHidden();
   }
 
   // private functions ¨
   protected debouncedInput = () => {
-    this.dispatchEvent(new Event('suspended-input'));
+    this.dispatchEvent(new Event('debounced-input'));
   }
   private assignHiddenElement() {
     if (!this.formElement) this.findForm();
@@ -960,8 +968,8 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
   constructor(delay = 100) {
     super();
 
-    this.debouncedInput = suspense(this.debouncedInput, delay);
-    this.updateHidden = suspense(this.updateHidden, 10);
+    this.debouncedInput = debounce(this.debouncedInput, delay);
+    this.updateHidden = debounce(this.updateHidden, 10);
     super.addEventListener("form-element-loaded", this.handleformelementload);
   }
   connectedCallback(): void {
@@ -1046,7 +1054,9 @@ declare global {
     "pap-field-template": FieldTemplate;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 $size-map: (
   small: (
     height: var(--field-size-small, 32px),
@@ -1075,7 +1085,7 @@ $size-map: (
             height: var(--pap-field-block-height-#{$name}, #{map-get($value, blockheight)});
         }
     }
-} 
+}
 
 :host {
     --border: var(--pap-field-background-color-light, var(--pap-color-black, black));

@@ -1,49 +1,35 @@
-export const style = `:host([size="small"]) pap-box-template.wrapper {
-  height: var(--pap-field-height-small, var(--field-size-small, 32px)); }
-
-:host([size="small"]) footer,
-:host([size="small"]) header {
-  height: var(--pap-field-block-height-small, var(--field-size-small, 32px)); }
-
-:host([size="medium"]) pap-box-template.wrapper {
-  height: var(--pap-field-height-medium, var(--field-size-medium, 40px)); }
-
-:host([size="medium"]) footer,
-:host([size="medium"]) header {
-  height: var(--pap-field-block-height-medium, var(--field-size-small, 32px)); }
-
-:host([size="large"]) pap-box-template.wrapper {
-  height: var(--pap-field-height-large, var(--field-size-large, 56px)); }
-
-:host([size="large"]) footer,
-:host([size="large"]) header {
-  height: var(--pap-field-block-height-large, var(--field-size-small, 32px)); }
-
-:host {
-  --border: var(--pap-field-background-color-light, var(--pap-color-black, black));
-  --outline: var(--pap-field-background-color-light, rgb(90, 46, 250));
-  --color: var(--pap-field-text-color-light, var(--pap-color-black, black));
+export const style = `:host {
+  --border-color: var(--pap-color-border-secondary, #DADDE3);
+  --height: var(--field-size-medium, 40px);
+  --message-text: var(--pap-color-text, #29292F);
+  --message-icon: var(--pap-color-icon, #29292F);
   display: block;
-  color: var(--color); }
+  color: var(--pap-color-text, #29292F); }
   :host footer,
   :host header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-inline: var(--padding-small, 8px); }
-  :host footer div {
+    padding-inline: var(--padding-small, 8px);
+    height: var(--height); }
+  :host footer div.message {
     display: none;
     align-items: center;
     gap: var(--gap-small, 8px); }
+    :host footer div.message pap-typography {
+      color: var(--message-text); }
+    :host footer div.message pap-icon {
+      color: var(--message-icon); }
   :host pap-box-template.wrapper {
-    box-sizing: border-box;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding-inline: var(--padding-medium, 16px);
-    border: 1px solid var(--border); }
+    border: 1px solid var(--border-color);
+    display: block;
+    position: relative; }
+    :host pap-box-template.wrapper pap-prefix-suffix-template {
+      height: var(--height); }
     :host pap-box-template.wrapper ::slotted(*:not([slot])),
-    :host pap-box-template.wrapper input, :host pap-box-template.wrapper select, :host pap-box-template.wrapper textarea {
+    :host pap-box-template.wrapper input,
+    :host pap-box-template.wrapper select,
+    :host pap-box-template.wrapper textarea {
       color: inherit;
       font-family: var(--input-fontfamily, var(--typography-c3-fontfamily, "Libre Franklin", helvetica, sans-serif));
       font-size: var(--input-fontsize, var(--typography-c3-fontsize, 16px));
@@ -55,34 +41,52 @@ export const style = `:host([size="small"]) pap-box-template.wrapper {
       border: none;
       background-color: transparent;
       outline: none !important; }
-    :host pap-box-template.wrapper ::slotted(*[slot="prefix"]) {
-      margin-right: var(--gap-small, 8px); }
-    :host pap-box-template.wrapper ::slotted(*[slot="suffix"]) {
-      margin-left: var(--gap-small, 8px); }
-  :host:focus {
-    outline: none; }
 
-:host([isWarning="true"]) footer div:not(.warning) {
+:host([size="small"]) {
+  --height: var(--field-size-small, 32px); }
+
+:host([size="medium"]) {
+  --height: var(--field-size-medium, 40px); }
+
+:host([size="large"]) {
+  --height: var(--field-size-large, 48px); }
+
+:host(:not([label])[headerslotcontent="false"]) header {
   display: none; }
 
-:host([isWarning="true"]) footer div.warning {
-  display: flex; }
-
-:host([isError="true"]) footer div:not(.error) {
+:host(:not([message])) footer div.message {
   display: none; }
 
-:host([isError="true"]) footer div.error {
+:host(:not([message-type])) footer div.message pap-icon {
+  display: none; }
+
+:host([footerslotcontent="false"]:not([message])) footer {
+  display: none; }
+
+:host([message]) footer div.message {
   display: flex; }
+
+:host(:hover) {
+  --border-color: var(--pap-color-border-strong, #29292F); }
+
+:host([message-type="success"]) {
+  --border-color: var(--pap-color-border-success, #2E701B);
+  --message-text: var(--pap-color-text-success, #94E274);
+  --message-icon: var(--pap-color-icon-success, #94E274); }
+
+:host([message-type="warning"]) {
+  --border-color: var(--pap-color-border-warning, #E27F00);
+  --message-text: var(--pap-color-text-warning, #FFA800);
+  --message-icon: var(--pap-color-icon-warning, #FFA800); }
+
+:host([message-type="error"]) {
+  --border-color: var(--pap-color-border-danger, #B70E1E);
+  --message-text: var(--pap-color-text-danger, #FF9EA7);
+  --message-icon: var(--pap-color-icon-danger, #FF9EA7); }
 
 :host([hasfocus="true"]),
 :host(:focus) {
   outline: none; }
   :host([hasfocus="true"]) pap-box-template.wrapper,
   :host(:focus) pap-box-template.wrapper {
-    outline: 1px solid var(--outline); }
-
-@media (prefers-color-scheme: dark) {
-  :host {
-    --border: var(--pap-field-background-color-dark, var(--pap-color-black, white));
-    --outline: var(--pap-field-background-color-dark, rgb(195, 211, 255));
-    --color: var(--pap-field-text-color-dark, var(--pap-color-black, white)); } }`;
+    outline: 1px solid var(--border-color); }`;

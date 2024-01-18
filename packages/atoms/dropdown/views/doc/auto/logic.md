@@ -1,12 +1,14 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- // utils 
-import { html, property, query, suspense } from "@pap-it/system-utils";
+## SOURCE-CODE
+
+ // utils
+import { html, property, query, debounce } from "@pap-it/system-utils";
 
 // atoms
 import '@pap-it/icon/wc';
@@ -17,7 +19,7 @@ import { Placement, PopoverTemplate } from "@pap-it/templates-popover";
 import '@pap-it/templates-popover/wc';
 import '@pap-it/templates-box/wc';
 
-// local 
+// local
 import { style } from "./style";
 import { IOption, OptionType } from "./types";
 import { Option } from "./components/option";
@@ -63,7 +65,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
   constructor() {
     super();
 
-    this.debouncedCheckValue = suspense(this.checkValue, 100);
+    this.debouncedCheckValue = debounce(this.checkValue, 100);
     this._suffix = '<pap-icon customsize="13" name="caret">^</pap-icon>'
   }
   // private functions
@@ -109,7 +111,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
     }
   }
 
-  // event handlers 
+  // event handlers
   override handlefocus = () => {
     this.hasFocus = true;
     if (!this.popoverElement.open) this.popoverElement.show();
@@ -146,12 +148,12 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
 
   render() {
     const superrender = super.render(html`
-            <input 
-                @click="${this.handlekeyup}" 
-                @keyup="${this.handlekeyup}" 
-                data-tagname="select" 
-                ${!this.search ? "readonly='true'" : ""} 
-                placeholder="${this.placeholder || ""}" 
+            <input
+                @click="${this.handlekeyup}"
+                @keyup="${this.handlekeyup}"
+                data-tagname="select"
+                ${!this.search ? "readonly='true'" : ""}
+                placeholder="${this.placeholder || ""}"
                 value="${this.value || ""}"
             />
         `)
@@ -180,6 +182,7 @@ declare global {
 }
 
 ## TYPE-CODE: export type IOption = {
+
   text: string;
   value: string;
 }

@@ -1,6 +1,6 @@
 import { Devices } from "../types";
 
-export function suspense<T extends (...args: any[]) => any>(
+export function debounce<T extends (...args: any[]) => any>(
   execute: T,
   delay: number = 300
 ): (...args: Parameters<T>) => void {
@@ -18,20 +18,32 @@ export function suspense<T extends (...args: any[]) => any>(
   };
 }
 
-export function NextParent<T=HTMLElement>(element:HTMLElement) {
+export function generateUUID() {
+  let d = new Date().getTime();
+  if (typeof performance !== 'undefined' && typeof performance.now === 'function') {
+    d += performance.now(); //use high-precision timer if available
+  }
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    const r = (d + Math.random() * 16) % 16 | 0;
+    d = Math.floor(d / 16);
+    return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+  });
+}
+
+export function NextParent<T = HTMLElement>(element: HTMLElement) {
   if (element.parentElement) return element.parentElement;
   const root = element.getRootNode();
   if (root) return (root as any).host as T;
   return null;
 }
-  
-export function CumulativeOffset(element:HTMLElement) {
+
+export function CumulativeOffset(element: HTMLElement) {
   let top = 0, left = 0;
   do {
-    top += element.offsetTop  || 0;
+    top += element.offsetTop || 0;
     left += element.offsetLeft || 0;
     element = element.offsetParent as HTMLElement;
-  } while(element);
+  } while (element);
 
   return {
     top: top,
@@ -39,37 +51,35 @@ export function CumulativeOffset(element:HTMLElement) {
   };
 };
 
-export function ExtractSlotValue(slot:HTMLSlotElement) {
+export function ExtractSlotValue(slot: HTMLSlotElement) {
   const nodes = slot.assignedNodes();
 
-  const values:Array<string> = [];
+  const values: Array<string> = [];
   nodes.forEach(node => appendLeafValue(node, values))
 
   return values;
 }
 
-function appendLeafValue(node:Node, L:Array<string>) {
-  if (node.hasChildNodes()) 
-  {
+function appendLeafValue(node: Node, L: Array<string>) {
+  if (node.hasChildNodes()) {
     node.childNodes.forEach(child => appendLeafValue(child, L));
   }
-  else if (node.textContent)
-  {
+  else if (node.textContent) {
     if (node.textContent.trim() === "") return;
     L.push(node.textContent);
   }
 }
 
-export function FormatNumber(num:number) {
+export function FormatNumber(num: number) {
   if (Math.abs(num) < 1_000) {
     return num.toString();
-  } 
+  }
   else if (Math.abs(num) < 1_000_000) {
     return Math.round((num * 10) / 1_000) / 10 + 'k';
-  } 
+  }
   else if (Math.abs(num) < 1_000_000_000) {
     return Math.round((num * 10) / 1_000_000) / 10 + 'm';
-  } 
+  }
   else if (Math.abs(num) < 1_000_000_000_000) {
     return Math.round((num * 10) / 1_000_000_000) / 10 + 'bn';
   }
@@ -79,44 +89,36 @@ export function FormatNumber(num:number) {
 }
 
 export function DetectLanguage() {
-  if (window.oLocalisation)
-  {
-    if (window.oLocalisation.lang)
-    {
+  if (window.oLocalisation) {
+    if (window.oLocalisation.lang) {
       return window.oLocalisation.lang;
     }
-    if (window.oLocalisation.settings?.url)
-    {
+    if (window.oLocalisation.settings?.url) {
       const langmatch = window.location.pathname.match(/\/([^\/]*)\//);
-      if (langmatch)
-      {
+      if (langmatch) {
         return langmatch[1];
       }
     }
   }
 
   const head_lang = document.head.getAttribute("lang");
-  if (head_lang) 
-  {
+  if (head_lang) {
     return head_lang;
   }
 
   const meta_lang = document.head.querySelector('meta[http-equiv="Content-Language"]')?.getAttribute("content");
-  if (meta_lang)
-  {
+  if (meta_lang) {
     return meta_lang;
   }
 
   const navigator_lang = navigator.language;
-  if (navigator_lang)
-  {
+  if (navigator_lang) {
     return navigator_lang;
   }
 }
 
-export function SetLanguage(language?:string) {
-  if (language) 
-  {
+export function SetLanguage(language?: string) {
+  if (language) {
     window.oLocalisation.lang = language;
   }
 
@@ -134,22 +136,18 @@ export function DetectDevice(component: HTMLElement): Devices {
   const laptop = Number(computed.getPropertyValue("--breakpoint-laptop")?.replace('px', '')) || 768;
   const pad = Number(computed.getPropertyValue("--breakpoint-pad")?.replace('px', '')) || 1024;
   // const mobile = Number(computed.getPropertyValue("--breakpoint-mobile")?.replace('px', '')) || 1440;
-  
+
   // finally do basic checks
-  if (window.innerWidth > desktop)
-  {
+  if (window.innerWidth > desktop) {
     return "desktop";
   }
-  else if (window.innerWidth > laptop)
-  {
+  else if (window.innerWidth > laptop) {
     return "laptop";
   }
-  else if (window.innerWidth > pad)
-  {
+  else if (window.innerWidth > pad) {
     return "pad";
   }
-  else 
-  {
+  else {
     return "mobile";
   }
 }

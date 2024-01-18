@@ -4,9 +4,10 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
-import { html, query, property, suspense, Radius, Size } from "@pap-it/system-utils";
+## SOURCE-CODE
+
+// utils
+import { html, query, property, debounce, Radius, Size } from "@pap-it/system-utils";
 
 // atoms
 import { Typography } from "@pap-it/typography";
@@ -17,7 +18,7 @@ import "@pap-it/typography/wc";
 import { FormElementTemplate } from "@pap-it/templates-form-element";
 import "@pap-it/templates-box/wc";
 
-// local 
+// local
 import { style } from "./style";
 import { FieldValidityState, FieldValidityStateName, Message, ValidationAttributes } from "./types";
 
@@ -38,7 +39,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
   @property({ type: Boolean }) readonly: boolean = false;
   @property({ rerender: false, onUpdate: "onvalueupdate" }) value: string = "";
 
-  // error/warning 
+  // error/warning
   @property({ rerender: false, type: Object }) customError?: FieldValidityState;
   @property({ rerender: false, type: Object }) customWarning?: FieldValidityState;
   @property({ rerender: false, type: Boolean }) isError = false;
@@ -50,7 +51,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
   @property({ rerender: false, type: Number }) maxLength?: number;
 
   @property({ type: Object, attribute: false }) protected _suffix?: DocumentFragment | string = "<span> </span>";
-  @property({ type: Object, attribute: false }) protected _prefix?: DocumentFragment | string = "<span> </span>";
+  @property({ type: Object, attribute: false }) protected_prefix?: DocumentFragment | string = "<span> </span>";
 
   public inputElement!: T;
   private hiddenElement?: HTMLInputElement;
@@ -93,7 +94,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
     this.onvalueupdate(value.toString());
   }
 
-  // event handlers 
+  // event handlers
   private handleinvalid_field = (e: Event) => {
     console.log('invalid')
   }
@@ -142,13 +143,13 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
     this.isWarning = false;
   }
   private handleinvalid = (e: Event) => {
-    // from a submit 
+    // from a submit
     if (!(this.isError && this.isWarning)) this.updateHidden();
   }
 
   // private functions ¨
   protected debouncedInput = () => {
-    this.dispatchEvent(new Event('suspended-input'));
+    this.dispatchEvent(new Event('debounced-input'));
   }
   private assignHiddenElement() {
     if (!this.formElement) this.findForm();
@@ -244,8 +245,8 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
   constructor(delay = 100) {
     super();
 
-    this.debouncedInput = suspense(this.debouncedInput, delay);
-    this.updateHidden = suspense(this.updateHidden, 10);
+    this.debouncedInput = debounce(this.debouncedInput, delay);
+    this.updateHidden = debounce(this.updateHidden, 10);
     super.addEventListener("form-element-loaded", this.handleformelementload);
   }
   connectedCallback(): void {
@@ -330,7 +331,9 @@ declare global {
     "pap-field-template": FieldTemplate;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 $size-map: (
   small: (
     height: var(--field-size-small, 32px),
@@ -359,7 +362,7 @@ $size-map: (
             height: var(--pap-field-block-height-#{$name}, #{map-get($value, blockheight)});
         }
     }
-} 
+}
 
 :host {
     --border: var(--pap-field-background-color-light, var(--pap-color-black, black));

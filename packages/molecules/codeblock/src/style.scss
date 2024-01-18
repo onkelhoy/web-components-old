@@ -1,110 +1,117 @@
 :host {
-    display: block;
-    margin-block: var(--margin-medium, 16px);
+  display: block;
+  margin-block: var(--margin-medium, 16px);
+  color: var(--pap-color-text, #29292F);
+
+  .string {
+    color: var(--pap-color-text-warning, #984308);
+  }
+
+  .keyword {
+    color: var(--pap-color-text-danger, #A3111F);
+
+    &.class,
+    &.implements,
+    &.extends,
+    &.this,
+    &.function {
+      color: var(--pap-color-primary-500, #0CB9Eb);
+    }
+  }
+
+  .function-arg {
+    color: var(--pap-color-text-warning, #984308);
+  }
+
+  .function-name {
+    color: var(--pap-color-text-brand-strong, #002652);
+  }
+
+  div.line {
+    min-height: 12px;
     color: var(--pap-color-text, #29292F);
+  }
 
-    .string {
-        color: var(--pap-color-text-warning, #984308);
+  .html-attribute {
+    padding-left: var(--padding-smaller, 4px);
+
+    .html-attribute-name {
+      color: var(--pap-color-primary-700, #0177A3);
     }
-    .keyword {
-        color: var(--pap-color-text-danger, #A3111F);
 
-        &.class,
-        &.implements,
-        &.extends,
-        &.this,
-        &.function {
-            color: var(--pap-color-primary-500, #0CB9Eb);
+    .html-attribute-value {
+      color: var(--pap-color-text-warning, #984308);
+    }
+  }
+
+  .html-tag {
+    color: var(--pap-color-neutral-700, #4D4E58);
+  }
+
+  .html-tag-name {
+    color: var(--pap-color-primary-500, #0CB9Eb);
+  }
+
+  code {
+    pap-box-template {
+      background-color: var(--pap-color-bg-secondary, #F6F7F8);
+      overflow: hidden;
+      display: block;
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: inherit;
+        background-color: var(--pap-color-bg-tertiary, #EAEBEF);
+
+        &>pap-typography {
+          text-indent: var(--padding-medium, 16px);
         }
-    }
-    .function-arg {
-        color: var(--pap-color-text-warning, #984308);
-    }
-    .function-name {
-        color: var(--pap-color-text-brand-strong, #002652);
-    }
-    div.line {
-        min-height: 12px;
-        color: var(--pap-color-text, #29292F);
-    }
 
-    .html-attribute {
-        padding-left: var(--padding-smaller, 4px);
-        .html-attribute-name {
-            color: var(--pap-color-primary-700, #0177A3);
+        pap-toggle {
+          color: var(--pap-color-text, #29292F);
         }
-        .html-attribute-value {
-            color: var(--pap-color-text-warning, #984308);
+
+        pap-button {
+          pap-icon[name="done"] {
+            display: none;
+          }
+
+          pap-icon[name="content_paste"] {
+            display: initial;
+          }
         }
-    }
+      }
 
-    .html-tag {
-        color: var(--pap-color-neutral-700, #4D4E58);
+      main {
+        min-height: var(--unit-size5, 32px);
+        padding: var(--padding-medium, 16px) var(--padding-large, 24px);
+      }
     }
-    .html-tag-name {
-        color: var(--pap-color-primary-500, #0CB9Eb);
-    }
+  }
 
-    code {
-        pap-box-template {
-            background-color: var(--pap-color-bg-secondary, #F6F7F8);
-            overflow: hidden;
-            display: block;
-            header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                color: inherit;
-                background-color: var(--pap-color-bg-tertiary, #EAEBEF);
-        
-                & > pap-typography {
-                    text-indent: var(--padding-medium, 16px);
-                }
-
-                pap-toggle {
-                    color: var(--pap-color-text, #29292F);
-                }
-        
-                pap-button {
-                    pap-icon[name="done"] {
-                        display: none;
-                    }
-                    pap-icon[name="content_paste"] {
-                        display: initial;
-                    }
-                }
-            }
-        
-            main {
-                min-height: var(--unit-size5, 32px);
-                padding: var(--padding-medium, 16px) var(--padding-large, 24px);
-            }
-        }
-    }
-
-    fieldset {
-        // overflow: initial;
-        // overflow-x: auto;
-        background-color: var(--pap-color-bg, #FFFFFF);
-        legend {
-            // TODO - how to display so in opposite color (theme-switch) 
-        }
-    }
+  fieldset {
+    // overflow: initial;
+    // overflow-x: auto;
+    background-color: var(--pap-color-bg, #FFFFFF);
+  }
 }
 
 :host([display="code"]) fieldset {
-    display: none;
+  display: none;
 }
 
 :host(.copied) {
-    header {
-        pap-button {
-            pap-icon[name="done"] {
-                display: initial;
-            }
-            pap-icon[name="content_paste"] {
-                display: none;
-            }
-        }
+  header {
+    pap-button {
+      pap-icon[name="done"] {
+        display: initial;
+      }
+
+      pap-icon[name="content_paste"] {
+        display: none;
+      }
     }
+  }
 }

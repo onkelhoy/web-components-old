@@ -16,6 +16,7 @@ export const style = `:host {
       background-color: var(--pap-color-border-tertiary, #EAEBEF); }
   :host pap-button {
     padding-left: var(--padding-left);
+    --pap-prefix-suffix-content-margin-left: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0; }
     :host pap-button span[slot="prefix"] {

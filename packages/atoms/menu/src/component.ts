@@ -1,5 +1,5 @@
 // utils 
-import { html, property, Size, Radius } from "@pap-it/system-utils";
+import { html, property, Size, Radius, query } from "@pap-it/system-utils";
 
 // atoms
 import { ButtonVariant, ButtonColorVariant } from "@pap-it/button";
@@ -9,6 +9,7 @@ import "@pap-it/button/wc";
 // templates
 import { BaseSystem } from "@pap-it/system-base";
 import { Placement } from "@pap-it/templates-popover";
+import { PopoverTemplate } from "@pap-it/templates-popover";
 import "@pap-it/templates-popover/wc";
 import "@pap-it/templates-box/wc";
 
@@ -19,9 +20,12 @@ import { MenuItem } from "./components/menu-item";
 export class Menu extends BaseSystem {
   static style = style;
 
+  @query('pap-popover-template') popoverTemplate!: PopoverTemplate;
+
   @property({ rerender: false, type: Boolean }) open: boolean = false;
   @property() placement: Placement = "bottom-center";
   @property() size: Size = "medium";
+  @property({ attribute: 'close-on-select', type: Boolean }) closeonselect: boolean = false;
 
   @property() buttonVariant: ButtonVariant = "clear";
   @property() buttonColor: ButtonColorVariant = "secondary";
@@ -68,6 +72,10 @@ export class Menu extends BaseSystem {
       this.current = e.target;
       this.dispatchEvent(new Event('select'));
     }
+
+    if (this.closeonselect) {
+      this.popoverTemplate.hide();
+    }
   }
   private handlehide = () => {
     this.open = false;
@@ -78,21 +86,30 @@ export class Menu extends BaseSystem {
 
   render() {
     return html`
-      <pap-popover-template @hide="${this.handlehide}" @show="${this.handleshow}" revealby="click" hideonoutsideclick placement="${this.placement}">
-        <pap-button 
-          variant="${this.buttonVariant}" 
-          color="${this.buttonColor}" 
-          radius="${this.buttonRadius}" 
-          part="button" 
-          slot="target" 
-          size="${this.size}"
-        >
-          <slot name="button-prefix" slot="prefix"></slot>
-          <slot name="button-content"></slot>
-          <slot name="button-suffix" slot="suffix">
-            <pap-icon customSize="15" name="caret">v</pap-icon>
+      <pap-popover-template 
+        @hide="${this.handlehide}" 
+        @show="${this.handleshow}" 
+        revealby="click" 
+        hideonoutsideclick 
+        placement="${this.placement}"
+      >
+        <span slot="target">
+          <slot name="button">
+            <pap-button 
+              variant="${this.buttonVariant}" 
+              color="${this.buttonColor}" 
+              radius="${this.buttonRadius}" 
+              part="button" 
+              size="${this.size}"
+            >
+              <slot name="button-prefix" slot="prefix"></slot>
+              <slot name="button-content"></slot>
+              <slot name="button-suffix" slot="suffix">
+                <pap-icon custom-size="15" name="caret">v</pap-icon>
+              </slot>
+            </pap-button>
           </slot>
-        </pap-button>
+        </span>
         <pap-box-template part="box" class="options" radius="small" elevation="small">
           <slot @slotchange="${this.handleslotchange}">
             <pap-menu-item>Missing Items</pap-menu-item>

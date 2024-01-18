@@ -1,23 +1,25 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- // utils 
+## SOURCE-CODE
+
+ // system
 import { html, property } from "@pap-it/system-utils";
 import { Translator } from "@pap-it/tools-translator";
 import "@pap-it/tools-translator/wc";
 
-// atoms 
+// atoms
 import "@pap-it/typography/wc";
 import "@pap-it/button/wc";
 
 // templates
 import "@pap-it/templates-auth/wc";
 
-// local 
+// local
 import { style } from "./style";
 import { Project } from "./types";
 
@@ -26,7 +28,7 @@ export class LoginPage extends Translator {
 
   @property() project: Project = "PMP";
 
-  // event handlers 
+  // event handlers
   private handlesubmit = (e: Event) => {
     if (e instanceof CustomEvent) {
       console.log(e.detail.data);
@@ -86,7 +88,6 @@ export class LoginPage extends Translator {
     }
   }
 }
-
 
 declare global {
   interface HTMLElementTagNameMap {

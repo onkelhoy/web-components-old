@@ -16,10 +16,10 @@ export class Accordion extends BaseSystem {
 
   render() {
     return `
-            <div part="group">
-                <slot></slot>
-            </div>
-        `
+      <div part="group">
+        <slot></slot>
+      </div>
+    `
   }
 }
 

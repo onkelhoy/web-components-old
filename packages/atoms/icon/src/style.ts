@@ -24,6 +24,10 @@ export const style = `:host {
     width: var(--icon-custom-size);
     height: var(--icon-custom-size); }
 
+:host([container="smaller"]) {
+  width: var(--field-size-smaller, 24px);
+  height: var(--field-size-smaller, 24px); }
+
 :host([container="small"]) {
   width: var(--field-size-small, 32px);
   height: var(--field-size-small, 32px); }

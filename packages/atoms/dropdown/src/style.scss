@@ -1,83 +1,34 @@
 :host {
-    --background: var(--dropdown-background-light, var(--pap-color-neutral-50));
+  --background: var(--dropdown-background, var(--pap-color-neutral-50));
 
-    pap-popover-template {
-        --popover-gap: var(--gap-small, 8px);
-        
-        flex-grow: 1;
-        width: 100%;
-    
-        input {
-            width: 100%;
-        }
-    
-        &::part(wrapper) {
-            width: 100%;
-        }
-        pap-box-template.options {
-            box-sizing: border-box;
-            padding: var(--padding-small, 8px);
-            width: 100%;
-            display: block;
-            background-color: var(--background);
-            border: 1px solid grey;
-    
-            max-height: 15rem;
-            overflow-y: auto;
-        }
+  pap-popover-template {
+    --popover-gap: var(--gap-small, 8px);
+
+    flex-grow: 1;
+    width: 100%;
+
+    input {
+      width: 100%;
     }
-}
 
-
-// for now its only for bottom cases... 
-$size-map: (
-  small: (
-    height: var(--field-size-small, 32px),
-    blockheight: var(--field-size-small, 32px),
-    padding: var(--padding-small, 8px),
-  ),
-  medium: (
-    height: var(--field-size-medium, 40px),
-    blockheight: var(--field-size-small, 32px),
-    padding: var(--padding-medium, 16px),
-  ),
-  large: (
-    height: var(--field-size-large, 56px),
-    blockheight: var(--field-size-small, 32px),
-    padding: var(--padding-medium, 16px),
-  ),
-);
-
-@each $name, $value in $size-map {
-    :host([size="#{$name}"]) {
-        pap-box-template.wrapper {
-            height: var(--pap-field-height-#{$name}, #{map-get($value, height)});
-        }
-        footer,
-        header {
-            height: var(--pap-field-block-height-#{$name}, #{map-get($value, blockheight)});
-        }
+    &::part(wrapper) {
+      width: 100%;
     }
-}
 
-@each $name in (small, medium, large) {
-    :host([placement="bottom-left"][size="#{$name}"]),
-    :host([placement="bottom-center"][size="#{$name}"]),
-    :host([placement="bottom-right"][size="#{$name}"]) {
-        pap-popover-template::part(wrapper) {
-            top: calc(var(--field-size-small, 32px) + var(--field-size-#{$name}));
-        }
+    pap-box-template.options {
+      box-sizing: border-box;
+      padding: var(--padding-small, 8px);
+      width: 100%;
+      display: block;
+      background-color: var(--background);
+      border: 1px solid grey;
+
+      max-height: 15rem;
+      overflow-y: auto;
     }
-}
-
-
-
-@media (prefers-color-scheme: dark) {
-    :host {
-        --background: var(--dropdown-background-dark, var(--pap-color-neutral-50)); // NOTE in dark this is black
-    }
+  }
 }
 
 :host([popoveropen="true"]) pap-icon[name="caret"] {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }

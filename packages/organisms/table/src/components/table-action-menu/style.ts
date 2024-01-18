@@ -1,0 +1,16 @@
+export const style = `pap-tabs::part(header) {
+  background-color: var(--pap-color-bg-secondary, #F6F7F8);
+  border-bottom: 1px solid var(--pap-color-border-secondary, #DADDE3); }
+
+pap-tab {
+  height: auto; }
+  pap-tab div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-smaller, 4px);
+    margin-bottom: var(--margin-small, 8px); }
+
+pap-tab-content {
+  padding: var(--padding-medium, 16px);
+  padding-inline: var(--padding-large, 24px); }`;

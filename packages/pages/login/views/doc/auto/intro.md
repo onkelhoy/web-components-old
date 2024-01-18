@@ -1,20 +1,21 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
-## SOURCE-CODE:
-// utils 
+## SOURCE-CODE
+
+// system
 import { html, property } from "@pap-it/system-utils";
 import { Translator } from "@pap-it/tools-translator";
 import "@pap-it/tools-translator/wc";
 
-// atoms 
+// atoms
 import "@pap-it/typography/wc";
 import "@pap-it/button/wc";
 
 // templates
 import "@pap-it/templates-auth/wc";
 
-// local 
+// local
 import { style } from "./style";
 import { Project } from "./types";
 
@@ -23,7 +24,7 @@ export class LoginPage extends Translator {
 
   @property() project: Project = "PMP";
 
-  // event handlers 
+  // event handlers
   private handlesubmit = (e: Event) => {
     if (e instanceof CustomEvent) {
       console.log(e.detail.data);
@@ -84,13 +85,14 @@ export class LoginPage extends Translator {
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-login-page": LoginPage;
   }
 }
-## REGISTER-CODE:
+
+## REGISTER-CODE
+
 import { Username } from './components/username';
 import { Password } from './components/password';
 import { Email } from './components/email';

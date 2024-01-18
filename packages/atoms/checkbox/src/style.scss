@@ -1,61 +1,69 @@
 :host {
-    display: inline-grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr auto;
-    grid-template-areas: 
-        "label input"
-        "message message";
-    align-items: center;
-    column-gap: var(--gap-small, 8px);
-    cursor: pointer;
+  display: inline-grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "input label"
+    "message message";
+  align-items: center;
+  cursor: pointer;
 
-    &::part(label) {
-        grid-area: label;
-    }
-    &::part(wrapper) {
-        padding-inline: 0;
-        display: block;
-        border: none;
-        height: auto;
+  &::part(label) {
+    grid-area: label;
+  }
 
-        grid-area: input;
-    }
+  &::part(wrapper) {
+    padding-inline: 0;
+    display: block;
+    border: none;
+    height: auto;
+    --pap-prefix-suffix-padding: 0;
+    --pap-prefix-suffix-content-padding: 0;
 
-    &::part(message) {
-        grid-area: message;
-    }
+    grid-area: input;
+  }
+
+  &::part(message) {
+    grid-area: message;
+  }
 }
 
 $size-map: (
-  small: (
-    size: 15px,
+  small: (size: 14px,
+    container: var(--field-size-small, 32px),
   ),
-  medium: (
-    size: 20px,
+  medium: (size: 17px,
+    container: var(--field-size-medium, 40px),
   ),
-  large: (
-    size: 28px,
+  large: (size: 20px,
+    container: var(--field-size-large, 48px),
   ),
 );
 
 @each $name, $value in $size-map {
-    :host([size="#{$name}"]) {
-        input[type="checkbox"] {
-            height: var(--checkbox-size-#{$name}, var(--size-#{$name}, #{map-get($value, size)}));
-            width: var(--checkbox-size-#{$name}, var(--size-#{$name}, #{map-get($value, size)}));
-        }
+  :host([size="#{$name}"]) {
+    input[type="checkbox"] {
+      height: var(--checkbox-size-#{$name}, #{map-get($value, size)});
+      width: var(--checkbox-size-#{$name}, #{map-get($value, size)});
     }
-} 
+  }
+
+  :host([size="#{$name}"]:not([label])) {
+    &::part(wrapper) {
+      min-width: var(--checkbox-container-size-#{$name}, #{map-get($value, container)});
+    }
+  }
+}
 
 
 :host(:focus),
 :host([hasfocus="true"]) {
-    &::part(wrapper) {
-        outline: none;
-    }
+  &::part(wrapper) {
+    outline: none;
+  }
 
-    input[type="checkbox"]:focus-visible {
-        outline-offset: 2px;
-        outline: 1px solid blue !important;
-    }
+  input[type="checkbox"]:focus-visible {
+    outline-offset: 2px;
+    outline: 1px solid blue !important;
+  }
 }

@@ -1,0 +1,18 @@
+:host {
+  display: block;
+
+  object,
+  embed,
+  iframe {
+    width: 100%;
+    border: 0;
+  }
+
+  pap-button[part="download-button"] {
+    margin-top: var(--margin-small, 8px);
+  }
+
+  a.download {
+    display: none;
+  }
+}
