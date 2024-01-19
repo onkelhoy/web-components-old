@@ -9,14 +9,17 @@ else
   brew install fswatch 
 fi
 echo ""
-read -p "installing fq (JSON parser) using brew, proceed?: (y/n) " brew_ans
-brew_ans=$(echo "$brew_ans" | tr '[:upper:]' '[:lower:]')
-if [[ "$brew_ans" != "y" && "$brew_ans" != "yes" ]]; then
-  echo "You chose \"no\", so we skip installing fq - note that many things are requiring fq!"
-else 
-  brew install fq 
-fi
-echo ""
+
+# I think it is depricated that I use the fq - but lets see..
+# read -p "installing fq (JSON parser) using brew, proceed?: (y/n) " brew_ans
+# brew_ans=$(echo "$brew_ans" | tr '[:upper:]' '[:lower:]')
+# if [[ "$brew_ans" != "y" && "$brew_ans" != "yes" ]]; then
+#   echo "You chose \"no\", so we skip installing fq - note that many things are requiring fq!"
+# else 
+#   brew install fq 
+# fi
+# echo ""
+
 echo ""
 
 # init bash script executions 
@@ -27,10 +30,11 @@ echo "### install node dependancies"
 npm install
 echo ""
 
-echo "### init the python chatgtp documentation"
-cd ./scripts/auto-doc/
-sh init.sh
-echo ""
-# cd ../
+# TODO add back! until chatgtp documentation is ready we can not use it
+# echo "### init the python chatgtp documentation"
+# cd ./scripts/auto-doc/
+# sh init.sh
+# echo ""
+# # cd ../
 
 echo "project initialized"

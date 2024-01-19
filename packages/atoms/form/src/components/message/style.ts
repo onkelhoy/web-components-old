@@ -3,7 +3,7 @@ export const style = `:host {
   max-width: 30rem;
   min-width: 10rem; }
   :host pap-box-template {
-    background-color: var(--pap-color-bg-canvas, #EAEBEF);
+    background-color: var(--pap-color-bg, #FFFFFF);
     display: grid;
     grid-template-columns: 72px 1fr;
     gap: var(--gap-medium, 16px);
@@ -16,28 +16,26 @@ export const style = `:host {
       :host pap-box-template div.left {
         justify-content: center; }
       :host pap-box-template div pap-icon {
-        color: var(--pap-color-icon-inverse, #FFFFFF);
         display: none; }
     :host pap-box-template pap-button {
       position: absolute;
       right: 0;
-      top: 0;
-      gap: 0;
-      padding: 0;
-      width: var(--field-size-medium, 40px);
-      height: var(--field-size-medium, 40px); }
+      top: 0; }
 
 :host([variant="error"]) pap-box-template div.left {
-  background-color: var(--pap-color-danger-500, #FD3649); }
+  background-color: var(--pap-color-bg-danger, #B70E1E); }
   :host([variant="error"]) pap-box-template div.left pap-icon[name="form.error"] {
+    color: var(--pap-color-icon-ondanger, #FFFFFF);
     display: initial; }
 
 :host([variant="warning"]) pap-box-template div.left {
-  background-color: var(--pap-color-warning-500, #FFA800); }
+  background-color: var(--pap-color-bg-warning, #FFA800); }
   :host([variant="warning"]) pap-box-template div.left pap-icon[name="form.warning"] {
+    color: var(--pap-color-icon-onwarning, #29292F);
     display: initial; }
 
 :host([variant="success"]) pap-box-template div.left {
-  background-color: var(--pap-color-success-500, #4FB82A); }
+  background-color: var(--pap-color-bg-success, #2E701B); }
   :host([variant="success"]) pap-box-template div.left pap-icon[name="form.success"] {
+    color: var(--pap-color-icon-onsuccess, #FFFFFF);
     display: initial; }`;

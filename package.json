@@ -18,11 +18,11 @@
     "ecosystem:start": "sh ./scripts/ecosystem/start.sh",
     "start": "npm run ecosystem:build & npm run ecosystem:start",
     "theme:build": "sh ./scripts/theme/run.sh",
+    "project": "sh ./scripts/project/run.sh",
     "document": ""
   },
   "keywords": [
     "web-component",
-    "interzero",
     "typescript",
     "sass"
   ],

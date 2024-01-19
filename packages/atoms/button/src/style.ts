@@ -23,18 +23,18 @@ export const style = `:host {
   width: 100%;
   box-sizing: border-box; }
 
-:host([textvariant="B1"]),
-:host([textvariant="button1"]) {
+:host([text-variant="B1"]),
+:host([text-variant="button1"]) {
   font-family: var(--typography-b1-fontfamily, "Libre Franklin", helvetica, sans-serif);
   font-size: var(--typography-b1-fontsize, 1rem);
   font-weight: var(--typography-b1-fontweight, 600);
   line-height: var(--typography-b1-lineheight, 140%);
   letter-spacing: var(--typography-b1-letterspacing, 0.01rem); }
 
-:host([color="secondary"][variant="clear"]:not([textvariant="B1"]):not([textvariant="button1"])),
-:host([color="inverse"][variant="clear"]:not([textvariant="B1"]):not([textvariant="button1"])),
-:host([textvariant="B2"]),
-:host([textvariant="button2"]) {
+:host([color="secondary"][variant="clear"]:not([text-variant="B1"]):not([text-variant="button1"])),
+:host([color="inverse"][variant="clear"]:not([text-variant="B1"]):not([text-variant="button1"])),
+:host([text-variant="B2"]),
+:host([text-variant="button2"]) {
   font-family: var(--typography-b2-fontfamily, "Libre Franklin", helvetica, sans-serif);
   font-size: var(--typography-b2-fontsize, 1rem);
   font-weight: var(--typography-b2-fontweight, 600);
@@ -824,6 +824,21 @@ export const style = `:host {
 
 :host([loading="true"][mode="hug"]) {
   width: 110px; }
+
+:host([radius="none"]) {
+  border-radius: var(--button-radius-none, var(--radius-none, 0px)); }
+
+:host([radius="small"]) {
+  border-radius: var(--button-radius-small, var(--radius-small, var(--radius-small, 4px))); }
+
+:host([radius="medium"]) {
+  border-radius: var(--button-radius-medium, var(--radius-medium, var(--radius-medium, 8px))); }
+
+:host([radius="large"]) {
+  border-radius: var(--button-radius-large, var(--radius-large, var(--radius-large, 16px))); }
+
+:host([radius="circular"]) {
+  border-radius: var(--button-radius-circular, var(--radius-circular, var(--radius-max, 1000px))); }
 
 :host([size="small"]) {
   min-height: var(--pap-button-height-small, calc(var(--field-size-small, 32px) - 4px));

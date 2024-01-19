@@ -14,7 +14,7 @@ export class BaseSystem extends HTMLElement {
   private _pendingOperations: Function[] = [];
   private templateComperator!: HTMLTemplateElement;
   private styleComperator!: HTMLStyleElement;
-  private connected: boolean = false;
+  public connected: boolean = false;
   public originalHTML: string = "";
   @property({ rerender: false, type: Boolean }) hasFocus: boolean = false;
 
@@ -54,10 +54,12 @@ export class BaseSystem extends HTMLElement {
 
     this._pendingOperations.forEach(o => o());
     this._pendingOperations = [];
+    this.dispatchEvent(new Event('connected'));
   }
   disconnectedCallback() {
     this.connected = false;
     this.attributeObserver.disconnect();
+    this.dispatchEvent(new Event('disconnected'));
   }
   attributeChangedCallback(name: string, oldValue: string | null, newValue: string | null) {
     // implement something

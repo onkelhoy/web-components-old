@@ -2,8 +2,9 @@
 import '@pap-it/system-doc/wc';
 
 // components
-import '@pap-it/TEMPLATE_PACKAGENAMETEMPLATE_NAME/wc';
+import '@PROJECTSCOPE/TEMPLATE_PACKAGENAMETEMPLATE_NAME/wc';
 
-window.onload = () => {
-    console.log('[demo]: window loaded');
+window.onload = () => 
+{
+  console.log('[demo]: window loaded');
 }

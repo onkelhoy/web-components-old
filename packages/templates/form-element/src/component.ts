@@ -22,27 +22,24 @@ export class FormElementTemplate extends BaseSystem {
     if (this.formElement) return;
 
     setTimeout(() => {
-      const closestOFORM = this.shadow_closest("pap-form");
-      if (closestOFORM) {
-        const form = closestOFORM.querySelector<HTMLFormElement>('form');
-        if (form) this.assignForm(form);
+      const closestPapForm = this.shadow_closest("pap-form");
+      if (closestPapForm) {
+        const form = closestPapForm.querySelector<HTMLFormElement>('form');
+        if (form) this.AssignForm(form);
       }
       else {
         const form = this.shadow_closest<HTMLFormElement>("form");
-        if (form) this.assignForm(form);
+        if (form) this.AssignForm(form);
       }
 
       if (!this.formElement && this.findAttempts < 10) {
         this.findAttempts++;
         this.findForm();
       }
-      else {
-        console.warn('[WARNING] form not found');
-      }
     }, 100 + this.findAttempts * 100);
   }
 
-  private assignForm(form: HTMLFormElement) {
+  public AssignForm = (form: HTMLFormElement) => {
     this.formElement = form;
     this.dispatchEvent(new Event("form-element-loaded"));
   }

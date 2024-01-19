@@ -1,0 +1,37 @@
+{
+  "name": "@PROJECTSCOPE/frontend",
+  "version": "0.0.0",
+  "description": "web-component library",
+  "private": true,
+  "scripts": {
+    "init": "sh ./scripts/init.sh",
+    "create": "sh ./scripts/generator/copy.sh",
+    "clean": "sh ./scripts/clean.sh",
+    "ecosystem:build": "sh ./scripts/ecosystem/build.sh",
+    "ecosystem:start": "sh ./scripts/ecosystem/start.sh",
+    "start": "",
+    "theme:build": "sh ./scripts/theme/run.sh",
+    "document": ""
+  },
+  "keywords": [
+    "web-component",
+    "typescript",
+    "sass"
+  ],
+  "workspaces": [
+    "packages/**/*"
+  ],
+  "dependencies": {
+    "@pap-it/system-base": "latest",
+    "@pap-it/system-utils": "latest",
+    "cookie-parser": "^1.4.6",
+    "esbuild": "^0.17.18",
+    "express": "^4.18.2",
+    "node-html-parser": "^6.1.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.53.0",
+    "node-html-parser": "^6.1.11",
+    "ws": "^8.13.0"
+  }
+}

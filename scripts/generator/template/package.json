@@ -1,5 +1,5 @@
 {
-  "name": "@pap-it/TEMPLATE_PACKAGENAMETEMPLATE_NAME",
+  "name": "@PROJECTSCOPE/TEMPLATE_PACKAGENAMETEMPLATE_NAME",
   "version": "0.0.0",
   "scripts": {
     "init": "sh .scripts/init.sh",
@@ -24,13 +24,13 @@
     ".": "./dist/src/index.js",
     "./wc": "./dist/register.bundle.mjs"
   },
-  "author": "Henry Pap",
+  "author": "GITNAME",
   "private": false,
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "license": "ISC",
+  "license": "PROJECTLICENSE",
   "repository": {
     "type": "git",
     "url": "https://github.com/onkelhoy/web-components.git"

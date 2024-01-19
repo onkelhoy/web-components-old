@@ -17,8 +17,8 @@ export class BoxTemplate extends BaseSystem {
 
   render(): RenderType {
     return `
-            <slot></slot>
-        `
+      <slot></slot>
+    `;
   }
 }
 
