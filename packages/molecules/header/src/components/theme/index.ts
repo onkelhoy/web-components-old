@@ -1,7 +1,6 @@
-// utils 
+// system 
 import { html, property, query } from "@pap-it/system-utils";
-import { change as ChangeTheme, THEMECHANGE_NAME, THEMEADD_NAME } from "@pap-it/tools-theme";
-import "@pap-it/tools-translator/wc";
+import { BaseSystem } from "@pap-it/system-base";
 
 // atoms 
 import { Menu, MenuItem } from '@pap-it/menu';
@@ -11,8 +10,9 @@ import "@pap-it/typography/wc";
 import "@pap-it/toggle/wc";
 import "@pap-it/icon/wc";
 
-// templates
-import { BaseSystem } from "@pap-it/system-base";
+// tools
+import { change as ChangeTheme, THEMECHANGE_NAME, THEMEADD_NAME } from "@pap-it/tools-theme";
+import "@pap-it/tools-translator/wc";
 
 import { style } from "./style";
 type LightDarkTheme = "light" | "dark";

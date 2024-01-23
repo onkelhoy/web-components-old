@@ -3,21 +3,34 @@
 # Read config.env file
 source ./scripts/generator/config.env
 
+ROOTDIR=$(pwd)
+GITNAME=$(git config --global user.name)
+PROJECTLICENSE=$(node -pe "require('$ROOTDIR/package.json').license")
+PROJECTSCOPE=$(node -pe "require('$ROOTDIR/package.json').name")
+PROJECTSCOPE=$(echo "$PROJECTSCOPE" | cut -d'/' -f1 | awk -F'@' '{print $2}')
+
 echo "Choose an atomic type:"
 echo "1) atoms"
 echo "2) molecules"
 echo "3) organisms"
 echo "4) pages"
 echo "5) templates"
-echo "6) tools"
-echo "7) system"
+
+if [ "$PROJECTSCOPE" == "pap-it" ]; then 
+  echo "6) tools"
+  echo "7) system"
+else 
+  echo "6) global"
+fi 
 
 read -p "Enter the number corresponding to your choice: " choice
 read -p "Enter the name: " name
 
-ROOTDIR=$(pwd)
+# Set default value if GITNAME is empty
+GITNAME=${GITNAME:-anonymous}
 
-case $choice in
+if [ "$PROJECTSCOPE" == "pap-it" ]; then 
+  case $choice in
     1) atomic_type="atoms" ;;
     2) atomic_type="molecules" ;;
     3) atomic_type="organisms" ;;
@@ -26,7 +39,18 @@ case $choice in
     6) atomic_type="tools" ;;
     7) atomic_type="system" ;;
     *) echo "Invalid choice! Exiting..."; exit 1 ;;
-esac
+  esac
+else 
+  case $choice in
+    1) atomic_type="atoms" ;;
+    2) atomic_type="molecules" ;;
+    3) atomic_type="organisms" ;;
+    4) atomic_type="pages" ;;
+    5) atomic_type="templates" ;;
+    6) atomic_type="global" ;;
+    *) echo "Invalid choice! Exiting..."; exit 1 ;;
+  esac
+fi
 
 # Create ClassName and prefix-name
 classname=$(echo $name | awk -F"[_-]" '{$1=toupper(substr($1,1,1))substr($1,2); for (i=2;i<=NF;i++){$i=toupper(substr($i,1,1))substr($i,2)}; print}' OFS="")
@@ -37,9 +61,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 destination="./packages/${atomic_type}/${name}"
 package_name=""
 
-if [[ "$atomic_type" == "system" || "$atomic_type" == "pages" || "$atomic_type" == "templates" || "$atomic_type" == "tools" ]]; then
+if [[ "$atomic_type" == "global" || "$atomic_type" == "system" || "$atomic_type" == "pages" || "$atomic_type" == "templates" || "$atomic_type" == "tools" ]]; then
     # Remove the trailing 's' from the atomic type
-    singular_atomic_type=$(echo "$atomic_type" | sed 's/.$//')
+    singular_atomic_type=$(echo "$atomic_type" | sed 's/s$//')
 
     # Convert the first character of the singular atomic type to uppercase
     uppercase_singular_atomic_type=$(echo "$singular_atomic_type" | awk '{print toupper(substr($0,1,1))substr($0,2)}')
@@ -81,6 +105,13 @@ find "$destination" -type f -not -name ".DS_Store" -not -name "*.svg" -not -name
 find "$destination" -type f -not -name ".DS_Store" -not -name "*.svg" -not -name "*.ico" -exec sed -i '' "s/TEMPLATE_NAME/${name}/g" {} \;
 find "$destination" -type f -not -name ".DS_Store" -not -name "*.svg" -not -name "*.ico" -exec sed -i '' "s/TEMPLATE_CLASSNAME/${classname}/g" {} \;
 find "$destination" -type f -not -name ".DS_Store" -not -name "*.svg" -not -name "*.ico" -exec sed -i '' "s/TEMPLATE_PREFIXNAME/${prefixname}/g" {} \;
+find "$destination" -type f -not -name ".DS_Store" -not -name "*.svg" -not -name "*.ico" -exec sed -i '' "s/PROJECTSCOPE/${PROJECTSCOPE}/g" {} \;
+
+sed -i '' "s/GITNAME/${GITNAME}/g" $destination/package.json
+
+if [ -n $PROJECTLICENSE ]; then 
+  sed -i '' "s/PROJECTLICENSE/${PROJECTLICENSE}/g" $destination/package.json
+fi
 
 echo "\nROOTDIR=$ROOTDIR" >> $destination/.env
 

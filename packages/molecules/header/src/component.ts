@@ -1,15 +1,15 @@
-// utils 
+// system 
 import { html, property, query } from "@pap-it/system-utils";
-import "@pap-it/tools-translator/wc";
+import { BaseSystem } from "@pap-it/system-base";
 
 // atoms
+import { Menu } from "@pap-it/menu";
 import "@pap-it/badge/wc";
 import "@pap-it/typography/wc";
 import "@pap-it/menu/wc";
-import { Menu } from "@pap-it/menu";
 
-// templates
-import { BaseSystem } from "@pap-it/system-base";
+// tootls
+import "@pap-it/tools-translator/wc";
 
 // local 
 import { style } from "./style";

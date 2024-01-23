@@ -1,44 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form demo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form demo</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
+  <script defer src="main.js"></script>
 </head>
+
 <body>
-    <doc-card>
-        <h4 slot="header">With Error</h4>
-        <pap-codeblock display="both">
-            <pap-form id="form_error" error="Hello Im an error?">
-                <pap-input required="true" label="AA" name="a.a"></pap-input>
-                <pap-input required="true" label="AAA" name="a.a.a"></pap-input>
-                <pap-input required="true" label="AAB" name="a.a.b"></pap-input>
-                <pap-input required="true" label="AB" name="a.b" type="number"></pap-input>
-                <pap-textarea required="true" label="AC" name="a.c"></pap-textarea>
-                <pap-checkbox required="true" label="AD" name="a.d"></pap-checkbox>
-                <pap-dropdown required="true" label="AE" name="a.e">
-                    <pap-option value="1">first</pap-option>
-                    <pap-option value="2">second</pap-option>
-                    <pap-option value="3">third</pap-option>
-                </pap-dropdown>
+  <doc-card>
+    <pap-typography variant="C2" slot="header">A styled form</pap-typography>
+    <pap-codeblock display="both">
+      <pap-form id="styled">
+        <pap-input required="true" label="AA" name="a.a"></pap-input>
+        <pap-input required="true" label="AAA" name="a.a.a"></pap-input>
+        <pap-input required="true" label="AAB" name="a.a.b"></pap-input>
+        <pap-input required="true" label="AB" name="a.b" type="number"></pap-input>
 
-                <pap-button color="danger" type="submit">submit</pap-button>
-                <pap-button color="primary" type="reset">reset</pap-button>
-            </pap-form>
-        </pap-codeblock>
+        <div>
+          <pap-button color="secondary" variant="outlined" type="reset">reset</pap-button>
+          <pap-button color="secondary" type="submit">submit</pap-button>
+        </div>
+      </pap-form>
+      <style>
+        pap-form#styled {
+          background-color: var(--pap-color-bg, white);
+          min-height: 600px;
+          padding: 50px;
+        }
 
-        <button id="show_error">show error</button>
-    </doc-card>
-    <!-- <doc-card>
-        <h4 slot="header">Testing</h4>
+        pap-form#styled::part(form) {
+          display: flex;
+          flex-direction: column;
+        }
+
+        pap-form#styled div {
+          display: flex;
+          justify-content: flex-end;
+          margin-top: auto;
+          gap: 1rem;
+        }
+      </style>
+    </pap-codeblock>
+
+    <button id="show_error">show error</button>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography variant="C2" slot="header">With Error</pap-typography>
+    <pap-codeblock display="both">
+      <pap-form id="form_error" error="Hello Im an error?">
+        <pap-input required="true" label="AA" name="a.a"></pap-input>
+        <pap-input required="true" label="AAA" name="a.a.a"></pap-input>
+        <pap-input required="true" label="AAB" name="a.a.b"></pap-input>
+        <pap-input required="true" label="AB" name="a.b" type="number"></pap-input>
+        <pap-textarea required="true" label="AC" name="a.c"></pap-textarea>
+        <pap-checkbox required="true" label="AD" name="a.d"></pap-checkbox>
+        <pap-dropdown required="true" label="AE" name="a.e">
+          <pap-option value="1">first</pap-option>
+          <pap-option value="2">second</pap-option>
+          <pap-option value="3">third</pap-option>
+        </pap-dropdown>
+
+        <pap-button color="secondary" variant="outlined" type="reset">reset</pap-button>
+        <pap-button color="secondary" type="submit">submit</pap-button>
+      </pap-form>
+    </pap-codeblock>
+
+    <button id="show_error">show error</button>
+  </doc-card>
+  <!-- <doc-card>
+        <pap-typography variant="C2" slot="header">Testing</pap-typography>
         <pap-codeblock display="both">
             <form id="test-form">
                 <input placeholder="hello" required="true" name="hello" />
@@ -49,21 +89,22 @@
 
         <button id="show_warning">show warning</button>
     </doc-card> -->
-    <doc-card>
-        <h4 slot="header">With Warning</h4>
-        <pap-codeblock display="both">
-            <pap-form id="form_warning" warning="Hello Im an warning?"></pap-form>
-        </pap-codeblock>
+  <doc-card>
+    <pap-typography variant="C2" slot="header">With Warning</pap-typography>
+    <pap-codeblock display="both">
+      <pap-form id="form_warning" warning="Hello Im an warning?"></pap-form>
+    </pap-codeblock>
 
-        <button id="show_warning">show warning</button>
-    </doc-card>
-    <doc-card>
-        <h4 slot="header">With Success</h4>
-        <pap-codeblock display="both">
-            <pap-form id="form_success" success="Hello Im an success?"></pap-form>
-        </pap-codeblock>
+    <button id="show_warning">show warning</button>
+  </doc-card>
+  <doc-card>
+    <pap-typography variant="C2" slot="header">With Success</pap-typography>
+    <pap-codeblock display="both">
+      <pap-form id="form_success" success="Hello Im an success?"></pap-form>
+    </pap-codeblock>
 
-        <button id="show_success">show success</button>
-    </doc-card>
+    <button id="show_success">show success</button>
+  </doc-card>
 </body>
+
 </html>

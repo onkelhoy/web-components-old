@@ -36,10 +36,11 @@ function get_path(url)
   // then we check if in any of our dependency's assets 
   for (let dep in DEPENDENCY)
   {
+    const resolved_path = LOCKFILE.packages[DEPENDENCY[dep].path].resolved;
     // in development case we have packages locally so we see if LOCKFILE has resolved flag set
-    if (LOCKFILE.packages[DEPENDENCY[dep].path].resolved)
+    if (resolved_path && !resolved_path.startsWith("http"))
     {
-      const package_asset_path = path.join(process.env.ROOT_DIR, LOCKFILE.packages[DEPENDENCY[dep].path].resolved, 'asset', url);
+      const package_asset_path = path.join(process.env.ROOT_DIR, resolved_path, 'asset', url);
       if (fs.existsSync(package_asset_path)) 
       {
         return package_asset_path;  

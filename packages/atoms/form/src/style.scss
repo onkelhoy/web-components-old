@@ -1,16 +1,18 @@
 :host {
-    display: block;
+  display: block;
 
-    form {
-        div {
-            display: flex;
-            justify-content: center;
+  form {
+    height: inherit;
+    min-height: inherit;
+    max-height: inherit;
 
-            pap-message {
-                flex-grow: 1;
-            }
-        }
+    div {
+      display: flex;
+      justify-content: center;
+
+      pap-message {
+        flex-grow: 1;
+      }
     }
+  }
 }
-
-@media (prefers-color-scheme: dark) {}

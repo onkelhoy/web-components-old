@@ -40,7 +40,7 @@
     "@pap-it/templates-asset": "^1.0.0"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "^1.0.0",
+    "@pap-it/system-doc": "1.0.1",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "node-sass": "^9.0.0",

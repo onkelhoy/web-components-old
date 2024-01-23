@@ -2,6 +2,6 @@ export type InputType =
   | "text"
   | "number"
   | "tel"
-  | "mail"
+  | "email"
   | "password"
   | "search";

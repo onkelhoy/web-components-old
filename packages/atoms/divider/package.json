@@ -36,7 +36,7 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-base": "1.0.1",
+    "@pap-it/system-base": "1.0.2",
     "@pap-it/system-utils": "1.0.1"
   },
   "devDependencies": {

@@ -3,7 +3,6 @@ import { html, property, query } from "@pap-it/system-utils";
 import "@pap-it/tools-translator/wc";
 
 // atoms 
-import { Accordion } from "@pap-it/accordion";
 import "@pap-it/icon/wc";
 import "@pap-it/button/wc";
 import "@pap-it/accordion/wc";
@@ -21,17 +20,8 @@ export class Message extends BaseSystem {
   static style = style;
 
   @property({ rerender: false }) variant: Variant = "success";
-  @property({ rerender: false, type: Boolean, onUpdate: "onopenupdate" }) open = false;
+  @property({ type: Boolean }) open = false;
 
-  @query('pap-accordion') accordionElement!: Accordion;
-
-  // update handlers
-  private onopenupdate = () => {
-    if (this.accordionElement) {
-      this.accordionElement.open = this.open;
-    }
-    else return 10;
-  }
   // event handlers 
   private handleclose = () => {
     this.open = false;
@@ -42,14 +32,15 @@ export class Message extends BaseSystem {
       <pap-accordion open="${this.open}">
         <pap-box-template radius="medium">
           <div class="left">
-            <pap-icon custom-size="40" name="form.error"></pap-icon>
-            <pap-icon custom-size="40" name="form.success"></pap-icon>
+            <pap-icon custom-size="35" name="form.error"></pap-icon>
+            <pap-icon custom-size="35" name="form.success"></pap-icon>
+            <pap-icon custom-size="35" name="form.warning"></pap-icon>
           </div>
           <div>
             <pap-typography><slot></slot></pap-typography>
           </div>
-          <pap-button @click="${this.handleclose}" radius="none" variant="clear">
-            <pap-icon custom-size="32" name="close" cache></pap-icon>
+          <pap-button color="secondary" @click="${this.handleclose}" circle="true" radius="none" variant="clear">
+            <pap-icon size="small" name="close" cache></pap-icon>
           </pap-button>
         </pap-box-template>
       </pap-accordion>

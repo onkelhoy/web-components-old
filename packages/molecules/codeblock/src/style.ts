@@ -47,7 +47,7 @@ export const style = `:host {
       min-height: var(--unit-size5, 32px);
       padding: var(--padding-medium, 16px) var(--padding-large, 24px); }
   :host fieldset {
-    background-color: var(--pap-color-bg, #FFFFFF); }
+    background-color: var(--pap-color-bg-canvas, #EAEBEF); }
 
 :host([display="code"]) fieldset {
   display: none; }

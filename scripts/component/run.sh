@@ -10,6 +10,9 @@ source $ROOTDIR/scripts/generator/config.env
 read -p "Enter the name of the component: " name
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECTSCOPE=$(node -pe "require('$ROOTDIR/package.json').name")
+PROJECTSCOPE=$(echo "$input" | cut -d'/' -f1 | awk -F'@' '{print $2}')
+
 classname=$(echo $name | awk -F"[_-]" '{$1=toupper(substr($1,1,1))substr($1,2); for (i=2;i<=NF;i++){$i=toupper(substr($i,1,1))substr($i,2)}; print}' OFS="")
 prefixname="${prefix}-${name}"
 
@@ -48,3 +51,4 @@ sed -i '' "s/COMPONENT_PREFIXNAME/${prefixname}/g" $view_destination/index.html 
 sed -i '' "s/TEMPLATE_PACKAGENAME/${PACKAGENAME}/g" $view_destination/main.js &> /dev/null
 sed -i '' "s/COMPONENT_NAME/${name}/g" $view_destination/main.js &> /dev/null
 sed -i '' "s/TEMPLATE_NAME/${NAME}/g" $view_destination/main.js &> /dev/null
+sed -i '' "s/PROJECTSCOPE/${PROJECTSCOPE}/g" $view_destination/main.js &> /dev/null

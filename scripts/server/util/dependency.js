@@ -13,10 +13,12 @@ function recursive(name, callback)
   }
 
   let package_path = `node_modules/${name}`;
-  if (LOCKFILE.packages[package_path].resolved)
-  { // its locally created
-    package_path = LOCKFILE.packages[package_path].resolved;
+  const resolved_path = LOCKFILE.packages[package_path].resolved;
+  if (resolved_path && !resolved_path.startsWith("http"))
+  {  // its locally created
+    package_path = resolved_path;
   }
+
 
   if (!DEPENDENCY[name]) 
   {
