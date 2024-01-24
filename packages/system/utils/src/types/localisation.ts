@@ -26,7 +26,7 @@ export interface Localisation {
 
 declare global {
   interface Window {
-    oTranslation: Translation;
-    oLocalisation: Localisation;
+    papTranslation: Translation;
+    papLocalisation: Localisation;
   }
 }

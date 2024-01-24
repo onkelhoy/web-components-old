@@ -1,0 +1,1 @@
+export type CanvasFunction = (context: CanvasRenderingContext2D, deltatime: number) => void;

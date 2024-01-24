@@ -23,21 +23,22 @@ CURRENT_VERSION=$(node -p "require('./package.json').version")
 
 if [[ $CURRENT_VERSION == $NPM_VERSION ]] && [[ -n "$CICD_NODE_TOKEN" ]]; then
   # skipped 
-  exit 2
+  echo "[individual]: skipped"
 else 
   if [[ -n "$CICD_NODE_TOKEN" ]]; then 
     # install 
-    npm ci 
+    npm ci &>/dev/null
 
     # run build 
-    npm run build
+    npm run build &>/dev/null
 
     # publish 
-    npm publish --access public --registry https://registry.npmjs.org/ --//registry.npmjs.org/:_authToken=${CICD_NODE_TOKEN}
+    echo "im here henry"
+    npm publish --access public --registry https://registry.npmjs.org/ --//registry.npmjs.org/:_authToken=${CICD_NODE_TOKEN} --verbose --dry-run
   else 
     # run build 
-    npm run build
+    npm run build &>/dev/null
   fi
 fi
 
-exit 0
+echo "[individual]: complete"

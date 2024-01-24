@@ -9,6 +9,7 @@ Version: 1.0.0
 Development servers can be started and should all exist inside `"views"` folder
 
 ## Scripts
+
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
@@ -56,13 +57,13 @@ export class Translator extends BaseSystem {
     connectedCallback(): void {
         super.connectedCallback();
         InitTranslations();
-        window.oTranslation?.subscribe(this.updateText);
+        window.papTranslation?.subscribe(this.updateText);
     }
   
     disconnectedCallback() {
         super.disconnectedCallback();
         // this.attributeObserver.disconnect();
-        window.oTranslation?.unsubscribe(this.updateText);
+        window.papTranslation?.unsubscribe(this.updateText);
     }
 
     attributeChangedCallback(name:string, oldValue:string|null, newValue:string|null) {
@@ -105,7 +106,7 @@ export class Translator extends BaseSystem {
 
     // private functions 
     private updateText = () => {
-        let text = window.oTranslation?.current?.translations?.[this.key] || this.key;
+        let text = window.papTranslation?.current?.translations?.[this.key] || this.key;
         if (text === undefined && this.key === undefined) return;
 
         const regex = /{([^{}]+)}/g;
@@ -220,13 +221,13 @@ export class Translator extends BaseSystem {
     connectedCallback(): void {
         super.connectedCallback();
         InitTranslations();
-        window.oTranslation?.subscribe(this.updateText);
+        window.papTranslation?.subscribe(this.updateText);
     }
   
     disconnectedCallback() {
         super.disconnectedCallback();
         // this.attributeObserver.disconnect();
-        window.oTranslation?.unsubscribe(this.updateText);
+        window.papTranslation?.unsubscribe(this.updateText);
     }
 
     attributeChangedCallback(name:string, oldValue:string|null, newValue:string|null) {
@@ -269,7 +270,7 @@ export class Translator extends BaseSystem {
 
     // private functions 
     private updateText = () => {
-        let text = window.oTranslation?.current?.translations?.[this.key] || this.key;
+        let text = window.papTranslation?.current?.translations?.[this.key] || this.key;
         if (text === undefined && this.key === undefined) return;
 
         const regex = /{([^{}]+)}/g;
@@ -320,6 +321,7 @@ declare global {
 }
 
 ## TYPE-CODE: export {}
+
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and style code probided. Can you create a documentation that includes titles, short descrition and the table for each tables: css-variables, parts, slots.
 css-variables should be a table with columns: (name, default-value, type - ex. CSS unit, description).
@@ -370,13 +372,13 @@ export class Translator extends BaseSystem {
     connectedCallback(): void {
         super.connectedCallback();
         InitTranslations();
-        window.oTranslation?.subscribe(this.updateText);
+        window.papTranslation?.subscribe(this.updateText);
     }
   
     disconnectedCallback() {
         super.disconnectedCallback();
         // this.attributeObserver.disconnect();
-        window.oTranslation?.unsubscribe(this.updateText);
+        window.papTranslation?.unsubscribe(this.updateText);
     }
 
     attributeChangedCallback(name:string, oldValue:string|null, newValue:string|null) {
@@ -419,7 +421,7 @@ export class Translator extends BaseSystem {
 
     // private functions 
     private updateText = () => {
-        let text = window.oTranslation?.current?.translations?.[this.key] || this.key;
+        let text = window.papTranslation?.current?.translations?.[this.key] || this.key;
         if (text === undefined && this.key === undefined) return;
 
         const regex = /{([^{}]+)}/g;

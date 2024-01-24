@@ -89,11 +89,11 @@ export function FormatNumber(num: number) {
 }
 
 export function DetectLanguage() {
-  if (window.oLocalisation) {
-    if (window.oLocalisation.lang) {
-      return window.oLocalisation.lang;
+  if (window.papLocalisation) {
+    if (window.papLocalisation.lang) {
+      return window.papLocalisation.lang;
     }
-    if (window.oLocalisation.settings?.url) {
+    if (window.papLocalisation.settings?.url) {
       const langmatch = window.location.pathname.match(/\/([^\/]*)\//);
       if (langmatch) {
         return langmatch[1];
@@ -119,7 +119,7 @@ export function DetectLanguage() {
 
 export function SetLanguage(language?: string) {
   if (language) {
-    window.oLocalisation.lang = language;
+    window.papLocalisation.lang = language;
   }
 
   const lang = DetectLanguage();
