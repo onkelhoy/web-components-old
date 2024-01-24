@@ -31,7 +31,7 @@ export class Language extends BaseSystem {
     window.addEventListener(TRANSLATION_ADDED, this.handlenewlanguage);
     window.addEventListener(TRANSLATION_CHANGE_EVENTNAME, this.handlelanguagechange);
 
-    if (window.oTranslation?.map?.size > 0) {
+    if (window.papTranslation?.map?.size > 0) {
       this.handlenewlanguage();
     }
   }
@@ -42,14 +42,14 @@ export class Language extends BaseSystem {
 
   // event handlers 
   private handlenewlanguage = () => {
-    if (window.oTranslation) {
+    if (window.papTranslation) {
       const currentLanguages = this.menuElement.querySelectorAll<MenuItem>("pap-menu-item");
-      const languages = Array.from(window.oTranslation.map);
+      const languages = Array.from(window.papTranslation.map);
       const exists = new Set();
 
       currentLanguages.forEach(item => {
         const v = item.value;
-        if (!window.oTranslation.map.has(v)) {
+        if (!window.papTranslation.map.has(v)) {
           this.menuElement.removeChild(item);
         }
         else {
@@ -78,20 +78,20 @@ export class Language extends BaseSystem {
     }
   }
   private handlelanguagechange = () => {
-    if (this.menuElement && window.oTranslation?.current) {
+    if (this.menuElement && window.papTranslation?.current) {
       if (this.displayElement) {
         this.displayElement.parentElement?.classList.remove('globe')
-        this.displayElement.innerHTML = (LanguageEmojis as any)[window.oTranslation.current.name]
+        this.displayElement.innerHTML = (LanguageEmojis as any)[window.papTranslation.current.name]
       }
-      if (this.menuElement.value !== window.oTranslation.current.id) {
-        this.menuElement.value = window.oTranslation.current.id;
+      if (this.menuElement.value !== window.papTranslation.current.id) {
+        this.menuElement.value = window.papTranslation.current.id;
       }
     }
   }
   private handlelanguageselect = (e: Event) => {
     const menu = e.target as Menu;
     if (menu && this.displayElement) {
-      if (menu.value !== "init") window.oTranslation.change(menu.value);
+      if (menu.value !== "init") window.papTranslation.change(menu.value);
     }
   }
 

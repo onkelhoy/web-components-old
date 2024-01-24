@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const { exec } = require('child_process');
+const { spawn } = require('child_process');
 const { iterate, initializePackages } = require('../utils/package-list-dependency-order');
 
 // variables
@@ -13,40 +13,31 @@ let VERSIONDATA = null;
 // setup 
 initializePackages(ROOT_DIR, LOCKFILE);
 
-async function getjsonData() 
-{
-  return new Promise((res, rej) => 
-  {
+async function getjsonData() {
+  return new Promise((res, rej) => {
     let jsonData = '';
-    process.stdin.on('data', (chunk) => 
-    {
+    process.stdin.on('data', (chunk) => {
       jsonData += chunk;
     });
-    
-    process.stdin.on('end', () => 
-    {
+
+    process.stdin.on('end', () => {
       res(JSON.parse(jsonData));
     });
 
-    process.stdin.on("error", (e) => 
-    {
+    process.stdin.on("error", (e) => {
       rej(e);
     })
   })
 }
 
-async function execute(list) 
-{
+async function execute(list) {
   let executions = [];
-  for (const info of list) 
-  {
-    if (CICD_NODE_TOKEN)
-    {
+  for (const info of list) {
+    if (CICD_NODE_TOKEN) {
       await execute_individual(info, VERSIONDATA);
       await wait();
     }
-    else 
-    {
+    else {
       executions.push(execute_individual(info, VERSIONDATA))
     }
   }
@@ -54,48 +45,79 @@ async function execute(list)
   if (executions.length > 0) return Promise.all(executions);
 }
 
-function wait(n = 1000) 
-{
+function wait(n = 1000) {
   return new Promise(res => setTimeout(res, n));
 }
 
-function execute_individual(info) 
-{
-  return new Promise((res, rej) => 
-  {
-    if (info.name.endsWith('-depricated')) 
-    {
-      console.log("\t[depricated]\t", info.name);
-      res();
-      return;
-    }
-    let package_version = VERSIONDATA.find(d => d.name === info.name)?.version || '-0.0.0';
-    exec(path.join(__dirname, `individual.sh ${info.location} ${SEMANTIC_VERSION} ${package_version} ${CICD_NODE_TOKEN || ""}`), (error, stdout, stderr) => 
-    {
-      if (error) 
-      {
-        if (error.code === 2)
-        {
-          console.log("\t[skipped]\t", info.name);
-        }
-        else 
-        {
-          console.log("\t[failed]\t", info.name);
-        }
-      }
-      else if (stdout) 
-      {
-        console.log("\t[success]\t", info.name);
-        // console.log("\t[success]\t", name);
-      }
+async function execute_individual(info, VERSIONDATA) {
+  let package_version = VERSIONDATA.find(d => d.name === info.name)?.version || '-0.0.0';
+  const title = `${info.name} @${package_version}`;
 
-      res();
-    })
+  if (info.name.endsWith('-depricated')) {
+    printLogChunks(title, "[depricated]");
+    return;
+  }
+
+  const scriptPath = path.join(__dirname, 'individual.sh');
+  const args = [info.location, SEMANTIC_VERSION, package_version, CICD_NODE_TOKEN || ""];
+
+  const childProcess = spawn(scriptPath, args);
+  const [logs, status] = await spawnLogs(childProcess);
+
+  printLogChunks(title, status, logs);
+}
+
+function spawnLogs(process) {
+  const logs = [];
+
+  return new Promise((res) => {
+    process.stdout.on('data', (data) => {
+      const output = data.toString();
+      if (output.includes("[individual]: complete")) {
+        res([logs, "[success]"]);
+      }
+      else if (output.includes("[individual]: skipped")) {
+        res([logs, "[skipped]"]);
+      }
+      else {
+        const lines = output.split("\n");
+        for (let line of lines) {
+          const trimmed = line.toString().trim();
+          if (trimmed !== "") {
+            logs.push(`\t\t[log]:\t${trimmed}`); // Log for debugging
+          }
+        }
+      }
+    });
+
+    process.stderr.on('data', (data) => {
+      const lines = data.toString().split("\n");
+      for (let line of lines) {
+        const trimmed = line.toString().trim();
+        if (trimmed !== "") {
+          logs.push(`\t\t[error]:\t${trimmed}`); // Log for debugging
+        }
+      }
+    });
+
+    process.on('close', (code) => {
+      if (code !== 0) {
+        res([logs, "[failed]"]);
+      }
+    });
   })
 }
 
-async function init() 
-{
+function printLogChunks(title, status, logs = []) {
+  console.log();
+  console.log(`\t${status}\t${title}`);
+
+  for (let log of logs) {
+    console.log(log);
+  }
+}
+
+async function init() {
   VERSIONDATA = await getjsonData();
   await iterate(execute);
 }

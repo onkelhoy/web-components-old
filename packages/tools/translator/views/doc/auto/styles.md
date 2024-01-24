@@ -48,13 +48,13 @@ export class Translator extends BaseSystem {
     connectedCallback(): void {
         super.connectedCallback();
         InitTranslations();
-        window.oTranslation?.subscribe(this.updateText);
+        window.papTranslation?.subscribe(this.updateText);
     }
   
     disconnectedCallback() {
         super.disconnectedCallback();
         // this.attributeObserver.disconnect();
-        window.oTranslation?.unsubscribe(this.updateText);
+        window.papTranslation?.unsubscribe(this.updateText);
     }
 
     attributeChangedCallback(name:string, oldValue:string|null, newValue:string|null) {
@@ -97,7 +97,7 @@ export class Translator extends BaseSystem {
 
     // private functions 
     private updateText = () => {
-        let text = window.oTranslation?.current?.translations?.[this.key] || this.key;
+        let text = window.papTranslation?.current?.translations?.[this.key] || this.key;
         if (text === undefined && this.key === undefined) return;
 
         const regex = /{([^{}]+)}/g;

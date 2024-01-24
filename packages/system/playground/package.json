@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@pap-it/system-utils": "^1.0.0",
-    "@pap-it/system-base": "1.0.2"
+    "@pap-it/system-base": "1.0.3"
   },
   "devDependencies": {
     "@pap-it/system-doc": "1.0.1",

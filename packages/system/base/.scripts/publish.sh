@@ -23,4 +23,4 @@ fi
 npm run build
 
 # NPM Publish 
-npm publish
+npm publish --verbose

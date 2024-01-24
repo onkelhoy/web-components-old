@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# start by exposing global flag 
+export GLOBAL_PUBLISH=true
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Initialize the flag as not set
@@ -30,5 +33,8 @@ else
   # bash $SCRIPT_DIR/individual.sh $SCRIPT_DIR/../../packages/atoms/button 1 -0.0.0 $NODE_AUTH_TOKEN
   # bash $SCRIPT_DIR/individual.sh $SCRIPT_DIR/../../packages/atoms/typography 1 -0.0.0 $NODE_AUTH_TOKEN
 fi
+
+# last we run the npm install (as we skipped in all postversion scripts)
+npm install
 
 echo "packages built"

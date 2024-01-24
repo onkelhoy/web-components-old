@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CanvasTemplate demo</title>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Title</pap-typography>
+    <pap-codeblock display="both">
+      <pap-canvas-template width="200" height="200" uuid="1"></pap-canvas-template>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const canvas = document.querySelector('pap-canvas-template[uuid="1"]');
+          let x = 0, dir = 1;
+          canvas.CanvasRender = (ctx, delta) => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.arc(x, 100, 50, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.fill();
+          }
+          canvas.CanvasUpdate = (ctx, delta) => {
+            x += dir * 5;
+            if (x >= 200 || x <= 0) {
+              dir *= -1;
+            }
+          }
+        })
+      </script>
+    </pap-codeblock>
+  </doc-card>
+</body>
+
+</html>

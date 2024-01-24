@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@pap-it/button": "1.0.2",
-    "@pap-it/system-base": "1.0.2",
+    "@pap-it/system-base": "1.0.3",
     "@pap-it/templates-box": "1.0.0",
     "@pap-it/toggle": "1.0.0",
     "@pap-it/typography": "1.0.0",
