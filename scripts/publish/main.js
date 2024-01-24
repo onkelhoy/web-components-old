@@ -69,15 +69,21 @@ async function execute_individual(info, VERSIONDATA) {
 
 function spawnLogs(process) {
   const logs = [];
+  let errors = false;
 
   return new Promise((res) => {
     process.stdout.on('data', (data) => {
       const output = data.toString();
-      if (output.includes("[individual]: complete")) {
-        res([logs, "[success]"]);
+      if (output.includes("[individual]: skipped")) {
+        res([logs, "skipped"]);
       }
-      else if (output.includes("[individual]: skipped")) {
-        res([logs, "[skipped]"]);
+      else if (output.includes("[individual]: complete")) {
+        if (errors) {
+          res([logs, "warning"]);
+        }
+        else {
+          res([logs, "success"]);
+        }
       }
       else {
         const lines = output.split("\n");
@@ -95,6 +101,7 @@ function spawnLogs(process) {
       for (let line of lines) {
         const trimmed = line.toString().trim();
         if (trimmed !== "") {
+          errors = true;
           logs.push(`\t\t[error]:\t${trimmed}`); // Log for debugging
         }
       }
@@ -102,15 +109,15 @@ function spawnLogs(process) {
 
     process.on('close', (code) => {
       if (code !== 0) {
-        res([logs, "[failed]"]);
+        res([logs, "failed"]);
       }
     });
   })
 }
 
 function printLogChunks(title, status, logs = []) {
-  console.log();
-  console.log(`\t${status}\t${title}`);
+  console.log(`\t[${status}]\t${title}`);
+  CONFIRMLIST.push({ status, title })
 
   for (let log of logs) {
     console.log(log);
@@ -120,5 +127,17 @@ function printLogChunks(title, status, logs = []) {
 async function init() {
   VERSIONDATA = await getjsonData();
   await iterate(execute);
+
+  console.log('\n**Summery Report**')
+  let prev = '';
+  CONFIRMLIST.sort((a, b) => a.status.indexOf(b.status)).forEach(line => {
+    if (prev !== line.status) {
+      console.log(`[${line.status}]:`)
+      prev = line.status;
+    }
+
+    console.log(`\t- ${line.title}`);
+  })
 }
+const CONFIRMLIST = [];
 init();

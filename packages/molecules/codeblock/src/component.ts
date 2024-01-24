@@ -230,15 +230,21 @@ export class Codeblock extends BaseSystem {
     // there's no html in this line! 
     if (!tagmatch) return null;
 
+    // create the individual groups !
+    let L = tagmatch[1] || null;
+    const htmlpart = tagmatch[2];
+    const cases = ["< ", "<=", "<="];
+    if (cases.some(cs => htmlpart.startsWith(cs) || htmlpart.startsWith(cs.replace("<", ">")))) {
+      return null
+    }
+
+    const R = line.split(tagmatch[0])[1];
+
     if (["javascript", "jsx"].includes(this.language)) {
       this.setLanguage("jsx");
     }
     else this.setLanguage("html");
 
-    // create the individual groups !
-    let L = tagmatch[1] || null;
-    const htmlpart = tagmatch[2];
-    const R = line.split(tagmatch[0])[1];
 
     const ismultiline = line.length > MAX_HTMLCONTENT;
 
@@ -295,6 +301,7 @@ export class Codeblock extends BaseSystem {
   private formatHtmlTag(line: string, multiline: boolean = false, right: string | null): null | string {
     // start by checking if this is a ending tag 
     const endingmatch = line.match(/<\/([\w-]+)>/);
+
     if (endingmatch) {
       const tagname = endingmatch[1];
       // check if we see the tagname on the current stack -> this means we need to lower the indention level
@@ -312,9 +319,10 @@ export class Codeblock extends BaseSystem {
     }
 
     // its a beginning tag so we should expect attributes ! 
-    const tagmatch = line.match(/<([\w-]+)([^>]*)/);
+    let tagmatch = line.match(/<([\w-]+)([^>]*)/);
     if (!tagmatch) {
       // this should not really happen! 
+      console.log('mamma mia ok? BAJS', line)
       console.error("[codeblock] html but no html error");
       return null;
     }

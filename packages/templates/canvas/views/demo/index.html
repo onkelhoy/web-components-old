@@ -18,21 +18,22 @@
 <body>
   <doc-card>
     <pap-typography slot="header" variant="C1">Title</pap-typography>
-    <pap-codeblock display="both">
+    <pap-codeblock uuid="canvas1" display="both">
       <pap-canvas-template width="200" height="200" uuid="1"></pap-canvas-template>
 
       <script>
         document.addEventListener("DOMContentLoaded", () => {
           const canvas = document.querySelector('pap-canvas-template[uuid="1"]');
           let x = 0, dir = 1;
-          canvas.CanvasRender = (ctx, delta) => {
+          canvas.addRender = (ctx, delta) => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.beginPath();
             ctx.arc(x, 100, 50, 0, Math.PI * 2);
             ctx.closePath();
             ctx.fill();
+            ctx.fillStyle = getComputedStyle(document.querySelector('pap-codeblock[uuid="canvas1"]')).getPropertyValue('--pap-color-text');
           }
-          canvas.CanvasUpdate = (ctx, delta) => {
+          canvas.addUpdate = (ctx, delta) => {
             x += dir * 5;
             if (x >= 200 || x <= 0) {
               dir *= -1;

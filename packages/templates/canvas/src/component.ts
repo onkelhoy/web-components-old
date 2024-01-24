@@ -23,10 +23,26 @@ export class CanvasTemplate extends Translator {
   private deltatime: number = 0;
   private beforetime: number = 0;
 
-  public set CanvasUpdate(callback: CanvasFunction) {
+  /**
+   * Represents a function that performs operations on a canvas.
+   * @callback CanvasFunction
+   * @param {CanvasRenderingContext2D} context - The canvas rendering context.
+   * @param {number} deltaTime - The time difference between frames or updates.
+   */
+
+  /**
+   * Adds a function to the update queue.
+   * @param {CanvasFunction} callback - Function to be called during the update phase.
+   */
+  public set addUpdate(callback: CanvasFunction) {
     this.updates.push(callback);
   }
-  public set CanvasRender(callback: CanvasFunction) {
+
+  /**
+   * Adds a function to the update queue.
+   * @param {CanvasFunction} callback - Function to be called during the update phase.
+   */
+  public set addRender(callback: CanvasFunction) {
     this.renders.push(callback);
   }
 

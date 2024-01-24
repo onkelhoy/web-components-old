@@ -3,6 +3,9 @@
 # start by exposing global flag 
 export GLOBAL_PUBLISH=true
 
+# clean npm cache 
+npm cache clean --force
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Initialize the flag as not set
@@ -13,9 +16,13 @@ for arg in "$@"; do
   if [ "$arg" == "-ci" ]; then
     CI_FLAG=1
   fi
+  if [ "$arg" == "--force" ]; then
+    export FORCE=true
+  fi
 done
 
- If the flag is set, run the command
+
+# If the flag is set, run the command
 if [ $CI_FLAG -eq 0 ]; then
   echo "Global semantic versioning?"
   echo "answer:"
