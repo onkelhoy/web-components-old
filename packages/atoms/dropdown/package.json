@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/dropdown",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -36,15 +36,15 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-base": "1.0.3",
-    "@pap-it/system-utils": "1.0.1",
-    "@pap-it/templates-box": "1.0.0",
-    "@pap-it/templates-popover": "1.0.0",
-    "@pap-it/templates-textinput": "1.0.0",
-    "@pap-it/tools-translator": "^1.0.0"
+    "@pap-it/system-base": "1.0.4",
+    "@pap-it/system-utils": "1.0.2",
+    "@pap-it/templates-box": "1.0.1",
+    "@pap-it/templates-popover": "1.0.1",
+    "@pap-it/templates-textinput": "1.0.1",
+    "@pap-it/tools-translator": "1.0.1"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.1",
+    "@pap-it/system-doc": "1.0.2",
     "@babel/eslint-parser": "^7.23.3",
     "esbuild": "^0.17.18",
     "eslint": "^8.53.0",

@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/tooltip",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -36,14 +36,14 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-base": "1.0.3",
-    "@pap-it/templates-box": "1.0.0",
-    "@pap-it/templates-popover": "1.0.0",
-    "@pap-it/system-utils": "1.0.1"
+    "@pap-it/system-base": "1.0.4",
+    "@pap-it/templates-box": "1.0.1",
+    "@pap-it/templates-popover": "1.0.1",
+    "@pap-it/system-utils": "1.0.2"
   },
   "devDependencies": {
     "eslint": "^8.53.0",
-    "@pap-it/system-doc": "1.0.1",
+    "@pap-it/system-doc": "1.0.2",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "node-sass": "^9.0.0",
