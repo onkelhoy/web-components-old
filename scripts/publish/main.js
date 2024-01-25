@@ -33,13 +33,8 @@ async function getjsonData() {
 async function execute(list) {
   let executions = [];
   for (const info of list) {
-    if (CICD_NODE_TOKEN) {
-      await execute_individual(info, VERSIONDATA);
-      await wait();
-    }
-    else {
-      executions.push(execute_individual(info, VERSIONDATA))
-    }
+    await execute_individual(info, VERSIONDATA);
+    await wait(!!CICD_NODE_TOKEN ? 1000 : 10);
   }
 
   if (executions.length > 0) return Promise.all(executions);
@@ -51,10 +46,12 @@ function wait(n = 1000) {
 
 async function execute_individual(info, VERSIONDATA) {
   let package_version = VERSIONDATA.find(d => d.name === info.name)?.version || '-0.0.0';
-  const title = `${info.name} @${package_version}`;
+  const title = `${info.name} @${package_version}`
+  console.log(title);
 
   if (info.name.endsWith('-depricated')) {
-    printLogChunks(title, "[depricated]");
+    CONFIRMLIST.push({ status: 'depricated', title });
+    console.log('\t[STATUS]: depricated');
     return;
   }
 
@@ -62,35 +59,38 @@ async function execute_individual(info, VERSIONDATA) {
   const args = [info.location, SEMANTIC_VERSION, package_version, CICD_NODE_TOKEN || ""];
 
   const childProcess = spawn(scriptPath, args);
-  const [logs, status] = await spawnLogs(childProcess);
+  const status = await spawnLogs(childProcess);
+  CONFIRMLIST.push({ status, title });
+  console.log(`\t[STATUS]: ${status}`);
 
-  printLogChunks(title, status, logs);
+  // printLogChunks(title, status, logs);
 }
 
 function spawnLogs(process) {
-  const logs = [];
   let errors = false;
 
   return new Promise((res) => {
     process.stdout.on('data', (data) => {
       const output = data.toString();
       if (output.includes("[individual]: skipped")) {
-        res([logs, "skipped"]);
+        res('skipped');
+        return;
       }
       else if (output.includes("[individual]: complete")) {
         if (errors) {
-          res([logs, "warning"]);
+          res("warning");
         }
         else {
-          res([logs, "success"]);
+          res("success");
         }
+        return;
       }
       else {
         const lines = output.split("\n");
         for (let line of lines) {
           const trimmed = line.toString().trim();
           if (trimmed !== "") {
-            logs.push(`\t\t[log]:\t${trimmed}`); // Log for debugging
+            console.log(`\t[LOG]:\t${trimmed}`); // Log for debugging
           }
         }
       }
@@ -102,27 +102,28 @@ function spawnLogs(process) {
         const trimmed = line.toString().trim();
         if (trimmed !== "") {
           errors = true;
-          logs.push(`\t\t[error]:\t${trimmed}`); // Log for debugging
+          console.log(`\t[ERROR]:\t${trimmed}`); // Log for debugging
         }
       }
     });
 
     process.on('close', (code) => {
       if (code !== 0) {
-        res([logs, "failed"]);
+        res("failed");
+        return
       }
     });
   })
 }
 
-function printLogChunks(title, status, logs = []) {
-  console.log(`\t[${status}]\t${title}`);
-  CONFIRMLIST.push({ status, title })
+// function printLogChunks(title, status, logs = []) {
+//   console.log(`\t[${status}]\t${title}`);
+//   CONFIRMLIST.push({ status, title })
 
-  for (let log of logs) {
-    console.log(log);
-  }
-}
+//   for (let log of logs) {
+//     console.log(log);
+//   }
+// }
 
 async function init() {
   VERSIONDATA = await getjsonData();

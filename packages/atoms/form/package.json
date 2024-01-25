@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "eslint": "^8.53.0",
-    "@pap-it/checkbox": "1.0.1",
+    "@pap-it/checkbox": "1.0.2",
     "@pap-it/dropdown": "1.0.3",
     "@pap-it/input": "1.0.4",
     "@pap-it/textarea": "1.0.2",
