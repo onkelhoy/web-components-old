@@ -1,26 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tooltip demo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tooltip demo</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
+  <script defer src="main.js"></script>
 </head>
+
 <body>
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-tooltip placement="left-bottom">
-                <button slot="target">I have a tooltip</button>
-                <p style="margin:0;">I didnt know what to write here!</p>
-            </pap-tooltip>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <pap-codeblock display="both">
+      <div style="padding: 2rem;">
+        <pap-dropdown value="left-bottom">
+          <pap-option value="top-left">Top Left</pap-option>
+          <pap-option value="top-right">Top Right</pap-option>
+          <pap-option value="top-center">Top Center</pap-option>
+          <pap-option value="bottom-left">Bottom Left</pap-option>
+          <pap-option value="bottom-right">Bottom Right</pap-option>
+          <pap-option value="bottom-center">Bottom Center</pap-option>
+          <pap-option value="left-top">Left Top</pap-option>
+          <pap-option value="left-bottom">Left Bottom</pap-option>
+          <pap-option value="left-center">Left Center</pap-option>
+          <pap-option value="right-top">Right Top</pap-option>
+          <pap-option value="right-bottom">Right Bottom</pap-option>
+          <pap-option value="right-center">Right Center</pap-option>
+        </pap-dropdown>
+
+        <div style="margin-top: 3rem; display: flex; justify-content: center;">
+          <pap-tooltip placement="left-bottom">
+            <button slot="target">I have a tooltip</button>
+            <p style="margin:0;">I didnt know what to write here!</p>
+          </pap-tooltip>
+        </div>
+      </div>
+    </pap-codeblock>
+  </doc-card>
 </body>
+
 </html>

@@ -16,13 +16,13 @@ export class Tooltip extends BaseSystem {
 
   render() {
     return html`
-            <pap-popover-template revealby="hover" placement="${this.placement}">
-                <slot slot="target" name="target"></slot>
-                <pap-box-template elevation="small"  part="card" radius="medium">
-                    <slot></slot>
-                </pap-box-template>
-            </pap-popover-template>
-        `
+      <pap-popover-template revealby="hover" placement="${this.placement}">
+        <slot slot="target" name="target"></slot>
+        <pap-box-template elevation="small"  part="card" radius="medium">
+          <slot></slot>
+        </pap-box-template>
+      </pap-popover-template>
+    `
   }
 }
 

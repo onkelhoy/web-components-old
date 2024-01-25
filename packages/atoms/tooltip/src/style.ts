@@ -1,7 +1,7 @@
 export const style = `:host {
   --background: var(--pap-tooltip-background-color-light, var(--pap-color-bg-inverse, #29292F));
   --color: var(--pap-tooltip-text-color-light, var(--pap-color-text-inverse, #FFFFFF));
-  --popover-gap: var(--pap-tooltip-popover-gap, 0.5rem); }
+  --popover-gap: var(--pap-tooltip-popover-gap, 10px); }
   :host pap-popover-template {
     display: inline-block; }
   :host pap-box-template {

@@ -17,6 +17,7 @@ for arg in "$@"; do
     CI_FLAG=1
   fi
   if [ "$arg" == "--force" ]; then
+    echo "<< FORCE MODE >>?"
     export FORCE=true
   fi
 done
