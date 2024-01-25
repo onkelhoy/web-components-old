@@ -4,7 +4,7 @@ import "@pap-it/templates-popover/wc";
 
 // templates
 import { BaseSystem } from "@pap-it/system-base";
-import { Color } from "@pap-it/templates-color";
+// import { Color } from "@pap-it/templates-color";
 
 import { style } from "./style";
 import { ChangeEvent, Input } from "../Input";
@@ -62,30 +62,30 @@ export class ColorPickerInput extends BaseSystem {
 
   // event handlers
   private handleinputchange = (e: CustomEvent<ChangeEvent>) => {
-    const value = e.detail.value;
+    // const value = e.detail.value;
 
-    if (!this.manual) {
-      const [r, g, b] = Color.cssToRGB(value);
-      const hsl = Color.rgbToHSL(r, g, b);
-      if (this.colorpicker_element) {
-        this.colorpicker_element.setColor(hsl);
-      }
-      this.style.setProperty("--display-color", e.detail.value);
-      this.debouncedChange(e.detail.value);
-    }
-    this.manual = false;
+    // if (!this.manual) {
+    //   const [r, g, b] = Color.cssToRGB(value);
+    //   const hsl = Color.rgbToHSL(r, g, b);
+    //   if (this.colorpicker_element) {
+    //     this.colorpicker_element.setColor(hsl);
+    //   }
+    //   this.style.setProperty("--display-color", e.detail.value);
+    //   this.debouncedChange(e.detail.value);
+    // }
+    // this.manual = false;
   }
   private handlecolorchange = (e: CustomEvent<ColorEvent>) => {
-    const [r, g, b] = Color.cssToRGB(e.detail.value);
-    const hex = `#${toHEX(r)}${toHEX(g)}${toHEX(b)}`;
+    // const [r, g, b] = Color.cssToRGB(e.detail.value);
+    // const hex = `#${toHEX(r)}${toHEX(g)}${toHEX(b)}`;
 
-    if (this.input_element) {
-      this.manual = true;
-      this.input_element.value = hex;
-    }
+    // if (this.input_element) {
+    //   this.manual = true;
+    //   this.input_element.value = hex;
+    // }
 
-    this.style.setProperty("--display-color", hex);
-    this.debouncedChange(hex);
+    // this.style.setProperty("--display-color", hex);
+    // this.debouncedChange(hex);
   }
 
   // private functions
@@ -93,16 +93,16 @@ export class ColorPickerInput extends BaseSystem {
     this.dispatchEvent(new CustomEvent<ChangeEvent>("change", { detail: { value } }))
   }
   private setColor(value: string) {
-    Color.init();
-    try {
-      const [r, g, b] = Color.cssToRGB(value);
-      const hsl = Color.rgbToHSL(r, g, b);
+    // Color.init();
+    // try {
+    //   const [r, g, b] = Color.cssToRGB(value);
+    //   const hsl = Color.rgbToHSL(r, g, b);
 
-      this.colorpicker_element.setColor(hsl);
-    }
-    catch {
-      throw new Error('invalid color');
-    }
+    //   this.colorpicker_element.setColor(hsl);
+    // }
+    // catch {
+    //   throw new Error('invalid color');
+    // }
   }
 
   render() {

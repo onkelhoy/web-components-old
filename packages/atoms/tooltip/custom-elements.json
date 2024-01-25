@@ -116,7 +116,7 @@
           "--popover-gap"
         ],
         "fallbacks": [
-          "0.5rem"
+          "10px"
         ]
       },
       "--pap-tooltip-card-padding": {
