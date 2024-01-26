@@ -1,6 +1,6 @@
 {
-  "name": "@pap-it/system-playground",
-  "version": "0.0.1",
+  "name": "@pap-it/system-playground-depricated",
+  "version": "0.1.0",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -36,11 +36,11 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-utils": "1.0.2",
+    "@pap-it/system-utils": "1.0.4",
     "@pap-it/system-base": "1.0.4"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.2",
+    "@pap-it/system-doc": "1.0.4",
     "esbuild": "^0.17.18",
     "tslib": "^2.5.0",
     "node-sass": "^9.0.0",
