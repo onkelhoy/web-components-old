@@ -33,26 +33,27 @@ echo "[version]: ⭐️ $CURRENT_VERSION"
 
 # REMOVED: && [[ -n $CICD_NODE_TOKEN ]];
 # as we want that pipeline can skip to run publish when version is same !! 
-# if [[ "$CURRENT_VERSION" == "$NPM_VERSION" ]]; then
-#   # skipped 
-#   echo "[individual]: skipped"
-# else 
-# fi
-if [[ -n "$CICD_NODE_TOKEN" ]]; then 
-  # install 
-  npm ci
-
-  # run build 
-  npm run build
-
-  # publish 
-  npm publish --access public --registry https://registry.npmjs.org/ --//registry.npmjs.org/:_authToken=${CICD_NODE_TOKEN} --dry-run
-  
-  # TEST: npm publish --access public --registry https://registry.npmjs.org/ --//registry.npmjs.org/:_authToken=${CICD_NODE_TOKEN} --verbose --dry-run
+if [[ "$CURRENT_VERSION" == "$NPM_VERSION" ]]; then
+  # skipped 
+  echo "[individual]: skipped"
 else 
-  # run build 
-  npm run build &>/dev/null
+  if [[ -n "$CICD_NODE_TOKEN" ]]; then 
+    # install 
+    npm ci
+
+    # run build 
+    npm run build
+
+    # publish 
+    npm publish --access public --registry https://registry.npmjs.org/ --//registry.npmjs.org/:_authToken=${CICD_NODE_TOKEN} --dry-run
+    
+    # TEST: npm publish --access public --registry https://registry.npmjs.org/ --//registry.npmjs.org/:_authToken=${CICD_NODE_TOKEN} --verbose --dry-run
+  else 
+    # run build 
+    npm run build &>/dev/null
+  fi
 fi
+
 
 # we add this in to make sure to receive the npm version but for sake of build we still build it (but only when not pipeline)
 if [[ "$CURRENT_VERSION" == "$NPM_VERSION" ]] && [[ -z $CICD_NODE_TOKEN ]] && [[ $SEMANTIC_VERSION != 0 ]]; then
