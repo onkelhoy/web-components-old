@@ -50,6 +50,12 @@ export class Form extends BaseSystem {
       if (data) data = Array.from(data as any);
 
       this.dispatchEvent(new SubmitEvent("submit"));
+      this.dispatchEvent(new CustomEvent("pap-submit", {
+        detail: {
+          element: this.formElement,
+          data,
+        }
+      }))
     }
 
     return false;

@@ -11,18 +11,19 @@ process.env.LIVEMODE = process.argv[7];
 process.env.VIEW_DIR = process.env.SUBFOLDER === "no-view-folder" ? process.env.PACKAGE_DIR : path.join(process.env.PACKAGE_DIR, 'views', process.env.SUBFOLDER);
 
 const { start } = require('./util/server');
-const { init } = require('./util/dependency');
-const { DeepMerge } = require('./util/merge');
+const { init: initdependencies } = require('./util/dependency');
+const { init: initassets } = require('./util/assets');
+const { init: initlanguages } = require('./util/language');
+
+const { DeepMerge } = require('../utils/deep-merge');
 const { cleanup: watchCleanup } = require('./util/watch');
-const { run: PrepareLanguages } = require('./util/language');
 
 process.on('EXIT', cleanup);
 process.on('SIGINT', cleanup);
 process.on('SIGTERM', cleanup);
 
 let cleanupcalls = 0;
-function cleanup() 
-{
+function cleanup() {
   if (cleanupcalls > 0) return;
   cleanupcalls++;
 
@@ -34,14 +35,17 @@ function cleanup()
 let CONFIG = {
   port: 3000
 };
-try 
-{
+try {
   LOCAL_CONFIG = JSON.parse(fs.readFileSync(path.join(viewfolder, '.config'), 'utf-8'))
   CONFIG = DeepMerge(CONFIG, LOCAL_CONFIG);
 }
-catch {}
+catch { }
 
-init();
-PrepareLanguages();
+// first we init dependencies
+initdependencies();
+// then languages
+initlanguages();
+// then finally the assets 
+initassets();
 
 start(CONFIG);

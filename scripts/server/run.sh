@@ -34,10 +34,12 @@ for arg in "$@"; do
 done
 
 if [[ ! -n $SUBFOLDER ]]; then 
+  rm -rf $PACKAGE_DIR/.temp
   mkdir $PACKAGE_DIR/.temp
   SUBFOLDER="no-view-folder"
   HTML_PATH="."
 else 
+  rm -rf $PACKAGE_DIR/views/$SUBFOLDER/.temp
   mkdir $PACKAGE_DIR/views/$SUBFOLDER/.temp
   HTML_PATH="views/$SUBFOLDER"
 fi

@@ -150,26 +150,25 @@ export class Sidebar extends BaseSystem {
 
   render() {
     return html`
-            <pap-button part="hamburger-outside" color="inverse" circle="true" @click="${this.handlehamburgerclick}">
-                <pap-icon size="small" name="hamburger"></pap-icon>
-            </pap-button>
-            <pap-box-template part="base" radius="medium">
-                <header part="header">
-                    <pap-icon class="logo" style="width:124px" size="large" name="interzero-logo"></pap-icon>
-                    <!-- <pap-icon class="logo dark" style="width:124px" size="large" name="interzero-logo-dark"></pap-icon> -->
-                    <pap-button part="hamburger-inside" color="secondary" circle="true" variant="clear" @click="${this.handlehamburgerclick}">
-                        <pap-icon size="small" name="hamburger"></pap-icon>
-                    </pap-button>
-                </header>
-                <pap-divider></pap-divider>
-                <div part="body">
-                    <slot @slotchange="${this.handleslotchange}"></slot>
-                </div>
-                <footer part="footer">
-                    <slot name="footer"></slot>
-                </footer>
-            </pap-box-template>
-        `
+      <pap-button part="hamburger-outside" color="inverse" circle="true" @click="${this.handlehamburgerclick}">
+        <pap-icon size="small" name="hamburger"></pap-icon>
+      </pap-button>
+      <pap-box-template part="base" radius="medium">
+        <header part="header">
+          <pap-icon class="logo" style="width:124px" size="large" name="interzero-logo"></pap-icon>
+          <pap-button part="hamburger-inside" color="secondary" circle="true" variant="clear" @click="${this.handlehamburgerclick}">
+            <pap-icon size="small" name="hamburger"></pap-icon>
+          </pap-button>
+        </header>
+        <pap-divider></pap-divider>
+        <div part="body">
+          <slot @slotchange="${this.handleslotchange}"></slot>
+        </div>
+        <footer part="footer">
+          <slot name="footer"></slot>
+        </footer>
+      </pap-box-template>
+    `
   }
 }
 

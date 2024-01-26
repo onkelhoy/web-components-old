@@ -6,6 +6,10 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # read variables
 source $PACKAGE_DIR/.env
 
+# get project scope
+PROJECTSCOPE=$(node -pe "require('$ROOTDIR/package.json').name")
+PROJECTSCOPE=$(echo "$PROJECTSCOPE" | cut -d'/' -f1 | awk -F'@' '{print $2}')
+
 # copy over template files if none existing folder
 if [ ! -f $PACKAGE_DIR/views/interactive/index.html ]; then 
   cp $SCRIPT_DIR/template/index.html $PACKAGE_DIR/views/interactive
@@ -15,7 +19,7 @@ if [ ! -f $PACKAGE_DIR/views/interactive/style.css ]; then
 fi
 if [ ! -f $PACKAGE_DIR/views/interactive/main.js ]; then 
   cp $SCRIPT_DIR/template/main.js $PACKAGE_DIR/views/interactive
-  echo "\nimport \"@pap-it/$PACKAGENAME$NAME/wc\";" >> $PACKAGE_DIR/views/interactive/main.js
+  echo "\nimport \"@$PROJECTSCOPE/$PACKAGENAME$NAME/wc\";" >> $PACKAGE_DIR/views/interactive/main.js
 fi
 
 # run the build

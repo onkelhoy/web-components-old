@@ -1,13 +1,10 @@
 #!/bin/bash
 
-# build first
-npm run build
-
 # read the variables
 source .env 
 
-# extract the types 
-sh $ROOTDIR/scripts/analyse/run.sh $(pwd)
+# run the analyzing
+npm run analyze
 
 # run the necessary scripts 
 sh .scripts/helper/build-doc.sh

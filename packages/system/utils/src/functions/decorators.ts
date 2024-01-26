@@ -102,6 +102,8 @@ export function context(options?: ContextOption) {
     // Override the connectedCallback to set up context subscription
     target.connectedCallback = function () {
       const me = this;
+      const contextname = _options.name + "_subcontext";
+      me[contextname] = true;
 
       // Call original connectedCallback if it exists
       if (originalConnectedCallback) originalConnectedCallback.call(me);
@@ -114,10 +116,11 @@ export function context(options?: ContextOption) {
         // check if parent is our selector
         if (_options.verbose) console.log('finding parent', parent);
 
-        if (_options.name as string in parent) {
+        // NOTE we need to find the orignal parent so we need to make sure it does not have the name with "{name}_subcontext" also
+        if (_options.name as string in parent && !(contextname in parent)) {
           break;
         }
-        if (_options.attribute && parent.hasAttribute(_options.attribute)) {
+        if (_options.attribute && parent.hasAttribute(_options.attribute) && !(contextname in parent)) {
           break;
         }
 
@@ -204,7 +207,7 @@ export function property(options?: Partial<PropertyOption>) {
 
     // Observe attributes
     const observedAttributes = (target.constructor as any).observedAttributes || [];
-    
+
     // NOTE spread is not working, at this point the objedct havent been defined yet, 
     // we need to keep track if we defined this and in the setter we should do this work 
     // if not done already - so keep track if we did this setup (setup being to add to 'observedAttributes')
@@ -274,8 +277,7 @@ export function property(options?: Partial<PropertyOption>) {
 
         const operation = () => {
           // we want to use spread over attribute (I guess?)
-          if (_options.spread)
-          {
+          if (_options.spread) {
             if (_options.verbose) console.log('property is set, setting attribute', attributeName);
             // NOTE for spread we need to assign each attribute 
           }

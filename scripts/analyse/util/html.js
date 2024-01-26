@@ -33,23 +33,25 @@ function build_html(package_dir, component_name, script_dir) {
   fs.writeFileSync(path.join(script_dir, 'index.html'), html, 'utf-8');
 }
 
-function startserver (script_dir, port = 3004) {
+function startserver(script_dir, port = 3004) {
   server = http.createServer((req, res) => {
     if (req.url === '/') {
       fs.readFile(path.join(script_dir, 'index.html'), (err, data) => {
 
         if (err) {
-          res.writeHead(500, {'Content-Type': 'text/plain'});
+          res.writeHead(500, { 'Content-Type': 'text/plain' });
           res.write('Internal server error');
           res.end();
-        } else {
-          res.writeHead(200, {'Content-Type': 'text/html'});
+        }
+        else {
+          res.writeHead(200, { 'Content-Type': 'text/html' });
           res.write(data);
           res.end();
         }
       });
-    } else {
-      res.writeHead(404, {'Content-Type': 'text/plain'});
+    }
+    else {
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.write('Not found');
       res.end();
     }
@@ -59,9 +61,8 @@ function startserver (script_dir, port = 3004) {
     // console.log(`html-extraction-server is running at http://localhost:${port}`);
   });
 }
-function closeserver () {
-  if (server) 
-  {
+function closeserver() {
+  if (server) {
     server.close();
     // console.log('closing html-extraction-server');
   }
@@ -111,19 +112,17 @@ function parser(html) {
 
 async function html_extractor(package_dir, component_name, script_dir) {
   try {
-    console.log('componentname', component_name, package_dir)
     build_html(package_dir, component_name, script_dir);
-  
+
     const port = 3004;
-  
+
     startserver(script_dir, port);
     const html = await playwright_extract(port);
     closeserver();
 
     return parser(html);
   }
-  catch (e)
-  {
+  catch (e) {
     console.log(e)
     closeserver();
   }

@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/form",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -11,6 +11,7 @@
     "combine": ".scripts/combine.sh && .scripts/start.sh combined",
     "start": ".scripts/start.sh",
     "isolate": "sh .scripts/isolate.sh",
+    "analyze": "sh .scripts/analyze.sh",
     "interactive": "sh .scripts/helper/build-interactive.sh",
     "variations": "sh .scripts/helper/build-variations.sh",
     "component:add": "sh .scripts/helper/add-component.sh"
