@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/header",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -36,18 +36,18 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/badge": "1.0.1",
-    "@pap-it/icon": "1.0.2",
-    "@pap-it/menu": "1.0.1",
+    "@pap-it/badge": "1.0.4",
+    "@pap-it/icon": "1.0.4",
+    "@pap-it/menu": "1.0.4",
     "@pap-it/system-base": "1.0.4",
-    "@pap-it/toggle": "1.0.1",
-    "@pap-it/tools-translator": "1.0.1",
-    "@pap-it/system-utils": "1.0.2",
-    "@pap-it/tools-theme": "1.0.1"
+    "@pap-it/toggle": "1.0.4",
+    "@pap-it/tools-translator": "1.0.4",
+    "@pap-it/system-utils": "1.0.4",
+    "@pap-it/tools-theme": "1.0.4"
   },
   "devDependencies": {
     "eslint": "^8.53.0",
-    "@pap-it/system-doc": "1.0.2",
+    "@pap-it/system-doc": "1.0.4",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "node-sass": "^9.0.0",

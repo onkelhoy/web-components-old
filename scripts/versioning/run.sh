@@ -12,7 +12,7 @@ TARGET_PACKAGE=@pap-it/$PACKAGENAME$NAME
 # execute the runner that will extract dependencies and update their package.json
 node $SCRIPT_DIR/main.js $ROOTDIR $TARGET_PACKAGE
 
-if [ -z $GLOBAL_PUBLISH ]; then 
+if [ "$GLOBAL_PUBLISH" != "true" ]; then 
   # finally install it to affect lock file 
   npm install
 fi

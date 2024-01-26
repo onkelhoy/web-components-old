@@ -12,7 +12,6 @@ CI_FLAG=0
 for arg in "$@"; do
   if [ "$arg" == "-ci" ]; then
     CI_FLAG=1
-    NODE_AUTH_TOKEN=22
   fi
   if [ "$arg" == "--force" ]; then
     export FORCE=true
@@ -32,6 +31,9 @@ if [ $CI_FLAG -eq 0 ]; then
 
   npm search --searchlimit=100 @pap-it --json | node $SCRIPT_DIR/main.js $choice
 else
+  # clean cache on pipeline
+  npm cache clean --force 
+
   npm search --searchlimit=100 @pap-it --json | node $SCRIPT_DIR/main.js 0 $NODE_AUTH_TOKEN
   
   # used for individual testing

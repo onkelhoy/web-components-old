@@ -2,7 +2,7 @@
 
 Atomic Type: atoms
 
-Version: 1.0.4
+Version: 1.1.0
 
 ## Development
 

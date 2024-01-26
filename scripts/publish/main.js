@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 const fs = require("fs");
 const path = require("path");
 const { spawn } = require('child_process');
@@ -46,24 +47,34 @@ function wait(n = 1000) {
 
 async function execute_individual(info, VERSIONDATA) {
   let package_version = VERSIONDATA.find(d => d.name === info.name)?.version || '-0.0.0';
-  const title = `${info.name} @${package_version}`
-  console.log(title);
-
+  console.log(`::group::${info.name} 📦`);
   if (info.name.endsWith('-depricated')) {
-    CONFIRMLIST.push({ status: 'depricated', title });
-    console.log('\t[STATUS]: depricated');
+    CONFIRMLIST.push({ status: 'depricated', title: info.name });
+    console.log('[STATUS]: 🚫 depricated');
+    console.log(`::endgroup::`);
     return;
   }
 
   const scriptPath = path.join(__dirname, 'individual.sh');
-  const args = [info.location, SEMANTIC_VERSION, package_version, CICD_NODE_TOKEN || ""];
+  const args = [info.location, SEMANTIC_VERSION, package_version, CICD_NODE_TOKEN];
 
   const childProcess = spawn(scriptPath, args);
   const status = await spawnLogs(childProcess);
-  CONFIRMLIST.push({ status, title });
-  console.log(`\t[STATUS]: ${status}`);
+  CONFIRMLIST.push({ status, title: info.name });
 
-  // printLogChunks(title, status, logs);
+  let icon = ""
+  if (status === "success") {
+    icon = "✅";
+  }
+  else if (status === "failed") {
+    icon = "❎";
+  }
+  else if (status === "warning") {
+    icon = "⚠️";
+  }
+  console.log(`[STATUS]: ${icon} ${status}`);
+  console.log(`::endgroup::`);
+
 }
 
 function spawnLogs(process) {
@@ -90,19 +101,46 @@ function spawnLogs(process) {
         for (let line of lines) {
           const trimmed = line.toString().trim();
           if (trimmed !== "") {
-            console.log(`\t[LOG]:\t${trimmed}`); // Log for debugging
+            console.log(`[NOTICE] ${trimmed}`); // Log for debugging
           }
         }
       }
     });
 
     process.stderr.on('data', (data) => {
-      const lines = data.toString().split("\n");
-      for (let line of lines) {
-        const trimmed = line.toString().trim();
-        if (trimmed !== "") {
-          errors = true;
-          console.log(`\t[ERROR]:\t${trimmed}`); // Log for debugging
+      const lines = data.toString().split('\n');
+
+      for (let i = 0; i < lines.length; i++) {
+        let line = lines[i].trim();
+
+        if (line === "npm") {
+          let next = lines[i + 1];
+          if (next) {
+            next = next.toString().trim();
+            line += " " + next;
+            i++;
+          }
+          else {
+            console.log("[DEBUG] <something is wrong with this line>", data.toString());
+            continue;
+          }
+        }
+
+        let state = 'NOTICE';
+
+        if (line.startsWith('npm WARN') || line.startsWith('WARN')) {
+          state = 'WARNING';
+        }
+        else if (line.startsWith('npm [ERROR]') || line.startsWith('[ERROR]')) {
+          state = "ERROR";
+        }
+        else if (line.startsWith('npm notice') || line.startsWith('notice')) {
+          state = "NOTICE";
+        }
+
+        console.log(`[${state}] ${line}`); // Log for debugging
+        if (state === "ERROR") {
+          error = true;
         }
       }
     });
@@ -116,14 +154,9 @@ function spawnLogs(process) {
   })
 }
 
-// function printLogChunks(title, status, logs = []) {
-//   console.log(`\t[${status}]\t${title}`);
-//   CONFIRMLIST.push({ status, title })
-
-//   for (let log of logs) {
-//     console.log(log);
-//   }
-// }
+function getStatusIcon(status) {
+  if (status === "success") return ""
+}
 
 async function init() {
   VERSIONDATA = await getjsonData();
@@ -133,7 +166,7 @@ async function init() {
   let prev = '';
   CONFIRMLIST.sort((a, b) => a.status.indexOf(b.status)).forEach(line => {
     if (prev !== line.status) {
-      console.log(`[${line.status}]:`)
+      console.log(`${line.status}: (${getStatusIcon(line.status)})`)
       prev = line.status;
     }
 
