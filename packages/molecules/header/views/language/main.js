@@ -7,7 +7,7 @@ import '@pap-it/header/wc';
 window.onload = () => {
   console.log('[language]: window loaded');
   window.LANG_INIT.onclick = () => {
-    window.papTranslation.loadAll([
+    window.papTranslation.addAll([
       {
         id: "SE", name: "Sweden", translations: {
           "Sweden": "Sverige",

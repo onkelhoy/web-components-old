@@ -42,7 +42,7 @@ export type ThemeConfig = {
 
 declare global {
   interface Window {
-    oTheme: {
+    papTheme: {
       map: Map<string, ThemeConfig>;
       current: string;
       change(name:string): void;

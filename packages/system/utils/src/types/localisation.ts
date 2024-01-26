@@ -4,14 +4,17 @@ export type EventCallback = (event: Event) => void;
 export interface LanguageSet {
   id: string;
   name: string;
-  translations: TranslationObject;
+  url?: string;
+  translations?: TranslationObject;
 }
+
 export interface Translation {
   subscribe(callback: EventCallback): void;
   unsubscribe(callback: EventCallback): void;
   load(set: LanguageSet): void;
-  loadAll(array: LanguageSet[]): void;
   change(lang: string): void;
+  add(set: LanguageSet): void;
+  addAll(array: LanguageSet[]): void;
 
   map: Map<string, LanguageSet>;
   current: LanguageSet;

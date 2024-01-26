@@ -52,7 +52,7 @@ export class Theme extends BaseSystem {
     this.handlethemechange();
 
     setTimeout(() => {
-      this.menuElement.value = window.oTheme.current;
+      this.menuElement.value = window.papTheme.current;
     }, 100);
   }
 
@@ -75,7 +75,7 @@ export class Theme extends BaseSystem {
     if (!this.templateElement) return;
     if (!this.themecolorElement) return;
 
-    if (window.oTheme.map.size <= 1) {
+    if (window.papTheme.map.size <= 1) {
       this.menuElement.setAttribute('hidden', 'true');
       return;
     }
@@ -86,7 +86,7 @@ export class Theme extends BaseSystem {
     const items = this.menuElement.querySelectorAll<MenuItem>("pap-menu-item");
     const assigned = new Set<string>();
     items.forEach(item => {
-      if (!window.oTheme.map.has(item.value)) {
+      if (!window.papTheme.map.has(item.value)) {
         this.menuElement.removeChild(item);
       }
       else {
@@ -94,7 +94,7 @@ export class Theme extends BaseSystem {
       }
     });
 
-    Array.from(window.oTheme.map).forEach(([name, config]) => {
+    Array.from(window.papTheme.map).forEach(([name, config]) => {
       if (!assigned.has(name)) {
         const newitem = this.templateElement.content.cloneNode(true) as HTMLElement;
 
@@ -115,18 +115,18 @@ export class Theme extends BaseSystem {
   }
   private handlethemechange = () => {
     if (this.menuElement) {
-      const config = window.oTheme.map.get(window.oTheme.current);
+      const config = window.papTheme.map.get(window.papTheme.current);
       if (config) {
         this.themecolorElement.style.backgroundColor = config.representColor;
-        this.menuElement.value = window.oTheme.current;
+        this.menuElement.value = window.papTheme.current;
       }
     }
   }
   private handleselect = (e: Event) => {
     const menu = e.target as Menu;
     if (menu) {
-      if (window.oTheme.current !== menu.value) {
-        window.oTheme.change(menu.value);
+      if (window.papTheme.current !== menu.value) {
+        window.papTheme.change(menu.value);
       }
     }
   }
