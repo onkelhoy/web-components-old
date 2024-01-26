@@ -47,11 +47,13 @@ function wait(n = 1000) {
 
 async function execute_individual(info, VERSIONDATA) {
   let package_version = VERSIONDATA.find(d => d.name === info.name)?.version || '-0.0.0';
-  console.log(`::group::${info.name} 📦`);
+  if (CICD_NODE_TOKEN) console.log(`::group::${info.name} 📦`);
+  else console.log(`\t${info.name} 📦`);
+
   if (info.name.endsWith('-depricated')) {
     CONFIRMLIST.push({ status: 'depricated', title: info.name });
     console.log('[STATUS]: 🚫 depricated');
-    console.log(`::endgroup::`);
+    if (CICD_NODE_TOKEN) console.log(`::endgroup::`);
     return;
   }
 
@@ -62,19 +64,13 @@ async function execute_individual(info, VERSIONDATA) {
   const status = await spawnLogs(childProcess);
   CONFIRMLIST.push({ status, title: info.name });
 
-  let icon = ""
-  if (status === "success") {
-    icon = "✅";
+  if (CICD_NODE_TOKEN) {
+    console.log(`[STATUS]: ${getStatusIcon(status)} ${status}`);
+    console.log(`::endgroup::`);
   }
-  else if (status === "failed") {
-    icon = "❎";
+  else {
+    console.log(`\t\t[STATUS]: ${getStatusIcon(status)} ${status}`);
   }
-  else if (status === "warning") {
-    icon = "⚠️";
-  }
-  console.log(`[STATUS]: ${icon} ${status}`);
-  console.log(`::endgroup::`);
-
 }
 
 function spawnLogs(process) {
@@ -101,7 +97,8 @@ function spawnLogs(process) {
         for (let line of lines) {
           const trimmed = line.toString().trim();
           if (trimmed !== "") {
-            console.log(`[NOTICE] ${trimmed}`); // Log for debugging
+            if (CICD_NODE_TOKEN) console.log(`[NOTICE] ${trimmed}`); // Log for debugging
+            else console.log(`\t\t[LOG] ${trimmed}`); // Log for debugging
           }
         }
       }
@@ -127,6 +124,7 @@ function spawnLogs(process) {
         }
 
         let state = 'NOTICE';
+        if (!CICD_NODE_TOKEN) state = "LOG";
 
         if (line.startsWith('npm WARN') || line.startsWith('WARN')) {
           state = 'WARNING';
@@ -135,10 +133,13 @@ function spawnLogs(process) {
           state = "ERROR";
         }
         else if (line.startsWith('npm notice') || line.startsWith('notice')) {
-          state = "NOTICE";
+          if (CICD_NODE_TOKEN) state = "NOTICE";
+          else state = "LOG";
         }
 
-        console.log(`[${state}] ${line}`); // Log for debugging
+        if (CICD_NODE_TOKEN) console.log(`[${state}] ${line}`); // Log for debugging
+        else console.log(`\t\t[${state}] ${line}`); // Log for debugging
+
         if (state === "ERROR") {
           error = true;
         }
@@ -155,22 +156,31 @@ function spawnLogs(process) {
 }
 
 function getStatusIcon(status) {
-  if (status === "success") return ""
+  if (status === "success") return "✅";
+  if (status === "failed") return "❎";
+  if (status === "warning") return "⚠️";
+  if (status === "skipped") return "⏩";
+
+  return "🚫"
 }
 
 async function init() {
   VERSIONDATA = await getjsonData();
-  await iterate(execute);
+  await iterate(execute, true, true); // print = true, grouping = true (github action printing ::group::)
 
-  console.log('\n**Summery Report**')
+  console.log('\n## Summery Report ⛱️')
   let prev = '';
   CONFIRMLIST.sort((a, b) => a.status.indexOf(b.status)).forEach(line => {
     if (prev !== line.status) {
-      console.log(`${line.status}: (${getStatusIcon(line.status)})`)
+      if (prev !== "" && CICD_NODE_TOKEN) console.log('::endgroup::');
+
+      if (CICD_NODE_TOKEN) console.log(`::group::${line.status}: (${getStatusIcon(line.status)})`)
+      else console.log(`${line.status}: (${getStatusIcon(line.status)})`)
       prev = line.status;
     }
 
-    console.log(`\t- ${line.title}`);
+    if (CICD_NODE_TOKEN) console.log(`- ${line.title}`);
+    else console.log(`\t- ${line.title}`);
   })
 }
 const CONFIRMLIST = [];
