@@ -4,11 +4,8 @@
 source .env 
 
 if [ "$1" != "--child" ]; then
-  # build everything
-  npm run build
-
-  # extract the types 
-  sh $ROOTDIR/scripts/analyse/run.sh $(pwd)
+  # run the analyzing
+  npm run analyze
 fi
 
 # build interactive

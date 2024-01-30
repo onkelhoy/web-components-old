@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 // packages
 const fs = require('fs');
 const path = require('path');
@@ -8,7 +9,8 @@ const { parse } = require('node-html-parser');
 // local packages
 const { getFilePath } = require('./file-path');
 const { watch, build } = require('./watch');
-const { server:socketserver } = require('./socket');
+const { server: socketserver } = require('./socket');
+const { get_byreference: asset_getbyreference } = require('./assets');
 
 const app = express();
 app.use(cookieParser());
@@ -17,37 +19,57 @@ let liveHTML = null;
 const commonHTML = fs
   .readFileSync(path.join(process.env.SCRIPT_DIR, "template/common.html"), 'utf-8');
 
-app.get('*', async (req, res) => 
-{
-  try 
-  {
+app.get('/@pap-it/assets/:asset', (req, res) => {
+  const asset = req.params.asset.toLowerCase();
+  let reference;
+  switch (asset) {
+    case "image":
+    case "img":
+      reference = "images";
+      break;
+    case "icon":
+    case "ico":
+      reference = "icons";
+      break;
+    case "theme":
+      reference = "themes";
+      break;
+    case "translation":
+    case "language":
+    case "languages":
+      reference = "translations";
+      break;
+    default:
+      reference = asset;
+      break;
+  }
+  const data = asset_getbyreference(reference)
+    .map(d => ({ ...d, path: undefined }));
+
+  res.status(200).json(data);
+});
+app.get('*', async (req, res) => {
+  try {
     let filepath = getFilePath(req, res);
     let file = null;
 
-    if (filepath === null)
-    {
+    if (filepath === null) {
       res.status(404).end('Not found');
     }
-    else 
-    {
+    else {
       // safety check 
-      if (safeCheck(filepath)) 
-      {
+      if (safeCheck(filepath)) {
         return res.status(302).end('forbidden');
       }
 
-      if (process.env.LIVEMODE === "live")
-      {
-        if (filepath.endsWith('.js'))
-        {
-          if (!filepath.includes('.temp')) 
-          {
+      if (process.env.LIVEMODE === "live") {
+        if (filepath.endsWith('.js')) {
+          if (!filepath.includes('.temp')) {
             await watch(filepath);
             filepath = getFilePath(req, res); // should update to the newly created file inside .temp
           }
         }
-        if (liveHTML && filepath.endsWith('.html'))
-        {
+        if (liveHTML && filepath.endsWith('.html')) {
           file = fs.readFileSync(filepath, 'utf-8');
           const document = parse(file);
           document.querySelector('head').appendChild(parse(liveHTML));
@@ -55,31 +77,25 @@ app.get('*', async (req, res) =>
           file = document.toString();
         }
       }
-      else 
-      {
-        if (filepath.endsWith('.js'))
-        {
-          if (!filepath.includes('.temp')) 
-          {
+      else {
+        if (filepath.endsWith('.js')) {
+          if (!filepath.includes('.temp')) {
             await build(filepath);
             filepath = getFilePath(req, res); // should update to the newly created file inside .temp
           }
         }
-        if (filepath.endsWith('.html'))
-        {
+        if (filepath.endsWith('.html')) {
           file = fs.readFileSync(filepath, 'utf-8');
           const document = parse(file);
           if (document.querySelector('head')) document.querySelector('head').appendChild(parse(commonHTML));
-          else 
-          {
+          else {
             document.appendChild(parse(`<head>${commonHTML}</head>`));
           }
           file = document.toString();
         }
       }
 
-      if (filepath.endsWith('.js')) 
-      {
+      if (filepath.endsWith('.js')) {
         // Set Content-Type header for JavaScript files
         res.set('Content-Type', 'application/javascript');
       }
@@ -89,15 +105,13 @@ app.get('*', async (req, res) =>
       res.status(200).end(file);
     }
   }
-  catch (e) 
-  {
+  catch (e) {
     console.log('[error] internal error', e);
     res.status(500).end('internal server error');
   }
 });
 
-function safeCheck(filepath) 
-{
+function safeCheck(filepath) {
   const normalizedPath = path.resolve(filepath);
 
   if (!normalizedPath.startsWith(process.env.ROOT_DIR)) return true;
@@ -106,41 +120,33 @@ function safeCheck(filepath)
   if (filepath.endsWith('.env')) return true;
 
   // no error
-  return false; 
+  return false;
 }
 
 let server_start_attempts = 0;
-function start(CONFIG) 
-{
+function start(CONFIG) {
   const port = Number(CONFIG.port) + server_start_attempts;
 
-  if (process.env.LIVEMODE === "live")
-  {
+  if (process.env.LIVEMODE === "live") {
     liveHTML = fs
       .readFileSync(path.join(process.env.SCRIPT_DIR, "template/live.html"), 'utf-8')
-      .replace('PORT', CONFIG.port);
+      .replace('PORT', port);
   }
 
-  const httpServer = app.listen(port, () => 
-  {
+  const httpServer = app.listen(port, () => {
     console.log(`devserver started on port ${port}`);
-  }).on('error', () => 
-  {
+  }).on('error', () => {
     server_start_attempts++;
-    if (server_start_attempts < 1000)
-    {
+    if (server_start_attempts < 1000) {
       start(CONFIG);
     }
-    else 
-    {
+    else {
       console.log(`[ERROR] port spaces between [${CONFIG.PORT}, ${port}] are all taken, please free up some ports`);
     }
   });
 
-  httpServer.on('upgrade', (request, socket, head) => 
-  {
-    socketserver.handleUpgrade(request, socket, head, (socket) => 
-    {
+  httpServer.on('upgrade', (request, socket, head) => {
+    socketserver.handleUpgrade(request, socket, head, (socket) => {
       socketserver.emit('connection', socket, request);
     });
   });

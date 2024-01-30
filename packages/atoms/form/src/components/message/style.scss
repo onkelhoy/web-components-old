@@ -4,7 +4,7 @@
   min-width: 10rem;
 
   pap-box-template {
-    background-color: var(--pap-color-bg, #FFFFFF);
+    background-color: var(--pap-color-bg-secondary, #F6F7F8);
     display: grid;
     grid-template-columns: 72px 1fr;
     gap: var(--gap-medium, 16px);

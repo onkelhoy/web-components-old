@@ -11,6 +11,7 @@
     "combine": ".scripts/combine.sh && .scripts/start.sh combined",
     "start": ".scripts/start.sh",
     "isolate": "sh .scripts/isolate.sh",
+    "analyze": "sh .scripts/analyze.sh",
     "interactive": "sh .scripts/helper/build-interactive.sh",
     "variations": "sh .scripts/helper/build-variations.sh",
     "component:add": "sh .scripts/helper/add-component.sh"
@@ -41,7 +42,7 @@
     "@pap-it/checkbox": "1.0.4",
     "@pap-it/divider": "1.0.4",
     "@pap-it/drag-list": "1.0.4",
-    "@pap-it/form": "1.0.4",
+    "@pap-it/form": "1.0.5",
     "@pap-it/icon": "1.0.4",
     "@pap-it/input": "1.0.4",
     "@pap-it/menu": "1.0.4",

@@ -7,8 +7,9 @@ const set = new Set();
 
 // Function to initialize the package relationships
 function initializePackages(ROOT_DIR, LOCKFILE) {
+  const SCOPE = (LOCKFILE.name || '@pap-it/he').split('/')[0];
   for (const name in LOCKFILE.packages) {
-    if (name.startsWith("node_modules/@pap-it") && name !== "node_modules/@pap-it/server") {
+    if (name.startsWith(`node_modules/${SCOPE}`) && name !== `node_modules/${SCOPE}/server`) {
       const mapname = name.split("node_modules/")[1];
       if (!map[mapname]) map[mapname] = { dep: [], has: [] };
 
@@ -26,7 +27,7 @@ function initializePackages(ROOT_DIR, LOCKFILE) {
       map[mapname].version = packagejson.version;
 
       for (const dep in packagejson.dependencies) {
-        if (dep.startsWith("@pap-it") && dep !== mapname) {
+        if (dep.startsWith(SCOPE) && dep !== mapname) {
           if (!map[dep]) map[dep] = { dep: [], has: [] };
           map[dep].has.push(mapname);
           dependencies.push(dep);
@@ -52,7 +53,7 @@ async function* batchIterator(print) {
     }
 
     if (list.length > 0) {
-      if (print) console.log(`[DEBUG]: package-batch, size=${list.length}`);
+      if (print) console.log(`package-batch, size=${list.length}`);
       yield list;
     }
 
@@ -69,6 +70,7 @@ async function* batchIterator(print) {
 async function iterate(execute, print = true) {
   for await (const batch of batchIterator(print)) {
     await execute(batch);
+    if (print) console.log('');
   }
 }
 

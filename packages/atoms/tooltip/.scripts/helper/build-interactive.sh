@@ -12,11 +12,8 @@ if [ "$1" != "--child" ]; then
     rm views/interactive/style.css
   fi
 
-  # build everything
-  npm run build
-
-  # extract the types 
-  sh $ROOTDIR/scripts/analyse/run.sh $(pwd)
+  # run the analyzing
+  npm run analyze
 fi
 
 # build interactive

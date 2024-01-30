@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { parse } = require('node-html-parser');
-const { deepMerge } = require('./util');
+const { DeepMerge } = require('../utils/deep-merge');
 
 const PACKAGE_DIR = process.argv[2];
 const CLASSNAME = process.argv[3];
@@ -23,8 +23,8 @@ let LOCAL_CONFIG = {};
 try {
   LOCAL_CONFIG = JSON.parse(fs.readFileSync(path.join(FOLDER_PATH, '.config'), 'utf-8'))
 }
-catch (e) {}
-const CONFIG = deepMerge(GLOBAL_CONFIG, LOCAL_CONFIG);
+catch (e) { }
+const CONFIG = DeepMerge(GLOBAL_CONFIG, LOCAL_CONFIG);
 
 root.querySelector('title').set_content(`${CLASSNAME} - Variations`);
 
@@ -35,82 +35,79 @@ const title = parse(`<h1 data-title="class">${propinfo.className} Properties</h1
 if (!body.querySelector('h1[data-title="class"]')) body.appendChild(title);
 build_class_variant(body, null, propinfo.properties);
 
-const inheritTitle = parse('<h1 data-title="inherit">Inherited Properties</h1>');
-if (!body.querySelector('h1[data-title="inherit"]')) body.appendChild(inheritTitle);
+if (propinfo.extend_class) {
+  const inheritTitle = parse('<h1 data-title="inherit">Inherited Properties</h1>');
+  if (!body.querySelector('h1[data-title="inherit"]')) body.appendChild(inheritTitle);
 
-let target = propinfo;
-while((target = target.extend_class))
-{
-  build_class_variant(body, `from ${target.className}`, target.properties);
+  let target = propinfo;
+  while ((target = target.extend_class)) {
+    build_class_variant(body, `from ${target.className}`, target.properties);
+  }
 }
 
 function build_class_variant(body, name, properties) {
   if (properties.length === 0) return;
 
-  if (name) 
-  {
+  if (name) {
     ALLNAMES.push(name);
     const title = parse(`<h3 data-subtitle="${name}">${name}</h3>`);
     if (!body.querySelector(`h3[data-subtitle="${name}"]`)) body.appendChild(title);
   }
 
   const defaultprops = [];
-  for (const name in CONFIG.properties)
-  {
+  for (const name in CONFIG.properties) {
     const cprop = CONFIG.properties[name];
-    if (cprop.default) 
-    {
-      defaultprops.push({name, value: cprop.default})
+    if (cprop.default) {
+      defaultprops.push({ name, value: cprop.default })
     }
   }
 
   properties.forEach(prop => {
     const variations = [];
     const propconfig = CONFIG.properties[prop.name];
-    if (propconfig && propconfig.variants)
-    {
-      propconfig.variants.forEach(v => {
-        variations.push(v);
-      });
+    if (propconfig) {
+      if (propconfig.variants) {
+        propconfig.variants.forEach(v => {
+          variations.push(v);
+        });
+      }
+
+      if (propconfig.attributes) {
+        for (let name in propconfig.attributes) {
+          defaultprops.push({ name, value: propconfig.attributes[name] });
+        }
+      }
     }
-    else if (prop.type_value instanceof Array)
-    {
+    else if (prop.type_value instanceof Array) {
       prop.type_value.forEach(v => {
         variations.push(v);
       });
     }
-    else if (prop.primitive)
-    {
-      if (prop.type === "boolean")
-      {
+    else if (prop.primitive) {
+      if (prop.type === "boolean") {
         ["true", "false"].forEach(v => {
           variations.push(v)
         })
       }
-      else if (prop.type === "string")
-      {
-        if (/color/i.test(prop.name))
-        {
+      else if (prop.type === "string") {
+        if (/color/i.test(prop.name)) {
           // "#ff7f50", "#6495ed", "#ff8c00", "#f4a460"
           // coral, cornflowerblue, darkorange, sandybrown
           ["coral", "cornflowerblue", "darkorange", "sandybrown"].forEach(v => variations.push(v));
         }
-        else 
-        {
+        else {
           ["foo", "bar", "hello world"].forEach(v => {
             variations.push(v)
           })
         }
       }
-      else if (prop.type === "number")
-      {
+      else if (prop.type === "number") {
         ["1", "10", "1000"].forEach(v => {
           variations.push(v)
         })
       }
     }
-    else if (prop.type_value)
-    {
+    else if (prop.type_value) {
       variations.push(prop.type_value);
     }
 
@@ -143,58 +140,49 @@ function build_class_variant(body, name, properties) {
 
     ALLPROPS.push(prop.name);
     const preexist = body.querySelector(`doc-card[data-name="${prop.name}"].property`);
-    if (preexist)
-    {
+    if (preexist) {
       const title = preexist.querySelector('h2');
-      if (title)
-      {
+      if (title) {
         title.set_content(element.querySelector('h2').innerHTML)
       }
-      else 
-      {
+      else {
         preexist.childNodes.unshift(element.querySelector('h2'));
       }
 
       const propinfoelm = preexist.querySelector('div.property-info')
-      if (propinfoelm) 
-      {
+      if (propinfoelm) {
         propinfoelm.set_content(element.querySelector('div.property-info').innerHTML)
       }
-      else 
-      {
+      else {
         preexist.querySelector('h2').nextSibling?.insertBefore(element.querySelector('div.property-info'))
       }
 
       const variationselm = preexist.querySelector('div.variations')
-      if (variationselm)
-      {
+      if (variationselm) {
         // first we add 
         element.querySelectorAll('div[data-variant]').forEach(elm => {
           const value = elm.getAttribute('data-variant');
           const preelm = variationselm.querySelector(`div[data-variant="${value}"]`);
           if (!preelm) {
             variationselm.appendChild(elm);
-          } 
+          }
         })
 
 
         // then cleanup
         variationselm.querySelectorAll('div[data-variant]').forEach(elm => {
           const value = elm.getAttribute('data-variant');
-          if (!variations.includes(value))
-          {
+          if (!variations.includes(value)) {
             // not included so we should clean it up 
             elm.parentNode.removeChild(elm);
           }
         })
       }
-      else 
-      {
+      else {
         preexist.appendChild(element.querySelector('div.variations'))
       }
     }
-    else 
-    {
+    else {
       body.appendChild(element);
     }
   })
@@ -202,14 +190,12 @@ function build_class_variant(body, name, properties) {
 
 // remove all properties that is not in ALLPROPS (old ones) 
 body.querySelectorAll('doc-card[data-name]').forEach(element => {
-  if (!ALLPROPS.includes(element.getAttribute('data-name')))
-  {
+  if (!ALLPROPS.includes(element.getAttribute('data-name'))) {
     element.parentNode.removeChild(element);
   }
 })
 body.querySelectorAll('h3[data-subtitle]').forEach(element => {
-  if (!ALLNAMES.includes(element.getAttribute('data-subtitle')))
-  {
+  if (!ALLNAMES.includes(element.getAttribute('data-subtitle'))) {
     element.parentNode.removeChild(element);
   }
 })

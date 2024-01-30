@@ -71,6 +71,7 @@ export class Translator extends BaseSystem {
   }
 
   // public functions 
+  // TODO add object as second param when we want variables!! 
   public translateKey(key: string) {
     if (this.key !== key) {
       this.noupdate = true;
