@@ -5,7 +5,7 @@ import '@pap-it/system-doc/wc';
 import '@pap-it/tools-translator/wc';
 
 window.onload = () => {
-  window.papTranslation.loadAll(
+  window.papTranslation.addAll(
     [
       {
         id: "translation-demo",
@@ -14,6 +14,7 @@ window.onload = () => {
           "Hello World": "Translated Hello World",
           "Hello {name}": "Translated Hello {name}",
           "bajs": "BAAAAAJS",
+          "scope.bajs": "Hey im a scoped BAJS"
         }
       },
       {
@@ -24,7 +25,7 @@ window.onload = () => {
           "Hello {name}": "Translated 2 Hello {name}",
           "bajs": "BAAAAAJS 2",
           "Type here": "Type here then",
-          "Your email address": "screw your email address",
+          "Your email address": "screw your email address"
         }
       }
     ]
@@ -36,8 +37,7 @@ window.onload = () => {
     "translation-demo-2": "translation-demo",
   }
   window['toggle-translation'].onclick = () => {
-
-    window.papTranslation.change(translationToggleMap[window.papTranslation?.current.id]);
+    window.papTranslation.change(translationToggleMap[window.papTranslation?.current.id] || 'translation-demo');
   }
   console.log('[demo]: window loaded');
 }

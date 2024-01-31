@@ -322,7 +322,7 @@ export class Codeblock extends BaseSystem {
     let tagmatch = line.match(/<([\w-]+)([^>]*)/);
     if (!tagmatch) {
       // this should not really happen! 
-      console.log('mamma mia ok? BAJS', line)
+      console.log('mamma mia!', line)
       console.error("[codeblock] html but no html error");
       return null;
     }

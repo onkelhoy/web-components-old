@@ -1,5 +1,5 @@
 // utils 
-import { ExtractSlotValue, html } from "@pap-it/system-utils";
+import { ExtractSlotValue, html, property } from "@pap-it/system-utils";
 
 // templates
 import { BaseSystem } from "@pap-it/system-base";
@@ -33,6 +33,11 @@ export class Translator extends BaseSystem {
   }
   private dynamicAttributes: Set<string> = new Set<string>();
   private noupdate = false;
+
+  @property({
+    rerender: false,
+    onUpdate: 'onscopeupdate'
+  }) scope?: string;
 
   // class functions 
   connectedCallback(): void {
@@ -70,9 +75,20 @@ export class Translator extends BaseSystem {
     }
   }
 
+  // on update
+  private onscopeupdate = () => {
+    this.updateText();
+  }
+
   // public functions 
-  // TODO add object as second param when we want variables!! 
-  public translateKey(key: string) {
+  public translateKey(key: string, variables?: Record<string, string>) {
+    if (variables) {
+      for (let name in variables) {
+        this.setAttribute(name, variables[name]);
+        this.dynamicAttributes.add(name);
+      }
+    }
+
     if (this.key !== key) {
       this.noupdate = true;
       this.Key = key;
@@ -83,7 +99,8 @@ export class Translator extends BaseSystem {
 
   // private functions 
   private updateText = () => {
-    let text = window.papTranslation?.current?.translations?.[this.key] || this.key;
+    const finalkey = (this.scope ? this.scope + "." : "") + this.key;
+    let text = window.papTranslation?.current?.translations?.[finalkey] || this.key;
     if (text === undefined && this.key === undefined) return;
 
     const regex = /{([^{}]+)}/g;

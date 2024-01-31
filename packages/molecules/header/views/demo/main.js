@@ -7,14 +7,14 @@ import '@pap-it/header/wc';
 window.onload = () => {
   console.log('[demo]: window loaded');
 
-  window.oTheme.add({ name: "KTV", href: "/themes/ktv", representColor: "cornflowerblue" });
-  window.oTheme.add({ name: "PMP", href: "/themes/pmp", representColor: "coral" });
-  // window.oTheme.add({ name: "Base", href: "base", representColor: "gray" });
+  window.papTheme.add({ name: "KTV", href: "/themes/ktv", representColor: "cornflowerblue" });
+  window.papTheme.add({ name: "PMP", href: "/themes/pmp", representColor: "coral" });
+  // window.papTheme.add({ name: "Base", href: "base", representColor: "gray" });
 
-  // window.oTheme.
+  // window.papTheme.
 
   setTimeout(() => {
-    window.papTranslation.loadAll([
+    window.papTranslation.addAll([
       {
         id: "HU", name: "Hungary", translations: {
           "Hungary": "Magyarország",

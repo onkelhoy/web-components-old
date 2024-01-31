@@ -1,1 +1,76 @@
 <link href="/themes/base" rel="stylesheet" />
+
+<script>
+  window.addEventListener("load", () => {
+    fetchAssets();
+  });
+
+  async function fetchResource(resource) {
+    try {
+      const res = await fetch(`@pap-it/assets/${resource}`);
+      const json = await res.json();
+
+      return json || [];
+    }
+    catch (e) {
+      console.warn(`Could not fetch resource: ${resource}`);
+      return [];
+    }
+  }
+
+  async function fetchAssets() {
+
+    if (window.papTheme) {
+      const themes = await fetchResource("themes");
+
+      const standardThemeColors = {
+        "base": "var(--pap-color-bg-brand, #009DD3)",
+        "alternative": "var(--pap-color-bg-accent-01, #FFCE00)",
+      }
+
+      themes.forEach(theme => {
+        const match = theme.name.match(/\/themes\/(.*)/);
+        if (match) {
+          const name = match[1];
+          let color = standardThemeColors[name] || `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`
+          window.papTheme.add({
+            href: theme.name,
+            representColor: color,
+            name: name,
+          })
+        }
+        else {
+          console.warn('[warn]: problem with getting theme-name', theme);
+        }
+      });
+
+      // NOTE BASE THEME IS SET HERE !
+      window.papTheme.change("base");
+    }
+    else {
+      console.warn("no papTheme object available in window");
+    }
+
+    if (window.papTranslation) {
+      const languages = await fetchResource("translations");
+      languages.forEach(language => {
+        const match = language.name.match(/\/translations\/(.*)\.json$/);
+        if (match) {
+          // NOTE if someone manually appends a language that matches this we might have a problem but lets solve that 
+          // once it comes..
+          window.papTranslation.add({
+            name: match[1],
+            id: language.name,
+            url: language.name
+          });
+        }
+        else {
+          console.warn('[warn]: problem with getting language-name', language);
+        }
+      });
+    }
+    else {
+      console.warn("no papTranslation object available in window");
+    }
+  }
+</script>

@@ -175,9 +175,9 @@ export function context(options?: ContextOption) {
 }
 
 // property.ts
-export enum Spread {
-  BREAKOUT = 1,
-}
+// export enum Spread {
+//   BREAKOUT = 1,
+// }
 export interface PropertyOption {
   type: Function;
   attribute: boolean | string;
@@ -185,7 +185,7 @@ export interface PropertyOption {
   onUpdate?: string;
   context?: boolean;
   verbose?: boolean;
-  spread?: string | Spread | boolean;
+  // spread?: string | Spread | boolean;
   set?: (value: any) => any;
   get?: (value: any) => any;
 }
@@ -202,7 +202,7 @@ export function property(options?: Partial<PropertyOption>) {
 
   return function (target: HTMLElement, propertyKey: string) {
     const attributeName = (typeof _options.attribute === "string" ? _options.attribute : propertyKey).toLowerCase();
-    const spreadAttributeNames: Record<string, boolean> = {};
+    // const spreadAttributeNames: Record<string, boolean> = {};
     let internal = false;
 
     // Observe attributes
@@ -211,21 +211,21 @@ export function property(options?: Partial<PropertyOption>) {
     // NOTE spread is not working, at this point the objedct havent been defined yet, 
     // we need to keep track if we defined this and in the setter we should do this work 
     // if not done already - so keep track if we did this setup (setup being to add to 'observedAttributes')
-    if (_options.spread) {
-      console.log('spread yes!', (target.constructor as any)[propertyKey])
-      spreadAttributes(
-        _options.spread === Spread.BREAKOUT ? "" : typeof _options.spread === "string" ? _options.spread : attributeName,
-        (target.constructor as any)[propertyKey],
-        (name) => {
-          console.log('adding spread', name)
-          observedAttributes.push(name);
-          spreadAttributeNames[name] = true;
-        }
-      )
-    }
-    else {
-      observedAttributes.push(attributeName);
-    }
+    // if (_options.spread) {
+    //   console.log('spread yes!', (target.constructor as any)[propertyKey])
+    //   spreadAttributes(
+    //     _options.spread === Spread.BREAKOUT ? "" : typeof _options.spread === "string" ? _options.spread : attributeName,
+    //     (target.constructor as any)[propertyKey],
+    //     (name) => {
+    //       console.log('adding spread', name)
+    //       observedAttributes.push(name);
+    //       spreadAttributeNames[name] = true;
+    //     }
+    //   )
+    // }
+    // else {
+    observedAttributes.push(attributeName);
+    // }
     (target.constructor as any).observedAttributes = observedAttributes;
 
     // Handle attributeChangedCallback
@@ -234,28 +234,29 @@ export function property(options?: Partial<PropertyOption>) {
       // how many times is the same code going to be called?
       attributeChanged.call(this, name, oldValue, newValue);
 
-      if ((name === attributeName || spreadAttributeNames[name]) && !internal && newValue !== oldValue) {
+      if (name === attributeName && !internal && newValue !== oldValue) {
+        // if ((name === attributeName || spreadAttributeNames[name]) && !internal && newValue !== oldValue) {
         if (_options.verbose) console.log('attribute is set', attributeName);
 
         // NOTE spread is not working, perhaps with the attribute changes updated this part should work
-        if (_options.spread) {
-          const keys = name.split("-");
-          let newobject = this[propertyKey];
+        // if (_options.spread) {
+        //   const keys = name.split("-");
+        //   let newobject = this[propertyKey];
 
-          let target = newobject;
-          for (let i = 0; i < keys.length; i++) {
-            if (i !== keys.length - 1) {
-              target = target[keys[i]];
-            }
-            else {
-              target[keys[i]] = convertFromStringPrimitive(newValue);
-            }
-          }
-          this[propertyKey] = newobject;
-        }
-        else {
-          this[propertyKey] = convertFromString(newValue, _options.type);
-        }
+        //   let target = newobject;
+        //   for (let i = 0; i < keys.length; i++) {
+        //     if (i !== keys.length - 1) {
+        //       target = target[keys[i]];
+        //     }
+        //     else {
+        //       target[keys[i]] = convertFromStringPrimitive(newValue);
+        //     }
+        //   }
+        //   this[propertyKey] = newobject;
+        // }
+        // else {
+        this[propertyKey] = convertFromString(newValue, _options.type);
+        // }
       }
     };
 
@@ -277,12 +278,12 @@ export function property(options?: Partial<PropertyOption>) {
 
         const operation = () => {
           // we want to use spread over attribute (I guess?)
-          if (_options.spread) {
-            if (_options.verbose) console.log('property is set, setting attribute', attributeName);
-            // NOTE for spread we need to assign each attribute 
-          }
-          else if (_options.attribute) {
-
+          // if (_options.spread) {
+          //   if (_options.verbose) console.log('property is set, setting attribute', attributeName);
+          //   // NOTE for spread we need to assign each attribute 
+          // }
+          // else if (_options.attribute) {
+          if (_options.attribute) {
             internal = true;
             if (value === undefined) {
               // TODO need to check if this would cause issues with type:boolean = true values - is value true or undefined?
@@ -380,22 +381,22 @@ function convertToString(value: any, type: Function) {
       return String(value);
   }
 }
-function spreadAttributes(parentKey: string, object: Record<string, any>, callback: (name: string) => void) {
-  console.log('spread object?', object)
-  for (let key in object) {
-    console.log('spead jey', key)
-    let nextname = parentKey === "" ? key : `${parentKey}-${key}`;
+// function spreadAttributes(parentKey: string, object: Record<string, any>, callback: (name: string) => void) {
+//   console.log('spread object?', object)
+//   for (let key in object) {
+//     console.log('spead jey', key)
+//     let nextname = parentKey === "" ? key : `${parentKey}-${key}`;
 
-    if (object[key] instanceof Array) {
-      // like wtf.. 
-      throw new Error("[LAZY] since I dont know yet what case this could be I will throw a error until I meet it and fix it then... your're welcome future Henry!");
-    }
-    else if (object[key] instanceof Object) {
-      spreadAttributes(nextname, object[key], callback);
-    }
-    else {
-      callback(nextname);
-    }
-  }
-}
+//     if (object[key] instanceof Array) {
+//       // like wtf.. 
+//       throw new Error("[LAZY] since I dont know yet what case this could be I will throw a error until I meet it and fix it then... your're welcome future Henry!");
+//     }
+//     else if (object[key] instanceof Object) {
+//       spreadAttributes(nextname, object[key], callback);
+//     }
+//     else {
+//       callback(nextname);
+//     }
+//   }
+// }
 
