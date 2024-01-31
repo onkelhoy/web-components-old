@@ -1,0 +1,1 @@
+export type LightDarkTheme = "light" | "dark";

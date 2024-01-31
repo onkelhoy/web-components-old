@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 
 const { DEPENDENCY } = require('./dependency');
+const TRANSLATION_META = {};
 const ASSETS = {
   // references
   __references: {
@@ -63,12 +64,21 @@ function append(key, asset_type, package_type, filepath, dependency_name) {
   // append to references
   if (!ASSETS.__references[asset_type][key]) ASSETS.__references[asset_type][key] = true;
 
+  const extension = path.extname(key);
+  const name = path.basename(key, extension);
+  let meta = undefined;
+  if (asset_type === "translations") {
+    meta = TRANSLATION_META[name];
+  }
+
   ASSETS[key].push({
     asset_type,
     package_type,
-    name: key,
+    name,
+    meta,
     dependency_name: dependency_name ?? undefined,
-    path: filepath,
+    path: key,
+    fullpath: filepath,
   });
 }
 function add(directory, package_type, dependency_name = null) {
@@ -121,7 +131,7 @@ function get(url) {
   if (data.length === 0) return null;
 
   // since we added assets in the correct order we know that the first asset is the one we want 
-  return data[0].path;
+  return data[0].fullpath;
 }
 function get_byreference(reference) {
   if (!ASSETS.__references[reference]) return { error: 'reference not exists' };
@@ -188,6 +198,7 @@ function savefile(name, content) {
 }
 
 module.exports = {
+  TRANSLATION_META,
   ASSETS,
   merge,
   init,

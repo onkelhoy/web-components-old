@@ -1,0 +1,19 @@
+:host {
+  pap-toggle {
+    &::part(indicator) {
+      background-color: transparent;
+    }
+
+    &[checked="true"] {
+      pap-icon[name="light-mode"] {
+        display: none;
+      }
+    }
+
+    &[checked="false"] {
+      pap-icon[name="dark-mode"] {
+        display: none;
+      }
+    }
+  }
+}

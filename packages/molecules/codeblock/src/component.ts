@@ -127,6 +127,13 @@ export class Codeblock extends BaseSystem {
       const line = lines[i];
       let trimmedline = line.trim();
 
+      // NOTE quickfix needs propper handle for general cases
+      if (trimmedline === "<br>") {
+        let output = '<span class="html-tag">&lt;</span><span class="html-tag-name">br </span><span class="html-tag">/&gt;</span>';
+        this.appendLine(output);
+        continue;
+      }
+
       if (trimmedline === "") {
         if (i === 0 || i === lines.length - 1) {
           continue
@@ -233,7 +240,7 @@ export class Codeblock extends BaseSystem {
     // create the individual groups !
     let L = tagmatch[1] || null;
     const htmlpart = tagmatch[2];
-    const cases = ["< ", "<=", "<="];
+    const cases = ["< ", "<="];
     if (cases.some(cs => htmlpart.startsWith(cs) || htmlpart.startsWith(cs.replace("<", ">")))) {
       return null
     }
@@ -299,7 +306,7 @@ export class Codeblock extends BaseSystem {
 
   // helper functions 
   private formatHtmlTag(line: string, multiline: boolean = false, right: string | null): null | string {
-    // start by checking if this is a ending tag 
+    // first we check if this is a ending tag 
     const endingmatch = line.match(/<\/([\w-]+)>/);
 
     if (endingmatch) {

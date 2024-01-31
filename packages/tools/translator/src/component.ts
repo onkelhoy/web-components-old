@@ -1,12 +1,12 @@
 // utils 
-import { ExtractSlotValue, html, property } from "@pap-it/system-utils";
+import { ExtractSlotValue, debounce, html, property } from "@pap-it/system-utils";
 
 // templates
 import { BaseSystem } from "@pap-it/system-base";
 
 // local 
 import { style } from "./style";
-import { InitTranslations } from "./translator";
+import { InitTranslations, TRANSLATION_ADDED } from "./translator";
 
 export class Translator extends BaseSystem {
   static style = style;
@@ -70,7 +70,7 @@ export class Translator extends BaseSystem {
   // event handlers 
   private handletranslateslotchange = (e: Event) => {
     if (e.target instanceof HTMLSlotElement) {
-      const nodetext = ExtractSlotValue(e.target).join(' ');
+      const nodetext = ExtractSlotValue(e.target).join(' ').trim();
       this.Key = nodetext;
     }
   }

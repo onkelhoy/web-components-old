@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "region": "GB",
+    "language": "en-UK"
+  },
   "Save": "Save",
   "Manage table": "Manage table",
   "manage": "Manage table",

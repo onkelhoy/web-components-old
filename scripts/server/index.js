@@ -12,8 +12,8 @@ process.env.VIEW_DIR = process.env.SUBFOLDER === "no-view-folder" ? process.env.
 
 const { start } = require('./util/server');
 const { init: initdependencies } = require('./util/dependency');
-const { init: initassets } = require('./util/assets');
 const { init: initlanguages } = require('./util/language');
+const { init: initassets } = require('./util/assets');
 
 const { DeepMerge } = require('../utils/deep-merge');
 const { cleanup: watchCleanup } = require('./util/watch');

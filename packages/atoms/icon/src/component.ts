@@ -4,17 +4,31 @@ import { AssetTemplate } from '@pap-it/templates-asset';
 import { style } from './style.js';
 import { ContainerTypes } from './types.js';
 
+const CountryEmojiSet: Record<string, string> = {
+  A: "🇦", B: "🇧", C: "🇨",
+  D: "🇩", E: "🇪", F: "🇫",
+  G: "🇬", H: "🇭", I: "🇮",
+  J: "🇯", K: "🇰", L: "🇱",
+  M: "🇲", N: "🇳", O: "🇴",
+  P: "🇵", Q: "🇶", R: "🇷",
+  S: "🇸", T: "🇹", U: "🇺",
+  V: "🇻", W: "🇼", X: "🇽",
+  Y: "🇾", Z: "🇿",
+}
+
 export class Icon extends AssetTemplate {
   static style = style;
 
   private content: string = "";
   private svgElement!: SVGSVGElement;
+  private flag?: string;
 
   @property({ rerender: false }) container?: ContainerTypes;
   @property({ onUpdate: "updateName", rerender: false }) name?: string;
   @property({ onUpdate: "updateColor", rerender: false }) color?: string;
   @property({ onUpdate: "updateSize", rerender: false }) size: Size = "medium";
   @property({ onUpdate: "updateCustomSize", rerender: false, type: Number, attribute: "custom-size" }) customSize?: number;
+  @property({ onUpdate: "updateCountryFlag", rerender: false, attribute: 'country-flag' }) countryFlag?: string;
 
   // class functions
   constructor() {
@@ -24,6 +38,7 @@ export class Icon extends AssetTemplate {
     this.assetBase = "/icons";
   }
   public firstUpdate() {
+    if (this.flag) return;
     if (this.shadowRoot) {
       const element = this.shadowRoot.querySelector<SVGSVGElement>("svg");
       if (element === null) throw new Error('Could not find svg element');
@@ -37,6 +52,7 @@ export class Icon extends AssetTemplate {
 
   // update functions
   private async updateName(): Promise<void> {
+    if (this.flag) return;
     if (this.name === "") return;
 
     const file = `${this.name}.svg`;
@@ -90,6 +106,27 @@ export class Icon extends AssetTemplate {
   private updateCustomSize() {
     if (this.customSize !== undefined) this.style.setProperty("--icon-custom-size", this.customSize + "px");
   }
+  private updateCountryFlag() {
+    try {
+      if (this.countryFlag) {
+        let text = this.countryFlag;
+        if (text.toLowerCase() === 'en') text = 'gb';
+        
+        this.flag = text
+          .toUpperCase()
+          .split('')
+          .map(v => {
+            if (CountryEmojiSet[v]) return CountryEmojiSet[v];
+            throw new Error('please provide valid country-region code: ' + this.countryFlag);
+          })
+          .join('');
+        this.debouncedRequestUpdate();
+      }
+    }
+    catch (e: any) {
+      console.error(e.message);
+    }
+  }
 
   // helper functions
   private extractSvgContent(svgString: string) {
@@ -115,6 +152,10 @@ export class Icon extends AssetTemplate {
   }
 
   render() {
+    if (this.flag) {
+      return this.flag;
+    }
+
     return html`
       <slot part="fallback"></slot>
       <svg 

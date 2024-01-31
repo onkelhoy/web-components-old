@@ -44,6 +44,7 @@ mv $TEMPFILE $1/src/register.ts
 
 # src 
 sed -i '' "s/COMPONENT_CLASSNAME/${classname}/g" $src_destination/index.ts &> /dev/null
+sed -i '' "s/COMPONENT_PREFIXNAME/${prefixname}/g" $src_destination/index.ts &> /dev/null
 # views
 sed -i '' "s/COMPONENT_CLASSNAME/${classname}/g" $view_destination/.config &> /dev/null
 sed -i '' "s/COMPONENT_CLASSNAME/${classname}/g" $view_destination/index.html &> /dev/null

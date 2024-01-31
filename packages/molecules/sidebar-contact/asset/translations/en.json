@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "region": "GB",
+    "language": "en-UK"
+  },
   "Contact": "Contact",
   "No available contacts": "No available contacts",
   "Call via Teams": "Call via Teams",

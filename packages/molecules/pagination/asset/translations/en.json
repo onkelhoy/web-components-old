@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "region": "GB",
+    "language": "en-UK"
+  },
   "{start} - {end} of {total}": "{start} - {end} of {total} items",
   "of {maxpage}": "of {maxpage}",
   "Page": "Page",

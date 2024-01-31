@@ -1,13 +1,17 @@
 <link href="/themes/base" rel="stylesheet" />
 
 <script>
-  window.addEventListener("load", () => {
-    fetchAssets();
+  window.addEventListener('load', () => {
+    tryagain("papTranslation", fetchLanguages);
+    tryagain("papTheme", fetchThemes);
   });
+
+  window.customElements.whenDefined('pap-translation').then(() => tryagain("papTranslation", fetchLanguages));
+  window.customElements.whenDefined('pap-theme').then(() => tryagain("papTheme", fetchThemes));
 
   async function fetchResource(resource) {
     try {
-      const res = await fetch(`@pap-it/assets/${resource}`);
+      const res = await fetch(`/@pap-it/assets/${resource}`);
       const json = await res.json();
 
       return json || [];
@@ -18,30 +22,65 @@
     }
   }
 
-  async function fetchAssets() {
+  let attempts = {
+    papTranslation: {
+      tries: 0,
+      timer: null
+    },
+    papTheme: {
+      tries: 0,
+      timer: null
+    },
+  }
 
+  function tryagain(name, callback) {
+    if (attempts[name].tries < 5) {
+      if (attempts[name].timer !== null) clearTimeout(attempts[name].timer);
+      attempts[name].timer = setTimeout(callback, 100 + 50 * attempts[name].tries);
+      attempts[name].tries++;
+    }
+    else {
+      console.warn(`no ${name} object available in window`);
+    }
+  }
+
+  async function fetchLanguages() {
+    if (window.papTranslation) {
+      const files = await fetchResource("translations");
+      let langs = [];
+      files.forEach(file => {
+        // NOTE if someone manually appends a language that matches this we might have a problem but lets solve that 
+        // once it comes..
+        langs.push({
+          id: file.name,
+          url: file.path,
+          meta: file.meta,
+        });
+      });
+
+      window.papTranslation.addAll(langs);
+    }
+    else {
+      tryagain("papTranslation", fetchLanguages);
+    }
+  }
+
+  async function fetchThemes() {
     if (window.papTheme) {
-      const themes = await fetchResource("themes");
+      const files = await fetchResource("themes");
 
       const standardThemeColors = {
         "base": "var(--pap-color-bg-brand, #009DD3)",
         "alternative": "var(--pap-color-bg-accent-01, #FFCE00)",
       }
 
-      themes.forEach(theme => {
-        const match = theme.name.match(/\/themes\/(.*)/);
-        if (match) {
-          const name = match[1];
-          let color = standardThemeColors[name] || `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`
-          window.papTheme.add({
-            href: theme.name,
-            representColor: color,
-            name: name,
-          })
-        }
-        else {
-          console.warn('[warn]: problem with getting theme-name', theme);
-        }
+      files.forEach(file => {
+        let color = standardThemeColors[file.name] || `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`
+        window.papTheme.add({
+          href: file.path,
+          representColor: color,
+          name: file.name,
+        })
       });
 
       // NOTE BASE THEME IS SET HERE !
@@ -49,28 +88,7 @@
     }
     else {
       console.warn("no papTheme object available in window");
-    }
-
-    if (window.papTranslation) {
-      const languages = await fetchResource("translations");
-      languages.forEach(language => {
-        const match = language.name.match(/\/translations\/(.*)\.json$/);
-        if (match) {
-          // NOTE if someone manually appends a language that matches this we might have a problem but lets solve that 
-          // once it comes..
-          window.papTranslation.add({
-            name: match[1],
-            id: language.name,
-            url: language.name
-          });
-        }
-        else {
-          console.warn('[warn]: problem with getting language-name', language);
-        }
-      });
-    }
-    else {
-      console.warn("no papTranslation object available in window");
+      tryagain("papTheme", fetchThemes);
     }
   }
 </script>

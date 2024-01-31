@@ -88,43 +88,6 @@ export function FormatNumber(num: number) {
   }
 }
 
-export function DetectLanguage() {
-  if (window.papLocalisation) {
-    if (window.papLocalisation.lang) {
-      return window.papLocalisation.lang;
-    }
-    if (window.papLocalisation.settings?.url) {
-      const langmatch = window.location.pathname.match(/\/([^\/]*)\//);
-      if (langmatch) {
-        return langmatch[1];
-      }
-    }
-  }
-
-  const head_lang = document.head.getAttribute("lang");
-  if (head_lang) {
-    return head_lang;
-  }
-
-  const meta_lang = document.head.querySelector('meta[http-equiv="Content-Language"]')?.getAttribute("content");
-  if (meta_lang) {
-    return meta_lang;
-  }
-
-  const navigator_lang = navigator.language;
-  if (navigator_lang) {
-    return navigator_lang;
-  }
-}
-
-export function SetLanguage(language?: string) {
-  if (language) {
-    window.papLocalisation.lang = language;
-  }
-
-  const lang = DetectLanguage();
-}
-
 export function DetectDevice(component: HTMLElement): Devices {
   if (component.classList.contains("mobile")) return "mobile";
 
