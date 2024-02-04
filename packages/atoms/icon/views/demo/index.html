@@ -17,7 +17,7 @@
 
 <body>
   <doc-card>
-    <h4 slot="header">Normal</h4>
+    <pap-typographt variant="C1" slot="header">Normal</pap-typographt>
     <pap-codeblock display="both">
       <pap-icon asset-base="public/icons" name="circle" cache="false">
         fallback
@@ -26,7 +26,7 @@
   </doc-card>
 
   <doc-card>
-    <h4 slot="header">With Container</h4>
+    <pap-typographt variant="C1" slot="header">With Container</pap-typographt>
     <pap-codeblock display="both">
       <pap-icon name="circle" container="small">
         fallback
@@ -49,7 +49,7 @@
   </doc-card>
 
   <doc-card>
-    <h4 slot="header">Funcase</h4>
+    <pap-typographt variant="C1" slot="header">Funcase</pap-typographt>
     <pap-codeblock display="both">
       <pap-icon custom-size="200" id="animation" cache="true" color="orange" name="circle">
         fallback
@@ -58,9 +58,19 @@
   </doc-card>
 
   <doc-card>
-    <h4 slot="header">With fallback</h4>
+    <pap-typographt variant="C1" slot="header">With fallback</pap-typographt>
     <pap-codeblock display="both">
       <pap-icon name="notfoundicon">fallback</pap-icon>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typographt variant="C1" slot="header">Flag Emojis</pap-typographt>
+    <pap-codeblock display="both">
+      <pap-icon country-flag="hu"></pap-icon>
+      <pap-icon country-flag="se"></pap-icon>
+      <pap-icon country-flag="cn"></pap-icon>
+      <pap-icon country-flag="gb"></pap-icon>
     </pap-codeblock>
   </doc-card>
 </body>

@@ -1,0 +1,59 @@
+{
+  "name": "@pap-it/theme",
+  "version": "0.0.0",
+  "scripts": {
+    "init": "sh .scripts/init.sh",
+    "test": ".scripts/test.sh",
+    "build": ".scripts/build.sh",
+    "watch": ".scripts/watch.sh",
+    "manual-publish": "sh .scripts/publish.sh",
+    "postversion": "sh .scripts/postversion.sh",
+    "combine": ".scripts/combine.sh && .scripts/start.sh combined",
+    "start": ".scripts/start.sh",
+    "isolate": "sh .scripts/isolate.sh",
+    "analyze": "sh .scripts/analyze.sh",
+    "interactive": "sh .scripts/helper/build-interactive.sh",
+    "variations": "sh .scripts/helper/build-variations.sh",
+    "component:add": "sh .scripts/helper/add-component.sh"
+  },
+  "main": "dist/src/index.js",
+  "files": [
+    "asset/",
+    "dist/"
+  ],
+  "exports": {
+    ".": "./dist/src/index.js",
+    "./wc": "./dist/register.bundle.mjs"
+  },
+  "author": "onkelhoy",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onkelhoy/web-components.git"
+  },
+  "dependencies": {
+    "@pap-it/icon": "^1.0.4",
+    "@pap-it/system-base": "^1.0.0",
+    "@pap-it/system-utils": "^1.0.0",
+    "@pap-it/toggle": "^1.0.4"
+  },
+  "devDependencies": {
+    "@pap-it/system-doc": "^1.0.0",
+    "esbuild": "^0.17.18",
+    "node-html-parser": "^6.1.5",
+    "node-sass": "^9.0.0",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.4"
+  },
+  "keywords": [
+    "web-component",
+    "typescript",
+    "sass"
+  ],
+  "description": ""
+}

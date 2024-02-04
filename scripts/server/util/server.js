@@ -44,7 +44,7 @@ app.get('/@pap-it/assets/:asset', (req, res) => {
       break;
   }
   const data = asset_getbyreference(reference)
-    .map(d => ({ ...d, path: undefined }));
+    .map(d => ({ ...d, fullpath: undefined }));
 
   res.status(200).json(data);
 });

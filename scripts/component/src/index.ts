@@ -18,3 +18,9 @@ export class COMPONENT_CLASSNAME extends BaseSystem {
     `
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "COMPONENT_PREFIXNAME": COMPONENT_CLASSNAME;
+  }
+}

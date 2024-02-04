@@ -1,38 +1,16 @@
 const fs = require('fs');
 const path = require('path');
-const { merge } = require('./assets');
-
-const SHORTINGS = {
-  chinese: 'ch',
-  dutch: 'nl',
-  english: 'en',
-  french: 'fe',
-  german: 'de',
-  hungarian: 'hu',
-  nepalli: 'np',
-  'north-korean': 'kp',
-  norweigian: 'no',
-  portoghese: 'pt',
-  slovenian: 'si',
-  'south-korean': 'kr',
-  spannish: 'es',
-  spanish: 'es',
-  swedish: 'sv',
-  yemeni: 'ye'
-}
-
-// const languageNameInEnglish = new Intl.DisplayNames(['en'], { type: 'language' });
+const { merge, TRANSLATION_META: META } = require('./assets');
 
 function mergeLanguage(output, type, languages) {
   if (!output[type]?.files) return;
 
   for (let file of output[type].files) {
     try {
-      let name = file.filename.split('.json')[0].toLowerCase();
-      if (SHORTINGS[name]) name = SHORTINGS[name];
-      // name = languageNameInEnglish.of(name).toLowerCase();
+      const name = file.filename.split('.json')[0].toLowerCase();
 
       const content = JSON.parse(file.content || '{}') || {};
+      // think its better to use DeepMerge
       languages[name] = { ...languages[name], ...content };
     }
     catch (e) {
@@ -45,13 +23,16 @@ function init() {
   // create the folder first
   fs.mkdirSync(path.join(process.env.VIEW_DIR, '.temp/translations'));
 
+  const languages = {};
   merge("translations", (output, save) => {
-    const languages = {};
     mergeLanguage(output, "global", languages);
     mergeLanguage(output, "package", languages);
     mergeLanguage(output, "view", languages);
 
     for (let lang in languages) {
+
+      if (!languages[lang].meta) languages[lang].meta = { region: lang, language: lang };
+      META[lang] = languages[lang].meta;
       save('translations/' + lang + '.json', JSON.stringify(languages[lang]))
     }
   });
