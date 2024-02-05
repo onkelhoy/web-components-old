@@ -1,86 +1,27 @@
-# Henry's Ecosystem
+# My Ecosystem
 
-## IDEAS
+**Author**: Henry Pap
 
-### system into other projects
-make a way where you can pass a config file for a component and name it accordingly like so:
-"{name}.project"
-with this we could use it to map out the convertion file where whatever could be passed - I think its best to do this in javascript. 
+## Background
 
-##### idea playground 
-{component-name} (button as example)
-{property} function () - (to manipulate property by return function)
-{property_add} function () - (self explained) [probably more to come]
+I've developed this ad a spite i've had to some collegues who did nothing and to prove them I could do what they did 10 times I started something, but it grew more and more and now I must say it is very good and I have taken this project to heart as it will help all my future projects (when it comes to web development).
 
+Many stuff still missing but day by day..
 
+### Scope
 
+Scope of this framework is to bring many a way to develop component to a much easier level where you get out of the box presentation of your work. You should mainly only focus on your code and test (still ongoing..) and you do this mainly inside the demo folder inside the views.
 
+The other stuff you will get for free from the analyse script that would generate you some pages like interactive to play around with what you've built, variations that would generate all variations based on your properties and documentation (wip that takes source code and asks AI to create doc for it). Later it would be cool to bring test, asset and a raw page as well.
 
+There's many tools inside this monorepo such as markdown, codeblock. And all scripts such as server, analyze, publish etc comes from here making almost a 0 dependency dev library (but cant do it all by myself).
 
+It heavily depends on the esbuilt which is just amazing!
 
+### Goal
 
+to become 0 dependency, f all the rest and their shitty code!
 
+## How to use it
 
-
-
-
-
-
-
-
-
-# OLD:::
-
-## Starting
-To create a new package you run the command `"create"` like:
-```bash
-npm run create
-```
-Which will give you some numerical options to choose - then a name and thats it. 
-
-## Developing
-Everything for code related is inside the `"src"` folder, you'll find `"component.ts"`, `"style.scss"` & `"types.ts"` for example which are the three most used files for your development. 
-
->### Why types ?
->In order to keep the component file clean and not cluttered with all the different types (which has a tendancy to grow as it evolves). It makes it easier for documentation too. 
-
-### Commands
->The rest can be found in package.json, I choose these as they "stick out"
-1. `"npm run doc"` - this runs the doc script that would generate the auto files if not exists
-2. `"npm run doc:force"` - same as above but it would enforce new files to generate (auto)
-
-### Styles 
-
-Try to use css-variables as much as you can, with fallback values:
-```css
-padding: var(--mycomponent-padding-large, var(--padding-large, 1rem));
-```
-This is good as we allow for theme's to specifically target the component, but also a common variable in this case "padding-large". This could be used by many components and thus can allow for themeing to be an ease (`global level styling`). 
-
-Another recommendation to follow for design is to use the :host as much as you can. 
-
-As the host has direct outside access for being targeted by CSS directly. In other words, when used by another component - that component can then change design directly using css (allows for `local level styling`).
-
-When we cannot use the host but still like to expose some internal elements for local level styling we can use the part:
-```html 
-<div part="div">
-    im inside the shadow-dom
-</div>
-```
-Which can be used then like:
-```css
-my-component::part(div) {
-    color: blue;
-}
-```
-
-## Important Folders
-1. `"src"` - self explained
-
-2. `"demo"` - from here the files are served when running the `"npm start"` command
-
-3. `".generate/doc/auto/"` - this is where the auto doc files will be created from chatgtp
-
-
-## Restrictions
-1. Use NPM (need the package-lock.json when building variations [inside extract-types.js])
+TODO

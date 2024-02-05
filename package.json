@@ -14,6 +14,7 @@
     "publish": "bash ./scripts/publish/run.sh",
     "create": "sh ./scripts/generator/copy.sh",
     "clean": "sh ./scripts/clean.sh",
+    "build": "npm run publish -- --force",
     "ecosystem:build": "sh ./scripts/ecosystem/build.sh",
     "ecosystem:start": "sh ./scripts/ecosystem/start.sh",
     "start": "npm run ecosystem:build & npm run ecosystem:start",

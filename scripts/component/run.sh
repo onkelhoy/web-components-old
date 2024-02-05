@@ -11,7 +11,7 @@ read -p "Enter the name of the component: " name
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECTSCOPE=$(node -pe "require('$ROOTDIR/package.json').name")
-PROJECTSCOPE=$(echo "$input" | cut -d'/' -f1 | awk -F'@' '{print $2}')
+PROJECTSCOPE=$(echo "$PROJECTSCOPE" | cut -d'/' -f1 | awk -F'@' '{print $2}')
 
 classname=$(echo $name | awk -F"[_-]" '{$1=toupper(substr($1,1,1))substr($1,2); for (i=2;i<=NF;i++){$i=toupper(substr($i,1,1))substr($i,2)}; print}' OFS="")
 prefixname="${prefix}-${name}"

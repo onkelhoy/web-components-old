@@ -264,9 +264,11 @@ export function property(options?: Partial<PropertyOption>) {
     Object.defineProperty(target, propertyKey, {
       get() {
         const data: any = this[`_${propertyKey}`];
-        return options?.get ? options.get(data) : data;
+        return options?.get ? options.get.call(this, data) : data;
       },
       set(value: any) {
+        if (options?.set) value = options.set.call(this, value);
+
         const valuestring = convertToString(value, _options.type);
         const oldvaluestring = convertToString(this[`_${propertyKey}`], _options.type)
         if (oldvaluestring === valuestring) {
@@ -274,7 +276,7 @@ export function property(options?: Partial<PropertyOption>) {
         }
 
         const old = this[`_${propertyKey}`];
-        this[`_${propertyKey}`] = options?.set ? options.set(value) : value;
+        this[`_${propertyKey}`] = value;
 
         const operation = () => {
           // we want to use spread over attribute (I guess?)
