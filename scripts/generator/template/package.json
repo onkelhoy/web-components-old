@@ -44,7 +44,7 @@
     "@pap-it/system-doc": "^1.0.0",
     "esbuild": "^0.17.18",
     "tslib": "^2.5.0",
-    "node-sass": "^9.0.0",
+    "sass": "^1.70.0",
     "typescript": "^5.0.4",
     "node-html-parser": "^6.1.5"
   },

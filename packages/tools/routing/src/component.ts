@@ -1,12 +1,13 @@
 // utils 
-import { html, property, debounce } from "@pap-it/system-utils";
+import { html, property, debounce, context } from "@pap-it/system-utils";
 
 // templates
 import { AssetTemplate } from "@pap-it/templates-asset";
 
 export class RoutingTool extends AssetTemplate {
 
-  @property({ onUpdate: "update_url", rerender: false }) url: string = "";
+  @property({ onUpdate: "update_url", rerender: false, context: true }) url: string = "";
+  @context({ name: "url" }) parenturl?: string;
 
   private html_content: string = "";
 
