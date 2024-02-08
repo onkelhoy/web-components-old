@@ -6,7 +6,7 @@ import '@pap-it/icon/wc';
 
 // templates
 import { TextinputTemplate } from '@pap-it/templates-textinput';
-import { Placement, PopoverTemplate } from "@pap-it/templates-popover";
+import { Placement, Popover } from "@pap-it/templates-popover";
 import '@pap-it/templates-popover/wc';
 import '@pap-it/templates-box/wc';
 
@@ -27,7 +27,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
   @property({ type: Array, rerender: false, onUpdate: "onoptionupdate" }) options?: Array<OptionType>;
   @property({ rerender: false, type: Boolean }) popoveropen: boolean = false;
 
-  @query('pap-popover-template') popoverElement!: PopoverTemplate;
+  @query('pap-popover-template') popoverElement!: Popover;
 
   private __options: IOption[] = [];
   private handleafterupdate_attemps = 0;
@@ -170,7 +170,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
         <pap-box-template part="menu" class="options" radius="small" elevation="small">
           <slot>
             ${this.__options.map(v => html`<pap-option key="${v.value}" value="${v.value}">${v.text}</pap-option>`)}
-            ${this.__options?.length === 0 ? '<pap-option disabled key="missing-value"><pap-translate>Missing Options</pap-translate></pap-option>' : ''}
+            ${this.__options?.length === 0 ? '<pap-option disabled key="missing-value"><pap-translator>Missing Options</pap-translator></pap-option>' : ''}
           </slot>
         </pap-box-template>
       </pap-popover-template>

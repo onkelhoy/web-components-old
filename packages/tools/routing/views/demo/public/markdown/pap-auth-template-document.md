@@ -25,12 +25,12 @@ import "@pap-it/typography/wc";
 import "@pap-it/icon/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 
-export class AuthTemplate extends BaseSystem {
+export class AuthTemplate extends Base {
   static style = style;
 
   render() {
@@ -100,12 +100,12 @@ import "@pap-it/typography/wc";
 import "@pap-it/icon/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 
-export class AuthTemplate extends BaseSystem {
+export class AuthTemplate extends Base {
   static style = style;
 
   render() {
@@ -161,12 +161,12 @@ import "@pap-it/typography/wc";
 import "@pap-it/icon/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 
-export class AuthTemplate extends BaseSystem {
+export class AuthTemplate extends Base {
   static style = style;
 
   render() {

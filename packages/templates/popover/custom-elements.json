@@ -1,5 +1,5 @@
 {
-  "className": "PopoverTemplate",
+  "className": "Popover",
   "folder": "/Users/henry/Developer/projects/web-components/packages/templates/popover",
   "properties": [
     {
@@ -67,7 +67,7 @@
         "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseSystem",
+        "name": "Base",
         "from": "@pap-it/system-base"
       },
       {

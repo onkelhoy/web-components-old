@@ -236,7 +236,7 @@
 
   /*
   * Color tokens 
-  */ 
+  */
 
   /* Text */
   --pap-color-text: var(--pap-color-neutral-950);
@@ -362,6 +362,7 @@
   --pap-color-icon-ondanger-hover: var(--pap-color-neutral-950);
   --pap-color-icon-ondanger-pressed: var(--pap-color-neutral-950);
   --pap-color-icon-disabled: var(--pap-color-neutral-600);
+  --pap-color-icon-information: var(--pap-color-secondary-800);
 
   /* Border */
   --pap-color-border: var(--pap-color-neutral-500);
@@ -372,6 +373,7 @@
   --pap-color-border-inverse-strong: var(--pap-color-neutral-100);
   --pap-color-border-brand: var(--pap-color-primary-400);
   --pap-color-border-accent-02-secondary: var(--pap-color-accent-02-700);
+  --pap-color-border-information: var(--pap-color-secondary-800);
   --pap-color-border-information-secondary: var(--pap-color-secondary-700);
   --pap-color-border-success: var(--pap-color-success-600);
   --pap-color-border-success-secondary: var(--pap-color-success-700);
@@ -386,7 +388,7 @@
   --pap-color-shadow: color-mix(in oklab, var(--pap-color-neutral-50), transparent 60%);
 
   /* HOVER COLORS */
-  --pap-color-hover-50:  rgba(255, 255, 255, 0.01);
+  --pap-color-hover-50: rgba(255, 255, 255, 0.01);
   --pap-color-hover-100: rgba(255, 255, 255, 0.03);
   --pap-color-hover-200: rgba(255, 255, 255, 0.05);
   --pap-color-hover-300: rgba(255, 255, 255, 0.08);
@@ -522,7 +524,7 @@
   --pap-color-mountain-white-800: #454545;
   --pap-color-mountain-white-900: #3D3D3D;
   --pap-color-mountain-white-950: #262626;
-  
+
   /*
   * Theme Tokens
   */
@@ -633,7 +635,7 @@
 
   /*
   * Color tokens 
-  */ 
+  */
 
   /* Text */
   --pap-color-text: var(--pap-color-neutral-900);
@@ -759,6 +761,7 @@
   --pap-color-icon-ondanger-hover: var(--pap-color-neutral-50);
   --pap-color-icon-ondanger-pressed: var(--pap-color-neutral-50);
   --pap-color-icon-disabled: var(--pap-color-neutral-500);
+  --pap-color-icon-information: var(--pap-color-secondary-800);
 
   /* Border */
   --pap-color-border: var(--pap-color-neutral-400);
@@ -769,6 +772,7 @@
   --pap-color-border-inverse-strong: var(--pap-color-neutral-50);
   --pap-color-border-brand: var(--pap-color-primary-600);
   --pap-color-border-accent-02-secondary: var(--pap-color-accent-02-200);
+  --pap-color-border-information: var(--pap-color-secondary-800);
   --pap-color-border-information-secondary: var(--pap-color-secondary-200);
   --pap-color-border-success: var(--pap-color-success-700);
   --pap-color-border-success-secondary: var(--pap-color-success-200);
@@ -782,17 +786,17 @@
   --pap-color-shadow: color-mix(in oklab, var(--pap-color-neutral-600), transparent 80%);
 
   /* HOVER COLORS */
-  --pap-color-hover-50: rgba(0,0,0,0.01);
-  --pap-color-hover-100: rgba(0,0,0,0.03);
-  --pap-color-hover-200: rgba(0,0,0,0.05);
-  --pap-color-hover-300: rgba(0,0,0,0.08);
-  --pap-color-hover-400: rgba(0,0,0,0.1);
-  --pap-color-hover-500: rgba(0,0,0,0.2);
-  --pap-color-hover-600: rgba(0,0,0,0.3);
-  --pap-color-hover-700: rgba(0,0,0,0.4);
-  --pap-color-hover-800: rgba(0,0,0,0.5);
-  --pap-color-hover-900: rgba(0,0,0,0.6);
-  --pap-color-hover-950: rgba(0,0,0,0.7);
+  --pap-color-hover-50: rgba(0, 0, 0, 0.01);
+  --pap-color-hover-100: rgba(0, 0, 0, 0.03);
+  --pap-color-hover-200: rgba(0, 0, 0, 0.05);
+  --pap-color-hover-300: rgba(0, 0, 0, 0.08);
+  --pap-color-hover-400: rgba(0, 0, 0, 0.1);
+  --pap-color-hover-500: rgba(0, 0, 0, 0.2);
+  --pap-color-hover-600: rgba(0, 0, 0, 0.3);
+  --pap-color-hover-700: rgba(0, 0, 0, 0.4);
+  --pap-color-hover-800: rgba(0, 0, 0, 0.5);
+  --pap-color-hover-900: rgba(0, 0, 0, 0.6);
+  --pap-color-hover-950: rgba(0, 0, 0, 0.7);
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -920,7 +924,7 @@
   --pap-color-mountain-white-800: #454545;
   --pap-color-mountain-white-900: #3D3D3D;
   --pap-color-mountain-white-950: #262626;
-  
+
   /*
   * Theme Tokens
   */
@@ -1031,7 +1035,7 @@
 
   /*
   * Color tokens 
-  */ 
+  */
 
   /* Text */
   --pap-color-text: var(--pap-color-neutral-900);
@@ -1157,6 +1161,7 @@
   --pap-color-icon-ondanger-hover: var(--pap-color-neutral-50);
   --pap-color-icon-ondanger-pressed: var(--pap-color-neutral-50);
   --pap-color-icon-disabled: var(--pap-color-neutral-500);
+  --pap-color-icon-information: var(--pap-color-secondary-800);
 
   /* Border */
   --pap-color-border: var(--pap-color-neutral-400);
@@ -1167,6 +1172,7 @@
   --pap-color-border-inverse-strong: var(--pap-color-neutral-50);
   --pap-color-border-brand: var(--pap-color-primary-600);
   --pap-color-border-accent-02-secondary: var(--pap-color-accent-02-200);
+  --pap-color-border-information: var(--pap-color-secondary-800);
   --pap-color-border-information-secondary: var(--pap-color-secondary-200);
   --pap-color-border-success: var(--pap-color-success-700);
   --pap-color-border-success-secondary: var(--pap-color-success-200);
@@ -1180,17 +1186,17 @@
   --pap-color-shadow: color-mix(in oklab, var(--pap-color-neutral-600), transparent 80%);
 
   /* HOVER COLORS */
-  --pap-color-hover-50: rgba(0,0,0,0.01);
-  --pap-color-hover-100: rgba(0,0,0,0.03);
-  --pap-color-hover-200: rgba(0,0,0,0.05);
-  --pap-color-hover-300: rgba(0,0,0,0.08);
-  --pap-color-hover-400: rgba(0,0,0,0.1);
-  --pap-color-hover-500: rgba(0,0,0,0.2);
-  --pap-color-hover-600: rgba(0,0,0,0.3);
-  --pap-color-hover-700: rgba(0,0,0,0.4);
-  --pap-color-hover-800: rgba(0,0,0,0.5);
-  --pap-color-hover-900: rgba(0,0,0,0.6);
-  --pap-color-hover-950: rgba(0,0,0,0.7);
+  --pap-color-hover-50: rgba(0, 0, 0, 0.01);
+  --pap-color-hover-100: rgba(0, 0, 0, 0.03);
+  --pap-color-hover-200: rgba(0, 0, 0, 0.05);
+  --pap-color-hover-300: rgba(0, 0, 0, 0.08);
+  --pap-color-hover-400: rgba(0, 0, 0, 0.1);
+  --pap-color-hover-500: rgba(0, 0, 0, 0.2);
+  --pap-color-hover-600: rgba(0, 0, 0, 0.3);
+  --pap-color-hover-700: rgba(0, 0, 0, 0.4);
+  --pap-color-hover-800: rgba(0, 0, 0, 0.5);
+  --pap-color-hover-900: rgba(0, 0, 0, 0.6);
+  --pap-color-hover-950: rgba(0, 0, 0, 0.7);
  }
  	:root {
 
@@ -1427,7 +1433,7 @@
 
   /*
   * Color tokens 
-  */ 
+  */
 
   /* Text */
   --pap-color-text: var(--pap-color-neutral-950);
@@ -1553,6 +1559,7 @@
   --pap-color-icon-ondanger-hover: var(--pap-color-neutral-950);
   --pap-color-icon-ondanger-pressed: var(--pap-color-neutral-950);
   --pap-color-icon-disabled: var(--pap-color-neutral-600);
+  --pap-color-icon-information: var(--pap-color-secondary-800);
 
   /* Border */
   --pap-color-border: var(--pap-color-neutral-500);
@@ -1563,6 +1570,7 @@
   --pap-color-border-inverse-strong: var(--pap-color-neutral-100);
   --pap-color-border-brand: var(--pap-color-primary-400);
   --pap-color-border-accent-02-secondary: var(--pap-color-accent-02-700);
+  --pap-color-border-information: var(--pap-color-secondary-800);
   --pap-color-border-information-secondary: var(--pap-color-secondary-700);
   --pap-color-border-success: var(--pap-color-success-600);
   --pap-color-border-success-secondary: var(--pap-color-success-700);
@@ -1577,7 +1585,7 @@
   --pap-color-shadow: color-mix(in oklab, var(--pap-color-neutral-50), transparent 60%);
 
   /* HOVER COLORS */
-  --pap-color-hover-50:  rgba(255, 255, 255, 0.01);
+  --pap-color-hover-50: rgba(255, 255, 255, 0.01);
   --pap-color-hover-100: rgba(255, 255, 255, 0.03);
   --pap-color-hover-200: rgba(255, 255, 255, 0.05);
   --pap-color-hover-300: rgba(255, 255, 255, 0.08);
@@ -1715,7 +1723,7 @@
   --pap-color-mountain-white-800: #454545;
   --pap-color-mountain-white-900: #3D3D3D;
   --pap-color-mountain-white-950: #262626;
-  
+
   /*
   * Theme Tokens
   */
@@ -1826,7 +1834,7 @@
 
   /*
   * Color tokens 
-  */ 
+  */
 
   /* Text */
   --pap-color-text: var(--pap-color-neutral-900);
@@ -1952,6 +1960,7 @@
   --pap-color-icon-ondanger-hover: var(--pap-color-neutral-50);
   --pap-color-icon-ondanger-pressed: var(--pap-color-neutral-50);
   --pap-color-icon-disabled: var(--pap-color-neutral-500);
+  --pap-color-icon-information: var(--pap-color-secondary-800);
 
   /* Border */
   --pap-color-border: var(--pap-color-neutral-400);
@@ -1962,6 +1971,7 @@
   --pap-color-border-inverse-strong: var(--pap-color-neutral-50);
   --pap-color-border-brand: var(--pap-color-primary-600);
   --pap-color-border-accent-02-secondary: var(--pap-color-accent-02-200);
+  --pap-color-border-information: var(--pap-color-secondary-800);
   --pap-color-border-information-secondary: var(--pap-color-secondary-200);
   --pap-color-border-success: var(--pap-color-success-700);
   --pap-color-border-success-secondary: var(--pap-color-success-200);
@@ -1975,17 +1985,17 @@
   --pap-color-shadow: color-mix(in oklab, var(--pap-color-neutral-600), transparent 80%);
 
   /* HOVER COLORS */
-  --pap-color-hover-50: rgba(0,0,0,0.01);
-  --pap-color-hover-100: rgba(0,0,0,0.03);
-  --pap-color-hover-200: rgba(0,0,0,0.05);
-  --pap-color-hover-300: rgba(0,0,0,0.08);
-  --pap-color-hover-400: rgba(0,0,0,0.1);
-  --pap-color-hover-500: rgba(0,0,0,0.2);
-  --pap-color-hover-600: rgba(0,0,0,0.3);
-  --pap-color-hover-700: rgba(0,0,0,0.4);
-  --pap-color-hover-800: rgba(0,0,0,0.5);
-  --pap-color-hover-900: rgba(0,0,0,0.6);
-  --pap-color-hover-950: rgba(0,0,0,0.7);
+  --pap-color-hover-50: rgba(0, 0, 0, 0.01);
+  --pap-color-hover-100: rgba(0, 0, 0, 0.03);
+  --pap-color-hover-200: rgba(0, 0, 0, 0.05);
+  --pap-color-hover-300: rgba(0, 0, 0, 0.08);
+  --pap-color-hover-400: rgba(0, 0, 0, 0.1);
+  --pap-color-hover-500: rgba(0, 0, 0, 0.2);
+  --pap-color-hover-600: rgba(0, 0, 0, 0.3);
+  --pap-color-hover-700: rgba(0, 0, 0, 0.4);
+  --pap-color-hover-800: rgba(0, 0, 0, 0.5);
+  --pap-color-hover-900: rgba(0, 0, 0, 0.6);
+  --pap-color-hover-950: rgba(0, 0, 0, 0.7);
 }
 
 
@@ -2225,7 +2235,7 @@
 
   /*
   * Color tokens 
-  */ 
+  */
 
   /* Text */
   --pap-color-text: var(--pap-color-neutral-950);
@@ -2351,6 +2361,7 @@
   --pap-color-icon-ondanger-hover: var(--pap-color-neutral-950);
   --pap-color-icon-ondanger-pressed: var(--pap-color-neutral-950);
   --pap-color-icon-disabled: var(--pap-color-neutral-600);
+  --pap-color-icon-information: var(--pap-color-secondary-800);
 
   /* Border */
   --pap-color-border: var(--pap-color-neutral-500);
@@ -2361,6 +2372,7 @@
   --pap-color-border-inverse-strong: var(--pap-color-neutral-100);
   --pap-color-border-brand: var(--pap-color-primary-400);
   --pap-color-border-accent-02-secondary: var(--pap-color-accent-02-700);
+  --pap-color-border-information: var(--pap-color-secondary-800);
   --pap-color-border-information-secondary: var(--pap-color-secondary-700);
   --pap-color-border-success: var(--pap-color-success-600);
   --pap-color-border-success-secondary: var(--pap-color-success-700);
@@ -2375,7 +2387,7 @@
   --pap-color-shadow: color-mix(in oklab, var(--pap-color-neutral-50), transparent 60%);
 
   /* HOVER COLORS */
-  --pap-color-hover-50:  rgba(255, 255, 255, 0.01);
+  --pap-color-hover-50: rgba(255, 255, 255, 0.01);
   --pap-color-hover-100: rgba(255, 255, 255, 0.03);
   --pap-color-hover-200: rgba(255, 255, 255, 0.05);
   --pap-color-hover-300: rgba(255, 255, 255, 0.08);

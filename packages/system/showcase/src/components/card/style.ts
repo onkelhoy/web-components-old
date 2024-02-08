@@ -1,18 +1,1 @@
-export const style = `:host {
-  display: block; }
-
-pap-box-template {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: var(--gap-medium, 16px);
-  overflow-x: auto;
-  text-align: center;
-  padding: var(--padding-large, 24px) var(--padding-medium, 16px);
-  position: relative;
-  box-sizing: border-box;
-  min-height: 250px;
-  width: 100%;
-  background-color: var(--pap-color-bg-secondary, #F6F7F8); }
-  pap-box-template ::slotted(*) {
-    margin: auto; }`;
+export const style = `:host{display:block}pap-box-template{display:flex;flex-direction:column;justify-content:flex-start;gap:var(--gap-medium, 16px);overflow-x:auto;text-align:center;padding:var(--padding-large, 24px) var(--padding-medium, 16px);position:relative;box-sizing:border-box;min-height:250px;width:100%;background-color:var(--pap-color-bg-secondary, #F6F7F8)}pap-box-template ::slotted(*){margin:auto}`;

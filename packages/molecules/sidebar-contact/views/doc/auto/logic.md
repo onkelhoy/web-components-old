@@ -1,10 +1,12 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
+## SOURCE-CODE
+
  // utils
 import { html, property } from "@pap-it/system-utils";
 
@@ -16,14 +18,14 @@ import "@pap-it/typography/wc";
 import "@pap-it/divider/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
 // local
 import { style } from "./style";
 import { Contact } from "./types";
 
-export class SidebarContact extends BaseSystem {
+export class SidebarContact extends Base {
   static style = style;
 
   @property({ type: Boolean }) open: boolean = false;
@@ -98,7 +100,6 @@ export class SidebarContact extends BaseSystem {
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-sidebar-contact": SidebarContact;
@@ -106,6 +107,7 @@ declare global {
 }
 
 ## TYPE-CODE: export type Contact = {
+
   role: string;
   name: string;
   phone?: string;

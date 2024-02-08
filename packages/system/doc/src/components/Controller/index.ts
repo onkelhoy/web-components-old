@@ -2,11 +2,11 @@
 import { html } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 import { style } from "./style.js";
 
-export class Controller extends BaseSystem {
+export class Controller extends Base {
   static style = style;
 
   private section!: HTMLElement;

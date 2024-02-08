@@ -1,9 +1,1 @@
-export const style = `:host {
-  display: inline-block;
-  background-color: var(--pap-color-bg, #FFFFFF);
-  color: var(--pap-color-text, #29292F);
-  width: 100%;
-  padding: var(--padding-large, 24px);
-  box-sizing: border-box;
-  border-radius: var(--radius-medium, 8px);
-  margin-bottom: var(--margin-medium, 16px); }`;
+export const style = `:host{display:inline-block;background-color:var(--pap-color-bg, #FFFFFF);color:var(--pap-color-text, #29292F);width:100%;padding:var(--padding-large, 24px);box-sizing:border-box;border-radius:var(--radius-medium, 8px);margin-bottom:var(--margin-medium, 16px)}`;

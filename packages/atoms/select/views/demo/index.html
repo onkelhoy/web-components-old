@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select demo</title>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Normal</pap-typography>
+
+    <pap-typography>Empty</pap-typography>
+    <pap-codeblock display="both">
+      <pap-select></pap-select>
+    </pap-codeblock>
+
+    <pap-typography>Label</pap-typography>
+    <pap-codeblock display="both">
+      <pap-select label="Hello world"></pap-select>
+    </pap-codeblock>
+
+    <pap-typography>With Options</pap-typography>
+    <pap-codeblock display="both">
+      <pap-select>
+        <pap-option>Option 1</pap-option>
+        <pap-option>Option 2</pap-option>
+        <pap-option>Option 3</pap-option>
+        <pap-option value="custom-value">This option has a custom value</pap-option>
+      </pap-select>
+    </pap-codeblock>
+
+    <pap-typography>Multiple</pap-typography>
+    <pap-codeblock display="both">
+      <pap-select multiple>
+        <pap-option>Option 1</pap-option>
+        <pap-option>Option 2</pap-option>
+        <pap-option>Option 3</pap-option>
+      </pap-select>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography variant="C1" slot="header">Playing with Mode and Dyanmic-width</pap-typography>
+    <pap-codeblock display="both">
+      <pap-select label="mode=hug" mode="hug">
+        <pap-option>some option</pap-option>
+        <pap-option>some other option</pap-option>
+        <pap-option>and the longest option</pap-option>
+      </pap-select>
+    </pap-codeblock>
+
+    <pap-codeblock display="both">
+      <pap-select label="dynamic-width" dynamic-width>
+        <pap-option>some option</pap-option>
+        <pap-option>some other option</pap-option>
+        <pap-option>and the longest option</pap-option>
+      </pap-select>
+    </pap-codeblock>
+
+    <pap-codeblock display="both">
+      <pap-select label="Both hug and dynamic-width" dynamic-width mode="hug">
+        <pap-option>some option</pap-option>
+        <pap-option>some other option</pap-option>
+        <pap-option>and the longest option</pap-option>
+      </pap-select>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Search</pap-typography>
+
+    <pap-typography>As static</pap-typography>
+    <pap-codeblock display="both">
+      <pap-select search="static">
+        <pap-option>Henry</pap-option>
+        <pap-option>Lennart</pap-option>
+        <pap-option>Håkan</pap-option>
+        <pap-option>Bosse</pap-option>
+        <pap-option>Ola</pap-option>
+        <pap-option>Snorre</pap-option>
+        <pap-option>Bengt</pap-option>
+        <pap-option>Gunnar</pap-option>
+        <pap-option>Stig</pap-option>
+        <pap-option>Nils</pap-option>
+        <pap-option>Björn</pap-option>
+        <pap-option>Ingmar</pap-option>
+        <pap-option>Sven</pap-option>
+        <pap-option>Lars</pap-option>
+        <pap-option>Henrik</pap-option>
+        <pap-option>Per</pap-option>
+        <pap-option>Erik</pap-option>
+      </pap-select>
+    </pap-codeblock>
+
+    <pap-typography>As additive</pap-typography>
+    <pap-codeblock display="both">
+      <pap-select search="additive">
+        <pap-option>Henry</pap-option>
+        <pap-option>Lennart</pap-option>
+        <pap-option>Håkan</pap-option>
+        <pap-option>Bosse</pap-option>
+        <pap-option>Ola</pap-option>
+        <pap-option>Snorre</pap-option>
+        <pap-option>Bengt</pap-option>
+        <pap-option>Gunnar</pap-option>
+        <pap-option>Stig</pap-option>
+        <pap-option>Nils</pap-option>
+        <pap-option>Björn</pap-option>
+        <pap-option>Ingmar</pap-option>
+        <pap-option>Sven</pap-option>
+        <pap-option>Lars</pap-option>
+        <pap-option>Henrik</pap-option>
+        <pap-option>Per</pap-option>
+        <pap-option>Erik</pap-option>
+      </pap-select>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Search</pap-typography>
+
+    <pap-typography>As static</pap-typography>
+    <pap-codeblock display="both">
+      <form>
+        <pap-select name="first">
+          <pap-option value="a">text a</pap-option>
+          <pap-option value="b">text b</pap-option>
+          <pap-option value="c">text c</pap-option>
+        </pap-select>
+
+        <pap-select name="second" value="c">
+          <pap-option value="a">text a</pap-option>
+          <pap-option value="b">text b</pap-option>
+          <pap-option value="c">text c</pap-option>
+        </pap-select>
+
+        <pap-select name="third" value="b,c" multiple>
+          <pap-option value="a">text a</pap-option>
+          <pap-option value="b">text b</pap-option>
+          <pap-option value="c">text c</pap-option>
+        </pap-select>
+
+        <pap-button type="submit">submit</pap-button>
+        <pap-button type="reset">reset</pap-button>
+      </form>
+    </pap-codeblock>
+  </doc-card>
+</body>
+
+</html>

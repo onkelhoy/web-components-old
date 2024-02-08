@@ -5,8 +5,10 @@
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
     "build": ".scripts/build.sh",
+    "react": "sh .scripts/helper/build-react.sh",
     "watch": ".scripts/watch.sh",
     "manual-publish": "sh .scripts/publish.sh",
+    "preversion": "sh .scripts/preversion.sh",
     "postversion": "sh .scripts/postversion.sh",
     "combine": ".scripts/combine.sh && .scripts/start.sh combined",
     "start": ".scripts/start.sh",
@@ -19,11 +21,13 @@
   "main": "dist/src/index.js",
   "files": [
     "asset/",
-    "dist/"
+    "dist/",
+    "react/"
   ],
   "exports": {
     ".": "./dist/src/index.js",
-    "./wc": "./dist/register.bundle.mjs"
+    "./wc": "./dist/register.bundle.mjs",
+    "./react": "./react/index.ts"
   },
   "author": "GITNAME",
   "private": false,

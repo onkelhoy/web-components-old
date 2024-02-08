@@ -1,4 +1,4 @@
-import { BaseSystem } from '@pap-it/system-base';
+import { Base } from '@pap-it/system-base';
 import { property } from '@pap-it/system-utils';
 
 // locals
@@ -9,7 +9,7 @@ function padWithZeros(number: number) {
   return String(number).padStart(3, '0');
 }
 
-export class ColorTemplate extends BaseSystem {
+export class Color extends Base {
 
   @property({
     onUpdate: 'onColorUpdate',
@@ -44,6 +44,6 @@ export class ColorTemplate extends BaseSystem {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-color-template": ColorTemplate;
+    "pap-color-template": Color;
   }
 }

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Switch demo</title>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+  <doc-card>
+    <pap-typography slot="header" variant="C2">Stacked</pap-typography>
+    <pap-codeblock color="background" display="both">
+      <pap-switch size="small"></pap-switch>
+      <pap-switch size="medium"></pap-switch>
+      <pap-switch size="large"></pap-switch>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C2">Variants</pap-typography>
+    <pap-codeblock color="background" display="both">
+      <pap-switch variant="primary"></pap-switch>
+      <pap-switch variant="secondary"></pap-switch>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C2">Scale</pap-typography>
+    <pap-codeblock color="background" display="both">
+      <pap-switch variant="secondary" scale="true"></pap-switch>
+      <pap-switch variant="secondary" scale="false"></pap-switch>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C2">Field Stuff</pap-typography>
+    <pap-typography>Prefix & Suffix</pap-typography>
+    <pap-codeblock color="background" display="both">
+      <pap-switch checked="true">
+        <span slot="prefix">pre</span>
+        <span slot="suffix">suf</span>
+      </pap-switch>
+    </pap-codeblock>
+    <!-- 
+    <pap-typography>Help text</pap-typography>
+    <pap-codeblock color="background" display="both">
+      <pap-switch label="Hello World" message="Helper text on bottom"></pap-switch>
+    </pap-codeblock> -->
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C2">Label</pap-typography>
+    <pap-typography>Normal</pap-typography>
+    <pap-codeblock color="background" display="both">
+      <pap-switch label="Hello World"></pap-switch>
+    </pap-codeblock>
+
+    <pap-typography>Support Label</pap-typography>
+    <pap-codeblock color="background" display="both">
+      <pap-switch support-label="Im some kind of support"></pap-switch>
+    </pap-codeblock>
+
+    <pap-typography>Both Labels</pap-typography>
+    <pap-codeblock color="background" display="both">
+      <pap-switch label="Hello World" support-label="Im some kind of support"></pap-switch>
+    </pap-codeblock>
+  </doc-card>
+</body>
+
+</html>

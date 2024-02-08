@@ -7,7 +7,7 @@ import { Translator } from "@pap-it/tools-translator";
 import { style } from "./style";
 import { CanvasFunction } from './types';
 
-export class CanvasTemplate extends Translator {
+export class Canvas extends Translator {
   static style = style;
 
   @query({ selector: 'canvas[part="canvas"]', onload: 'oncanvasload' }) canvasElement!: HTMLCanvasElement;
@@ -132,6 +132,6 @@ export class CanvasTemplate extends Translator {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-canvas-template": CanvasTemplate;
+    "pap-canvas-template": Canvas;
   }
 }

@@ -5,13 +5,13 @@ import { html, property, FormatNumber } from "@pap-it/system-utils";
 import "@pap-it/typography/wc"
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc"
 
 // local 
 import { style } from './style';
 
-export class Badge extends BaseSystem {
+export class Badge extends Base {
   static style = style;
 
   @property({ type: Number }) count: number = 0;

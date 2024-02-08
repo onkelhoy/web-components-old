@@ -2,12 +2,12 @@
 import { html, property, ExtractSlotValue } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-prefix-suffix/wc";
 
 import { style } from "./style";
 
-export class MenuItem extends BaseSystem {
+export class MenuItem extends Base {
   static style = style;
 
   @property({ type: Boolean, rerender: false }) checked = false;

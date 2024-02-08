@@ -37,9 +37,16 @@ function extractor(folder_path, className) {
   };
   let classInfo = null;
   let imports = [];
+  const events = [];
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
+
+    // check for comments
+    if (/^\s*\/\//.test(line)) continue;
+    if (/^\s*\/\*/.test(line)) continue;
+    if (/^\s*\*/.test(line)) continue;
+
     let _imports = extract_import(line);
     if (_imports) {
       imports = imports.concat(_imports);
@@ -49,6 +56,30 @@ function extractor(folder_path, className) {
     const classLine = line.match(/class\s(\w+)\sextends\W(\w+)/);
     if (classLine) {
       classInfo = { name: classLine[1], extends: classLine[2] };
+    }
+
+    if (/\.dispatchEvent\(/.test(line)) {
+      let eventtype = null;
+      let eventname = null;
+      const matches = line.match(/\.dispatchEvent\(new (\w+)\("(\w+)"(,\s?\{\sdetail:\s(.*))?/);
+      if (matches) {
+        eventtype = matches[1];
+        eventname = matches[2];
+
+        console.log(matches);
+      }
+      else {
+        console.log('[ERROR]: found a disapatchEvent but no type associated');
+        continue;
+      }
+
+      if (eventtype === "CustomEvent") {
+
+      }
+      else {
+        events.push({ type: eventtype, name: eventname });
+        continue;
+      }
     }
 
     if (/__decorate\(\[/.test(line)) {
@@ -89,7 +120,7 @@ function extractor(folder_path, className) {
   }
 
   let extend_class = null;
-  if (classInfo.extends && !["HTMLElement", "BaseSystem"].includes(classInfo.extends)) {
+  if (classInfo.extends && !["HTMLElement", "Base"].includes(classInfo.extends)) {
     for (let imp of imports) {
       if (imp.name === classInfo.extends) {
         const super_path = getLocalModule(imp.from);

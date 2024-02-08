@@ -11,13 +11,13 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { property } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem, RenderType } from "@pap-it/system-base";
+import { Base, RenderType } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 import { Elevation, Radius } from "./types";
 
-export class BoxTemplate extends BaseSystem {
+export class Box extends Base {
     static styles = [style];
 
     @property({ rerender: false }) radius: Radius = "circular";
@@ -32,7 +32,7 @@ export class BoxTemplate extends BaseSystem {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "pap-box-template": BoxTemplate;
+        "pap-box-template": Box;
     }
 }
 

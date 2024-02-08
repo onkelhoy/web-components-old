@@ -3,7 +3,7 @@ import { html, property, debounce } from "@pap-it/system-utils";
 import "@pap-it/templates-popover/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 // import { Color } from "@pap-it/templates-color";
 
 import { style } from "./style";
@@ -16,7 +16,7 @@ function toHEX(value: number) {
   return h;
 }
 
-export class ColorPickerInput extends BaseSystem {
+export class ColorPickerInput extends Base {
   static style = style;
 
   private colorpicker_element!: ColorPicker;

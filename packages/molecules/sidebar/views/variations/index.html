@@ -1,192 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sidebar - Variations</title>
 
-  <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="style.css">
 
   <script defer type="module" src="main.js"></script>
 </head>
+
 <body>
-  
-<h1 data-title="class">Sidebar Properties</h1>
-        <doc-card class="property" data-name="mode">
-            <h2 slot="header"><span class="deemphasize">Property: </span>mode</h2>
 
-            <div class="property-info">
-              <p>type: Mode</p>
-              <p>default-value: open</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="open">
-                    <h4><span class="deemphasize">Property-Value: </span>open</h4>
-                    <pap-codeblock display="both">
-                      <pap-sidebar 
-                        mode="open"
-                        
-                      >
-                        <p>Hello World</p>
-                      </pap-sidebar>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="collapsed">
-                    <h4><span class="deemphasize">Property-Value: </span>collapsed</h4>
-                    <pap-codeblock display="both">
-                      <pap-sidebar 
-                        mode="collapsed"
-                        
-                      >
-                        <p>Hello World</p>
-                      </pap-sidebar>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="hover">
-                    <h4><span class="deemphasize">Property-Value: </span>hover</h4>
-                    <pap-codeblock display="both">
-                      <pap-sidebar 
-                        mode="hover"
-                        
-                      >
-                        <p>Hello World</p>
-                      </pap-sidebar>
-                    </pap-codeblock>
-                  </div>
-                
-            </div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="selected">
-            <h2 slot="header"><span class="deemphasize">Property: </span>selected</h2>
+  <h1 data-title="class">Sidebar Properties</h1>
+  <doc-card class="property" data-name="mode">
+    <h2 slot="header"><span class="deemphasize">Property: </span>mode</h2>
 
-            <div class="property-info">
-              <p>type: string</p>
-              <p>default-value: undefined</p>
-              <p>required: false</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="foo">
-                    <h4><span class="deemphasize">Property-Value: </span>foo</h4>
-                    <pap-codeblock display="both">
-                      <pap-sidebar 
-                        selected="foo"
-                        
-                      >
-                        <p>Hello World</p>
-                      </pap-sidebar>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="bar">
-                    <h4><span class="deemphasize">Property-Value: </span>bar</h4>
-                    <pap-codeblock display="both">
-                      <pap-sidebar 
-                        selected="bar"
-                        
-                      >
-                        <p>Hello World</p>
-                      </pap-sidebar>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="hello world">
-                    <h4><span class="deemphasize">Property-Value: </span>hello world</h4>
-                    <pap-codeblock display="both">
-                      <pap-sidebar 
-                        selected="hello world"
-                        
-                      >
-                        <p>Hello World</p>
-                      </pap-sidebar>
-                    </pap-codeblock>
-                  </div>
-                
-            </div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="boxtemplateElement">
-            <h2 slot="header"><span class="deemphasize">Property: </span>boxtemplateElement</h2>
+    <div class="property-info">
+      <p>type: Mode</p>
+      <p>default-value: open</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
 
-            <div class="property-info">
-              <p>type: BoxTemplate</p>
-              <p>default-value: undefined</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-                  
-                
-            </div>
-        </doc-card>
-    <h1 data-title="inherit">Inherited Properties</h1>
-        <doc-card class="property" data-name="unit">
-            <h2 slot="header"><span class="deemphasize">Property: </span>unit</h2>
+      <div class="variant" data-variant="open">
+        <h4><span class="deemphasize">Property-Value: </span>open</h4>
+        <pap-codeblock display="both">
+          <pap-sidebar mode="open">
+            <p>Hello World</p>
+          </pap-sidebar>
+        </pap-codeblock>
+      </div>
 
-            <div class="property-info">
-              <p>type: Devices</p>
-              <p>default-value: desktop</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="mobile">
-                    <h4><span class="deemphasize">Property-Value: </span>mobile</h4>
-                    <pap-codeblock display="both">
-                      <pap-sidebar 
-                        unit="mobile"
-                        
-                      >
-                        <p>Hello World</p>
-                      </pap-sidebar>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="pad">
-                    <h4><span class="deemphasize">Property-Value: </span>pad</h4>
-                    <pap-codeblock display="both">
-                      <pap-sidebar 
-                        unit="pad"
-                        
-                      >
-                        <p>Hello World</p>
-                      </pap-sidebar>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="laptop">
-                    <h4><span class="deemphasize">Property-Value: </span>laptop</h4>
-                    <pap-codeblock display="both">
-                      <pap-sidebar 
-                        unit="laptop"
-                        
-                      >
-                        <p>Hello World</p>
-                      </pap-sidebar>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="desktop">
-                    <h4><span class="deemphasize">Property-Value: </span>desktop</h4>
-                    <pap-codeblock display="both">
-                      <pap-sidebar 
-                        unit="desktop"
-                        
-                      >
-                        <p>Hello World</p>
-                      </pap-sidebar>
-                    </pap-codeblock>
-                  </div>
-                
-            </div>
-        </doc-card>
-    
-        
-    </body>
+      <div class="variant" data-variant="collapsed">
+        <h4><span class="deemphasize">Property-Value: </span>collapsed</h4>
+        <pap-codeblock display="both">
+          <pap-sidebar mode="collapsed">
+            <p>Hello World</p>
+          </pap-sidebar>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="hover">
+        <h4><span class="deemphasize">Property-Value: </span>hover</h4>
+        <pap-codeblock display="both">
+          <pap-sidebar mode="hover">
+            <p>Hello World</p>
+          </pap-sidebar>
+        </pap-codeblock>
+      </div>
+
+    </div>
+  </doc-card>
+
+  <doc-card class="property" data-name="selected">
+    <h2 slot="header"><span class="deemphasize">Property: </span>selected</h2>
+
+    <div class="property-info">
+      <p>type: string</p>
+      <p>default-value: undefined</p>
+      <p>required: false</p>
+    </div>
+    <div class="variations">
+
+      <div class="variant" data-variant="foo">
+        <h4><span class="deemphasize">Property-Value: </span>foo</h4>
+        <pap-codeblock display="both">
+          <pap-sidebar selected="foo">
+            <p>Hello World</p>
+          </pap-sidebar>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="bar">
+        <h4><span class="deemphasize">Property-Value: </span>bar</h4>
+        <pap-codeblock display="both">
+          <pap-sidebar selected="bar">
+            <p>Hello World</p>
+          </pap-sidebar>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="hello world">
+        <h4><span class="deemphasize">Property-Value: </span>hello world</h4>
+        <pap-codeblock display="both">
+          <pap-sidebar selected="hello world">
+            <p>Hello World</p>
+          </pap-sidebar>
+        </pap-codeblock>
+      </div>
+
+    </div>
+  </doc-card>
+
+  <doc-card class="property" data-name="boxtemplateElement">
+    <h2 slot="header"><span class="deemphasize">Property: </span>boxtemplateElement</h2>
+
+    <div class="property-info">
+      <p>type: Box</p>
+      <p>default-value: undefined</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
+
+
+
+    </div>
+  </doc-card>
+  <h1 data-title="inherit">Inherited Properties</h1>
+  <doc-card class="property" data-name="unit">
+    <h2 slot="header"><span class="deemphasize">Property: </span>unit</h2>
+
+    <div class="property-info">
+      <p>type: Devices</p>
+      <p>default-value: desktop</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
+
+      <div class="variant" data-variant="mobile">
+        <h4><span class="deemphasize">Property-Value: </span>mobile</h4>
+        <pap-codeblock display="both">
+          <pap-sidebar unit="mobile">
+            <p>Hello World</p>
+          </pap-sidebar>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="pad">
+        <h4><span class="deemphasize">Property-Value: </span>pad</h4>
+        <pap-codeblock display="both">
+          <pap-sidebar unit="pad">
+            <p>Hello World</p>
+          </pap-sidebar>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="laptop">
+        <h4><span class="deemphasize">Property-Value: </span>laptop</h4>
+        <pap-codeblock display="both">
+          <pap-sidebar unit="laptop">
+            <p>Hello World</p>
+          </pap-sidebar>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="desktop">
+        <h4><span class="deemphasize">Property-Value: </span>desktop</h4>
+        <pap-codeblock display="both">
+          <pap-sidebar unit="desktop">
+            <p>Hello World</p>
+          </pap-sidebar>
+        </pap-codeblock>
+      </div>
+
+    </div>
+  </doc-card>
+
+
+</body>
+
 </html>

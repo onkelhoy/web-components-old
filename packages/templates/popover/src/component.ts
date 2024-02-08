@@ -1,18 +1,19 @@
 // system
 import { html, property } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 import { style } from "./style";
 import { Reveal, Placement } from './types';
 
-export class PopoverTemplate extends BaseSystem {
-  static styles = [style];
-
+export class PopoverProperties extends Base {
   @property() revealby: Reveal = 'hover';
   @property() placement: Placement = 'bottom-center';
   @property({ type: Boolean }) hideonoutsideclick: boolean = true;
   @property({ type: Boolean }) open: boolean = false;
+}
 
+export class Popover extends PopoverProperties {
+  static styles = [style];
   private outside = false;
 
   // class functions
@@ -60,24 +61,27 @@ export class PopoverTemplate extends BaseSystem {
 
   // public functions
   public show() {
-    this.dispatchEvent(new Event('show'));
-    this.open = true;
+    if (!this.open) {
+      this.dispatchEvent(new Event('show'));
+      this.open = true;
+    }
   }
   public hide() {
-    this.dispatchEvent(new Event('hide'));
-    this.open = false;
+    if (this.open) {
+      this.dispatchEvent(new Event('hide'));
+      this.open = false;
+    }
   }
 
   render() {
     return html`
       <div 
-        class="target" 
         part="target"
         @mousedown="${this.handlemousedown}"
       >
         <slot name="target"></slot>
       </div>
-      <div class="wrapper" part="wrapper">
+      <div part="wrapper">
         <slot></slot>
       </div>
     `
@@ -86,6 +90,6 @@ export class PopoverTemplate extends BaseSystem {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-popover-template": PopoverTemplate;
+    "pap-popover-template": Popover;
   }
 }

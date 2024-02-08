@@ -4,13 +4,14 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
+## SOURCE-CODE
+
+// utils
 import { html, property, query } from "@pap-it/system-utils";
 import { Translator } from "@pap-it/tools-translator";
 import "@pap-it/tools-translator/wc";
 
-// atoms 
+// atoms
 import { Dropdown } from "@pap-it/dropdown";
 import "@pap-it/icon/wc";
 import "@pap-it/typography/wc";
@@ -18,9 +19,9 @@ import "@pap-it/button/wc";
 import "@pap-it/dropdown/wc";
 
 // templates
-// import { BaseSystem } from "@pap-it/system-base";
+// import { Base } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 // import { Foo, ClickEvent } from "./types";
 
@@ -29,7 +30,7 @@ export class Pagination extends Translator {
 
   @property({ type: Number, rerender: false }) page: number = 1;
   @property({ type: Number, rerender: false, onUpdate: "onperpageupdate" }) perpage: number = 0;
-  @property({ type: Number, rerender: false, onUpdate: "setInfo" }) total: number = 0; // maybe rerender on this ? 
+  @property({ type: Number, rerender: false, onUpdate: "setInfo" }) total: number = 0; // maybe rerender on this ?
 
   @query({ selector: 'pap-dropdown[name="page"]', onload: 'onpagedload' }) pagedropdownElement!: Dropdown;
   @query('pap-dropdown[name="perpage"]') perpagedropdownElement!: Dropdown;
@@ -128,17 +129,17 @@ export class Pagination extends Translator {
     console.log('page is', this.page)
     return html`
             <div>
-                <pap-dropdown 
+                <pap-dropdown
                     @change="${this.handlepagechange}"
-                    variant="clear" 
+                    variant="clear"
                     name="page"
                     value="${this.page}"
                 ></pap-dropdown>
             </div>
             <div>
-                <pap-dropdown 
+                <pap-dropdown
                     @change="${this.handleperpagechange}"
-                    variant="clear" 
+                    variant="clear"
                     name="perpage"
                     value="${this.perpage}"
                 >
@@ -146,7 +147,7 @@ export class Pagination extends Translator {
                 </pap-dropdown>
             </div>
             <pap-typography>
-                <pap-translator 
+                <pap-translator
                     start="${this.page * this.perpage}"
                     end="${this.page * this.perpage + this.perpage}"
                     total="${this.total}"
@@ -163,13 +164,14 @@ export class Pagination extends Translator {
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-pagination": Pagination;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     display: grid;
     grid-template-columns: 4fr 4fr 2fr 3fr;

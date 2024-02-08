@@ -23,7 +23,7 @@ import '@pap-it/icon/wc';
 
 // templates
 import { TextinputTemplate } from '@pap-it/templates-textinput';
-import { Placement, PopoverTemplate } from "@pap-it/templates-popover";
+import { Placement, Popover } from "@pap-it/templates-popover";
 import '@pap-it/templates-popover/wc';
 import '@pap-it/templates-box/wc';
 
@@ -41,7 +41,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
   @property({ type: Array, rerender: false, onUpdate: "onoptionupdate" }) options?: Array<OptionType>;
   // @property({ type: Array, rerender: false, attribute: false }) values: string[] = [];
   @property({ rerender: false, type: Boolean }) popoveropen: boolean = false;
-  @query('pap-popover-template') popoverElement!: PopoverTemplate;
+  @query('pap-popover-template') popoverElement!: Popover;
 
   // NOTE when we need values to be preselected... its gonna be a pain
   private __options: IOption[] = [];
@@ -224,7 +224,7 @@ import '@pap-it/icon/wc';
 
 // templates
 import { TextinputTemplate } from '@pap-it/templates-textinput';
-import { Placement, PopoverTemplate } from "@pap-it/templates-popover";
+import { Placement, Popover } from "@pap-it/templates-popover";
 import '@pap-it/templates-popover/wc';
 import '@pap-it/templates-box/wc';
 
@@ -242,7 +242,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
   @property({ type: Array, rerender: false, onUpdate: "onoptionupdate" }) options?: Array<OptionType>;
   // @property({ type: Array, rerender: false, attribute: false }) values: string[] = [];
   @property({ rerender: false, type: Boolean }) popoveropen: boolean = false;
-  @query('pap-popover-template') popoverElement!: PopoverTemplate;
+  @query('pap-popover-template') popoverElement!: Popover;
 
   // NOTE when we need values to be preselected... its gonna be a pain
   private __options: IOption[] = [];
@@ -412,7 +412,7 @@ import '@pap-it/icon/wc';
 
 // templates
 import { TextinputTemplate } from '@pap-it/templates-textinput';
-import { Placement, PopoverTemplate } from "@pap-it/templates-popover";
+import { Placement, Popover } from "@pap-it/templates-popover";
 import '@pap-it/templates-popover/wc';
 import '@pap-it/templates-box/wc';
 
@@ -430,7 +430,7 @@ export class Dropdown extends TextinputTemplate<HTMLInputElement> {
   @property({ type: Array, rerender: false, onUpdate: "onoptionupdate" }) options?: Array<OptionType>;
   // @property({ type: Array, rerender: false, attribute: false }) values: string[] = [];
   @property({ rerender: false, type: Boolean }) popoveropen: boolean = false;
-  @query('pap-popover-template') popoverElement!: PopoverTemplate;
+  @query('pap-popover-template') popoverElement!: Popover;
 
   // NOTE when we need values to be preselected... its gonna be a pain
   private __options: IOption[] = [];

@@ -2,17 +2,16 @@
 import { html } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local 
 import { style } from "./style";
 
-export class TabContent extends BaseSystem {
+export class TabContent extends Base {
   static style = style;
 
-  constructor() {
-    super();
-
+  connectedCallback() {
+    super.connectedCallback();
     this.setAttribute('slot', 'content');
   }
 
@@ -35,9 +34,7 @@ export class TabContent extends BaseSystem {
   }
 
   render() {
-    return html`
-      <slot></slot>  
-    `
+    return '<slot></slot>'
   }
 }
 

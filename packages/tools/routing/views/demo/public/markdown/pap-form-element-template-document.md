@@ -9,6 +9,7 @@ Version: 1.0.0
 Development servers can be started and should all exist inside `"views"` folder
 
 ## Scripts
+
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
@@ -18,9 +19,9 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { property } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
-export class FormElementTemplate extends BaseSystem {
+export class FormElement extends Base {
 
     @property({ type: Boolean, rerender: false }) disabled?: boolean;
     @property({ type: Boolean, rerender: false }) required?: boolean;
@@ -64,13 +65,13 @@ export class FormElementTemplate extends BaseSystem {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "pap-form-element-template": FormElementTemplate;
+        "pap-form-element-template": FormElement;
     }
 }
 
 ## REGISTER-CODE
 
-import { FormElementTemplate } from './component.js';
+import { FormElement } from './component.js';
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;
@@ -80,7 +81,7 @@ if (!cElements) {
 }
 
 if (!cElements.get('pap-form-element-template')) {
-  cElements.define('pap-form-element-template', FormElementTemplate);
+  cElements.define('pap-form-element-template', FormElement);
 }
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and the types can you give me the following tables.
@@ -95,9 +96,9 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { property } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
-export class FormElementTemplate extends BaseSystem {
+export class FormElement extends Base {
 
     @property({ type: Boolean, rerender: false }) disabled?: boolean;
     @property({ type: Boolean, rerender: false }) required?: boolean;
@@ -141,11 +142,12 @@ export class FormElementTemplate extends BaseSystem {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "pap-form-element-template": FormElementTemplate;
+        "pap-form-element-template": FormElement;
     }
 }
 
 ## TYPE-CODE: export {}
+
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and style code probided. Can you create a documentation that includes titles, short descrition and the table for each tables: css-variables, parts, slots.
 css-variables should be a table with columns: (name, default-value, type - ex. CSS unit, description).
@@ -158,9 +160,9 @@ slots should include columns: (name, default-value, description)
 import { property } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
-export class FormElementTemplate extends BaseSystem {
+export class FormElement extends Base {
 
     @property({ type: Boolean, rerender: false }) disabled?: boolean;
     @property({ type: Boolean, rerender: false }) required?: boolean;
@@ -204,7 +206,7 @@ export class FormElementTemplate extends BaseSystem {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "pap-form-element-template": FormElementTemplate;
+        "pap-form-element-template": FormElement;
     }
 }
 

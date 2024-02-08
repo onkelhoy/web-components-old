@@ -1,0 +1,1 @@
+export const style = `:host pap-menu-template,:host pap-menu-template::part(popover){width:100%}:host pap-icon[part=caret]{rotate:0}:host(:not([search])) pap-box-template[part=main]{cursor:pointer}:host([open=true]) pap-icon[part=caret]{rotate:180deg}`;

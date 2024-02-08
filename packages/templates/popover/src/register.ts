@@ -1,4 +1,4 @@
-import { PopoverTemplate } from './component.js';
+import { Popover } from './component.js';
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;
@@ -8,5 +8,5 @@ if (!cElements) {
 }
 
 if (!cElements.get('pap-popover-template')) {
-  cElements.define('pap-popover-template', PopoverTemplate);
+  cElements.define('pap-popover-template', Popover);
 }

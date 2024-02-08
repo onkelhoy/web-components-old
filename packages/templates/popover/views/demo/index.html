@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PopoverTemplate demo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Popover demo</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
+  <script defer src="main.js"></script>
 </head>
+
 <body>
-    <!-- <doc-card>
+  <!-- <doc-card>
         <pap-codeblock display="both">
             <pap-popover-template target="#popover1">
                 <button slot="target">TARGET BUTTON</button>
@@ -51,36 +53,34 @@
         </pap-codeblock>
     </doc-card> -->
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-popover-template hideonoutsideclick="true" revealby="click" target="#popover1b">
-                <div slot="target">
-                    <button>TARGET BUTTON</button>
-                    <br/>
-                    <button>TARGET BUTTON 2</button>
-                </div>
-                <div class="card">
-                <header>
-                    <h5>Im the header!</h5>
-                    <button>X</button>
-                </header>
-                <div>
-                    <p>Some body content with some "fruits"!</p>
-                    <ul>
-                    <li>bananas (actually a berry)</li>
-                    <li>apples</li>
-                    <li>pears</li>
-                    </ul>
-                </div>
-                <footer>
-                    Im a footer yay!
-                </footer>
-                </div>
-            </pap-popover-template>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <pap-codeblock display="both">
+      <pap-popover-template hideonoutsideclick="true" revealby="click" target="#popover1b">
+        <div slot="target">
+          <button>TARGET BUTTON</button>
+          <br />
+          <button>TARGET BUTTON 2</button>
+        </div>
+        <div class="card">
+          <header>
+            <h5>Im the header!</h5>
+            <button>X</button>
+          </header>
+          <div>
+            <p>Some body content with some "fruits"!</p>
+            <ul>
+              <li>bananas (actually a berry)</li>
+              <li>apples</li>
+              <li>pears</li>
+            </ul>
+          </div>
+          <footer>
+            Im a footer yay!
+          </footer>
+        </div>
+      </pap-popover-template>
+    </pap-codeblock>
+  </doc-card>
 </body>
+
 </html>
-
-
-

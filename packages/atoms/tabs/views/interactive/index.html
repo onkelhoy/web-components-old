@@ -33,7 +33,7 @@
 
         </div>
 
-        <div slot="header-below" data-slotname="header-below">
+        <div slot="header-bottom" data-slotname="header-bottom">
 
         </div>
 
@@ -55,13 +55,16 @@
         <pap-tab id="css">CSS</pap-tab>
         <pap-tab-content id="html">
           <div data-name="slot-html" class="slot"><br><doc-input label="HTML slot: header-top" variant="textarea"
-              name="slot-header-top" data-slotname="header-top" value=""></doc-input><doc-input               label="HTML slot: header-prefix" variant="textarea" name="slot-header-prefix"
+              name="slot-header-top" data-slotname="header-top" value=""></doc-input><doc-input
+              label="HTML slot: header-prefix" variant="textarea" name="slot-header-prefix"
               data-slotname="header-prefix" value=""></doc-input><doc-input label="HTML slot: tab" variant="textarea"
               name="slot-tab" data-slotname="tab" value=""></doc-input><doc-input label="HTML slot: header-suffix"
-              variant="textarea" name="slot-header-suffix" data-slotname="header-suffix" value=""></doc-input><doc-input               label="HTML slot: header-below" variant="textarea" name="slot-header-below" data-slotname="header-below"
-              value=""></doc-input><doc-input label="HTML slot: between" variant="textarea" name="slot-between"
-              data-slotname="between" value=""></doc-input><doc-input label="HTML slot: content" variant="textarea"
-              name="slot-content" data-slotname="content" value=""></doc-input></div>
+              variant="textarea" name="slot-header-suffix" data-slotname="header-suffix" value=""></doc-input><doc-input
+              label="HTML slot: header-bottom" variant="textarea" name="slot-header-bottom"
+              data-slotname="header-bottom" value=""></doc-input><doc-input label="HTML slot: between"
+              variant="textarea" name="slot-between" data-slotname="between" value=""></doc-input><doc-input
+              label="HTML slot: content" variant="textarea" name="slot-content" data-slotname="content"
+              value=""></doc-input></div>
         </pap-tab-content>
         <pap-tab-content id="properties">
           <h3 data-subtitle="Tabs Properties">Tabs Properties</h3>
@@ -83,10 +86,9 @@
 
 
 
-            
-        <doc-input data-prop-name="indicatorElement" variant="textarea" value="" name="indicatorElement" label="indicatorElement - HTMLSpanElement"></doc-input>
-      
 
+            <doc-input data-prop-name="indicatorElement" variant="textarea" value="" name="indicatorElement"
+              label="indicatorElement - HTMLSpanElement"></doc-input>
 
 
 
@@ -121,12 +123,11 @@
 
 
 
-            
-        <doc-input data-prop-name="headerElement" variant="textarea" value="" name="headerElement" label="headerElement - HTMLElement"></doc-input>
-      
 
 
 
+            <doc-input data-prop-name="headerElement" variant="textarea" value="" name="headerElement"
+              label="headerElement - HTMLElement"></doc-input>
 
 
 
@@ -159,14 +160,13 @@
 
 
 
-            
-        <doc-input data-prop-name="mainElement" variant="textarea" value="" name="mainElement" label="mainElement - HTMLElement"></doc-input>
-      
 
 
 
 
 
+            <doc-input data-prop-name="mainElement" variant="textarea" value="" name="mainElement"
+              label="mainElement - HTMLElement"></doc-input>
 
 
 
@@ -197,9 +197,6 @@
 
 
 
-            
-          <doc-input data-prop-name="preselect" variant="number" value="" name="preselect" label="preselect"></doc-input>
-        
 
 
 
@@ -207,6 +204,8 @@
 
 
 
+            <doc-input data-prop-name="preselect" variant="number" value="" name="preselect"
+              label="preselect"></doc-input>
 
 
 
@@ -235,9 +234,6 @@
 
 
 
-            
-          <doc-radio name="indicator" data-prop-name="indicator" label="indicator" value="true"></doc-radio>
-        
 
 
 
@@ -247,6 +243,7 @@
 
 
 
+            <doc-radio name="indicator" data-prop-name="indicator" label="indicator" value="true"></doc-radio>
 
 
 
@@ -273,9 +270,19 @@
 
 
 
-            
-          <doc-radio name="scrolling" data-prop-name="scrolling" label="scrolling" value=""></doc-radio>
-        
+
+
+
+
+
+
+
+
+
+
+
+            <doc-radio name="scrolling" data-prop-name="scrolling" label="scrolling" value=""></doc-radio>
+
 
 
 
@@ -298,13 +305,129 @@
         <pap-tab-content id="css">
           <div data-css-part="/Users/henry/Developer/projects/web-components/packages/atoms/tabs" class="style-source">
             <h3>tabs styles</h3>
-            <div class="style-group" data-style-name="--gap-small"><doc-input data-css-input="true" name="--gap-small" label="--gap-small" value="8px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>gap</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>8px</li></ul></div></div></div>
-            <div class="style-group" data-style-name="--pap-color-border-brand"><color-picker-input data-css-input="true" name="--pap-color-border-brand" label="--pap-color-border-brand" value="#009DD3"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>#009DD3</li></ul></div></div></div>
-            <div class="style-group" data-style-name="--radius-small"><doc-input data-css-input="true" name="--radius-small" label="--radius-small" value="4px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>border-top-left-radius</li><li>border-top-right-radius</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>4px</li></ul></div></div></div>
-            <div class="style-group" data-style-name="--tabs-indicator-color"><color-picker-input data-css-input="true" name="--tabs-indicator-color" label="--tabs-indicator-color" value="var(--pap-color-border-brand, #009DD3)"></color-picker-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>background-color</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>var(--pap-color-border-brand, #009DD3)</li></ul></div></div></div>
-            <div class="style-group" data-style-name="--tabs-indicator-height"><doc-input data-css-input="true" name="--tabs-indicator-height" label="--tabs-indicator-height" value="var(--unit-size-1, 4px)"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>var(--unit-size-1, 4px)</li></ul></div></div></div>
-            <div class="style-group" data-style-name="--tabs-maxheight"><doc-input data-css-input="true" name="--tabs-maxheight" label="--tabs-maxheight" value="15rem"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>max-height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>15rem</li></ul></div></div></div>
-            <div class="style-group" data-style-name="--unit-size-1"><doc-input data-css-input="true" name="--unit-size-1" label="--unit-size-1" value="4px"></doc-input><div class="info"><div><h5>Usecases</h5><ul class="usecases"><li>height</li></ul></div><div><h5>Fallbacks</h5><ul class="fallbacks"><li>4px</li></ul></div></div></div>
+            <div class="style-group" data-style-name="--gap-small"><doc-input data-css-input="true" name="--gap-small"
+                label="--gap-small" value="8px"></doc-input>
+              <div class="info">
+                <div>
+                  <h5>Usecases</h5>
+                  <ul class="usecases">
+                    <li>gap</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Fallbacks</h5>
+                  <ul class="fallbacks">
+                    <li>8px</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="style-group" data-style-name="--pap-color-border-brand"><color-picker-input
+                data-css-input="true" name="--pap-color-border-brand" label="--pap-color-border-brand"
+                value="#009DD3"></color-picker-input>
+              <div class="info">
+                <div>
+                  <h5>Usecases</h5>
+                  <ul class="usecases">
+                    <li>background-color</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Fallbacks</h5>
+                  <ul class="fallbacks">
+                    <li>#009DD3</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="style-group" data-style-name="--radius-small"><doc-input data-css-input="true"
+                name="--radius-small" label="--radius-small" value="4px"></doc-input>
+              <div class="info">
+                <div>
+                  <h5>Usecases</h5>
+                  <ul class="usecases">
+                    <li>border-top-left-radius</li>
+                    <li>border-top-right-radius</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Fallbacks</h5>
+                  <ul class="fallbacks">
+                    <li>4px</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="style-group" data-style-name="--tabs-indicator-color"><color-picker-input data-css-input="true"
+                name="--tabs-indicator-color" label="--tabs-indicator-color"
+                value="var(--pap-color-border-brand, #009DD3)"></color-picker-input>
+              <div class="info">
+                <div>
+                  <h5>Usecases</h5>
+                  <ul class="usecases">
+                    <li>background-color</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Fallbacks</h5>
+                  <ul class="fallbacks">
+                    <li>var(--pap-color-border-brand, #009DD3)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="style-group" data-style-name="--tabs-indicator-height"><doc-input data-css-input="true"
+                name="--tabs-indicator-height" label="--tabs-indicator-height"
+                value="var(--unit-size-1, 4px)"></doc-input>
+              <div class="info">
+                <div>
+                  <h5>Usecases</h5>
+                  <ul class="usecases">
+                    <li>height</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Fallbacks</h5>
+                  <ul class="fallbacks">
+                    <li>var(--unit-size-1, 4px)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="style-group" data-style-name="--tabs-maxheight"><doc-input data-css-input="true"
+                name="--tabs-maxheight" label="--tabs-maxheight" value="15rem"></doc-input>
+              <div class="info">
+                <div>
+                  <h5>Usecases</h5>
+                  <ul class="usecases">
+                    <li>max-height</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Fallbacks</h5>
+                  <ul class="fallbacks">
+                    <li>15rem</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="style-group" data-style-name="--unit-size-1"><doc-input data-css-input="true"
+                name="--unit-size-1" label="--unit-size-1" value="4px"></doc-input>
+              <div class="info">
+                <div>
+                  <h5>Usecases</h5>
+                  <ul class="usecases">
+                    <li>height</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5>Fallbacks</h5>
+                  <ul class="fallbacks">
+                    <li>4px</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </pap-tab-content>
       </pap-tabs>

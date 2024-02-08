@@ -10,13 +10,13 @@ slots should include columns: (name, default-value, description)
 import { ExtractSlotValue, html } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 import { InitTranslations } from "./translator";
 
-export class Translator extends BaseSystem {
+export class Translator extends Base {
     static style = style;
 
     private spanElement!: HTMLSpanElement;
@@ -48,13 +48,13 @@ export class Translator extends BaseSystem {
     connectedCallback(): void {
         super.connectedCallback();
         InitTranslations();
-        window.papTranslation?.subscribe(this.updateText);
+        window.papLocalization?.subscribe(this.updateText);
     }
   
     disconnectedCallback() {
         super.disconnectedCallback();
         // this.attributeObserver.disconnect();
-        window.papTranslation?.unsubscribe(this.updateText);
+        window.papLocalization?.unsubscribe(this.updateText);
     }
 
     attributeChangedCallback(name:string, oldValue:string|null, newValue:string|null) {
@@ -97,7 +97,7 @@ export class Translator extends BaseSystem {
 
     // private functions 
     private updateText = () => {
-        let text = window.papTranslation?.current?.translations?.[this.key] || this.key;
+        let text = window.papLocalization?.current?.translations?.[this.key] || this.key;
         if (text === undefined && this.key === undefined) return;
 
         const regex = /{([^{}]+)}/g;

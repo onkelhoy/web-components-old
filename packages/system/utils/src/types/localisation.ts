@@ -22,7 +22,7 @@ export type LanguageData = BasicLanguageData & {
   translations: TranslationObject;
 }
 
-export interface Translation {
+export interface Localization {
   subscribe(callback: EventCallback): void;
   unsubscribe(callback: EventCallback): void;
   load(set: BasicLanguageData): void;
@@ -39,10 +39,12 @@ export interface Translation {
   intl?: Intl.DisplayNames;
   map: Map<string, EnhancedLanguageData>;
   current: LanguageData;
+
+  setURL: boolean;
 }
 
 declare global {
   interface Window {
-    papTranslation: Translation;
+    papLocalization: Localization;
   }
 }

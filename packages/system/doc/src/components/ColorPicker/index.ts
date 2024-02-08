@@ -2,13 +2,13 @@
 import { html } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 import { style } from "./style.js";
 
 export type ColorEvent = { value: string };
 
-export class ColorPicker extends BaseSystem {
+export class ColorPicker extends Base {
   static style = style;
 
   private sliderElement!: HTMLInputElement;

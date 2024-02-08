@@ -1,13 +1,13 @@
 // system
 import { html, property } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local 
 import { style } from "./style";
 
 export type ClickEvent = { sectionHeight: number };
 
-export class Tab extends BaseSystem {
+export class Tab extends Base {
   static style = style;
 
   @property() text: string = "Tab";
@@ -27,8 +27,8 @@ export class Tab extends BaseSystem {
   }
 
   // class functions
-  constructor() {
-    super();
+  connectedCallback() {
+    super.connectedCallback();
     this.setAttribute('slot', 'tab');
   }
   firstUpdate(): void {

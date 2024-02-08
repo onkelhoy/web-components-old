@@ -6,12 +6,12 @@ import "@pap-it/typography/wc";
 import "@pap-it/icon/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
 import { style } from "./style";
 
-export class Guideline extends BaseSystem {
+export class Guideline extends Base {
   static style = style;
 
   @property() variant: Variant = "success";

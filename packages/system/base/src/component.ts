@@ -1,8 +1,11 @@
 import { NextParent, property, debounce } from "@pap-it/system-utils";
 
-import { FunctionCallback, RenderType } from "./types";
+import { Config, FunctionCallback, RenderType } from "./types";
 
-export class BaseSystem extends HTMLElement {
+// NOTE should this be there?
+// export interface Base extends HTMLElement { }
+
+export class Base extends HTMLElement {
   public static style?: string;
   public static styles?: string[];
 
@@ -19,19 +22,19 @@ export class BaseSystem extends HTMLElement {
   @property({ rerender: false, type: Boolean }) hasFocus: boolean = false;
 
   // class functions
-  constructor() {
+  constructor(config?: Partial<Config>) {
     super();
 
     this.originalHTML = this.outerHTML;
 
-    this.addEventListener('blur', this.handleblur);
-    this.addEventListener('focus', this.handlefocus);
+    if (!config?.noblur) this.addEventListener('blur', this.handleblur);
+    if (!config?.nofocus) this.addEventListener('focus', this.handlefocus);
 
     this.styleComperator = document.createElement('style');
     this.templateComperator = document.createElement('template');
 
     this.debouncedRequestUpdate = debounce(this.requestUpdate, 100);
-    this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: 'open', ...(config ? config : {} as ShadowRootInit) });
     this.callAfterUpdate.push(this.firstUpdate);
   }
   connectedCallback() {
@@ -75,7 +78,7 @@ export class BaseSystem extends HTMLElement {
 
   protected getStyle(): string {
     // Get the constructor of the child class
-    const childConstructor = this.constructor as typeof BaseSystem & { style?: string; styles?: string[]; };
+    const childConstructor = this.constructor as typeof Base & { style?: string; styles?: string[]; };
 
     // Access the static property on the child class
     const styles = [
@@ -86,12 +89,12 @@ export class BaseSystem extends HTMLElement {
     return styles.join(' ');
   }
 
-  public querySelector(selector: string) {
+  public querySelector<T extends Element>(selector: string): T | null {
     if (!selector) {
       console.log('empty string')
       return null;
     }
-    if (this.shadowRoot) return this.shadowRoot.querySelector(selector);
+    if (this.shadowRoot) return this.shadowRoot.querySelector<T>(selector);
     return null;
   }
   public shadow_closest<T extends Element = HTMLElement>(selector: string) {
@@ -145,7 +148,7 @@ export class BaseSystem extends HTMLElement {
   public debouncedRequestUpdate() { }
   public firstUpdate() { }
 
-  public render(child?: RenderType): RenderType {
+  public render(config?: any): RenderType {
     return 'Hello From Base Class'
   }
 
@@ -417,6 +420,6 @@ export class BaseSystem extends HTMLElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-base": BaseSystem;
+    "pap-base": Base;
   }
 }

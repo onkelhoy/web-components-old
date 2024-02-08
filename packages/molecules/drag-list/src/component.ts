@@ -1,12 +1,12 @@
 // system
 import { generateUUID, html, property, query } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local 
 import { style } from "./style";
 import { Item } from "./components/item";
 
-export class DragList extends BaseSystem {
+export class DragList extends Base {
   static style = style;
 
   // queries

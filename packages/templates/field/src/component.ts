@@ -1,357 +1,218 @@
-// utils 
-import { html, query, property, debounce, Radius, Size, ExtractSlotValue } from "@pap-it/system-utils";
+// system
+import { Radius, Size, debounce, html, ifDefined, property } from "@pap-it/system-utils";
+import { Config, RenderType } from "@pap-it/system-base";
 
 // atoms
-import { Typography } from "@pap-it/typography";
 import "@pap-it/icon/wc";
 import "@pap-it/typography/wc";
 
 // templates
-import { FormElementTemplate } from "@pap-it/templates-form-element";
-import "@pap-it/templates-box/wc";
 import "@pap-it/templates-prefix-suffix/wc";
+import "@pap-it/templates-box/wc";
+import { FormElement } from "@pap-it/templates-form-element";
 
 // local 
+import { ValidityStateObject, Mode, State, RenderArgument, PrefixSuffixRender } from "./types";
 import { style } from "./style";
-import { FieldValidityState, FieldValidityStateName, Message, MessageType, ValidationAttributes } from "./types";
 
-export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends FormElementTemplate {
+export class Field extends FormElement {
   static styles = [style];
 
-  // queries
-  @query('.counter') public counterElement?: HTMLSpanElement;
-  @query('.message > pap-typography') messageText?: Typography;
-
-  @property() message?: string;
-  @property({ attribute: "message-type" }) messageType?: MessageType;
+  @property({ rerender: false, attribute: 'custom-error', type: Object }) customDanger?: Partial<ValidityStateObject>;
+  @property({ rerender: false, attribute: 'custom-warning', type: Object }) customWarning?: Partial<ValidityStateObject>;
   @property() label?: string;
-  @property() radius: Radius = "small";
-  @property({ rerender: false }) size: Size = "medium";
-  @property({ rerender: false, type: Boolean, onUpdate: "oncheckedupdate" }) checked?: boolean;
-  @property({ rerender: false, type: Number }) tabIndex: number = 1;
-  @property({ type: Boolean }) readonly: boolean = false;
-  @property({ rerender: false, onUpdate: "onvalueupdate" }) value: string = "";
-  @property({ type: Boolean, rerender: false }) private footerslotcontent: boolean = false;
-  @property({ type: Boolean, rerender: false }) private headerslotcontent: boolean = false;
-
-  // error/warning 
-  @property({ rerender: false, type: Object, onUpdate: 'oncustommessageupdate' }) customError?: FieldValidityState;
-  @property({ rerender: false, type: Object, onUpdate: 'oncustommessageupdate' }) customWarning?: FieldValidityState;
-
-  // common regulations
-  @property({ rerender: false, type: Number }) max?: number;
-  @property({ rerender: false, type: Number }) min?: number;
-  @property({ rerender: false, type: Number }) maxLength?: number;
-
-  @property({ type: Object, attribute: false }) protected _suffix?: DocumentFragment | string = "<span> </span>";
-  @property({ type: Object, attribute: false }) protected _prefix?: DocumentFragment | string = "<span> </span>";
-
-  public inputElement!: T;
-  private hiddenElement?: HTMLInputElement;
-  private attributequeue: [string, string | null][] = [];
-  private helpertext?: string;
-  private passedInitialChange = false; // used to not dispatch value change on init
-
-  // class functions
-  constructor(delay = 100) {
-    super();
-
-    this.debouncedInput = debounce(this.debouncedInput, delay);
-    this.validitycheck = debounce(this.validitycheck, 10);
-    super.addEventListener("form-element-loaded", this.handleformelementload);
-  }
-  connectedCallback(): void {
-    super.connectedCallback();
-    this.addEventListener('focus', this.handlefocus);
-  }
-  attributeChangedCallback(name: string, oldValue: string | null, newValue: string | null) {
-    if (ValidationAttributes.includes(name.toLowerCase())) {
-      if (this.hiddenElement) {
-        if (newValue) this.hiddenElement.setAttribute(name, newValue);
-        else this.hiddenElement.removeAttribute(name);
+  @property({
+    type: Boolean,
+    after: function (this: Field, value?: boolean) {
+      if (value) {
+        this.setAttribute('aria-required', 'true');
       }
       else {
-        this.attributequeue.push([name, newValue]);
-      }
-      if (this.inputElement) {
-        if (newValue) this.inputElement.setAttribute(name, newValue);
-        else this.inputElement.removeAttribute(name);
+        this.setAttribute('aria-required', 'false');
       }
     }
-  }
-
-  // on update functions
-  protected onvalueupdate = (value: string) => {
-    if (!this.inputElement)
-      return 0;
-
-    const type = this.inputElement.getAttribute('type')
-    if ('checked' in this.inputElement && (type === "radio" || type === "checkbox")) {
-      this.checked = value === "true";
-      this.inputElement.checked = this.checked;
-      if (this.hiddenElement) {
-        this.hiddenElement.checked = this.checked;
-        this.hiddenElement.value = this.value;
-        this.validitycheck();
+  }) required?: boolean;
+  @property({
+    type: Boolean,
+    after: function (this: Field, value?: boolean) {
+      if (value) {
+        this.setAttribute('aria-readonly', 'true');
       }
-
-      if (!this.checked) {
-        this.inputElement.removeAttribute("checked");
-        if (this.hiddenElement) {
-          this.hiddenElement.removeAttribute("checked");
-          this.validitycheck();
-        }
+      else {
+        this.setAttribute('aria-readonly', 'false');
       }
     }
-    else if ('value' in this.inputElement) {
-      this.inputElement.value = this.value;
+  }) readonly?: boolean;
+  @property() placeholder?: string;
+  @property({ rerender: false }) size?: Size = "medium";
+  @property({ rerender: false }) mode?: Mode = "fill";
+  @property() state?: State = "default";
+  @property() radius?: Radius = "medium";
+  @property({
+    after: function (this: Field, value?: string) {
+      if (!this.internalmessage) this.fallbackmessage = value;
+      this.internalmessage = false;
+    }
+  }) message?: string;
+
+  @property({ type: Boolean, rerender: false }) header: boolean = false;
+  @property({ type: Boolean, rerender: false }) footer: boolean = false;
+
+  private internalmessage = false;
+  private fallbackmessage?: string;
+  private slotelements: Record<string, number> = {};
+
+  constructor(config?: Partial<Config>) {
+    super({ ...(config || {}), noblur: true, nofocus: true, delegatesFocus: true });
+    this.slotvisibility = debounce(this.slotvisibility, 10);
+  }
+
+  // private functions
+  protected override connectElement(element: HTMLElement) {
+    super.connectElement(element);
+
+    element.addEventListener('focus', () => {
+      this.hasFocus = true;
+    });
+    element.addEventListener('blur', () => {
+      this.hasFocus = false;
+    });
+  }
+  // NOTE this function is called inside the debouncedInput so we dont need to overload with calls
+  protected override validateElement() {
+    const validity = this.validity;
+    if (validity.valid) {
+      // should clear state 
+      // TODO maybe have a leverage state for info or whatnot.. 
+      this.state = "default";
+      this.setMessage(this.fallbackmessage);
+      return;
     }
 
-    if (this.passedInitialChange) {
-      if (type === "radio" || type === "checkbox" || this.inputElement.getAttribute('data-tagname') === "select" || this.inputElement.tagName === "select")
-        this.inputElement.dispatchEvent(new Event('change'));
-      else
-        this.inputElement.dispatchEvent(new Event('input'));
-    }
-    else {
-      this.passedInitialChange = true;
-    }
+    for (const name in validity) {
+      const vname = name as keyof ValidityState;
+      if (!validity[vname]) continue; // skip valid stuff
 
-    this.dispatchEvent(new Event('after-update'));
-  }
-  private oncustommessageupdate = () => {
-    this.assignHiddenElement();
-  }
-  protected oncheckedupdate = (value: boolean) => {
-    this.onvalueupdate(value.toString());
-  }
-
-  // event handlers 
-  private handleinvalid_field = (e: Event) => {
-    console.log('invalid')
-  }
-  private handlevalid_field = (e: Event) => {
-    console.log('valid');
-  }
-  protected handleinput_field = (e: Event) => {
-    this.handlechange_field(e, false);
-
-    this.dispatchEvent(new Event('input'));
-    this.debouncedInput();
-
-    if (this.maxLength && this.counterElement) {
-      this.counterElement.innerHTML = this.value.length.toString();
-    }
-  }
-  protected handlechange_field = (e: Event, dispatch = true) => {
-    if (e.target instanceof HTMLElement) {
-      const type = e.target.getAttribute('type')
-      if ('checked' in e.target && (type === "radio" || type === "checkbox")) {
-        // do something ?
-        this.value = (e.target.checked || false).toString();
-        if (this.hiddenElement) {
-          this.hiddenElement.value = this.value;
-          this.validitycheck();
-        }
+      if (this.customDanger && this.customDanger[vname]) {
+        this.setMessage(this.customDanger[vname]);
+        this.state = 'danger'
+        break;
       }
-      else if ('value' in e.target) {
-        this.value = e.target.value as string;
-        if (this.hiddenElement) {
-          this.hiddenElement.value = this.value;
-          this.validitycheck();
-        }
+      else if (this.customWarning && this.customWarning[vname]) {
+        this.setMessage(this.customWarning[vname]);
+        this.state = 'warning'
+        break;
       }
-
-      if (dispatch) {
-        this.dispatchEvent(new Event('change'))
+      else {
+        this.setMessage(this.validationMessage);
+        this.state = 'danger'
+        break;
       }
     }
   }
-  private handleformelementload = () => {
-    this.assignHiddenElement();
+  private setMessage(value?: string) {
+    this.internalmessage = true;
+    this.message = value;
   }
-  private handlevalid = () => {
-    this.messageType = undefined;
-    this.message = this.helpertext;
+  private getFooterPrefixSlot() {
+    switch (this.state) {
+      case "danger":
+        return '<pap-icon cache="true" name="danger" slot="prefix"></pap-icon>';
+      case "warning":
+        return '<pap-icon cache="true" name="warning" slot="prefix"></pap-icon>';
+      case "info":
+        return '<pap-icon cache="true" name="info" slot="prefix"></pap-icon>';
+      case "success":
+        return '<pap-icon cache="true" name="success" slot="prefix"></pap-icon>';
+      default:
+        return "";
+    }
   }
-  private handleinvalid = (e: Event) => {
-    // from a submit 
-    if (!this.messageType) this.validitycheck();
-  }
-  private handlefooterslotchange = (e: Event) => {
+
+  private handleslotchange = (e: Event) => {
     if (e.target instanceof HTMLSlotElement) {
-      const values = ExtractSlotValue(e.target);
-
-      if (values.length > 0) {
-        this.footerslotcontent = true;
-      }
-      else {
-        this.footerslotcontent = false;
+      const name = e.target.getAttribute('name');
+      if (typeof name === "string") {
+        const assignedNodes = e.target.assignedNodes();
+        this.slotelements[name] = assignedNodes.length;
+        this.slotvisibility();
       }
     }
   }
-  private handleheaderslotchange = (e: Event) => {
-    if (e.target instanceof HTMLSlotElement) {
-      const values = ExtractSlotValue(e.target);
-
-      if (values.length > 0) {
-        this.headerslotcontent = true;
-      }
-      else {
-        this.headerslotcontent = false;
-      }
+  private slotvisibility() {
+    let header = 0;
+    let footer = 0;
+    for (const name in this.slotelements) {
+      if (name.startsWith('header')) header += this.slotelements[name];
+      else footer += this.slotelements[name];
     }
+
+    this.header = header !== 0;
+    this.footer = footer !== 0;
   }
 
-  // private functions ¨
-  protected debouncedInput = () => {
-    this.dispatchEvent(new Event('debounced-input'));
-  }
-  private assignHiddenElement() {
-    if (!this.formElement) this.findForm();
-    if (!this.hiddenElement && (this.getAttribute("name") || this.customError || this.customWarning)) {
-      // form in case of initial and not dynamic (most cases) needs to load ?
-      this.hiddenElement = document.createElement("input");
-      this.hiddenElement.value = this.value;
-      this.hiddenElement.setAttribute('name', this.getAttribute("name") as string);
-
-      this.hiddenElement.style.overflow = "hidden";
-      this.hiddenElement.style.position = "absolute";
-      this.hiddenElement.style.height = "0";
-      this.hiddenElement.style.width = "0";
-      this.hiddenElement.style.visibility = "hidden";
-      this.hiddenElement.style.padding = "0";
-      this.hiddenElement.style.margin = "0";
-      this.hiddenElement.style.float = "right";
-      // this.hiddenElement.style.display = "none";
-
-      this.hiddenElement.addEventListener("valid", this.handlevalid);
-      this.hiddenElement.addEventListener("invalid", this.handleinvalid);
-
-      while (this.attributequeue.length > 0) {
-        const next = this.attributequeue.pop();
-        if (next) {
-          if (next[1] !== null) this.hiddenElement.setAttribute(next[0], next[1]);
-          else this.hiddenElement.removeAttribute(next[0]);
-        }
-      }
-
-      if (this.formElement) this.formElement.appendChild(this.hiddenElement);
+  // render functions 
+  protected renderHeader(header?: PrefixSuffixRender) {
+    if (header) {
+      this.header = true;
     }
-  }
-  private validitycheck() {
 
-    if (this.hiddenElement) {
-      const valid = this.hiddenElement.checkValidity();
-      if (!valid) {
-        if (this.helpertext !== this.message && !this.messageType && this.message) {
-          this.helpertext = this.message;
-        }
-
-        const validity = this.hiddenElement.validity;
-        for (let type in validity) {
-          if (!validity[type as FieldValidityStateName]) continue;
-
-          if (this.customError && this.customError[type as FieldValidityStateName]) {
-            this.message = this.customError[type as FieldValidityStateName];
-            this.messageType = "error"
-            return
-          }
-          else if (this.customWarning && this.customWarning[type as FieldValidityStateName]) {
-            this.message = this.customWarning[type as FieldValidityStateName];
-            this.messageType = "warning"
-            return
-          }
-          else {
-            // we going to show the auto message as an error
-            this.message = this.hiddenElement.validationMessage;
-            this.messageType = "error"
-            return
-          }
-        }
-      }
-      else {
-        this.handlevalid();
-      }
-    }
-  }
-
-  // public functions
-  public handlefocus = () => {
-    // this.hasFocus = true;
-    if (this.inputElement) {
-      this.inputElement.focus();
-    }
-  }
-  public checkValidity() {
-    if (this.hiddenElement) return this.hiddenElement.checkValidity();
-    return false;
-  }
-  public reportValidity() {
-    if (this.hiddenElement) return this.hiddenElement.reportValidity();
-    return false;
-  }
-
-  render(element: DocumentFragment, selector = "input") {
-    if (element && !this.inputElement) {
-      const input = element.querySelector<T>(selector);
-      if (input && !input.hasAttribute('data-field-init')) {
-        input.addEventListener('invalid', this.handleinvalid_field);
-        input.addEventListener('valid', this.handlevalid_field);
-        input.addEventListener('input', this.handleinput_field);
-        input.addEventListener('change', this.handlechange_field);
-
-        const type = input.getAttribute('type')
-        if (type === "radio" || type === "checkbox") {
-          if (this.checked) {
-            input.setAttribute('checked', this.checked.toString());
-          }
-          else {
-            input.removeAttribute("checked");
-          }
-        }
-        else {
-          if (this.value !== undefined) {
-            input.setAttribute('value', this.value);
-          }
-        }
-
-        if (this.readonly) input.setAttribute('readonly', 'true');
-
-        input.setAttribute('data-field-init', 'true');
-        this.inputElement = input;
-
-        this.onvalueupdate(this.value);
-      }
-    }
     return html`
-      <header part="header">
-        <slot @slotchange="${this.handleheaderslotchange}" name="header"><pap-typography>${this.label || ""}</pap-typography></slot>
-        ${this.maxLength ? html`<pap-typography><span class="counter">0</span>/${this.maxLength}</pap-typography>` : ''}
-      </header>
+      <pap-prefix-suffix-template part="header">
+        <slot @slotchange="${this.handleslotchange}" slot="prefix" name="header-prefix"></slot>
+        <slot @slotchange="${this.handleslotchange}" name="header"></slot>
+        <slot @slotchange="${this.handleslotchange}" slot="suffix" name="header-suffix"></slot>
 
-      <pap-box-template radius="${this.radius}" class="wrapper" part="wrapper">
-        <pap-prefix-suffix-template streched>
-          <slot slot="prefix" name="prefix">${this._prefix}</slot>
-          ${element ? element : '<slot></slot>'}
-          <slot slot="suffix" name="suffix">${this._suffix}</slot>
+        ${header?.prefix}
+        ${header?.content}
+        ${header?.suffix}
+      </pap-prefix-suffix-template>
+    `
+  }
+  protected renderFooter(footer?: PrefixSuffixRender) {
+    if (footer) {
+      this.header = true;
+    }
+
+    return html`
+      <pap-prefix-suffix-template part="footer">
+        ${footer?.prefix}
+        ${footer?.content}
+        ${footer?.suffix}
+
+        <slot @slotchange="${this.handleslotchange}" slot="prefix" name="footer-prefix"></slot>
+        ${this.getFooterPrefixSlot()}
+        <slot @slotchange="${this.handleslotchange}" name="footer"></slot>
+        ${this.message ? `<pap-typography key="message" part="message">${this.message}</pap-typography>` : ''}
+        <slot @slotchange="${this.handleslotchange}" slot="suffix" name="footer-suffix"></slot>
+      </pap-prefix-suffix-template>
+    `
+  }
+  protected renderMain(main: PrefixSuffixRender) {
+    return html`
+      <pap-box-template part="main" radius="${ifDefined(this.radius)}">
+        <pap-prefix-suffix-template part="prefix-suffix">
+          <slot slot="prefix" name="prefix"></slot>
+          ${main.prefix}
+          ${main.content}
+          ${main.suffix}
+          <slot slot="suffix" name="suffix"></slot>
         </pap-prefix-suffix-template>
       </pap-box-template>
+    `
+  }
 
-      <footer part="footer">
-        <div class="message">
-          <pap-icon name=${this.messageType ? this.messageType : ''}></pap-icon>
-          <pap-typography>${this.message}</pap-typography>
-        </div>
-        <slot @slotchange="${this.handlefooterslotchange}" name="footer"></slot>
-      </footer>
+  override render(render: RenderArgument) {
+    return html`
+      ${this.renderHeader(render.header)}
+      ${this.renderMain(render.main)}
+      ${this.renderFooter(render.footer)}
     `
   }
 }
-// <!-- <slot name="footer"><pap-typography class="${this.message?.type || "hidden"}">${this.message?.message || ""}</pap-typography></slot> -->
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-field-template": FieldTemplate;
+    "pap-field-template": Field;
   }
 }

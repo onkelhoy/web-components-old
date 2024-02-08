@@ -1,18 +1,18 @@
 // system 
 import { html, property, query } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // atoms 
-import { Toggle } from '@pap-it/toggle';
+import { Switch } from '@pap-it/switch';
 import "@pap-it/icon/wc";
-import "@pap-it/toggle/wc";
+import "@pap-it/switch/wc";
 
 
 // local
 import { style } from "./style";
 import { LightDarkTheme } from '../../types';
 
-export class Lightdark extends BaseSystem {
+export class Lightdark extends Base {
   static style = style;
 
   @property() mode!: LightDarkTheme;
@@ -44,21 +44,21 @@ export class Lightdark extends BaseSystem {
     this.mode = e.matches ? "dark" : "light"
   }
   private handlechange = (e: Event) => {
-    const toggle = e.target as Toggle;
-    if (toggle) {
-      this.setlightdark(toggle.checked ? "dark" : "light");
+    const Switch = e.target as Switch;
+    if (Switch) {
+      this.setlightdark(Switch.checked ? "dark" : "light");
     }
   }
 
   render() {
     return html`
-      <pap-toggle 
+      <pap-switch 
         @change="${this.handlechange}"
-        value="${this.mode === "dark" ? "true" : "false"}" 
+        checked="${this.mode === "dark"}" 
       >
         <pap-icon name="light-mode"></pap-icon>
         <pap-icon name="dark-mode"></pap-icon>
-      </pap-toggle>
+      </pap-switch>
     `
   }
 }

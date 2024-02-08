@@ -1,4 +1,4 @@
-import { BoxTemplate } from './component.js';
+import { Box } from './component.js';
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;
@@ -8,5 +8,5 @@ if (!cElements) {
 }
 
 if (!cElements.get('pap-box-template')) {
-  cElements.define('pap-box-template', BoxTemplate);
+  cElements.define('pap-box-template', Box);
 }

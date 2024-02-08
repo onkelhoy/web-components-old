@@ -2,6 +2,8 @@
 
 # start by exposing global flag 
 export GLOBAL_PUBLISH=true
+touch versioning.env
+echo "GLOBAL_PUBLISH=\"true\"" >> versioning.env
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -15,6 +17,7 @@ for arg in "$@"; do
   fi
   if [ "$arg" == "--force" ]; then
     export FORCE=true
+    echo "FORCE=\"true\"" >> versioning.env
   fi
 done
 
@@ -43,5 +46,8 @@ fi
 
 # last we run the npm install (as we skipped in all postversion scripts)
 npm install
+
+# cleanup
+rm versioning.env
 
 echo "packages built"

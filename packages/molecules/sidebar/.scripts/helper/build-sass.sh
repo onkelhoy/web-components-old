@@ -1,5 +1,22 @@
 #!/bin/bash
 
+# NOTE one day maybe we can extend to support dev build
+# # Check if --dev flag is provided
+# for arg in "$@"
+# do
+#   if [[ $arg == "--dev" ]]; then
+#     DEV=true
+#     break
+#   fi
+# done
+
+# TODO use the dev flag later, but since its written to JS we cannot use the source map anyway..
+# if [ $DEV == true ]; then
+#   sass "$input_file":"$output_css" 
+# else 
+#   sass "$input_file":"$output_css" --style=compressed --no-source-map
+# fi
+
 function compile() {
   foldername=$(dirname "$1")
   filename=$(basename "$1")
@@ -11,7 +28,7 @@ function compile() {
   output_file="$foldername/$filename_no_ext.ts"
 
   # Compile the SCSS file to CSS
-  sass "$input_file":"$output_css" --style=compressed
+  sass "$input_file":"$output_css" --style=compressed --no-source-map
 
   # Wait for the CSS file to be created
   while [ ! -f "$output_css" ]; do
@@ -26,7 +43,6 @@ function compile() {
 
   # Remove the intermediate CSS file
   rm "$output_css"
-  rm "${output_css}.map"
 }
 
 # run on all sass files

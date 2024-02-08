@@ -9,8 +9,8 @@ import "@pap-it/divider/wc";
 import "@pap-it/typography/wc";
 
 // templates
-import { BoxTemplate } from "@pap-it/templates-box";
-import { BaseSystem } from "@pap-it/system-base";
+import { Box } from "@pap-it/templates-box";
+import { Base } from "@pap-it/system-base";
 import '@pap-it/templates-box/wc'
 
 // local 
@@ -18,14 +18,14 @@ import { style } from "./style";
 import { Mode, SelectEvent } from "./types";
 import { Item } from "./components/item";
 
-export class Sidebar extends BaseSystem {
+export class Sidebar extends Base {
   static style = style;
 
   @property({ rerender: false }) mode: Mode = "open";
   @property({ onUpdate: "updateSelected" }) selected?: string;
   @property() unit: Devices = "desktop";
 
-  @query('pap-box-template') boxtemplateElement!: BoxTemplate;
+  @query('pap-box-template') boxtemplateElement!: Box;
 
   private items: Array<Item> = [];
   private currentSelected?: Item;
@@ -142,7 +142,15 @@ export class Sidebar extends BaseSystem {
         this.currentSelected?.deselect();
         this.currentSelected = childtarget;
 
-        this.dispatchEvent(new CustomEvent<SelectEvent>("select", { detail: { id: childtarget.id || childtarget.text } }));
+        this.dispatchEvent(
+          new CustomEvent<SelectEvent>("select",
+            {
+              detail: {
+                id: childtarget.id || childtarget.text
+              }
+            }
+          )
+        );
       }
       this.currentAncestorSelected = e.target;
     }

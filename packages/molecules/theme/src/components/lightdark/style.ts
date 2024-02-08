@@ -1,8 +1,1 @@
-export const style = `:host pap-toggle::part(indicator) {
-  background-color: transparent; }
-
-:host pap-toggle[checked="true"] pap-icon[name="light-mode"] {
-  display: none; }
-
-:host pap-toggle[checked="false"] pap-icon[name="dark-mode"] {
-  display: none; }`;
+export const style = `:host pap-switch::part(indicator){background-color:rgba(0,0,0,0)}:host pap-switch[checked=true] pap-icon[name=light-mode]{display:none}:host pap-switch[checked=false] pap-icon[name=dark-mode]{display:none}`;

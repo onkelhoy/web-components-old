@@ -2,12 +2,12 @@
 import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BoxTemplate } from "@pap-it/templates-box";
+import { Box } from "@pap-it/templates-box";
 
 // local 
 import { style } from "./style";
 
-export class Message extends BoxTemplate {
+export class Message extends Box {
   static style = style;
 
   // event handlers

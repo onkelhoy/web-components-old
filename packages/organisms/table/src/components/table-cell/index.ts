@@ -1,6 +1,6 @@
 // system 
 import { ExtractSlotValue, Size, Spread, context, html, property, query } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // atoms
 import { Textarea } from "@pap-it/textarea";
@@ -11,7 +11,7 @@ import { style } from "./style";
 import { Column, Config, DefaultConfig, Alignment } from "../../types";
 
 // @property({ spread: Spread.BREAKOUT, type: Object, verbose: true }) settings: Cell = DefaultCell;
-export class TableCell extends BaseSystem {
+export class TableCell extends Base {
   static style = style;
 
   @property() size: Size = "medium";

@@ -1,180 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button demo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button demo</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
+  <script defer src="main.js"></script>
 </head>
+
 <body>
+  <doc-card>
+    <pap-codeblock display="both">
+      <form>
+        <div>
+          <label>A</label>
+          <input value="testing" name="a" />
+        </div>
+        <br />
+        <div>
+          <label>B</label>
+          <input value="testing" name="b" />
+        </div>
+        <br />
+        <br />
 
-    <doc-card>
-        <h4 slot="header">Fill Button</h4>
-        <pap-codeblock display="both">
-            <pap-button mode="fill" color="primary">
-                Button 
-            </pap-button>
-            <br />
-            <pap-button mode="fill" color="primary">
-                <pap-icon slot="prefix" name="circle">P</pap-icon>
-                Button 
-            </pap-button>
-            <br />
-            <pap-button mode="fill" color="primary">
-                Button 
-                <pap-icon slot="suffix" name="circle">S</pap-icon>
-            </pap-button>
-            <br />
-            <pap-button mode="fill" color="primary">
-                <pap-icon slot="prefix" name="circle">P</pap-icon>
-                Button 
-                <pap-icon slot="suffix" name="circle">S</pap-icon>
-            </pap-button>
-        </pap-codeblock>
-    </doc-card>
+        <pap-button size="small" mode="fill" color="secondary" type="submit">submit</pap-button>
+        <br />
+        <pap-button size="small" mode="fill" color="secondary" variant="outlined" type="reset">reset</pap-button>
+      </form>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          document.querySelector('form').onsubmit = (e) => {
+            e.preventDefault();
+            const data = new FormData(e.target);
+            alert(`a: ${data.get('a')}, b: ${data.get('b')}`);
+          }
+        });
+      </script>
+    </pap-codeblock>
+  </doc-card>
 
-    <doc-card>
-        <h4 slot="header">Circle Buttons</h4>
-        <pap-codeblock display="both">
-            <pap-button size="large" circle color="warning" variant="outlined">
-                <pap-icon name="circle">S</pap-icon>
-            </pap-button>
-            <pap-button size="medium" circle color="warning" variant="outlined">
-                <pap-icon name="circle">S</pap-icon>
-            </pap-button>
-            <pap-button size="small" circle color="warning" variant="outlined">
-                <pap-icon name="circle">S</pap-icon>
-            </pap-button>
-        </pap-codeblock>
-    </doc-card>
-    
-    <doc-card>
-        <h4 slot="header">Small</h4>
-        <pap-codeblock display="both">
-            <pap-button size="small" color="primary">
-                <pap-icon slot="prefix" name="circle">P</pap-icon>
-                Button 
-            </pap-button>
-            <pap-button size="small" color="primary">
-                <pap-icon slot="prefix" name="circle">P</pap-icon>
-                Button 
-                <pap-icon slot="suffix" name="circle">S</pap-icon>
-            </pap-button>
-            <pap-button size="small" color="primary">
-                Button 
-                <pap-icon slot="suffix" name="circle">S</pap-icon>
-            </pap-button>
-        </pap-codeblock>
-    </doc-card>
-    
-    <doc-card>
-        <h4 slot="header">Medium</h4>
-        <pap-codeblock display="both">
-            <pap-button size="medium" color="primary">
-                <pap-icon slot="prefix" name="circle">P</pap-icon>
-                Button 
-            </pap-button>
-            <pap-button size="medium" color="primary">
-                <pap-icon slot="prefix" name="circle">P</pap-icon>
-                Button 
-                <pap-icon slot="suffix" name="circle">S</pap-icon>
-            </pap-button>
-            <pap-button size="medium" color="primary">
-                Button 
-                <pap-icon slot="suffix" name="circle">S</pap-icon>
-            </pap-button>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <h4 slot="header">Fill Button</h4>
+    <pap-codeblock display="both">
+      <pap-button mode="fill" color="primary">
+        Button
+      </pap-button>
+      <br />
+      <pap-button mode="fill" color="primary">
+        <pap-icon slot="prefix" name="circle">P</pap-icon>
+        Button
+      </pap-button>
+      <br />
+      <pap-button mode="fill" color="primary">
+        Button
+        <pap-icon slot="suffix" name="circle">S</pap-icon>
+      </pap-button>
+      <br />
+      <pap-button mode="fill" color="primary">
+        <pap-icon slot="prefix" name="circle">P</pap-icon>
+        Button
+        <pap-icon slot="suffix" name="circle">S</pap-icon>
+      </pap-button>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <h4 slot="header">Circle Buttons</h4>
+    <pap-codeblock display="both">
+      <pap-button size="large" circle color="warning" variant="outlined">
+        <pap-icon name="circle">S</pap-icon>
+      </pap-button>
+      <pap-button size="medium" circle color="warning" variant="outlined">
+        <pap-icon name="circle">S</pap-icon>
+      </pap-button>
+      <pap-button size="small" circle color="warning" variant="outlined">
+        <pap-icon name="circle">S</pap-icon>
+      </pap-button>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <h4 slot="header">Small</h4>
+    <pap-codeblock display="both">
+      <pap-button size="small" color="primary">
+        <pap-icon slot="prefix" name="circle">P</pap-icon>
+        Button
+      </pap-button>
+      <pap-button size="small" color="primary">
+        <pap-icon slot="prefix" name="circle">P</pap-icon>
+        Button
+        <pap-icon slot="suffix" name="circle">S</pap-icon>
+      </pap-button>
+      <pap-button size="small" color="primary">
+        Button
+        <pap-icon slot="suffix" name="circle">S</pap-icon>
+      </pap-button>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <h4 slot="header">Medium</h4>
+    <pap-codeblock display="both">
+      <pap-button size="medium" color="primary">
+        <pap-icon slot="prefix" name="circle">P</pap-icon>
+        Button
+      </pap-button>
+      <pap-button size="medium" color="primary">
+        <pap-icon slot="prefix" name="circle">P</pap-icon>
+        Button
+        <pap-icon slot="suffix" name="circle">S</pap-icon>
+      </pap-button>
+      <pap-button size="medium" color="primary">
+        Button
+        <pap-icon slot="suffix" name="circle">S</pap-icon>
+      </pap-button>
+    </pap-codeblock>
+  </doc-card>
 
 
-    <doc-card>
-        <h4 slot="header">Large</h4>
-        <pap-codeblock display="both">
-            <pap-button size="large" color="primary">
-                <pap-icon slot="prefix" name="circle">P</pap-icon>
-                Button 
-            </pap-button>
-            <pap-button size="large" color="primary">
-                <pap-icon slot="prefix" name="circle">P</pap-icon>
-                Button 
-                <pap-icon slot="suffix" name="circle">S</pap-icon>
-            </pap-button>
-            <pap-button size="large" color="primary">
-                Button 
-                <pap-icon slot="suffix" name="circle">S</pap-icon>
-            </pap-button>
-        </pap-codeblock>
-    </doc-card>
-    
-    <doc-card>
-        <h4 slot="header">Warning Icon</h4>
-        <pap-codeblock display="both">
-            <pap-button size="large" color="warning" variant="outlined">
-                <pap-icon slot="prefix" name="circle">P</pap-icon>
-                Button 
-                <pap-icon slot="suffix" name="circle">S</pap-icon>
-            </pap-button>
-            <pap-button size="large" color="warning" variant="clear">
-                <pap-icon slot="prefix" name="circle">P</pap-icon>
-                Button 
-                <pap-icon slot="suffix" name="circle">S</pap-icon>
-            </pap-button>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <h4 slot="header">Large</h4>
+    <pap-codeblock display="both">
+      <pap-button size="large" color="primary">
+        <pap-icon slot="prefix" name="circle">P</pap-icon>
+        Button
+      </pap-button>
+      <pap-button size="large" color="primary">
+        <pap-icon slot="prefix" name="circle">P</pap-icon>
+        Button
+        <pap-icon slot="suffix" name="circle">S</pap-icon>
+      </pap-button>
+      <pap-button size="large" color="primary">
+        Button
+        <pap-icon slot="suffix" name="circle">S</pap-icon>
+      </pap-button>
+    </pap-codeblock>
+  </doc-card>
 
-    <doc-card>
-        <h4 slot="header">Filled</h4>
-        <pap-codeblock display="both">
-            <pap-button color="danger">Button</pap-button>
-            <pap-button color="warning">Button</pap-button>
-            <pap-button color="success">Button</pap-button>
-            <pap-button color="inverse">Button</pap-button>
-            <pap-button color="primary">Button</pap-button>
-            <pap-button color="secondary">Button</pap-button>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <h4 slot="header">Warning Icon</h4>
+    <pap-codeblock display="both">
+      <pap-button size="large" color="warning" variant="outlined">
+        <pap-icon slot="prefix" name="circle">P</pap-icon>
+        Button
+        <pap-icon slot="suffix" name="circle">S</pap-icon>
+      </pap-button>
+      <pap-button size="large" color="warning" variant="clear">
+        <pap-icon slot="prefix" name="circle">P</pap-icon>
+        Button
+        <pap-icon slot="suffix" name="circle">S</pap-icon>
+      </pap-button>
+    </pap-codeblock>
+  </doc-card>
 
-    <doc-card>
-        <h4 slot="header">Outline</h4>
-        <pap-codeblock display="both">
-            <pap-button variant="outlined" color="danger">Button</pap-button>
-            <pap-button variant="outlined" color="warning">Button</pap-button>
-            <pap-button variant="outlined" color="success">Button</pap-button>
-            <pap-button variant="outlined" color="inverse">Button</pap-button>
-            <pap-button variant="outlined" color="primary">Button</pap-button>
-            <pap-button variant="outlined" color="secondary">Button</pap-button>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <h4 slot="header">Filled</h4>
+    <pap-codeblock display="both">
+      <pap-button color="danger">Button</pap-button>
+      <pap-button color="warning">Button</pap-button>
+      <pap-button color="success">Button</pap-button>
+      <pap-button color="inverse">Button</pap-button>
+      <pap-button color="primary">Button</pap-button>
+      <pap-button color="secondary">Button</pap-button>
+    </pap-codeblock>
+  </doc-card>
 
-    <doc-card>
-        <h4 slot="header">Clear</h4>
-        <pap-codeblock display="both">
-            <pap-button variant="clear" color="danger">Button</pap-button>
-            <pap-button variant="clear" color="warning">Button</pap-button>
-            <pap-button variant="clear" color="success">Button</pap-button>
-            <pap-button variant="clear" color="inverse">Button</pap-button>
-            <pap-button variant="clear" color="primary">Button</pap-button>
-            <pap-button variant="clear" color="secondary">Button</pap-button>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <h4 slot="header">Outline</h4>
+    <pap-codeblock display="both">
+      <pap-button variant="outlined" color="danger">Button</pap-button>
+      <pap-button variant="outlined" color="warning">Button</pap-button>
+      <pap-button variant="outlined" color="success">Button</pap-button>
+      <pap-button variant="outlined" color="inverse">Button</pap-button>
+      <pap-button variant="outlined" color="primary">Button</pap-button>
+      <pap-button variant="outlined" color="secondary">Button</pap-button>
+    </pap-codeblock>
+  </doc-card>
 
-    <doc-card>
-        <h4 slot="header">Disabled</h4>
-        <pap-codeblock display="both">
-            <pap-button variant="filled" disabled>Button</pap-button>
-            <pap-button variant="outlined" disabled>Button</pap-button>
-            <pap-button variant="inverse" disabled>Button</pap-button>
-            <pap-button variant="clear" disabled>Button</pap-button>
-            <pap-button variant="filled" color="success" disabled>Button</pap-button>
-            <pap-button variant="filled" color="danger" disabled>Button</pap-button>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <h4 slot="header">Clear</h4>
+    <pap-codeblock display="both">
+      <pap-button variant="clear" color="danger">Button</pap-button>
+      <pap-button variant="clear" color="warning">Button</pap-button>
+      <pap-button variant="clear" color="success">Button</pap-button>
+      <pap-button variant="clear" color="inverse">Button</pap-button>
+      <pap-button variant="clear" color="primary">Button</pap-button>
+      <pap-button variant="clear" color="secondary">Button</pap-button>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <h4 slot="header">Disabled</h4>
+    <pap-codeblock display="both">
+      <pap-button variant="filled" disabled>Button</pap-button>
+      <pap-button variant="outlined" disabled>Button</pap-button>
+      <pap-button variant="inverse" disabled>Button</pap-button>
+      <pap-button variant="clear" disabled>Button</pap-button>
+      <pap-button variant="filled" color="success" disabled>Button</pap-button>
+      <pap-button variant="filled" color="danger" disabled>Button</pap-button>
+    </pap-codeblock>
+  </doc-card>
 </body>
+
 </html>

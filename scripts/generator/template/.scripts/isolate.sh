@@ -10,7 +10,7 @@ mkdir isolated
 npm run build 
 
 # create bundles 
-esbuild src/register.ts --bundle --minify --outfile=isolated/index.bundle.mjs --format=esm --platform=browser &> /dev/null
+esbuild src/register.ts --tsconfig=tsconfig.prod.json --bundle --minify --outfile=isolated/index.bundle.mjs --format=esm --platform=browser &> /dev/null
 
 # clear the console
 echo "isolated version successfully built"

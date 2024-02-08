@@ -9,14 +9,14 @@ import "@pap-it/accordion/wc";
 import "@pap-it/typography/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
 import { style } from "./style";
 
 export type Variant = "warning" | "error" | "success";
 
-export class Message extends BaseSystem {
+export class Message extends Base {
   static style = style;
 
   @property({ rerender: false }) variant: Variant = "success";

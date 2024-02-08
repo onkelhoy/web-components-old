@@ -4,14 +4,14 @@ PRE: just start the task given, dont include any starting lines so I can just co
 ## SOURCE-CODE
 
 import { property, Size } from '@pap-it/system-utils';
-import { BoxTemplate } from '@pap-it/templates-box';
+import { Box } from '@pap-it/templates-box';
 
 import { style } from './style.js';
 
 import type { ButtonMode, ButtonVariant, ButtonColorVariant } from './types';
 
 // TODO extend form-element-template
-export class Button extends BoxTemplate {
+export class Button extends Box {
     static style = style;
 
     @property({ rerender: false, onUpdate: "ontypeupdate" }) type: "button" | "link" | "submit" | "reset" = "button"; // TODO link

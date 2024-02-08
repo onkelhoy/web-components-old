@@ -1,4 +1,4 @@
-import { ThemeTool } from './component.js';
+import { Theme } from './component.js';
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;
@@ -8,5 +8,5 @@ if (!cElements) {
 }
 
 if (!cElements.get('pap-theme-tool')) {
-  cElements.define('pap-theme-tool', ThemeTool);
+  cElements.define('pap-theme-tool', Theme);
 }

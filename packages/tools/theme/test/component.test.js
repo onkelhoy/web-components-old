@@ -1,6 +1,6 @@
 import { fixture } from '@pap-it/tools-test';
 
-describe('ThemeTool', function () {
+describe('Theme', function () {
   describe('base tests', function () {
     it('web-component should exists', function () {
       const elm = fixture('pap-theme-tool');
@@ -10,7 +10,7 @@ describe('ThemeTool', function () {
       }
 
       const docelm = document.querySelector(`pap-theme-tool[data-testid="${elm.getAttribute('data-testid')}"]`);
-      
+
       if (!docelm) {
         throw new Error('element not found');
       }

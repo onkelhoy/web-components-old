@@ -1,2 +1,1 @@
-export const style = `:host {
-  display: block; }`;
+export const style = `:host{display:block}`;

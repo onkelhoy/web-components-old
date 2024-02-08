@@ -9,14 +9,14 @@ import "@pap-it/typography/wc";
 import "@pap-it/divider/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
 // local
 import { style } from "./style";
 import { Contact } from "./types";
 
-export class SidebarContact extends BaseSystem {
+export class SidebarContact extends Base {
   static style = style;
 
   @property({ type: Boolean }) open: boolean = false;

@@ -18,7 +18,12 @@ import { NavigationButtonType } from './types';
 export class Pagination extends Translator {
   static style = style;
 
-  @property({ type: Number }) page: number = 0;
+  @property({
+    type: Number,
+    set: function (this: Pagination) {
+      this.dispatchEvent(new Event('page'))
+    }
+  }) page: number = 0;
   @property({ type: Number, onUpdate: "onperpageupdate" }) perpage: number = 0;
   @property({ type: Number, onUpdate: "ontotal" }) total: number = 0;
 
@@ -125,7 +130,7 @@ export class Pagination extends Translator {
         <pap-typography>
           <pap-translator>Items</pap-translator>
         </pap-typography>
-        <pap-dropdown id="perpage-selector" value="${this.perpage || 5}" @change="${this.handledropdownchange}"></pap-dropdown>
+        <pap-dropdown size="small" id="perpage-selector" value="${this.perpage || 5}" @change="${this.handledropdownchange}"></pap-dropdown>
       </span>
       <pap-divider mode="vertical"></pap-divider>
       <pap-typography nowrap>
@@ -140,7 +145,7 @@ export class Pagination extends Translator {
         <pap-typography>
           <pap-translator>Page</pap-translator>
         </pap-typography>
-        <pap-dropdown id="page-selector" value="${Math.min(this.page || 0, this.MaxPage)}" @change="${this.handledropdownchange}"></pap-dropdown>
+        <pap-dropdown size="small" id="page-selector" value="${Math.min(this.page || 0, this.MaxPage)}" @change="${this.handledropdownchange}"></pap-dropdown>
         <pap-typography nowrap>
           <pap-translator maxpage="${this.MaxPage + 1}">of {maxpage}</pap-translator>
         </pap-typography>

@@ -4,19 +4,20 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
+## SOURCE-CODE
+
+// utils
 import { html, property, query } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 import { OSubmitEvent } from './types'
 import { Message, Variant as MessageType } from "./components/message";
 
-export class Form extends BaseSystem {
+export class Form extends Base {
   static style = style;
 
   @property({ rerender: false, onUpdate: "onerrorupdate" }) error?: string;
@@ -61,7 +62,7 @@ export class Form extends BaseSystem {
     return false;
   }
 
-  // public functions 
+  // public functions
   public showMessage(message: string, type: MessageType) {
     this.messageElement.innerHTML = message;
     this.messageElement.variant = type;
@@ -90,7 +91,9 @@ export class Form extends BaseSystem {
         `
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     display: block;
 

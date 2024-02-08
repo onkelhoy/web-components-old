@@ -9,6 +9,7 @@ Version: 1.0.0
 Development servers can be started and should all exist inside `"views"` folder
 
 ## Scripts
+
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
@@ -18,13 +19,13 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 import { Variant, Alignment } from "./types";
 
-export class Typography extends BaseSystem {
+export class Typography extends Base {
     static style = style;
 
     @property({ rerender: false }) variant: Variant = "C3";
@@ -71,13 +72,13 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 import { Variant, Alignment } from "./types";
 
-export class Typography extends BaseSystem {
+export class Typography extends Base {
     static style = style;
 
     @property({ rerender: false }) variant: Variant = "C3";
@@ -112,13 +113,13 @@ slots should include columns: (name, default-value, description)
 import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 import { Variant, Alignment } from "./types";
 
-export class Typography extends BaseSystem {
+export class Typography extends Base {
     static style = style;
 
     @property({ rerender: false }) variant: Variant = "C3";

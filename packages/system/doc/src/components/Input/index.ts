@@ -2,7 +2,7 @@
 import { html, property, debounce } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 import { style } from "./style";
 
@@ -11,7 +11,7 @@ export type InputVariant = "input" | "textarea" | "select" | "number";
 export type Option = { text: string; value: string; }
 export type ChangeEvent = { value: string };
 
-export class Input extends BaseSystem {
+export class Input extends Base {
   static style = style;
 
   private inputElement!: HTMLInputElement;

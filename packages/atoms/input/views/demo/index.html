@@ -17,67 +17,174 @@
 
 <body>
   <doc-card>
-    <pap-typography slot="header" variant="C1">Default</pap-typography>
+    <pap-typography slot="header" variant="C1">Playaround</pap-typography>
 
+    <pap-typography>Counter</pap-typography>
     <pap-codeblock display="both">
-      <pap-input name="demo" placeholder="write something"></pap-input>
+      <pap-input maxlength="30"></pap-input>
+      <pap-input maxlength="30" counter></pap-input>
     </pap-codeblock>
   </doc-card>
 
   <doc-card>
-    <pap-typography slot="header" variant="C1">Prefix & Suffix</pap-typography>
+    <pap-typography slot="header" variant="C1">Validation</pap-typography>
 
+    <pap-typography>Default validaiton</pap-typography>
     <pap-codeblock display="both">
-      <pap-input name="demo" label="label" placeholder="write something">
-        <span slot="suffix">SUF</span>
-        <span slot="prefix">PRE</span>
+      <pap-input required type="email"></pap-input>
+    </pap-codeblock>
+
+    <pap-typography>Custom Error</pap-typography>
+    <pap-codeblock display="both">
+      <pap-input required type="email"
+        custom-error='{ "valueMissing": "Custom message for missing value", "typeMismatch": "Custom message for type missmatch" }'></pap-input>
+    </pap-codeblock>
+
+    <pap-typography>Custom Warning</pap-typography>
+    <pap-codeblock display="both">
+      <pap-input required type="email"
+        custom-warning='{ "valueMissing": "Custom message for missing value", "typeMismatch": "Custom message for type missmatch" }'></pap-input>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Form Case</pap-typography>
+    <pap-codeblock display="both">
+      <form id="form1">
+        <pap-input name="aaa" label="aaa"></pap-input>
+        <pap-input default-value="bajs" name="bbb" label="bbb"></pap-input>
+        <button type="submit">submit</button>
+        <button type="reset">reset</button>
+      </form>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Types</pap-typography>
+    <pap-codeblock display="both">
+      <pap-input type="email"></pap-input>
+      <pap-input type="password"></pap-input>
+      <pap-input type="search"></pap-input>
+      <pap-input type="number"></pap-input>
+      <pap-input type="tel"></pap-input>
+      <pap-input type="url"></pap-input>
+      <pap-input type="color"></pap-input>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">States</pap-typography>
+
+    <pap-typography>Normal</pap-typography>
+    <pap-codeblock display="both">
+      <pap-input message="hello im some message" label="some label">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
+      <pap-input message="hello im some message" label="some label" placeholder="placeholder">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
+      <pap-input message="hello im some message" label="some label" value="value">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
       </pap-input>
     </pap-codeblock>
-  </doc-card>
 
-  <doc-card>
-    <pap-typography slot="header" variant="C1">Counter</pap-typography>
-
+    <pap-typography>Success</pap-typography>
     <pap-codeblock display="both">
-      <pap-input name="demo" maxLength="10" label="label" placeholder="write something">
-        <span slot="suffix">SUF</span>
+      <pap-input message="hello im some message" label="some label" state="success">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
+      <pap-input state="success" message="hello im some message" label="some label" placeholder="placeholder">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
+      <pap-input state="success" message="hello im some message" label="some label" value="value">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
       </pap-input>
     </pap-codeblock>
-  </doc-card>
 
-  <doc-card>
-    <pap-typography slot="header" variant="C1">Messages</pap-typography>
-
-    <pap-typography>Helper:</pap-typography>
+    <pap-typography>Danger</pap-typography>
     <pap-codeblock display="both">
-      <pap-input name="demo" message="Helper text"></pap-input>
+      <pap-input message="hello im some message" label="some label" state="danger">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
+      <pap-input state="danger" message="hello im some message" label="some label" placeholder="placeholder">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
+      <pap-input state="danger" message="hello im some message" label="some label" value="value">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
     </pap-codeblock>
 
-    <pap-typography>Success:</pap-typography>
+    <pap-typography>Warning</pap-typography>
     <pap-codeblock display="both">
-      <pap-input name="demo" message="Helper text" message-type="success"></pap-input>
+      <pap-input message="hello im some message" label="some label" state="warning">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
+      <pap-input state="warning" message="hello im some message" label="some label" placeholder="placeholder">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
+      <pap-input state="warning" message="hello im some message" label="some label" value="value">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
     </pap-codeblock>
 
-    <pap-typography>Warning:</pap-typography>
+    <pap-typography>Info</pap-typography>
     <pap-codeblock display="both">
-      <pap-input customWarning='{ "valueMissing": "This value is missing" }' required></pap-input>
+      <pap-input message="hello im some message" label="some label" state="info">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
+      <pap-input state="info" message="hello im some message" label="some label" placeholder="placeholder">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
+      <pap-input state="info" message="hello im some message" label="some label" value="value">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
     </pap-codeblock>
 
-    <pap-typography>Warning (with default help text):</pap-typography>
+    <pap-typography>Readonly</pap-typography>
     <pap-codeblock display="both">
-      <pap-input customWarning='{ "valueMissing": "This value is missing" }' message="default help text"
-        required></pap-input>
+      <pap-input readonly message="hello im some message" label="some label">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
+      <pap-input readonly message="hello im some message" label="some label" placeholder="placeholder">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
+      <pap-input readonly message="hello im some message" label="some label" value="value">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
     </pap-codeblock>
 
-    <pap-typography>Error:</pap-typography>
+    <pap-typography>Disabled</pap-typography>
     <pap-codeblock display="both">
-      <pap-input customError='{ "valueMissing": "This value is missing" }' required></pap-input>
-    </pap-codeblock>
-
-    <pap-typography>Error (with default help text):</pap-typography>
-    <pap-codeblock display="both">
-      <pap-input customError='{ "valueMissing": "This value is missing" }' message="default help text" required
-        id="error"></pap-input>
+      <pap-input disabled message="hello im some message" label="some label">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
+      <pap-input disabled message="hello im some message" label="some label" placeholder="placeholder">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
+      <pap-input disabled message="hello im some message" label="some label" value="value">
+        <pap-icon slot="suffix" name="prefix"></pap-icon>
+        <pap-icon slot="header-prefix" name="suffix"></pap-icon>
+      </pap-input>
     </pap-codeblock>
   </doc-card>
 </body>

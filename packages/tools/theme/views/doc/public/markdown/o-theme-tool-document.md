@@ -1,4 +1,4 @@
-# ThemeTool
+# Theme
 
 Atomic Type: tools
 
@@ -19,12 +19,12 @@ PRE: just start the task given, dont include any starting lines so I can just co
 // import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 
-export class ThemeTool extends BaseSystem {
+export class Theme extends Base {
     static style = style;
 
     render() {
@@ -34,13 +34,13 @@ export class ThemeTool extends BaseSystem {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "pap-theme-provider": ThemeTool;
+        "pap-theme-provider": Theme;
     }
 }
 
 ## REGISTER-CODE
 
-import { ThemeTool } from './component.js';
+import { Theme } from './component.js';
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;
@@ -50,7 +50,7 @@ if (!cElements) {
 }
 
 if (!cElements.get('pap-theme-tool')) {
-  cElements.define('pap-theme-tool', ThemeTool);
+  cElements.define('pap-theme-tool', Theme);
 }
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and the types can you give me the following tables.
@@ -65,12 +65,12 @@ PRE: just start the task given, dont include any starting lines so I can just co
 // import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 
-export class ThemeTool extends BaseSystem {
+export class Theme extends Base {
     static style = style;
 
     render() {
@@ -80,7 +80,7 @@ export class ThemeTool extends BaseSystem {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "pap-theme-provider": ThemeTool;
+        "pap-theme-provider": Theme;
     }
 }
 
@@ -115,12 +115,12 @@ slots should include columns: (name, default-value, description)
 // import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 
-export class ThemeTool extends BaseSystem {
+export class Theme extends Base {
     static style = style;
 
     render() {
@@ -130,7 +130,7 @@ export class ThemeTool extends BaseSystem {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "pap-theme-provider": ThemeTool;
+        "pap-theme-provider": Theme;
     }
 }
 

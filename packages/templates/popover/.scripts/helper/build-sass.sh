@@ -11,7 +11,7 @@ function compile() {
   output_file="$foldername/$filename_no_ext.ts"
 
   # Compile the SCSS file to CSS
-  sass "$input_file":"$output_css" --style=compressed
+  sass "$input_file":"$output_css" --style=compressed --no-source-map
 
   # Wait for the CSS file to be created
   while [ ! -f "$output_css" ]; do
@@ -26,7 +26,6 @@ function compile() {
 
   # Remove the intermediate CSS file
   rm "$output_css"
-  rm "${output_css}.map"
 }
 
 # run on all sass files

@@ -1,4 +1,4 @@
-import { BaseSystem } from './component.js';
+import { Base } from './component.js';
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;
@@ -8,5 +8,5 @@ if (!cElements) {
 }
 
 if (!cElements.get('pap-base')) {
-  cElements.define('pap-base', BaseSystem);
+  cElements.define('pap-base', Base);
 }

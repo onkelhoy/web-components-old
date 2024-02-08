@@ -3,14 +3,14 @@ import { html, property, query } from "@pap-it/system-utils";
 
 // atoms 
 import { Typography } from "@pap-it/typography";
-import { Toggle } from "@pap-it/toggle";
+import { Switch } from "@pap-it/switch";
 import "@pap-it/typography/wc";
 import "@pap-it/button/wc";
 import "@pap-it/icon/wc";
-import "@pap-it/toggle/wc";
+import "@pap-it/switch/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
 // local 
@@ -23,7 +23,7 @@ const MAX_HTMLCONTENT = 80;
 const OPEN_BRACKETS = ["(", "[", "{"];
 const CLOSE_BRACKETS = [")", "]", "}"];
 
-export class Codeblock extends BaseSystem {
+export class Codeblock extends Base {
   static style = style;
 
   @query({ selector: 'main', onload: 'onmainload' }) main!: HTMLElement;
@@ -32,8 +32,9 @@ export class Codeblock extends BaseSystem {
   @query('fieldset') fieldsetElement!: HTMLFieldSetElement;
 
   @property() display: Display = "code";
-  // TODO attribute: 'theme-toggle'
-  @property({ type: Boolean }) themetoggle: boolean = true;
+  @property() direction: "row" | "column" = "column";
+  @property() color: "canvas" | "background" = "canvas";
+  @property({ type: Boolean, attribute: "theme-toggle" }) themetoggle: boolean = true;
   @property({ rerender: false, onUpdate: "setLanguage" }) lang!: string;
 
   private value: string = "";
@@ -432,13 +433,15 @@ export class Codeblock extends BaseSystem {
         <pap-box-template radius="small">
           <header>
             <pap-typography id="language">${this.language}</pap-typography>
-            ${this.themetoggle ? html`<pap-toggle 
+            ${this.themetoggle ? html`<pap-switch 
               @change="${this.handletogglechange}" 
-              value="${(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
+              scale="false"
+              variant="secondary"
+              checked="${(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
             >
               <pap-typography variant="C4" slot="prefix">light</pap-typography>
               <pap-typography variant="C4" slot="suffix">dark</pap-typography>
-            </pap-toggle>`: ''}
+            </pap-switch>`: ''}
             <pap-button 
               variant="clear" 
               size="small" 

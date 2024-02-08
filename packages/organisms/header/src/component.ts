@@ -1,6 +1,6 @@
 // system 
 import { html, property, query } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // atoms
 import { Menu } from "@pap-it/menu";
@@ -19,7 +19,7 @@ import "@pap-it/tools-translator/wc";
 import { style } from "./style";
 import { UserModel } from "./types";
 
-export class Header extends BaseSystem {
+export class Header extends Base {
   static style = style;
 
   @property({ type: Object }) user?: UserModel;

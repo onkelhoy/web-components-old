@@ -1,17 +1,19 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
+## SOURCE-CODE
+
  import { property, html, Size } from '@pap-it/system-utils';
-import { AssetTemplate } from '@pap-it/templates-asset';
+import { Asset } from '@pap-it/templates-asset';
 
 import { style } from './style.js';
 import { ContainerTypes } from './types.js';
 
-export class Icon extends AssetTemplate {
+export class Icon extends Asset {
   static style = style;
 
   private content: string = "";
@@ -122,8 +124,8 @@ export class Icon extends AssetTemplate {
   render() {
     return html`
       <slot part="fallback"></slot>
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
         viewBox="0 96 960 960"
         part="svg"
       >
@@ -139,4 +141,4 @@ declare global {
   }
 }
 
-## TYPE-CODE: export type ContainerTypes = "small" | "medium" | "large";
+## TYPE-CODE: export type ContainerTypes = "small" | "medium" | "large"

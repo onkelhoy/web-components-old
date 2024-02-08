@@ -1,4 +1,4 @@
-import { FormElementTemplate } from './component.js';
+import { FormElement } from './component.js';
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;
@@ -8,5 +8,5 @@ if (!cElements) {
 }
 
 if (!cElements.get('pap-form-element-template')) {
-  cElements.define('pap-form-element-template', FormElementTemplate);
+  cElements.define('pap-form-element-template', FormElement);
 }

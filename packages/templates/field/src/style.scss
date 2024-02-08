@@ -1,67 +1,89 @@
+// :host([mode="hug"]) {
+//   width: fit-content;
+// }
 :host {
+  --background: var(--pap-color-bg, #FFFFFF);
   --border-color: var(--pap-color-border-secondary, #DADDE3);
-  --height: var(--field-size-medium, 40px);
   --message-text: var(--pap-color-text, #29292F);
   --message-icon: var(--pap-color-icon, #29292F);
 
-  display: block;
-  color: var(--pap-color-text, #29292F);
-
-  footer,
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-inline: var(--padding-small, 8px);
+  pap-prefix-suffix-template[part="footer"],
+  pap-prefix-suffix-template[part="header"] {
+    display: none;
     height: var(--height);
   }
 
-  footer {
-    div.message {
-      display: none;
-      align-items: center;
-      gap: var(--gap-small, 8px);
+  pap-prefix-suffix-template[part="footer"] {
 
-      pap-typography {
-        color: var(--message-text);
-      }
+    pap-icon[slot="prefix"],
+    ::slotted(pap-icon) {
+      color: var(--message-icon);
+    }
 
-      pap-icon {
-        color: var(--message-icon);
-      }
+    pap-typography[part="message"],
+    ::slotted(*:not(pap-icon)) {
+      color: var(--message-text);
     }
   }
 
-  pap-box-template.wrapper {
-    border: 1px solid var(--border-color);
-    display: block;
-    position: relative;
+
+  pap-box-template[part="main"] {
+    min-height: var(--height);
 
     pap-prefix-suffix-template {
-      height: var(--height);
+      height: 100%;
     }
 
-    ::slotted(*:not([slot])),
-    input,
-    select,
-    textarea {
-      color: inherit;
+    display: block;
+    background-color: var(--background);
+    padding-inline: var(--padding-small, 8px);
+    border: 1px solid var(--border-color);
+  }
 
-      font-family: var(--input-fontfamily, var(--typography-c3-fontfamily, 'Libre Franklin', helvetica, sans-serif));
-      font-size: var(--input-fontsize, var(--typography-c3-fontsize, 16px));
-      font-weight: var(--input-fontweight, var(--typography-c3-fontweight, 400));
-      line-height: var(--input-lineheight, var(--typography-c3-lineheight, 24px));
-      letter-spacing: var(--input-letterspacing, var(--typography-c3-letterspacing, 0.01em));
+  input,
+  select,
+  textarea {
+    color: inherit;
 
-      flex-grow: 1;
-      display: block;
-      border: none;
-      background-color: transparent;
-      outline: none !important;
-    }
+    font-family: var(--input-fontfamily, var(--typography-c3-fontfamily, 'Libre Franklin', helvetica, sans-serif));
+    font-size: var(--input-fontsize, var(--typography-c3-fontsize, 16px));
+    font-weight: var(--input-fontweight, var(--typography-c3-fontweight, 400));
+    line-height: var(--input-lineheight, var(--typography-c3-lineheight, 24px));
+    letter-spacing: var(--input-letterspacing, var(--typography-c3-letterspacing, 0.01em));
+
+    width: 100%;
+    height: 100%;
+    min-height: var(--height);
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: transparent;
+    outline: none !important;
   }
 }
 
+:host([header="true"]) pap-prefix-suffix-template[part="header"] {
+  display: flex;
+}
+
+:host([footer="true"]) pap-prefix-suffix-template[part="footer"],
+:host(:not([state="default"])) pap-prefix-suffix-template[part="footer"],
+:host([message]) pap-prefix-suffix-template[part="footer"] {
+  display: flex;
+}
+
+
+// Modes 
+:host([mode="fill"]) {
+  display: block;
+}
+
+:host([mode="hug"]) {
+  display: inline-block;
+  width: fit-content;
+}
+
+// Sizes
 :host([size="small"]) {
   --height: var(--field-size-small, 32px);
 }
@@ -74,72 +96,78 @@
   --height: var(--field-size-large, 48px);
 }
 
-// HEADER related
-:host(:not([label])[headerslotcontent="false"]) {
-  header {
-    display: none;
+
+// Colours 
+
+// hover should come after default to override the border color but but after the rest to let them control
+:host([state="default"]:not([disabled]):not([readonly])) {
+  pap-box-template:hover {
+    --border-color: var(--pap-color-border-strong, #29292F);
   }
 }
 
-// FOOTER related
-:host(:not([message])) {
-  footer {
-    div.message {
-      display: none;
-    }
-  }
-}
-
-:host(:not([message-type])) {
-  footer {
-    div.message {
-      pap-icon {
-        display: none;
-      }
-    }
-  }
-}
-
-:host([footerslotcontent="false"]:not([message])) {
-  footer {
-    display: none;
-  }
-}
-
-:host([message]) {
-  footer div.message {
-    display: flex;
-  }
-}
-
-// COLORING
-:host(:hover) {
+:host([state="default"][hasfocus="true"]:not([readonly]):not([disabled])) {
   --border-color: var(--pap-color-border-strong, #29292F);
 }
 
-:host([message-type="success"]) {
+:host([hasfocus="true"]:not([readonly]):not([disabled])) {
+  outline: none;
+
+  pap-box-template {
+    outline: 1px solid var(--border-color);
+  }
+}
+
+:host([state="info"]) {
+  --border-color: var(--pap-color-border-information, #0059E6);
+  --message-text: var(--pap-color-text-information, #0059E6);
+  --message-icon: var(--pap-color-icon-information, #0059E6);
+}
+
+:host([state="success"]) {
   --border-color: var(--pap-color-border-success, #2E701B);
   --message-text: var(--pap-color-text-success, #94E274);
   --message-icon: var(--pap-color-icon-success, #94E274);
 }
 
-:host([message-type="warning"]) {
+:host([state="warning"]) {
   --border-color: var(--pap-color-border-warning, #E27F00);
   --message-text: var(--pap-color-text-warning, #FFA800);
   --message-icon: var(--pap-color-icon-warning, #FFA800);
 }
 
-:host([message-type="error"]) {
+:host([state="danger"]) {
   --border-color: var(--pap-color-border-danger, #B70E1E);
   --message-text: var(--pap-color-text-danger, #FF9EA7);
   --message-icon: var(--pap-color-icon-danger, #FF9EA7);
 }
 
-:host([hasfocus="true"]),
-:host(:focus) {
-  outline: none;
+:host([readonly]:not([disabled])) {
+  --background: transparent;
 
-  pap-box-template.wrapper {
-    outline: 1px solid var(--border-color);
+  pap-box-template {
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+}
+
+:host([disabled]) {
+  --border-color: var(--pap-color-border-secondary, #DADDE3);
+  --background: var(--pap-color-bg-disabled, #DADDE3);
+  --message-text: var(--pap-color-text-disabled, #A3A9B7);
+  --message-icon: var(--pap-color-icon-danger, #FF9EA7);
+  color: var(--pap-color-text-disabled, #A3A9B7);
+
+  cursor: not-allowed;
+
+  ::-ms-input-placeholder {
+    /* Edge 12-18 */
+    color: var(--pap-color-text-disabled, #A3A9B7);
+  }
+
+  ::placeholder {
+    color: var(--pap-color-text-disabled, #A3A9B7);
   }
 }

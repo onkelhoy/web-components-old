@@ -1,0 +1,73 @@
+{
+  "className": "Menu",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/templates/menu",
+  "properties": [],
+  "classprop_set": {
+    "property": {},
+    "query": {
+      "popoverTemplate": true
+    },
+    "context": {}
+  },
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/templates/menu": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "query",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "PopoverProperties",
+        "from": "@pap-it/templates-popover"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      },
+      {
+        "name": "Item",
+        "from": "./components/item"
+      }
+    ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "button",
+        "html": "\n            <p>fallback button</p>\n          "
+      },
+      {
+        "name": "default",
+        "html": "\n          "
+      }
+    ],
+    "parts": [
+      {
+        "name": "items",
+        "tag": "PAP-BOX-TEMPLATE"
+      }
+    ]
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/menu",
+    "sources": [],
+    "variables": {
+      "--pap-color-bg": {
+        "usecases": [
+          "host pap-box-template{background-color"
+        ],
+        "fallbacks": [
+          "white"
+        ]
+      }
+    }
+  }
+}

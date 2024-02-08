@@ -1,3 +1,4 @@
+export * from './components/item';
 export * from './component';
 export * from './types';
 

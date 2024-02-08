@@ -4,17 +4,18 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
+## SOURCE-CODE
+
 // utils
 import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { FieldTemplate } from "@pap-it/templates-field";
+import { Field } from "@pap-it/templates-field";
 
 // local
 import { style } from "./style";
 
-export class Checkbox extends FieldTemplate {
+export class Checkbox extends Field {
   static style = style;
 
   @property({ rerender: false, onUpdate: "checkboxColorUpdate" }) color: string = "blue";
@@ -43,18 +44,19 @@ export class Checkbox extends FieldTemplate {
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-checkbox": Checkbox;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     display: inline-grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: 1fr auto;
-    grid-template-areas: 
+    grid-template-areas:
         "label input"
         "message message";
     align-items: center;
@@ -97,8 +99,7 @@ $size-map: (
             width: var(--checkbox-size-#{$name}, var(--size-#{$name}, #{map-get($value, size)}));
         }
     }
-} 
-
+}
 
 :host(:focus),
 :host([hasfocus="true"]) {

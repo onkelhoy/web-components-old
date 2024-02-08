@@ -1,7 +1,8 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
-## SOURCE-CODE:
+## SOURCE-CODE
+
 // utils
 import { html, property } from "@pap-it/system-utils";
 
@@ -13,14 +14,14 @@ import "@pap-it/typography/wc";
 import "@pap-it/divider/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
 // local
 import { style } from "./style";
 import { Contact } from "./types";
 
-export class SidebarContact extends BaseSystem {
+export class SidebarContact extends Base {
   static style = style;
 
   @property({ type: Boolean }) open: boolean = false;
@@ -95,13 +96,14 @@ export class SidebarContact extends BaseSystem {
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-sidebar-contact": SidebarContact;
   }
 }
-## REGISTER-CODE:
+
+## REGISTER-CODE
+
 import { SidebarContact } from './component.js';
 
 // Register the element with the browser

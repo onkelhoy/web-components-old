@@ -9,14 +9,14 @@ import "@pap-it/icon/wc";
 import "@pap-it/typography/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 import { style } from "./style.js";
 
 export type Display = "both" | "code";
 export type Language = "html" | "javascript" | "typescript" | "css" | "text" | "python" | "bash";
 
-export class CodeBlock extends BaseSystem {
+export class CodeBlock extends Base {
   static style = style;
 
   constructor() {

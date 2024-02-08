@@ -69,7 +69,7 @@ if [[ "$atomic_type" == "global" || "$atomic_type" == "system" || "$atomic_type"
     uppercase_singular_atomic_type=$(echo "$singular_atomic_type" | awk '{print toupper(substr($0,1,1))substr($0,2)}')
 
     # Create the result variable using the classname and the uppercase_singular_atomic_type
-    classname="${classname}${uppercase_singular_atomic_type}"
+    # classname="${classname}${uppercase_singular_atomic_type}" # actually we do not want our class name to use the extended naming.. 
     package_name="${atomic_type}-"
     prefixname="${prefix}-${name}-${singular_atomic_type}"
 fi

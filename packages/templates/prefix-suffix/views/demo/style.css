@@ -6,3 +6,7 @@ body {
 body {
   font-family: var(--pap-font-family);
 }
+
+p {
+  background-color: var(--pap-color-bg);
+}

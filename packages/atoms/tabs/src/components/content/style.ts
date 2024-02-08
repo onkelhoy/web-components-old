@@ -1,5 +1,1 @@
-export const style = `:host {
-  display: none; }
-
-:host(.selected) {
-  display: block; }`;
+export const style = `:host{display:none}:host(.selected){display:inline-block;height:100%}`;

@@ -33,7 +33,7 @@ echo "[version]: ⭐️ $CURRENT_VERSION"
 
 # REMOVED: && [[ -n $CICD_NODE_TOKEN ]];
 # as we want that pipeline can skip to run publish when version is same !! 
-if [[ "$CURRENT_VERSION" == "$NPM_VERSION" ]]; then
+if [[ "$CURRENT_VERSION" == "$NPM_VERSION" ]] && [[ $FORCE != true ]]; then
   # skipped 
   echo "[individual]: skipped"
 else 
@@ -51,6 +51,10 @@ else
   else 
     # run build 
     npm run build &>/dev/null
+
+    npm run analyze --child
+
+    npm run react --child
   fi
 fi
 

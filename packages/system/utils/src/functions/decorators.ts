@@ -1,11 +1,12 @@
 import { NextParent } from '../functions/helpers';
 
 // query
-export interface QueryOption<T> {
+export interface QueryOption<T extends Element> {
   onload?: string;
   selector: string;
+  load?: (element: T) => void;
 }
-type queryParam<T> = string | QueryOption<T>;
+type queryParam<T extends Element> = string | QueryOption<T>;
 
 export function query<T extends Element = HTMLElement>(options: queryParam<T>) {
   const selector = typeof options === "string" ? options : options.selector;
@@ -57,9 +58,12 @@ export function query<T extends Element = HTMLElement>(options: queryParam<T>) {
         if (element) {
           (this as any)[propertyKey] = element;
 
-          if (typeof options === "object" && options.onload) {
-            if ((this as any)[options.onload]) {
+          if (typeof options === "object") {
+            if (options.onload && (this as any)[options.onload]) {
               (this as any)[options.onload].call(this, element);
+            }
+            if (options.load) {
+              options.load.call(this, element);
             }
           }
 
@@ -76,6 +80,7 @@ export function query<T extends Element = HTMLElement>(options: queryParam<T>) {
 export interface ContextOption {
   name?: string;
   attribute?: string;
+  applyattribute?: boolean;
   rerender?: boolean;
   verbose?: boolean;
   onUpdate?: string;
@@ -94,7 +99,6 @@ export function context(options?: ContextOption) {
     // assign default values 
     if (!_options.name) _options.name = propertyKey;
     if (!_options.attribute) _options.attribute = propertyKey;
-
 
     // Storing original connectedCallback if it exists
     const originalConnectedCallback = target.connectedCallback;
@@ -150,6 +154,17 @@ export function context(options?: ContextOption) {
             me[_options.name as string] = parent.getAttribute(_options.attribute);
           }
 
+          if (_options.applyattribute) {
+            if (me[_options.name as string] === undefined) {
+              // TODO need to check if this would cause issues with type:boolean = true values - is value true or undefined?
+              this.removeAttribute(_options.attribute);
+            }
+            else if (!(me[_options.name as string] instanceof Object)) {
+              const valuestring = convertToString(me[_options.name as string], String);
+              this.setAttribute(_options.attribute, valuestring);
+            }
+          }
+
           if (_options.onUpdate) {
             me[_options.onUpdate + "_attempts"] = 0;
             tryupdate.call(me, _options.onUpdate, me[_options.name as string], old, !!_options.verbose);
@@ -186,8 +201,10 @@ export interface PropertyOption {
   context?: boolean;
   verbose?: boolean;
   // spread?: string | Spread | boolean;
-  set?: (value: any) => any;
+  set?: (value: any) => any; // SET would get called twice (as we cannot know if the value is changed or not at this point)
   get?: (value: any) => any;
+  before?: (value: any) => void; // use before call instead of set if we just want to do extra stuff before setting the new value 
+  after?: (value: any, old: any) => void; // use after call instead of set if we just want to do extra stuff after settin the new value
 }
 
 const DefaultPropertyOptions: PropertyOption = {
@@ -275,8 +292,12 @@ export function property(options?: Partial<PropertyOption>) {
           return;
         }
 
+        if (options?.before) options.before.call(this, value);
+
         const old = this[`_${propertyKey}`];
         this[`_${propertyKey}`] = value;
+
+        if (options?.after) options.after.call(this, value, old);
 
         const operation = () => {
           // we want to use spread over attribute (I guess?)

@@ -1,6 +1,6 @@
 import { fixture } from '@pap-it/tools-test';
 
-describe('ColorTemplate', function () {
+describe('Color', function () {
   describe('base tests', function () {
     it('web-component should exists', function () {
       const elm = fixture('pap-color-template');
@@ -10,7 +10,7 @@ describe('ColorTemplate', function () {
       }
 
       const docelm = document.querySelector(`pap-color-template[data-testid="${elm.getAttribute('data-testid')}"]`);
-      
+
       if (!docelm) {
         throw new Error('element not found');
       }

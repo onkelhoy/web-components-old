@@ -2,12 +2,12 @@
 import { ExtractSlotValue, html, property } from "@pap-it/system-utils";
 
 // templates
-import { FieldTemplate } from "@pap-it/templates-field";
+import { Field } from "@pap-it/templates-field";
 
 // local
 import { style } from "./style";
 
-export class Checkbox extends FieldTemplate {
+export class Checkbox extends Field {
   static style = style;
 
   @property({ rerender: false, onUpdate: "checkboxColorUpdate" }) color: string = "blue";

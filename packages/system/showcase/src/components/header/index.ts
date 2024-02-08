@@ -5,11 +5,11 @@ import { html, property, query } from "@pap-it/system-utils";
 import "@pap-it/typography/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 import { style } from "./style";
 
-export class Header extends BaseSystem {
+export class Header extends Base {
   static style = style;
 
   @property() title: string = "Title";

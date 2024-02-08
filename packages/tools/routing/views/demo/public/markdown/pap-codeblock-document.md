@@ -9,26 +9,28 @@ Version: 1.0.0
 Development servers can be started and should all exist inside `"views"` folder
 
 ## Scripts
+
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
-## SOURCE-CODE:
-// utils 
+## SOURCE-CODE
+
+// utils
 import { html, property, query } from "@pap-it/system-utils";
 
-// atoms 
+// atoms
 import { Typography } from "@pap-it/typography";
-import { Toggle } from "@pap-it/toggle";
+import { Switch } from "@pap-it/switch";
 import "@pap-it/typography/wc";
 import "@pap-it/button/wc";
 import "@pap-it/icon/wc";
-import "@pap-it/toggle/wc";
+import "@pap-it/switch/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
-// local 
+// local
 import { style } from "./style";
 import { HTMLFormat, Display } from "./types";
 
@@ -38,7 +40,7 @@ const MAX_HTMLCONTENT = 180;
 const OPEN_BRACKETS = ["(", "[", "{"];
 const CLOSE_BRACKETS = [")", "]", "}"];
 
-export class Codeblock extends BaseSystem {
+export class Codeblock extends Base {
   static style = style;
 
   @query({ selector: 'main', onload: 'onmainload' }) main!: HTMLElement;
@@ -155,9 +157,10 @@ export class Codeblock extends BaseSystem {
 
   // private functions
   /**
-   * 
-   * @param line string - the current line
-   * @returns string|null - in case line should be combined with other lines if existing
+   *
+
+* @param line string - the current line
+* @returns string|null - in case line should be combined with other lines if existing
    */
   private formatCODE(line: string, preoutput: string) {
     let output = line;
@@ -200,7 +203,6 @@ export class Codeblock extends BaseSystem {
       return `<span class="keyword ${match}">${match}</span>`;
     });
 
-
     // Check for opening brackets at the end of the line
     let modifiedindentionlevel = 0;
     for (const openBracket of OPEN_BRACKETS) {
@@ -232,15 +234,16 @@ export class Codeblock extends BaseSystem {
     }
   }
   /**
-   * 
-   * @param line string - the current line
-   * @returns string|null - in case line should be combined with other lines if existing
+   *
+
+* @param line string - the current line
+* @returns string|null - in case line should be combined with other lines if existing
    */
   private formatHTML(line: string, preoutput: string): null | string {
     const tagpattern = /([^<]*)(<[^>]*>?)/;
     const tagmatch = line.match(tagpattern);
 
-    // there's no html in this line! 
+    // there's no html in this line!
     if (!tagmatch) return null;
 
     if (["javascript", "jsx"].includes(this.language)) {
@@ -251,13 +254,13 @@ export class Codeblock extends BaseSystem {
     // create the individual groups !
     let L = tagmatch[1] || null;
     const htmlpart = tagmatch[2];
-    const R = line.split(tagmatch[0])[1];
+    const R = line.split[tagmatch[0]](1);
 
     const ismultiline = line.length > MAX_HTMLCONTENT;
 
     let outputline: string | null = preoutput;
     if (L) {
-      // if we currently inside script or style we should apply format on it ! 
+      // if we currently inside script or style we should apply format on it !
       if (["script", "style"].includes(this.peek())) {
         // it would never be HTML anyways..
         const leftcontent = this.formatCODE(L, preoutput);
@@ -274,7 +277,7 @@ export class Codeblock extends BaseSystem {
       }
     }
 
-    // now we cover the html part "<TAG attr*>?" is the pattern 
+    // now we cover the html part "<TAG attr*>?" is the pattern
     const htmloutput = this.formatHtmlTag(htmlpart, ismultiline, R);
     if (htmloutput) {
       if (outputline) outputline += htmloutput;
@@ -304,9 +307,9 @@ export class Codeblock extends BaseSystem {
     return outputline;
   }
 
-  // helper functions 
+  // helper functions
   private formatHtmlTag(line: string, multiline: boolean = false, right: string | null): null | string {
-    // start by checking if this is a ending tag 
+    // start by checking if this is a ending tag
     const endingmatch = line.match(/<\/([\w-]+)>/);
     if (endingmatch) {
       const tagname = endingmatch[1];
@@ -324,10 +327,10 @@ export class Codeblock extends BaseSystem {
       }
     }
 
-    // its a beginning tag so we should expect attributes ! 
+    // its a beginning tag so we should expect attributes !
     const tagmatch = line.match(/<([\w-]+)([^>]*)/);
     if (!tagmatch) {
-      // this should not really happen! 
+      // this should not really happen!
       console.error("[codeblock] html but no html error");
       return null;
     }
@@ -347,13 +350,13 @@ export class Codeblock extends BaseSystem {
     }
     // loop the attributes
     for (let attribute of attributes) {
-      // split by the "=" if exists 
+      // split by the "=" if exists
       const [name, value] = attribute.split("=");
       // so if attributes are added as new lines we need not to add a margin-left
       let attributeinlineindent = multilines ? "indent" : "";
       let attributestring = `<span class="html-attribute ${attributeinlineindent}"><span class="html-attribute-name">${name}</span>`;
       if (value) {
-        // yes value exists 
+        // yes value exists
         attributestring += `=<span class="html-attribute-value">${value}</span>`
       }
       // adding the end (as we might not have value always this is why we do it later)
@@ -419,18 +422,18 @@ export class Codeblock extends BaseSystem {
         <pap-box-template radius="small">
           <header>
             <pap-typography id="language">${this.language}</pap-typography>
-            ${this.themetoggle ? html`<pap-toggle 
-              @change="${this.handletogglechange}" 
+            ${this.themetoggle ? html`<pap-switch
+              @change="${this.handletogglechange}"
               value="${(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
             >
               <pap-typography variant="C4" slot="prefix">light</pap-typography>
               <pap-typography variant="C4" slot="suffix">dark</pap-typography>
-            </pap-toggle>`: ''}
-            <pap-button 
-              variant="clear" 
-              size="small" 
-              radius="none" 
-              @click="${this.handlecopy}" 
+            </pap-switch>`: ''}
+            <pap-button
+              variant="clear"
+              size="small"
+              radius="none"
+              @click="${this.handlecopy}"
             >
               <pap-icon cache name="done" slot="prefix"></pap-icon>
               <pap-icon cache name="content_paste" slot="prefix"></pap-icon>
@@ -455,7 +458,9 @@ declare global {
     "pap-codeblock": Codeblock;
   }
 }
-## REGISTER-CODE:
+
+## REGISTER-CODE
+
 import { Codeblock } from './component.js';
 
 // Register the element with the browser
@@ -469,28 +474,30 @@ if (!cElements.get('pap-codeblock')) {
   cElements.define('pap-codeblock', Codeblock);
 }
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- // utils 
+## SOURCE-CODE
+
+ // utils
 import { html, property, query } from "@pap-it/system-utils";
 
-// atoms 
+// atoms
 import { Typography } from "@pap-it/typography";
-import { Toggle } from "@pap-it/toggle";
+import { Switch } from "@pap-it/switch";
 import "@pap-it/typography/wc";
 import "@pap-it/button/wc";
 import "@pap-it/icon/wc";
-import "@pap-it/toggle/wc";
+import "@pap-it/switch/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
-// local 
+// local
 import { style } from "./style";
 import { HTMLFormat, Display } from "./types";
 
@@ -500,7 +507,7 @@ const MAX_HTMLCONTENT = 180;
 const OPEN_BRACKETS = ["(", "[", "{"];
 const CLOSE_BRACKETS = [")", "]", "}"];
 
-export class Codeblock extends BaseSystem {
+export class Codeblock extends Base {
   static style = style;
 
   @query({ selector: 'main', onload: 'onmainload' }) main!: HTMLElement;
@@ -617,9 +624,10 @@ export class Codeblock extends BaseSystem {
 
   // private functions
   /**
-   * 
-   * @param line string - the current line
-   * @returns string|null - in case line should be combined with other lines if existing
+   *
+
+* @param line string - the current line
+* @returns string|null - in case line should be combined with other lines if existing
    */
   private formatCODE(line: string, preoutput: string) {
     let output = line;
@@ -662,7 +670,6 @@ export class Codeblock extends BaseSystem {
       return `<span class="keyword ${match}">${match}</span>`;
     });
 
-
     // Check for opening brackets at the end of the line
     let modifiedindentionlevel = 0;
     for (const openBracket of OPEN_BRACKETS) {
@@ -694,15 +701,16 @@ export class Codeblock extends BaseSystem {
     }
   }
   /**
-   * 
-   * @param line string - the current line
-   * @returns string|null - in case line should be combined with other lines if existing
+   *
+
+* @param line string - the current line
+* @returns string|null - in case line should be combined with other lines if existing
    */
   private formatHTML(line: string, preoutput: string): null | string {
     const tagpattern = /([^<]*)(<[^>]*>?)/;
     const tagmatch = line.match(tagpattern);
 
-    // there's no html in this line! 
+    // there's no html in this line!
     if (!tagmatch) return null;
 
     if (["javascript", "jsx"].includes(this.language)) {
@@ -713,13 +721,13 @@ export class Codeblock extends BaseSystem {
     // create the individual groups !
     let L = tagmatch[1] || null;
     const htmlpart = tagmatch[2];
-    const R = line.split(tagmatch[0])[1];
+    const R = line.split[tagmatch[0]](1);
 
     const ismultiline = line.length > MAX_HTMLCONTENT;
 
     let outputline: string | null = preoutput;
     if (L) {
-      // if we currently inside script or style we should apply format on it ! 
+      // if we currently inside script or style we should apply format on it !
       if (["script", "style"].includes(this.peek())) {
         // it would never be HTML anyways..
         const leftcontent = this.formatCODE(L, preoutput);
@@ -736,7 +744,7 @@ export class Codeblock extends BaseSystem {
       }
     }
 
-    // now we cover the html part "<TAG attr*>?" is the pattern 
+    // now we cover the html part "<TAG attr*>?" is the pattern
     const htmloutput = this.formatHtmlTag(htmlpart, ismultiline, R);
     if (htmloutput) {
       if (outputline) outputline += htmloutput;
@@ -766,9 +774,9 @@ export class Codeblock extends BaseSystem {
     return outputline;
   }
 
-  // helper functions 
+  // helper functions
   private formatHtmlTag(line: string, multiline: boolean = false, right: string | null): null | string {
-    // start by checking if this is a ending tag 
+    // start by checking if this is a ending tag
     const endingmatch = line.match(/<\/([\w-]+)>/);
     if (endingmatch) {
       const tagname = endingmatch[1];
@@ -786,10 +794,10 @@ export class Codeblock extends BaseSystem {
       }
     }
 
-    // its a beginning tag so we should expect attributes ! 
+    // its a beginning tag so we should expect attributes !
     const tagmatch = line.match(/<([\w-]+)([^>]*)/);
     if (!tagmatch) {
-      // this should not really happen! 
+      // this should not really happen!
       console.error("[codeblock] html but no html error");
       return null;
     }
@@ -809,13 +817,13 @@ export class Codeblock extends BaseSystem {
     }
     // loop the attributes
     for (let attribute of attributes) {
-      // split by the "=" if exists 
+      // split by the "=" if exists
       const [name, value] = attribute.split("=");
       // so if attributes are added as new lines we need not to add a margin-left
       let attributeinlineindent = multilines ? "indent" : "";
       let attributestring = `<span class="html-attribute ${attributeinlineindent}"><span class="html-attribute-name">${name}</span>`;
       if (value) {
-        // yes value exists 
+        // yes value exists
         attributestring += `=<span class="html-attribute-value">${value}</span>`
       }
       // adding the end (as we might not have value always this is why we do it later)
@@ -881,18 +889,18 @@ export class Codeblock extends BaseSystem {
         <pap-box-template radius="small">
           <header>
             <pap-typography id="language">${this.language}</pap-typography>
-            ${this.themetoggle ? html`<pap-toggle 
-              @change="${this.handletogglechange}" 
+            ${this.themetoggle ? html`<pap-switch
+              @change="${this.handletogglechange}"
               value="${(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
             >
               <pap-typography variant="C4" slot="prefix">light</pap-typography>
               <pap-typography variant="C4" slot="suffix">dark</pap-typography>
-            </pap-toggle>`: ''}
-            <pap-button 
-              variant="clear" 
-              size="small" 
-              radius="none" 
-              @click="${this.handlecopy}" 
+            </pap-switch>`: ''}
+            <pap-button
+              variant="clear"
+              size="small"
+              radius="none"
+              @click="${this.handlecopy}"
             >
               <pap-icon cache name="done" slot="prefix"></pap-icon>
               <pap-icon cache name="content_paste" slot="prefix"></pap-icon>
@@ -918,7 +926,7 @@ declare global {
   }
 }
 
-## TYPE-CODE: export type Display = "both"|"code";
+## TYPE-CODE: export type Display = "both"|"code"
 
 export type HTMLFormat = {
   output: string|null;
@@ -930,23 +938,24 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
+## SOURCE-CODE
+
+// utils
 import { html, property, query } from "@pap-it/system-utils";
 
-// atoms 
+// atoms
 import { Typography } from "@pap-it/typography";
-import { Toggle } from "@pap-it/toggle";
+import { Switch } from "@pap-it/switch";
 import "@pap-it/typography/wc";
 import "@pap-it/button/wc";
 import "@pap-it/icon/wc";
-import "@pap-it/toggle/wc";
+import "@pap-it/switch/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
-// local 
+// local
 import { style } from "./style";
 import { HTMLFormat, Display } from "./types";
 
@@ -956,7 +965,7 @@ const MAX_HTMLCONTENT = 180;
 const OPEN_BRACKETS = ["(", "[", "{"];
 const CLOSE_BRACKETS = [")", "]", "}"];
 
-export class Codeblock extends BaseSystem {
+export class Codeblock extends Base {
   static style = style;
 
   @query({ selector: 'main', onload: 'onmainload' }) main!: HTMLElement;
@@ -1073,9 +1082,10 @@ export class Codeblock extends BaseSystem {
 
   // private functions
   /**
-   * 
-   * @param line string - the current line
-   * @returns string|null - in case line should be combined with other lines if existing
+   *
+
+* @param line string - the current line
+* @returns string|null - in case line should be combined with other lines if existing
    */
   private formatCODE(line: string, preoutput: string) {
     let output = line;
@@ -1118,7 +1128,6 @@ export class Codeblock extends BaseSystem {
       return `<span class="keyword ${match}">${match}</span>`;
     });
 
-
     // Check for opening brackets at the end of the line
     let modifiedindentionlevel = 0;
     for (const openBracket of OPEN_BRACKETS) {
@@ -1150,15 +1159,16 @@ export class Codeblock extends BaseSystem {
     }
   }
   /**
-   * 
-   * @param line string - the current line
-   * @returns string|null - in case line should be combined with other lines if existing
+   *
+
+* @param line string - the current line
+* @returns string|null - in case line should be combined with other lines if existing
    */
   private formatHTML(line: string, preoutput: string): null | string {
     const tagpattern = /([^<]*)(<[^>]*>?)/;
     const tagmatch = line.match(tagpattern);
 
-    // there's no html in this line! 
+    // there's no html in this line!
     if (!tagmatch) return null;
 
     if (["javascript", "jsx"].includes(this.language)) {
@@ -1169,13 +1179,13 @@ export class Codeblock extends BaseSystem {
     // create the individual groups !
     let L = tagmatch[1] || null;
     const htmlpart = tagmatch[2];
-    const R = line.split(tagmatch[0])[1];
+    const R = line.split[tagmatch[0]](1);
 
     const ismultiline = line.length > MAX_HTMLCONTENT;
 
     let outputline: string | null = preoutput;
     if (L) {
-      // if we currently inside script or style we should apply format on it ! 
+      // if we currently inside script or style we should apply format on it !
       if (["script", "style"].includes(this.peek())) {
         // it would never be HTML anyways..
         const leftcontent = this.formatCODE(L, preoutput);
@@ -1192,7 +1202,7 @@ export class Codeblock extends BaseSystem {
       }
     }
 
-    // now we cover the html part "<TAG attr*>?" is the pattern 
+    // now we cover the html part "<TAG attr*>?" is the pattern
     const htmloutput = this.formatHtmlTag(htmlpart, ismultiline, R);
     if (htmloutput) {
       if (outputline) outputline += htmloutput;
@@ -1222,9 +1232,9 @@ export class Codeblock extends BaseSystem {
     return outputline;
   }
 
-  // helper functions 
+  // helper functions
   private formatHtmlTag(line: string, multiline: boolean = false, right: string | null): null | string {
-    // start by checking if this is a ending tag 
+    // start by checking if this is a ending tag
     const endingmatch = line.match(/<\/([\w-]+)>/);
     if (endingmatch) {
       const tagname = endingmatch[1];
@@ -1242,10 +1252,10 @@ export class Codeblock extends BaseSystem {
       }
     }
 
-    // its a beginning tag so we should expect attributes ! 
+    // its a beginning tag so we should expect attributes !
     const tagmatch = line.match(/<([\w-]+)([^>]*)/);
     if (!tagmatch) {
-      // this should not really happen! 
+      // this should not really happen!
       console.error("[codeblock] html but no html error");
       return null;
     }
@@ -1265,13 +1275,13 @@ export class Codeblock extends BaseSystem {
     }
     // loop the attributes
     for (let attribute of attributes) {
-      // split by the "=" if exists 
+      // split by the "=" if exists
       const [name, value] = attribute.split("=");
       // so if attributes are added as new lines we need not to add a margin-left
       let attributeinlineindent = multilines ? "indent" : "";
       let attributestring = `<span class="html-attribute ${attributeinlineindent}"><span class="html-attribute-name">${name}</span>`;
       if (value) {
-        // yes value exists 
+        // yes value exists
         attributestring += `=<span class="html-attribute-value">${value}</span>`
       }
       // adding the end (as we might not have value always this is why we do it later)
@@ -1337,18 +1347,18 @@ export class Codeblock extends BaseSystem {
         <pap-box-template radius="small">
           <header>
             <pap-typography id="language">${this.language}</pap-typography>
-            ${this.themetoggle ? html`<pap-toggle 
-              @change="${this.handletogglechange}" 
+            ${this.themetoggle ? html`<pap-switch
+              @change="${this.handletogglechange}"
               value="${(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
             >
               <pap-typography variant="C4" slot="prefix">light</pap-typography>
               <pap-typography variant="C4" slot="suffix">dark</pap-typography>
-            </pap-toggle>`: ''}
-            <pap-button 
-              variant="clear" 
-              size="small" 
-              radius="none" 
-              @click="${this.handlecopy}" 
+            </pap-switch>`: ''}
+            <pap-button
+              variant="clear"
+              size="small"
+              radius="none"
+              @click="${this.handlecopy}"
             >
               <pap-icon cache name="done" slot="prefix"></pap-icon>
               <pap-icon cache name="content_paste" slot="prefix"></pap-icon>
@@ -1373,7 +1383,9 @@ declare global {
     "pap-codeblock": Codeblock;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     display: block;
     margin-block: var(--margin-medium, 16px);
@@ -1437,7 +1449,7 @@ declare global {
                     text-indent: var(--padding-medium, 16px);
                 }
 
-                pap-toggle {
+                pap-switch {
                     color: var(--pap-color-text, #29292F);
                 }
         

@@ -1,17 +1,19 @@
 {
   "name": "@pap-it/system-utils",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "build": "tsc",
     "watch": "tsc --watch",
     "manual-publish": "sh .scripts/publish.sh",
+    "preversion": "sh .scripts/preversion.sh",
     "postversion": "sh .scripts/postversion.sh"
   },
   "main": "dist/src/index.js",
   "files": [
     "asset/",
-    "dist/"
+    "dist/",
+    "react/"
   ],
   "exports": {
     ".": "./dist/src/index.js"
@@ -29,8 +31,8 @@
   },
   "devDependencies": {
     "eslint": "^8.53.0",
-    "@pap-it/system-showcase": "1.0.4",
-    "@pap-it/typography": "1.0.4",
+    "@pap-it/system-showcase": "1.0.5",
+    "@pap-it/typography": "1.0.5",
     "typescript": "^5.0.4"
   },
   "keywords": [

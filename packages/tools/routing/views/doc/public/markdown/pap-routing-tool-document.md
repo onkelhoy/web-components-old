@@ -1,4 +1,4 @@
-# RoutingTool
+# Routing
 
 Atomic Type: system
 
@@ -15,13 +15,13 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 // system
 import { html, property } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 import { Foo, ClickEvent } from "./types";
 
-export class RoutingTool extends BaseSystem {
+export class Routing extends Base {
   static style = style;
 
   @property() foo: Foo = "bar";
@@ -56,13 +56,13 @@ export class RoutingTool extends BaseSystem {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-routing-tool": RoutingTool;
+    "pap-routing-tool": Routing;
   }
 }
 
 ## REGISTER-CODE
 
-import { RoutingTool } from './component.js';
+import { Routing } from './component.js';
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;
@@ -72,7 +72,7 @@ if (!cElements) {
 }
 
 if (!cElements.get('pap-routing-tool')) {
-  cElements.define('pap-routing-tool', RoutingTool);
+  cElements.define('pap-routing-tool', Routing);
 }
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and the types can you give me the following tables.
@@ -85,13 +85,13 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
  // system
 import { html, property } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 import { Foo, ClickEvent } from "./types";
 
-export class RoutingTool extends BaseSystem {
+export class Routing extends Base {
   static style = style;
 
   @property() foo: Foo = "bar";
@@ -126,7 +126,7 @@ export class RoutingTool extends BaseSystem {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-routing-tool": RoutingTool;
+    "pap-routing-tool": Routing;
   }
 }
 
@@ -146,13 +146,13 @@ slots should include columns: (name, default-value, description)
 
 // system
 import { html, property } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 import { Foo, ClickEvent } from "./types";
 
-export class RoutingTool extends BaseSystem {
+export class Routing extends Base {
   static style = style;
 
   @property() foo: Foo = "bar";
@@ -187,7 +187,7 @@ export class RoutingTool extends BaseSystem {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-routing-tool": RoutingTool;
+    "pap-routing-tool": Routing;
   }
 }
 
