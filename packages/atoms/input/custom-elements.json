@@ -1,0 +1,359 @@
+{
+  "className": "Input",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/input",
+  "properties": [
+    {
+      "name": "counter",
+      "type": "boolean",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    },
+    {
+      "name": "type",
+      "type": "Type",
+      "default_value": "text",
+      "type_value": [
+        "number",
+        "email",
+        "tel",
+        "text",
+        "password",
+        "search",
+        "url",
+        "color"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "maxlength",
+      "type": "number",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    },
+    {
+      "name": "minlength",
+      "type": "number",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    },
+    {
+      "name": "pattern",
+      "type": "string",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    }
+  ],
+  "classprop_set": {
+    "property": {
+      "counter": true,
+      "type": true,
+      "maxlength": true,
+      "minlength": true,
+      "max": true,
+      "min": true,
+      "pattern": true
+    },
+    "query": {
+      "element": true
+    },
+    "context": {}
+  },
+  "extend_class": {
+    "className": "Field",
+    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/field",
+    "properties": [
+      {
+        "name": "customDanger",
+        "type": "Partial",
+        "type_value": {},
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "name": "customWarning",
+        "type": "Partial",
+        "type_value": {},
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "name": "readonly",
+        "type": "boolean",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "name": "size",
+        "type": "Size",
+        "default_value": "medium",
+        "type_value": [
+          "small",
+          "medium",
+          "large"
+        ],
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "name": "mode",
+        "type": "Mode",
+        "default_value": "fill",
+        "type_value": [
+          "hug",
+          "fill"
+        ],
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "name": "state",
+        "type": "State",
+        "default_value": "default",
+        "type_value": [
+          "default",
+          "info",
+          "success",
+          "warning",
+          "danger"
+        ],
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "name": "radius",
+        "type": "Radius",
+        "default_value": "medium",
+        "type_value": [
+          "small",
+          "medium",
+          "large",
+          "none",
+          "circular"
+        ],
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "name": "message",
+        "type": "string",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "name": "header",
+        "type": "boolean",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "name": "footer",
+        "type": "boolean",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      }
+    ],
+    "classprop_set": {
+      "property": {
+        "customDanger": true,
+        "customWarning": true,
+        "label": true,
+        "required": true,
+        "readonly": true,
+        "placeholder": true,
+        "size": true,
+        "mode": true,
+        "state": true,
+        "radius": true,
+        "message": true,
+        "header": true,
+        "footer": true
+      },
+      "query": {},
+      "context": {}
+    },
+    "extend_class": {
+      "className": "FormElement",
+      "folder": "/Users/henry/Developer/projects/web-components/packages/templates/form-element",
+      "properties": [
+        {
+          "name": "defaultValue",
+          "type": "string",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "default_value": "missing-name",
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        }
+      ],
+      "classprop_set": {
+        "property": {
+          "defaultValue": true,
+          "disabled": true,
+          "name": true,
+          "value": true
+        },
+        "query": {},
+        "context": {}
+      },
+      "extend_class": null
+    }
+  },
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/templates/form-element": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "debounce",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "Base",
+        "from": "@pap-it/system-base"
+      }
+    ],
+    "/Users/henry/Developer/projects/web-components/packages/templates/field": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "debounce",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "html",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "ifDefined",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "FormElement",
+        "from": "@pap-it/templates-form-element"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ],
+    "/Users/henry/Developer/projects/web-components/packages/atoms/input": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "ifDefined",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "query",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "Field",
+        "from": "@pap-it/templates-field"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/input",
+    "sources": [],
+    "variables": {
+      "--height": {
+        "usecases": [
+          "host input{height"
+        ],
+        "fallbacks": []
+      }
+    }
+  }
+}

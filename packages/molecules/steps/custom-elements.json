@@ -9,6 +9,14 @@
       "conditional": false
     }
   ],
+  "classprop_set": {
+    "property": {
+      "steps": true,
+      "current": true
+    },
+    "query": {},
+    "context": {}
+  },
   "extend_class": null,
   "imports": {
     "/Users/henry/Developer/projects/web-components/packages/molecules/steps": [
@@ -44,7 +52,7 @@
     "variables": {
       "--pap-steps-border-color-unselected": {
         "usecases": [
-          "--border-color-unselected"
+          "inline-block;--border-color-unselected"
         ],
         "fallbacks": [
           "var(--pap-color-bg-canvas, #EAEBEF)"
@@ -52,80 +60,10 @@
       },
       "--pap-color-bg-canvas": {
         "usecases": [
-          "--border-color-unselected"
+          "inline-block;--border-color-unselected"
         ],
         "fallbacks": [
           "#EAEBEF"
-        ]
-      },
-      "--pap-steps-border-color-selected": {
-        "usecases": [
-          "--border-color-selected"
-        ],
-        "fallbacks": [
-          "var(--pap-color-clear-blue-800, #0059E6)"
-        ]
-      },
-      "--pap-color-clear-blue-800": {
-        "usecases": [
-          "--border-color-selected"
-        ],
-        "fallbacks": [
-          "#0059E6"
-        ]
-      },
-      "--border-color-selected": {
-        "usecases": [
-          "--pap-steps-circle-selected-color",
-          "background-color"
-        ],
-        "fallbacks": []
-      },
-      "--border-color-unselected": {
-        "usecases": [
-          "--pap-steps-circle-stale-color",
-          "background-color"
-        ],
-        "fallbacks": []
-      },
-      "--padding-small": {
-        "usecases": [
-          "padding-block"
-        ],
-        "fallbacks": [
-          "8px"
-        ]
-      },
-      "--unit-size5": {
-        "usecases": [
-          "gap"
-        ],
-        "fallbacks": [
-          "32px"
-        ]
-      },
-      "--pap-color-bg": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": [
-          "#FFFFFF"
-        ]
-      },
-      "--padding-medium": {
-        "usecases": [
-          "padding"
-        ],
-        "fallbacks": [
-          "16px) var(--padding-large, 24px"
-        ]
-      },
-      "--padding-large": {
-        "usecases": [
-          "padding"
-        ],
-        "fallbacks": [
-          "24p"
         ]
       }
     }

@@ -12,8 +12,28 @@
       ],
       "primitive": false,
       "conditional": false
+    },
+    {
+      "name": "thickness",
+      "type": "Thickness",
+      "default_value": "default",
+      "type_value": [
+        "thin",
+        "default",
+        "thick"
+      ],
+      "primitive": false,
+      "conditional": false
     }
   ],
+  "classprop_set": {
+    "property": {
+      "mode": true,
+      "thickness": true
+    },
+    "query": {},
+    "context": {}
+  },
   "extend_class": null,
   "imports": {
     "/Users/henry/Developer/projects/web-components/packages/atoms/divider": [
@@ -50,7 +70,7 @@
     "variables": {
       "--pap-divider-color": {
         "usecases": [
-          "background-color"
+          "host div{background-color"
         ],
         "fallbacks": [
           "var(--pap-color-border, #C7CBD4)"
@@ -58,18 +78,10 @@
       },
       "--pap-color-border": {
         "usecases": [
-          "background-color"
+          "host div{background-color"
         ],
         "fallbacks": [
           "#C7CBD4"
-        ]
-      },
-      "--divider-margin": {
-        "usecases": [
-          "margin-inline"
-        ],
-        "fallbacks": [
-          "8px"
         ]
       }
     }

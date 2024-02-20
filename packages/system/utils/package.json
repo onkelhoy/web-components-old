@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/system-utils",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "build": "tsc",
@@ -31,8 +31,8 @@
   },
   "devDependencies": {
     "eslint": "^8.53.0",
-    "@pap-it/system-showcase": "1.0.5",
-    "@pap-it/typography": "1.0.5",
+    "@pap-it/system-showcase": "1.0.6",
+    "@pap-it/typography": "1.0.6",
     "typescript": "^5.0.4"
   },
   "keywords": [

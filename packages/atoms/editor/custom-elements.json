@@ -29,6 +29,15 @@
       "conditional": false
     }
   ],
+  "classprop_set": {
+    "property": {
+      "foo": true,
+      "bajs": true,
+      "fooLaa": true
+    },
+    "query": {},
+    "context": {}
+  },
   "extend_class": null,
   "imports": {
     "/Users/henry/Developer/projects/web-components/packages/atoms/editor": [
@@ -54,39 +63,13 @@
       }
     ]
   },
-  "html": {
-    "slots": [
-      {
-        "name": "header",
-        "html": "\n                    <h1>llama drama trauma</h1>\n                "
-      },
-      {
-        "name": "default",
-        "html": "\n                    <p>Why did the llama go to therapy? Because it had a lot of spitting issues!</p>\n                "
-      },
-      {
-        "name": "footer",
-        "html": "\n                    <p>Why did the llama enter the door? To attend the llamazing party inside!</p>\n                "
-      }
-    ],
-    "parts": [
-      {
-        "name": "header",
-        "tag": "HEADER"
-      },
-      {
-        "name": "footer",
-        "tag": "FOOTER"
-      }
-    ]
-  },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/editor",
     "sources": [],
     "variables": {
       "--pap-editor-background-color-light": {
         "usecases": [
-          "--background"
+          "1rem;--background"
         ],
         "fallbacks": [
           "var(--pap-color-neutral-50, white)"
@@ -94,56 +77,10 @@
       },
       "--pap-color-neutral-50": {
         "usecases": [
-          "--background"
+          "1rem;--background"
         ],
         "fallbacks": [
-          "white",
-          "black"
-        ]
-      },
-      "--pap-editor-text-color-light": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "var(--pap-color-black, black)"
-        ]
-      },
-      "--pap-color-black": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "black",
           "white"
-        ]
-      },
-      "--background": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": []
-      },
-      "--color": {
-        "usecases": [
-          "color"
-        ],
-        "fallbacks": []
-      },
-      "--pap-editor-background-color-dark": {
-        "usecases": [
-          "--background"
-        ],
-        "fallbacks": [
-          "var(--pap-color-neutral-50, black)"
-        ]
-      },
-      "--pap-editor-text-color-dark": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "var(--pap-color-black, white)"
         ]
       }
     }

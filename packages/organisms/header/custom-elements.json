@@ -1,6 +1,6 @@
 {
   "className": "Header",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/header",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/organisms/header",
   "properties": [
     {
       "name": "user",
@@ -23,7 +23,7 @@
   },
   "extend_class": null,
   "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/molecules/header": [
+    "/Users/henry/Developer/projects/web-components/packages/organisms/header": [
       {
         "name": "__decorate",
         "from": "tslib"
@@ -46,27 +46,13 @@
       }
     ]
   },
-  "html": {
-    "slots": [
-      {
-        "name": "prefix",
-        "html": ""
-      },
-      {
-        "name": "default",
-        "html": ""
-      }
-    ],
-    "parts": []
-  },
   "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/header",
+    "folder": "/Users/henry/Developer/projects/web-components/packages/organisms/header",
     "sources": [],
     "variables": {
       "--field-size-medium": {
         "usecases": [
-          "width",
-          "height"
+          "15rem}img.avatar{width"
         ],
         "fallbacks": [
           "40px"

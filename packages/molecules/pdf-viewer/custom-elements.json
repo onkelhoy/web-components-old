@@ -1,0 +1,98 @@
+{
+  "className": "PDFviewer",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/pdf-viewer",
+  "properties": [
+    {
+      "name": "name",
+      "type": "string",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    },
+    {
+      "name": "type",
+      "type": "Type",
+      "default_value": "object",
+      "type_value": [
+        "object",
+        "embed",
+        "iframe"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    },
+    {
+      "name": "url",
+      "type": "string",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    }
+  ],
+  "classprop_set": {
+    "property": {
+      "name": true,
+      "type": true,
+      "height": true,
+      "url": true
+    },
+    "query": {
+      "downloadElement": true
+    },
+    "context": {}
+  },
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/molecules/pdf-viewer": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "ifDefined",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "query",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "Base",
+        "from": "@pap-it/system-base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/pdf-viewer",
+    "sources": [],
+    "variables": {
+      "--margin-small": {
+        "usecases": [
+          "host pap-button[part=download-button]{margin-top"
+        ],
+        "fallbacks": [
+          "8px)}:host a.download{display:none}"
+        ]
+      }
+    }
+  }
+}

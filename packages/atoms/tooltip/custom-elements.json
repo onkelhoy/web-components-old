@@ -24,6 +24,13 @@
       "conditional": false
     }
   ],
+  "classprop_set": {
+    "property": {
+      "placement": true
+    },
+    "query": {},
+    "context": {}
+  },
   "extend_class": null,
   "imports": {
     "/Users/henry/Developer/projects/web-components/packages/atoms/tooltip": [
@@ -46,14 +53,6 @@
       {
         "name": "style",
         "from": "./style"
-      },
-      {
-        "name": "Foo",
-        "from": "./types"
-      },
-      {
-        "name": "ClickEvent",
-        "from": "./types"
       }
     ]
   },
@@ -81,7 +80,7 @@
     "variables": {
       "--pap-tooltip-background-color-light": {
         "usecases": [
-          "--background"
+          "host{--background"
         ],
         "fallbacks": [
           "var(--pap-color-bg-inverse, #29292F)"
@@ -89,82 +88,10 @@
       },
       "--pap-color-bg-inverse": {
         "usecases": [
-          "--background"
+          "host{--background"
         ],
         "fallbacks": [
           "#29292F"
-        ]
-      },
-      "--pap-tooltip-text-color-light": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "var(--pap-color-text-inverse, #FFFFFF)"
-        ]
-      },
-      "--pap-color-text-inverse": {
-        "usecases": [
-          "--color"
-        ],
-        "fallbacks": [
-          "#FFFFFF"
-        ]
-      },
-      "--pap-tooltip-popover-gap": {
-        "usecases": [
-          "--popover-gap"
-        ],
-        "fallbacks": [
-          "10px"
-        ]
-      },
-      "--pap-tooltip-card-padding": {
-        "usecases": [
-          "padding"
-        ],
-        "fallbacks": [
-          "0.5rem"
-        ]
-      },
-      "--background": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": []
-      },
-      "--color": {
-        "usecases": [
-          "color"
-        ],
-        "fallbacks": []
-      },
-      "--pap-tooltip-card-minwidth": {
-        "usecases": [
-          "min-width"
-        ],
-        "fallbacks": [
-          "3rem"
-        ]
-      },
-      "--pap-tooltip-arrow-size": {
-        "usecases": [
-          "width",
-          "height"
-        ],
-        "fallbacks": [
-          "0.5rem"
-        ]
-      },
-      "--pap-tooltip-arrow-offset": {
-        "usecases": [
-          "right",
-          "left",
-          "top",
-          "bottom"
-        ],
-        "fallbacks": [
-          "0.5rem"
         ]
       }
     }

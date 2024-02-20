@@ -44,6 +44,14 @@
       "conditional": false
     },
     {
+      "name": "closeonselect",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
       "name": "buttonVariant",
       "type": "ButtonVariant",
       "default_value": "clear",
@@ -85,6 +93,21 @@
       "conditional": false
     }
   ],
+  "classprop_set": {
+    "property": {
+      "open": true,
+      "placement": true,
+      "size": true,
+      "closeonselect": true,
+      "buttonVariant": true,
+      "buttonColor": true,
+      "buttonRadius": true
+    },
+    "query": {
+      "popoverTemplate": true
+    },
+    "context": {}
+  },
   "extend_class": null,
   "imports": {
     "/Users/henry/Developer/projects/web-components/packages/atoms/menu": [
@@ -101,6 +124,10 @@
         "from": "@pap-it/system-utils"
       },
       {
+        "name": "query",
+        "from": "@pap-it/system-utils"
+      },
+      {
         "name": "Base",
         "from": "@pap-it/system-base"
       },
@@ -114,69 +141,17 @@
       }
     ]
   },
-  "html": {
-    "slots": [
-      {
-        "name": "button-prefix",
-        "html": ""
-      },
-      {
-        "name": "button-content",
-        "html": ""
-      },
-      {
-        "name": "button-suffix",
-        "html": "\n            <pap-icon customsize=\"15\" name=\"caret\">v</pap-icon>\n          "
-      },
-      {
-        "name": "default",
-        "html": "\n            <pap-menu-item>Missing Items</pap-menu-item>\n          "
-      }
-    ],
-    "parts": [
-      {
-        "name": "button",
-        "tag": "PAP-BUTTON"
-      },
-      {
-        "name": "box",
-        "tag": "PAP-BOX-TEMPLATE"
-      }
-    ]
-  },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/menu",
     "sources": [],
     "variables": {
       "--pap-color-bg": {
         "usecases": [
-          "--menu-background"
+          "host{--menu-background"
         ],
         "fallbacks": [
           "#FFFFFF"
         ]
-      },
-      "--pap-color-text": {
-        "usecases": [
-          "--menu-color"
-        ],
-        "fallbacks": [
-          "#29292F"
-        ]
-      },
-      "--padding-small": {
-        "usecases": [
-          "padding-block"
-        ],
-        "fallbacks": [
-          "8px"
-        ]
-      },
-      "--menu-background": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": []
       }
     }
   }

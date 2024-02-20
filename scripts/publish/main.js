@@ -5,15 +5,16 @@ const { spawn } = require('child_process');
 const { iterate, initializePackages } = require('../utils/package-list-dependency-order');
 
 // variables
-const SEMANTIC_VERSION = process.argv[2];
-const CICD_NODE_TOKEN = process.argv[3];
-const ROOT_DIR = path.join(__dirname, "../../");
-const LOCKFILE = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, "package-lock.json")));
-const FORCED = process.env.FORCE === "true";
+// const SEMANTIC_VERSION = process.env.SEMANTIC_VERSION;
+const CICD_NODE_TOKEN = process.env.CICD_NODE_TOKEN;
+const ROOTDIR = process.env.ROOTDIR;
+const LOCKFILE = JSON.parse(fs.readFileSync(path.join(ROOTDIR, "package-lock.json")));
+const VERBOSE = process.env.VERBOSE === "true";
+
 let VERSIONDATA = null;
 
 // setup 
-initializePackages(ROOT_DIR, LOCKFILE);
+initializePackages(ROOTDIR, LOCKFILE);
 
 async function getjsonData() {
   return new Promise((res, rej) => {
@@ -53,13 +54,18 @@ async function execute_individual(info, VERSIONDATA) {
 
   if (info.name.endsWith('-depricated')) {
     CONFIRMLIST.push({ status: 'depricated', title: info.name });
-    console.log('[STATUS]: 🚫 depricated');
-    if (CICD_NODE_TOKEN) console.log(`::endgroup::`);
+    if (CICD_NODE_TOKEN) {
+      console.log('[STATUS]: 🚫 depricated');
+      console.log(`::endgroup::`);
+    }
+    else {
+      console.log('\t\t[STATUS]: 🚫 depricated');
+    }
     return;
   }
 
   const scriptPath = path.join(__dirname, 'individual.sh');
-  const args = [info.location, SEMANTIC_VERSION, package_version, CICD_NODE_TOKEN];
+  const args = [info.location, package_version];
 
   const childProcess = spawn(scriptPath, args);
   const status = await spawnLogs(childProcess);
@@ -93,7 +99,7 @@ function spawnLogs(process) {
         }
         return;
       }
-      else if (!FORCED) {
+      else if (VERBOSE) {
         const lines = output.split("\n");
         for (let line of lines) {
           const trimmed = line.toString().trim();
@@ -139,7 +145,7 @@ function spawnLogs(process) {
         }
 
         // we want to logout error but not rest if its force mode (its local basically then)
-        if (state === "ERROR" || !FORCED) {
+        if (state === "ERROR" || VERBOSE) {
           console.log(`\t\t[${state}] ${line}`); // Log for debugging
         }
 

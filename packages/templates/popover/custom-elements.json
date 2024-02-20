@@ -1,56 +1,17 @@
 {
   "className": "Popover",
   "folder": "/Users/henry/Developer/projects/web-components/packages/templates/popover",
-  "properties": [
-    {
-      "name": "revealby",
-      "type": "Reveal",
-      "default_value": "hover",
-      "type_value": [
-        "hover",
-        "click"
-      ],
-      "primitive": false,
-      "conditional": false
+  "properties": [],
+  "classprop_set": {
+    "property": {
+      "revealby": true,
+      "placement": true,
+      "hideonoutsideclick": true,
+      "open": true
     },
-    {
-      "name": "placement",
-      "type": "Placement",
-      "default_value": "bottom-center",
-      "type_value": [
-        "top-left",
-        "top-right",
-        "top-center",
-        "bottom-left",
-        "bottom-right",
-        "bottom-center",
-        "left-top",
-        "left-bottom",
-        "left-center",
-        "right-top",
-        "right-bottom",
-        "right-center"
-      ],
-      "primitive": false,
-      "conditional": false
-    },
-    {
-      "name": "hideonoutsideclick",
-      "type": "boolean",
-      "default_value": true,
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
-    },
-    {
-      "name": "open",
-      "type": "boolean",
-      "default_value": false,
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
-    }
-  ],
+    "query": {},
+    "context": {}
+  },
   "extend_class": null,
   "imports": {
     "/Users/henry/Developer/projects/web-components/packages/templates/popover": [
@@ -104,20 +65,19 @@
     "variables": {
       "--popover-gap": {
         "usecases": [
-          "--gap"
+          "fit-content;--gap"
         ],
         "fallbacks": [
-          "1rem"
+          "var(--gap-smaller, 4px))}:host div[part=wrapper]{position:absolut"
         ]
       },
-      "--gap": {
+      "--gap-smaller": {
         "usecases": [
-          "padding-bottom",
-          "padding-top",
-          "padding-right",
-          "padding-left"
+          "fit-content;--gap"
         ],
-        "fallbacks": []
+        "fallbacks": [
+          "4px))}:host div[part=wrapper]{position:absolu"
+        ]
       }
     }
   }

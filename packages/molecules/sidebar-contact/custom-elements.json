@@ -17,6 +17,14 @@
       "conditional": false
     }
   ],
+  "classprop_set": {
+    "property": {
+      "open": true,
+      "contacts": true
+    },
+    "query": {},
+    "context": {}
+  },
   "extend_class": null,
   "imports": {
     "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar-contact": [
@@ -42,75 +50,16 @@
       }
     ]
   },
-  "html": {
-    "slots": [],
-    "parts": [
-      {
-        "name": "collapsed",
-        "tag": "PAP-BOX-TEMPLATE"
-      },
-      {
-        "name": "base",
-        "tag": "PAP-BOX-TEMPLATE"
-      },
-      {
-        "name": "header",
-        "tag": "HEADER"
-      }
-    ]
-  },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar-contact",
     "sources": [],
     "variables": {
       "--pap-color-bg-secondary": {
         "usecases": [
-          "background-color"
+          "host pap-box-template[part=collapsed]{background-color"
         ],
         "fallbacks": [
           "#F6F7F8"
-        ]
-      },
-      "--padding-small": {
-        "usecases": [
-          "padding",
-          "padding-bottom"
-        ],
-        "fallbacks": [
-          "8px"
-        ]
-      },
-      "--padding-medium": {
-        "usecases": [
-          "padding-inline",
-          "padding-block"
-        ],
-        "fallbacks": [
-          "16px"
-        ]
-      },
-      "--pap-color-text-secondary": {
-        "usecases": [
-          "color"
-        ],
-        "fallbacks": [
-          "#6E7087"
-        ]
-      },
-      "--gap-small": {
-        "usecases": [
-          "gap"
-        ],
-        "fallbacks": [
-          "8px"
-        ]
-      },
-      "--field-size-medium": {
-        "usecases": [
-          "height"
-        ],
-        "fallbacks": [
-          "40px"
         ]
       }
     }
