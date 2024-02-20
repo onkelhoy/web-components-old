@@ -69,7 +69,7 @@
           text-indent: var(--padding-medium, 16px);
         }
 
-        pap-toggle {
+        pap-switch {
           color: var(--pap-color-text, #29292F);
         }
 
@@ -92,10 +92,36 @@
   }
 
   fieldset {
-    // overflow: initial;
-    // overflow-x: auto;
-    // background-color: var(--pap-color-bg, #FFFFFF);
+    display: flex;
+    gap: var(--gap-small, 8px);
+  }
+}
+
+:host([color="canvas"]) {
+  fieldset {
     background-color: var(--pap-color-bg-canvas, #EAEBEF);
+  }
+}
+
+:host([color="background"]) {
+  fieldset {
+    background-color: var(--pap-color-bg, #FFFFFF);
+  }
+}
+
+:host([direction="row"]) {
+  fieldset {
+    flex-direction: row;
+  }
+}
+
+:host([direction="column"]) {
+  fieldset {
+    flex-direction: column;
+
+    &>* {
+      flex: 1;
+    }
   }
 }
 

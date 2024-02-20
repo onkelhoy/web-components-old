@@ -11,12 +11,12 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 
-export class Accordion extends BaseSystem {
+export class Accordion extends Base {
     static style = style;
 
     @property({ rerender: false, type: Boolean }) open = false;

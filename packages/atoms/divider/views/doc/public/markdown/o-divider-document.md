@@ -19,13 +19,13 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 import { Mode } from "./types";
 
-export class Divider extends BaseSystem {
+export class Divider extends Base {
     static style = style;
 
     @property({ rerender: false }) mode: Mode = "horizontal";
@@ -68,13 +68,13 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 import { Mode } from "./types";
 
-export class Divider extends BaseSystem {
+export class Divider extends Base {
     static style = style;
 
     @property({ rerender: false }) mode: Mode = "horizontal";
@@ -103,13 +103,13 @@ slots should include columns: (name, default-value, description)
 import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 import { Mode } from "./types";
 
-export class Divider extends BaseSystem {
+export class Divider extends Base {
     static style = style;
 
     @property({ rerender: false }) mode: Mode = "horizontal";

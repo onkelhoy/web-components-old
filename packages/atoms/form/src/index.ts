@@ -1,3 +1,4 @@
+export * from './components/message';
 export * from './component';
 export * from './types';
 

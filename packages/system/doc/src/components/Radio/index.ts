@@ -1,12 +1,12 @@
 // system
 import { html, property } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 import { style } from "./style";
 
 export type ChangeEvent = { value: boolean };
 
-export class Radio extends BaseSystem {
+export class Radio extends Base {
   static style = style;
 
   @property() left: string = "True";

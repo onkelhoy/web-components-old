@@ -6,11 +6,11 @@ import "@pap-it/codeblock/wc";
 import { Codeblock } from "@pap-it/codeblock";
 
 // templates
-import { AssetTemplate } from "@pap-it/templates-asset";
+import { Asset } from "@pap-it/templates-asset";
 
 import { style } from './style';
 
-export class Markdown extends AssetTemplate {
+export class Markdown extends Asset {
   static style = style;
 
   @property({ onUpdate: "updateFILE" }) url?: string;

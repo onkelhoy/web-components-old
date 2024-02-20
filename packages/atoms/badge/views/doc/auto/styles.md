@@ -4,21 +4,22 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
+## SOURCE-CODE
+
+// utils
 import { html, property, FormatNumber } from "@pap-it/system-utils";
 
 // atoms
 import "@pap-it/typography/wc"
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc"
 
-// local 
+// local
 import { style } from './style';
 
-export class Badge extends BaseSystem {
+export class Badge extends Base {
   static style = style;
 
   @property({ type: Number }) count: number = 0;
@@ -32,19 +33,20 @@ export class Badge extends BaseSystem {
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-badge": Badge;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     pap-box-template {
         background-color: var(--pap-color-bg, #FFFFFF);
         border: 1px solid var(--pap-color-border, #C7CBD4);
         color: var(--pap-color-text, #29292F);
-    
+
         display: inline-flex;
         justify-content: center;
         align-items: center;

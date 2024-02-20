@@ -9,6 +9,7 @@ const SEMANTIC_VERSION = process.argv[2];
 const CICD_NODE_TOKEN = process.argv[3];
 const ROOT_DIR = path.join(__dirname, "../../");
 const LOCKFILE = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, "package-lock.json")));
+const FORCED = process.env.FORCE === "true";
 let VERSIONDATA = null;
 
 // setup 
@@ -92,7 +93,7 @@ function spawnLogs(process) {
         }
         return;
       }
-      else {
+      else if (!FORCED) {
         const lines = output.split("\n");
         for (let line of lines) {
           const trimmed = line.toString().trim();
@@ -118,7 +119,7 @@ function spawnLogs(process) {
             i++;
           }
           else {
-            console.log("[DEBUG] <something is wrong with this line>", data.toString());
+            // console.log("[DEBUG] <something is wrong with this line>", data.toString());
             continue;
           }
         }
@@ -137,8 +138,10 @@ function spawnLogs(process) {
           else state = "LOG";
         }
 
-        if (CICD_NODE_TOKEN) console.log(`[${state}] ${line}`); // Log for debugging
-        else console.log(`\t\t[${state}] ${line}`); // Log for debugging
+        // we want to logout error but not rest if its force mode (its local basically then)
+        if (state === "ERROR" || !FORCED) {
+          console.log(`\t\t[${state}] ${line}`); // Log for debugging
+        }
 
         if (state === "ERROR") {
           error = true;

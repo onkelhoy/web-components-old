@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu demo</title>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Empty</pap-typography>
+    <pap-codeblock display="both">
+      <pap-menu-template></pap-menu-template>
+
+      <pap-menu-template>
+        <pap-button slot="button">Hello</pap-button>
+      </pap-menu-template>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">With Items</pap-typography>
+    <pap-codeblock display="both">
+      <pap-menu-template>
+        <pap-button slot="button">Hello</pap-button>
+
+        <pap-item-template>Hello 1</pap-item-template>
+        <pap-item-template>Hello 2</pap-item-template>
+        <pap-item-template>Hello 3</pap-item-template>
+        <pap-item-template>Hello (im a bit longer)</pap-item-template>
+      </pap-menu-template>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Mulitple</pap-typography>
+    <pap-codeblock display="both">
+      <pap-menu-template placement="bottom-left" height="20rem" multiple>
+        <pap-button slot="button">Hello</pap-button>
+
+        <pap-item-template>Hello 1</pap-item-template>
+        <pap-item-template>Hello 2</pap-item-template>
+        <pap-item-template>Hello 3</pap-item-template>
+        <pap-item-template>Hello 4</pap-item-template>
+        <pap-item-template>Hello 5</pap-item-template>
+        <pap-item-template>Hello 6</pap-item-template>
+        <pap-item-template>Hello 7</pap-item-template>
+        <pap-item-template>Hello 8</pap-item-template>
+        <pap-item-template>Hello 9</pap-item-template>
+        <pap-item-template>Hello 10</pap-item-template>
+        <pap-item-template>Hello 11</pap-item-template>
+        <pap-item-template>Hello 12</pap-item-template>
+        <pap-item-template>Hello 13</pap-item-template>
+        <pap-item-template>Hello 14</pap-item-template>
+        <pap-item-template>Hello 15</pap-item-template>
+        <pap-item-template>Hello 16</pap-item-template>
+        <pap-item-template>Hello 17</pap-item-template>
+        <pap-item-template>Hello 18</pap-item-template>
+        <pap-item-template>Hello 19</pap-item-template>
+        <pap-item-template>Hello (im a bit longer)</pap-item-template>
+      </pap-menu-template>
+    </pap-codeblock>
+  </doc-card>
+</body>
+
+</html>

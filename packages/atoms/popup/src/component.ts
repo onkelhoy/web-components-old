@@ -2,13 +2,13 @@
 import { html, property, query } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local 
 import { style } from "./style";
 import { State, Variant } from "./types";
 
-export class Popup extends BaseSystem {
+export class Popup extends Base {
   static style = style;
 
   @query('iz-card') private cardElement!: HTMLDivElement;

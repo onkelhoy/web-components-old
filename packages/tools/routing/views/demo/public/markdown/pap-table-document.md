@@ -9,26 +9,28 @@ Version: 1.0.0
 Development servers can be started and should all exist inside `"views"` folder
 
 ## Scripts
+
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
-## SOURCE-CODE:
-// utils 
+## SOURCE-CODE
+
+// utils
 import { html, property, query } from "@pap-it/system-utils";
 
 // molecules
 import "@pap-it/pagination/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 import { Cell, Config, Data, HeaderCell } from './types';
 import { Cell as CellElement } from "./components/cell";
 import { CellTitle } from "./components/cell-title";
 
-export class Table extends BaseSystem {
+export class Table extends Base {
   static style = style;
 
   @property({ type: Object, attribute: false }) config: Config = {};
@@ -36,7 +38,7 @@ export class Table extends BaseSystem {
 
   @query('table') tableElement!: HTMLTableElement;
 
-  // event handlers 
+  // event handlers
   private handlecellchange = (e: Event) => {
     if (e.target instanceof CellElement) {
       console.log('change', e.target.value);
@@ -58,7 +60,7 @@ export class Table extends BaseSystem {
     }
   }
 
-  // private functions 
+  // private functions
   private getCell(col: Data) {
     const colascell = col as Cell;
     const isstring = typeof col === "string";
@@ -104,20 +106,21 @@ export class Table extends BaseSystem {
             </table>
             <footer>
                 ${this.config.pagination ? html`
-                <pap-pagination perpage="5" total="${this.config.pagination.size || this.rows.length}"></pap-pagination> 
+                <pap-pagination perpage="5" total="${this.config.pagination.size || this.rows.length}"></pap-pagination>
                 ` : ''}
             </footer>
         `
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-table": Table;
   }
 }
-## REGISTER-CODE:
+
+## REGISTER-CODE
+
 import { Menu } from './components/menu';
 import { CellTitle } from './components/cell-title';
 import { Cell } from './components/cell';
@@ -143,28 +146,30 @@ if (!cElements.get('pap-menu')) {
   cElements.define('pap-menu', Menu);
 }
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- // utils 
+## SOURCE-CODE
+
+ // utils
 import { html, property, query } from "@pap-it/system-utils";
 
 // molecules
 import "@pap-it/pagination/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 import { Cell, Config, Data, HeaderCell } from './types';
 import { Cell as CellElement } from "./components/cell";
 import { CellTitle } from "./components/cell-title";
 
-export class Table extends BaseSystem {
+export class Table extends Base {
   static style = style;
 
   @property({ type: Object, attribute: false }) config: Config = {};
@@ -172,7 +177,7 @@ export class Table extends BaseSystem {
 
   @query('table') tableElement!: HTMLTableElement;
 
-  // event handlers 
+  // event handlers
   private handlecellchange = (e: Event) => {
     if (e.target instanceof CellElement) {
       console.log('change', e.target.value);
@@ -194,7 +199,7 @@ export class Table extends BaseSystem {
     }
   }
 
-  // private functions 
+  // private functions
   private getCell(col: Data) {
     const colascell = col as Cell;
     const isstring = typeof col === "string";
@@ -240,13 +245,12 @@ export class Table extends BaseSystem {
             </table>
             <footer>
                 ${this.config.pagination ? html`
-                <pap-pagination perpage="5" total="${this.config.pagination.size || this.rows.length}"></pap-pagination> 
+                <pap-pagination perpage="5" total="${this.config.pagination.size || this.rows.length}"></pap-pagination>
                 ` : ''}
             </footer>
         `
   }
 }
-
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -254,7 +258,7 @@ declare global {
   }
 }
 
-## TYPE-CODE: import { IOption } from '@pap-it/dropdown';
+## TYPE-CODE: import { IOption } from '@pap-it/dropdown'
 
 // data related types
 type CellObject = {
@@ -291,23 +295,24 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
-// utils 
+## SOURCE-CODE
+
+// utils
 import { html, property, query } from "@pap-it/system-utils";
 
 // molecules
 import "@pap-it/pagination/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 import { Cell, Config, Data, HeaderCell } from './types';
 import { Cell as CellElement } from "./components/cell";
 import { CellTitle } from "./components/cell-title";
 
-export class Table extends BaseSystem {
+export class Table extends Base {
   static style = style;
 
   @property({ type: Object, attribute: false }) config: Config = {};
@@ -315,7 +320,7 @@ export class Table extends BaseSystem {
 
   @query('table') tableElement!: HTMLTableElement;
 
-  // event handlers 
+  // event handlers
   private handlecellchange = (e: Event) => {
     if (e.target instanceof CellElement) {
       console.log('change', e.target.value);
@@ -337,7 +342,7 @@ export class Table extends BaseSystem {
     }
   }
 
-  // private functions 
+  // private functions
   private getCell(col: Data) {
     const colascell = col as Cell;
     const isstring = typeof col === "string";
@@ -383,20 +388,21 @@ export class Table extends BaseSystem {
             </table>
             <footer>
                 ${this.config.pagination ? html`
-                <pap-pagination perpage="5" total="${this.config.pagination.size || this.rows.length}"></pap-pagination> 
+                <pap-pagination perpage="5" total="${this.config.pagination.size || this.rows.length}"></pap-pagination>
                 ` : ''}
             </footer>
         `
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-table": Table;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     display: block;
 

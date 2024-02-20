@@ -1,11 +1,11 @@
 // system
 import { html, property } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local 
 import { style } from "./style";
 
-export class Theme extends BaseSystem {
+export class Theme extends Base {
   static style = style;
 
   render() {

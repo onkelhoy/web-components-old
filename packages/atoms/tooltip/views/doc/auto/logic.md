@@ -9,7 +9,7 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
  // system
 import { html, property } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import { Placement } from "@pap-it/templates-popover";
 import "@pap-it/templates-popover/wc";
 import "@pap-it/templates-box/wc";
@@ -18,7 +18,7 @@ import "@pap-it/templates-box/wc";
 import { style } from "./style";
 // import { Foo, ClickEvent } from "./types";
 
-export class Tooltip extends BaseSystem {
+export class Tooltip extends Base {
   static style = style;
 
   @property() placement: Placement = "top-center";

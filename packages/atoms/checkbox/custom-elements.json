@@ -12,7 +12,7 @@
     }
   ],
   "extend_class": {
-    "className": "FieldTemplate",
+    "className": "Field",
     "folder": "/Users/henry/Developer/projects/web-components/packages/templates/field",
     "properties": [
       {
@@ -272,7 +272,7 @@
       }
     ],
     "extend_class": {
-      "className": "FormElementTemplate",
+      "className": "FormElement",
       "folder": "/Users/henry/Developer/projects/web-components/packages/templates/form-element",
       "properties": [
         {
@@ -311,7 +311,7 @@
         "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseSystem",
+        "name": "Base",
         "from": "@pap-it/system-base"
       }
     ],
@@ -337,7 +337,7 @@
         "from": "@pap-it/system-utils"
       },
       {
-        "name": "FormElementTemplate",
+        "name": "FormElement",
         "from": "@pap-it/templates-form-element"
       },
       {
@@ -363,7 +363,7 @@
         "from": "@pap-it/system-utils"
       },
       {
-        "name": "FieldTemplate",
+        "name": "Field",
         "from": "@pap-it/templates-field"
       },
       {

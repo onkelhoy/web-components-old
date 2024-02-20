@@ -5,15 +5,27 @@
   }
 }
 
+:host([thickness="thin"]) {
+  --thickness: 0.5px;
+}
+
+:host([thickness="default"]) {
+  --thickness: 1px;
+}
+
+:host([thickness="thick"]) {
+  --thickness: 2px;
+}
+
 :host([mode="horizontal"]) {
   display: flex;
   align-items: center;
   height: 16px;
 
   div {
-    height: 1px;
+    height: var(--thickness);
     flex-grow: 1;
-    transform: translateY(0.5px);
+    transform: translateY(calc(var(--thickness) / 2));
   }
 }
 
@@ -22,7 +34,7 @@
   height: 100%;
 
   div {
-    width: 1px;
+    width: var(--thickness);
     height: 100%;
   }
 }

@@ -1,6 +1,6 @@
 import { fixture } from '@pap-it/tools-test';
 
-describe('BaseSystem', function () {
+describe('Base', function () {
   describe('base tests', function () {
     it('web-component should exists', function () {
       const elm = fixture('pap-base-template');
@@ -10,7 +10,7 @@ describe('BaseSystem', function () {
       }
 
       const docelm = document.querySelector(`pap-base-template[data-testid="${elm.getAttribute('data-testid')}"]`);
-      
+
       if (!docelm) {
         throw new Error('element not found');
       }

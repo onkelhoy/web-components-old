@@ -2,9 +2,9 @@
 import { html, property, debounce, context } from "@pap-it/system-utils";
 
 // templates
-import { AssetTemplate } from "@pap-it/templates-asset";
+import { Asset } from "@pap-it/templates-asset";
 
-export class RoutingTool extends AssetTemplate {
+export class Routing extends Asset {
 
   @property({ onUpdate: "update_url", rerender: false, context: true }) url: string = "";
   @context({ name: "url" }) parenturl?: string;
@@ -93,6 +93,6 @@ export class RoutingTool extends AssetTemplate {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-routing-tool": RoutingTool;
+    "pap-routing-tool": Routing;
   }
 }

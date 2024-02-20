@@ -2,7 +2,7 @@
 import { html, property, query, ExtractSlotValue } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 import { style } from "./style";
 import { Dropdown } from "../../component";
@@ -10,7 +10,7 @@ import { IOption } from "../../types";
 
 export type OptionClick = Partial<IOption>;
 
-export class Option extends BaseSystem {
+export class Option extends Base {
   static style = style;
 
   @property({ rerender: false }) value?: string;

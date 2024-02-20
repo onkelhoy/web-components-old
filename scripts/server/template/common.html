@@ -45,7 +45,7 @@
   }
 
   async function fetchLanguages() {
-    if (window.papTranslation) {
+    if (window.papLocalization) {
       const files = await fetchResource("translations");
       let langs = [];
       files.forEach(file => {
@@ -58,7 +58,7 @@
         });
       });
 
-      window.papTranslation.addAll(langs);
+      window.papLocalization.addAll(langs);
     }
     else {
       tryagain("papTranslation", fetchLanguages);

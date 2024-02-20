@@ -1,4 +1,4 @@
-import { CanvasTemplate } from './component.js';
+import { Canvas } from './component.js';
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;
@@ -8,5 +8,5 @@ if (!cElements) {
 }
 
 if (!cElements.get('pap-canvas-template')) {
-  cElements.define('pap-canvas-template', CanvasTemplate);
+  cElements.define('pap-canvas-template', Canvas);
 }

@@ -1,5 +1,5 @@
 {
-  "className": "ThemeTool",
+  "className": "Theme",
   "folder": "/Users/henry/Developer/projects/web-components/packages/tools/theme",
   "properties": [],
   "extend_class": null,
@@ -14,7 +14,7 @@
         "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseSystem",
+        "name": "Base",
         "from": "@pap-it/system-base"
       },
       {

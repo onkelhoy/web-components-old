@@ -1,31 +1,17 @@
-export type MessageType = "error" | "warning" | "success";
-export type Message = {
-  type: MessageType;
-  message: string;
+import { RenderType } from '@pap-it/system-base';
+
+export type ValidityStateObject = Record<keyof ValidityState, string>;
+export type MessageVariant = "info" | "success" | "warning" | "danger";
+export type Mode = "hug" | "fill";
+export type State = "default" | "info" | "success" | "warning" | "danger";
+
+export type PrefixSuffixRender = Partial<{
+  prefix: RenderType;
+  content: RenderType;
+  suffix: RenderType;
+}>
+export type RenderArgument = {
+  header?: PrefixSuffixRender;
+  footer?: PrefixSuffixRender;
+  main: PrefixSuffixRender;
 }
-
-export type FieldValidityStateName = "badInput" | "customError" | "patternMismatch" | "rangeOverflow" | "rangeUnderflow" | "stepMismatch" | "tooLong" | "tooShort" | "typeMismatch" | "valid" | "valueMissing";
-
-export type FieldValidityState = {
-  /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/badInput) */
-  badInput: string;
-  customError: string;
-  /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/patternMismatch) */
-  patternMismatch: string;
-  /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/rangeOverflow) */
-  rangeOverflow: string;
-  /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/rangeUnderflow) */
-  rangeUnderflow: string;
-  /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/stepMismatch) */
-  stepMismatch: string;
-  /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/tooLong) */
-  tooLong: string;
-  /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/tooShort) */
-  tooShort: string;
-  /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ValidityState/typeMismatch) */
-  typeMismatch: string;
-  valid: string;
-  valueMissing: string;
-}
-
-export const ValidationAttributes = ["min", "max", "pattern", "type", "minlenght", "maxlenght", "required", "multiple", "novalidate", "formnovalidate", "autofocus"]

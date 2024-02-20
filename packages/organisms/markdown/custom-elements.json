@@ -18,7 +18,7 @@
     }
   ],
   "extend_class": {
-    "className": "AssetTemplate",
+    "className": "Asset",
     "folder": "/Users/henry/Developer/projects/web-components/packages/templates/asset",
     "properties": [
       {
@@ -47,7 +47,7 @@
         "from": "tslib"
       },
       {
-        "name": "BaseSystem",
+        "name": "Base",
         "from": "@pap-it/system-base"
       },
       {
@@ -65,7 +65,7 @@
         "from": "@pap-it/system-utils"
       },
       {
-        "name": "AssetTemplate",
+        "name": "Asset",
         "from": "@pap-it/templates-asset"
       },
       {

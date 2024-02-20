@@ -1,15 +1,16 @@
 // system 
 import { html, property, query } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 
-export class COMPONENT_CLASSNAME extends BaseSystem {
+export class COMPONENT_CLASSNAME extends Base {
   static style = style;
 
-  @query<HTMLDivElement>('div') divElement!: HTMLDivElement;
   @property() foo: string = "bar";
+
+  @query<HTMLDivElement>('div') divElement!: HTMLDivElement;
 
   render() {
     return html`

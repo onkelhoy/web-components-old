@@ -1,4 +1,4 @@
-# FieldTemplate
+# Field
 
 Atomic Type: templates
 
@@ -24,14 +24,14 @@ import "@pap-it/icon/wc";
 import "@pap-it/typography/wc";
 
 // templates
-import { FormElementTemplate } from "@pap-it/templates-form-element";
+import { FormElement } from "@pap-it/templates-form-element";
 import "@pap-it/templates-box/wc";
 
 // local
 import { style } from "./style";
 import { FieldValidityState, FieldValidityStateName, Message, ValidationAttributes } from "./types";
 
-export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends FormElementTemplate {
+export class Field<T extends HTMLElement = HTMLInputElement> extends FormElement {
   static styles = [style];
 
   // queries
@@ -337,13 +337,13 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-field-template": FieldTemplate;
+    "pap-field-template": Field;
   }
 }
 
 ## REGISTER-CODE
 
-import { FieldTemplate } from './component.js';
+import { Field } from './component.js';
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;
@@ -353,7 +353,7 @@ if (!cElements) {
 }
 
 if (!cElements.get('pap-field-template')) {
-  cElements.define('pap-field-template', FieldTemplate);
+  cElements.define('pap-field-template', Field);
 }
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and the types can you give me the following tables.
@@ -373,14 +373,14 @@ import "@pap-it/icon/wc";
 import "@pap-it/typography/wc";
 
 // templates
-import { FormElementTemplate } from "@pap-it/templates-form-element";
+import { FormElement } from "@pap-it/templates-form-element";
 import "@pap-it/templates-box/wc";
 
 // local
 import { style } from "./style";
 import { FieldValidityState, FieldValidityStateName, Message, ValidationAttributes } from "./types";
 
-export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends FormElementTemplate {
+export class Field<T extends HTMLElement = HTMLInputElement> extends FormElement {
   static styles = [style];
 
   // queries
@@ -686,7 +686,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-field-template": FieldTemplate;
+    "pap-field-template": Field;
   }
 }
 
@@ -738,14 +738,14 @@ import "@pap-it/icon/wc";
 import "@pap-it/typography/wc";
 
 // templates
-import { FormElementTemplate } from "@pap-it/templates-form-element";
+import { FormElement } from "@pap-it/templates-form-element";
 import "@pap-it/templates-box/wc";
 
 // local
 import { style } from "./style";
 import { FieldValidityState, FieldValidityStateName, Message, ValidationAttributes } from "./types";
 
-export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends FormElementTemplate {
+export class Field<T extends HTMLElement = HTMLInputElement> extends FormElement {
   static styles = [style];
 
   // queries
@@ -1051,7 +1051,7 @@ export class FieldTemplate<T extends HTMLElement = HTMLInputElement> extends For
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-field-template": FieldTemplate;
+    "pap-field-template": Field;
   }
 }
 

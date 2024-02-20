@@ -1,6 +1,6 @@
 // system 
 import { ExtractSlotValue, html, property, query } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // atoms
 import "@pap-it/tabs/wc";
@@ -14,7 +14,7 @@ import "@pap-it/tools-translator/wc";
 import { style } from "./style";
 import { TableMenu } from "../table-menu";
 
-export class TableActionMenu extends BaseSystem {
+export class TableActionMenu extends Base {
   static style = style;
 
   private handletabchange = (e: Event) => {
@@ -30,25 +30,25 @@ export class TableActionMenu extends BaseSystem {
         <pap-tab id="filters">
           <div>
             <pap-icon name="filter"></pap-icon>
-            <pap-typography variant="C4"><pap-translate>Filters</pap-translate></pap-typography>
+            <pap-typography variant="C4"><pap-translator>Filters</pap-translator></pap-typography>
           </div>
         </pap-tab>
         <pap-tab id="manage">
           <div>
             <pap-icon name="manage"></pap-icon>
-            <pap-typography variant="C4"><pap-translate>Manage table</pap-translate></pap-typography>
+            <pap-typography variant="C4"><pap-translator>Manage table</pap-translator></pap-typography>
           </div>
         </pap-tab>
         <pap-tab id="export">
           <div>
             <pap-icon name="export"></pap-icon>
-            <pap-typography variant="C4"><pap-translate>Export</pap-translate></pap-typography>
+            <pap-typography variant="C4"><pap-translator>Export</pap-translator></pap-typography>
           </div>
         </pap-tab>
         <pap-tab id="settings">
           <div>
             <pap-icon name="setting"></pap-icon>
-            <pap-typography variant="C4"><pap-translate>Settings</pap-translate></pap-typography>
+            <pap-typography variant="C4"><pap-translator>Settings</pap-translator></pap-typography>
           </div>
         </pap-tab>
 
@@ -63,7 +63,7 @@ export class TableActionMenu extends BaseSystem {
         </pap-tab-content>
 
         <pap-tab-content id="export">
-          <pap-typography variant="C2"><pap-translate>File format</pap-translate></pap-typography>
+          <pap-typography variant="C2"><pap-translator>File format</pap-translator></pap-typography>
           
           <footer>
             

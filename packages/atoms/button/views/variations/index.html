@@ -1,833 +1,689 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Button - Variations</title>
 
-  <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="style.css">
 
   <script defer type="module" src="main.js"></script>
 </head>
+
 <body>
-  
-<h1 data-title="class">Button Properties</h1>
-        <doc-card class="property" data-name="type">
-            <h2 slot="header"><span class="deemphasize">Property: </span>type</h2>
 
-            <div class="property-info">
-              <p>type: undefined</p>
-              <p>default-value: button</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-            </div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="size">
-            <h2 slot="header"><span class="deemphasize">Property: </span>size</h2>
+  <h1 data-title="class">Button Properties</h1>
+  <doc-card class="property" data-name="type">
+    <h2 slot="header"><span class="deemphasize">Property: </span>type</h2>
 
-            <div class="property-info">
-              <p>type: Size</p>
-              <p>default-value: medium</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="small">
-                    <h4><span class="deemphasize">Property-Value: </span>small</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        size="small"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="medium">
-                    <h4><span class="deemphasize">Property-Value: </span>medium</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        size="medium"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="large">
-                    <h4><span class="deemphasize">Property-Value: </span>large</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        size="large"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                
-            </div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="href">
-            <h2 slot="header"><span class="deemphasize">Property: </span>href</h2>
+    <div class="property-info">
+      <p>type: undefined</p>
+      <p>default-value: button</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
 
-            <div class="property-info">
-              <p>type: string</p>
-              <p>default-value: undefined</p>
-              <p>required: false</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="foo">
-                    <h4><span class="deemphasize">Property-Value: </span>foo</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        href="foo"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="bar">
-                    <h4><span class="deemphasize">Property-Value: </span>bar</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        href="bar"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="hello world">
-                    <h4><span class="deemphasize">Property-Value: </span>hello world</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        href="hello world"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                
-            </div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="circle">
-            <h2 slot="header"><span class="deemphasize">Property: </span>circle</h2>
+    </div>
+  </doc-card>
 
-            <div class="property-info">
-              <p>type: boolean</p>
-              <p>default-value: false</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="true">
-                    <h4><span class="deemphasize">Property-Value: </span>true</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        circle="true"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="false">
-                    <h4><span class="deemphasize">Property-Value: </span>false</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        circle="false"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                
-            </div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="loading">
-            <h2 slot="header"><span class="deemphasize">Property: </span>loading</h2>
+  <doc-card class="property" data-name="size">
+    <h2 slot="header"><span class="deemphasize">Property: </span>size</h2>
 
-            <div class="property-info">
-              <p>type: boolean</p>
-              <p>default-value: false</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="true">
-                    <h4><span class="deemphasize">Property-Value: </span>true</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        loading="true"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="false">
-                    <h4><span class="deemphasize">Property-Value: </span>false</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        loading="false"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                
-            </div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="textvariant">
-            <h2 slot="header"><span class="deemphasize">Property: </span>textvariant</h2>
+    <div class="property-info">
+      <p>type: Size</p>
+      <p>default-value: medium</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
 
-            <div class="property-info">
-              <p>type: ButtonTextType</p>
-              <p>default-value: B1</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="B1">
-                    <h4><span class="deemphasize">Property-Value: </span>B1</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        textvariant="B1"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="B2">
-                    <h4><span class="deemphasize">Property-Value: </span>B2</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        textvariant="B2"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="button1">
-                    <h4><span class="deemphasize">Property-Value: </span>button1</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        textvariant="button1"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="button2">
-                    <h4><span class="deemphasize">Property-Value: </span>button2</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        textvariant="button2"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                
-            </div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="mode">
-            <h2 slot="header"><span class="deemphasize">Property: </span>mode</h2>
+      <div class="variant" data-variant="small">
+        <h4><span class="deemphasize">Property-Value: </span>small</h4>
+        <pap-codeblock display="both">
+          <pap-button size="small">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
 
-            <div class="property-info">
-              <p>type: ButtonMode</p>
-              <p>default-value: hug</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="hug">
-                    <h4><span class="deemphasize">Property-Value: </span>hug</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        mode="hug"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="fill">
-                    <h4><span class="deemphasize">Property-Value: </span>fill</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        mode="fill"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                
-            </div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="variant">
-            <h2 slot="header"><span class="deemphasize">Property: </span>variant</h2>
+      <div class="variant" data-variant="medium">
+        <h4><span class="deemphasize">Property-Value: </span>medium</h4>
+        <pap-codeblock display="both">
+          <pap-button size="medium">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
 
-            <div class="property-info">
-              <p>type: ButtonVariant</p>
-              <p>default-value: filled</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="filled">
-                    <h4><span class="deemphasize">Property-Value: </span>filled</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        variant="filled"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="outlined">
-                    <h4><span class="deemphasize">Property-Value: </span>outlined</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        variant="outlined"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="clear">
-                    <h4><span class="deemphasize">Property-Value: </span>clear</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        variant="clear"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                
-            </div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="tabIndex">
-            <h2 slot="header"><span class="deemphasize">Property: </span>tabIndex</h2>
+      <div class="variant" data-variant="large">
+        <h4><span class="deemphasize">Property-Value: </span>large</h4>
+        <pap-codeblock display="both">
+          <pap-button size="large">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
 
-            <div class="property-info">
-              <p>type: number</p>
-              <p>default-value: 1</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="1">
-                    <h4><span class="deemphasize">Property-Value: </span>1</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        tabIndex="1"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="10">
-                    <h4><span class="deemphasize">Property-Value: </span>10</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        tabIndex="10"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="1000">
-                    <h4><span class="deemphasize">Property-Value: </span>1000</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        tabIndex="1000"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                
-            </div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="color">
-            <h2 slot="header"><span class="deemphasize">Property: </span>color</h2>
+    </div>
+  </doc-card>
 
-            <div class="property-info">
-              <p>type: ButtonColorVariant</p>
-              <p>default-value: primary</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="primary">
-                    <h4><span class="deemphasize">Property-Value: </span>primary</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        color="primary"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="secondary">
-                    <h4><span class="deemphasize">Property-Value: </span>secondary</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        color="secondary"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="inverse">
-                    <h4><span class="deemphasize">Property-Value: </span>inverse</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        color="inverse"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="danger">
-                    <h4><span class="deemphasize">Property-Value: </span>danger</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        color="danger"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="success">
-                    <h4><span class="deemphasize">Property-Value: </span>success</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        color="success"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="warning">
-                    <h4><span class="deemphasize">Property-Value: </span>warning</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        color="warning"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                
-            <div class="variant" data-variant="inverse">
-                    <h4><span class="deemphasize">Property-Value: </span>inverse</h4>
-                    <o-codeblock lang="html" display="both">
-                      <o-button 
-                        color="inverse"
-                        
-                      >
-                        hello world
-                      </o-button>
-                    </o-codeblock>
-                  </div></div>
-        </doc-card>
-    <h1 data-title="inherit">Inherited Properties</h1><h3 data-subtitle="from BoxTemplate">from BoxTemplate</h3>
-        <doc-card class="property" data-name="radius">
-            <h2 slot="header"><span class="deemphasize">Property: </span>radius</h2>
+  <doc-card class="property" data-name="href">
+    <h2 slot="header"><span class="deemphasize">Property: </span>href</h2>
 
-            <div class="property-info">
-              <p>type: Radius</p>
-              <p>default-value: circular</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="none">
-                    <h4><span class="deemphasize">Property-Value: </span>none</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        radius="none"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="small">
-                    <h4><span class="deemphasize">Property-Value: </span>small</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        radius="small"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="medium">
-                    <h4><span class="deemphasize">Property-Value: </span>medium</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        radius="medium"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="large">
-                    <h4><span class="deemphasize">Property-Value: </span>large</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        radius="large"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="circular">
-                    <h4><span class="deemphasize">Property-Value: </span>circular</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        radius="circular"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                
-            </div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="elevation">
-            <h2 slot="header"><span class="deemphasize">Property: </span>elevation</h2>
+    <div class="property-info">
+      <p>type: string</p>
+      <p>default-value: undefined</p>
+      <p>required: false</p>
+    </div>
+    <div class="variations">
 
-            <div class="property-info">
-              <p>type: Elevation</p>
-              <p>default-value: none</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="none">
-                    <h4><span class="deemphasize">Property-Value: </span>none</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        elevation="none"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="small">
-                    <h4><span class="deemphasize">Property-Value: </span>small</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        elevation="small"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="medium">
-                    <h4><span class="deemphasize">Property-Value: </span>medium</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        elevation="medium"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="large">
-                    <h4><span class="deemphasize">Property-Value: </span>large</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        elevation="large"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div>
-                
-            <div class="variant" data-variant="x-large">
-                    <h4><span class="deemphasize">Property-Value: </span>x-large</h4>
-                    <pap-codeblock display="both">
-                      <pap-button 
-                        elevation="x-large"
-                        
-                      >
-                        hello world
-                      </pap-button>
-                    </pap-codeblock>
-                  </div></div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="elevationdirection">
-            <h2 slot="header"><span class="deemphasize">Property: </span>elevationdirection</h2>
+      <div class="variant" data-variant="foo">
+        <h4><span class="deemphasize">Property-Value: </span>foo</h4>
+        <pap-codeblock display="both">
+          <pap-button href="foo">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
 
-            <div class="property-info">
-              <p>type: undefined</p>
-              <p>default-value: vertical</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-            </div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="href">
-            <h2 slot="header"><span class="deemphasize">Property: </span>href</h2>
+      <div class="variant" data-variant="bar">
+        <h4><span class="deemphasize">Property-Value: </span>bar</h4>
+        <pap-codeblock display="both">
+          <pap-button href="bar">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
 
-            <div class="property-info">
-              <p>type: string</p>
-              <p>default-value: undefined</p>
-              <p>required: false</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="foo">
-                    <h4><span class="deemphasize">Property-Value: </span>foo</h4>
-                    <o-codeblock lang="html" display="both">
-                      <o-button 
-                        href="foo"
-                        
-                      >
-                        hello world
-                      </o-button>
-                    </o-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="bar">
-                    <h4><span class="deemphasize">Property-Value: </span>bar</h4>
-                    <o-codeblock lang="html" display="both">
-                      <o-button 
-                        href="bar"
-                        
-                      >
-                        hello world
-                      </o-button>
-                    </o-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="hello world">
-                    <h4><span class="deemphasize">Property-Value: </span>hello world</h4>
-                    <o-codeblock lang="html" display="both">
-                      <o-button 
-                        href="hello world"
-                        
-                      >
-                        hello world
-                      </o-button>
-                    </o-codeblock>
-                  </div>
-                
-            </div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="textvariant">
-            <h2 slot="header"><span class="deemphasize">Property: </span>textvariant</h2>
+      <div class="variant" data-variant="hello world">
+        <h4><span class="deemphasize">Property-Value: </span>hello world</h4>
+        <pap-codeblock display="both">
+          <pap-button href="hello world">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
 
-            <div class="property-info">
-              <p>type: ButtonTextType</p>
-              <p>default-value: B1</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="B1">
-                    <h4><span class="deemphasize">Property-Value: </span>B1</h4>
-                    <o-codeblock lang="html" display="both">
-                      <o-button 
-                        textvariant="B1"
-                        
-                      >
-                        hello world
-                      </o-button>
-                    </o-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="B2">
-                    <h4><span class="deemphasize">Property-Value: </span>B2</h4>
-                    <o-codeblock lang="html" display="both">
-                      <o-button 
-                        textvariant="B2"
-                        
-                      >
-                        hello world
-                      </o-button>
-                    </o-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="button1">
-                    <h4><span class="deemphasize">Property-Value: </span>button1</h4>
-                    <o-codeblock lang="html" display="both">
-                      <o-button 
-                        textvariant="button1"
-                        
-                      >
-                        hello world
-                      </o-button>
-                    </o-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="button2">
-                    <h4><span class="deemphasize">Property-Value: </span>button2</h4>
-                    <o-codeblock lang="html" display="both">
-                      <o-button 
-                        textvariant="button2"
-                        
-                      >
-                        hello world
-                      </o-button>
-                    </o-codeblock>
-                  </div>
-                
-            </div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="circle">
-            <h2 slot="header"><span class="deemphasize">Property: </span>circle</h2>
+    </div>
+  </doc-card>
 
-            <div class="property-info">
-              <p>type: boolean</p>
-              <p>default-value: false</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="true">
-                    <h4><span class="deemphasize">Property-Value: </span>true</h4>
-                    <o-codeblock lang="html" display="both">
-                      <o-button 
-                        circle="true"
-                        
-                      >
-                        hello world
-                      </o-button>
-                    </o-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="false">
-                    <h4><span class="deemphasize">Property-Value: </span>false</h4>
-                    <o-codeblock lang="html" display="both">
-                      <o-button 
-                        circle="false"
-                        
-                      >
-                        hello world
-                      </o-button>
-                    </o-codeblock>
-                  </div>
-                
-            </div>
-        </doc-card>
-    
-        <doc-card class="property" data-name="loading">
-            <h2 slot="header"><span class="deemphasize">Property: </span>loading</h2>
+  <doc-card class="property" data-name="circle">
+    <h2 slot="header"><span class="deemphasize">Property: </span>circle</h2>
 
-            <div class="property-info">
-              <p>type: boolean</p>
-              <p>default-value: false</p>
-              <p>required: true</p>
-            </div>
-            <div class="variations">
-                
-                  <div class="variant" data-variant="true">
-                    <h4><span class="deemphasize">Property-Value: </span>true</h4>
-                    <o-codeblock lang="html" display="both">
-                      <o-button 
-                        loading="true"
-                        
-                      >
-                        hello world
-                      </o-button>
-                    </o-codeblock>
-                  </div>
-                 
-                  <div class="variant" data-variant="false">
-                    <h4><span class="deemphasize">Property-Value: </span>false</h4>
-                    <o-codeblock lang="html" display="both">
-                      <o-button 
-                        loading="false"
-                        
-                      >
-                        hello world
-                      </o-button>
-                    </o-codeblock>
-                  </div>
-                
-            </div>
-        </doc-card>
-    </body>
+    <div class="property-info">
+      <p>type: boolean</p>
+      <p>default-value: false</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
+
+      <div class="variant" data-variant="true">
+        <h4><span class="deemphasize">Property-Value: </span>true</h4>
+        <pap-codeblock display="both">
+          <pap-button circle="true">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="false">
+        <h4><span class="deemphasize">Property-Value: </span>false</h4>
+        <pap-codeblock display="both">
+          <pap-button circle="false">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+    </div>
+  </doc-card>
+
+  <doc-card class="property" data-name="loading">
+    <h2 slot="header"><span class="deemphasize">Property: </span>loading</h2>
+
+    <div class="property-info">
+      <p>type: boolean</p>
+      <p>default-value: false</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
+
+      <div class="variant" data-variant="true">
+        <h4><span class="deemphasize">Property-Value: </span>true</h4>
+        <pap-codeblock display="both">
+          <pap-button loading="true">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="false">
+        <h4><span class="deemphasize">Property-Value: </span>false</h4>
+        <pap-codeblock display="both">
+          <pap-button loading="false">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+    </div>
+  </doc-card>
+
+  <doc-card class="property" data-name="textvariant">
+    <h2 slot="header"><span class="deemphasize">Property: </span>textvariant</h2>
+
+    <div class="property-info">
+      <p>type: ButtonTextType</p>
+      <p>default-value: B1</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
+
+      <div class="variant" data-variant="B1">
+        <h4><span class="deemphasize">Property-Value: </span>B1</h4>
+        <pap-codeblock display="both">
+          <pap-button textvariant="B1">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="B2">
+        <h4><span class="deemphasize">Property-Value: </span>B2</h4>
+        <pap-codeblock display="both">
+          <pap-button textvariant="B2">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="button1">
+        <h4><span class="deemphasize">Property-Value: </span>button1</h4>
+        <pap-codeblock display="both">
+          <pap-button textvariant="button1">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="button2">
+        <h4><span class="deemphasize">Property-Value: </span>button2</h4>
+        <pap-codeblock display="both">
+          <pap-button textvariant="button2">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+    </div>
+  </doc-card>
+
+  <doc-card class="property" data-name="mode">
+    <h2 slot="header"><span class="deemphasize">Property: </span>mode</h2>
+
+    <div class="property-info">
+      <p>type: ButtonMode</p>
+      <p>default-value: hug</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
+
+      <div class="variant" data-variant="hug">
+        <h4><span class="deemphasize">Property-Value: </span>hug</h4>
+        <pap-codeblock display="both">
+          <pap-button mode="hug">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="fill">
+        <h4><span class="deemphasize">Property-Value: </span>fill</h4>
+        <pap-codeblock display="both">
+          <pap-button mode="fill">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+    </div>
+  </doc-card>
+
+  <doc-card class="property" data-name="variant">
+    <h2 slot="header"><span class="deemphasize">Property: </span>variant</h2>
+
+    <div class="property-info">
+      <p>type: ButtonVariant</p>
+      <p>default-value: filled</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
+
+      <div class="variant" data-variant="filled">
+        <h4><span class="deemphasize">Property-Value: </span>filled</h4>
+        <pap-codeblock display="both">
+          <pap-button variant="filled">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="outlined">
+        <h4><span class="deemphasize">Property-Value: </span>outlined</h4>
+        <pap-codeblock display="both">
+          <pap-button variant="outlined">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="clear">
+        <h4><span class="deemphasize">Property-Value: </span>clear</h4>
+        <pap-codeblock display="both">
+          <pap-button variant="clear">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+    </div>
+  </doc-card>
+
+  <doc-card class="property" data-name="tabIndex">
+    <h2 slot="header"><span class="deemphasize">Property: </span>tabIndex</h2>
+
+    <div class="property-info">
+      <p>type: number</p>
+      <p>default-value: 1</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
+
+      <div class="variant" data-variant="1">
+        <h4><span class="deemphasize">Property-Value: </span>1</h4>
+        <pap-codeblock display="both">
+          <pap-button tabIndex="1">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="10">
+        <h4><span class="deemphasize">Property-Value: </span>10</h4>
+        <pap-codeblock display="both">
+          <pap-button tabIndex="10">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="1000">
+        <h4><span class="deemphasize">Property-Value: </span>1000</h4>
+        <pap-codeblock display="both">
+          <pap-button tabIndex="1000">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+    </div>
+  </doc-card>
+
+  <doc-card class="property" data-name="color">
+    <h2 slot="header"><span class="deemphasize">Property: </span>color</h2>
+
+    <div class="property-info">
+      <p>type: ButtonColorVariant</p>
+      <p>default-value: primary</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
+
+      <div class="variant" data-variant="primary">
+        <h4><span class="deemphasize">Property-Value: </span>primary</h4>
+        <pap-codeblock display="both">
+          <pap-button color="primary">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="secondary">
+        <h4><span class="deemphasize">Property-Value: </span>secondary</h4>
+        <pap-codeblock display="both">
+          <pap-button color="secondary">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="inverse">
+        <h4><span class="deemphasize">Property-Value: </span>inverse</h4>
+        <pap-codeblock display="both">
+          <pap-button color="inverse">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="danger">
+        <h4><span class="deemphasize">Property-Value: </span>danger</h4>
+        <pap-codeblock display="both">
+          <pap-button color="danger">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="success">
+        <h4><span class="deemphasize">Property-Value: </span>success</h4>
+        <pap-codeblock display="both">
+          <pap-button color="success">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="warning">
+        <h4><span class="deemphasize">Property-Value: </span>warning</h4>
+        <pap-codeblock display="both">
+          <pap-button color="warning">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="inverse">
+        <h4><span class="deemphasize">Property-Value: </span>inverse</h4>
+        <o-codeblock lang="html" display="both">
+          <o-button color="inverse">
+            hello world
+          </o-button>
+        </o-codeblock>
+      </div>
+    </div>
+  </doc-card>
+  <h1 data-title="inherit">Inherited Properties</h1>
+  <h3 data-subtitle="from Box">from Box</h3>
+  <doc-card class="property" data-name="radius">
+    <h2 slot="header"><span class="deemphasize">Property: </span>radius</h2>
+
+    <div class="property-info">
+      <p>type: Radius</p>
+      <p>default-value: circular</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
+
+      <div class="variant" data-variant="none">
+        <h4><span class="deemphasize">Property-Value: </span>none</h4>
+        <pap-codeblock display="both">
+          <pap-button radius="none">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="small">
+        <h4><span class="deemphasize">Property-Value: </span>small</h4>
+        <pap-codeblock display="both">
+          <pap-button radius="small">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="medium">
+        <h4><span class="deemphasize">Property-Value: </span>medium</h4>
+        <pap-codeblock display="both">
+          <pap-button radius="medium">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="large">
+        <h4><span class="deemphasize">Property-Value: </span>large</h4>
+        <pap-codeblock display="both">
+          <pap-button radius="large">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="circular">
+        <h4><span class="deemphasize">Property-Value: </span>circular</h4>
+        <pap-codeblock display="both">
+          <pap-button radius="circular">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+    </div>
+  </doc-card>
+
+  <doc-card class="property" data-name="elevation">
+    <h2 slot="header"><span class="deemphasize">Property: </span>elevation</h2>
+
+    <div class="property-info">
+      <p>type: Elevation</p>
+      <p>default-value: none</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
+
+      <div class="variant" data-variant="none">
+        <h4><span class="deemphasize">Property-Value: </span>none</h4>
+        <pap-codeblock display="both">
+          <pap-button elevation="none">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="small">
+        <h4><span class="deemphasize">Property-Value: </span>small</h4>
+        <pap-codeblock display="both">
+          <pap-button elevation="small">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="medium">
+        <h4><span class="deemphasize">Property-Value: </span>medium</h4>
+        <pap-codeblock display="both">
+          <pap-button elevation="medium">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="large">
+        <h4><span class="deemphasize">Property-Value: </span>large</h4>
+        <pap-codeblock display="both">
+          <pap-button elevation="large">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+
+      <div class="variant" data-variant="x-large">
+        <h4><span class="deemphasize">Property-Value: </span>x-large</h4>
+        <pap-codeblock display="both">
+          <pap-button elevation="x-large">
+            hello world
+          </pap-button>
+        </pap-codeblock>
+      </div>
+    </div>
+  </doc-card>
+
+  <doc-card class="property" data-name="elevationdirection">
+    <h2 slot="header"><span class="deemphasize">Property: </span>elevationdirection</h2>
+
+    <div class="property-info">
+      <p>type: undefined</p>
+      <p>default-value: vertical</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
+
+    </div>
+  </doc-card>
+
+  <doc-card class="property" data-name="href">
+    <h2 slot="header"><span class="deemphasize">Property: </span>href</h2>
+
+    <div class="property-info">
+      <p>type: string</p>
+      <p>default-value: undefined</p>
+      <p>required: false</p>
+    </div>
+    <div class="variations">
+
+      <div class="variant" data-variant="foo">
+        <h4><span class="deemphasize">Property-Value: </span>foo</h4>
+        <o-codeblock lang="html" display="both">
+          <o-button href="foo">
+            hello world
+          </o-button>
+        </o-codeblock>
+      </div>
+
+      <div class="variant" data-variant="bar">
+        <h4><span class="deemphasize">Property-Value: </span>bar</h4>
+        <o-codeblock lang="html" display="both">
+          <o-button href="bar">
+            hello world
+          </o-button>
+        </o-codeblock>
+      </div>
+
+      <div class="variant" data-variant="hello world">
+        <h4><span class="deemphasize">Property-Value: </span>hello world</h4>
+        <o-codeblock lang="html" display="both">
+          <o-button href="hello world">
+            hello world
+          </o-button>
+        </o-codeblock>
+      </div>
+
+    </div>
+  </doc-card>
+
+  <doc-card class="property" data-name="textvariant">
+    <h2 slot="header"><span class="deemphasize">Property: </span>textvariant</h2>
+
+    <div class="property-info">
+      <p>type: ButtonTextType</p>
+      <p>default-value: B1</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
+
+      <div class="variant" data-variant="B1">
+        <h4><span class="deemphasize">Property-Value: </span>B1</h4>
+        <o-codeblock lang="html" display="both">
+          <o-button textvariant="B1">
+            hello world
+          </o-button>
+        </o-codeblock>
+      </div>
+
+      <div class="variant" data-variant="B2">
+        <h4><span class="deemphasize">Property-Value: </span>B2</h4>
+        <o-codeblock lang="html" display="both">
+          <o-button textvariant="B2">
+            hello world
+          </o-button>
+        </o-codeblock>
+      </div>
+
+      <div class="variant" data-variant="button1">
+        <h4><span class="deemphasize">Property-Value: </span>button1</h4>
+        <o-codeblock lang="html" display="both">
+          <o-button textvariant="button1">
+            hello world
+          </o-button>
+        </o-codeblock>
+      </div>
+
+      <div class="variant" data-variant="button2">
+        <h4><span class="deemphasize">Property-Value: </span>button2</h4>
+        <o-codeblock lang="html" display="both">
+          <o-button textvariant="button2">
+            hello world
+          </o-button>
+        </o-codeblock>
+      </div>
+
+    </div>
+  </doc-card>
+
+  <doc-card class="property" data-name="circle">
+    <h2 slot="header"><span class="deemphasize">Property: </span>circle</h2>
+
+    <div class="property-info">
+      <p>type: boolean</p>
+      <p>default-value: false</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
+
+      <div class="variant" data-variant="true">
+        <h4><span class="deemphasize">Property-Value: </span>true</h4>
+        <o-codeblock lang="html" display="both">
+          <o-button circle="true">
+            hello world
+          </o-button>
+        </o-codeblock>
+      </div>
+
+      <div class="variant" data-variant="false">
+        <h4><span class="deemphasize">Property-Value: </span>false</h4>
+        <o-codeblock lang="html" display="both">
+          <o-button circle="false">
+            hello world
+          </o-button>
+        </o-codeblock>
+      </div>
+
+    </div>
+  </doc-card>
+
+  <doc-card class="property" data-name="loading">
+    <h2 slot="header"><span class="deemphasize">Property: </span>loading</h2>
+
+    <div class="property-info">
+      <p>type: boolean</p>
+      <p>default-value: false</p>
+      <p>required: true</p>
+    </div>
+    <div class="variations">
+
+      <div class="variant" data-variant="true">
+        <h4><span class="deemphasize">Property-Value: </span>true</h4>
+        <o-codeblock lang="html" display="both">
+          <o-button loading="true">
+            hello world
+          </o-button>
+        </o-codeblock>
+      </div>
+
+      <div class="variant" data-variant="false">
+        <h4><span class="deemphasize">Property-Value: </span>false</h4>
+        <o-codeblock lang="html" display="both">
+          <o-button loading="false">
+            hello world
+          </o-button>
+        </o-codeblock>
+      </div>
+
+    </div>
+  </doc-card>
+</body>
+
 </html>

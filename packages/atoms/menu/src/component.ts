@@ -7,9 +7,9 @@ import "@pap-it/icon/wc";
 import "@pap-it/button/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import { Placement } from "@pap-it/templates-popover";
-import { PopoverTemplate } from "@pap-it/templates-popover";
+import { Popover } from "@pap-it/templates-popover";
 import "@pap-it/templates-popover/wc";
 import "@pap-it/templates-box/wc";
 
@@ -17,10 +17,10 @@ import "@pap-it/templates-box/wc";
 import { style } from "./style";
 import { MenuItem } from "./components/menu-item";
 
-export class Menu extends BaseSystem {
+export class Menu extends Base {
   static style = style;
 
-  @query('pap-popover-template') popoverTemplate!: PopoverTemplate;
+  @query('pap-popover-template') popoverTemplate!: Popover;
 
   @property({ rerender: false, type: Boolean }) open: boolean = false;
   @property() placement: Placement = "bottom-center";

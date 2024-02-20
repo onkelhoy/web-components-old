@@ -18,13 +18,13 @@ import "@pap-it/menu/wc";
 import { Menu } from "@pap-it/menu";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 import { UserModel } from "./types";
 
-export class Header extends BaseSystem {
+export class Header extends Base {
     static style = style;
 
     @property({ type: Object }) user?: UserModel;

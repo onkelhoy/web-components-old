@@ -1,9 +1,1 @@
-export const style = `:host {
-  background-image: radial-gradient(circle at calc(100% - 5rem) -15rem, color-mix(in oklab, var(--pap-color-primary-50) 5%, white 5%), var(--pap-color-secondary-950) 50%);
-  color: var(--pap-color-text-inverse, #FFFFFF);
-  display: block;
-  padding: 60px;
-  padding-left: 100px; }
-
-div {
-  max-width: 450px; }`;
+export const style = `:host{background-image:radial-gradient(circle at calc(100% - 5rem) -15rem, color-mix(in oklab, var(--pap-color-primary-50) 5%, white 5%), var(--pap-color-secondary-950) 50%);color:var(--pap-color-text-inverse, #FFFFFF);display:block;padding:60px;padding-left:100px}div{max-width:450px}`;

@@ -1,6 +1,6 @@
 // system 
 import { html, property, query } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // atoms 
 import { Menu, MenuItem } from '@pap-it/menu';
@@ -14,7 +14,7 @@ import "@pap-it/tools-translator/wc";
 // local
 import { style } from "./style";
 
-export class ThemeMenu extends BaseSystem {
+export class ThemeMenu extends Base {
   static style = style;
 
   @query('span[slot].theme-color') themecolorElement!: HTMLSpanElement;

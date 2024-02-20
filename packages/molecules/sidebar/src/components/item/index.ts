@@ -12,14 +12,14 @@ import "@pap-it/typography/wc";
 import "@pap-it/accordion/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import '@pap-it/templates-box/wc'
 
 import { style } from "./style";
 
 export type ChildSelectEvent = Item;
 
-export class Item extends BaseSystem {
+export class Item extends Base {
   static style = style;
 
   @property() icon?: string;

@@ -1,0 +1,47 @@
+{
+  "name": "@pap-it/system-react",
+  "version": "0.0.0",
+  "scripts": {
+    "test": ".scripts/test.sh",
+    "build": ".scripts/build.sh",
+    "react": "sh .scripts/helper/build-react.sh",
+    "watch": ".scripts/watch.sh",
+    "manual-publish": "sh .scripts/publish.sh",
+    "preversion": "sh .scripts/preversion.sh",
+    "postversion": "sh .scripts/postversion.sh",
+    "isolate": "sh .scripts/isolate.sh"
+  },
+  "main": "dist/src/index.js",
+  "files": [
+    "dist/"
+  ],
+  "exports": {
+    ".": "./dist/src/index.js"
+  },
+  "author": "onkelhoy",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onkelhoy/web-components.git"
+  },
+  "peerDependencies": {
+    "react": "^18.x || ^19.x"
+  },
+  "devDependencies": {
+    "@types/react": "latest",
+    "esbuild": "^0.17.18",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.4"
+  },
+  "keywords": [
+    "web-component",
+    "typescript",
+    "sass"
+  ],
+  "description": ""
+}

@@ -1,6 +1,6 @@
 // system
 import { html, property, ifDefined, query } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // atoms
 import "@pap-it/button/wc";
@@ -14,7 +14,7 @@ import "@pap-it/tools-translator/wc";
 import { style } from "./style";
 import { Type } from './types';
 
-export class PDFviewer extends BaseSystem {
+export class PDFviewer extends Base {
   static style = style;
 
   @query<HTMLAnchorElement>('a.download') downloadElement!: HTMLAnchorElement;
@@ -70,11 +70,11 @@ export class PDFviewer extends BaseSystem {
     return html`
       <div part="fallback">
         <pap-typography part="download-text">
-          <pap-translate>Your browser does not support PDFs. Please download the PDF to view it:</pap-translate>
+          <pap-translator>Your browser does not support PDFs. Please download the PDF to view it:</pap-translator>
         </pap-typography>
         <pap-button @click="${this.handledownload}" part="download-button" variant="outlined" color="secondary">
           <pap-icon size="small" container="small" slot="prefix" cache="true" name="download"></pap-icon>
-          <pap-translate>Download PDF</pap-translate>
+          <pap-translator>Download PDF</pap-translator>
         </pap-button>
       </div>
     `

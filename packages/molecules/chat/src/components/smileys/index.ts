@@ -11,7 +11,7 @@ import '@pap-it/icon/wc';
 import '@pap-it/tooltip/wc';
 
 // templates 
-import { BaseSystem } from '@pap-it/system-base';
+import { Base } from '@pap-it/system-base';
 
 // local 
 import { style } from "./style";
@@ -33,7 +33,7 @@ interface Emoji {
 
 export type EmojiEvent = { emoji: Emojicon }
 
-export class Smileys extends BaseSystem {
+export class Smileys extends Base {
   static style = style;
 
   @property({ rerender: false }) private search: string = "";

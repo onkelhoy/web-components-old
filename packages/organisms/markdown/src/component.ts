@@ -6,12 +6,12 @@ import "@pap-it/codeblock/wc";
 import { Codeblock } from "@pap-it/codeblock";
 
 // templates
-import { AssetTemplate } from "@pap-it/templates-asset";
+import { Asset } from "@pap-it/templates-asset";
 
 import { style } from './style';
 import { Blockinfo } from "./types";
 
-export class Markdown extends AssetTemplate {
+export class Markdown extends Asset {
   static style = style;
 
   @property({ onUpdate: "updateFILE" }) url?: string;
@@ -120,7 +120,7 @@ export class Markdown extends AssetTemplate {
       if (lines[i].length > 3 && lines[i].endsWith('```')) {
         this.codeblocks.push(lines[i].split('```')[1])
         // htmlcontent.push(`<pap-codeblock>${lines[i].split('```')[1]}</pap-codeblock>`);
-        htmlcontent.push("<pap-codeblock themetoggle='false'></pap-codeblock>")
+        htmlcontent.push("<pap-codeblock theme-toggle='false'></pap-codeblock>")
       }
       else {
         let curr = i + 1;
@@ -131,7 +131,7 @@ export class Markdown extends AssetTemplate {
           curr++;
         }
         this.codeblocks.push(code.join('\n'))
-        htmlcontent.push(`<pap-codeblock themetoggle='false' lang="${lang}"></pap-codeblock>`)
+        htmlcontent.push(`<pap-codeblock theme-toggle='false' lang="${lang}"></pap-codeblock>`)
         // htmlcontent.push("")
         i = curr + 1;
       }

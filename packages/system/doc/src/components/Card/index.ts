@@ -2,11 +2,11 @@
 import { html } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 import { style } from "./style";
 
-export class Card extends BaseSystem {
+export class Card extends Base {
   static style = style;
 
   render() {

@@ -4,7 +4,6 @@ import '@pap-it/system-doc/wc';
 // component
 import '@pap-it/input/wc';
 
-window.onload = () => 
-{
+window.onload = () => {
   console.log('[doc]: window loaded');
 }

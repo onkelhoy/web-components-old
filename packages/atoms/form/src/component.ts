@@ -2,13 +2,13 @@
 import { debounce, html, property, query } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local 
 import { style } from "./style";
 import { Message, Variant as MessageType } from "./components/message";
 
-export class Form extends BaseSystem {
+export class Form extends Base {
   static style = style;
 
   @property({ rerender: false, onUpdate: "onerrorupdate" }) error?: string;

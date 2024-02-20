@@ -1,0 +1,66 @@
+{
+  "name": "@pap-it/switch",
+  "version": "1.0.5",
+  "scripts": {
+    "init": "sh .scripts/init.sh",
+    "test": ".scripts/test.sh",
+    "build": ".scripts/build.sh",
+    "react": "sh .scripts/helper/build-react.sh",
+    "watch": ".scripts/watch.sh",
+    "manual-publish": "sh .scripts/publish.sh",
+    "preversion": "sh .scripts/preversion.sh",
+    "postversion": "sh .scripts/postversion.sh",
+    "combine": ".scripts/combine.sh && .scripts/start.sh combined",
+    "start": ".scripts/start.sh",
+    "isolate": "sh .scripts/isolate.sh",
+    "analyze": "sh .scripts/analyze.sh",
+    "interactive": "sh .scripts/helper/build-interactive.sh",
+    "variations": "sh .scripts/helper/build-variations.sh",
+    "component:add": "sh .scripts/helper/add-component.sh"
+  },
+  "main": "dist/src/index.js",
+  "files": [
+    "asset/",
+    "dist/",
+    "react/"
+  ],
+  "exports": {
+    ".": "./dist/src/index.js",
+    "./wc": "./dist/register.bundle.mjs",
+    "./react": "./react/index.ts"
+  },
+  "author": "Henry Pap",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onkelhoy/web-components.git"
+  },
+  "dependencies": {
+    "@pap-it/system-utils": "1.0.5",
+    "@pap-it/templates-box": "1.0.5",
+    "@pap-it/templates-field": "1.0.5",
+    "@pap-it/templates-form-element": "1.0.5",
+    "@pap-it/templates-prefix-suffix": "1.0.5",
+    "@pap-it/typography": "1.0.5"
+  },
+  "devDependencies": {
+    "@pap-it/system-doc": "1.0.5",
+    "esbuild": "^0.17.18",
+    "eslint": "^8.53.0",
+    "node-html-parser": "^6.1.5",
+    "sass": "^1.70.0",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.4"
+  },
+  "keywords": [
+    "web-component",
+    "typescript",
+    "sass"
+  ],
+  "description": ""
+}

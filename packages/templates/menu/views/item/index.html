@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component: Item</title>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+  <doc-card>
+    <pap-typography variant="C1" slot="header">Size</pap-typography>
+    <pap-codeblock display="both">
+      <pap-item-template size="small"></pap-item-template>
+      <pap-item-template size="medium"></pap-item-template>
+      <pap-item-template size="large"></pap-item-template>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography variant="C1" slot="header">Radius</pap-typography>
+    <pap-codeblock display="both">
+      <pap-item-template radius="small"></pap-item-template>
+      <pap-item-template radius="medium"></pap-item-template>
+      <pap-item-template radius="large"></pap-item-template>
+      <pap-item-template radius="circular"></pap-item-template>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography variant="C1" slot="header">Divider</pap-typography>
+    <pap-codeblock display="both">
+      <pap-item-template divider="false"></pap-item-template>
+      <pap-item-template divider="true"></pap-item-template>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography variant="C1" slot="header">Slots</pap-typography>
+    <pap-codeblock display="both">
+      <pap-item-template>
+        <span slot="prefix">PRE</span>
+        hello world
+        <span slot="suffix">SUF</span>
+      </pap-item-template>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography variant="C1" slot="header">Selected</pap-typography>
+    <pap-codeblock color="background" class="selected" display="both">
+      <pap-item-template class="selected"></pap-item-template>
+    </pap-codeblock>
+  </doc-card>
+</body>
+
+</html>

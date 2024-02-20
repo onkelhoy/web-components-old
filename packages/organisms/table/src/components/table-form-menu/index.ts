@@ -29,7 +29,7 @@ export class TableFormMenu extends TableMenu {
 
         <footer part="footer">
           <pap-button mode="fill" color="secondary" type="submit">
-            <pap-translate>Save changes</pap-translate>
+            <pap-translator>Save changes</pap-translator>
           </pap-button>
         </footer>
       </pap-form>

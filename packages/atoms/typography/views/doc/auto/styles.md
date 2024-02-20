@@ -10,13 +10,13 @@ slots should include columns: (name, default-value, description)
 import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 import { Variant, Alignment } from "./types";
 
-export class Typography extends BaseSystem {
+export class Typography extends Base {
     static style = style;
 
     @property({ rerender: false }) variant: Variant = "C3";

@@ -1,1 +1,1 @@
-export const style = `/*# sourceMappingURL=style.css.map */`;
+export const style = ``;

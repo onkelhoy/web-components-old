@@ -1,2 +1,1 @@
-export const style = `:host {
-  padding: auto; }`;
+export const style = `:host{padding:auto}`;

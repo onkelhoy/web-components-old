@@ -22,13 +22,13 @@ import { html, property } from "@pap-it/system-utils";
 import "@pap-it/typography/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
 // local
 import { style } from "./style";
 
-export class Steps extends BaseSystem {
+export class Steps extends Base {
   static style = style;
 
   @property({ type: Array }) steps: string[] = [];
@@ -98,13 +98,13 @@ import { html, property } from "@pap-it/system-utils";
 import "@pap-it/typography/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
 // local
 import { style } from "./style";
 
-export class Steps extends BaseSystem {
+export class Steps extends Base {
   static style = style;
 
   @property({ type: Array }) steps: string[] = [];
@@ -159,13 +159,13 @@ import { html, property } from "@pap-it/system-utils";
 import "@pap-it/typography/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
 // local
 import { style } from "./style";
 
-export class Steps extends BaseSystem {
+export class Steps extends Base {
   static style = style;
 
   @property({ type: Array }) steps: string[] = [];

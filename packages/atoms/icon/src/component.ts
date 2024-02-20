@@ -1,5 +1,5 @@
 import { property, html, Size } from '@pap-it/system-utils';
-import { AssetTemplate } from '@pap-it/templates-asset';
+import { Asset } from '@pap-it/templates-asset';
 
 import { style } from './style.js';
 import { ContainerTypes } from './types.js';
@@ -16,7 +16,7 @@ const CountryEmojiSet: Record<string, string> = {
   Y: "🇾", Z: "🇿",
 }
 
-export class Icon extends AssetTemplate {
+export class Icon extends Asset {
   static style = style;
 
   private content: string = "";
@@ -111,7 +111,7 @@ export class Icon extends AssetTemplate {
       if (this.countryFlag) {
         let text = this.countryFlag;
         if (text.toLowerCase() === 'en') text = 'gb';
-        
+
         this.flag = text
           .toUpperCase()
           .split('')

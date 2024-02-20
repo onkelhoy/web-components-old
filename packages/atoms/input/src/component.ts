@@ -1,32 +1,79 @@
 // system
-import { html, property, ifDefined } from "@pap-it/system-utils";
+import { html, ifDefined, property, query } from "@pap-it/system-utils";
 
 // templates
-import { TextinputTemplate } from '@pap-it/templates-textinput';
+import { Field, RenderArgument } from "@pap-it/templates-field";
+import "@pap-it/templates-field/wc";
 
 // local 
 import { style } from "./style";
-import { InputType } from './types';
+import { Type } from './types';
 
-export class Input extends TextinputTemplate<HTMLInputElement> {
+export class Input extends Field {
   static style = style;
 
-  @property() type: InputType = "text";
+  @query<HTMLInputElement>({
+    selector: 'input',
+    load: function (this: Input, element) {
+      this.connectElement(element);
+    }
+  }) override element!: HTMLInputElement;
+  @property({ type: Boolean }) counter?: boolean;
+
+  // input validations
+  @property() type: Type = "text";
+  @property({ type: Number }) maxlength?: number;
+  @property({ type: Number }) minlength?: number;
+  @property({ type: Number }) max?: number;
+  @property({ type: Number }) min?: number;
+  @property() pattern?: string;
+
+  // event handlers
+  private handleinput = (e: Event) => {
+    if (e.target instanceof HTMLInputElement) {
+      if (this.value !== e.target.value) {
+        this.value = e.target.value;
+      }
+    }
+  }
 
   render() {
-    return super.render(html`
-      <input 
-        @click="${this.handlekeyup}" 
-        @keyup="${this.handlekeyup}" 
-        placeholder="${this.placeholder || ""}" 
-        value="${this.value || ""}" 
-        type="${this.type}" 
-        maxlength="${ifDefined(this.maxLength)}"
-        style="width: 100%"
-      />
-    `)
+    const render: RenderArgument = {
+      main: {
+        content: html`
+          <input 
+            @input="${this.handleinput}" 
+            placeholder="${ifDefined(this.placeholder)}"
+            type="${this.type}"
+            name="${this.name}"
+            value="${ifDefined(this.value)}"
+            maxlength="${ifDefined(this.maxlength)}"
+            minlength="${ifDefined(this.minlength)}"
+            min="${ifDefined(this.min)}"
+            max="${ifDefined(this.max)}"
+            pattern="${ifDefined(this.pattern)}"
+            required="${ifDefined(this.required)}"
+            readonly="${ifDefined(this.readonly)}"
+            disabled="${ifDefined(this.disabled)}"
+          />
+        `
+      }
+    }
+    if (this.counter && this.maxlength) {
+      render.header = {
+        suffix: html`<pap-typography slot="suffix">${this.value?.length || 0}/${this.maxlength}</pap-typography>`
+      }
+    }
+
+    if (this.label) {
+      if (!render.header) render.header = {};
+      render.header.content = `<pap-typography key="label" part="label">${this.label}</pap-typography>`
+    }
+
+    return super.render(render);
   }
 }
+
 
 declare global {
   interface HTMLElementTagNameMap {

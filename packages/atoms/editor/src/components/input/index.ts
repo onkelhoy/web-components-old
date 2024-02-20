@@ -6,7 +6,7 @@ import "@pap-it/button/wc";
 import "@pap-it/icon/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 import { style } from "./style";
 import { GroupSelection } from "./Group";
@@ -23,7 +23,7 @@ const ModifierMap = {
   underline: "U"
 }
 
-export class Input extends BaseSystem {
+export class Input extends Base {
   static style = style;
 
   @query('#editor') editorElement!: HTMLDivElement;

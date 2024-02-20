@@ -1,5 +1,5 @@
 {
-  "className": "BoxTemplate",
+  "className": "Box",
   "folder": "/Users/henry/Developer/projects/web-components/packages/templates/box",
   "properties": [
     {
@@ -50,7 +50,7 @@
         "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseSystem",
+        "name": "Base",
         "from": "@pap-it/system-base"
       },
       {

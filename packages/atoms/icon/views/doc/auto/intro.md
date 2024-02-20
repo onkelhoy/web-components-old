@@ -1,14 +1,15 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
-## SOURCE-CODE:
+## SOURCE-CODE
+
 import { property, html, Size } from '@pap-it/system-utils';
-import { AssetTemplate } from '@pap-it/templates-asset';
+import { Asset } from '@pap-it/templates-asset';
 
 import { style } from './style.js';
 import { ContainerTypes } from './types.js';
 
-export class Icon extends AssetTemplate {
+export class Icon extends Asset {
   static style = style;
 
   private content: string = "";
@@ -119,8 +120,8 @@ export class Icon extends AssetTemplate {
   render() {
     return html`
       <slot part="fallback"></slot>
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
         viewBox="0 96 960 960"
         part="svg"
       >
@@ -135,7 +136,9 @@ declare global {
     "pap-icon": Icon;
   }
 }
-## REGISTER-CODE:
+
+## REGISTER-CODE
+
 import { Icon } from './component.js';
 
 // Register the element with the browser

@@ -2,7 +2,8 @@
 import { html, property, query } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
+import "@pap-it/templates-prefix-suffix/wc";
 
 // local 
 import { style } from "./style";
@@ -10,7 +11,7 @@ import { Tab } from "./components/tab";
 import { TabContent } from "./components/content";
 import { SelectEvent } from "./types";
 
-export class Tabs extends BaseSystem {
+export class Tabs extends Base {
   static style = style;
 
   private tabs: Tab[] = [];
@@ -24,9 +25,13 @@ export class Tabs extends BaseSystem {
   @query('div[part="header-tabs"]') headerElement!: HTMLElement;
   @query('main') mainElement!: HTMLElement;
 
-  // preselect = true makes sure tabs automatically selects the index (default = 0)
-  // NOTE preselect = index out of bounds will result in no preselected
-  @property({ type: Number, rerender: false }) preselect: number = 0;
+  @property({
+    rerender: false,
+    set: function (this: Tabs, value: string) {
+
+      return value;
+    }
+  }) selected?: string;
   @property({ type: Boolean }) indicator: boolean = true;
   @property({ rerender: false, type: Boolean }) scrolling: boolean = false;
 
@@ -48,7 +53,7 @@ export class Tabs extends BaseSystem {
               this.contents.push(element);
             }
             if (isTab) {
-              if (!firsttab && index === this.preselect) firsttab = element;
+              if (!firsttab && String(index) === this.selected) firsttab = element;
               id = this.tabs.length.toString();
               element.addEventListener('click', this.handletabclick);
 
@@ -88,7 +93,8 @@ export class Tabs extends BaseSystem {
       this.dispatchEvent(new Event('change'));
 
       if (this.headerElement) {
-        const SX = e.target.offsetLeft - this.headerElement.offsetLeft - this.offsetLeft;
+        console.log(e.target.offsetLeft, this.headerElement.offsetLeft, this.offsetLeft)
+        const SX = e.target.offsetLeft - this.headerElement.offsetLeft;
         const SXE = SX + e.target.clientWidth;
 
         // check if the current view can show it (so we dont do unecessary scrolls)
@@ -143,14 +149,14 @@ export class Tabs extends BaseSystem {
     return html`
       <header part="header">
         <slot name="header-top"></slot>
-        <div part="header-content">
-          <slot name="header-prefix"></slot>
+        <pap-prefix-suffix-template>
+          <slot slot="prefix" name="header-prefix"></slot>
           <div part="header-tabs">
             <slot @slotchange="${this.handleslotchange}" name="tab"></slot>
             <span part="indicator"></span>
           </div>
-          <slot name="header-suffix"></slot>
-        </div>
+          <slot slot="suffix" name="header-suffix"></slot>
+        </pap-prefix-suffix-template>
         <slot name="header-below"></slot>
       </header>
       <slot name="between"></slot>

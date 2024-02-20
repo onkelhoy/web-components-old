@@ -4,7 +4,8 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
+## SOURCE-CODE
+
 // utils
 import { html, property } from "@pap-it/system-utils";
 
@@ -16,14 +17,14 @@ import "@pap-it/typography/wc";
 import "@pap-it/divider/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
 // local
 import { style } from "./style";
 import { Contact } from "./types";
 
-export class SidebarContact extends BaseSystem {
+export class SidebarContact extends Base {
   static style = style;
 
   @property({ type: Boolean }) open: boolean = false;
@@ -98,13 +99,14 @@ export class SidebarContact extends BaseSystem {
   }
 }
 
-
 declare global {
   interface HTMLElementTagNameMap {
     "pap-sidebar-contact": SidebarContact;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     display: flex;
     justify-content: center;

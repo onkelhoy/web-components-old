@@ -5,7 +5,7 @@ import '@pap-it/system-doc/wc';
 import '@pap-it/tools-translator/wc';
 
 window.onload = () => {
-  window.papTranslation.add(
+  window.papLocalization.add(
     {
       id: "translation-demo-2",
       meta: {
@@ -28,7 +28,7 @@ window.onload = () => {
     "translation-demo-2": "translation-demo",
   }
   window['toggle-translation'].onclick = () => {
-    window.papTranslation.change(translationToggleMap[window.papTranslation?.current.id] || 'translation-demo');
+    window.papLocalization.change(translationToggleMap[window.papLocalization?.current.id] || 'translation-demo');
   }
   console.log('[demo]: window loaded');
 }

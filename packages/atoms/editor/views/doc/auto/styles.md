@@ -8,13 +8,13 @@ slots should include columns: (name, default-value, description)
 
 // system
 import { html, property } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 import { Foo, ClickEvent } from "./types";
 
-export class Editor extends BaseSystem {
+export class Editor extends Base {
   static style = style;
 
   @property() foo: Foo = "bar";

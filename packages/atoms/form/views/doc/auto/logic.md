@@ -1,22 +1,24 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- // utils 
+## SOURCE-CODE
+
+ // utils
 import { html, property, query } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 import { OSubmitEvent } from './types'
 import { Message, Variant as MessageType } from "./components/message";
 
-export class Form extends BaseSystem {
+export class Form extends Base {
   static style = style;
 
   @property({ rerender: false, onUpdate: "onerrorupdate" }) error?: string;
@@ -61,7 +63,7 @@ export class Form extends BaseSystem {
     return false;
   }
 
-  // public functions 
+  // public functions
   public showMessage(message: string, type: MessageType) {
     this.messageElement.innerHTML = message;
     this.messageElement.variant = type;
@@ -91,5 +93,6 @@ export class Form extends BaseSystem {
   }
 }
 
-## TYPE-CODE: type Data = [name:string, value: string];
+## TYPE-CODE: type Data = [name:string, value: string]
+
 export type OSubmitEvent = { element: HTMLFormElement; data: Data[] };

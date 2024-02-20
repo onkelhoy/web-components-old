@@ -10,7 +10,7 @@ slots should include columns: (name, default-value, description)
 import { html, property } from "@pap-it/system-utils";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
@@ -18,7 +18,7 @@ import { Tab } from "./components/tab";
 import { TabContent } from "./components/content";
 import { SelectEvent } from "./types";
 
-export class Tabs extends BaseSystem {
+export class Tabs extends Base {
     static style = style;
 
     private tabs:Tab[] = [];

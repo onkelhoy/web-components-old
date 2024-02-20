@@ -1,15 +1,1 @@
-export const style = `:host,
-:host > div {
-  display: flex;
-  align-items: center;
-  gap: 1rem; }
-
-:host {
-  justify-content: space-between; }
-  :host pap-menu::part(box) {
-    min-width: 15rem; }
-
-img.avatar {
-  width: var(--field-size-medium, 40px);
-  height: var(--field-size-medium, 40px);
-  border-radius: 50%; }`;
+export const style = `:host,:host>div{display:flex;align-items:center;gap:1rem}:host{justify-content:space-between}:host pap-menu::part(box){min-width:15rem}img.avatar{width:var(--field-size-medium, 40px);height:var(--field-size-medium, 40px);border-radius:50%}`;

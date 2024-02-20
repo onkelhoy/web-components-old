@@ -1,16 +1,18 @@
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
- Based on the source code and the types can you give me the following tables. 
-1. properties (columns: name, default-value, type, description) 
-2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc) 
+ Based on the source code and the types can you give me the following tables.
+
+1. properties (columns: name, default-value, type, description)
+2. events (columns: name - ex: 'click', type - ex: CustomEvent<ClickEvent>, description - when its being triggered etc)
 3.public functions (columns: name, arguments - ex: arg1:CustomType, arg2?: boolean = true, arg3?: string, description - breif explenation what it does)
 
-## SOURCE-CODE:
- // utils 
+## SOURCE-CODE
+
+ // utils
 import { html, property, query } from "@pap-it/system-utils";
 import { Translator } from "@pap-it/tools-translator";
 import "@pap-it/tools-translator/wc";
 
-// atoms 
+// atoms
 import { Dropdown } from "@pap-it/dropdown";
 import "@pap-it/icon/wc";
 import "@pap-it/typography/wc";
@@ -18,9 +20,9 @@ import "@pap-it/button/wc";
 import "@pap-it/dropdown/wc";
 
 // templates
-// import { BaseSystem } from "@pap-it/system-base";
+// import { Base } from "@pap-it/system-base";
 
-// local 
+// local
 import { style } from "./style";
 // import { Foo, ClickEvent } from "./types";
 
@@ -29,7 +31,7 @@ export class Pagination extends Translator {
 
   @property({ type: Number, rerender: false }) page: number = 1;
   @property({ type: Number, rerender: false, onUpdate: "onperpageupdate" }) perpage: number = 0;
-  @property({ type: Number, rerender: false, onUpdate: "setInfo" }) total: number = 0; // maybe rerender on this ? 
+  @property({ type: Number, rerender: false, onUpdate: "setInfo" }) total: number = 0; // maybe rerender on this ?
 
   @query({ selector: 'pap-dropdown[name="page"]', onload: 'onpagedload' }) pagedropdownElement!: Dropdown;
   @query('pap-dropdown[name="perpage"]') perpagedropdownElement!: Dropdown;
@@ -128,17 +130,17 @@ export class Pagination extends Translator {
     console.log('page is', this.page)
     return html`
             <div>
-                <pap-dropdown 
+                <pap-dropdown
                     @change="${this.handlepagechange}"
-                    variant="clear" 
+                    variant="clear"
                     name="page"
                     value="${this.page}"
                 ></pap-dropdown>
             </div>
             <div>
-                <pap-dropdown 
+                <pap-dropdown
                     @change="${this.handleperpagechange}"
-                    variant="clear" 
+                    variant="clear"
                     name="perpage"
                     value="${this.perpage}"
                 >
@@ -146,7 +148,7 @@ export class Pagination extends Translator {
                 </pap-dropdown>
             </div>
             <pap-typography>
-                <pap-translator 
+                <pap-translator
                     start="${this.page * this.perpage}"
                     end="${this.page * this.perpage + this.perpage}"
                     total="${this.total}"
@@ -162,7 +164,6 @@ export class Pagination extends Translator {
         `
   }
 }
-
 
 declare global {
   interface HTMLElementTagNameMap {

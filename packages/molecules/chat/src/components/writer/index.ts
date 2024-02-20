@@ -8,7 +8,7 @@ import '@pap-it/button/wc';
 import '@pap-it/icon/wc';
 
 // templates 
-import { BoxTemplate } from '@pap-it/templates-box';
+import { Box } from '@pap-it/templates-box';
 
 // local 
 import { style } from "./style";
@@ -18,7 +18,7 @@ import { EmojiEvent } from "../smileys";
 export type SendEvent = { text: string };
 
 // TODO move this class into its own component .. its a godamn edit at this point
-export class Writer extends BoxTemplate {
+export class Writer extends Box {
   static style = style;
 
   // properties

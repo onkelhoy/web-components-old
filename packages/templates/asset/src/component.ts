@@ -1,7 +1,7 @@
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import { property } from "@pap-it/system-utils";
 
-export class AssetTemplate extends BaseSystem {
+export class Asset extends Base {
   @property({ onUpdate: "assetBaseUpdate", attribute: "asset-base" }) assetBase: string = "/public";
   @property({ type: Boolean }) cache: boolean = false;
 
@@ -50,6 +50,6 @@ export class AssetTemplate extends BaseSystem {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-asset-template": AssetTemplate;
+    "pap-asset-template": Asset;
   }
 }

@@ -4,14 +4,15 @@ css-variables should be a table with columns: (name, default-value, type - ex. C
 parts should include all elements that have been exposed with the part attribute ex: <p part='foo'> - and the table should then include columns: (name, description (short)).
 slots should include columns: (name, default-value, description)
 
-## SOURCE-CODE:
+## SOURCE-CODE
+
 import { property, html, Size } from '@pap-it/system-utils';
-import { AssetTemplate } from '@pap-it/templates-asset';
+import { Asset } from '@pap-it/templates-asset';
 
 import { style } from './style.js';
 import { ContainerTypes } from './types.js';
 
-export class Icon extends AssetTemplate {
+export class Icon extends Asset {
   static style = style;
 
   private content: string = "";
@@ -122,8 +123,8 @@ export class Icon extends AssetTemplate {
   render() {
     return html`
       <slot part="fallback"></slot>
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
         viewBox="0 96 960 960"
         part="svg"
       >
@@ -138,7 +139,9 @@ declare global {
     "pap-icon": Icon;
   }
 }
-## STYLE-CODE:
+
+## STYLE-CODE
+
 :host {
     display: inline-flex;
     justify-content: center;

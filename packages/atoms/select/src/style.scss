@@ -1,0 +1,24 @@
+:host {
+
+  pap-menu-template,
+  pap-menu-template::part(popover) {
+    width: 100%;
+  }
+
+  pap-icon[part="caret"] {
+    rotate: 0;
+  }
+}
+
+:host(:not([search])) {
+  pap-box-template[part="main"] {
+    cursor: pointer;
+  }
+}
+
+:host([open="true"]) {
+
+  pap-icon[part="caret"] {
+    rotate: 180deg;
+  }
+}

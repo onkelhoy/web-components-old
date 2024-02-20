@@ -17,12 +17,12 @@ import "@pap-it/icon/wc";
 import "@pap-it/input/wc";
 
 // templates
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
 
-export class Chat extends BaseSystem {
+export class Chat extends Base {
   static style = style;
 
   // event handlers

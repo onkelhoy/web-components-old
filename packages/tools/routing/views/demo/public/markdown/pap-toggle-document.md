@@ -1,4 +1,4 @@
-# Toggle
+# Switch
 
 Atomic Type: atoms
 
@@ -9,6 +9,7 @@ Version: 1.0.0
 Development servers can be started and should all exist inside `"views"` folder
 
 ## Scripts
+
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
@@ -18,13 +19,13 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { html } from "@pap-it/system-utils";
 
 // templates
-import { FieldTemplate } from "@pap-it/templates-field";
+import { Field } from "@pap-it/templates-field";
 import "@pap-it/templates-box/wc";
 
 // local
 import { style } from "./style";
 
-export class Toggle extends FieldTemplate {
+export class Switch extends Field {
     static style = style;
 
     constructor() {
@@ -62,13 +63,13 @@ export class Toggle extends FieldTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "pap-toggle": Toggle;
+        "pap-switch": Switch;
     }
 }
 
 ## REGISTER-CODE
 
-import { Toggle } from './component.js';
+import { Switch } from './component.js';
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;
@@ -77,8 +78,8 @@ if (!cElements) {
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('pap-toggle')) {
-  cElements.define('pap-toggle', Toggle);
+if (!cElements.get('pap-switch')) {
+  cElements.define('pap-switch', Switch);
 }
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and the types can you give me the following tables.
@@ -93,13 +94,13 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { html } from "@pap-it/system-utils";
 
 // templates
-import { FieldTemplate } from "@pap-it/templates-field";
+import { Field } from "@pap-it/templates-field";
 import "@pap-it/templates-box/wc";
 
 // local
 import { style } from "./style";
 
-export class Toggle extends FieldTemplate {
+export class Switch extends Field {
     static style = style;
 
     constructor() {
@@ -137,11 +138,12 @@ export class Toggle extends FieldTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "pap-toggle": Toggle;
+        "pap-switch": Switch;
     }
 }
 
 ## TYPE-CODE: export {}
+
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and style code probided. Can you create a documentation that includes titles, short descrition and the table for each tables: css-variables, parts, slots.
 css-variables should be a table with columns: (name, default-value, type - ex. CSS unit, description).
@@ -154,13 +156,13 @@ slots should include columns: (name, default-value, description)
 import { html } from "@pap-it/system-utils";
 
 // templates
-import { FieldTemplate } from "@pap-it/templates-field";
+import { Field } from "@pap-it/templates-field";
 import "@pap-it/templates-box/wc";
 
 // local
 import { style } from "./style";
 
-export class Toggle extends FieldTemplate {
+export class Switch extends Field {
     static style = style;
 
     constructor() {
@@ -198,7 +200,7 @@ export class Toggle extends FieldTemplate {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "pap-toggle": Toggle;
+        "pap-switch": Switch;
     }
 }
 

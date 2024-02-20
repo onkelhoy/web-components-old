@@ -2,7 +2,7 @@
 import { property, Size, Radius } from '@pap-it/system-utils';
 
 // templates
-import { FormElementTemplate } from '@pap-it/templates-form-element';
+import { FormElement } from '@pap-it/templates-form-element';
 import "@pap-it/templates-prefix-suffix/wc";
 
 import { style } from './style.js';
@@ -10,7 +10,7 @@ import { style } from './style.js';
 import type { ButtonMode, ButtonVariant, ButtonColorVariant, ButtonTextType } from './types';
 
 // TODO extend form-element-template
-export class Button extends FormElementTemplate {
+export class Button extends FormElement {
   static style = style;
 
   @property({ rerender: false }) type: "button" | "submit" | "reset" = "button";
@@ -50,13 +50,13 @@ export class Button extends FormElementTemplate {
     if (this.href) {
       window.location.href = this.href;
     }
-    else if (this.formElement) {
+    else if (this._internals.form) {
       if (this.type === "submit") {
-        this.formElement.requestSubmit();
+        this._internals.form.requestSubmit();
       }
 
       else if (this.type === "reset") {
-        this.formElement.reset();
+        this._internals.form.reset();
       }
     }
   }

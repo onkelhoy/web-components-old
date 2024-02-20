@@ -6,6 +6,7 @@ cleanup() {
   kill $watch_css_pid $watch_esm_pid $tsc_pid
 
   # we build everything one last time (with tsc - so devs can except what they developed it the final version)
+  # NOTE this will output prod version
   sh .scripts/build.sh
 
   exit 0

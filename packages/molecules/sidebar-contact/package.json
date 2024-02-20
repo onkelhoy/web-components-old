@@ -1,12 +1,14 @@
 {
   "name": "@pap-it/sidebar-contact",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
     "build": ".scripts/build.sh",
+    "react": "sh .scripts/helper/build-react.sh",
     "watch": ".scripts/watch.sh",
     "manual-publish": "sh .scripts/publish.sh",
+    "preversion": "sh .scripts/preversion.sh",
     "postversion": "sh .scripts/postversion.sh",
     "combine": ".scripts/combine.sh && .scripts/start.sh combined",
     "start": ".scripts/start.sh",
@@ -19,11 +21,13 @@
   "main": "dist/src/index.js",
   "files": [
     "asset/",
-    "dist/"
+    "dist/",
+    "react/"
   ],
   "exports": {
     ".": "./dist/src/index.js",
-    "./wc": "./dist/register.bundle.mjs"
+    "./wc": "./dist/register.bundle.mjs",
+    "./react": "./react/index.ts"
   },
   "author": "Henry Pap",
   "private": false,
@@ -37,19 +41,19 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/accordion": "1.0.4",
-    "@pap-it/button": "1.0.4",
-    "@pap-it/divider": "1.0.4",
-    "@pap-it/icon": "1.0.4",
-    "@pap-it/system-base": "1.0.4",
-    "@pap-it/templates-box": "1.0.4",
-    "@pap-it/tools-translator": "1.0.4",
-    "@pap-it/system-utils": "1.0.4",
-    "@pap-it/typography": "1.0.4"
+    "@pap-it/accordion": "1.0.5",
+    "@pap-it/button": "1.0.5",
+    "@pap-it/divider": "1.0.5",
+    "@pap-it/icon": "1.0.5",
+    "@pap-it/system-base": "1.0.5",
+    "@pap-it/templates-box": "1.0.5",
+    "@pap-it/tools-translator": "1.0.5",
+    "@pap-it/system-utils": "1.0.5",
+    "@pap-it/typography": "1.0.5"
   },
   "devDependencies": {
     "eslint": "^8.53.0",
-    "@pap-it/system-doc": "1.0.4",
+    "@pap-it/system-doc": "1.0.5",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",

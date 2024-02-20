@@ -1,6 +1,6 @@
 // utils 
 import { html, property, query } from "@pap-it/system-utils";
-import { BaseSystem } from "@pap-it/system-base";
+import { Base } from "@pap-it/system-base";
 import { TRANSLATION_ADDED, TRANSLATION_CHANGE_EVENTNAME, InitTranslations } from "@pap-it/tools-translator";
 import "@pap-it/tools-translator/wc";
 
@@ -12,7 +12,7 @@ import { Menu } from "@pap-it/menu";
 import { style } from "./style";
 import { Language } from './types'
 
-export class LanguageMenu extends BaseSystem {
+export class LanguageMenu extends Base {
   static style = style;
 
   @query('pap-menu') menuElement!: Menu;
@@ -32,7 +32,7 @@ export class LanguageMenu extends BaseSystem {
     window.addEventListener(TRANSLATION_ADDED, this.handlenewlanguage);
     window.addEventListener(TRANSLATION_CHANGE_EVENTNAME, this.handlelanguagechange);
 
-    if (window.papTranslation?.map?.size > 0) {
+    if (window.papLocalization?.map?.size > 0) {
       this.handlenewlanguage();
     }
   }
@@ -43,8 +43,8 @@ export class LanguageMenu extends BaseSystem {
 
   // event handlers 
   private handlenewlanguage = () => {
-    if (window.papTranslation) {
-      const languages = Array.from(window.papTranslation.map);
+    if (window.papLocalization) {
+      const languages = Array.from(window.papLocalization.map);
       this.languages = languages.map(([_key, set]) => {
         let text = set.meta.language;
         if (this.intl) {
@@ -61,12 +61,12 @@ export class LanguageMenu extends BaseSystem {
     }
   }
   private handlelanguagechange = () => {
-    if (this.menuElement && window.papTranslation?.current) {
-      if (this.menuElement.value !== window.papTranslation.current.id) {
-        this.menuElement.value = window.papTranslation.current.id;
+    if (this.menuElement && window.papLocalization?.current) {
+      if (this.menuElement.value !== window.papLocalization.current.id) {
+        this.menuElement.value = window.papLocalization.current.id;
       }
-      if ('DisplayNames' in Intl && window.papTranslation.current.meta) {
-        this.intl = new Intl.DisplayNames([window.papTranslation.current.meta.language], { type: 'language' });
+      if ('DisplayNames' in Intl && window.papLocalization.current.meta) {
+        this.intl = new Intl.DisplayNames([window.papLocalization.current.meta.language], { type: 'language' });
       }
 
       this.handlenewlanguage();
@@ -74,7 +74,7 @@ export class LanguageMenu extends BaseSystem {
   }
   private handlelanguageselect = (e: Event) => {
     const menu = e.target as Menu;
-    if (menu && menu.value !== "init") window.papTranslation.change(menu.value);
+    if (menu && menu.value !== "init") window.papLocalization.change(menu.value);
   }
 
   render() {

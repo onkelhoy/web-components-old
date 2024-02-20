@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aside demo</title>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+  <doc-card>
+    <pap-button id="aside-show" variant="outlined" color="secondary">Open All</pap-button>
+  </doc-card>
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Top & Bottom</pap-typography>
+    <pap-codeblock display="both">
+      <pap-aside placement="top">
+        Hello im some top content
+      </pap-aside>
+      <pap-aside placement="bottom">
+        Hello im some bottom content
+      </pap-aside>
+    </pap-codeblock>
+  </doc-card>
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Left & Right</pap-typography>
+    <pap-codeblock display="both">
+      <pap-aside placement="left">
+        Hello im some left content
+      </pap-aside>
+      <pap-aside placement="right">
+        Hello im some right content
+      </pap-aside>
+    </pap-codeblock>
+  </doc-card>¨
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Playaround</pap-typography>
+    <pap-codeblock display="both">
+      <pap-aside elevation="medium" elevation-direction="horizontal">
+        Hello im some left content
+      </pap-aside>
+    </pap-codeblock>
+  </doc-card>
+</body>
+
+</html>

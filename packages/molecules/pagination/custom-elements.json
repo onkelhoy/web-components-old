@@ -148,7 +148,7 @@
         "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseSystem",
+        "name": "Base",
         "from": "@pap-it/system-base"
       },
       {
@@ -186,7 +186,7 @@
         "from": "@pap-it/dropdown"
       },
       {
-        "name": "BaseSystem",
+        "name": "Base",
         "from": "@pap-it/system-base"
       },
       {

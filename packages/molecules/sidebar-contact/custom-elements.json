@@ -33,7 +33,7 @@
         "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseSystem",
+        "name": "Base",
         "from": "@pap-it/system-base"
       },
       {

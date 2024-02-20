@@ -9,20 +9,21 @@ Version: 1.0.0
 Development servers can be started and should all exist inside `"views"` folder
 
 ## Scripts
+
 PRE: just start the task given, dont include any starting lines so I can just copy your answer as it is!
  Based on the source code and register code provided to you - could you create a rather simple introduction text with maybe a code example how to use in html - keep it very simple. Do not give example how to run the register code it's already included (this is for you so you can see the element-tag)! The introduction should be read by developers so it needs not to be simple enough for beginners!
 
 ## SOURCE-CODE
 
 import { property, Size } from '@pap-it/system-utils';
-import { BoxTemplate } from '@pap-it/templates-box';
+import { Box } from '@pap-it/templates-box';
 
 import { style } from './style.js';
 
 import type { ButtonMode, ButtonVariant, ButtonColorVariant } from './types';
 
 // TODO extend form-element-template
-export class Button extends BoxTemplate {
+export class Button extends Box {
     static style = style;
 
     @property({ rerender: false, onUpdate: "ontypeupdate" }) type: "button" | "link" | "submit" | "reset" = "button"; // TODO link
@@ -125,14 +126,14 @@ PRE: just start the task given, dont include any starting lines so I can just co
 ## SOURCE-CODE
 
  import { property, Size } from '@pap-it/system-utils';
-import { BoxTemplate } from '@pap-it/templates-box';
+import { Box } from '@pap-it/templates-box';
 
 import { style } from './style.js';
 
 import type { ButtonMode, ButtonVariant, ButtonColorVariant } from './types';
 
 // TODO extend form-element-template
-export class Button extends BoxTemplate {
+export class Button extends Box {
     static style = style;
 
     @property({ rerender: false, onUpdate: "ontypeupdate" }) type: "button" | "link" | "submit" | "reset" = "button"; // TODO link
@@ -226,14 +227,14 @@ slots should include columns: (name, default-value, description)
 ## SOURCE-CODE
 
 import { property, Size } from '@pap-it/system-utils';
-import { BoxTemplate } from '@pap-it/templates-box';
+import { Box } from '@pap-it/templates-box';
 
 import { style } from './style.js';
 
 import type { ButtonMode, ButtonVariant, ButtonColorVariant } from './types';
 
 // TODO extend form-element-template
-export class Button extends BoxTemplate {
+export class Button extends Box {
     static style = style;
 
     @property({ rerender: false, onUpdate: "ontypeupdate" }) type: "button" | "link" | "submit" | "reset" = "button"; // TODO link

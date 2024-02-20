@@ -33,74 +33,19 @@
       ],
       "primitive": false,
       "conditional": false
-    },
-    {
-      "name": "boxtemplateElement",
-      "type": "BoxTemplate",
-      "type_value": {
-        "radius": [
-          "none",
-          "small",
-          "medium",
-          "large",
-          "circular"
-        ],
-        "elevation": [
-          "none",
-          "small",
-          "medium",
-          "large",
-          "x-large"
-        ],
-        "elevationdirection": [
-          "vertical",
-          "horizontal"
-        ],
-        "render": [
-          false,
-          {
-            "length": null,
-            "toString": null,
-            "toLocaleString": null,
-            "pop": [
-              null,
-              null
-            ],
-            "push": null,
-            "concat": null,
-            "join": null,
-            "reverse": null,
-            "shift": [
-              null,
-              null
-            ],
-            "slice": null,
-            "sort": null,
-            "splice": null,
-            "unshift": null,
-            "indexOf": null,
-            "lastIndexOf": null,
-            "every": null,
-            "some": null,
-            "forEach": null,
-            "map": null,
-            "filter": null,
-            "reduce": null,
-            "reduceRight": null
-          },
-          {
-            "ownerDocument": null,
-            "getElementById": [
-              null,
-              null
-            ]
-          }
-        ]
-      },
-      "primitive": false,
-      "conditional": false
     }
   ],
+  "classprop_set": {
+    "property": {
+      "mode": true,
+      "selected": true,
+      "unit": true
+    },
+    "query": {
+      "boxtemplateElement": true
+    },
+    "context": {}
+  },
   "extend_class": null,
   "imports": {
     "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar": [
@@ -129,7 +74,7 @@
         "from": "@pap-it/system-utils"
       },
       {
-        "name": "BaseSystem",
+        "name": "Base",
         "from": "@pap-it/system-base"
       },
       {
@@ -186,104 +131,10 @@
     "variables": {
       "--gap-large": {
         "usecases": [
-          "top"
+          "absolute;top"
         ],
         "fallbacks": [
           "24px"
-        ]
-      },
-      "--gap-medium": {
-        "usecases": [
-          "left"
-        ],
-        "fallbacks": [
-          "16px"
-        ]
-      },
-      "--pap-sidebar-background-color": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": [
-          "var(--pap-color-bg, #FFFFFF)"
-        ]
-      },
-      "--pap-color-bg": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": [
-          "#FFFFFF"
-        ]
-      },
-      "--padding-medium": {
-        "usecases": [
-          "padding-block",
-          "padding-left",
-          "padding-bottom"
-        ],
-        "fallbacks": [
-          "16px"
-        ]
-      },
-      "--padding-small": {
-        "usecases": [
-          "padding",
-          "padding-right",
-          "padding-top",
-          "padding-inline",
-          "padding-left"
-        ],
-        "fallbacks": [
-          "8px"
-        ]
-      },
-      "--pap-color-text-brand-strong": {
-        "usecases": [
-          "color"
-        ],
-        "fallbacks": [
-          "#002652"
-        ]
-      },
-      "--pap-color-border-tertiary": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": [
-          "#EAEBEF"
-        ]
-      },
-      "--shadow-horizontal-m": {
-        "usecases": [
-          "box-shadow"
-        ],
-        "fallbacks": [
-          "4px 0 6px var(--pap-color-shadow, color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%))"
-        ]
-      },
-      "--pap-color-shadow": {
-        "usecases": [
-          "box-shadow"
-        ],
-        "fallbacks": [
-          "color-mix(in oklab, var(--pap-color-neutral-600, #6E7087), transparent 80%)"
-        ]
-      },
-      "--pap-color-neutral-600": {
-        "usecases": [
-          "box-shadow"
-        ],
-        "fallbacks": [
-          "#6E7087), transparent 80"
-        ]
-      },
-      "--pap-color-bg-overlay": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": [
-          "#29292F"
         ]
       }
     }
