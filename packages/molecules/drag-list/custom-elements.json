@@ -1,0 +1,72 @@
+{
+  "className": "DragList",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/drag-list",
+  "properties": [
+    {
+      "name": "dragging",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    }
+  ],
+  "classprop_set": {
+    "property": {
+      "dragging": true
+    },
+    "query": {
+      "copyElement": true,
+      "wrapperElement": true,
+      "indicatorElement": true
+    },
+    "context": {}
+  },
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/molecules/drag-list": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "generateUUID",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "html",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "query",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "Base",
+        "from": "@pap-it/system-base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/drag-list",
+    "sources": [],
+    "variables": {
+      "--gap-small": {
+        "usecases": [
+          "column;gap"
+        ],
+        "fallbacks": [
+          "8px"
+        ]
+      }
+    }
+  }
+}

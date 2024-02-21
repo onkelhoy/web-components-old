@@ -1,0 +1,221 @@
+{
+  "className": "Aside",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/aside",
+  "properties": [
+    {
+      "name": "backdrop",
+      "type": "boolean",
+      "default_value": true,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "hideonoutsideclick",
+      "type": "boolean",
+      "default_value": true,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "placement",
+      "type": "Placement",
+      "default_value": "right",
+      "type_value": [
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "radius",
+      "type": "Radius",
+      "default_value": "medium",
+      "type_value": [
+        "none",
+        "small",
+        "medium",
+        "large",
+        "circular"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "mode",
+      "type": "Mode",
+      "default_value": "normal",
+      "type_value": [
+        "normal",
+        "fixed"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "width",
+      "type": "string",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    }
+  ],
+  "classprop_set": {
+    "property": {
+      "backdrop": true,
+      "hideonoutsideclick": true,
+      "open": true,
+      "placement": true,
+      "radius": true,
+      "mode": true,
+      "width": true
+    },
+    "query": {},
+    "context": {}
+  },
+  "extend_class": {
+    "className": "Box",
+    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/box",
+    "properties": [
+      {
+        "name": "radius",
+        "type": "Radius",
+        "default_value": "circular",
+        "type_value": [
+          "none",
+          "small",
+          "medium",
+          "large",
+          "circular"
+        ],
+        "primitive": false,
+        "conditional": false
+      },
+      {
+        "name": "elevation",
+        "type": "Elevation",
+        "default_value": "none",
+        "type_value": [
+          "none",
+          "small",
+          "medium",
+          "large",
+          "x-large"
+        ],
+        "primitive": false,
+        "conditional": false
+      },
+      {
+        "name": "elevationdirection",
+        "type": "alternative",
+        "default_value": "vertical",
+        "type_value": [
+          "vertical",
+          "horizontal"
+        ],
+        "primitive": true,
+        "conditional": false
+      }
+    ],
+    "classprop_set": {
+      "property": {
+        "radius": true,
+        "elevation": true,
+        "elevationdirection": true
+      },
+      "query": {},
+      "context": {}
+    },
+    "extend_class": null
+  },
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/templates/box": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "Base",
+        "from": "@pap-it/system-base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ],
+    "/Users/henry/Developer/projects/web-components/packages/molecules/aside": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "Box",
+        "from": "@pap-it/templates-box"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "default",
+        "html": ""
+      }
+    ],
+    "parts": [
+      {
+        "name": "wrapper",
+        "tag": "PAP-BOX-TEMPLATE"
+      },
+      {
+        "name": "accordion",
+        "tag": "PAP-ACCORDION"
+      },
+      {
+        "name": "content",
+        "tag": "DIV"
+      }
+    ]
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/aside",
+    "sources": [],
+    "variables": {
+      "--pap-color-bg": {
+        "usecases": [
+          "10;background-color"
+        ],
+        "fallbacks": [
+          "white)}:host pap-box-template[part=wrapper] pap-accordion{height:100%}:host::before{position:absolut"
+        ]
+      }
+    }
+  }
+}

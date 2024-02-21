@@ -1,0 +1,104 @@
+{
+  "className": "Popup",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/popup",
+  "properties": [
+    {
+      "name": "hideonoutsideclick",
+      "type": "boolean",
+      "default_value": false,
+      "type_value": null,
+      "primitive": true,
+      "conditional": false
+    },
+    {
+      "name": "variant",
+      "type": "Variant",
+      "default_value": "global",
+      "type_value": [
+        "global",
+        "parent"
+      ],
+      "primitive": false,
+      "conditional": false
+    },
+    {
+      "name": "state",
+      "type": "State",
+      "default_value": "hide",
+      "type_value": [
+        "show",
+        "hide"
+      ],
+      "primitive": false,
+      "conditional": false
+    }
+  ],
+  "classprop_set": {
+    "property": {
+      "headerTitle": true,
+      "hideonoutsideclick": true,
+      "variant": true,
+      "state": true
+    },
+    "query": {
+      "cardElement": true
+    },
+    "context": {}
+  },
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/atoms/popup": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "html",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "query",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "Base",
+        "from": "@pap-it/system-base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "default",
+        "html": ""
+      },
+      {
+        "name": "footer",
+        "html": ""
+      }
+    ],
+    "parts": []
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/popup",
+    "sources": [],
+    "variables": {
+      "--popup-backdrop-background": {
+        "usecases": [
+          "0;background-color"
+        ],
+        "fallbacks": [
+          "rgba(0, 0, 0, 0.1)"
+        ]
+      }
+    }
+  }
+}

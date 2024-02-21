@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/templates-asset",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -37,12 +37,12 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-base": "1.0.5",
-    "@pap-it/system-utils": "1.0.5"
+    "@pap-it/system-base": "1.0.6",
+    "@pap-it/system-utils": "1.0.6"
   },
   "devDependencies": {
     "eslint": "^8.53.0",
-    "@pap-it/system-doc": "1.0.5",
+    "@pap-it/system-doc": "1.0.6",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",

@@ -2,17 +2,14 @@
   "className": "Theme",
   "folder": "/Users/henry/Developer/projects/web-components/packages/tools/theme",
   "properties": [],
+  "classprop_set": {
+    "property": {},
+    "query": {},
+    "context": {}
+  },
   "extend_class": null,
   "imports": {
     "/Users/henry/Developer/projects/web-components/packages/tools/theme": [
-      {
-        "name": "html",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "property",
-        "from": "@pap-it/system-utils"
-      },
       {
         "name": "Base",
         "from": "@pap-it/system-base"

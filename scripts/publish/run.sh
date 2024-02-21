@@ -7,8 +7,7 @@ echo "GLOBAL_PUBLISH=\"true\"" >> versioning.env
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Initialize the flag as not set
-CI_FLAG=0
+export ROOTDIR=$(pwd)
 
 # Check each argument
 for arg in "$@"; do
@@ -19,10 +18,14 @@ for arg in "$@"; do
     export FORCE=true
     echo "FORCE=\"true\"" >> versioning.env
   fi
+  if [ "$arg" == "--verbose" ]; then
+    export VERBOSE=true
+    echo "VERBOSE=\"true\"" >> versioning.env
+  fi
 done
 
 # If the flag is set, run the command
-if [ $CI_FLAG -eq 0 ]; then
+if [ -z "$CI_FLAG" ]; then
   echo "Global semantic versioning?"
   echo "answer:"
   echo "[0] none"
@@ -31,13 +34,20 @@ if [ $CI_FLAG -eq 0 ]; then
   echo "[3] major"
 
   read -p "Enter the number corresponding to your choice: " choice
+  export SEMANTIC_VERSION="$choice"
 
-  npm search --searchlimit=100 @pap-it --json | node $SCRIPT_DIR/main.js $choice
+  npm search --searchlimit=100 @pap-it --json | node $SCRIPT_DIR/main.js
 else
   # clean cache on pipeline
   npm cache clean --force 
 
-  npm search --searchlimit=100 @pap-it --json | node $SCRIPT_DIR/main.js 0 $NODE_AUTH_TOKEN
+  export SEMANTIC_VERSION=0
+  export ROOTDIR=$(pwd)
+  export CICD_NODE_TOKEN=$NODE_AUTH_TOKEN
+
+  # echo "GLOBAL_PUBLISH=\"true\"" >> versioning.env
+
+  npm search --searchlimit=100 @pap-it --json | node $SCRIPT_DIR/main.js
   
   # used for individual testing
   # bash $SCRIPT_DIR/individual.sh $SCRIPT_DIR/../../packages/atoms/button 1 -0.0.0 $NODE_AUTH_TOKEN
@@ -46,6 +56,8 @@ fi
 
 # last we run the npm install (as we skipped in all postversion scripts)
 npm install
+
+unset NODE_AUTH_TOKEN
 
 # cleanup
 rm versioning.env

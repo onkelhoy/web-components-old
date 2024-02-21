@@ -11,6 +11,13 @@
       "conditional": false
     }
   ],
+  "classprop_set": {
+    "property": {
+      "count": true
+    },
+    "query": {},
+    "context": {}
+  },
   "extend_class": null,
   "imports": {
     "/Users/henry/Developer/projects/web-components/packages/atoms/badge": [
@@ -60,50 +67,10 @@
     "variables": {
       "--pap-color-bg": {
         "usecases": [
-          "background-color"
+          "host pap-box-template{background-color"
         ],
         "fallbacks": [
           "#FFFFFF"
-        ]
-      },
-      "--pap-color-text": {
-        "usecases": [
-          "color"
-        ],
-        "fallbacks": [
-          "#29292F"
-        ]
-      },
-      "--padding-smaller": {
-        "usecases": [
-          "padding"
-        ],
-        "fallbacks": [
-          "4px) var(--padding-small, 8px"
-        ]
-      },
-      "--padding-small": {
-        "usecases": [
-          "padding"
-        ],
-        "fallbacks": [
-          "8p"
-        ]
-      },
-      "--pap-color-bg-secondary": {
-        "usecases": [
-          "background-color"
-        ],
-        "fallbacks": [
-          "#F6F7F8"
-        ]
-      },
-      "--pap-color-text-secondary": {
-        "usecases": [
-          "color"
-        ],
-        "fallbacks": [
-          "#6E7087"
         ]
       }
     }

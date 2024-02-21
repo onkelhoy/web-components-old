@@ -22,6 +22,14 @@
       "conditional": false
     }
   ],
+  "classprop_set": {
+    "property": {
+      "open": true,
+      "mode": true
+    },
+    "query": {},
+    "context": {}
+  },
   "extend_class": null,
   "imports": {
     "/Users/henry/Developer/projects/web-components/packages/atoms/accordion": [

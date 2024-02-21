@@ -1,10 +1,9 @@
 {
   "name": "@pap-it/system-react",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "test": ".scripts/test.sh",
     "build": ".scripts/build.sh",
-    "react": "sh .scripts/helper/build-react.sh",
     "watch": ".scripts/watch.sh",
     "manual-publish": "sh .scripts/publish.sh",
     "preversion": "sh .scripts/preversion.sh",

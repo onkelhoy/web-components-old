@@ -22,60 +22,30 @@
       "type_value": null,
       "primitive": true,
       "conditional": true
-    },
-    {
-      "name": "messageElement",
-      "type": "Message",
-      "type_value": {
-        "variant": [
-          "warning",
-          "error",
-          "success"
-        ],
-        "open": null,
-        "accordionElement": null,
-        "onopenupdate": null,
-        "handleclose": null,
-        "render": null
-      },
-      "primitive": false,
-      "conditional": false
-    },
-    {
-      "name": "formElement",
-      "type": "HTMLFormElement",
-      "type_value": {
-        "acceptCharset": null,
-        "action": null,
-        "autocomplete": null,
-        "elements": null,
-        "encoding": null,
-        "enctype": null,
-        "length": null,
-        "method": null,
-        "name": null,
-        "noValidate": null,
-        "rel": null,
-        "relList": null,
-        "target": null,
-        "checkValidity": null,
-        "reportValidity": null,
-        "requestSubmit": null,
-        "reset": null,
-        "submit": null,
-        "addEventListener": null,
-        "removeEventListener": null
-      },
-      "primitive": false,
-      "conditional": false
     }
   ],
+  "classprop_set": {
+    "property": {
+      "error": true,
+      "warning": true,
+      "success": true
+    },
+    "query": {
+      "messageElement": true,
+      "formElement": true
+    },
+    "context": {}
+  },
   "extend_class": null,
   "imports": {
     "/Users/henry/Developer/projects/web-components/packages/atoms/form": [
       {
         "name": "__decorate",
         "from": "tslib"
+      },
+      {
+        "name": "debounce",
+        "from": "@pap-it/system-utils"
       },
       {
         "name": "html",
@@ -96,28 +66,6 @@
       {
         "name": "style",
         "from": "./style"
-      }
-    ]
-  },
-  "html": {
-    "slots": [
-      {
-        "name": "default",
-        "html": ""
-      }
-    ],
-    "parts": [
-      {
-        "name": "form",
-        "tag": "FORM"
-      },
-      {
-        "name": "message-wrapper",
-        "tag": "DIV"
-      },
-      {
-        "name": "message",
-        "tag": "PAP-MESSAGE"
       }
     ]
   },

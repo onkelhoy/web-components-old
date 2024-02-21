@@ -1,0 +1,67 @@
+{
+  "className": "PrefixSuffix",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/templates/prefix-suffix",
+  "properties": [],
+  "classprop_set": {
+    "property": {},
+    "query": {},
+    "context": {}
+  },
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/templates/prefix-suffix": [
+      {
+        "name": "Base",
+        "from": "@pap-it/system-base"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [
+      {
+        "name": "prefix",
+        "html": ""
+      },
+      {
+        "name": "default",
+        "html": ""
+      },
+      {
+        "name": "suffix",
+        "html": ""
+      }
+    ],
+    "parts": [
+      {
+        "name": "prefix",
+        "tag": "SLOT"
+      },
+      {
+        "name": "content",
+        "tag": "SPAN"
+      },
+      {
+        "name": "suffix",
+        "tag": "SLOT"
+      }
+    ]
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/prefix-suffix",
+    "sources": [],
+    "variables": {
+      "--gap-small": {
+        "usecases": [
+          "flex;gap"
+        ],
+        "fallbacks": [
+          "8px)}:host span[part=content]{flex-grow:"
+        ]
+      }
+    }
+  }
+}

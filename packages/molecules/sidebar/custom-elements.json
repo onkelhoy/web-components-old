@@ -87,44 +87,6 @@
       }
     ]
   },
-  "html": {
-    "slots": [
-      {
-        "name": "default",
-        "html": ""
-      },
-      {
-        "name": "footer",
-        "html": ""
-      }
-    ],
-    "parts": [
-      {
-        "name": "hamburger-outside",
-        "tag": "PAP-BUTTON"
-      },
-      {
-        "name": "base",
-        "tag": "PAP-BOX-TEMPLATE"
-      },
-      {
-        "name": "header",
-        "tag": "HEADER"
-      },
-      {
-        "name": "hamburger-inside",
-        "tag": "PAP-BUTTON"
-      },
-      {
-        "name": "body",
-        "tag": "DIV"
-      },
-      {
-        "name": "footer",
-        "tag": "FOOTER"
-      }
-    ]
-  },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar",
     "sources": [],
