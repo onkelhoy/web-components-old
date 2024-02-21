@@ -108,7 +108,7 @@ export class FormElement extends Base {
   protected validateElement() {
     // do something 
   }
-  private debouncedchange() {
+  protected debouncedchange() {
     this.dispatchEvent(new Event('debounce-change'));
     this.validateElement();
   }

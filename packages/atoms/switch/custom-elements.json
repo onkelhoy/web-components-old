@@ -312,6 +312,68 @@
       }
     ]
   },
+  "html": {
+    "slots": [
+      {
+        "name": "header-prefix",
+        "html": ""
+      },
+      {
+        "name": "header",
+        "html": ""
+      },
+      {
+        "name": "header-suffix",
+        "html": ""
+      },
+      {
+        "name": "prefix",
+        "html": ""
+      },
+      {
+        "name": "suffix",
+        "html": ""
+      },
+      {
+        "name": "footer-prefix",
+        "html": ""
+      },
+      {
+        "name": "footer",
+        "html": ""
+      },
+      {
+        "name": "footer-suffix",
+        "html": ""
+      }
+    ],
+    "parts": [
+      {
+        "name": "header",
+        "tag": "PAP-PREFIX-SUFFIX-TEMPLATE"
+      },
+      {
+        "name": "main",
+        "tag": "PAP-BOX-TEMPLATE"
+      },
+      {
+        "name": "prefix-suffix",
+        "tag": "PAP-PREFIX-SUFFIX-TEMPLATE"
+      },
+      {
+        "name": "switch",
+        "tag": "PAP-BOX-TEMPLATE"
+      },
+      {
+        "name": "circle",
+        "tag": "SPAN"
+      },
+      {
+        "name": "footer",
+        "tag": "PAP-PREFIX-SUFFIX-TEMPLATE"
+      }
+    ]
+  },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/switch",
     "sources": [],

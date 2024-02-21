@@ -53,13 +53,13 @@ else
 
       npm run analyze --child &>/dev/null
 
-      npm run react --child &>/dev/null
+      # npm run react --child &>/dev/null
     else 
       npm run build
 
       npm run analyze --child
 
-      npm run react --child
+      # npm run react --child
     fi 
   fi
 fi

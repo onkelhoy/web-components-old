@@ -1,4 +1,4 @@
-import { MenuItem } from './components/menu-item';
+import { Item } from './components/menu-item';
 import { Menu } from './component.js';
 
 // Register the element with the browser
@@ -12,5 +12,5 @@ if (!cElements.get('pap-menu')) {
   cElements.define('pap-menu', Menu);
 }
 if (!cElements.get('pap-menu-item')) {
-  cElements.define('pap-menu-item', MenuItem);
+  cElements.define('pap-menu-item', Item);
 }

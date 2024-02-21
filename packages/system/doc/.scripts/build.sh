@@ -54,8 +54,10 @@ fi
 
 
 if [ "$DEV" = true ]; then
+  echo "hello"
   tsc
 else
+  echo "bajs"
   tsc -p tsconfig.prod.json
 fi
 

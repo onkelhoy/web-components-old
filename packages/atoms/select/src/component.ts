@@ -30,7 +30,17 @@ export class Select extends Field {
   @property({ type: Boolean }) open: boolean = false;
   @property({ attribute: 'dynamic-width', type: Boolean }) dynamicwidth: boolean = false;
   @property({ attribute: false }) text: string = "";
+  @property({ type: Number, attribute: "input-size" }) inputsize?: number;
 
+  @property({
+    after: function (this: Select, value: string) {
+      this.updateform(value);
+      this.debouncedchange();
+      if (this.menuelement) {
+        this.menuelement.select(value);
+      }
+    }
+  }) value?: string;
   @property({ type: Number }) maxlength?: number;
   @property({ type: Number }) minlength?: number;
   @property({ type: Number }) max?: number;
@@ -40,10 +50,10 @@ export class Select extends Field {
   @property({
     type: Array,
     attribute: false,
-    set: function (this: Select, list: Array<OptionType | string>): Array<OptionType> {
-      if (list.length > 0 && typeof list[0] === "string") {
+    set: function (this: Select, list: Array<OptionType | string | number>): Array<OptionType> {
+      if (list.length > 0 && (typeof list[0] === "string" || typeof list[0] === "number")) {
         return list.map(l => {
-          if (typeof l === "string") return { value: l, text: l };
+          if (typeof l === "string" || typeof l === "number") return { value: String(l), text: String(l) };
           return l;
         });
       }
@@ -124,7 +134,8 @@ export class Select extends Field {
         <span slot="button">
           ${super.renderMain(main)}
         </span>
-        <slot>${this.options}</slot>
+        ${this.options?.map(option => html`<pap-option key="${option.value}" value="${option.value}">${option.text}</pap-option>`)}
+        <slot></slot>
       </pap-menu-template>
     `
   }
@@ -140,6 +151,7 @@ export class Select extends Field {
             value="${ifDefined(this.text)}"
             maxlength="${ifDefined(this.maxlength)}"
             minlength="${ifDefined(this.minlength)}"
+            size="${this.inputsize === undefined ? this.value?.length || 1 : this.inputsize}"
             min="${ifDefined(this.min)}"
             max="${ifDefined(this.max)}"
             pattern="${ifDefined(this.pattern)}"

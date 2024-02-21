@@ -105,7 +105,7 @@ export async function change(id: string) {
 
     // no change has occured on pathpath[0] so we can assume its ADD 
     if (oldfirstpath === pathparts[0]) {
-      console.log('iunshift case', newlanguage, oldlanguage, oldfirstpath, pathparts[0])
+      // console.log('iunshift case', newlanguage, oldlanguage, oldfirstpath, pathparts[0])
       pathparts.unshift(newlanguage);
     }
 

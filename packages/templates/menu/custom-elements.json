@@ -3,33 +3,9 @@
   "folder": "/Users/henry/Developer/projects/web-components/packages/templates/menu",
   "properties": [
     {
-      "name": "multiple",
-      "type": "boolean",
-      "default_value": false,
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
-    },
-    {
       "name": "hasitems",
       "type": "boolean",
       "default_value": false,
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
-    },
-    {
-      "name": "menuheight",
-      "type": "string",
-      "default_value": "15rem",
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
-    },
-    {
-      "name": "dynamicwidth",
-      "type": "boolean",
-      "default_value": true,
       "type_value": null,
       "primitive": true,
       "conditional": false
@@ -38,103 +14,19 @@
   "classprop_set": {
     "property": {
       "multiple": true,
-      "hasitems": true,
+      "closeonselect": true,
+      "dynamicwidth": true,
+      "size": true,
       "menuheight": true,
-      "dynamicwidth": true
+      "hasitems": true
     },
     "query": {
       "popoverTemplate": true
     },
     "context": {}
   },
-  "extend_class": {
-    "className": "PopoverProperties",
-    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/popover",
-    "properties": [
-      {
-        "name": "revealby",
-        "type": "Reveal",
-        "default_value": "hover",
-        "type_value": [
-          "hover",
-          "click"
-        ],
-        "primitive": false,
-        "conditional": false
-      },
-      {
-        "name": "placement",
-        "type": "Placement",
-        "default_value": "bottom-center",
-        "type_value": [
-          "top-left",
-          "top-right",
-          "top-center",
-          "bottom-left",
-          "bottom-right",
-          "bottom-center",
-          "left-top",
-          "left-bottom",
-          "left-center",
-          "right-top",
-          "right-bottom",
-          "right-center"
-        ],
-        "primitive": false,
-        "conditional": false
-      },
-      {
-        "name": "hideonoutsideclick",
-        "type": "boolean",
-        "default_value": true,
-        "type_value": null,
-        "primitive": true,
-        "conditional": false
-      },
-      {
-        "name": "open",
-        "type": "boolean",
-        "default_value": false,
-        "type_value": null,
-        "primitive": true,
-        "conditional": false
-      }
-    ],
-    "classprop_set": {
-      "property": {
-        "revealby": true,
-        "placement": true,
-        "hideonoutsideclick": true,
-        "open": true
-      },
-      "query": {},
-      "context": {}
-    },
-    "extend_class": null
-  },
+  "extend_class": null,
   "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/templates/popover": [
-      {
-        "name": "__decorate",
-        "from": "tslib"
-      },
-      {
-        "name": "html",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "property",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "Base",
-        "from": "@pap-it/system-base"
-      },
-      {
-        "name": "style",
-        "from": "./style"
-      }
-    ],
     "/Users/henry/Developer/projects/web-components/packages/templates/menu": [
       {
         "name": "__decorate",
@@ -170,7 +62,7 @@
     "slots": [
       {
         "name": "button",
-        "html": "\n            <p>fallback button</p>\n          "
+        "html": "\n            <p>fallback button</p>"
       },
       {
         "name": "default",

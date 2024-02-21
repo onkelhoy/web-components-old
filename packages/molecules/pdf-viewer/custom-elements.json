@@ -81,6 +81,27 @@
       }
     ]
   },
+  "html": {
+    "slots": [],
+    "parts": [
+      {
+        "name": "renderer",
+        "tag": "OBJECT"
+      },
+      {
+        "name": "fallback",
+        "tag": "DIV"
+      },
+      {
+        "name": "download-text",
+        "tag": "PAP-TYPOGRAPHY"
+      },
+      {
+        "name": "download-button",
+        "tag": "PAP-BUTTON"
+      }
+    ]
+  },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/pdf-viewer",
     "sources": [],

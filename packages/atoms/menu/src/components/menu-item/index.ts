@@ -1,50 +1,25 @@
 // utils 
-import { html, property, ExtractSlotValue } from "@pap-it/system-utils";
+import { html } from "@pap-it/system-utils";
 
 // templates
-import { Base } from "@pap-it/system-base";
-import "@pap-it/templates-prefix-suffix/wc";
+import { PrefixSuffixRender, Item as TemplateItem } from "@pap-it/templates-menu";
 
 import { style } from "./style";
 
-export class MenuItem extends Base {
+export class Item extends TemplateItem {
   static style = style;
 
-  @property({ type: Boolean, rerender: false }) checked = false;
-  @property({ attribute: false, rerender: false }) value = "";
-  private slottext = "";
-
-  public getvalue() {
-    return this.value || this.slottext;
-  }
-  public gettext() {
-    return this.slottext;
-  }
-
-  constructor() {
-    super();
-    this.addEventListener('click', this.handleclick);
-  }
-
-  // event handlers
-  private handleclick = () => {
-    this.checked = true; // can only select
-    this.dispatchEvent(new Event("select"))
-  }
-  private handleslotchange = (e: Event) => {
-    if (e.target instanceof HTMLSlotElement) {
-      const values = ExtractSlotValue(e.target);
-      this.slottext = values.join(' ');
-    }
-  }
-
   render() {
-    return html`
-      <pap-prefix-suffix-template part="prefix-suffix">
-        <slot slot="prefix" name="prefix"><pap-icon name="check"></pap-icon></slot>
-        <slot @slotchange="${this.handleslotchange}"></slot>
-        <slot slot="suffix" name="suffix"></slot>
-      </pap-prefix-suffix-template>
-    `
+    const render: PrefixSuffixRender = {
+      suffix: `<pap-icon slot="suffix" cache="true" name="check"></pap-icon>`
+    };
+    // if (this.selected) {
+    //   render.suffix = html`<pap-icon slot="suffix" cache="true" name="check"></pap-icon>`
+    // }
+    // else {
+    //   render.suffix = `<span class="icon-spacer" slot="suffix"></span>`
+    // }
+
+    return super.render(render);
   }
 }

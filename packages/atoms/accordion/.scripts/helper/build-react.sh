@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# todo use later
+exit 0
+
 # Check if --force flag is provided
 for arg in "$@"
 do

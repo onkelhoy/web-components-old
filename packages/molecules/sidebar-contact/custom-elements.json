@@ -50,6 +50,23 @@
       }
     ]
   },
+  "html": {
+    "slots": [],
+    "parts": [
+      {
+        "name": "collapsed",
+        "tag": "PAP-BOX-TEMPLATE"
+      },
+      {
+        "name": "base",
+        "tag": "PAP-BOX-TEMPLATE"
+      },
+      {
+        "name": "header",
+        "tag": "HEADER"
+      }
+    ]
+  },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar-contact",
     "sources": [],

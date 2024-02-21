@@ -155,6 +155,32 @@
       </form>
     </pap-codeblock>
   </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Dynamic content</pap-typography>
+
+    <pap-typography>Click the button to dynamically add new options</pap-typography>
+    <button id="dynamic_content_btn">Toggle</button>
+
+    <pap-codeblock display="both">
+      <pap-select label="Dynamic select" multiple name="dynamic-content"></pap-select>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Pagination case</pap-typography>
+
+    <pap-typography>Init options</pap-typography>
+    <button id="pagination_case_INIT">INIT</button>
+
+    <pap-typography>Click the buttons to increase/decrease the value</pap-typography>
+    <button id="pagination_case_INC">INC</button>
+    <button id="pagination_case_DEC">DEC</button>
+
+    <pap-codeblock display="both">
+      <pap-select id="pagination_case"></pap-select>
+    </pap-codeblock>
+  </doc-card>
 </body>
 
 </html>

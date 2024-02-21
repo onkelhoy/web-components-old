@@ -96,6 +96,20 @@
       }
     ]
   },
+  "html": {
+    "slots": [
+      {
+        "name": "default",
+        "html": ""
+      }
+    ],
+    "parts": [
+      {
+        "name": "fieldset",
+        "tag": "FIELDSET"
+      }
+    ]
+  },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/codeblock",
     "sources": [],
