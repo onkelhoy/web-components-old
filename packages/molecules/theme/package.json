@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/theme",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -41,10 +41,10 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/icon": "1.0.6",
+    "@pap-it/icon": "1.0.7",
     "@pap-it/system-base": "1.0.7",
     "@pap-it/system-utils": "1.0.7",
-    "@pap-it/switch": "1.0.6"
+    "@pap-it/switch": "1.0.7"
   },
   "devDependencies": {
     "@pap-it/system-doc": "1.0.7",

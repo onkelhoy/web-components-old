@@ -43,9 +43,9 @@
   "dependencies": {
     "@pap-it/system-base": "1.0.7",
     "@pap-it/system-utils": "1.0.7",
-    "@pap-it/templates-box": "1.0.6",
+    "@pap-it/templates-box": "1.0.7",
     "@pap-it/templates-popover": "1.0.7",
-    "@pap-it/tools-translator": "1.0.6"
+    "@pap-it/tools-translator": "1.0.7"
   },
   "devDependencies": {
     "@pap-it/system-doc": "1.0.7",
