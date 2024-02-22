@@ -2,7 +2,7 @@
 
 Atomic Type: organisms
 
-Version: 1.0.8
+Version: 1.0.9
 
 ## Development
 

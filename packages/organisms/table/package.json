@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/table",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -55,13 +55,13 @@
     "@pap-it/system-utils": "1.0.8",
     "@pap-it/tabs": "1.0.8",
     "@pap-it/templates-box": "1.0.8",
-    "@pap-it/textarea": "1.0.8",
+    "@pap-it/textarea": "1.0.9",
     "@pap-it/tools-translator": "1.0.8",
     "@pap-it/tooltip": "1.0.8",
     "@pap-it/typography": "1.0.8"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.9",
+    "@pap-it/system-doc": "1.0.10",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",

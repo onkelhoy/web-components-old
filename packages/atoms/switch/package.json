@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/switch",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -49,7 +49,7 @@
     "@pap-it/typography": "1.0.8"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.9",
+    "@pap-it/system-doc": "1.0.10",
     "esbuild": "^0.17.18",
     "eslint": "^8.53.0",
     "node-html-parser": "^6.1.5",
