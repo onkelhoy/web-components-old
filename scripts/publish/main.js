@@ -55,8 +55,8 @@ async function execute_individual(info, VERSIONDATA) {
   if (info.name.endsWith('-depricated')) {
     CONFIRMLIST.push({ status: 'depricated', title: info.name });
     if (CICD_NODE_TOKEN) {
+      console.log(`::endgroup::`); // want to make sure status is outside the block
       console.log('[STATUS]: 🚫 depricated');
-      console.log(`::endgroup::`);
     }
     else {
       console.log('\t\t[STATUS]: 🚫 depricated');
@@ -72,8 +72,8 @@ async function execute_individual(info, VERSIONDATA) {
   CONFIRMLIST.push({ status, title: info.name });
 
   if (CICD_NODE_TOKEN) {
+    console.log(`::endgroup::`); // want to make sure status is outside the block
     console.log(`[STATUS]: ${getStatusIcon(status)} ${status}`);
-    console.log(`::endgroup::`);
   }
   else {
     console.log(`\t\t[STATUS]: ${getStatusIcon(status)} ${status}`);

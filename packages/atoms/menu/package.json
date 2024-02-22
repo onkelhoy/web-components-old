@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/menu",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -45,10 +45,10 @@
     "@pap-it/icon": "1.0.8",
     "@pap-it/system-base": "1.0.8",
     "@pap-it/system-utils": "1.0.8",
-    "@pap-it/templates-menu": "0.0.4"
+    "@pap-it/templates-menu": "0.0.5"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.8",
+    "@pap-it/system-doc": "1.0.9",
     "esbuild": "^0.17.18",
     "eslint": "^8.53.0",
     "node-html-parser": "^6.1.5",

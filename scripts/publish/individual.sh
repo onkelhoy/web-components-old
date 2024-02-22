@@ -32,6 +32,14 @@ echo "[version]: ⭐️ $CURRENT_VERSION"
 # REMOVED: && [[ -n $CICD_NODE_TOKEN ]];
 # as we want that pipeline can skip to run publish when version is same !! 
 if [[ "$CURRENT_VERSION" == "$REMOTE_VERSION" ]] && [[ $FORCE != true ]]; then
+  # need to make sure we always build atleast 
+  if [[ -n "$CICD_NODE_TOKEN" ]]; then 
+    # install 
+    npm ci
+
+    # run build 
+    npm run build
+  fi
   # skipped 
   echo "[individual]: skipped"
 else 
@@ -43,7 +51,7 @@ else
     npm run build
 
     # publish 
-    npm publish --access public --registry https://registry.npmjs.org/ --//registry.npmjs.org/:_authToken=${CICD_NODE_TOKEN} --dry-run
+    npm publish --access public --registry https://registry.npmjs.org/ --//registry.npmjs.org/:_authToken=${CICD_NODE_TOKEN}
     
     # TEST: npm publish --access public --registry https://registry.npmjs.org/ --//registry.npmjs.org/:_authToken=${CICD_NODE_TOKEN} --verbose --dry-run
   else 

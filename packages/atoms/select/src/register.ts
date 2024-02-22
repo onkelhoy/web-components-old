@@ -1,4 +1,4 @@
-import { Option } from './components/option';
+import { Option } from './components/option/index.js';
 import { Select } from './component.js';
 
 // Register the element with the browser

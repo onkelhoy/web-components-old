@@ -49,8 +49,8 @@
     "@pap-it/form": "1.0.8",
     "@pap-it/icon": "1.0.8",
     "@pap-it/input": "1.0.8",
-    "@pap-it/menu": "1.0.8",
-    "@pap-it/pagination": "1.0.10",
+    "@pap-it/menu": "1.0.9",
+    "@pap-it/pagination": "1.0.11",
     "@pap-it/search": "1.0.8",
     "@pap-it/system-utils": "1.0.8",
     "@pap-it/tabs": "1.0.8",
@@ -61,7 +61,7 @@
     "@pap-it/typography": "1.0.8"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.8",
+    "@pap-it/system-doc": "1.0.9",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",
