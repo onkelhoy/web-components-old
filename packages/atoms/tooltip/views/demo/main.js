@@ -1,6 +1,6 @@
 // tools
 import '@pap-it/system-doc/wc';
-import '@pap-it/dropdown/wc';
+// import '@pap-it/dropdown/wc';
 
 // component
 import '@pap-it/tooltip/wc';

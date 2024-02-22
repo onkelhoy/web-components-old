@@ -1,12 +1,14 @@
-import { Color } from './component.js';
+import { ColorTemplate } from './component.js';
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;
 
-if (!cElements) {
+if (!cElements) 
+{
   throw new Error('Custom Elements not supported');
 }
 
-if (!cElements.get('pap-color-template')) {
-  cElements.define('pap-color-template', Color);
+if (!cElements.get('pap-color-template')) 
+{
+  cElements.define('pap-color-template', ColorTemplate);
 }

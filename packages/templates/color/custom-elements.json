@@ -1,0 +1,38 @@
+{
+  "className": "Color",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/templates/color",
+  "properties": [],
+  "classprop_set": {
+    "property": {
+      "color": true
+    },
+    "query": {},
+    "context": {}
+  },
+  "extend_class": null,
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/templates/color": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "Base",
+        "from": "@pap-it/system-base"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "Color",
+        "from": "./Color"
+      }
+    ]
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/color",
+    "sources": [],
+    "variables": {}
+  }
+}

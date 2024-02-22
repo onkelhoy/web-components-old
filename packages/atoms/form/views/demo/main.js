@@ -5,7 +5,7 @@ import '@pap-it/checkbox/wc';
 import '@pap-it/textarea/wc';
 import '@pap-it/switch/wc';
 import '@pap-it/button/wc';
-import '@pap-it/dropdown/wc';
+// import '@pap-it/dropdown/wc';
 
 // component
 import '@pap-it/form/wc';

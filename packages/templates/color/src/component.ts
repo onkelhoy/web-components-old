@@ -9,27 +9,27 @@ function padWithZeros(number: number) {
   return String(number).padStart(3, '0');
 }
 
-export class Color extends Base {
+export class ColorTemplate extends Base {
 
   @property({
-    onUpdate: 'onColorUpdate',
-    rerender: false
-  }) color?: string;
+    rerender: false,
+    after: function (this: ColorTemplate, prev) {
+      if (!this.color) return;
 
-  private onColorUpdate(color: string, prev: string) {
-    if (typeof prev === "string") {
-      if (Color.isName(prev)) {
-        Color.unregister(prev, this.setColors);
+      if (typeof prev === "string") {
+        if (Color.isName(prev)) {
+          Color.unregister(prev, this.setColors);
+        }
       }
-    }
 
 
-    if (Color.isName(color)) {
-      Color.register(color, this.setColors);
-    }
+      if (Color.isName(this.color)) {
+        Color.register(this.color, this.setColors);
+      }
 
-    this.setColors();
-  }
+      this.setColors();
+    },
+  }) color?: string;
 
   private setColors = () => {
     if (!this.color) return;
@@ -44,6 +44,6 @@ export class Color extends Base {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-color-template": Color;
+    "pap-color-template": ColorTemplate;
   }
 }
