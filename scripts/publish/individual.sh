@@ -32,6 +32,14 @@ echo "[version]: ⭐️ $CURRENT_VERSION"
 # REMOVED: && [[ -n $CICD_NODE_TOKEN ]];
 # as we want that pipeline can skip to run publish when version is same !! 
 if [[ "$CURRENT_VERSION" == "$REMOTE_VERSION" ]] && [[ $FORCE != true ]]; then
+  # need to make sure we always build atleast 
+  if [[ -n "$CICD_NODE_TOKEN" ]]; then 
+    # install 
+    npm ci
+
+    # run build 
+    npm run build
+  fi
   # skipped 
   echo "[individual]: skipped"
 else 

@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/templates-menu",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -51,7 +51,7 @@
     "@pap-it/typography": "1.0.8"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.8",
+    "@pap-it/system-doc": "1.0.9",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",

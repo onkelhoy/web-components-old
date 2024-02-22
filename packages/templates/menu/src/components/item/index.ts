@@ -1,5 +1,5 @@
 // system 
-import { ExtractSlotValue, Size, html, property, query } from "@pap-it/system-utils";
+import { ExtractSlotValue, Radius, Size, html, property, query } from "@pap-it/system-utils";
 
 // atoms
 import "@pap-it/divider/wc";
@@ -14,9 +14,6 @@ import { style } from "./style";
 import { Menu } from "../../component";
 import { PrefixSuffixRender } from "./types";
 
-export interface Item extends Omit<HTMLInputElement, 'size' | 'addEventListener' | 'removeEventListener' | 'querySelector'> {
-
-}
 export class Item extends Box {
   static styles = [style];
 
@@ -25,10 +22,10 @@ export class Item extends Box {
   @property({ type: Boolean }) divider: boolean = false;
   @property({ type: Boolean }) selected: boolean = false;
   @property() value: string = "";
+  @property() radius: Radius = "medium";
 
-  constructor() {
-    super();
-    this.radius = "medium";
+  connectedCallback() {
+    super.connectedCallback();
     this.role = "option";
   }
   private text?: string;
@@ -58,7 +55,7 @@ export class Item extends Box {
   // event handler
   private handlemenuselect = (e: Event) => {
     if (e instanceof CustomEvent && e.target) {
-      const menu = e.target as Item;
+      const menu = e.target as Menu;
       if (menu && 'value' in menu || 'multiple' in menu) {
         if (!menu.multiple && e.detail.value !== this.getValue()) {
           this.selected = false;
@@ -67,8 +64,7 @@ export class Item extends Box {
     }
   }
   private handlemenupreselect = (e: Event) => {
-    if (e instanceof CustomEvent && e.detail.value === this.getValue())
-    {
+    if (e instanceof CustomEvent && e.detail.value === this.getValue()) {
       this.dispatchEvent(new Event('click'));
     }
   }
