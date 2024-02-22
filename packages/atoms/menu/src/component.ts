@@ -29,6 +29,9 @@ export class Menu extends TemplateMenu {
   public get value() {
     return this.lastselected;
   }
+  public set value(value: string | undefined) {
+    this.select(value);
+  }
 
   render() {
     return super.render(html`

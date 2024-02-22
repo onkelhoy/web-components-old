@@ -46,8 +46,11 @@ export class Menu extends MenuProperties {
   }
 
   // public function
-  public select(value: string) {
-    this.dispatchEvent(new CustomEvent('pre-select', { detail: { value } }));
+  public select(value?: string) {
+    if (!value) this.dispatchEvent(new CustomEvent('select', { detail: { value: undefined, text: undefined } }));
+    else {
+      this.dispatchEvent(new CustomEvent('pre-select', { detail: { value } }));
+    }
   }
 
   // event handlers
