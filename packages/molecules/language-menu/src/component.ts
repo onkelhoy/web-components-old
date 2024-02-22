@@ -74,7 +74,7 @@ export class LanguageMenu extends Base {
   }
   private handlelanguageselect = (e: Event) => {
     const menu = e.target as Menu;
-    if (menu && menu.value !== "init") window.papLocalization.change(menu.value);
+    if (menu && menu.value && menu.value !== "init") window.papLocalization.change(menu.value);
   }
 
   render() {
