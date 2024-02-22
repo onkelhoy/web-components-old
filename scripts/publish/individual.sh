@@ -51,13 +51,13 @@ else
     if [ -z "$VERBOSE" ]; then 
       npm run build &>/dev/null
 
-      npm run analyze --child &>/dev/null
+      # npm run analyze --child &>/dev/null
 
       # npm run react --child &>/dev/null
     else 
       npm run build
 
-      npm run analyze --child
+      # npm run analyze --child
 
       # npm run react --child
     fi 

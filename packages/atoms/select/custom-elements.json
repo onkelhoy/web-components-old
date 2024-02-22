@@ -83,6 +83,20 @@
       "conditional": false
     },
     {
+      "name": "inputsize",
+      "type": "number",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    },
+    {
       "name": "maxlength",
       "type": "number",
       "type_value": null,
@@ -174,6 +188,8 @@
       "open": true,
       "dynamicwidth": true,
       "text": true,
+      "inputsize": true,
+      "value": true,
       "maxlength": true,
       "minlength": true,
       "max": true,

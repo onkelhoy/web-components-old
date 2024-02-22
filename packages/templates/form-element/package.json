@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/templates-form-element",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -41,11 +41,11 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-utils": "1.0.7",
+    "@pap-it/system-utils": "1.0.8",
     "@pap-it/system-base": "1.0.8"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.7",
+    "@pap-it/system-doc": "1.0.8",
     "esbuild": "^0.17.18",
     "tslib": "^2.5.0",
     "sass": "^1.70.0",

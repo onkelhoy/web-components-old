@@ -40,7 +40,8 @@ export class Writer extends Box {
     this.smileyopen = false;
   }
   private handlesmileyselect = (e: CustomEvent<EmojiEvent>) => {
-    this.textareaElement.insert(e.detail.emoji.emoji);
+    // no insert for now
+    // this.textareaElement.insert(e.detail.emoji.emoji);
   }
   private handleformatclick = () => {
     console.log('format mode')
