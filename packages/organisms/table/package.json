@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/table",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -41,7 +41,7 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/accordion": "1.0.6",
+    "@pap-it/accordion": "1.0.7",
     "@pap-it/button": "1.0.6",
     "@pap-it/checkbox": "1.0.6",
     "@pap-it/divider": "1.0.6",
@@ -49,10 +49,10 @@
     "@pap-it/form": "1.0.6",
     "@pap-it/icon": "1.0.6",
     "@pap-it/input": "1.0.6",
-    "@pap-it/menu": "1.0.6",
-    "@pap-it/pagination": "1.0.6",
+    "@pap-it/menu": "1.0.7",
+    "@pap-it/pagination": "1.0.7",
     "@pap-it/search": "1.0.6",
-    "@pap-it/system-utils": "1.0.6",
+    "@pap-it/system-utils": "1.0.7",
     "@pap-it/tabs": "1.0.6",
     "@pap-it/templates-box": "1.0.6",
     "@pap-it/textarea": "1.0.6",
@@ -61,7 +61,7 @@
     "@pap-it/typography": "1.0.6"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.6",
+    "@pap-it/system-doc": "1.0.7",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",

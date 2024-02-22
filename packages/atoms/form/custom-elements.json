@@ -69,6 +69,28 @@
       }
     ]
   },
+  "html": {
+    "slots": [
+      {
+        "name": "default",
+        "html": ""
+      }
+    ],
+    "parts": [
+      {
+        "name": "form",
+        "tag": "FORM"
+      },
+      {
+        "name": "message-wrapper",
+        "tag": "DIV"
+      },
+      {
+        "name": "message",
+        "tag": "PAP-MESSAGE"
+      }
+    ]
+  },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/form",
     "sources": [],

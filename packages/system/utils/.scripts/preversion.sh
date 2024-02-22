@@ -15,6 +15,7 @@ read -r name localversion <<< $(node -pe "let pkg=require('./package.json'); pkg
 
 if [ -z "$INITIATOR" ]; then
   echo "INITIATOR=\"$name\"" >> "$ROOTDIR/versioning.env"
+  INITIATOR="$name"
 fi 
 
 function onnetworkfailure() {
@@ -87,8 +88,13 @@ else
   remoteversion=$REMOTEVERSION
 fi
 
-if [ "$localversion" == "$remoteversion" ]; then 
+if [ "$localversion" == "$remoteversion" ]; then
   exit 0
+fi
+
+if [ "$INITIATOR" == "$name" ]; then
+  rm "$ROOTDIR/versioning.env"
+  echo "version bump - skipped"
 fi
 
 exit 1

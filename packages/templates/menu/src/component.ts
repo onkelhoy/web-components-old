@@ -1,7 +1,8 @@
 // system
-import { html, property, query } from "@pap-it/system-utils";
+import { Size, html, property, query } from "@pap-it/system-utils";
 
 // templates
+import { RenderType } from "@pap-it/system-base";
 import { Popover, PopoverProperties } from "@pap-it/templates-popover";
 import "@pap-it/templates-popover/wc";
 import "@pap-it/templates-box/wc";
@@ -14,12 +15,11 @@ import { style } from "./style";
 import { Selected } from './types';
 import { Item } from "./components/item";
 
-export class Menu extends PopoverProperties {
-  static style = style;
-
-  @query('pap-popover-template') popoverTemplate!: Popover;
+export class MenuProperties extends PopoverProperties {
   @property({ type: Boolean }) multiple: boolean = false;
-  @property({ type: Boolean, attribute: false }) protected hasitems: boolean = false;
+  @property({ type: Boolean, attribute: 'close-on-select', rerender: false }) closeonselect: boolean = false;
+  @property({ attribute: 'dynamic-width', type: Boolean, rerender: false }) dynamicwidth: boolean = true;
+  @property() size: Size = "medium";
   @property({
     rerender: false,
     attribute: 'menu-height',
@@ -28,14 +28,26 @@ export class Menu extends PopoverProperties {
       return value;
     }
   }) menuheight: string = "15rem";
-  @property({ attribute: 'dynamic-width', type: Boolean, rerender: false }) dynamicwidth: boolean = true;
+}
+
+export class Menu extends MenuProperties {
+  static styles = [style];
+
+  @query('pap-popover-template') popoverTemplate!: Popover;
+  @property({ type: Boolean, attribute: false }) protected hasitems: boolean = false;
 
   public selected: Record<string, string> = {};
+  public lastselected?: string;
 
   constructor() {
     super();
 
     this.revealby = "click";
+  }
+
+  // public function
+  public select(value: string) {
+    this.dispatchEvent(new CustomEvent('pre-select', { detail: { value } }));
   }
 
   // event handlers
@@ -54,6 +66,7 @@ export class Menu extends PopoverProperties {
         if (!item.hasAttribute('data-menu-template-init')) {
           item.addEventListener('click', this.handleitemclick);
           item.setAttribute('data-menu-template-init', 'true');
+          item.size = this.size; // let our size override the items size 
           item.init(this);
         }
       }
@@ -91,13 +104,19 @@ export class Menu extends PopoverProperties {
         }
 
         this.selected[value] = text;
+        this.lastselected = value;
         this.dispatchEvent(new CustomEvent<Selected>('select', { detail: { value, text } }));
       }
       else {
         delete this.selected[value];
+        if (this.lastselected === value) this.lastselected = undefined;
         this.dispatchEvent(new CustomEvent<Selected>('deselect', { detail: { value, text } }));
       }
 
+      if (this.closeonselect) {
+        this.open = false;
+      }
+      this.dispatchEvent(new Event('change'));
     }
   }
   private handleshow = () => {
@@ -109,7 +128,7 @@ export class Menu extends PopoverProperties {
     this.dispatchEvent(new Event('hide'));
   }
 
-  render() {
+  override render(buttonelement?: RenderType) {
     return html`
       <pap-popover-template 
         @show="${this.handleshow}"
@@ -122,7 +141,7 @@ export class Menu extends PopoverProperties {
       >
         <span slot="target">
           <slot name="button">
-            <p>fallback button</p>
+            ${buttonelement ? buttonelement : '<p>fallback button</p>'}
           </slot>
         </span>
         <pap-box-template part="items" radius="medium" elevation="small">

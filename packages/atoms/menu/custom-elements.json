@@ -3,55 +3,6 @@
   "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/menu",
   "properties": [
     {
-      "name": "open",
-      "type": "boolean",
-      "default_value": false,
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
-    },
-    {
-      "name": "placement",
-      "type": "Placement",
-      "default_value": "bottom-center",
-      "type_value": [
-        "top-left",
-        "top-right",
-        "top-center",
-        "bottom-left",
-        "bottom-right",
-        "bottom-center",
-        "left-top",
-        "left-bottom",
-        "left-center",
-        "right-top",
-        "right-bottom",
-        "right-center"
-      ],
-      "primitive": false,
-      "conditional": false
-    },
-    {
-      "name": "size",
-      "type": "Size",
-      "default_value": "medium",
-      "type_value": [
-        "small",
-        "medium",
-        "large"
-      ],
-      "primitive": false,
-      "conditional": false
-    },
-    {
-      "name": "closeonselect",
-      "type": "boolean",
-      "default_value": false,
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
-    },
-    {
       "name": "buttonVariant",
       "type": "ButtonVariant",
       "default_value": "clear",
@@ -83,10 +34,10 @@
       "type": "Radius",
       "default_value": "medium",
       "type_value": [
+        "none",
         "small",
         "medium",
         "large",
-        "none",
         "circular"
       ],
       "primitive": false,
@@ -95,17 +46,11 @@
   ],
   "classprop_set": {
     "property": {
-      "open": true,
-      "placement": true,
-      "size": true,
-      "closeonselect": true,
       "buttonVariant": true,
       "buttonColor": true,
       "buttonRadius": true
     },
-    "query": {
-      "popoverTemplate": true
-    },
+    "query": {},
     "context": {}
   },
   "extend_class": null,
@@ -124,35 +69,18 @@
         "from": "@pap-it/system-utils"
       },
       {
-        "name": "query",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "Base",
-        "from": "@pap-it/system-base"
+        "name": "Menu as TemplateMenu",
+        "from": "@pap-it/templates-menu"
       },
       {
         "name": "style",
         "from": "./style"
-      },
-      {
-        "name": "MenuItem",
-        "from": "./components/menu-item"
       }
     ]
   },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/menu",
     "sources": [],
-    "variables": {
-      "--pap-color-bg": {
-        "usecases": [
-          "host{--menu-background"
-        ],
-        "fallbacks": [
-          "#FFFFFF"
-        ]
-      }
-    }
+    "variables": {}
   }
 }

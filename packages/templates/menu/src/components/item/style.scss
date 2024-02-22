@@ -31,7 +31,7 @@
   background-color: var(--pap-color-bg-hover, #DADDE3);
 }
 
-:host(.selected)>pap-box-template {
+:host([selected="true"])>pap-box-template {
   background-color: var(--pap-color-bg-tertiary, #EAEBEF);
 }
 

@@ -4,12 +4,12 @@ import { Translator } from "@pap-it/tools-translator";
 import "@pap-it/tools-translator/wc";
 
 // atoms 
-import { Dropdown } from "@pap-it/dropdown";
+import { OptionType, Select } from "@pap-it/select";
 import "@pap-it/icon/wc";
 import "@pap-it/typography/wc";
 import "@pap-it/button/wc";
 import "@pap-it/divider/wc";
-import "@pap-it/dropdown/wc";
+import "@pap-it/select/wc";
 
 // local 
 import { style } from "./style";
@@ -20,15 +20,15 @@ export class Pagination extends Translator {
 
   @property({
     type: Number,
-    set: function (this: Pagination) {
+    after: function (this: Pagination) {
       this.dispatchEvent(new Event('page'))
     }
   }) page: number = 0;
   @property({ type: Number, onUpdate: "onperpageupdate" }) perpage: number = 0;
   @property({ type: Number, onUpdate: "ontotal" }) total: number = 0;
 
-  @query('#page-selector') pageselector!: Dropdown;
-  @query({ selector: '#perpage-selector', onload: "onperpageselectorload" }) perpageselector!: Dropdown;
+  @query('#page-selector') pageselector!: Select;
+  @query({ selector: '#perpage-selector', onload: "onperpageselectorload" }) perpageselector!: Select;
 
   // class functions 
   constructor() {
@@ -43,7 +43,7 @@ export class Pagination extends Translator {
 
   private ontotal = () => {
     if (this.perpageselector) {
-      this.perpageselector.options = [5, 10, 15, 20, 30, 50, 75, 100].filter(v => v <= this.mintotal);
+      this.perpageselector.options = [5, 10, 15, 20, 30, 50, 75, 100].filter(v => v <= this.mintotal).map(v => ({ value: String(v), text: String(v) }));
     }
   }
   private onperpageselectorload = () => {
@@ -81,7 +81,7 @@ export class Pagination extends Translator {
   }
 
   // event handlers
-  private handledropdownchange = (e: Event) => {
+  private handleselectchange = (e: Event) => {
     if (this.localchange) {
       this.clearlocalchange();
     }
@@ -130,7 +130,16 @@ export class Pagination extends Translator {
         <pap-typography>
           <pap-translator>Items</pap-translator>
         </pap-typography>
-        <pap-dropdown size="small" id="perpage-selector" value="${this.perpage || 5}" @change="${this.handledropdownchange}"></pap-dropdown>
+        <pap-select 
+          @change="${this.handleselectchange}"
+          size="small" 
+          mode="hug"
+          placement="bottom-center"
+          dynamic-width="true"
+          id="perpage-selector" 
+          value="${this.perpage || 5}" 
+        >
+        </pap-select>
       </span>
       <pap-divider mode="vertical"></pap-divider>
       <pap-typography nowrap>
@@ -145,7 +154,16 @@ export class Pagination extends Translator {
         <pap-typography>
           <pap-translator>Page</pap-translator>
         </pap-typography>
-        <pap-dropdown size="small" id="page-selector" value="${Math.min(this.page || 0, this.MaxPage)}" @change="${this.handledropdownchange}"></pap-dropdown>
+        <pap-select
+          @change="${this.handleselectchange}"
+          mode="hug"
+          dynamic-width="true"
+          size="small"
+          placement="bottom-center"
+          id="page-selector"
+          value="${Math.min(this.page || 0, this.MaxPage)}" 
+        >
+        </pap-select>
         <pap-typography nowrap>
           <pap-translator maxpage="${this.MaxPage + 1}">of {maxpage}</pap-translator>
         </pap-typography>

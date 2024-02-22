@@ -16,42 +16,45 @@
 </head>
 
 <body>
-  <!-- <doc-card>
-        <pap-codeblock display="both">
-            <pap-popover-template target="#popover1">
-                <button slot="target">TARGET BUTTON</button>
-                Popover body content
-            </pap-popover-template>
-        </pap-codeblock>
-    </doc-card>
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-popover-template revealby="click" target="#popover1b">
-                <div slot="target">
-                    <button>TARGET BUTTON</button>
-                    <br/>
-                    <button>TARGET BUTTON 2</button>
-                </div>
-                <div class="card">
-                <header>
-                    <h5>Im the header!</h5>
-                    <button>X</button>
-                </header>
-                <div>
-                    <p>Some body content with some "fruits"!</p>
-                    <ul>
-                    <li>bananas (actually a berry)</li>
-                    <li>apples</li>
-                    <li>pears</li>
-                    </ul>
-                </div>
-                <footer>
-                    Im a footer yay!
-                </footer>
-                </div>
-            </pap-popover-template>
-        </pap-codeblock>
-    </doc-card> -->
+  <doc-card>
+    <pap-codeblock display="both">
+      <pap-popover-template placement="top-center" target="#popover1">
+        <pap-button mode="fill" color="secondary" slot="target">TARGET BUTTON</pap-button>
+
+        <div class="card">
+          Popover body content
+        </div>
+      </pap-popover-template>
+    </pap-codeblock>
+  </doc-card>
+  <doc-card>
+    <pap-codeblock display="both">
+      <pap-popover-template revealby="click" target="#popover1b">
+        <div slot="target">
+          <button>TARGET BUTTON</button>
+          <br />
+          <button>TARGET BUTTON 2</button>
+        </div>
+        <div class="card">
+          <header>
+            <h5>Im the header!</h5>
+            <button>X</button>
+          </header>
+          <div>
+            <p>Some body content with some "fruits"!</p>
+            <ul>
+              <li>bananas (actually a berry)</li>
+              <li>apples</li>
+              <li>pears</li>
+            </ul>
+          </div>
+          <footer>
+            Im a footer yay!
+          </footer>
+        </div>
+      </pap-popover-template>
+    </pap-codeblock>
+  </doc-card>
 
   <doc-card>
     <pap-codeblock display="both">

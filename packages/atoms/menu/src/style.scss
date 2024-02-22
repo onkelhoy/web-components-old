@@ -1,28 +1,10 @@
 :host {
-  --menu-background: var(--pap-color-bg, #FFFFFF);
-  --menu-color: var(--pap-color-text, #29292F);
-  display: inline-block;
 
-  pap-button {
-    span.caret-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
+  // display: inline-block;
 
   pap-popover-template {
-    display: inline-block;
-  }
 
-  pap-box-template {
-    display: block;
-    // padding: 1rem 1.5rem;
-    padding-block: var(--padding-small, 8px);
-    min-width: 180px;
-    background-color: var(--menu-background);
-    max-height: 20rem;
-    overflow-y: auto;
+    // display: inline-block;
   }
 }
 

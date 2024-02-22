@@ -41,7 +41,7 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-utils": "1.0.6",
+    "@pap-it/system-utils": "1.0.7",
     "@pap-it/templates-box": "1.0.6",
     "@pap-it/templates-field": "1.0.6",
     "@pap-it/templates-form-element": "1.0.6",
@@ -49,7 +49,7 @@
     "@pap-it/typography": "1.0.6"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.6",
+    "@pap-it/system-doc": "1.0.7",
     "esbuild": "^0.17.18",
     "eslint": "^8.53.0",
     "node-html-parser": "^6.1.5",

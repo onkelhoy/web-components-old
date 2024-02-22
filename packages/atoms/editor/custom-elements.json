@@ -63,6 +63,32 @@
       }
     ]
   },
+  "html": {
+    "slots": [
+      {
+        "name": "header",
+        "html": "\n                    <h1>llama drama trauma</h1>\n                "
+      },
+      {
+        "name": "default",
+        "html": "\n                    <p>Why did the llama go to therapy? Because it had a lot of spitting issues!</p>\n                "
+      },
+      {
+        "name": "footer",
+        "html": "\n                    <p>Why did the llama enter the door? To attend the llamazing party inside!</p>\n                "
+      }
+    ],
+    "parts": [
+      {
+        "name": "header",
+        "tag": "HEADER"
+      },
+      {
+        "name": "footer",
+        "tag": "FOOTER"
+      }
+    ]
+  },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/editor",
     "sources": [],

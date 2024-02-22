@@ -55,6 +55,24 @@
       }
     ]
   },
+  "html": {
+    "slots": [
+      {
+        "name": "default",
+        "html": ""
+      }
+    ],
+    "parts": [
+      {
+        "name": "wrapper",
+        "tag": "DIV"
+      },
+      {
+        "name": "indicator",
+        "tag": "SPAN"
+      }
+    ]
+  },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/drag-list",
     "sources": [],

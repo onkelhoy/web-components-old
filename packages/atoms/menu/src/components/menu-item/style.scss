@@ -1,29 +1,22 @@
 :host {
-  font-family: var(--typography-c3-fontfamily, 'Libre Franklin', helvetica, sans-serif);
-  font-size: var(--typography-c3-fontsize, 1rem);
-  font-weight: var(--typography-c3-fontweight, 400);
-  line-height: var(--typography-c3-lineheight, 140%);
-  letter-spacing: var(--typography-c3-letterspacing, 0.01rem);
+  span.icon-spacer {
+    display: inline-block;
+    width: var(--icon-size-medium, 20px);
+  }
+}
 
-  pap-prefix-suffix-template {
-    cursor: pointer;
-    user-select: none;
-    padding: var(--padding-small, 8px);
-    padding-inline: var(--padding-medium, 16px);
-
-    &:hover {
-      background-color: var(--pap-color-hover-200, rgba(0, 0, 0, 0.05));
-    }
-
-    &::part(content) {
-      flex: 1;
-      justify-content: flex-start;
+:host([selected="false"]) {
+  pap-icon[slot="suffix"] {
+    &::part(svg) {
+      display: none;
     }
   }
 }
 
-:host([checked="false"]) {
-  pap-icon[name="check"] {
-    display: none;
+:host([selected="true"]) {
+  pap-icon[slot="suffix"] {
+    &::part(svg) {
+      display: block;
+    }
   }
 }

@@ -1,0 +1,119 @@
+{
+  "className": "Markdown",
+  "folder": "/Users/henry/Developer/projects/web-components/packages/organisms/markdown",
+  "properties": [
+    {
+      "name": "url",
+      "type": "string",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    },
+    {
+      "name": "file",
+      "type": "string",
+      "type_value": null,
+      "primitive": true,
+      "conditional": true
+    }
+  ],
+  "classprop_set": {
+    "property": {
+      "url": true,
+      "file": true
+    },
+    "query": {},
+    "context": {}
+  },
+  "extend_class": {
+    "className": "Asset",
+    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/asset",
+    "properties": [
+      {
+        "name": "assetBase",
+        "type": "string",
+        "default_value": "/public",
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "name": "cache",
+        "type": "boolean",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      }
+    ],
+    "classprop_set": {
+      "property": {
+        "assetBase": true,
+        "cache": true
+      },
+      "query": {},
+      "context": {}
+    },
+    "extend_class": null
+  },
+  "imports": {
+    "/Users/henry/Developer/projects/web-components/packages/templates/asset": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "Base",
+        "from": "@pap-it/system-base"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      }
+    ],
+    "/Users/henry/Developer/projects/web-components/packages/organisms/markdown": [
+      {
+        "name": "__decorate",
+        "from": "tslib"
+      },
+      {
+        "name": "property",
+        "from": "@pap-it/system-utils"
+      },
+      {
+        "name": "Asset",
+        "from": "@pap-it/templates-asset"
+      },
+      {
+        "name": "style",
+        "from": "./style"
+      }
+    ]
+  },
+  "html": {
+    "slots": [],
+    "parts": []
+  },
+  "css": {
+    "folder": "/Users/henry/Developer/projects/web-components/packages/organisms/markdown",
+    "sources": [],
+    "variables": {
+      "--pap-markdown-background": {
+        "usecases": [
+          "host{--background"
+        ],
+        "fallbacks": [
+          "var(--pap-color-bg, #FFFFFF)"
+        ]
+      },
+      "--pap-color-bg": {
+        "usecases": [
+          "host{--background"
+        ],
+        "fallbacks": [
+          "#FFFFFF"
+        ]
+      }
+    }
+  }
+}

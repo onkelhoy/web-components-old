@@ -12,6 +12,7 @@ import "@pap-it/templates-prefix-suffix/wc";
 // local
 import { style } from "./style";
 import { Menu } from "../../component";
+import { PrefixSuffixRender } from "./types";
 
 export interface Item extends Omit<HTMLInputElement, 'size' | 'addEventListener' | 'removeEventListener' | 'querySelector'> {
 
@@ -22,6 +23,7 @@ export class Item extends Box {
   @property() size: Size = "medium";
   @property({ rerender: false, type: Number }) tabIndex: number = 1;
   @property({ type: Boolean }) divider: boolean = false;
+  @property({ type: Boolean }) selected: boolean = false;
   @property() value: string = "";
 
   constructor() {
@@ -34,6 +36,7 @@ export class Item extends Box {
   // public functions
   public init(menu: Menu) {
     menu.addEventListener('select', this.handlemenuselect);
+    menu.addEventListener('pre-select', this.handlemenupreselect);
   }
   public getValue() {
     return this.value || this.text || "missing-value";
@@ -41,9 +44,10 @@ export class Item extends Box {
   public getText() {
     return this.text || this.value || "missing-text";
   }
+  // dont know what value toggle adds 
   public toggle() {
-    this.classList.toggle('selected');
-    if (this.classList.contains("selected")) {
+    this.selected = !this.selected;
+    if (this.selected) {
       this.dispatchEvent(new Event('select'));
       return true;
     }
@@ -57,9 +61,15 @@ export class Item extends Box {
       const menu = e.target as Item;
       if (menu && 'value' in menu || 'multiple' in menu) {
         if (!menu.multiple && e.detail.value !== this.getValue()) {
-          this.classList.remove('selected');
+          this.selected = false;
         }
       }
+    }
+  }
+  private handlemenupreselect = (e: Event) => {
+    if (e instanceof CustomEvent && e.detail.value === this.getValue())
+    {
+      this.dispatchEvent(new Event('click'));
     }
   }
   private handleslotchange = (e: Event) => {
@@ -69,7 +79,7 @@ export class Item extends Box {
     }
   }
 
-  render() {
+  override render(render?: PrefixSuffixRender) {
     return html`
       <pap-box-template 
         radius="${this.radius}" 
@@ -78,8 +88,11 @@ export class Item extends Box {
       >
         <pap-prefix-suffix-template>
           <slot name="prefix" slot="prefix"></slot>
+          ${render?.prefix}
           <pap-typography truncate="true" nowrap="true"><slot @slotchange="${this.handleslotchange}">${this.getText()}</slot></pap-typography>
+          ${render?.content}
           <slot name="suffix" slot="suffix"></slot>
+          ${render?.suffix}
         </pap-prefix-suffix-template>
       </pap-box-template>
       ${this.divider ? '<pap-divider part="divider"></pap-divider>' : ''}

@@ -8,12 +8,14 @@ body {
 }
 
 button {
-    padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem;
 }
+
 div.card {
-    min-width: 300px;
-    padding: 1rem;
-    background-color: white;
-    border: 1px solid black;
+  min-width: 300px;
+  padding: 1rem;
+  padding-block: 3rem;
+  background-color: var(--pap-color-bg);
+  color: var(--pap-color-text);
+  border: 1px solid black;
 }
-  

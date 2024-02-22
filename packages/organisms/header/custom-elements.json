@@ -46,6 +46,19 @@
       }
     ]
   },
+  "html": {
+    "slots": [
+      {
+        "name": "prefix",
+        "html": ""
+      },
+      {
+        "name": "default",
+        "html": ""
+      }
+    ],
+    "parts": []
+  },
   "css": {
     "folder": "/Users/henry/Developer/projects/web-components/packages/organisms/header",
     "sources": [],
