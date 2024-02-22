@@ -3,7 +3,7 @@ import { Size, html, property, query } from "@pap-it/system-utils";
 
 // templates
 import { RenderType } from "@pap-it/system-base";
-import { Popover, PopoverProperties } from "@pap-it/templates-popover";
+import { Popover, PopoverProperties, Reveal } from "@pap-it/templates-popover";
 import "@pap-it/templates-popover/wc";
 import "@pap-it/templates-box/wc";
 
@@ -28,6 +28,7 @@ export class MenuProperties extends PopoverProperties {
       return value;
     }
   }) menuheight: string = "15rem";
+  @property() revealby: Reveal = "click";
 }
 
 export class Menu extends MenuProperties {
@@ -38,12 +39,6 @@ export class Menu extends MenuProperties {
 
   public selected: Record<string, string> = {};
   public lastselected?: string;
-
-  constructor() {
-    super();
-
-    this.revealby = "click";
-  }
 
   // public function
   public select(value?: string) {

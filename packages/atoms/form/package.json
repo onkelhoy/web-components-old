@@ -56,7 +56,7 @@
     "@pap-it/input": "1.0.8",
     "@pap-it/textarea": "1.0.9",
     "@pap-it/switch": "1.0.9",
-    "@pap-it/system-doc": "1.0.11",
+    "@pap-it/system-doc": "1.0.12",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",
