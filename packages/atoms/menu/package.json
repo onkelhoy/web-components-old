@@ -41,8 +41,8 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/button": "1.0.6",
-    "@pap-it/icon": "1.0.6",
+    "@pap-it/button": "1.0.7",
+    "@pap-it/icon": "1.0.7",
     "@pap-it/system-base": "1.0.7",
     "@pap-it/system-utils": "1.0.7",
     "@pap-it/templates-menu": "0.0.3"

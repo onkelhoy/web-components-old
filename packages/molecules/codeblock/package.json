@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/codeblock",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -41,12 +41,12 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/button": "1.0.6",
+    "@pap-it/button": "1.0.7",
     "@pap-it/system-base": "1.0.7",
-    "@pap-it/templates-box": "1.0.6",
-    "@pap-it/switch": "1.0.6",
-    "@pap-it/typography": "1.0.6",
-    "@pap-it/system-utils": "1.0.7"
+    "@pap-it/templates-box": "1.0.7",
+    "@pap-it/switch": "1.0.7",
+    "@pap-it/typography": "1.0.7",
+    "@pap-it/system-utils": "1.0.8"
   },
   "devDependencies": {
     "eslint": "^8.53.0",

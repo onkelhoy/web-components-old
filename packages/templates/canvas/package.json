@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/templates-canvas",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -43,8 +43,8 @@
   "dependencies": {
     "@pap-it/system-base": "1.0.7",
     "@pap-it/system-utils": "1.0.7",
-    "@pap-it/tools-translator": "1.0.6",
-    "@pap-it/typography": "1.0.6"
+    "@pap-it/tools-translator": "1.0.7",
+    "@pap-it/typography": "1.0.7"
   },
   "devDependencies": {
     "@pap-it/system-doc": "1.0.7",

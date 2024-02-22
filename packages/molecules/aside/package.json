@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/aside",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -43,7 +43,7 @@
   "dependencies": {
     "@pap-it/system-base": "1.0.7",
     "@pap-it/system-utils": "1.0.7",
-    "@pap-it/templates-box": "1.0.6"
+    "@pap-it/templates-box": "1.0.7"
   },
   "devDependencies": {
     "@pap-it/system-doc": "1.0.7",

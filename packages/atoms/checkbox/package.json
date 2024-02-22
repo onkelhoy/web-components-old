@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/checkbox",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -42,8 +42,8 @@
   },
   "dependencies": {
     "@pap-it/system-base": "1.0.7",
-    "@pap-it/templates-field": "1.0.6",
-    "@pap-it/system-utils": "1.0.7"
+    "@pap-it/templates-field": "1.0.7",
+    "@pap-it/system-utils": "1.0.8"
   },
   "devDependencies": {
     "eslint": "^8.53.0",
