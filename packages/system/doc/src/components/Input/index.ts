@@ -57,6 +57,7 @@ export class Input extends Base {
   }
 
   firstUpdate(): void {
+    this.firstUpdate();
     const element = this.shadowRoot?.querySelector<HTMLInputElement>('#input');
     if (element) {
       this.inputElement = element;

@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/aside",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -41,12 +41,12 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-base": "1.0.8",
-    "@pap-it/system-utils": "1.0.8",
-    "@pap-it/templates-box": "1.0.8"
+    "@pap-it/system-base": "1.0.9",
+    "@pap-it/system-utils": "1.0.9",
+    "@pap-it/templates-box": "1.0.9"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.12",
+    "@pap-it/system-doc": "1.0.13",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",

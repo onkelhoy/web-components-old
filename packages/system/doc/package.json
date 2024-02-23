@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/system-doc",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -34,17 +34,17 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-base": "1.0.8",
-    "@pap-it/system-utils": "1.0.8",
-    "@pap-it/system-showcase": "1.0.8",
-    "@pap-it/button": "1.0.8",
-    "@pap-it/divider": "1.0.8",
-    "@pap-it/header": "1.0.12",
-    "@pap-it/icon": "1.0.8",
-    "@pap-it/markdown": "1.0.9",
-    "@pap-it/tabs": "1.0.8",
-    "@pap-it/templates-popover": "1.0.8",
-    "@pap-it/typography": "1.0.8"
+    "@pap-it/system-base": "1.0.9",
+    "@pap-it/system-utils": "1.0.9",
+    "@pap-it/system-showcase": "1.0.9",
+    "@pap-it/button": "1.0.9",
+    "@pap-it/divider": "1.0.9",
+    "@pap-it/header": "1.0.13",
+    "@pap-it/icon": "1.0.9",
+    "@pap-it/markdown": "1.0.10",
+    "@pap-it/tabs": "1.0.9",
+    "@pap-it/templates-popover": "1.0.9",
+    "@pap-it/typography": "1.0.9"
   },
   "devDependencies": {
     "eslint": "^8.53.0",

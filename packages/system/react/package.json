@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/system-react",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "test": ".scripts/test.sh",
     "build": ".scripts/build.sh",

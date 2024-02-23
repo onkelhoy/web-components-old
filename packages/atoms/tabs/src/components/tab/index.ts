@@ -32,6 +32,7 @@ export class Tab extends Base {
     this.setAttribute('slot', 'tab');
   }
   firstUpdate(): void {
+    super.firstUpdate();
     if (this.classList.contains('selected')) {
       setTimeout(() => {
         this.dispatchEvent(new Event('click', {

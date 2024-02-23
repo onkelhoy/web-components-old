@@ -20,6 +20,6 @@ node $SCRIPT_DIR/extractor.js $ROOTDIR $PACKAGE_DIR $SCRIPT_DIR $CLASSNAME $2
 
 # cleanup
 rm $SCRIPT_DIR/index.html
-rm $PACKAGE_DIR/src/register.ts
+rm $PACKAGE_DIR/dist/analyse.bundle.js
 
 echo "analyse done"

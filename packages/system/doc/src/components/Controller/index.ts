@@ -22,6 +22,7 @@ export class Controller extends Base {
   }
 
   firstUpdate() {
+    this.firstUpdate();
     if (this.shadowRoot) {
       const span = this.shadowRoot.querySelector<HTMLSpanElement>('span.resize');
       if (span) {

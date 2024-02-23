@@ -219,63 +219,22 @@ export function property(options?: Partial<PropertyOption>) {
 
   return function (target: HTMLElement, propertyKey: string) {
     const attributeName = (typeof _options.attribute === "string" ? _options.attribute : propertyKey).toLowerCase();
-    // const spreadAttributeNames: Record<string, boolean> = {};
-    let internal = false;
+
+    const constructor = target.constructor as any;
+    if (!constructor.__propertyOptions) constructor.__propertyOptions = {};
+
+    // if (constructor.tagName === 'PAP-MENU') console.log('setting propertyoptions', attributeName, constructor.tagName)
+    constructor.__propertyOptions[attributeName] = {
+      type: _options.type,
+      propertyKey,
+    };
 
     // Observe attributes
-    const observedAttributes = (target.constructor as any).observedAttributes || [];
-
-    // NOTE spread is not working, at this point the objedct havent been defined yet, 
-    // we need to keep track if we defined this and in the setter we should do this work 
-    // if not done already - so keep track if we did this setup (setup being to add to 'observedAttributes')
-    // if (_options.spread) {
-    //   console.log('spread yes!', (target.constructor as any)[propertyKey])
-    //   spreadAttributes(
-    //     _options.spread === Spread.BREAKOUT ? "" : typeof _options.spread === "string" ? _options.spread : attributeName,
-    //     (target.constructor as any)[propertyKey],
-    //     (name) => {
-    //       console.log('adding spread', name)
-    //       observedAttributes.push(name);
-    //       spreadAttributeNames[name] = true;
-    //     }
-    //   )
-    // }
-    // else {
+    const observedAttributes = constructor.observedAttributes || [];
     observedAttributes.push(attributeName);
-    // }
-    (target.constructor as any).observedAttributes = observedAttributes;
 
-    // Handle attributeChangedCallback
-    const attributeChanged = (target as any).attributeChangedCallback || function () { };
-    (target as any).attributeChangedCallback = function (name: string, oldValue: any, newValue: any) {
-      // how many times is the same code going to be called?
-      attributeChanged.call(this, name, oldValue, newValue);
-
-      if (name === attributeName && !internal && newValue !== oldValue) {
-        // if ((name === attributeName || spreadAttributeNames[name]) && !internal && newValue !== oldValue) {
-        if (_options.verbose) console.log('attribute is set', attributeName);
-
-        // NOTE spread is not working, perhaps with the attribute changes updated this part should work
-        // if (_options.spread) {
-        //   const keys = name.split("-");
-        //   let newobject = this[propertyKey];
-
-        //   let target = newobject;
-        //   for (let i = 0; i < keys.length; i++) {
-        //     if (i !== keys.length - 1) {
-        //       target = target[keys[i]];
-        //     }
-        //     else {
-        //       target[keys[i]] = convertFromStringPrimitive(newValue);
-        //     }
-        //   }
-        //   this[propertyKey] = newobject;
-        // }
-        // else {
-        this[propertyKey] = convertFromString(newValue, _options.type);
-        // }
-      }
-    };
+    // if (target && target.tagName === "PAP-MENU") console.log(observedAttributes)
+    constructor.observedAttributes = observedAttributes;
 
     // Define property getter and setter
     Object.defineProperty(target, propertyKey, {
@@ -284,6 +243,19 @@ export function property(options?: Partial<PropertyOption>) {
         return options?.get ? options.get.call(this, data) : data;
       },
       set(value: any) {
+        if (!constructor.__propertyOptions) constructor.__propertyOptions = {};
+        if (!constructor.__propertyOptions[attributeName]) {
+          // if (this.tagName === 'PAP-MENU') console.log('setting propertyoptions', attributeName, this.tagName)
+          constructor.__propertyOptions[attributeName] = {
+            type: _options.type,
+            propertyKey,
+          };
+        }
+        if (this[attributeName + "internal"]) {
+          delete this[attributeName + "internal"];
+          return;
+        }
+
         if (options?.set) value = options.set.call(this, value);
 
         const valuestring = convertToString(value, _options.type);
@@ -292,54 +264,28 @@ export function property(options?: Partial<PropertyOption>) {
           return;
         }
 
+        if (_options.verbose) console.log('update')
+
+        if (_options.attribute) {
+          if (!this.delayedAttributes) this.delayedAttributes = {};
+          this.delayedAttributes[attributeName] = valuestring;
+          if (this.updateAttribute) this.updateAttribute();
+        }
+
         if (options?.before) options.before.call(this, value);
 
         const old = this[`_${propertyKey}`];
         this[`_${propertyKey}`] = value;
 
         if (options?.after) options.after.call(this, value, old);
+        if (_options.rerender) this.debouncedRequestUpdate();
+        if (_options.context) this.dispatchEvent(new Event(`context-${propertyKey}`));
 
-        const operation = () => {
-          // we want to use spread over attribute (I guess?)
-          // if (_options.spread) {
-          //   if (_options.verbose) console.log('property is set, setting attribute', attributeName);
-          //   // NOTE for spread we need to assign each attribute 
-          // }
-          // else if (_options.attribute) {
-          if (_options.attribute) {
-            internal = true;
-            if (value === undefined) {
-              // TODO need to check if this would cause issues with type:boolean = true values - is value true or undefined?
-              this.removeAttribute(attributeName);
-            }
-            else {
-              this.setAttribute(attributeName, valuestring);
-            }
-            internal = false;
-          }
-
-          if (_options.onUpdate) {
-            this[_options.onUpdate + "_attempts"] = 0;
-            tryupdate.call(this, _options.onUpdate, value, old, !!_options.verbose);
-          }
-
-          if (_options.rerender) {
-            this.debouncedRequestUpdate();
-          }
-
-          if (_options.verbose) console.log('update')
-
-          if (_options.context) {
-            this.dispatchEvent(new Event(`context-${propertyKey}`));
-          }
+        // FIXME delete legacy function
+        if (_options.onUpdate) {
+          this[_options.onUpdate + "_attempts"] = 0;
+          tryupdate.call(this, _options.onUpdate, value, old, !!_options.verbose);
         }
-
-        if (!this.connected) {
-          this._pendingOperations.push(operation)
-          return;
-        }
-
-        operation();
       },
     });
   };
@@ -356,9 +302,7 @@ async function tryupdate(this: any, update: string, value: any, old: any, verbos
   }
 
   let ans: number | undefined = 10;
-  if (this[update]) {
-    ans = await this[update](value, old);
-  }
+  if (this[update]) ans = await this[update](value, old);
 
   if (typeof ans === "number") {
     if (this[update + "_attempts"] < ans) {
@@ -380,7 +324,7 @@ function convertFromStringPrimitive(value: string | null) {
 
   return value;
 }
-function convertFromString(value: string | null, type: Function) {
+export function convertFromString(value: string | null, type: Function) {
   switch (type.name) {
     case "Boolean":
       if (value === null) return false;
@@ -404,22 +348,4 @@ function convertToString(value: any, type: Function) {
       return String(value);
   }
 }
-// function spreadAttributes(parentKey: string, object: Record<string, any>, callback: (name: string) => void) {
-//   console.log('spread object?', object)
-//   for (let key in object) {
-//     console.log('spead jey', key)
-//     let nextname = parentKey === "" ? key : `${parentKey}-${key}`;
-
-//     if (object[key] instanceof Array) {
-//       // like wtf.. 
-//       throw new Error("[LAZY] since I dont know yet what case this could be I will throw a error until I meet it and fix it then... your're welcome future Henry!");
-//     }
-//     else if (object[key] instanceof Object) {
-//       spreadAttributes(nextname, object[key], callback);
-//     }
-//     else {
-//       callback(nextname);
-//     }
-//   }
-// }
 

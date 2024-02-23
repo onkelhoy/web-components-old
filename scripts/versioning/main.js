@@ -1,34 +1,62 @@
 const path = require('path');
 const fs = require('fs');
-const { exec: execCallback } = require('child_process');
-const { promisify } = require('util');
-const exec = promisify(execCallback);
+const { spawn } = require('child_process');
 
-async function runNpmVersionPatch(cwd) {
-  try {
-    const { stdout } = await exec('npm version patch', {
-      cwd,
-      env: {
-        ...process.env,
+function updateVersion(name, cwd) {
+  if (VERSIONINGJSON[name]) {
+    return;
+  }
+  return new Promise((resolve) => {
+    const npmUpdate = spawn('npm', ['version', 'patch'], { cwd, env: { ...process.env } });
+
+    let stdoutData = '';
+    let stderrData = '';
+
+    npmUpdate.stdout.on('data', (data) => {
+      const str = data.toString();
+      const trimmed = str.trim();
+      stdoutData += trimmed;
+      if (trimmed !== "" && trimmed.startsWith("## [")) {
+        console.log(trimmed.replace("## ", ""));
       }
     });
 
-    console.log(stdout);
-  }
-  catch (error) {
-    // NOTE if node version changes this to different output we might want to update also.. a bit dirty
-    if (error.code !== 1) {
-      console.log(error);
-    }
-  }
+    npmUpdate.stderr.on('data', (data) => {
+      const trimmed = data.toString().trim();
+      if (trimmed !== "") {
+        stderrData += trimmed + "\n";
+      }
+    });
+
+    npmUpdate.on('close', (code) => {
+      if (code === 3) {
+        // if (!VERSIONINGJSON[name]) console.log(`## [${name}]: SKIPPED`)
+        saveVersioning(name);
+        // skipped
+      }
+      else if (code === 4) {
+        saveVersioning(name);
+      }
+      else {
+        console.log('[ERROR]\t', stderrData);
+      }
+      resolve();
+    });
+  });
+}
+
+function saveVersioning(name) {
+  VERSIONINGJSON[name] = true;
+  fs.writeFileSync(VERSIONINGPATH, JSON.stringify(VERSIONINGJSON));
 }
 
 // variabels 
-const ROOT_DIR = process.argv[2];
+const ROOTDIR = process.argv[2];
 const TARGET_PACKAGE = process.argv[3];
-const lockfilepath = path.join(ROOT_DIR, 'package-lock.json');
-const LOCKFILE = JSON.parse(fs.readFileSync(lockfilepath));
-const PACKAGE_DIR = path.join(ROOT_DIR, LOCKFILE.packages[`node_modules/${TARGET_PACKAGE}`].resolved);
+const VERSIONINGPATH = path.join(ROOTDIR, 'versioning.json');
+const VERSIONINGJSON = JSON.parse(fs.readFileSync(VERSIONINGPATH));
+const LOCKFILE = JSON.parse(fs.readFileSync(path.join(ROOTDIR, 'package-lock.json')));
+const PACKAGE_DIR = path.join(ROOTDIR, LOCKFILE.packages[`node_modules/${TARGET_PACKAGE}`].resolved);
 
 const targetpackage = JSON.parse(fs.readFileSync(path.join(PACKAGE_DIR, 'package.json')));
 
@@ -39,8 +67,17 @@ async function init() {
 
     try {
       let readme = fs.readFileSync(path.join(PACKAGE_DIR, 'README.md'), 'utf-8');
-      readme = readme.replace(/Version:.+\n/, `Version: ${VERSION}\n`);
-      fs.writeFileSync(path.join(PACKAGE_DIR, 'README.md'), readme, 'utf-8');
+      const oldversion = readme.match(/version:(.+)/i);
+      if (oldversion) {
+        if (VERSIONINGJSON.initiator === TARGET_PACKAGE) {
+          console.log(`[${TARGET_PACKAGE}]: ${oldversion[1]} -> ${VERSION}`)
+        }
+        else {
+          console.log(`## [${TARGET_PACKAGE}]: ${oldversion[1]} -> ${VERSION}`)
+        }
+        readme = readme.replace(oldversion[2], `Version: ${VERSION}\n`);
+        fs.writeFileSync(path.join(PACKAGE_DIR, 'README.md'), readme, 'utf-8');
+      }
     }
     catch (e) {
       console.log('[WARN] could not find README to update version');
@@ -54,7 +91,7 @@ async function init() {
             if (depname === TARGET_PACKAGE) {
               const package_info = LOCKFILE.packages[`node_modules/${LOCKFILE.packages[name]?.name}`];
               if (package_info) {
-                const component_path = path.join(ROOT_DIR, package_info.resolved);
+                const component_path = path.join(ROOTDIR, package_info.resolved);
                 const package_path = path.join(component_path, 'package.json');
                 const PACKAGE = JSON.parse(fs.readFileSync(package_path));
                 PACKAGE[deptype][TARGET_PACKAGE] = VERSION;
@@ -62,7 +99,7 @@ async function init() {
 
                 if (deptype === 'dependencies' && process.env.GLOBAL_PUBLISH !== "true") {
                   // need to now call npm version patch for this package 
-                  await runNpmVersionPatch(component_path);
+                  await updateVersion(LOCKFILE.packages[name]?.name, component_path);
                 }
               }
             }

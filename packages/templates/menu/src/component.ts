@@ -23,12 +23,12 @@ export class MenuProperties extends PopoverProperties {
   @property({
     rerender: false,
     attribute: 'menu-height',
-    set: function (this: Menu, value: string) {
-      this.style.setProperty('--menu-height', value);
-      return value;
+    after: function (this: MenuProperties) {
+      if (this.hasrendered) {
+        this.style.setProperty('--menu-height', this.menuheight);
+      }
     }
   }) menuheight: string = "15rem";
-  @property() revealby: Reveal = "click";
 }
 
 export class Menu extends MenuProperties {
@@ -39,6 +39,12 @@ export class Menu extends MenuProperties {
 
   public selected: Record<string, string> = {};
   public lastselected?: string;
+
+  constructor() {
+    super();
+
+    this.revealby = "click";
+  }
 
   // public function
   public select(value?: string) {

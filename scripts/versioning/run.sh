@@ -10,6 +10,10 @@ source $ROOTDIR/versioning.env
 
 TARGET_PACKAGE=@pap-it/$PACKAGENAME$NAME
 
+if [ "$TARGET_PACKAGE" == "$INITIATOR" ]; then 
+  echo "{\"initiator\": \"$INITIATOR\"}" > $ROOTDIR/versioning.json
+fi 
+
 # execute the runner that will extract dependencies and update their package.json
 node $SCRIPT_DIR/main.js $ROOTDIR $TARGET_PACKAGE
 
@@ -19,11 +23,12 @@ if [ "$GLOBAL_PUBLISH" != "true" ] && [ "$TARGET_PACKAGE" == "$INITIATOR" ]; the
 
   # cleanup 
   rm $ROOTDIR/versioning.env
+  rm $ROOTDIR/versioning.json
   
   # finally install it to affect lock file 
   npm install
   
-  rm -rf packages/*/*/node_modules
+  # rm -rf packages/*/*/node_modules
 
   echo "version-flud complete, initator: $INITIATOR"
 fi

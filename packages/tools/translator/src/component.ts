@@ -53,12 +53,15 @@ export class Translator extends Base {
   }
 
   attributeChangedCallback(name: string, oldValue: string | null, newValue: string | null) {
+    super.attributeChangedCallback(name, oldValue, newValue);
     if (this.dynamicAttributes.has(name)) {
       this.updateText();
     }
   }
 
   firstUpdate(): void {
+    super.firstUpdate();
+
     if (this.shadowRoot) {
       const span = this.shadowRoot.querySelector<HTMLSpanElement>('span.pap-translation-span');
       if (span) {
