@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source .env 
+source $ROOTDIR/scripts/utils/bash.sh
 if [ -f "$ROOTDIR/versioning.env" ]; then 
   source "$ROOTDIR/versioning.env"
 fi 
@@ -16,33 +17,24 @@ read -r name localversion <<< $(node -pe "let pkg=require('./package.json'); pkg
 if [ -z "$INITIATOR" ]; then
   echo "INITIATOR=\"$name\"" >> "$ROOTDIR/versioning.env"
   INITIATOR="$name"
+
+  npminfo=$(get_npm_version_data) 
+  if [ "$npminfo" != "__timeout__" ]; then 
+    echo "[NET] npm search success"
+    echo "$npminfo" >> "$ROOTDIR/versioning.env"
+    echo "NPMSEARCH=true" >> "$ROOTDIR/versioning.env"
+    source "$ROOTDIR/versioning.env"
+  fi 
+
+  # else network failure? - we can try let npm view try anyway and detct network failure
 fi 
 
-function onnetworkfailure() {
-  echo "[ERROR] network-failure"
+function append_remote_version () {
+  local remoteversion=$1
 
-  remoteversion=$REMOTEVERSION
-
-  # we want to source once again to check if another process didnt append the network failure already 
-  source "$ROOTDIR/versioning.env"
-
-  if [ -z "$NETWORK_FAILURE" ]; then 
-    echo "NETWORK_FAILURE=\"true\"" >> "$ROOTDIR/versioning.env"
-  fi 
-}
-
-function onnetworksuccess() {
-  echo "success $name $remoteversion"
   if [ -n $REMOTEVERSION ]; then
     # Variable exists, replace its value
-    # Check for OS and apply appropriate sed command
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-      # macOS requires an empty string argument after -i
-      sed -i '' "s/^REMOTEVERSION=.*/REMOTEVERSION=${remoteversion}/" "./.env"
-    else
-      # Linux
-      sed -i "s/^REMOTEVERSION=.*/REMOTEVERSION=${remoteversion}/" "./.env"
-    fi
+    safe_sed "s/^REMOTEVERSION=.*/REMOTEVERSION=${remoteversion}/" "./.env"
   else
     # Variable doesn't exist, append it to the file
     echo "REMOTEVERSION=${remoteversion}" >> "./.env"
@@ -55,35 +47,37 @@ if [ -z "$REMOTEVERSION" ]; then
   REMOTEVERSION=$localversion
 fi
 
-
 if [ -z "$NETWORK_FAILURE" ]; then 
-  tmpfile=$(mktemp) # Create a temporary file
-
-  # Start npm view in the background and redirect output to the temp file
-  npm view $name version > "$tmpfile" 2>&1 &
-  pid=$!
-
-  # Allow npm view to run for up to 3 seconds
-  sleep 3
-
-  # Check if the npm view process is still running
-  if kill -0 $pid 2>/dev/null; then
-    # Process is still running after 3 seconds, assume timeout and kill it
-    kill $pid 2>/dev/null
-    onnetworkfailure
+  env_var_name=$(echo "$name" | tr '@-/' '_')
+  # Check if the variable is set and not empty
+  if [ ! -z "${!env_var_name+x}" ]; then
+    # Variable is set, access its value
+    remoteversion="${!env_var_name}"
+    append_remote_version $remoteversion
   else
-    # Process is not running, read the output from the temp file
-    remoteversion=$(awk '/[0-9]+\.[0-9]+\.[0-9]+/{print $0; exit}' "$tmpfile")
+    # could not find the package name in the search (could also be a new package..)
+    remoteversion=$(get_network_data 10 "npm view $name version")
+    if [ "$remoteversion" == "__timeout__" ]; then 
+      if [ -n "$NPMSEARCH" ]; then 
+        # we have been able to do the global search 
+        # the likelyhood that this is just a new package is very high
+        remoteversion=$localversion
+      else 
+        # we have not been able to do a npm search, we can conclude a network failure 
+        remoteversion=$REMOTEVERSION
 
-    if [ -z "$remoteversion" ]; then
-      onnetworkfailure
-    else
-      onnetworksuccess
+        # we want to source once again to check if another process didnt append the network failure already 
+        source "$ROOTDIR/versioning.env"
+
+        if [ -z "$NETWORK_FAILURE" ]; then 
+          echo "NETWORK_FAILURE=\"true\"" >> "$ROOTDIR/versioning.env"
+        fi 
+      fi
+    else 
+      # we could fetch the view info 
+      append_remote_version $remoteversion
     fi
   fi
-
-  # Cleanup: Remove the temporary file
-  rm "$tmpfile"
 else 
   remoteversion=$REMOTEVERSION
 fi
@@ -92,9 +86,4 @@ if [ "$localversion" == "$remoteversion" ]; then
   exit 0
 fi
 
-if [ "$INITIATOR" == "$name" ]; then
-  rm "$ROOTDIR/versioning.env"
-  echo "version bump - skipped"
-fi
-
-exit 1
+exit 3

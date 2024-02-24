@@ -24,11 +24,39 @@ export class Icon extends Asset {
   private flag?: string;
 
   @property({ rerender: false }) container?: ContainerTypes;
-  @property({ onUpdate: "updateName", rerender: false }) name?: string;
-  @property({ onUpdate: "updateColor", rerender: false }) color?: string;
-  @property({ onUpdate: "updateSize", rerender: false }) size: Size = "medium";
-  @property({ onUpdate: "updateCustomSize", rerender: false, type: Number, attribute: "custom-size" }) customSize?: number;
-  @property({ onUpdate: "updateCountryFlag", rerender: false, attribute: 'country-flag' }) countryFlag?: string;
+  @property({
+    rerender: false,
+    after: function (this: Icon) {
+      this.updateName();
+    }
+  }) name?: string;
+  @property({
+    rerender: false,
+    after: function (this: Icon) {
+      if (this.color) this.style.color = this.color;
+    }
+  }) color?: string;
+  @property({
+    rerender: false,
+    after: function (this: Icon) {
+      this.style.removeProperty("--icon-custom-size");
+    }
+  }) size: Size = "medium";
+  @property({
+    rerender: false,
+    attribute: "custom-size",
+    type: Number,
+    after: function (this: Icon) {
+      if (this.customSize !== undefined) this.style.setProperty("--icon-custom-size", this.customSize + "px");
+    }
+  }) customSize?: number;
+  @property({
+    rerender: false,
+    attribute: 'country-flag',
+    after: function (this: Icon) {
+      this.updateCountryFlag();
+    }
+  }) countryFlag?: string;
 
   // class functions
   constructor() {
@@ -38,6 +66,7 @@ export class Icon extends Asset {
     this.assetBase = "/icons";
   }
   public firstUpdate() {
+    super.firstUpdate();
     if (this.flag) return;
     if (this.shadowRoot) {
       const element = this.shadowRoot.querySelector<SVGSVGElement>("svg");
@@ -96,15 +125,6 @@ export class Icon extends Asset {
       console.log('im hidden')
       this.setAttribute('data-hide-slot', 'false');
     }
-  }
-  private updateColor() {
-    if (this.color) this.style.color = this.color;
-  }
-  private updateSize() {
-    this.style.removeProperty("--icon-custom-size");
-  }
-  private updateCustomSize() {
-    if (this.customSize !== undefined) this.style.setProperty("--icon-custom-size", this.customSize + "px");
   }
   private updateCountryFlag() {
     try {

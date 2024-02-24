@@ -6,3 +6,7 @@ export type Config = ShadowRootInit & {
   nofocus?: boolean;
   noblur?: boolean;
 }
+export type PropertyConfig = {
+  propertyKey: string;
+  type: Function;
+}

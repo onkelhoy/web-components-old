@@ -3,7 +3,7 @@ import { debounce, html, property, query } from "@pap-it/system-utils";
 import { Base } from "@pap-it/system-base";
 
 import { style } from "./style";
-import { Reveal, Placement, Box, TBLR, OPPOSITE } from './types';
+import { Reveal, Placement, PlacementInfo, TBLR, OPPOSITE, ROTATED, Scores, PLACEMENTS, TBLRC } from './types';
 
 export class PopoverProperties extends Base {
   @property() revealby: Reveal = 'hover';
@@ -16,7 +16,15 @@ export class PopoverProperties extends Base {
     }
   }) placement: Placement = 'bottom-center';
   @property({ type: Boolean }) hideonoutsideclick: boolean = true;
-  @property({ type: Boolean }) open: boolean = false;
+  @property({ 
+    type: Boolean,
+    after: function (this: Popover) {
+      if (this.open)
+      {
+        this.reposition();
+      }
+    }
+  }) open: boolean = false;
 
   protected originalplacement!: Placement;
   protected internal: boolean = false;
@@ -83,91 +91,182 @@ export class Popover extends PopoverProperties {
     this.reposition();
   }
 
-  // private functions 
+  // private functions
   private reposition() {
+    console.log('reposiiton', this.placement);
     if (!this.open) return;
     if (!this.wrapperelement) return;
-
-    const before = this.originalplacement;
+    console.log('yes still')
 
     const box = this.targetelement.getBoundingClientRect();
-    const info: Box = {
-      y: box.y,
+    const info: PlacementInfo = {
       x: box.x,
+      y: box.y,
+      width: box.width,
+      height: box.height,
       w: this.wrapperelement.clientWidth,
       h: this.wrapperelement.clientHeight,
     };
 
-    if (this.checkpotential(info, this.originalplacement)) {
-      this.internal = true;
-      this.placement = this.originalplacement;
-    }
-    else {
-      const split = this.placement.split('-')[0] as TBLR;
-      const opposite = this.placement.replace(split, OPPOSITE[split]) as Placement;
 
-      if (this.checkpotential(info, opposite)) {
+    const omits = this.omits(info);
+    const scores: Scores = {};
+
+    const potentials = this.potentials();
+
+    for (let potential of potentials) {
+      const [left, right] = potential.split('-');
+
+      if (omits[left as TBLR]) {
+        scores[potential] = 0;
+        continue;
+      }
+
+      const [x, y] = this.pos(info, left as TBLR, right as TBLRC);
+      const iarea = this.area(x, y, info.w, info.h);
+      const area = info.w * info.h;
+
+      const score = iarea / area;
+      scores[potential] = score;
+      if (score === 1) {
         this.internal = true;
-        this.placement = opposite;
+        this.placement = potential;
+        console.log('score 1', potential)
+        return;
       }
     }
 
-    // if (this.placement.startsWith('top')) {
-    //   if ((info.y - info.h) < 0) {
-    //     this.placement = this.placement.replace('top', 'bottom') as Placement;
-    //   }
-    // }
-    // else if (this.placement.startsWith('bottom')) {
-    //   if ((info.y + info.h) > window.innerHeight) {
-    //     this.placement = this.placement.replace('bottom', 'top') as Placement;
-    //   }
-    // }
-    // else if (info.y > window.innerHeight)
-    // {
+    let maxcase = {
+      name: this.originalplacement,
+      score: 0,
+    };
+    for (let potential in scores) {
+      const score = scores[potential as Placement] as number;
 
-    // }
+      if (score > maxcase.score) {
+        maxcase.score = score;
+        maxcase.name = potential as Placement;
+      }
+    }
 
-    // we check original position first 
-    // if (this.placement !== this.originalplacement && this.checkpotential(this.originalplacement)) {
-    //   this.originalplacement = this.placement;
-    // }
-    // else {
-    //   // first check opposite case
-    //   console.log('opposite case')
-    //   this.checkpotential(this.placement);
-
-    //   // then we flip ? 
-    //   console.log('flip case')
-    // }
-
-    if (before !== this.originalplacement) {
-      console.log('reposition');
-      this.requestUpdate();
+    if (maxcase.score !== 0) {
+      this.internal = true;
+      this.placement = maxcase.name;
     }
   }
-  private checkpotential(box: Box, pos: Placement): boolean {
-    if (pos.startsWith('top')) {
-      if ((box.y - box.h) < 0) {
-        return false;
+
+  private pos(info: PlacementInfo, left: TBLR, right: TBLRC): number[] {
+    let x = 0, y = 0;
+    if (["left", "right"].includes(left)) {
+      // fix the left case (x)
+      if (left === "left") {
+        x = info.x - info.w;
+      }
+      else if (left === "right") {
+        x = info.x + info.width;
+      }
+
+      // fix the right case (y)
+      if (right === "top") {
+        y = info.y;
+      }
+      else if (right === "center") {
+        y = info.y + info.height / 2 - info.h / 2;
+      }
+      else if (right === "bottom") {
+        y = info.y + info.height - info.h;
       }
     }
-    if (pos.startsWith('bottom')) {
-      if ((box.y + box.h) > window.innerHeight) {
-        return false;
+    else {
+      // fix the left case (x)
+      if (left === "top") {
+        y = info.y - info.h;
       }
-    }
-    if (pos.startsWith('left')) {
-      if ((box.x - box.w) < 0) {
-        return false;
+      else if (left === "bottom") {
+        y = info.y + info.height;
       }
-    }
-    if (pos.startsWith('right')) {
-      if ((box.x + box.w) > window.innerWidth) {
-        return false;
+
+      // fix the right case (y)
+      if (right === "left") {
+        x = info.x;
+      }
+      else if (right === "center") {
+        x = info.x + info.width / 2 - info.w / 2;
+      }
+      else if (right === "right") {
+        x = info.x + info.width - info.w;
       }
     }
 
-    return true;
+    return [x, y];
+  }
+  private omits(info: PlacementInfo): Record<TBLR, boolean> {
+    const omits = {
+      top: false,
+      bottom: false,
+      left: false,
+      right: false,
+    };
+    if (info.y - info.h < 0) {
+      // we can omit all top cases
+      omits.top = true;
+    }
+    if (info.y + info.height + info.h > window.innerHeight) {
+      // we can omit all bottom cases
+      omits.bottom = true;
+    }
+    if (info.x - info.w < 0) {
+      // we can omit all left cases
+      omits.left = true;
+    }
+    if (info.x + info.width + info.w > window.innerWidth) {
+      // we can omit all right cases
+      omits.right = true;
+    }
+
+    return omits;
+  }
+  private potentials(): Placement[] {
+    const [left, right] = this.originalplacement.split('-');
+
+    const potentials = this.potentialrightspread(left, right)
+      .concat(this.potentialrightspread(OPPOSITE[left as TBLR], right))
+      .concat(this.potentialrightspread(ROTATED[left as TBLR], OPPOSITE[right as TBLRC]))
+      .concat(this.potentialrightspread(OPPOSITE[ROTATED[left as TBLR]], OPPOSITE[right as TBLRC]));
+
+    return potentials;
+  }
+  // it just maps the right to either top,center,bottom or left,center,right
+  private potentialrightspread(a: string, b: string) {
+    const casea = ROTATED[a as TBLR];
+    const caseb = OPPOSITE[casea];
+
+    const first = `${a}-${casea}`;
+    const center = `${a}-center`;
+    const last = `${a}-${caseb}`;
+
+    if (b === "center") {
+      return [center, first, last] as Placement[];
+    }
+
+    if (["right", "bottom"].includes(b)) {
+      return [last, center, first] as Placement[];
+    }
+
+    return [first, center, last] as Placement[];
+  }
+
+  private area(x: number, y: number, w: number, h: number) {
+    // Calculate the (x, y) coordinates of the intersection rectangle
+    const L = Math.max(x, 0);
+    const R = Math.min(x + w, window.innerWidth);
+    const T = Math.max(y, 0);
+    const B = Math.min(y + h, window.innerHeight);
+
+    if (R >= L && B >= T) {
+      return (R - L) * (B - T);
+    }
+    return 0;
   }
 
   // public functions
@@ -175,7 +274,6 @@ export class Popover extends PopoverProperties {
     if (!this.open) {
       this.dispatchEvent(new Event('show'));
       this.open = true;
-      this.reposition();
     }
   }
   public hide() {
@@ -187,9 +285,9 @@ export class Popover extends PopoverProperties {
 
   render() {
     return html`
-      <div 
+      <div
         part="target"
-        @mousedown="${this.handlemousedown}"
+        @click="${this.handlemousedown}"
       >
         <slot name="target"></slot>
       </div>

@@ -30,16 +30,18 @@ export class Aside extends Box {
   @property({
     rerender: false,
     after: function (this: Aside) {
-      if (this.width) {
-        let value = this.width;
-        // check for number -> then we treat as pixel
-        if (!Number.isNaN(Number(value))) {
-          value += "px";
+      if (this.hasrendered) {
+        if (this.width) {
+          let value = this.width;
+          // check for number -> then we treat as pixel
+          if (!Number.isNaN(Number(value))) {
+            value += "px";
+          }
+          this.style.setProperty('--aside-width', value);
         }
-        this.style.setProperty('--aside-width', value);
-      }
-      else {
-        this.style.removeProperty('--aside-width');
+        else {
+          this.style.removeProperty('--aside-width');
+        }
       }
     }
   }) width?: string;

@@ -1,6 +1,6 @@
-import { NextParent, property, debounce } from "@pap-it/system-utils";
+import { NextParent, property, debounce, convertFromString } from "@pap-it/system-utils";
 
-import { Config, FunctionCallback, RenderType } from "./types";
+import { Config, FunctionCallback, RenderType, PropertyConfig } from "./types";
 
 // NOTE should this be there?
 // export interface Base extends HTMLElement { }
@@ -8,15 +8,18 @@ import { Config, FunctionCallback, RenderType } from "./types";
 export class Base extends HTMLElement {
   public static style?: string;
   public static styles?: string[];
+  public static __propertyOptions: Record<string, PropertyConfig> = {};
 
   protected callAfterUpdate: (Function | FunctionCallback)[] = [];
   protected render_mode: 'greedy' | 'smart' = 'smart';
   protected render_style_mode: 'lazy' | 'smart' = 'lazy';
+  protected hasrendered = false;
+  protected attributeinit = false;
 
-  private attributeObserver!: MutationObserver;
-  private _pendingOperations: Function[] = [];
   private templateComperator!: HTMLTemplateElement;
   private styleComperator!: HTMLStyleElement;
+  private delayedAttributes: Record<string, string> = {};
+
   public connected: boolean = false;
   public originalHTML: string = "";
   @property({ rerender: false, type: Boolean }) hasFocus: boolean = false;
@@ -35,37 +38,39 @@ export class Base extends HTMLElement {
 
     this.debouncedRequestUpdate = debounce(this.requestUpdate, 100);
     this.attachShadow({ mode: 'open', ...(config ? config : {} as ShadowRootInit) });
+
+    // TODO should implement the function that calls then if fails calls later too
+    this.updateAttribute = debounce(this.updateAttribute, 10);
     this.callAfterUpdate.push(this.firstUpdate);
   }
   connectedCallback() {
-    this.connected = true;
+    this.attributeinit = false;
     this.debouncedRequestUpdate();
-    // Create an observer instance linked to a callback function
-    this.attributeObserver = new MutationObserver((mutationsList, observer) => {
-      // Look through all mutations that just occured
-      for (let mutation of mutationsList) {
-        // If the attribute modified is one we are tracking
-        if (mutation.type === 'attributes' && mutation.attributeName) {
-          this.attributeChangedCallback(mutation.attributeName, mutation.oldValue, this.getAttribute(mutation.attributeName))
-        }
-      }
-    });
-
-    // Start observing the node with configured parameters
-    // attributes: true indicates we want to observe attribute changes
-    this.attributeObserver.observe(this, { attributes: true });
-
-    this._pendingOperations.forEach(o => o());
-    this._pendingOperations = [];
+    this.connected = true;
     this.dispatchEvent(new Event('connected'));
   }
   disconnectedCallback() {
     this.connected = false;
-    this.attributeObserver.disconnect();
     this.dispatchEvent(new Event('disconnected'));
   }
   attributeChangedCallback(name: string, oldValue: string | null, newValue: string | null) {
+    if (oldValue === newValue) return;
+
     // implement something
+    if (!this.delayedAttributes[name]) {
+      if (Base.__propertyOptions[name]) {
+        (this as any)[name + "internal"] = true;
+        this[Base.__propertyOptions[name].propertyKey as keyof this] = convertFromString(newValue, Base.__propertyOptions[name].type);
+      }
+    }
+    else {
+      delete this.delayedAttributes[name];
+      this[Base.__propertyOptions[name].propertyKey as keyof this] = convertFromString(newValue, Base.__propertyOptions[name].type);
+    }
+  }
+  public firstUpdate() {
+    this.hasrendered = true;
+    this.updateAttribute();
   }
 
   // event handlers
@@ -146,13 +151,43 @@ export class Base extends HTMLElement {
   }
 
   public debouncedRequestUpdate() { }
-  public firstUpdate() { }
 
   public render(config?: any): RenderType {
     return 'Hello From Base Class'
   }
 
   // helper functions 
+  private initAttributes() {
+    if (this.attributeinit) return
+
+    this.attributeinit = true;
+    // we need to check if we have any initial values ?
+    const a = this.attributes;
+    for (let i = 0; i < a.length; i++) {
+      const name = a[i].name;
+      if (Base.__propertyOptions[name]) {
+        let value = a[i].value;
+        if (value === "") value = "true";
+
+        this[Base.__propertyOptions[name].propertyKey as keyof this] = convertFromString(value, Base.__propertyOptions[name].type);
+      }
+    }
+  }
+  private updateAttribute() {
+    if (this.hasrendered) {
+      // we call this each time but it will probably just cancel anyway..
+      this.initAttributes();
+
+      for (let name in this.delayedAttributes) {
+        const value = this.delayedAttributes[name];
+        if (value === undefined) this.removeAttribute(name);
+        else {
+          this.setAttribute(name, value);
+        }
+      }
+
+    }
+  }
   private flushHTML(node: Element | ShadowRoot) {
     node.childNodes.forEach(child => {
       if (child.nodeName !== "STYLE") {
@@ -203,6 +238,7 @@ export class Base extends HTMLElement {
   }
   private renderHTML(content: RenderType) {
     if (!this.shadowRoot) return;
+    this.hasrendered = true;
 
     // flush the html
     while (this.templateComperator.firstChild) {

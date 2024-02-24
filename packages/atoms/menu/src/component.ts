@@ -20,8 +20,8 @@ export class Menu extends TemplateMenu {
   @property() buttonColor: ButtonColorVariant = "secondary";
   @property() buttonRadius: Radius = "medium";
 
-  constructor() {
-    super();
+  connectedCallback() {
+    super.connectedCallback();
 
     this.multiple = false;
   }

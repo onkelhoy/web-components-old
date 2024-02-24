@@ -61,5 +61,6 @@ unset NODE_AUTH_TOKEN
 
 # cleanup
 rm versioning.env
+rm versioning.json
 
 echo "packages built"
