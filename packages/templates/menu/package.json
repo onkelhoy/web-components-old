@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/templates-menu",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -45,13 +45,13 @@
     "@pap-it/system-base": "1.0.9",
     "@pap-it/system-utils": "1.0.9",
     "@pap-it/templates-box": "1.0.9",
-    "@pap-it/templates-popover": "1.0.9",
+    "@pap-it/templates-popover": "1.0.10",
     "@pap-it/templates-prefix-suffix": "1.0.9",
     "@pap-it/tools-translator": "1.0.9",
     "@pap-it/typography": "1.0.9"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.13",
+    "@pap-it/system-doc": "1.0.14",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",

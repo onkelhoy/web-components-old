@@ -2,7 +2,8 @@
 
 Atomic Type: templates
 
-Version: 1.0.8
+Version:Version: 1.0.10
+
 
 ## Development
 

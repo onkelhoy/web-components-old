@@ -17,7 +17,12 @@ function updateVersion(name, cwd) {
       const trimmed = str.trim();
       stdoutData += trimmed;
       if (trimmed !== "" && trimmed.startsWith("## [")) {
-        console.log(trimmed.replace("## ", ""));
+        if (VERSIONINGJSON.initiator === TARGET_PACKAGE) {
+          console.log(trimmed.replace("## ", ""));
+        }
+        else {
+          console.log(trimmed);
+        }
       }
     });
 
@@ -75,7 +80,7 @@ async function init() {
         else {
           console.log(`## [${TARGET_PACKAGE}]: ${oldversion[1]} -> ${VERSION}`)
         }
-        readme = readme.replace(oldversion[2], `Version: ${VERSION}\n`);
+        readme = readme.replace(oldversion[1], `Version: ${VERSION}\n`);
         fs.writeFileSync(path.join(PACKAGE_DIR, 'README.md'), readme, 'utf-8');
       }
     }

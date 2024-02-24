@@ -46,7 +46,7 @@
     "@pap-it/templates-box": "1.0.9"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.13",
+    "@pap-it/system-doc": "1.0.14",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",

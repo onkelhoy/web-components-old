@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/pagination",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -44,7 +44,7 @@
     "@pap-it/button": "1.0.9",
     "@pap-it/divider": "1.0.9",
     "@pap-it/icon": "1.0.9",
-    "@pap-it/select": "0.0.10",
+    "@pap-it/select": "0.0.11",
     "@pap-it/system-base": "1.0.9",
     "@pap-it/system-utils": "1.0.9",
     "@pap-it/tools-translator": "1.0.9",
@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.23.3",
-    "@pap-it/system-doc": "1.0.13",
+    "@pap-it/system-doc": "1.0.14",
     "esbuild": "^0.17.18",
     "eslint": "^8.53.0",
     "node-html-parser": "^6.1.5",
