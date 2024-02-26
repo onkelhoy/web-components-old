@@ -5,10 +5,6 @@
 
   header {
 
-    pap-prefix-suffix-template::part(content) {
-      display: grid;
-    }
-
     div[part="header-tabs"] {
       position: relative;
       display: inline-flex;

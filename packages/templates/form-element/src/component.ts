@@ -109,7 +109,7 @@ export class FormElement extends Base {
     // do something 
   }
   protected debouncedchange() {
-    this.dispatchEvent(new Event('debounce-change'));
+    this.dispatchEvent(new Event('change'));
     this.validateElement();
   }
 }

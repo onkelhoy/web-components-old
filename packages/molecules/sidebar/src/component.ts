@@ -22,8 +22,17 @@ export class Sidebar extends Base {
   static style = style;
 
   @property({ rerender: false }) mode: Mode = "open";
-  @property({ onUpdate: "updateSelected" }) selected?: string;
+  @property({
+    after: function (this: Sidebar) {
+      const element = this.items.find(e => e.id === this.selected || e.text === this.selected);
+      if (element) {
+        this.internalclick = true;
+        element.click();
+      }
+    }
+  }) selected?: string;
   @property() unit: Devices = "desktop";
+  @property({ type: Boolean }) outsidehamburger: boolean = true;
 
   @query('pap-box-template') boxtemplateElement!: Box;
 
@@ -52,18 +61,6 @@ export class Sidebar extends Base {
   firstUpdate(): void {
     super.firstUpdate();
     this.handlewindowresize_debounced();
-  }
-
-  // update handlers
-  private updateSelected = () => {
-    const element = this.items.find(e => e.id === this.selected || e.text === this.selected);
-    if (element) {
-      this.internalclick = true;
-      element.click();
-    }
-    else {
-      return 10;
-    }
   }
 
   // event handlers
@@ -158,10 +155,11 @@ export class Sidebar extends Base {
 
   render() {
     return html`
-      <pap-button part="hamburger-outside" color="inverse" circle="true" @click="${this.handlehamburgerclick}">
+      ${this.outsidehamburger ? html`<pap-button key="hamburger-outside" part="hamburger-outside" color="inverse" circle="true" @click="${this.handlehamburgerclick}">
         <pap-icon size="small" name="hamburger"></pap-icon>
-      </pap-button>
-      <pap-box-template part="base" radius="medium">
+      </pap-button>` : ''}
+
+      <pap-box-template key="base" part="base" radius="medium">
         <header part="header">
           <pap-icon class="logo" style="width:124px" size="large" name="interzero-logo"></pap-icon>
           <pap-button part="hamburger-inside" color="secondary" circle="true" variant="clear" @click="${this.handlehamburgerclick}">

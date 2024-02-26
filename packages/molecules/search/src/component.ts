@@ -28,7 +28,7 @@ export class Search extends Translator {
   }
 
   // event handlers 
-  private handleinput = (e: Event) => {
+  private handlechange = (e: Event) => {
     this.dispatchEvent(new Event("change"));
   }
 
@@ -37,7 +37,7 @@ export class Search extends Translator {
       <pap-button @click="${this.toggle}" circle="true" variant="clear" color="secondary" slot="suffix">
         <pap-icon name="search" cache="true"></pap-icon>
       </pap-button>
-      <pap-input @debounced-input="${this.handleinput}" radius="medium" placeholder="${this.translateKey("Search...")}">
+      <pap-input @change="${this.handlechange}" radius="medium" placeholder="${this.translateKey("Search...")}">
         <pap-icon container="small" size="small" slot="prefix" name="search" cache="true"></pap-icon>
         <pap-button size="small" @click="${this.toggle}" circle="true" variant="clear" color="secondary" slot="suffix">
           <pap-icon size="small" name="close" cache="true"></pap-icon>

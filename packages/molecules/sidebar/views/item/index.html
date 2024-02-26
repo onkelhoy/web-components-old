@@ -1,73 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Component: Sidebar Item</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component: Sidebar Item</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
+  <script defer src="main.js"></script>
 </head>
+
 <body>
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-sidebar-item icon="tools" counter="40320002" text="Hello"></pap-sidebar-item>
-        </pap-codeblock>
-    </doc-card>
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-sidebar-item class="selected" icon="tools" counter="40320002" text="Hello"></pap-sidebar-item>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <pap-codeblock color="background" display="both">
+      <pap-sidebar-item icon="tools" text="Hello">
+        <pap-sidebar-item icon="tools" id="1" text="1"></pap-sidebar-item>
+        <pap-sidebar-item icon="tools" id="2" text="2"></pap-sidebar-item>
+        <pap-sidebar-item icon="tools" id="3" text="3">
+          <pap-sidebar-item icon="tools" id="3.1" text="3.1"></pap-sidebar-item>
+          <pap-sidebar-item icon="tools" id="3.2" text="3.2"></pap-sidebar-item>
+        </pap-sidebar-item>
+      </pap-sidebar-item>
+    </pap-codeblock>
+  </doc-card>
+  <!--   
+  <doc-card>
+    <pap-codeblock color="background" display="both">
+      <pap-sidebar-item icon="home.unselected" icon_selected="home.selected" counter="40320002"
+        text="Hello"></pap-sidebar-item>
+    </pap-codeblock>
+  </doc-card>
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-sidebar-item class="selected" icon="tools" counter="40320002" text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo beatae nam soluta nesciunt, omnis natus, ipsum modi eius magnam voluptatem quasi enim adipisci corporis, ad totam recusandae quos esse vel!"></pap-sidebar-item>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <pap-codeblock color="background" display="both">
+      <pap-sidebar-item class="selected" icon="tools" counter="40320002" text="Hello"></pap-sidebar-item>
+    </pap-codeblock>
+  </doc-card>
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-sidebar-item icon="tools" counter="40320002" text="Hello">
-                <pap-sidebar-item icon="tools" id="1" text="sub-item"></pap-sidebar-item>
-                <pap-sidebar-item icon="tools" id="2" text="sub-item"></pap-sidebar-item>
-                <pap-sidebar-item icon="tools" id="3" text="sub-item">
-                    <pap-sidebar-item icon="tools" id="3.1" text="sub-sub-item"></pap-sidebar-item>
-                    <pap-sidebar-item icon="tools" id="3.2" text="sub-sub-item">
-                        <pap-sidebar-item icon="tools" id="3.2.1" text="sub-sub-item"></pap-sidebar-item>
-                        <pap-sidebar-item icon="tools" id="3.2.2" text="sub-sub-item"></pap-sidebar-item>
-                        <pap-sidebar-item icon="tools" id="3.2.3" text="sub-sub-item"></pap-sidebar-item>
-                    </pap-sidebar-item>
-                </pap-sidebar-item>
+  <doc-card>
+    <pap-codeblock color="background" display="both">
+      <pap-sidebar-item class="selected" icon="tools" counter="40320002"
+        text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo beatae nam soluta nesciunt, omnis natus, ipsum modi eius magnam voluptatem quasi enim adipisci corporis, ad totam recusandae quos esse vel!"></pap-sidebar-item>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-codeblock color="background" display="both">
+      <pap-sidebar-item icon="tools" counter="40320002" text="Hello"></pap-sidebar-item>
+      <pap-sidebar-item icon="tools" counter="40320002" text="Hello"></pap-sidebar-item>
+      <pap-sidebar-item icon="tools" counter="40320002" text="Hello">
+        <pap-sidebar-item icon="tools" id="1" text="1"></pap-sidebar-item>
+        <pap-sidebar-item icon="tools" id="2" text="2"></pap-sidebar-item>
+        <pap-sidebar-item icon="tools" id="3" text="3">
+          <pap-sidebar-item icon="tools" id="3.1" text="3.1"></pap-sidebar-item>
+          <pap-sidebar-item icon="tools" id="3.2" text="3.2">
+            <pap-sidebar-item icon="tools" id="3.2.1" text="3.2.1"></pap-sidebar-item>
+            <pap-sidebar-item icon="tools" id="3.2.2" text="3.2.2"></pap-sidebar-item>
+            <pap-sidebar-item icon="tools" id="3.2.3" text="3.2.3">
+              <pap-sidebar-item icon="tools" id="3.2.3.1" text="3.2.3.1"></pap-sidebar-item>
+              <pap-sidebar-item icon="tools" id="3.2.3.2" text="3.2.3.2"></pap-sidebar-item>
+              <pap-sidebar-item icon="tools" id="3.2.3.3" text="3.2.3.3"></pap-sidebar-item>
             </pap-sidebar-item>
-        </pap-codeblock>
-    </doc-card>
+          </pap-sidebar-item>
+        </pap-sidebar-item>
+      </pap-sidebar-item>
+    </pap-codeblock>
+  </doc-card>
 
-    <doc-card>
-        <h1 slot="header">Static items</h1>
-        <pap-codeblock display="both">
-            <pap-sidebar-item icon="tools" static text="Attribute" onclick="console.log('attribute clicked')"></pap-sidebar-item>
-            <pap-sidebar-item icon="tools" static text="EventListener" id="click-target"></pap-sidebar-item>
-        </pap-codeblock>
-    </doc-card>
-    
-    <doc-card>
-        <h1 slot="header">Counter and Indicator</h1>
-        <pap-codeblock display="both">
-            <pap-sidebar-item icon="tools" text="Normal"></pap-sidebar-item>
-            <pap-sidebar-item icon="tools" text="With counter" counter="123"></pap-sidebar-item>
-            <pap-sidebar-item icon="tools" text="With counter" counter="1234"></pap-sidebar-item>
-            <pap-sidebar-item icon="tools" text="With counter" counter="12345"></pap-sidebar-item>
-            <pap-sidebar-item icon="tools" text="With indicator" indicator></pap-sidebar-item>
-            <pap-sidebar-item icon="tools" text="With indicator" indicator counter="123"></pap-sidebar-item>
-            <pap-sidebar-item icon="tools" text="With indicator + counter" indicator counter="12345"></pap-sidebar-item>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <h1 slot="header">Static items</h1>
+    <pap-codeblock color="background" display="both">
+      <pap-sidebar-item icon="tools" static text="Attribute"
+        onclick="console.log('attribute clicked')"></pap-sidebar-item>
+      <pap-sidebar-item icon="tools" static text="EventListener" id="click-target"></pap-sidebar-item>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <h1 slot="header">Counter and Indicator</h1>
+    <pap-codeblock color="background" display="both">
+      <pap-sidebar-item icon="tools" text="Normal"></pap-sidebar-item>
+      <pap-sidebar-item icon="tools" text="With counter" counter="123"></pap-sidebar-item>
+      <pap-sidebar-item icon="tools" text="With counter" counter="1234"></pap-sidebar-item>
+      <pap-sidebar-item icon="tools" text="With counter" counter="12345"></pap-sidebar-item>
+      <pap-sidebar-item icon="tools" text="With indicator" indicator></pap-sidebar-item>
+      <pap-sidebar-item icon="tools" text="With indicator" indicator counter="123"></pap-sidebar-item>
+      <pap-sidebar-item icon="tools" text="With indicator + counter" indicator counter="12345"></pap-sidebar-item>
+    </pap-codeblock>
+  </doc-card> -->
 </body>
+
 </html>

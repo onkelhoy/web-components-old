@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Badge demo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Badge demo</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
+  <script defer src="main.js"></script>
 </head>
+
 <body>
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-badge></pap-badge>
-        </pap-codeblock>
-    </doc-card>
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-badge count="4000000"></pap-badge>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Normal</pap-typography>
+    <pap-typography>Empty</pap-typography>
+    <pap-codeblock display="both">
+      <pap-badge></pap-badge>
+    </pap-codeblock>
+
+    <pap-typography>Text</pap-typography>
+    <pap-codeblock display="both">
+      <pap-badge>Hello</pap-badge>
+    </pap-codeblock>
+
+    <pap-typography>Count</pap-typography>
+    <pap-codeblock display="both">
+      <pap-badge count="4000000"></pap-badge>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Size</pap-typography>
+    <pap-codeblock display="both">
+      <pap-badge size="small">Hello</pap-badge>
+      <pap-badge size="medium">Hello</pap-badge>
+      <pap-badge size="large">Hello</pap-badge>
+    </pap-codeblock>
+  </doc-card>
 </body>
+
 </html>
