@@ -97,7 +97,7 @@ export class Select extends Field {
     if (e.detail) {
       this.value = e.detail.value;
       this.text = e.detail.text;
-      this.dispatchEvent(new Event('change'));
+      // this.dispatchEvent(new Event('change'));
     }
     // else {
     //   text select ?

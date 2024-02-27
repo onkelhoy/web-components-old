@@ -4,6 +4,7 @@
   gap: var(--gap-small, 8px);
 
   span[part="content"] {
+    display: inline-grid;
     flex-grow: 1;
     flex-wrap: wrap;
   }

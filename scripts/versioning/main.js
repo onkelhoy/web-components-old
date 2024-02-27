@@ -72,15 +72,16 @@ async function init() {
 
     try {
       let readme = fs.readFileSync(path.join(PACKAGE_DIR, 'README.md'), 'utf-8');
-      const oldversion = readme.match(/version:(.+)/i);
+      let oldversion = readme.match(/version:(.+)/i);
       if (oldversion) {
+        oldversion = oldversion[1].replace('Version:', '').trim();
         if (VERSIONINGJSON.initiator === TARGET_PACKAGE) {
-          console.log(`[${TARGET_PACKAGE}]: ${oldversion[1]} -> ${VERSION}`)
+          console.log(`[${TARGET_PACKAGE}]: ${oldversion} -> ${VERSION}`)
         }
         else {
-          console.log(`## [${TARGET_PACKAGE}]: ${oldversion[1]} -> ${VERSION}`)
+          console.log(`## [${TARGET_PACKAGE}]: ${oldversion} -> ${VERSION}`)
         }
-        readme = readme.replace(oldversion[1], `Version: ${VERSION}\n`);
+        readme = readme.replace(oldversion, `Version: ${VERSION}\n`);
         fs.writeFileSync(path.join(PACKAGE_DIR, 'README.md'), readme, 'utf-8');
       }
     }

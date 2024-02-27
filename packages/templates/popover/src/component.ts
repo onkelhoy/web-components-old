@@ -18,10 +18,17 @@ export class PopoverProperties extends Base {
   @property({ type: Boolean }) hideonoutsideclick: boolean = true;
   @property({
     type: Boolean,
-    after: function (this: Popover) {
-      if (this.open) {
+    rerender: false,
+    before: function (this: Popover, value: boolean) {
+      if (value) {
         this.reposition();
       }
+    },
+    after: function (this: Popover) {
+      if (!this.internal) {
+        this.debouncedRequestUpdate();
+      }
+      this.internal = false;
     }
   }) open: boolean = false;
 
@@ -93,10 +100,8 @@ export class Popover extends PopoverProperties {
 
   // private functions
   protected override reposition() {
-    console.log('reposiiton', this.placement);
     if (!this.open) return;
     if (!this.wrapperelement) return;
-    console.log('yes still')
 
     const box = this.targetelement.getBoundingClientRect();
     const info: PlacementInfo = {

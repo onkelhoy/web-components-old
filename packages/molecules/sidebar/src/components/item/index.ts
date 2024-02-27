@@ -1,9 +1,8 @@
 // utils 
-import { ExtractSlotValue, FormatNumber, html, property, query } from "@pap-it/system-utils";
+import { html, property } from "@pap-it/system-utils";
 import "@pap-it/tools-translator/wc";
 
 // atoms 
-import { Accordion } from "@pap-it/accordion";
 import "@pap-it/button/wc";
 import "@pap-it/icon/wc";
 import "@pap-it/divider/wc";
@@ -24,28 +23,19 @@ export class Item extends Base {
 
   @property() icon?: string;
   @property() icon_selected?: string;
-  @property() text: string = "";
+  @property({
+    after: function (this: Item, old: string) {
+      console.log('text update', { now: this.text, old: old || null });
+    }
+  }) text: string = "";
   @property({ type: Number }) counter?: number;
   @property({ type: Boolean }) isparent: boolean = false;
   @property({ type: Boolean }) indicator: boolean = false;
   @property({ type: Boolean }) static: boolean = false;
-  @property({ rerender: false, type: Boolean, onUpdate: "onaccordionopenupdate" }) open: boolean = true;
-
-  // elements 
-  @query('pap-accordion') accordionElement!: Accordion;
+  @property({ type: Boolean }) open: boolean = true;
 
   private subitems: Array<Item> = [];
   private currentsubitemselected = 0;
-
-  // on updates
-  public onaccordionopenupdate = () => {
-    if (this.accordionElement) {
-      this.accordionElement.open = this.open;
-    }
-    else {
-      return 10;
-    }
-  }
 
   // public functions
   public deselect() {
@@ -65,12 +55,13 @@ export class Item extends Base {
             }
 
             element.setAttribute('subitem-index', this.subitems.length.toString());
+            element.setAttribute('key', this.subitems.length.toString());
             this.subitems.push(element);
             element.addEventListener('reached-max', this.handlereachedmax);
             element.addEventListener('child-select', this.hanlechildselect);
 
-            const depthlevel = Number(this.getAttribute('sidebar-subitem') || 0);
-            element.style.setProperty("--padding-left", `calc(${depthlevel} * var(--gap-small, 8px))`);
+            const depthlevel = Number(this.getAttribute('sidebar-subitem') || -1) + 1;
+            element.style.setProperty("--padding-left", `calc(${depthlevel} * var(--gap-large, 24px))`);
             element.setAttribute('sidebar-subitem', depthlevel.toString());
           }
         }
@@ -142,32 +133,36 @@ export class Item extends Base {
     const icon = this.icon || "";
     const icon_selected = this.icon_selected || icon;
 
+    // indicator, size=11 -> 8 + 1.5 + 1.5 (stroke-width)
     return html`
       <div>
         <pap-button 
+          @click="${this.click}" 
           variant="clear" 
           color="secondary" 
           part="button" 
-          @click="${this.click}" 
           mode="fill" 
+          key="button"
           textVariant="B1"
           size="${this.isparent ? "small" : "medium"}"
           radius="circular"
-          class="${this.className}"
+          class="content-flex-start ${this.className}"
         >
-          <span class="indicator" slot="prefix"></span>
-          <span class="caret" slot="prefix"><pap-icon customsize="10" name="caret"></pap-icon></span>
-
-          <span class="group">
-            ${icon ? html`<pap-icon size="small" class="unselected" name="${icon}">${fallback}</pap-icon>` : ''}
-            ${icon_selected ? html`<pap-icon size="small" class="selected" name="${icon_selected}">${fallback}</pap-icon>` : ''}
-            <pap-typography truncate="true" variant="${this.isparent ? "C4" : "C3"}">${this.text}</pap-typography>
+          <span slot="prefix">
+            ${this.indicator ? '<pap-icon key="indicator" custom-size="11" container="small" cache="true" name="indicator"></pap-icon>' : ''}
+            ${this.isparent ? '<pap-icon key="caret" custom-size="12" container="small" cache="true" name="caret"></pap-icon>' : ''}
           </span>
+
+          ${icon ? html`<pap-icon key="unselected" container="smaller" size="small" class="unselected" name="${icon}">${fallback}</pap-icon>` : ''}
+          ${icon_selected ? html`<pap-icon key="selected" container="smaller" size="small" class="selected" name="${icon_selected}">${fallback}</pap-icon>` : ''}
+          
+          <pap-typography key="text" truncate="true" variant="${this.isparent ? "C4" : "C3"}">${this.text}</pap-typography>
+
           ${this.counter !== undefined ? html`<pap-badge mode="inactive" slot="suffix" count="${this.counter}"></pap-badge>` : ''}
         </pap-button>
-        ${this.isparent ? '<pap-divider></pap-divider>' : ''}
+        ${this.isparent ? '<pap-divider key="divider"></pap-divider>' : ''}
       </div>
-      <pap-accordion class="sub">
+      <pap-accordion open="${this.open}" class="sub">
         <slot @slotchange="${this.handleslotchange}"></slot>
       </pap-accordion>
     `

@@ -23,10 +23,22 @@
       display: inline-flex;
       justify-content: center;
       align-items: center;
+      gap: var(--button-content-gap, var(--gap-small, 8px));
     }
   }
 
   transition: background-color ease-in 80ms;
+}
+
+:host(.content-flex-start) {
+  pap-prefix-suffix-template {
+    flex: 1;
+
+    &::part(content) {
+      justify-content: flex-start;
+      overflow-x: auto;
+    }
+  }
 }
 
 :host([variant="outlined"]:is(:active)),

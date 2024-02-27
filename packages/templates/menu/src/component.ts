@@ -126,10 +126,12 @@ export class Menu extends MenuProperties {
   private handleshow = () => {
     this.open = true;
     this.dispatchEvent(new Event('show'));
+    this.internal = true;
   }
   private handlehide = () => {
     this.open = false;
     this.dispatchEvent(new Event('hide'));
+    this.internal = true;
   }
 
   override render(buttonelement?: RenderType) {

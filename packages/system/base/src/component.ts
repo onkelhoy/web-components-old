@@ -248,10 +248,13 @@ export class Base extends HTMLElement {
     this.templateComperator.appendChild(this.styleComperator);
 
     // NOTE we render to template first
-    // and then we clone, which results in loss of event stuff
+    // and then we clone, which results in loss of event stuff (this)
     this.renderContent(content, this.templateComperator);
+
     // TODO figure out the reason why we clone, there was a very strong reason but I dont remember..
+    // akward but it was the previous mentioned comment no? (that)
     const clone = this.templateComperator.cloneNode(true) as HTMLTemplateElement;
+    if (this.tagName === "PAP-SIDEBAR-ITEM") console.log(clone.outerHTML, clone.innerHTML);
 
     clone.querySelectorAll('*:not(style)').forEach(node => {
       const path = this.getComposedPath(clone, node);
@@ -411,8 +414,11 @@ export class Base extends HTMLElement {
     const selector = [node.tagName];
 
     if (node.id) selector.push("#" + node.id);
-    if (node.className) selector.push("." + node.className.replace(/ /g, "."));
-    if (node.hasAttribute("key")) selector.push(`[key="${node.getAttribute("key")}"]`);
+    else if (node.hasAttribute("key")) selector.push(`[key="${node.getAttribute("key")}"]`);
+    else if (node.hasAttribute("part")) selector.push(`[part="${node.getAttribute("part")}"]`);
+    else if (node.className) selector.push("." + node.className.trim().replace(/ /g, "."));
+
+    // NOTE there's a big problem with class selection when a class can dynamically arrive.. 
 
     if (selector.length === 1) {
       // need to get child index then ! 

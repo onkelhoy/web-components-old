@@ -27,9 +27,8 @@ export class Tabs extends Base {
 
   @property({
     rerender: false,
-    set: function (this: Tabs, value: string) {
-
-      return value;
+    after: function (this: Tabs) {
+      console.log('selected', this.selected);
     }
   }) selected?: string;
   @property({ type: Boolean }) indicator: boolean = true;

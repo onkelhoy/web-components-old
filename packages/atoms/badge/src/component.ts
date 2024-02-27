@@ -1,5 +1,5 @@
 // utils 
-import { html, property, FormatNumber } from "@pap-it/system-utils";
+import { html, property, FormatNumber, Size } from "@pap-it/system-utils";
 
 // atoms
 import "@pap-it/typography/wc"
@@ -15,13 +15,14 @@ export class Badge extends Base {
   static style = style;
 
   @property({ type: Number }) count: number = 0;
+  @property({ rerender: false }) size: Size = "medium";
 
   render() {
     return html`
-            <pap-box-template part="box" radius="circular">
-                <pap-typography variant="C4"><slot>${FormatNumber(this.count)}</slot></pap-typography>
-            </pap-box-template>
-        `
+      <pap-box-template part="box" radius="circular">
+        <pap-typography variant="C4"><slot>${FormatNumber(this.count)}</slot></pap-typography>
+      </pap-box-template>
+    `
   }
 }
 
