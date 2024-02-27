@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/form",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -41,22 +41,22 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/accordion": "1.0.9",
-    "@pap-it/icon": "1.0.9",
-    "@pap-it/system-base": "1.0.9",
-    "@pap-it/templates-box": "1.0.9",
-    "@pap-it/tools-translator": "1.0.9",
-    "@pap-it/typography": "1.0.9",
-    "@pap-it/button": "1.0.9",
+    "@pap-it/accordion": "1.0.10",
+    "@pap-it/icon": "1.0.10",
+    "@pap-it/system-base": "1.0.10",
+    "@pap-it/templates-box": "1.0.10",
+    "@pap-it/tools-translator": "1.0.10",
+    "@pap-it/typography": "1.0.10",
+    "@pap-it/button": "1.0.10",
     "@pap-it/system-utils": "1.0.9"
   },
   "devDependencies": {
     "eslint": "^8.53.0",
-    "@pap-it/checkbox": "1.0.9",
-    "@pap-it/input": "1.0.9",
-    "@pap-it/textarea": "1.0.10",
-    "@pap-it/switch": "1.0.10",
-    "@pap-it/system-doc": "1.0.14",
+    "@pap-it/checkbox": "1.0.10",
+    "@pap-it/input": "1.0.10",
+    "@pap-it/textarea": "1.0.11",
+    "@pap-it/switch": "1.0.11",
+    "@pap-it/system-doc": "1.0.15",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",

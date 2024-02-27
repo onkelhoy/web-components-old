@@ -41,14 +41,14 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-base": "1.0.9",
+    "@pap-it/system-base": "1.0.10",
     "@pap-it/system-utils": "1.0.9",
-    "@pap-it/templates-box": "1.0.9",
-    "@pap-it/templates-popover": "1.0.10",
-    "@pap-it/tools-translator": "1.0.9"
+    "@pap-it/templates-box": "1.0.10",
+    "@pap-it/templates-popover": "1.0.11",
+    "@pap-it/tools-translator": "1.0.10"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.14",
+    "@pap-it/system-doc": "1.0.15",
     "@babel/eslint-parser": "^7.23.3",
     "esbuild": "^0.17.18",
     "eslint": "^8.53.0",
