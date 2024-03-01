@@ -1,73 +1,91 @@
 {
-  "className": "Accordion",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/accordion",
-  "properties": [
-    {
-      "name": "open",
-      "type": "boolean",
-      "default_value": false,
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
+  "sub": {},
+  "main": {
+    "decorators": {
+      "property": {
+        "open": true,
+        "mode": true
+      },
+      "query": {},
+      "context": {}
     },
-    {
-      "name": "mode",
-      "type": "Mode",
-      "default_value": "vertical",
-      "type_value": [
-        "horizontal",
-        "vertical"
-      ],
-      "primitive": false,
-      "conditional": false
-    }
-  ],
-  "classprop_set": {
-    "property": {
-      "open": true,
-      "mode": true
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/atoms/accordion": [
+        {
+          "name": "style",
+          "from": "./style"
+        }
+      ]
     },
-    "query": {},
-    "context": {}
-  },
-  "extend_class": null,
-  "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/atoms/accordion": [
+    "public_functions": [],
+    "events": [],
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/accordion/src",
+    "className": "Accordion",
+    "properties": [
       {
-        "name": "__decorate",
-        "from": "tslib"
+        "name": "open",
+        "type": "boolean",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
       },
       {
-        "name": "property",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "Base",
-        "from": "@pap-it/system-base"
-      },
-      {
-        "name": "style",
-        "from": "./style"
-      }
-    ]
-  },
-  "html": {
-    "slots": [
-      {
-        "name": "default",
-        "html": ""
+        "name": "mode",
+        "type": "Mode",
+        "default_value": "vertical",
+        "type_value": [
+          "horizontal",
+          "vertical"
+        ],
+        "primitive": false,
+        "conditional": false
       }
     ],
-    "parts": [
+    "extend_class": null,
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/atoms/accordion/dist/src/component.js",
+    "html": {
+      "slots": [
+        {
+          "name": "default",
+          "html": ""
+        }
+      ],
+      "parts": [
+        {
+          "name": "group",
+          "tag": "DIV"
+        }
+      ],
+      "tagName": "pap-accordion"
+    },
+    "allproperties": [
       {
-        "name": "group",
-        "tag": "DIV"
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "open",
+        "attribute": true,
+        "name": "open",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "Mode",
+        "typeName": "String",
+        "propertyKey": "mode",
+        "attribute": true,
+        "name": "mode",
+        "default_value": "vertical",
+        "type_value": [
+          "horizontal",
+          "vertical"
+        ],
+        "primitive": false,
+        "conditional": false
       }
-    ]
-  },
-  "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/accordion",
-    "sources": [],
-    "variables": {}
+    ],
+    "allevents": []
   }
 }

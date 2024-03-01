@@ -1,119 +1,136 @@
 {
-  "className": "PDFviewer",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/pdf-viewer",
-  "properties": [
-    {
-      "name": "name",
-      "type": "string",
-      "type_value": null,
-      "primitive": true,
-      "conditional": true
+  "sub": {},
+  "main": {
+    "decorators": {
+      "property": {
+        "name": true,
+        "type": true,
+        "height": true,
+        "url": true
+      },
+      "query": {
+        "downloadElement": true
+      },
+      "context": {}
     },
-    {
-      "name": "type",
-      "type": "Type",
-      "default_value": "object",
-      "type_value": [
-        "object",
-        "embed",
-        "iframe"
-      ],
-      "primitive": false,
-      "conditional": false
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/molecules/pdf-viewer": [
+        {
+          "name": "style",
+          "from": "./style"
+        }
+      ]
     },
-    {
-      "name": "height",
-      "type": "number",
-      "type_value": null,
-      "primitive": true,
-      "conditional": true
-    },
-    {
-      "name": "url",
-      "type": "string",
-      "type_value": null,
-      "primitive": true,
-      "conditional": true
-    }
-  ],
-  "classprop_set": {
-    "property": {
-      "name": true,
-      "type": true,
-      "height": true,
-      "url": true
-    },
-    "query": {
-      "downloadElement": true
-    },
-    "context": {}
-  },
-  "extend_class": null,
-  "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/molecules/pdf-viewer": [
+    "public_functions": [],
+    "events": [],
+    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/pdf-viewer/src",
+    "className": "PDFviewer",
+    "properties": [
       {
-        "name": "__decorate",
-        "from": "tslib"
+        "name": "name",
+        "type": "string",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
       },
       {
-        "name": "html",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "property",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "ifDefined",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "query",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "Base",
-        "from": "@pap-it/system-base"
-      },
-      {
-        "name": "style",
-        "from": "./style"
-      }
-    ]
-  },
-  "html": {
-    "slots": [],
-    "parts": [
-      {
-        "name": "renderer",
-        "tag": "OBJECT"
-      },
-      {
-        "name": "fallback",
-        "tag": "DIV"
-      },
-      {
-        "name": "download-text",
-        "tag": "PAP-TYPOGRAPHY"
-      },
-      {
-        "name": "download-button",
-        "tag": "PAP-BUTTON"
-      }
-    ]
-  },
-  "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/pdf-viewer",
-    "sources": [],
-    "variables": {
-      "--margin-small": {
-        "usecases": [
-          "host pap-button[part=download-button]{margin-top"
+        "name": "type",
+        "type": "Type",
+        "default_value": "object",
+        "type_value": [
+          "object",
+          "embed",
+          "iframe"
         ],
-        "fallbacks": [
-          "8px)}:host a.download{display:none}"
-        ]
+        "primitive": false,
+        "conditional": false
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "name": "url",
+        "type": "string",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
       }
-    }
+    ],
+    "extend_class": null,
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/molecules/pdf-viewer/dist/src/component.js",
+    "html": {
+      "slots": [],
+      "parts": [
+        {
+          "name": "renderer",
+          "tag": "OBJECT"
+        },
+        {
+          "name": "fallback",
+          "tag": "DIV"
+        },
+        {
+          "name": "download-text",
+          "tag": "PAP-TYPOGRAPHY"
+        },
+        {
+          "name": "download-button",
+          "tag": "PAP-BUTTON"
+        }
+      ],
+      "tagName": "pap-pdf-viewer"
+    },
+    "allproperties": [
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "name",
+        "attribute": true,
+        "name": "name",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "Type",
+        "typeName": "String",
+        "propertyKey": "type",
+        "attribute": true,
+        "name": "type",
+        "default_value": "object",
+        "type_value": [
+          "object",
+          "embed",
+          "iframe"
+        ],
+        "primitive": false,
+        "conditional": false
+      },
+      {
+        "type": "number",
+        "typeName": "Number",
+        "propertyKey": "height",
+        "attribute": true,
+        "name": "height",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "url",
+        "attribute": true,
+        "name": "url",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      }
+    ],
+    "allevents": []
   }
 }

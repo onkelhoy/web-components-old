@@ -7,9 +7,9 @@
     display: flex;
     align-items: center;
 
-    border-style: solid;
-    border-width: 2px;
-    border-color: transparent;
+    // border-style: solid;
+    // border-width: 2px;
+    // border-color: transparent;
     padding-inline: var(--padding-small, 8px);
 
     pap-prefix-suffix-template {
@@ -41,11 +41,11 @@
 }
 
 $size-map: (
-  small: (height: calc(var(--field-size-small, 32px) - 4px), // - border
+  small: (height: var(--field-size-small, 32px), // - border
   ),
-  medium: (height: calc(var(--field-size-medium, 40px) - 4px),
+  medium: (height: var(--field-size-medium, 40px),
   ),
-  large: (height: calc(var(--unit-size7, 48px) - 4px),
+  large: (height: var(--unit-size7, 48px),
   ),
 );
 
@@ -54,7 +54,7 @@ $size-map: (
   outline: none;
 
   pap-box-template {
-    outline-offset: 2px;
+    outline-offset: -2px;
     outline: 2px solid var(--pap-color-border-strong, #29292F) !important;
   }
 }

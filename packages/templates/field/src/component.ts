@@ -46,11 +46,26 @@ export class Field extends FormElement {
   @property() placeholder?: string;
   @property({ rerender: false }) size?: Size = "medium";
   @property({ rerender: false }) mode?: Mode = "fill";
-  @property() state?: State = "default";
   @property() radius?: Radius = "medium";
   @property({
-    after: function (this: Field, value?: string) {
-      if (!this.internalmessage) this.fallbackmessage = value;
+    set: function (this: Field, value?: string) {
+      if (!value || value === "null") return "default";
+      return value;
+    },
+    after: function (this: Field) {
+      if (!this.internalstate) this.fallbackstate = this.state || "default";
+      this.internalstate = false;
+    }
+  }) state?: State = "default";
+  @property({
+    set: function (this: Field, value?: string) {
+      if (value === "null") return undefined;
+      return value;
+    },
+    after: function (this: Field) {
+      if (!this.internalmessage) {
+        this.fallbackmessage = this.message || undefined;
+      }
       this.internalmessage = false;
     }
   }) message?: string;
@@ -58,8 +73,12 @@ export class Field extends FormElement {
   @property({ type: Boolean, rerender: false }) header: boolean = false;
   @property({ type: Boolean, rerender: false }) footer: boolean = false;
 
+  public customValidation?: (field: Field) => { message: string; state: State } | undefined;
+
   private internalmessage = false;
   private fallbackmessage?: string;
+  private internalstate = false;
+  private fallbackstate: State = "default";
   private slotelements: Record<string, number> = {};
 
   constructor(config?: Partial<Config>) {
@@ -80,12 +99,18 @@ export class Field extends FormElement {
   }
   // NOTE this function is called inside the debouncedInput so we dont need to overload with calls
   protected override validateElement() {
+
+    if (this.customValidation) {
+      const ret = this.customValidation(this);
+      if (ret) {
+        this.setMessage(ret.message, ret.state);
+        return;
+      }
+    }
+
     const validity = this.validity;
     if (validity.valid) {
-      // should clear state 
-      // TODO maybe have a leverage state for info or whatnot.. 
-      this.state = "default";
-      this.setMessage(this.fallbackmessage);
+      this.setMessage();
       return;
     }
 
@@ -94,27 +119,28 @@ export class Field extends FormElement {
       if (!validity[vname]) continue; // skip valid stuff
 
       if (this.customDanger && this.customDanger[vname]) {
-        this.setMessage(this.customDanger[vname]);
-        this.state = 'danger'
+        this.setMessage(this.customDanger[vname], 'danger');
         break;
       }
       else if (this.customWarning && this.customWarning[vname]) {
-        this.setMessage(this.customWarning[vname]);
-        this.state = 'warning'
+        this.setMessage(this.customWarning[vname], 'warning');
         break;
       }
       else {
-        this.setMessage(this.validationMessage);
-        this.state = 'danger'
+        this.setMessage(this.validationMessage, 'danger');
         break;
       }
     }
   }
-  private setMessage(value?: string) {
+  public setMessage(message?: string, state?: State) {
     this.internalmessage = true;
-    this.message = value;
+    this.internalstate = true;
+    this.message = message || this.fallbackmessage;
+    this.state = state || this.fallbackstate;
   }
   private getFooterPrefixSlot() {
+    if (!this.message) return "";
+
     switch (this.state) {
       case "danger":
         return '<pap-icon cache="true" name="danger" slot="prefix"></pap-icon>';
@@ -188,25 +214,25 @@ export class Field extends FormElement {
       </pap-prefix-suffix-template>
     `
   }
-  protected renderMain(main: PrefixSuffixRender) {
+  protected renderMain(main?: PrefixSuffixRender) {
     return html`
       <pap-box-template part="main" radius="${ifDefined(this.radius)}">
         <pap-prefix-suffix-template part="prefix-suffix">
           <slot slot="prefix" name="prefix"></slot>
-          ${main.prefix}
-          ${main.content}
-          ${main.suffix}
+          ${main?.prefix}
+          ${main?.content}
+          ${main?.suffix}
           <slot slot="suffix" name="suffix"></slot>
         </pap-prefix-suffix-template>
       </pap-box-template>
     `
   }
 
-  override render(render: RenderArgument) {
+  override render(render?: RenderArgument) {
     return html`
-      ${this.renderHeader(render.header)}
-      ${this.renderMain(render.main)}
-      ${this.renderFooter(render.footer)}
+      ${this.renderHeader(render?.header)}
+      ${this.renderMain(render?.main)}
+      ${this.renderFooter(render?.footer)}
     `
   }
 }

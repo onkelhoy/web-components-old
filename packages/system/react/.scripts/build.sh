@@ -32,17 +32,6 @@ rm -rf dist
 # then re-create it 
 mkdir dist
 
-# compile css
-# TODO extend style build to allow --dev flag
-# # Compile and minify css
-# if [ "$DEV" = true ]; then
-#   bash .scripts/helper/build-sass.sh --dev
-# else
-#   bash .scripts/helper/build-sass.sh
-# fi
-
-bash .scripts/helper/build-sass.sh
-
 if [ -f "src/register.ts" ]; then 
   # Create bundles with conditional source-maps
   if [ "$DEV" = true ]; then

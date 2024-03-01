@@ -13,14 +13,15 @@ export ROOTDIR=$(pwd)
 for arg in "$@"; do
   if [ "$arg" == "-ci" ]; then
     CI_FLAG=1
-  fi
-  if [ "$arg" == "--force" ]; then
+  elif [ "$arg" == "--force" ]; then
     export FORCE=true
     echo "FORCE=\"true\"" >> versioning.env
-  fi
-  if [ "$arg" == "--verbose" ]; then
+  elif [ "$arg" == "--verbose" ]; then
     export VERBOSE=true
     echo "VERBOSE=\"true\"" >> versioning.env
+  elif [ "$arg" == "--react" ]; then
+    export REACT=true
+    echo "REACT=\"true\"" >> versioning.env
   fi
 done
 

@@ -7,13 +7,13 @@ import "@pap-it/icon/wc";
 import "@pap-it/button/wc";
 
 // templates
-import { Menu as TemplateMenu } from "@pap-it/templates-menu";
+import { MenuTemplate } from "@pap-it/templates-menu";
 import "@pap-it/templates-menu/wc";
 
 // local 
 import { style } from "./style";
 
-export class Menu extends TemplateMenu {
+export class Menu extends MenuTemplate {
   static style = style;
 
   @property() buttonVariant: ButtonVariant = "clear";

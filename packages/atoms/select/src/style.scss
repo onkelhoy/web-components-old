@@ -11,7 +11,9 @@
 }
 
 :host(:not([search])) {
-  pap-box-template[part="main"] {
+
+  pap-box-template[part="main"],
+  input {
     cursor: pointer;
   }
 }

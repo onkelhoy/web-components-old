@@ -19,9 +19,8 @@ export class Aside extends Box {
   @property({ rerender: false, type: Boolean }) hideonoutsideclick: boolean = true;
   @property({
     type: Boolean,
-    set: function (this: Aside, value: boolean) {
+    after: function (this: Aside) {
       this.opened = performance.now();
-      return value;
     }
   }) open: boolean = false;
   @property({ rerender: false }) placement: Placement = "right";

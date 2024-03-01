@@ -1,136 +1,200 @@
 {
-  "className": "Typography",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/typography",
-  "properties": [
-    {
-      "name": "variant",
-      "type": "Variant",
-      "default_value": "C3",
-      "type_value": [
-        "C1",
-        "C2",
-        "T1",
-        "T2",
-        "H1",
-        "H2",
-        "copy1",
-        "copy2",
-        "title1",
-        "title2",
-        "heading1",
-        "heading2",
-        "B1",
-        "B2",
-        "button1",
-        "button2",
-        "C3",
-        "C4",
-        "T3",
-        "T4",
-        "H3",
-        "H4",
-        "copy3",
-        "copy4",
-        "title3",
-        "title4",
-        "heading3",
-        "heading4",
-        "H5"
-      ],
-      "primitive": false,
-      "conditional": false
+  "sub": {},
+  "main": {
+    "decorators": {
+      "property": {
+        "variant": true,
+        "align": true,
+        "nowrap": true,
+        "truncate": true
+      },
+      "query": {},
+      "context": {}
     },
-    {
-      "name": "align",
-      "type": "Alignment",
-      "default_value": "initial",
-      "type_value": [
-        "center",
-        "justify",
-        "start",
-        "end",
-        "left",
-        "right",
-        "unset",
-        "inherit",
-        "initial"
-      ],
-      "primitive": false,
-      "conditional": false
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/atoms/typography": [
+        {
+          "name": "style",
+          "from": "./style"
+        }
+      ]
     },
-    {
-      "name": "nowrap",
-      "type": "boolean",
-      "default_value": false,
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
-    },
-    {
-      "name": "truncate",
-      "type": "boolean",
-      "default_value": false,
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
-    }
-  ],
-  "classprop_set": {
-    "property": {
-      "variant": true,
-      "align": true,
-      "nowrap": true,
-      "truncate": true
-    },
-    "query": {},
-    "context": {}
-  },
-  "extend_class": null,
-  "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/atoms/typography": [
+    "public_functions": [],
+    "events": [],
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/typography/src",
+    "className": "Typography",
+    "properties": [
       {
-        "name": "__decorate",
-        "from": "tslib"
+        "name": "variant",
+        "type": "Variant",
+        "default_value": "C3",
+        "type_value": [
+          "C1",
+          "C2",
+          "T1",
+          "T2",
+          "H1",
+          "H2",
+          "copy1",
+          "copy2",
+          "title1",
+          "title2",
+          "heading1",
+          "heading2",
+          "B1",
+          "B2",
+          "button1",
+          "button2",
+          "C3",
+          "C4",
+          "T3",
+          "T4",
+          "H3",
+          "H4",
+          "copy3",
+          "copy4",
+          "title3",
+          "title4",
+          "heading3",
+          "heading4",
+          "H5"
+        ],
+        "primitive": false,
+        "conditional": false
       },
       {
-        "name": "html",
-        "from": "@pap-it/system-utils"
+        "name": "align",
+        "type": "Alignment",
+        "default_value": "initial",
+        "type_value": [
+          "center",
+          "justify",
+          "start",
+          "end",
+          "left",
+          "right",
+          "unset",
+          "inherit",
+          "initial"
+        ],
+        "primitive": false,
+        "conditional": false
       },
       {
-        "name": "property",
-        "from": "@pap-it/system-utils"
+        "name": "nowrap",
+        "type": "boolean",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
       },
       {
-        "name": "Base",
-        "from": "@pap-it/system-base"
-      },
-      {
-        "name": "style",
-        "from": "./style"
-      }
-    ]
-  },
-  "html": {
-    "slots": [
-      {
-        "name": "default",
-        "html": ""
+        "name": "truncate",
+        "type": "boolean",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
       }
     ],
-    "parts": []
-  },
-  "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/typography",
-    "sources": [],
-    "variables": {
-      "--typography-h1-fontfamily": {
-        "usecases": [
-          "host([variant=H1]){font-family"
+    "extend_class": null,
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/atoms/typography/dist/src/component.js",
+    "html": {
+      "slots": [
+        {
+          "name": "default",
+          "html": ""
+        }
+      ],
+      "parts": [],
+      "tagName": "pap-typography"
+    },
+    "allproperties": [
+      {
+        "type": "Variant",
+        "typeName": "String",
+        "propertyKey": "variant",
+        "attribute": true,
+        "name": "variant",
+        "default_value": "C3",
+        "type_value": [
+          "C1",
+          "C2",
+          "T1",
+          "T2",
+          "H1",
+          "H2",
+          "copy1",
+          "copy2",
+          "title1",
+          "title2",
+          "heading1",
+          "heading2",
+          "B1",
+          "B2",
+          "button1",
+          "button2",
+          "C3",
+          "C4",
+          "T3",
+          "T4",
+          "H3",
+          "H4",
+          "copy3",
+          "copy4",
+          "title3",
+          "title4",
+          "heading3",
+          "heading4",
+          "H5"
         ],
-        "fallbacks": [
-          "\"Libre Franklin\", helvetica, sans-serif"
-        ]
+        "primitive": false,
+        "conditional": false
+      },
+      {
+        "type": "Alignment",
+        "typeName": "String",
+        "propertyKey": "align",
+        "attribute": true,
+        "name": "align",
+        "default_value": "initial",
+        "type_value": [
+          "center",
+          "justify",
+          "start",
+          "end",
+          "left",
+          "right",
+          "unset",
+          "inherit",
+          "initial"
+        ],
+        "primitive": false,
+        "conditional": false
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "nowrap",
+        "attribute": true,
+        "name": "nowrap",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "truncate",
+        "attribute": true,
+        "name": "truncate",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
       }
-    }
+    ],
+    "allevents": []
   }
 }

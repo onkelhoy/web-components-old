@@ -1,114 +1,186 @@
 {
-  "className": "Editor",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/editor",
-  "properties": [
-    {
-      "name": "foo",
-      "type": "Foo",
-      "default_value": "bar",
-      "type_value": [
-        "bar",
-        "hello world"
-      ],
-      "primitive": false,
-      "conditional": false
-    },
-    {
-      "name": "bajs",
-      "type": "number",
-      "type_value": null,
-      "primitive": true,
-      "conditional": true
-    },
-    {
-      "name": "fooLaa",
-      "type": "boolean",
-      "default_value": true,
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
+  "sub": {
+    "Input": {
+      "decorators": {
+        "property": {},
+        "query": {
+          "editorElement": true
+        },
+        "context": {}
+      },
+      "imports": {
+        "/Users/henry/Developer/projects/web-components/packages/atoms/editor": [
+          {
+            "name": "style",
+            "from": "./style"
+          },
+          {
+            "name": "basic_modify",
+            "from": "./utils"
+          }
+        ]
+      },
+      "public_functions": [],
+      "events": [],
+      "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/editor/src/components/input",
+      "className": "Input",
+      "properties": [],
+      "extend_class": null,
+      "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/atoms/editor/dist/src/components/input/index.js",
+      "html": {
+        "slots": [
+          {
+            "name": "under",
+            "html": ""
+          }
+        ],
+        "parts": [],
+        "tagName": "pap-editor-input"
+      },
+      "allproperties": [],
+      "allevents": []
     }
-  ],
-  "classprop_set": {
-    "property": {
-      "foo": true,
-      "bajs": true,
-      "fooLaa": true
+  },
+  "main": {
+    "decorators": {
+      "property": {
+        "foo": true,
+        "bajs": true,
+        "fooLaa": true
+      },
+      "query": {},
+      "context": {}
     },
-    "query": {},
-    "context": {}
-  },
-  "extend_class": null,
-  "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/atoms/editor": [
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/atoms/editor": [
+        {
+          "name": "style",
+          "from": "./style"
+        }
+      ]
+    },
+    "public_functions": [],
+    "events": [
       {
-        "name": "__decorate",
-        "from": "tslib"
-      },
-      {
-        "name": "html",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "property",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "Base",
-        "from": "@pap-it/system-base"
-      },
-      {
-        "name": "style",
-        "from": "./style"
-      }
-    ]
-  },
-  "html": {
-    "slots": [
-      {
-        "name": "header",
-        "html": "\n                    <h1>llama drama trauma</h1>\n                "
-      },
-      {
-        "name": "default",
-        "html": "\n                    <p>Why did the llama go to therapy? Because it had a lot of spitting issues!</p>\n                "
-      },
-      {
-        "name": "footer",
-        "html": "\n                    <p>Why did the llama enter the door? To attend the llamazing party inside!</p>\n                "
+        "type": "CustomEvent",
+        "custom": "ClickEvent",
+        "name": "main-click",
+        "data": {
+          "object": "{ detail: { foo: this.foo } }",
+          "properties": [
+            "foo"
+          ]
+        }
       }
     ],
-    "parts": [
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/editor/src",
+    "className": "Editor",
+    "properties": [
       {
-        "name": "header",
-        "tag": "HEADER"
+        "name": "foo",
+        "type": "Foo",
+        "default_value": "bar",
+        "type_value": [
+          "bar",
+          "hello world"
+        ],
+        "primitive": false,
+        "conditional": false
       },
       {
-        "name": "footer",
-        "tag": "FOOTER"
+        "name": "bajs",
+        "type": "number",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "name": "fooLaa",
+        "type": "boolean",
+        "default_value": true,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      }
+    ],
+    "extend_class": null,
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/atoms/editor/dist/src/component.js",
+    "html": {
+      "slots": [
+        {
+          "name": "header",
+          "html": "\n                    <h1>llama drama trauma</h1>\n                "
+        },
+        {
+          "name": "default",
+          "html": "\n                    <p>Why did the llama go to therapy? Because it had a lot of spitting issues!</p>\n                "
+        },
+        {
+          "name": "footer",
+          "html": "\n                    <p>Why did the llama enter the door? To attend the llamazing party inside!</p>\n                "
+        }
+      ],
+      "parts": [
+        {
+          "name": "header",
+          "tag": "HEADER"
+        },
+        {
+          "name": "footer",
+          "tag": "FOOTER"
+        }
+      ],
+      "tagName": "pap-editor"
+    },
+    "allproperties": [
+      {
+        "type": "Foo",
+        "typeName": "String",
+        "propertyKey": "foo",
+        "attribute": true,
+        "name": "foo",
+        "default_value": "bar",
+        "type_value": [
+          "bar",
+          "hello world"
+        ],
+        "primitive": false,
+        "conditional": false
+      },
+      {
+        "type": "number",
+        "typeName": "Number",
+        "propertyKey": "bajs",
+        "attribute": true,
+        "name": "bajs",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "fooLaa",
+        "attribute": true,
+        "name": "fooLaa",
+        "default_value": true,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      }
+    ],
+    "allevents": [
+      {
+        "type": "CustomEvent",
+        "custom": "ClickEvent",
+        "name": "main-click",
+        "data": {
+          "object": "{ detail: { foo: this.foo } }",
+          "properties": [
+            "foo"
+          ]
+        }
       }
     ]
-  },
-  "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/editor",
-    "sources": [],
-    "variables": {
-      "--pap-editor-background-color-light": {
-        "usecases": [
-          "1rem;--background"
-        ],
-        "fallbacks": [
-          "var(--pap-color-neutral-50, white)"
-        ]
-      },
-      "--pap-color-neutral-50": {
-        "usecases": [
-          "1rem;--background"
-        ],
-        "fallbacks": [
-          "white"
-        ]
-      }
-    }
   }
 }

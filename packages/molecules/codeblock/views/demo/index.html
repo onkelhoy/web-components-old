@@ -17,7 +17,7 @@
 
 <body>
   <doc-card>
-    <pap-codeblock display="both">
+    <!-- <pap-codeblock display="both">
       <pap-button variant="outlined" color="primary">
         hello
       </pap-button>
@@ -49,9 +49,9 @@
           background-color: red;
         }
       </style>
-    </pap-codeblock>
+    </pap-codeblock> -->
 
-    <pap-codeblock>
+    <!-- <pap-codeblock>
       function hello(arg1 = "hejsan", arg2) {
       return arg1 + " - " + arg2;
       }
@@ -85,24 +85,24 @@
       )
       }
     </pap-codeblock>
-  </doc-card>
+  </doc-card> -->
 
-  <doc-card>
-    <pap-typography variant="C2" slot="header">Edge cases</pap-typography>
+    <doc-card>
+      <pap-typography variant="C2" slot="header">Edge cases</pap-typography>
 
-    <pap-typography>Long attribute values:</pap-typography>
-    <pap-codeblock display="both">
-      <p special-attribute="im a long value for this attribute" special-attribute-2="im also a long attribute value">
-        Content</p>
-    </pap-codeblock>
+      <!-- <pap-typography>Long attribute values:</pap-typography>
+      <pap-codeblock display="both">
+        <p special-attribute="im a long value for this attribute" special-attribute-2="im also a long attribute value">
+          Content</p>
+      </pap-codeblock> -->
 
-    <pap-typography>Component inside components:</pap-typography>
-    <pap-codeblock display="both">
-      <pap-typography>
-        <pap-button>Hello</pap-button>
-      </pap-typography>
-    </pap-codeblock>
-  </doc-card>
+      <pap-typography>Component inside components:</pap-typography>
+      <pap-codeblock display="both">
+        <pap-typography>
+          <pap-button>Hello</pap-button>
+        </pap-typography>
+      </pap-codeblock>
+    </doc-card>
 </body>
 
 </html>

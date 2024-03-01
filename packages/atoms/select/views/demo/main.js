@@ -19,16 +19,23 @@ window.onload = () => {
     })
   })
 
-  let k = 0;
-  window.dynamic_content_btn.onclick = () => {
-    const select = document.querySelector('pap-select[name="dynamic-content"]');
-    const start = ~~(Math.random() * 10);
-    const end = start + ~~(Math.random() * 10) + 3;
+  // let k = 0;
+  // window.dynamic_content_btn.onclick = () => {
+  //   const select = document.querySelector('pap-select[name="dynamic-content"]');
+  //   const start = ~~(Math.random() * 10);
+  //   const end = start + ~~(Math.random() * 10) + 3;
 
-    k++;
-    // goal
-    select.options = new Array(end - start).fill(0).map((_v, i) => i + start);
-  }
+  //   k++;
+  //   // goal
+  //   select.options = new Array(end - start).fill(0).map((_v, i) => i + start);
+  // }
+
+  window.pagination_case.options = [
+    { value: '0', text: '1' },
+    { value: '1', text: '2' },
+    { value: '2', text: '3' },
+    { value: '3', text: '4' },
+  ]
 
   window.pagination_case_INIT.onclick = () => {
     window.pagination_case.options = new Array(10).fill(0).map((_v, i) => ({ value: i.toString(), text: (i + 1).toString() }));

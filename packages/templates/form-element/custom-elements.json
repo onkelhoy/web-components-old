@@ -1,75 +1,114 @@
 {
-  "className": "FormElement",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/templates/form-element",
-  "properties": [
-    {
-      "name": "defaultValue",
-      "type": "string",
-      "type_value": null,
-      "primitive": true,
-      "conditional": true
+  "sub": {},
+  "main": {
+    "decorators": {
+      "property": {
+        "defaultValue": true,
+        "disabled": true,
+        "name": true,
+        "value": true
+      },
+      "query": {},
+      "context": {}
     },
-    {
-      "name": "disabled",
-      "type": "boolean",
-      "type_value": null,
-      "primitive": true,
-      "conditional": true
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/templates/form-element": []
     },
-    {
-      "name": "name",
-      "type": "string",
-      "default_value": "missing-name",
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
-    },
-    {
-      "name": "value",
-      "type": "string",
-      "type_value": null,
-      "primitive": true,
-      "conditional": true
-    }
-  ],
-  "classprop_set": {
-    "property": {
-      "defaultValue": true,
-      "disabled": true,
-      "name": true,
-      "value": true
-    },
-    "query": {},
-    "context": {}
-  },
-  "extend_class": null,
-  "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/templates/form-element": [
+    "public_functions": [],
+    "events": [
       {
-        "name": "__decorate",
-        "from": "tslib"
+        "type": "Event",
+        "name": "change"
+      }
+    ],
+    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/form-element/src",
+    "className": "FormElement",
+    "properties": [
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
       },
       {
-        "name": "property",
-        "from": "@pap-it/system-utils"
+        "name": "disabled",
+        "type": "boolean",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
       },
       {
-        "name": "debounce",
-        "from": "@pap-it/system-utils"
+        "name": "name",
+        "type": "string",
+        "default_value": "missing-name",
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
       },
       {
-        "name": "Base",
-        "from": "@pap-it/system-base"
+        "name": "value",
+        "type": "string",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      }
+    ],
+    "extend_class": null,
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/templates/form-element/dist/src/component.js",
+    "html": {
+      "slots": [],
+      "parts": [],
+      "tagName": "pap-form-element-template"
+    },
+    "allproperties": [
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "defaultValue",
+        "attribute": "default-value",
+        "name": "defaultValue",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "disabled",
+        "attribute": true,
+        "name": "disabled",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "name",
+        "attribute": true,
+        "name": "name",
+        "default_value": "missing-name",
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "value",
+        "attribute": true,
+        "name": "value",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      }
+    ],
+    "allevents": [
+      {
+        "type": "Event",
+        "name": "change"
       }
     ]
-  },
-  "html": {
-    "slots": [],
-    "parts": []
-  },
-  "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/form-element",
-    "sources": [],
-    "variables": {}
   }
 }

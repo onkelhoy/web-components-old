@@ -30,5 +30,15 @@ window.onload = () => {
   window['toggle-translation'].onclick = () => {
     window.papLocalization.change(translationToggleMap[window.papLocalization?.current.id] || 'translation-demo');
   }
+
+  let start = 4;
+  window.dec.onclick = () => {
+    start--;
+    window.paginationcase.setAttribute("start", start);
+  }
+  window.inc.onclick = () => {
+    start++;
+    window.paginationcase.setAttribute("start", start);
+  }
   console.log('[demo]: window loaded');
 }

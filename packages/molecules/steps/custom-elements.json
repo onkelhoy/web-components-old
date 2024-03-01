@@ -1,71 +1,113 @@
 {
-  "className": "Steps",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/steps",
-  "properties": [
-    {
-      "name": "steps",
-      "type_value": null,
-      "primitive": false,
-      "conditional": false
+  "sub": {
+    "Circle": {
+      "decorators": {
+        "property": {
+          "status": true
+        },
+        "query": {},
+        "context": {}
+      },
+      "imports": {
+        "/Users/henry/Developer/projects/web-components/packages/molecules/steps": [
+          {
+            "name": "style",
+            "from": "./style"
+          }
+        ]
+      },
+      "public_functions": [],
+      "events": [],
+      "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/steps/src/components/circle",
+      "className": "Circle",
+      "properties": [
+        {
+          "name": "status",
+          "type": "Status",
+          "default_value": "incomplete",
+          "type_value": [
+            "complete",
+            "active",
+            "incomplete"
+          ],
+          "primitive": false,
+          "conditional": false
+        }
+      ],
+      "extend_class": null,
+      "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/molecules/steps/dist/src/components/circle/index.js",
+      "html": {
+        "slots": [],
+        "parts": [],
+        "tagName": "pap-circle"
+      },
+      "allproperties": [
+        {
+          "type": "Status",
+          "typeName": "String",
+          "propertyKey": "status",
+          "attribute": true,
+          "name": "status",
+          "default_value": "incomplete",
+          "type_value": [
+            "complete",
+            "active",
+            "incomplete"
+          ],
+          "primitive": false,
+          "conditional": false
+        }
+      ],
+      "allevents": []
     }
-  ],
-  "classprop_set": {
-    "property": {
-      "steps": true,
-      "current": true
+  },
+  "main": {
+    "decorators": {
+      "property": {
+        "steps": true,
+        "current": true
+      },
+      "query": {},
+      "context": {}
     },
-    "query": {},
-    "context": {}
-  },
-  "extend_class": null,
-  "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/molecules/steps": [
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/molecules/steps": [
+        {
+          "name": "style",
+          "from": "./style"
+        }
+      ]
+    },
+    "public_functions": [],
+    "events": [],
+    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/steps/src",
+    "className": "Steps",
+    "properties": [
       {
-        "name": "__decorate",
-        "from": "tslib"
-      },
-      {
-        "name": "html",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "property",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "Base",
-        "from": "@pap-it/system-base"
-      },
-      {
-        "name": "style",
-        "from": "./style"
+        "name": "steps",
+        "type_value": null,
+        "primitive": false,
+        "conditional": false
       }
-    ]
-  },
-  "html": {
-    "slots": [],
-    "parts": []
-  },
-  "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/steps",
-    "sources": [],
-    "variables": {
-      "--pap-steps-border-color-unselected": {
-        "usecases": [
-          "inline-block;--border-color-unselected"
-        ],
-        "fallbacks": [
-          "var(--pap-color-bg-canvas, #EAEBEF)"
-        ]
-      },
-      "--pap-color-bg-canvas": {
-        "usecases": [
-          "inline-block;--border-color-unselected"
-        ],
-        "fallbacks": [
-          "#EAEBEF"
-        ]
+    ],
+    "extend_class": null,
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/molecules/steps/dist/src/component.js",
+    "html": {
+      "slots": [],
+      "parts": [],
+      "tagName": "pap-steps"
+    },
+    "allproperties": [
+      {
+        "typeName": "Array",
+        "propertyKey": "steps",
+        "attribute": true,
+        "name": "steps",
+        "type_value": null,
+        "primitive": false,
+        "conditional": false
       }
-    }
+    ],
+    "allevents": []
   }
 }

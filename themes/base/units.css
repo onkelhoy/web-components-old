@@ -27,7 +27,7 @@
   --gap-medium: var(--unit-size3);
   --gap-large: var(--unit-size4);
 
-  /* box */
+  /* field-size */
   --field-size-smaller: var(--unit-size4);
   --field-size-small: var(--unit-size5);
   --field-size-medium: var(--unit-size6);

@@ -1,119 +1,129 @@
 {
-  "className": "Markdown",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/organisms/markdown",
-  "properties": [
-    {
-      "name": "url",
-      "type": "string",
-      "type_value": null,
-      "primitive": true,
-      "conditional": true
+  "sub": {},
+  "main": {
+    "decorators": {
+      "property": {},
+      "query": {},
+      "context": {}
     },
-    {
-      "name": "file",
-      "type": "string",
-      "type_value": null,
-      "primitive": true,
-      "conditional": true
-    }
-  ],
-  "classprop_set": {
-    "property": {
-      "url": true,
-      "file": true
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/organisms/markdown": [
+        {
+          "name": "Asset",
+          "from": "@pap-it/templates-asset"
+        },
+        {
+          "name": "style",
+          "from": "./style"
+        }
+      ],
+      "/Users/henry/Developer/projects/web-components/packages/templates/asset": []
     },
-    "query": {},
-    "context": {}
-  },
-  "extend_class": {
-    "className": "Asset",
-    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/asset",
-    "properties": [
+    "public_functions": [],
+    "events": [],
+    "folder": "/Users/henry/Developer/projects/web-components/packages/organisms/markdown/src",
+    "className": "Markdown",
+    "properties": [],
+    "extend_class": {
+      "decorators": {
+        "property": {
+          "assetBase": true,
+          "cache": true,
+          "file": true,
+          "url": true
+        },
+        "query": {},
+        "context": {}
+      },
+      "imports": [],
+      "public_functions": [],
+      "events": [],
+      "folder": "/Users/henry/Developer/projects/web-components/packages/templates/asset/src",
+      "className": "Asset",
+      "properties": [
+        {
+          "name": "assetBase",
+          "type": "string",
+          "default_value": "/public",
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "name": "cache",
+          "type": "boolean",
+          "default_value": false,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "name": "file",
+          "type": "string",
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        }
+      ],
+      "extend_class": null
+    },
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/organisms/markdown/dist/src/component.js",
+    "html": {
+      "slots": [],
+      "parts": [],
+      "tagName": "pap-markdown"
+    },
+    "allproperties": [
       {
-        "name": "assetBase",
         "type": "string",
+        "typeName": "String",
+        "propertyKey": "assetBase",
+        "attribute": "asset-base",
+        "name": "assetBase",
         "default_value": "/public",
         "type_value": null,
         "primitive": true,
         "conditional": false
       },
       {
-        "name": "cache",
         "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "cache",
+        "attribute": true,
+        "name": "cache",
         "default_value": false,
         "type_value": null,
         "primitive": true,
         "conditional": false
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "file",
+        "attribute": true,
+        "name": "file",
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "url",
+        "attribute": true,
+        "name": "url",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
       }
     ],
-    "classprop_set": {
-      "property": {
-        "assetBase": true,
-        "cache": true
-      },
-      "query": {},
-      "context": {}
-    },
-    "extend_class": null
-  },
-  "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/templates/asset": [
-      {
-        "name": "__decorate",
-        "from": "tslib"
-      },
-      {
-        "name": "Base",
-        "from": "@pap-it/system-base"
-      },
-      {
-        "name": "property",
-        "from": "@pap-it/system-utils"
-      }
-    ],
-    "/Users/henry/Developer/projects/web-components/packages/organisms/markdown": [
-      {
-        "name": "__decorate",
-        "from": "tslib"
-      },
-      {
-        "name": "property",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "Asset",
-        "from": "@pap-it/templates-asset"
-      },
-      {
-        "name": "style",
-        "from": "./style"
-      }
-    ]
-  },
-  "html": {
-    "slots": [],
-    "parts": []
-  },
-  "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/organisms/markdown",
-    "sources": [],
-    "variables": {
-      "--pap-markdown-background": {
-        "usecases": [
-          "host{--background"
-        ],
-        "fallbacks": [
-          "var(--pap-color-bg, #FFFFFF)"
-        ]
-      },
-      "--pap-color-bg": {
-        "usecases": [
-          "host{--background"
-        ],
-        "fallbacks": [
-          "#FFFFFF"
-        ]
-      }
-    }
+    "allevents": []
   }
 }

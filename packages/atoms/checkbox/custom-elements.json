@@ -1,0 +1,902 @@
+{
+  "sub": {},
+  "main": {
+    "decorators": {
+      "property": {
+        "scale": true,
+        "checked": true,
+        "intermediate": true
+      },
+      "query": {},
+      "context": {}
+    },
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/atoms/checkbox": [
+        {
+          "name": "Field",
+          "from": "@pap-it/templates-field"
+        },
+        {
+          "name": "style",
+          "from": "./style"
+        }
+      ],
+      "/Users/henry/Developer/projects/web-components/packages/templates/field": [
+        {
+          "name": "FormElement",
+          "from": "@pap-it/templates-form-element"
+        },
+        {
+          "name": "style",
+          "from": "./style"
+        }
+      ],
+      "/Users/henry/Developer/projects/web-components/packages/templates/form-element": []
+    },
+    "public_functions": [],
+    "events": [
+      {
+        "type": "Event",
+        "name": "change"
+      }
+    ],
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/checkbox/src",
+    "className": "Checkbox",
+    "properties": [
+      {
+        "name": "scale",
+        "type": "boolean",
+        "default_value": true,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "name": "checked",
+        "type": "alternative",
+        "default_value": false,
+        "type_value": [
+          null,
+          "intermediate"
+        ],
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "name": "intermediate",
+        "type": "boolean",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      }
+    ],
+    "extend_class": {
+      "decorators": {
+        "property": {
+          "customDanger": true,
+          "customWarning": true,
+          "label": true,
+          "required": true,
+          "readonly": true,
+          "placeholder": true,
+          "size": true,
+          "mode": true,
+          "radius": true,
+          "state": true,
+          "message": true,
+          "header": true,
+          "footer": true
+        },
+        "query": {},
+        "context": {}
+      },
+      "imports": {
+        "/Users/henry/Developer/projects/web-components/packages/templates/field": [
+          {
+            "name": "FormElement",
+            "from": "@pap-it/templates-form-element"
+          },
+          {
+            "name": "style",
+            "from": "./style"
+          }
+        ],
+        "/Users/henry/Developer/projects/web-components/packages/templates/form-element": []
+      },
+      "public_functions": [],
+      "events": [],
+      "folder": "/Users/henry/Developer/projects/web-components/packages/templates/field/src",
+      "className": "Field",
+      "properties": [
+        {
+          "name": "customDanger",
+          "type": "Partial",
+          "type_value": {},
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "name": "customWarning",
+          "type": "Partial",
+          "type_value": {},
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "size",
+          "type": "Size",
+          "default_value": "medium",
+          "type_value": [
+            "small",
+            "medium",
+            "large"
+          ],
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "name": "mode",
+          "type": "Mode",
+          "default_value": "fill",
+          "type_value": [
+            "hug",
+            "fill"
+          ],
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "name": "radius",
+          "type": "Radius",
+          "default_value": "medium",
+          "type_value": [
+            "small",
+            "medium",
+            "large",
+            "none",
+            "circular"
+          ],
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "name": "state",
+          "type": "State",
+          "default_value": "default",
+          "type_value": [
+            "default",
+            "info",
+            "success",
+            "warning",
+            "danger"
+          ],
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "name": "header",
+          "type": "boolean",
+          "default_value": false,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "name": "footer",
+          "type": "boolean",
+          "default_value": false,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        }
+      ],
+      "extend_class": {
+        "decorators": {
+          "property": {
+            "defaultValue": true,
+            "disabled": true,
+            "name": true,
+            "value": true
+          },
+          "query": {},
+          "context": {}
+        },
+        "imports": {
+          "/Users/henry/Developer/projects/web-components/packages/templates/form-element": []
+        },
+        "public_functions": [],
+        "events": [
+          {
+            "type": "Event",
+            "name": "change"
+          }
+        ],
+        "folder": "/Users/henry/Developer/projects/web-components/packages/templates/form-element/src",
+        "className": "FormElement",
+        "properties": [
+          {
+            "name": "defaultValue",
+            "type": "string",
+            "type_value": null,
+            "primitive": true,
+            "conditional": true
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "type_value": null,
+            "primitive": true,
+            "conditional": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "default_value": "missing-name",
+            "type_value": null,
+            "primitive": true,
+            "conditional": false
+          },
+          {
+            "name": "value",
+            "type": "string",
+            "type_value": null,
+            "primitive": true,
+            "conditional": true
+          }
+        ],
+        "extend_class": null,
+        "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/templates/form-element/dist/src/component.js",
+        "html": {
+          "slots": [],
+          "parts": [],
+          "tagName": "pap-form-element-template"
+        },
+        "allproperties": [
+          {
+            "type": "string",
+            "typeName": "String",
+            "propertyKey": "defaultValue",
+            "attribute": "default-value",
+            "name": "defaultValue",
+            "type_value": null,
+            "primitive": true,
+            "conditional": true
+          },
+          {
+            "type": "boolean",
+            "typeName": "Boolean",
+            "propertyKey": "disabled",
+            "attribute": true,
+            "name": "disabled",
+            "type_value": null,
+            "primitive": true,
+            "conditional": true
+          },
+          {
+            "type": "string",
+            "typeName": "String",
+            "propertyKey": "name",
+            "attribute": true,
+            "name": "name",
+            "default_value": "missing-name",
+            "type_value": null,
+            "primitive": true,
+            "conditional": false
+          },
+          {
+            "type": "string",
+            "typeName": "String",
+            "propertyKey": "value",
+            "attribute": true,
+            "name": "value",
+            "type_value": null,
+            "primitive": true,
+            "conditional": true
+          }
+        ],
+        "allevents": [
+          {
+            "type": "Event",
+            "name": "change"
+          }
+        ]
+      },
+      "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/templates/field/dist/src/component.js",
+      "html": {
+        "slots": [
+          {
+            "name": "header-prefix",
+            "html": ""
+          },
+          {
+            "name": "header",
+            "html": ""
+          },
+          {
+            "name": "header-suffix",
+            "html": ""
+          },
+          {
+            "name": "prefix",
+            "html": ""
+          },
+          {
+            "name": "suffix",
+            "html": ""
+          },
+          {
+            "name": "footer-prefix",
+            "html": ""
+          },
+          {
+            "name": "footer",
+            "html": ""
+          },
+          {
+            "name": "footer-suffix",
+            "html": ""
+          }
+        ],
+        "parts": [
+          {
+            "name": "header",
+            "tag": "PAP-PREFIX-SUFFIX-TEMPLATE"
+          },
+          {
+            "name": "main",
+            "tag": "PAP-BOX-TEMPLATE"
+          },
+          {
+            "name": "prefix-suffix",
+            "tag": "PAP-PREFIX-SUFFIX-TEMPLATE"
+          },
+          {
+            "name": "footer",
+            "tag": "PAP-PREFIX-SUFFIX-TEMPLATE"
+          }
+        ],
+        "tagName": "pap-field-template"
+      },
+      "allproperties": [
+        {
+          "type": "Partial",
+          "typeName": "Object",
+          "propertyKey": "customDanger",
+          "attribute": "custom-error",
+          "name": "customDanger",
+          "type_value": {},
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "type": "Partial",
+          "typeName": "Object",
+          "propertyKey": "customWarning",
+          "attribute": "custom-warning",
+          "name": "customWarning",
+          "type_value": {},
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "type": "string",
+          "typeName": "String",
+          "propertyKey": "label",
+          "attribute": true,
+          "name": "label",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "type": "boolean",
+          "typeName": "Boolean",
+          "propertyKey": "required",
+          "attribute": true,
+          "name": "required",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "type": "boolean",
+          "typeName": "Boolean",
+          "propertyKey": "readonly",
+          "attribute": true,
+          "name": "readonly",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "type": "string",
+          "typeName": "String",
+          "propertyKey": "placeholder",
+          "attribute": true,
+          "name": "placeholder",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "type": "Size",
+          "typeName": "String",
+          "propertyKey": "size",
+          "attribute": true,
+          "name": "size",
+          "default_value": "medium",
+          "type_value": [
+            "small",
+            "medium",
+            "large"
+          ],
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "type": "Mode",
+          "typeName": "String",
+          "propertyKey": "mode",
+          "attribute": true,
+          "name": "mode",
+          "default_value": "fill",
+          "type_value": [
+            "hug",
+            "fill"
+          ],
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "type": "Radius",
+          "typeName": "String",
+          "propertyKey": "radius",
+          "attribute": true,
+          "name": "radius",
+          "default_value": "medium",
+          "type_value": [
+            "small",
+            "medium",
+            "large",
+            "none",
+            "circular"
+          ],
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "type": "State",
+          "typeName": "String",
+          "propertyKey": "state",
+          "attribute": true,
+          "name": "state",
+          "default_value": "default",
+          "type_value": [
+            "default",
+            "info",
+            "success",
+            "warning",
+            "danger"
+          ],
+          "primitive": false,
+          "conditional": true
+        },
+        {
+          "type": "string",
+          "typeName": "String",
+          "propertyKey": "message",
+          "attribute": true,
+          "name": "message",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "type": "boolean",
+          "typeName": "Boolean",
+          "propertyKey": "header",
+          "attribute": true,
+          "name": "header",
+          "default_value": false,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "type": "boolean",
+          "typeName": "Boolean",
+          "propertyKey": "footer",
+          "attribute": true,
+          "name": "footer",
+          "default_value": false,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "type": "string",
+          "typeName": "String",
+          "propertyKey": "defaultValue",
+          "attribute": "default-value",
+          "name": "defaultValue",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "type": "boolean",
+          "typeName": "Boolean",
+          "propertyKey": "disabled",
+          "attribute": true,
+          "name": "disabled",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        },
+        {
+          "type": "string",
+          "typeName": "String",
+          "propertyKey": "name",
+          "attribute": true,
+          "name": "name",
+          "default_value": "missing-name",
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "type": "string",
+          "typeName": "String",
+          "propertyKey": "value",
+          "attribute": true,
+          "name": "value",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        }
+      ],
+      "allevents": [
+        {
+          "type": "Event",
+          "name": "change"
+        }
+      ]
+    },
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/atoms/checkbox/dist/src/component.js",
+    "html": {
+      "slots": [
+        {
+          "name": "header-prefix",
+          "html": ""
+        },
+        {
+          "name": "header",
+          "html": ""
+        },
+        {
+          "name": "header-suffix",
+          "html": ""
+        },
+        {
+          "name": "prefix",
+          "html": ""
+        },
+        {
+          "name": "suffix",
+          "html": ""
+        },
+        {
+          "name": "footer-prefix",
+          "html": ""
+        },
+        {
+          "name": "footer",
+          "html": ""
+        },
+        {
+          "name": "footer-suffix",
+          "html": ""
+        }
+      ],
+      "parts": [
+        {
+          "name": "header",
+          "tag": "PAP-PREFIX-SUFFIX-TEMPLATE"
+        },
+        {
+          "name": "main",
+          "tag": "PAP-BOX-TEMPLATE"
+        },
+        {
+          "name": "prefix-suffix",
+          "tag": "PAP-PREFIX-SUFFIX-TEMPLATE"
+        },
+        {
+          "name": "checkbox",
+          "tag": "PAP-BOX-TEMPLATE"
+        },
+        {
+          "name": "footer",
+          "tag": "PAP-PREFIX-SUFFIX-TEMPLATE"
+        }
+      ],
+      "tagName": "pap-checkbox"
+    },
+    "allproperties": [
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "scale",
+        "attribute": true,
+        "name": "scale",
+        "default_value": true,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "alternative",
+        "typeName": "String",
+        "propertyKey": "checked",
+        "attribute": true,
+        "name": "checked",
+        "default_value": false,
+        "type_value": [
+          null,
+          "intermediate"
+        ],
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "intermediate",
+        "attribute": true,
+        "name": "intermediate",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "Partial",
+        "typeName": "Object",
+        "propertyKey": "customDanger",
+        "attribute": "custom-error",
+        "name": "customDanger",
+        "type_value": {},
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "type": "Partial",
+        "typeName": "Object",
+        "propertyKey": "customWarning",
+        "attribute": "custom-warning",
+        "name": "customWarning",
+        "type_value": {},
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "label",
+        "attribute": true,
+        "name": "label",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "required",
+        "attribute": true,
+        "name": "required",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "readonly",
+        "attribute": true,
+        "name": "readonly",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "placeholder",
+        "attribute": true,
+        "name": "placeholder",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "Size",
+        "typeName": "String",
+        "propertyKey": "size",
+        "attribute": true,
+        "name": "size",
+        "default_value": "medium",
+        "type_value": [
+          "small",
+          "medium",
+          "large"
+        ],
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "type": "Mode",
+        "typeName": "String",
+        "propertyKey": "mode",
+        "attribute": true,
+        "name": "mode",
+        "default_value": "fill",
+        "type_value": [
+          "hug",
+          "fill"
+        ],
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "type": "Radius",
+        "typeName": "String",
+        "propertyKey": "radius",
+        "attribute": true,
+        "name": "radius",
+        "default_value": "medium",
+        "type_value": [
+          "small",
+          "medium",
+          "large",
+          "none",
+          "circular"
+        ],
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "type": "State",
+        "typeName": "String",
+        "propertyKey": "state",
+        "attribute": true,
+        "name": "state",
+        "default_value": "default",
+        "type_value": [
+          "default",
+          "info",
+          "success",
+          "warning",
+          "danger"
+        ],
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "message",
+        "attribute": true,
+        "name": "message",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "header",
+        "attribute": true,
+        "name": "header",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "footer",
+        "attribute": true,
+        "name": "footer",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "defaultValue",
+        "attribute": "default-value",
+        "name": "defaultValue",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "disabled",
+        "attribute": true,
+        "name": "disabled",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "name",
+        "attribute": true,
+        "name": "name",
+        "default_value": "missing-name",
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "value",
+        "attribute": true,
+        "name": "value",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      }
+    ],
+    "allevents": [
+      {
+        "type": "Event",
+        "name": "change"
+      }
+    ]
+  }
+}

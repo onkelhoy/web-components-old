@@ -7,21 +7,14 @@ import "@pap-it/typography/wc";
 // templates
 // import { FormElement } from "@pap-it/templates-form-element";
 import { Field, RenderArgument } from "@pap-it/templates-field";
-import { Box } from "@pap-it/templates-box";
 import "@pap-it/templates-box/wc";
-import "@pap-it/templates-prefix-suffix/wc";
 
 // local 
 import { style } from "./style";
-import { Variant } from './types';
 
 export class Switch extends Field {
   static style = style;
 
-  @query<Box>('pap-box-template') box!: Box;
-
-  @property({ rerender: false, type: Boolean }) scale: boolean = true;
-  @property({ rerender: false, }) variant: Variant = "primary";
   @property({ attribute: 'support-label' }) supportlabel?: string;
   @property({
     type: Boolean,
@@ -51,8 +44,8 @@ export class Switch extends Field {
 
   // event handlers
   private handlekeyup = (e: KeyboardEvent) => {
-    if ((e.key || e.code).toLowerCase() === "enter" && this.box && this.box.hasFocus) {
-      this.checked = !this.checked;
+    if ((e.key || e.code).toLowerCase() === "enter") {
+      this.handleclick();
     }
   }
   private handleclick = () => {

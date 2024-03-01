@@ -1,84 +1,84 @@
 {
-  "className": "SidebarContact",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar-contact",
-  "properties": [
-    {
-      "name": "open",
-      "type": "boolean",
-      "default_value": false,
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
+  "sub": {},
+  "main": {
+    "decorators": {
+      "property": {
+        "open": true,
+        "contacts": true
+      },
+      "query": {},
+      "context": {}
     },
-    {
-      "name": "contacts",
-      "type_value": null,
-      "primitive": false,
-      "conditional": false
-    }
-  ],
-  "classprop_set": {
-    "property": {
-      "open": true,
-      "contacts": true
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar-contact": [
+        {
+          "name": "style",
+          "from": "./style"
+        }
+      ]
     },
-    "query": {},
-    "context": {}
-  },
-  "extend_class": null,
-  "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar-contact": [
+    "public_functions": [],
+    "events": [],
+    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar-contact/src",
+    "className": "SidebarContact",
+    "properties": [
       {
-        "name": "__decorate",
-        "from": "tslib"
+        "name": "open",
+        "type": "boolean",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
       },
       {
-        "name": "html",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "property",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "Base",
-        "from": "@pap-it/system-base"
-      },
-      {
-        "name": "style",
-        "from": "./style"
+        "name": "contacts",
+        "type_value": null,
+        "primitive": false,
+        "conditional": false
       }
-    ]
-  },
-  "html": {
-    "slots": [],
-    "parts": [
+    ],
+    "extend_class": null,
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar-contact/dist/src/component.js",
+    "html": {
+      "slots": [],
+      "parts": [
+        {
+          "name": "collapsed",
+          "tag": "PAP-BOX-TEMPLATE"
+        },
+        {
+          "name": "base",
+          "tag": "PAP-BOX-TEMPLATE"
+        },
+        {
+          "name": "header",
+          "tag": "HEADER"
+        }
+      ],
+      "tagName": "pap-sidebar-contact"
+    },
+    "allproperties": [
       {
-        "name": "collapsed",
-        "tag": "PAP-BOX-TEMPLATE"
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "open",
+        "attribute": true,
+        "name": "open",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
       },
       {
-        "name": "base",
-        "tag": "PAP-BOX-TEMPLATE"
-      },
-      {
-        "name": "header",
-        "tag": "HEADER"
+        "typeName": "Array",
+        "propertyKey": "contacts",
+        "attribute": true,
+        "name": "contacts",
+        "type_value": null,
+        "primitive": false,
+        "conditional": false
       }
-    ]
-  },
-  "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar-contact",
-    "sources": [],
-    "variables": {
-      "--pap-color-bg-secondary": {
-        "usecases": [
-          "host pap-box-template[part=collapsed]{background-color"
-        ],
-        "fallbacks": [
-          "#F6F7F8"
-        ]
-      }
-    }
+    ],
+    "allevents": []
   }
 }

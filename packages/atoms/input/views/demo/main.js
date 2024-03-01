@@ -13,4 +13,19 @@ window.onload = () => {
       console.log('submit', Array.from(data), data.get('aaa'));
     }
   })
+
+  let toggle = false;
+  document.querySelector('#custom-danger pap-button').addEventListener('click', () => {
+    const input = document.querySelector('#custom-danger pap-input');
+    toggle = !toggle;
+
+    if (toggle) {
+      input.setAttribute("message", "what");
+      input.setAttribute("state", 'danger');
+    }
+    else {
+      input.removeAttribute("message");
+      input.setAttribute("state", 'default');
+    }
+  })
 }

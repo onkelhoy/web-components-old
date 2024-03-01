@@ -3,6 +3,8 @@
 # read the current package env
 source .env
 
+PACKAGE_DIR=$1
+
 # Read config.env file (in generator)
 source $ROOTDIR/scripts/generator/config.env
 
@@ -15,7 +17,6 @@ PROJECTSCOPE=$(echo "$PROJECTSCOPE" | cut -d'/' -f1 | awk -F'@' '{print $2}')
 
 classname=$(echo $name | awk -F"[_-]" '{$1=toupper(substr($1,1,1))substr($1,2); for (i=2;i<=NF;i++){$i=toupper(substr($i,1,1))substr($i,2)}; print}' OFS="")
 prefixname="${prefix}-${name}"
-
 
 if [[ "$ATOMICTYPE" == "global" || "$ATOMICTYPE" == "system" || "$ATOMICTYPE" == "pages" || "$ATOMICTYPE" == "templates" || "$ATOMICTYPE" == "tools" ]]; then
   # Remove the trailing 's' from the atomic type
@@ -31,8 +32,8 @@ fi
 
 
 # destinations 
-src_destination="$1/src/components/$name"
-view_destination="$1/views/$name"
+src_destination="$PACKAGE_DIR/src/components/$name"
+view_destination="$PACKAGE_DIR/views/$name"
 
 # create the path so it exists
 mkdir -p $src_destination &> /dev/null
@@ -47,18 +48,18 @@ INDEX_TEMP="$SCRIPT_DIR/indextemp"
 
 # update register
 echo "import { $classname } from './components/$name';" >> $REG_TEMP
-cat $1/src/register.ts >> $REG_TEMP
+cat $PACKAGE_DIR/src/register.ts >> $REG_TEMP
 echo "if (!cElements.get('$prefixname')) {" >> $REG_TEMP
 echo "  cElements.define('$prefixname', $classname);" >> $REG_TEMP
 echo "}" >> $REG_TEMP
 
 # update index
 echo "export * from './components/$name';" >> $INDEX_TEMP
-cat $1/src/index.ts >> $INDEX_TEMP
+cat $PACKAGE_DIR/src/index.ts >> $INDEX_TEMP
 
 # replace
-mv $REG_TEMP $1/src/register.ts
-mv $INDEX_TEMP $1/src/index.ts
+mv $REG_TEMP $PACKAGE_DIR/src/register.ts
+mv $INDEX_TEMP $PACKAGE_DIR/src/index.ts
 
 # update all the variable names 
 
@@ -73,3 +74,7 @@ sed -i '' "s/TEMPLATE_PACKAGENAME/${PACKAGENAME}/g" $view_destination/main.js &>
 sed -i '' "s/COMPONENT_NAME/${name}/g" $view_destination/main.js &> /dev/null
 sed -i '' "s/TEMPLATE_NAME/${NAME}/g" $view_destination/main.js &> /dev/null
 sed -i '' "s/PROJECTSCOPE/${PROJECTSCOPE}/g" $view_destination/main.js &> /dev/null
+
+# update env to include classname pointing to file 
+echo "$classname=src/components/$name/index.ts" >> "$PACKAGE_DIR/.env"
+echo "${classname}Folder=src/components/$name/" >> "$PACKAGE_DIR/.env"

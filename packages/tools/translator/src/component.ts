@@ -33,11 +33,22 @@ export class Translator extends Base {
   }
   private dynamicAttributes: Set<string> = new Set<string>();
   private noupdate = false;
+  private observer: MutationObserver;
+  private internalset = false;
 
   @property({
     rerender: false,
     onUpdate: 'onscopeupdate'
   }) scope?: string;
+
+  constructor() {
+    super();
+
+    this.observer = new MutationObserver(this.mutantobservercallback);
+    this.observer.observe(this, {
+      attributes: true,
+    });
+  }
 
   // class functions 
   connectedCallback(): void {
@@ -71,6 +82,20 @@ export class Translator extends Base {
   }
 
   // event handlers 
+  private mutantobservercallback: MutationCallback = (mutations: MutationRecord[], observer: MutationObserver) => {
+    if (this.internalset) {
+      this.internalset = false;
+      return;
+    }
+    for (const mutation of mutations) {
+      if (mutation.type === "attributes" && mutation.attributeName) {
+        if (this.dynamicAttributes.has(mutation.attributeName)) {
+          this.internalset = true;
+          this.updateText();
+        }
+      }
+    }
+  }
   private handletranslateslotchange = (e: Event) => {
     if (e.target instanceof HTMLSlotElement) {
       const nodetext = ExtractSlotValue(e.target).join(' ').trim();
@@ -131,6 +156,7 @@ export class Translator extends Base {
       this.debouncedRequestUpdate();
     }
 
+    this.internalset = false;
     this.noupdate = false;
   };
 

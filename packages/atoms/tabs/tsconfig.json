@@ -6,8 +6,11 @@
     "noEmitOnError": true,
     "lib": [
       "es2020",
-      "dom"
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
+    "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
@@ -22,6 +25,8 @@
     "incremental": true
   },
   "include": [
-    "**/*.ts"
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.d.ts"
   ]
 }

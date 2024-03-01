@@ -11,18 +11,22 @@ import "@pap-it/templates-prefix-suffix/wc";
 
 // local
 import { style } from "./style";
-import { Menu } from "../../component";
+import { MenuTemplate } from "../../component";
 import { PrefixSuffixRender } from "./types";
 
-export class Item extends Box {
+export class ItemTemplate extends Box {
   static styles = [style];
 
   @property() size: Size = "medium";
-  @property({ rerender: false, type: Number }) tabIndex: number = 1;
   @property({ type: Boolean }) divider: boolean = false;
   @property({ type: Boolean }) selected: boolean = false;
   @property() value: string = "";
-  @property() radius: Radius = "medium";
+  @property() radius: Radius = "small";
+
+  constructor() {
+    super();
+    this.tabIndex = 0;
+  }
 
   connectedCallback() {
     super.connectedCallback();
@@ -31,9 +35,16 @@ export class Item extends Box {
   private text?: string;
 
   // public functions
-  public init(menu: Menu) {
+  public init(menu: MenuTemplate) {
     menu.addEventListener('select', this.handlemenuselect);
     menu.addEventListener('pre-select', this.handlemenupreselect);
+
+    for (let value in menu.selected) {
+      if (this.getValue() === value) {
+        this.dispatchEvent(new Event('click'));
+        break;
+      }
+    }
   }
   public getValue() {
     return this.value || this.text || "missing-value";
@@ -55,7 +66,7 @@ export class Item extends Box {
   // event handler
   private handlemenuselect = (e: Event) => {
     if (e instanceof CustomEvent && e.target) {
-      const menu = e.target as Menu;
+      const menu = e.target as MenuTemplate;
       if (menu && 'value' in menu || 'multiple' in menu) {
         if (!menu.multiple && e.detail.value !== this.getValue()) {
           this.selected = false;
@@ -64,8 +75,10 @@ export class Item extends Box {
     }
   }
   private handlemenupreselect = (e: Event) => {
-    if (e instanceof CustomEvent && e.detail.value === this.getValue()) {
-      this.dispatchEvent(new Event('click'));
+    if (e instanceof CustomEvent && e.detail.values) {
+      if (e.detail.values.some((v: string) => v === this.getValue())) {
+        this.dispatchEvent(new Event('click'));
+      }
     }
   }
   private handleslotchange = (e: Event) => {
@@ -78,11 +91,12 @@ export class Item extends Box {
   override render(render?: PrefixSuffixRender) {
     return html`
       <pap-box-template 
+        part="box"
         radius="${this.radius}" 
         elevation="${this.elevation}"
         elevation-direction="${this.elevationdirection}"
       >
-        <pap-prefix-suffix-template>
+        <pap-prefix-suffix-template part="prefix-suffix">
           <slot name="prefix" slot="prefix"></slot>
           ${render?.prefix}
           <pap-typography truncate="true" nowrap="true"><slot @slotchange="${this.handleslotchange}">${this.getText()}</slot></pap-typography>
@@ -98,6 +112,6 @@ export class Item extends Box {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-item-template": Item;
+    "pap-item-template": ItemTemplate;
   }
 }

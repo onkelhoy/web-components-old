@@ -20,6 +20,7 @@
     align-items: center;
     border: 1px solid var(--border-color);
     background-color: var(--background);
+    box-sizing: border-box;
 
     width: var(--width);
     height: var(--size);
@@ -38,52 +39,78 @@
       background-color: var(--circle-background);
 
       box-sizing: border-box;
-      width: var(--size);
-      height: var(--size);
+      width: var(--circle);
+      height: var(--circle);
     }
 
     &:focus {
-      --border-color: var(--pap-color-border-strong, #29292F);
-      outline: 1px solid var(--border-color);
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--pap-color-border-strong, #29292F);
     }
   }
 }
 
-:host(:hover) {
-  --border-color: var(--pap-color-border-strong, #29292F);
+// :host(:hover) {
+//   --border-color: blue !important; //var(--pap-color-border-strong, #29292F);
+// }
+:host([state="default"]:not([disabled]):not([readonly])) {
+  pap-box-template:hover {
+    --border-color: var(--pap-color-border, #C7CBD4);
+    --background: var(--pap-color-bg-hover, #DADDE3);
+  }
 }
 
 // colors
-:host([variant="primary"]) {
+:host {
   --background: var(--pap-color-bg-tertiary, #EAEBEF);
   --circle-background: var(--pap-color-icon-secondary, #6E7087);
 }
 
-:host([variant="primary"][checked="true"]) {
+:host([checked="true"]),
+:host([checked="true"][state="default"]:not([disabled]):not([readonly])) pap-box-template:hover {
   --background: var(--pap-color-bg-success, #2E701B);
   --circle-background: var(--pap-color-bg, #FFFFFF);
   --border-color: var(--pap-color-bg-success, #2E701B);
 }
 
-:host([variant="secondary"]) {
-  --background: var(--pap-color-bg, #FFFFFF);
-  --circle-background: var(--pap-color-bg-inverse, #29292F);
-}
-
 // size
 :host([size="small"]) {
   --size: var(--unit-size3, 16px);
+  --circle: 10px;
+  --circle-left: 3px;
+  --circle-right: 2px;
   --width: 28px;
 }
 
 :host([size="medium"]) {
   --size: var(--field-size-smaller, 24px);
+  --circle: 14px;
+  --circle-left: 5px;
+  --circle-right: 3px;
   --width: 44px;
 }
 
 :host([size="large"]) {
   --size: var(--field-size-small, 32px);
+  --circle: 20px;
+  --circle-left: 6px;
+  --circle-right: 4px;
   --width: 60px;
+}
+
+:host([checked="true"][size="small"]) {
+  --circle: 12px;
+}
+
+:host([checked="true"][size="medium"]) {
+  --circle: 18px;
+}
+
+:host([checked="true"][size="large"]) {
+  --circle: 24px;
 }
 
 :host([mode="fill"]) {
@@ -95,13 +122,13 @@
 // checked
 :host([checked="false"]) {
   span[part="circle"] {
-    left: 0;
+    left: var(--circle-left);
   }
 }
 
-:host([scale="true"][checked="false"]) {
+:host(:active) {
   span[part="circle"] {
-    scale: 0.6;
+    scale: 1.2;
   }
 }
 
@@ -109,6 +136,6 @@
   --circle: var(--circle-selected);
 
   span[part="circle"] {
-    left: calc(100% - var(--size));
+    left: calc(100% - var(--circle) - var(--circle-right));
   }
 }

@@ -105,7 +105,7 @@ find "$destination" -type f -not -name ".DS_Store" -not -name "*.svg" -not -name
 find "$destination" -type f -not -name ".DS_Store" -not -name "*.svg" -not -name "*.ico" -exec sed -i '' "s/TEMPLATE_NAME/${name}/g" {} \;
 find "$destination" -type f -not -name ".DS_Store" -not -name "*.svg" -not -name "*.ico" -exec sed -i '' "s/TEMPLATE_CLASSNAME/${classname}/g" {} \;
 find "$destination" -type f -not -name ".DS_Store" -not -name "*.svg" -not -name "*.ico" -exec sed -i '' "s/TEMPLATE_PREFIXNAME/${prefixname}/g" {} \;
-find "$destination" -type f -not -name ".DS_Store" -not -name "*.svg" -not -name "*.ico" -exec sed -i '' "s/PROJECTSCOPE/${PROJECTSCOPE}/g" {} \;
+find "$destination" -type f -not -name ".DS_Store" -not -name "*.svg" -not -name "*.ico" -exec sed -i '' "s/TEMPLATE_PROJECTSCOPE/${PROJECTSCOPE}/g" {} \;
 
 sed -i '' "s/GITNAME/${GITNAME}/g" $destination/package.json
 

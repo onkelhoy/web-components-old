@@ -24,11 +24,38 @@ export class Pagination extends Translator {
       this.dispatchEvent(new Event('page'))
     }
   }) page: number = 0;
-  @property({ type: Number, onUpdate: "onperpageupdate" }) perpage: number = 0;
-  @property({ type: Number, onUpdate: "ontotal" }) total: number = 0;
+  @property({
+    type: Number,
+    after: function (this: Pagination, value: number, old: number) {
+      if (!this.pageselector) return 10;
 
-  @query('#page-selector') pageselector!: Select;
-  @query({ selector: '#perpage-selector', onload: "onperpageselectorload" }) perpageselector!: Select;
+      // calculate the row of the first item on the current page view
+      if (!old) this.page = 0;
+      else {
+        const firstRow = old * this.page;
+
+        // determine the new page number
+        this.page = Math.max(0, Math.ceil(firstRow / value));
+      }
+
+      this.setpageoptions();
+      this.pageselector.value = this.page.toString();
+    }
+  }) perpage: number = 0;
+  @property({
+    type: Number,
+    after: function (this: Pagination) {
+      this.ontotal();
+    }
+  }) total: number = 0;
+
+  @query('pap-select[part="page-selector"]') pageselector!: Select;
+  @query({
+    selector: 'pap-select[part="perpage-selector"]',
+    load: function (this: Pagination) {
+      this.ontotal();
+    }
+  }) perpageselector!: Select;
 
   // class functions 
   constructor() {
@@ -41,31 +68,12 @@ export class Pagination extends Translator {
     return Math.max(this.total, 5);
   }
 
-  private ontotal = () => {
+  // private variables and functions 
+  private ontotal() {
     if (this.perpageselector) {
       this.perpageselector.options = [5, 10, 15, 20, 30, 50, 75, 100].filter(v => v <= this.mintotal).map(v => ({ value: String(v), text: String(v) }));
     }
   }
-  private onperpageselectorload = () => {
-    this.ontotal();
-  }
-  private onperpageupdate = (value: number, old: number) => {
-    if (!this.pageselector) return 10;
-
-    // calculate the row of the first item on the current page view
-    if (!old) this.page = 0;
-    else {
-      const firstRow = old * this.page;
-
-      // determine the new page number
-      this.page = Math.max(0, Math.ceil(firstRow / value));
-    }
-
-    this.setpageoptions();
-    this.pageselector.value = this.page.toString();
-  }
-
-  // private variables and functions 
   private localchange = false;
   private clearlocalchange = () => { };
   private get MaxPage() {
@@ -136,7 +144,7 @@ export class Pagination extends Translator {
           mode="hug"
           placement="bottom-center"
           dynamic-width="true"
-          id="perpage-selector" 
+          part="perpage-selector" 
           value="${this.perpage || 5}" 
         >
         </pap-select>
@@ -160,7 +168,7 @@ export class Pagination extends Translator {
           dynamic-width="true"
           size="small"
           placement="bottom-center"
-          id="page-selector"
+          part="page-selector"
           value="${Math.min(this.page || 0, this.MaxPage)}" 
         >
         </pap-select>

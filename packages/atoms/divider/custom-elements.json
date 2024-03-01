@@ -1,89 +1,94 @@
 {
-  "className": "Divider",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/divider",
-  "properties": [
-    {
-      "name": "mode",
-      "type": "Mode",
-      "default_value": "horizontal",
-      "type_value": [
-        "vertical",
-        "horizontal"
-      ],
-      "primitive": false,
-      "conditional": false
+  "sub": {},
+  "main": {
+    "decorators": {
+      "property": {
+        "mode": true,
+        "thickness": true
+      },
+      "query": {},
+      "context": {}
     },
-    {
-      "name": "thickness",
-      "type": "Thickness",
-      "default_value": "default",
-      "type_value": [
-        "thin",
-        "default",
-        "thick"
-      ],
-      "primitive": false,
-      "conditional": false
-    }
-  ],
-  "classprop_set": {
-    "property": {
-      "mode": true,
-      "thickness": true
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/atoms/divider": [
+        {
+          "name": "style",
+          "from": "./style"
+        }
+      ]
     },
-    "query": {},
-    "context": {}
-  },
-  "extend_class": null,
-  "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/atoms/divider": [
+    "public_functions": [],
+    "events": [],
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/divider/src",
+    "className": "Divider",
+    "properties": [
       {
-        "name": "__decorate",
-        "from": "tslib"
-      },
-      {
-        "name": "property",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "Base",
-        "from": "@pap-it/system-base"
-      },
-      {
-        "name": "style",
-        "from": "./style"
-      }
-    ]
-  },
-  "html": {
-    "slots": [],
-    "parts": [
-      {
-        "name": "line",
-        "tag": "DIV"
-      }
-    ]
-  },
-  "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/divider",
-    "sources": [],
-    "variables": {
-      "--pap-divider-color": {
-        "usecases": [
-          "host div{background-color"
+        "name": "mode",
+        "type": "Mode",
+        "default_value": "horizontal",
+        "type_value": [
+          "vertical",
+          "horizontal"
         ],
-        "fallbacks": [
-          "var(--pap-color-border, #C7CBD4)"
-        ]
+        "primitive": false,
+        "conditional": false
       },
-      "--pap-color-border": {
-        "usecases": [
-          "host div{background-color"
+      {
+        "name": "thickness",
+        "type": "Thickness",
+        "default_value": "default",
+        "type_value": [
+          "thin",
+          "default",
+          "thick"
         ],
-        "fallbacks": [
-          "#C7CBD4"
-        ]
+        "primitive": false,
+        "conditional": false
       }
-    }
+    ],
+    "extend_class": null,
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/atoms/divider/dist/src/component.js",
+    "html": {
+      "slots": [],
+      "parts": [
+        {
+          "name": "line",
+          "tag": "DIV"
+        }
+      ],
+      "tagName": "pap-divider"
+    },
+    "allproperties": [
+      {
+        "type": "Mode",
+        "typeName": "String",
+        "propertyKey": "mode",
+        "attribute": true,
+        "name": "mode",
+        "default_value": "horizontal",
+        "type_value": [
+          "vertical",
+          "horizontal"
+        ],
+        "primitive": false,
+        "conditional": false
+      },
+      {
+        "type": "Thickness",
+        "typeName": "String",
+        "propertyKey": "thickness",
+        "attribute": true,
+        "name": "thickness",
+        "default_value": "default",
+        "type_value": [
+          "thin",
+          "default",
+          "thick"
+        ],
+        "primitive": false,
+        "conditional": false
+      }
+    ],
+    "allevents": []
   }
 }

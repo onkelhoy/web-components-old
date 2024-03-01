@@ -17,6 +17,62 @@
 
 <body>
   <doc-card>
+    <pap-typography slot="header" variant="C1">Checked Stages</pap-typography>
+
+    <pap-typography>State: Default</pap-typography>
+    <pap-codeblock direction="row" display="both">
+      <pap-checkbox state="default" checked="false"></pap-checkbox>
+      <pap-checkbox state="default" checked="true"></pap-checkbox>
+      <pap-checkbox state="default" checked="intermediate"></pap-checkbox>
+    </pap-codeblock>
+
+    <pap-typography>State: Danger</pap-typography>
+    <pap-codeblock direction="row" display="both">
+      <pap-checkbox state="danger" checked="false"></pap-checkbox>
+      <pap-checkbox state="danger" checked="true"></pap-checkbox>
+      <pap-checkbox state="danger" checked="intermediate"></pap-checkbox>
+    </pap-codeblock>
+
+    <pap-typography>State: Information</pap-typography>
+    <pap-codeblock direction="row" display="both">
+      <pap-checkbox state="info" checked="false"></pap-checkbox>
+      <pap-checkbox state="info" checked="true"></pap-checkbox>
+      <pap-checkbox state="info" checked="intermediate"></pap-checkbox>
+    </pap-codeblock>
+
+    <pap-typography>State: Warning</pap-typography>
+    <pap-codeblock direction="row" display="both">
+      <pap-checkbox state="warning" checked="false"></pap-checkbox>
+      <pap-checkbox state="warning" checked="true"></pap-checkbox>
+      <pap-checkbox state="warning" checked="intermediate"></pap-checkbox>
+    </pap-codeblock>
+
+    <pap-typography>State: Success</pap-typography>
+    <pap-codeblock direction="row" display="both">
+      <pap-checkbox state="success" checked="false"></pap-checkbox>
+      <pap-checkbox state="success" checked="true"></pap-checkbox>
+      <pap-checkbox state="success" checked="intermediate"></pap-checkbox>
+    </pap-codeblock>
+
+    <pap-typography>Disabled</pap-typography>
+    <pap-codeblock direction="row" display="both">
+      <pap-checkbox state="warning" disabled checked="false"></pap-checkbox>
+      <pap-checkbox state="warning" disabled checked="true"></pap-checkbox>
+      <pap-checkbox state="warning" disabled checked="intermediate"></pap-checkbox>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">States</pap-typography>
+
+    <pap-typography>States</pap-typography>
+    <pap-codeblock direction="row" display="both">
+      <pap-checkbox checked="true"></pap-checkbox>
+      <pap-checkbox checked="intermediate"></pap-checkbox>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
     <pap-typography slot="header" variant="C1">Normal case</pap-typography>
 
     <pap-typography>With Label</pap-typography>
@@ -33,6 +89,7 @@
       <pap-checkbox size="large"></pap-checkbox>
     </pap-codeblock>
   </doc-card>
+
   <doc-card>
     <pap-typography slot="header" variant="C1">Special case</pap-typography>
     <pap-typography>Controlled</pap-typography>

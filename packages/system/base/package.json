@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/system-base",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -14,13 +14,12 @@
   "main": "dist/src/index.js",
   "files": [
     "asset/",
-    "dist/",
-    "react/"
+    "dist/"
   ],
   "exports": {
     ".": "./dist/src/index.js",
     "./wc": "./dist/register.bundle.mjs",
-    "./react": "./react/index.ts"
+    "./react": "./dist/react/index.ts"
   },
   "author": "Henry Pap",
   "private": false,
@@ -34,12 +33,13 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-utils": "1.0.9"
+    "@pap-it/system-utils": "1.0.10",
+    "@pap-it/system-react": "0.0.5"
   },
   "devDependencies": {
     "eslint": "^8.53.0",
-    "@pap-it/system-showcase": "1.0.10",
-    "@pap-it/typography": "1.0.10",
+    "@pap-it/system-showcase": "1.0.11",
+    "@pap-it/typography": "1.0.11",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",

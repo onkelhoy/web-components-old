@@ -1,10 +1,44 @@
+// system
+import { debounce, property } from "@pap-it/system-utils";
 import { Base } from "@pap-it/system-base";
-import { property } from "@pap-it/system-utils";
 
 export class Asset extends Base {
-  @property({ onUpdate: "assetBaseUpdate", attribute: "asset-base" }) assetBase: string = "/public";
-  @property({ type: Boolean }) cache: boolean = false;
 
+  @property({
+    attribute: "asset-base",
+    set: function (this: Asset, value: string) {
+      if (value[value.length - 1] === "/") {
+        value = value.slice(0, value.length - 1);
+      }
+      return value;
+    },
+    after: function (this: Asset) {
+      this.debouncedLoadAsset();
+    }
+  }) assetBase: string = "/public";
+  @property({ type: Boolean }) cache: boolean = false;
+  @property({
+    after: function (this: Asset) {
+      this.debouncedLoadAsset();
+    }
+  }) file!: string;
+  @property({
+    after: function (this: Asset) {
+      this.debouncedLoadAsset();
+    }
+  }) url?: string;
+
+
+  constructor() {
+    super();
+
+    // this.debouncedLoadAsset = debounce(this.debouncedLoadAsset, 10);
+  }
+  private debouncedLoadAsset() {
+    if (this.file) {
+      this.loadAsset(this.file, !!this.url);
+    }
+  }
   protected async loadAsset(file: string, isurl = false): Promise<string | Response | null> {
     try {
       let filename = file;
@@ -15,6 +49,7 @@ export class Asset extends Base {
       if (this.cache) {
         const item = window.localStorage.getItem(`pap-assets-${url}`);
         if (item) {
+          this.handleResponse(item);
           return item;
         }
       }
@@ -22,22 +57,29 @@ export class Asset extends Base {
       const response = await fetch(url);
 
       if (response.ok) {
+
+        this.handleResponse(response);
         return response;
-      } else {
-        console.error('Error fetching asset:', response.status, response.statusText);
       }
+
+      this.handleError(response);
     } catch (error) {
-      console.error('Error fetching asset:', error);
+      this.handleError(null, error);
     }
     return null;
   }
 
-  protected assetBaseUpdate(_value: string, _old: string) {
-    if (this.assetBase[this.assetBase.length - 1] === "/") {
-      this.assetBase = this.assetBase.slice(0, this.assetBase.length - 1);
+  protected handleError(response: Response | null, error?: any) {
+    if (response) {
+      console.error('Error fetching asset:', response.status, response.statusText);
+    }
+    else if (error) {
+      console.error('Something went wrong fetching asset:', error);
     }
   }
-
+  protected handleResponse(response: Response | string) {
+    console.log('well look at that, a response!');
+  }
   protected cacheData(file: string, data: string) {
     let filename = file;
     if (filename[0] === "/") filename = filename.slice(1, filename.length);

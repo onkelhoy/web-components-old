@@ -25,7 +25,7 @@ export class Item extends Base {
   @property() icon_selected?: string;
   @property({
     after: function (this: Item, old: string) {
-      console.log('text update', { now: this.text, old: old || null });
+      // console.log('text update', { now: this.text, old: old || null });
     }
   }) text: string = "";
   @property({ type: Number }) counter?: number;
@@ -153,8 +153,8 @@ export class Item extends Base {
             ${this.isparent ? '<pap-icon key="caret" custom-size="12" container="small" cache="true" name="caret"></pap-icon>' : ''}
           </span>
 
-          ${icon ? html`<pap-icon key="unselected" container="smaller" size="small" class="unselected" name="${icon}">${fallback}</pap-icon>` : ''}
-          ${icon_selected ? html`<pap-icon key="selected" container="smaller" size="small" class="selected" name="${icon_selected}">${fallback}</pap-icon>` : ''}
+          ${icon ? `<pap-icon key="unselected" container="smaller" size="small" class="unselected" name="${icon}">${fallback}</pap-icon>` : `<pap-icon data-hide-slot="false" key="noicon" container="smaller" size="small">${fallback}</pap-icon>`}
+          ${icon_selected ? `<pap-icon key="selected" container="smaller" size="small" class="selected" name="${icon_selected}">${fallback}</pap-icon>` : ''}
           
           <pap-typography key="text" truncate="true" variant="${this.isparent ? "C4" : "C3"}">${this.text}</pap-typography>
 

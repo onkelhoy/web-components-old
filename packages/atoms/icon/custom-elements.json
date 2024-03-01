@@ -1,168 +1,276 @@
 {
-  "className": "Icon",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/icon",
-  "properties": [
-    {
-      "name": "container",
-      "type": "ContainerTypes",
-      "type_value": [
-        "small",
-        "medium",
-        "large"
+  "sub": {},
+  "main": {
+    "decorators": {
+      "property": {
+        "container": true,
+        "viewbox": true,
+        "name": true,
+        "color": true,
+        "size": true,
+        "customSize": true,
+        "countryFlag": true
+      },
+      "query": {
+        "svgElement": true
+      },
+      "context": {}
+    },
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/atoms/icon": [
+        {
+          "name": "Asset",
+          "from": "@pap-it/templates-asset"
+        },
+        {
+          "name": "style",
+          "from": "./style.js"
+        }
       ],
-      "primitive": false,
-      "conditional": true
+      "/Users/henry/Developer/projects/web-components/packages/templates/asset": []
     },
-    {
-      "name": "name",
-      "type": "string",
-      "type_value": null,
-      "primitive": true,
-      "conditional": true
-    },
-    {
-      "name": "color",
-      "type": "string",
-      "type_value": null,
-      "primitive": true,
-      "conditional": true
-    },
-    {
-      "name": "size",
-      "type": "Size",
-      "default_value": "medium",
-      "type_value": [
-        "small",
-        "medium",
-        "large"
-      ],
-      "primitive": false,
-      "conditional": false
-    },
-    {
-      "name": "customSize",
-      "type": "number",
-      "type_value": null,
-      "primitive": true,
-      "conditional": true
-    },
-    {
-      "name": "countryFlag",
-      "type": "string",
-      "type_value": null,
-      "primitive": true,
-      "conditional": true
-    }
-  ],
-  "classprop_set": {
-    "property": {
-      "container": true,
-      "name": true,
-      "color": true,
-      "size": true,
-      "customSize": true,
-      "countryFlag": true
-    },
-    "query": {},
-    "context": {}
-  },
-  "extend_class": {
-    "className": "Asset",
-    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/asset",
+    "public_functions": [],
+    "events": [],
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/icon/src",
+    "className": "Icon",
     "properties": [
       {
-        "name": "assetBase",
+        "name": "container",
+        "type": "Container",
+        "type_value": [
+          "small",
+          "medium",
+          "large",
+          "smaller"
+        ],
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "name": "name",
         "type": "string",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "name": "size",
+        "type": "Size",
+        "default_value": "medium",
+        "type_value": [
+          "small",
+          "medium",
+          "large"
+        ],
+        "primitive": false,
+        "conditional": false
+      },
+      {
+        "name": "customSize",
+        "type": "number",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "name": "countryFlag",
+        "type": "string",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      }
+    ],
+    "extend_class": {
+      "decorators": {
+        "property": {
+          "assetBase": true,
+          "cache": true,
+          "file": true,
+          "url": true
+        },
+        "query": {},
+        "context": {}
+      },
+      "imports": [],
+      "public_functions": [],
+      "events": [],
+      "folder": "/Users/henry/Developer/projects/web-components/packages/templates/asset/src",
+      "className": "Asset",
+      "properties": [
+        {
+          "name": "assetBase",
+          "type": "string",
+          "default_value": "/public",
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "name": "cache",
+          "type": "boolean",
+          "default_value": false,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "name": "file",
+          "type": "string",
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        }
+      ],
+      "extend_class": null
+    },
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/atoms/icon/dist/src/component.js",
+    "html": {
+      "slots": [
+        {
+          "name": "default",
+          "html": ""
+        }
+      ],
+      "parts": [
+        {
+          "name": "fallback",
+          "tag": "SLOT"
+        },
+        {
+          "name": "svg",
+          "tag": "SVG"
+        }
+      ],
+      "tagName": "pap-icon"
+    },
+    "allproperties": [
+      {
+        "type": "Container",
+        "typeName": "String",
+        "propertyKey": "container",
+        "attribute": true,
+        "name": "container",
+        "type_value": [
+          "small",
+          "medium",
+          "large",
+          "smaller"
+        ],
+        "primitive": false,
+        "conditional": true
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "name",
+        "attribute": true,
+        "name": "name",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "color",
+        "attribute": true,
+        "name": "color",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "Size",
+        "typeName": "String",
+        "propertyKey": "size",
+        "attribute": true,
+        "name": "size",
+        "default_value": "medium",
+        "type_value": [
+          "small",
+          "medium",
+          "large"
+        ],
+        "primitive": false,
+        "conditional": false
+      },
+      {
+        "type": "number",
+        "typeName": "Number",
+        "propertyKey": "customSize",
+        "attribute": "custom-size",
+        "name": "customSize",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "countryFlag",
+        "attribute": "country-flag",
+        "name": "countryFlag",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "assetBase",
+        "attribute": "asset-base",
+        "name": "assetBase",
         "default_value": "/public",
         "type_value": null,
         "primitive": true,
         "conditional": false
       },
       {
-        "name": "cache",
         "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "cache",
+        "attribute": true,
+        "name": "cache",
         "default_value": false,
         "type_value": null,
         "primitive": true,
         "conditional": false
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "file",
+        "attribute": true,
+        "name": "file",
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "url",
+        "attribute": true,
+        "name": "url",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
       }
     ],
-    "classprop_set": {
-      "property": {
-        "assetBase": true,
-        "cache": true
-      },
-      "query": {},
-      "context": {}
-    },
-    "extend_class": null
-  },
-  "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/templates/asset": [
-      {
-        "name": "__decorate",
-        "from": "tslib"
-      },
-      {
-        "name": "Base",
-        "from": "@pap-it/system-base"
-      },
-      {
-        "name": "property",
-        "from": "@pap-it/system-utils"
-      }
-    ],
-    "/Users/henry/Developer/projects/web-components/packages/atoms/icon": [
-      {
-        "name": "__decorate",
-        "from": "tslib"
-      },
-      {
-        "name": "property",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "html",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "Asset",
-        "from": "@pap-it/templates-asset"
-      },
-      {
-        "name": "style",
-        "from": "./style.js"
-      }
-    ]
-  },
-  "html": {
-    "slots": [
-      {
-        "name": "default",
-        "html": ""
-      }
-    ],
-    "parts": [
-      {
-        "name": "fallback",
-        "tag": "SLOT"
-      },
-      {
-        "name": "svg",
-        "tag": "SVG"
-      }
-    ]
-  },
-  "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/icon",
-    "sources": [],
-    "variables": {
-      "--icon-custom-size": {
-        "usecases": [
-          "center;width"
-        ],
-        "fallbacks": []
-      }
-    }
+    "allevents": []
   }
 }

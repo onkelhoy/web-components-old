@@ -13,7 +13,7 @@ import "@pap-it/tools-translator/wc";
 // local 
 import { style } from "./style";
 import { Selected } from './types';
-import { Item } from "./components/item";
+import { ItemTemplate } from "./components/item";
 
 export class MenuProperties extends PopoverProperties {
   @property({ type: Boolean }) multiple: boolean = false;
@@ -31,11 +31,11 @@ export class MenuProperties extends PopoverProperties {
   }) menuheight: string = "15rem";
 }
 
-export class Menu extends MenuProperties {
+export class MenuTemplate extends MenuProperties {
   static styles = [style];
 
   @query('pap-popover-template') popoverTemplate!: Popover;
-  @property({ type: Boolean, attribute: false }) protected hasitems: boolean = false;
+  @property({ type: Boolean, attribute: false }) hasitems: boolean = false;
 
   public selected: Record<string, string> = {};
   public lastselected?: string;
@@ -50,7 +50,12 @@ export class Menu extends MenuProperties {
   public select(value?: string) {
     if (!value) this.dispatchEvent(new CustomEvent('select', { detail: { value: undefined, text: undefined } }));
     else {
-      this.dispatchEvent(new CustomEvent('pre-select', { detail: { value } }));
+      const values = value.split(",");
+      for (let v of values) {
+        this.selected[v] = "";
+      }
+
+      this.dispatchEvent(new CustomEvent('pre-select', { detail: { values } }));
     }
   }
 
@@ -81,14 +86,11 @@ export class Menu extends MenuProperties {
           element.setAttribute('data-menu-template-init', 'true');
         }
       }
-      else {
-        console.log('what are you?', element)
-      }
     })
   }
-  private isitem(potential: any): Item | null {
-    if (potential instanceof Item || potential.role === 'option' && 'init' in potential) {
-      return potential as Item;
+  private isitem(potential: any): ItemTemplate | null {
+    if (potential instanceof ItemTemplate || 'init' in potential) {
+      return potential as ItemTemplate;
     }
 
     return null;
@@ -152,7 +154,7 @@ export class Menu extends MenuProperties {
         </span>
         <pap-box-template part="items" radius="medium" elevation="small">
           <slot @slotchange="${this.handleslotchange}"></slot>
-          ${!this.hasitems ? `<pap-item-template>
+          ${!this.hasitems ? `<pap-item-template key="hasitems">
             <pap-translator>Missing Items</pap-translator>
           </pap-item-template>` : ''}
         </pap-box-template>
@@ -164,6 +166,6 @@ export class Menu extends MenuProperties {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-menu-template": Menu;
+    "pap-menu-template": MenuTemplate;
   }
 }

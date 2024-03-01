@@ -2,11 +2,11 @@
 import { html } from "@pap-it/system-utils";
 
 // templates
-import { PrefixSuffixRender, Item as TemplateItem } from "@pap-it/templates-menu";
+import { PrefixSuffixRender, ItemTemplate } from "@pap-it/templates-menu";
 
 import { style } from "./style";
 
-export class Item extends TemplateItem {
+export class Item extends ItemTemplate {
   static style = style;
 
   render() {

@@ -29,7 +29,7 @@
   <doc-card>
     <pap-typography slot="header" variant="C1">Validation</pap-typography>
 
-    <pap-typography>Default validaiton</pap-typography>
+    <pap-typography>Default validation</pap-typography>
     <pap-codeblock display="both">
       <pap-input required type="email"></pap-input>
     </pap-codeblock>
@@ -37,13 +37,23 @@
     <pap-typography>Custom Error</pap-typography>
     <pap-codeblock display="both">
       <pap-input required type="email"
-        custom-error='{ "valueMissing": "Custom message for missing value", "typeMismatch": "Custom message for type missmatch" }'></pap-input>
+        custom-danger='{ "valueMissing": "Custom message for missing value", "typeMismatch": "Custom message for type missmatch" }'></pap-input>
     </pap-codeblock>
 
     <pap-typography>Custom Warning</pap-typography>
     <pap-codeblock display="both">
       <pap-input required type="email"
         custom-warning='{ "valueMissing": "Custom message for missing value", "typeMismatch": "Custom message for type missmatch" }'></pap-input>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card id="custom-danger">
+    <pap-typography slot="header" variant="C1">Custom Validation</pap-typography>
+
+    <pap-button>toggle error</pap-button>
+
+    <pap-codeblock display="both">
+      <pap-input required type="email"></pap-input>
     </pap-codeblock>
   </doc-card>
 

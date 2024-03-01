@@ -35,6 +35,8 @@ export class Input extends Field {
         this.value = e.target.value;
       }
     }
+
+    this.dispatchEvent(new Event('input'));
   }
 
   render() {
