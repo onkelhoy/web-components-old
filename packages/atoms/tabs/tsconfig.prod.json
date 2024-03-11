@@ -3,10 +3,12 @@
   "compilerOptions": {
     "sourceMap": false,
     "inlineSources": false,
-    "declarationMap": false
+    "declarationMap": false,
+    "incremental": false
   },
   "exclude": [
     "**/*.test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "dist/*.tsbuildinfo"
   ]
 }
