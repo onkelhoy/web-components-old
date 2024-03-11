@@ -30,10 +30,6 @@
           "name": "reached-max"
         },
         {
-          "type": "Event",
-          "name": "reached-max"
-        },
-        {
           "type": "CustomEvent",
           "custom": "ChildSelectEvent",
           "name": "child-select",
@@ -45,15 +41,6 @@
         {
           "type": "Event",
           "name": "select"
-        },
-        {
-          "type": "CustomEvent",
-          "custom": "ChildSelectEvent",
-          "name": "child-select",
-          "data": {
-            "object": "{ detail: e.detail }",
-            "properties": []
-          }
         }
       ],
       "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar/src/components/item",
@@ -231,10 +218,6 @@
           "name": "reached-max"
         },
         {
-          "type": "Event",
-          "name": "reached-max"
-        },
-        {
           "type": "CustomEvent",
           "custom": "ChildSelectEvent",
           "name": "child-select",
@@ -246,15 +229,6 @@
         {
           "type": "Event",
           "name": "select"
-        },
-        {
-          "type": "CustomEvent",
-          "custom": "ChildSelectEvent",
-          "name": "child-select",
-          "data": {
-            "object": "{ detail: e.detail }",
-            "properties": []
-          }
         }
       ]
     }
@@ -296,17 +270,6 @@
         "name": "select",
         "data": {
           "object": "{ detail: { id: e.target.id || e.target.text } }",
-          "properties": [
-            "id"
-          ]
-        }
-      },
-      {
-        "type": "CustomEvent",
-        "custom": "SelectEvent",
-        "name": "select",
-        "data": {
-          "object": "{detail: {id: childtarget.id || childtarget.text}}",
           "properties": [
             "id"
           ]
@@ -463,17 +426,6 @@
         "name": "select",
         "data": {
           "object": "{ detail: { id: e.target.id || e.target.text } }",
-          "properties": [
-            "id"
-          ]
-        }
-      },
-      {
-        "type": "CustomEvent",
-        "custom": "SelectEvent",
-        "name": "select",
-        "data": {
-          "object": "{detail: {id: childtarget.id || childtarget.text}}",
           "properties": [
             "id"
           ]

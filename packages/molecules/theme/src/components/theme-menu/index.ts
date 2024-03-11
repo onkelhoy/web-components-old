@@ -3,7 +3,7 @@ import { html, property, query } from "@pap-it/system-utils";
 import { Base } from "@pap-it/system-base";
 
 // atoms 
-import { Menu, MenuItem } from '@pap-it/menu';
+import { Menu, Item } from '@pap-it/menu';
 import "@pap-it/menu/wc";
 import "@pap-it/typography/wc";
 
@@ -61,7 +61,7 @@ export class ThemeMenu extends Base {
       this.menuElement.removeAttribute('hidden');
     }
 
-    const items = this.menuElement.querySelectorAll<MenuItem>("pap-menu-item");
+    const items = this.menuElement.querySelectorAll<Item>("pap-menu-item");
     const assigned = new Set<string>();
     items.forEach(item => {
       if (!window.papTheme.map.has(item.value)) {
@@ -76,7 +76,7 @@ export class ThemeMenu extends Base {
       if (!assigned.has(name)) {
         const newitem = this.templateElement.content.cloneNode(true) as HTMLElement;
 
-        const itemElement = newitem.querySelector<MenuItem>('pap-menu-item');
+        const itemElement = newitem.querySelector<Item>('pap-menu-item');
         if (itemElement) {
           itemElement.setAttribute('value', name);
         }
@@ -102,7 +102,7 @@ export class ThemeMenu extends Base {
   }
   private handleselect = (e: Event) => {
     const menu = e.target as Menu;
-    if (menu) {
+    if (menu && menu.value) {
       if (window.papTheme.current !== menu.value) {
         window.papTheme.change(menu.value);
       }
@@ -113,7 +113,7 @@ export class ThemeMenu extends Base {
     return html`
       <template>
         <pap-menu-item>
-          <span class="theme-color"></span>
+          <span slot="prefix" class="theme-color"></span>
           <pap-typography></pap-typography>
         </pap-menu-item>
       </template>

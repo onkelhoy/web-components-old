@@ -46,7 +46,11 @@ if [ -f "$PACKAGEDIR/custom-elements.json" ]; then
 fi
 
 # build a bundled script based on target 
-esbuild $PACKAGEDIR/src/register.ts --bundle --format=esm --outfile="$SCRIPTDIR/.temp/$ATOMICTYPE-$MAINCLASSNAME/analyse.bundle.js" --platform=browser &> /dev/null
+if [ -z "$VERBOSE" ]; then 
+  esbuild $PACKAGEDIR/src/register.ts --bundle --format=esm --outfile="$SCRIPTDIR/.temp/$ATOMICTYPE-$MAINCLASSNAME/analyse.bundle.js" --platform=browser &> /dev/null
+else 
+  esbuild $PACKAGEDIR/src/register.ts --bundle --format=esm --outfile="$SCRIPTDIR/.temp/$ATOMICTYPE-$MAINCLASSNAME/analyse.bundle.js" --platform=browser
+fi
 
 function generate_report () {
   local COMPONENT_FOLDER_PATH=$1

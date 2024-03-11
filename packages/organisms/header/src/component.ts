@@ -3,7 +3,6 @@ import { html, property, query } from "@pap-it/system-utils";
 import { Base } from "@pap-it/system-base";
 
 // atoms
-import { Menu } from "@pap-it/menu";
 import "@pap-it/badge/wc";
 import "@pap-it/typography/wc";
 import "@pap-it/menu/wc";

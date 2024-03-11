@@ -20,7 +20,7 @@ export type Props = {
   pattern?: string;
   customDanger?: Partial<Record<keyof ValidityState, string>>;
   customWarning?: Partial<Record<keyof ValidityState, string>>;
-  customValidation?: (field: InputElement) => { message: string; state: "default" | "info" | "success" | "warning" | "danger" } | undefined;
+  customValidation?: (target: InputElement) => { message: string; state: "default" | "info" | "success" | "warning" | "danger" } | undefined;
   label?: string;
   required?: boolean;
   readonly?: boolean;

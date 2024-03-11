@@ -15,7 +15,7 @@ export type Props = {
   checked?: boolean;
   customDanger?: Partial<Record<keyof ValidityState, string>>;
   customWarning?: Partial<Record<keyof ValidityState, string>>;
-  customValidation?: (field: SwitchElement) => { message: string; state: "default" | "info" | "success" | "warning" | "danger" } | undefined;
+  customValidation?: (target: SwitchElement) => { message: string; state: "default" | "info" | "success" | "warning" | "danger" } | undefined;
   label?: string;
   required?: boolean;
   readonly?: boolean;

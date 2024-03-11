@@ -48,7 +48,7 @@ else
     npm ci
 
     # run build 
-    npm run build
+    npm run build -- --prod
 
     # publish 
     npm publish --access public --registry https://registry.npmjs.org/ --//registry.npmjs.org/:_authToken=${CICD_NODE_TOKEN}

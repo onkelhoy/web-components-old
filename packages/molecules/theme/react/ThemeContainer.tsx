@@ -1,0 +1,37 @@
+
+import React from "react";
+
+import { papHOC } from "@pap-it/system-react";
+
+// web components
+import { ThemeContainer as ThemeContainerElement } from "../src";
+import "../register.bundle.mjs";
+
+// exporting
+export { ThemeContainer as ThemeContainerElement } from "../src";
+
+export type Props = {
+
+  children?: React.ReactNode;
+  className?: string;
+};
+export type Attributes = {
+
+  children?: React.ReactNode;
+  class?: string;
+};
+
+const Component = React.forwardRef<ThemeContainerElement, Attributes>((props, forwardref) => {
+  const { children, ...attributes } = props;
+
+  return (
+    <pap-theme
+      {...attributes}
+      ref={forwardref}
+    >
+      {children}
+    </pap-theme>
+  );
+});
+
+export const ThemeContainer = papHOC<ThemeContainerElement, Props, Attributes>(Component);

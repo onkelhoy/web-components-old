@@ -17,11 +17,11 @@ else
   conditional_flag=""
 fi
 
-# Check if --dev flag is provided
+# Check if --prod flag is provided
 for arg in "$@"
 do
-  if [[ $arg == "--dev" ]]; then
-    DEV=true
+  if [[ $arg == "--prod" ]]; then
+    PROD=true
     break
   fi
 done
@@ -32,16 +32,7 @@ rm -rf dist
 # then re-create it 
 mkdir dist
 
-if [ -f "src/register.ts" ]; then 
-  # Create bundles with conditional source-maps
-  if [ "$DEV" = true ]; then
-    esbuild src/register.ts --bundle --minify --outfile=dist/register.bundle.mjs --format=esm --platform=browser --external:"@pap-it/*" $conditional_flag --sourcemap &> /dev/null
-  else
-    esbuild src/register.ts --tsconfig=tsconfig.prod.json --bundle --minify --outfile=dist/register.bundle.mjs --format=esm --platform=browser --external:"@pap-it/*" $conditional_flag &> /dev/null
-  fi
-fi
-
-if [ "$DEV" = true ]; then
+if [ "$PROD" != true ]; then
   tsc
 else
   tsc -p tsconfig.prod.json

@@ -6,8 +6,8 @@ import { Asset } from "@pap-it/templates-asset";
 
 export class Routing extends Asset {
 
-  @property({ onUpdate: "update_url", rerender: false, context: true }) url: string = "";
-  @context({ name: "url" }) parenturl?: string;
+  // @property({ onUpdate: "update_url", rerender: false, context: true }) url: string = "";
+  // @context({ name: "url" }) parenturl?: string;
 
   private html_content: string = "";
 
@@ -16,14 +16,14 @@ export class Routing extends Asset {
     super();
 
     this.render_mode = 'greedy';
-    this.debouncedFetch = debounce(this.fetchHTML, 100);
+    // this.debouncedFetch = debounce(this.fetchHTML, 100);
   }
 
   // private functions
-  private debouncedFetch = () => { }
-  private async update_url() {
-    this.debouncedFetch();
-  }
+  // private debouncedFetch = () => { }
+  // private async update_url() {
+  //   this.debouncedFetch();
+  // }
   private combine(url: string | null) {
     if (!url) return "";
     if (url.startsWith("/themes") || url.startsWith("themes")) return url;
@@ -57,14 +57,14 @@ export class Routing extends Asset {
       }
     }
     else {
-      this.callAfterUpdate.push(this.debouncedFetch);
+      // this.callAfterUpdate.push(this.debouncedFetch);
     }
   }
 
-  override assetBaseUpdate(value: string, old: string) {
-    super.assetBaseUpdate(value, old);
-    if (value !== old) this.debouncedFetch();
-  }
+  // override assetBaseUpdate(value: string, old: string) {
+  //   super.assetBaseUpdate(value, old);
+  //   if (value !== old) this.debouncedFetch();
+  // }
 
   render() {
     return "";

@@ -2,7 +2,6 @@
 import { html, property, query } from "@pap-it/system-utils";
 import { Base } from "@pap-it/system-base";
 
-
 // atoms
 import "@pap-it/menu/wc";
 import { Menu } from "@pap-it/menu";
@@ -99,7 +98,7 @@ export class LanguageMenu extends Base {
 
         ${this.languages.map(v => html`
           <pap-menu-item key="${v.id}" value="${v.id}">
-            <pap-icon style="font-size: 12pt" country-flag="${v.region}"></pap-icon>
+            <pap-icon slot="prefix" style="font-size: 12pt" country-flag="${v.region}"></pap-icon>
             ${v.text}
           </pap-menu-item>
         `)}
