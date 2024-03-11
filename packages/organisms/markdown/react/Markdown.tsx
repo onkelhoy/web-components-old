@@ -5,24 +5,24 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Markdown as MarkdownElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Markdown as MarkdownElement } from "../src";
 
 export type Props = {
-	assetBase?: string; // default-value: /public [conditional]
+	assetBase?: string; // default-value: /public
 	cache?: boolean;
 	file?: string;
-	url?: string;
+	url?: string; // [conditional]
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	"asset-base"?: string; // default-value: /public [conditional]
+	"asset-base"?: string; // default-value: /public
 	cache?: string;
 	file?: string;
-	url?: string;
+	url?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

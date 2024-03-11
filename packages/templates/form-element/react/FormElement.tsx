@@ -5,25 +5,25 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { FormElement as FormElementElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { FormElement as FormElementElement } from "../src";
 
 export type Props = {
-	defaultValue?: string;
-	disabled?: boolean;
-	name?: string; // default-value: missing-name [conditional]
-	value?: string;
-	onChange?: (e:Event) => void;
+	defaultValue?: string; // [conditional]
+	disabled?: boolean; // [conditional]
+	name?: string; // default-value: missing-name
+	value?: string; // [conditional]
+	onChange?: (e: React.SyntheticEvent<FormElementElement, Event>) => void;
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	"default-value"?: string;
-	disabled?: string;
-	name?: string; // default-value: missing-name [conditional]
-	value?: string;
+	"default-value"?: string; // [conditional]
+	disabled?: string; // [conditional]
+	name?: string; // default-value: missing-name
+	value?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

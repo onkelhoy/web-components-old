@@ -5,20 +5,20 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Divider as DividerElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Divider as DividerElement } from "../src";
 
 export type Props = {
-	mode?: "vertical"|"horizontal"; // default-value: horizontal [conditional]
-	thickness?: "thin"|"default"|"thick"; // default-value: default [conditional]
+	mode?: "vertical"|"horizontal"; // default-value: horizontal
+	thickness?: "thin"|"default"|"thick"; // default-value: default
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	mode?: string; // default-value: horizontal [conditional]
-	thickness?: string; // default-value: default [conditional]
+	mode?: string; // default-value: horizontal
+	thickness?: string; // default-value: default
   children?: React.ReactNode;
   class?: string;
 };

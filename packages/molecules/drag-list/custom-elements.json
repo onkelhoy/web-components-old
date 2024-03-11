@@ -3,20 +3,15 @@
     "Item": {
       "decorators": {
         "property": {
-          "icon": true,
-          "icon_selected": true,
-          "text": true,
-          "counter": true,
-          "isparent": true,
-          "indicator": true,
-          "static": true,
-          "open": true
+          "dragged": true
         },
-        "query": {},
+        "query": {
+          "boxElement": true
+        },
         "context": {}
       },
       "imports": {
-        "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar": [
+        "/Users/henry/Developer/projects/web-components/packages/molecules/drag-list": [
           {
             "name": "style",
             "from": "./style"
@@ -27,89 +22,23 @@
       "events": [
         {
           "type": "Event",
-          "name": "reached-max"
-        },
-        {
-          "type": "CustomEvent",
-          "custom": "ChildSelectEvent",
-          "name": "child-select",
-          "data": {
-            "object": "{ detail: this }",
-            "properties": []
-          }
-        },
-        {
-          "type": "Event",
-          "name": "select"
+          "name": "drag-start"
         }
       ],
-      "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar/src/components/item",
+      "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/drag-list/src/components/item",
       "className": "Item",
       "properties": [
         {
-          "name": "icon",
-          "type": "string",
-          "type_value": null,
-          "primitive": true,
-          "conditional": true
-        },
-        {
-          "name": "icon_selected",
-          "type": "string",
-          "type_value": null,
-          "primitive": true,
-          "conditional": true
-        },
-        {
-          "name": "text",
-          "type": "string",
-          "default_value": "",
-          "type_value": null,
-          "primitive": true,
-          "conditional": false
-        },
-        {
-          "name": "counter",
-          "type": "number",
-          "type_value": null,
-          "primitive": true,
-          "conditional": true
-        },
-        {
-          "name": "isparent",
+          "name": "dragged",
           "type": "boolean",
           "default_value": false,
-          "type_value": null,
-          "primitive": true,
-          "conditional": false
-        },
-        {
-          "name": "indicator",
-          "type": "boolean",
-          "default_value": false,
-          "type_value": null,
-          "primitive": true,
-          "conditional": false
-        },
-        {
-          "name": "static",
-          "type": "boolean",
-          "default_value": false,
-          "type_value": null,
-          "primitive": true,
-          "conditional": false
-        },
-        {
-          "name": "open",
-          "type": "boolean",
-          "default_value": true,
           "type_value": null,
           "primitive": true,
           "conditional": false
         }
       ],
       "extend_class": null,
-      "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/molecules/sidebar/dist/src/components/item/index.js",
+      "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/molecules/drag-list/dist/src/components/item/index.js",
       "html": {
         "slots": [
           {
@@ -131,62 +60,12 @@
       },
       "allproperties": [
         {
-          "name": "icon",
-          "type": "string",
-          "type_value": null,
-          "primitive": true,
-          "conditional": true
-        },
-        {
-          "name": "icon_selected",
-          "type": "string",
-          "type_value": null,
-          "primitive": true,
-          "conditional": true
-        },
-        {
-          "name": "text",
-          "type": "string",
-          "default_value": "",
-          "type_value": null,
-          "primitive": true,
-          "conditional": false
-        },
-        {
-          "name": "counter",
-          "type": "number",
-          "type_value": null,
-          "primitive": true,
-          "conditional": true
-        },
-        {
-          "name": "isparent",
           "type": "boolean",
+          "typeName": "Boolean",
+          "propertyKey": "dragged",
+          "attribute": true,
+          "name": "dragged",
           "default_value": false,
-          "type_value": null,
-          "primitive": true,
-          "conditional": false
-        },
-        {
-          "name": "indicator",
-          "type": "boolean",
-          "default_value": false,
-          "type_value": null,
-          "primitive": true,
-          "conditional": false
-        },
-        {
-          "name": "static",
-          "type": "boolean",
-          "default_value": false,
-          "type_value": null,
-          "primitive": true,
-          "conditional": false
-        },
-        {
-          "name": "open",
-          "type": "boolean",
-          "default_value": true,
           "type_value": null,
           "primitive": true,
           "conditional": false
@@ -195,20 +74,7 @@
       "allevents": [
         {
           "type": "Event",
-          "name": "reached-max"
-        },
-        {
-          "type": "CustomEvent",
-          "custom": "ChildSelectEvent",
-          "name": "child-select",
-          "data": {
-            "object": "{ detail: this }",
-            "properties": []
-          }
-        },
-        {
-          "type": "Event",
-          "name": "select"
+          "name": "drag-start"
         }
       ]
     }

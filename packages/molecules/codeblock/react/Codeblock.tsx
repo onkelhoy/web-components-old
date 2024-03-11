@@ -5,25 +5,25 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Codeblock as CodeblockElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Codeblock as CodeblockElement } from "../src";
 
 export type Props = {
-	display?: "both"|"code"; // default-value: code [conditional]
-	direction?: "row"|"column"; // default-value: column [conditional]
-	color?: "canvas"|"background"; // default-value: canvas [conditional]
-	themetoggle?: boolean; // default-value: true [conditional]
+	display?: "both"|"code"; // default-value: code
+	direction?: "row"|"column"; // default-value: column
+	color?: "canvas"|"background"|"checker"; // default-value: checker
+	themetoggle?: boolean; // default-value: true
 	lang?: string;
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	display?: string; // default-value: code [conditional]
-	direction?: string; // default-value: column [conditional]
-	color?: string; // default-value: canvas [conditional]
-	"theme-toggle"?: string; // default-value: true [conditional]
+	display?: string; // default-value: code
+	direction?: string; // default-value: column
+	color?: string; // default-value: checker
+	"theme-toggle"?: string; // default-value: true
 	lang?: string;
   children?: React.ReactNode;
   class?: string;

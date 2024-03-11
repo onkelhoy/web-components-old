@@ -5,46 +5,46 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Button as ButtonElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Button as ButtonElement } from "../src";
 
 export type Props = {
-	type?: "button"|"submit"|"reset"; // default-value: button [conditional]
-	size?: "small"|"medium"|"large"; // default-value: medium [conditional]
-	radius?: "small"|"medium"|"large"|"none"|"circular"; // default-value: circular [conditional]
-	href?: string;
+	type?: "button"|"submit"|"reset"; // default-value: button
+	size?: "small"|"medium"|"large"; // default-value: medium
+	radius?: "small"|"medium"|"large"|"none"|"circular"; // default-value: circular
+	href?: string; // [conditional]
 	circle?: boolean;
 	loading?: boolean;
-	textvariant?: "B1"|"B2"|"button1"|"button2"; // default-value: B1 [conditional]
-	mode?: "hug"|"fill"; // default-value: hug [conditional]
-	variant?: "filled"|"outlined"|"clear"; // default-value: filled [conditional]
-	color?: "primary"|"secondary"|"inverse"|"danger"|"success"|"warning"; // default-value: primary [conditional]
-	defaultValue?: string;
-	disabled?: boolean;
-	name?: string; // default-value: missing-name [conditional]
-	value?: string;
-	onClick?: (e:Event) => void;
-	onChange?: (e:Event) => void;
+	textvariant?: "B1"|"B2"|"button1"|"button2"; // default-value: B1
+	mode?: "hug"|"fill"; // default-value: hug
+	variant?: "filled"|"outlined"|"clear"; // default-value: filled
+	color?: "primary"|"secondary"|"inverse"|"danger"|"success"|"warning"; // default-value: primary
+	defaultValue?: string; // [conditional]
+	disabled?: boolean; // [conditional]
+	name?: string; // default-value: missing-name
+	value?: string; // [conditional]
+	onClick?: (e: React.SyntheticEvent<ButtonElement, Event>) => void;
+	onChange?: (e: React.SyntheticEvent<ButtonElement, Event>) => void;
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	type?: string; // default-value: button [conditional]
-	size?: string; // default-value: medium [conditional]
-	radius?: string; // default-value: circular [conditional]
-	href?: string;
+	type?: string; // default-value: button
+	size?: string; // default-value: medium
+	radius?: string; // default-value: circular
+	href?: string; // [conditional]
 	circle?: string;
 	loading?: string;
-	"text-variant"?: string; // default-value: B1 [conditional]
-	mode?: string; // default-value: hug [conditional]
-	variant?: string; // default-value: filled [conditional]
-	color?: string; // default-value: primary [conditional]
-	"default-value"?: string;
-	disabled?: string;
-	name?: string; // default-value: missing-name [conditional]
-	value?: string;
+	"text-variant"?: string; // default-value: B1
+	mode?: string; // default-value: hug
+	variant?: string; // default-value: filled
+	color?: string; // default-value: primary
+	"default-value"?: string; // [conditional]
+	disabled?: string; // [conditional]
+	name?: string; // default-value: missing-name
+	value?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

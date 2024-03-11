@@ -5,26 +5,26 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Sidebar as SidebarElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Sidebar as SidebarElement } from "../src";
 
 export type Props = {
-	mode?: "open"|"collapsed"|"hover"; // default-value: open [conditional]
-	selected?: string;
-	unit?: "mobile"|"pad"|"laptop"|"desktop"; // default-value: desktop [conditional]
-	outsidehamburger?: boolean; // default-value: true [conditional]
-	onChange?: (e:Event) => void;
-	onSelect?: (e:CustomEvent) => void; // detail: { id (note this is early and can be wrong)
+  mode?: "open" | "collapsed" | "hover"; // default-value: open
+  selected?: string; // [conditional]
+  unit?: "mobile" | "pad" | "laptop" | "desktop"; // default-value: desktop
+  outsidehamburger?: boolean; // default-value: true
+  onChange?: (e: React.SyntheticEvent<SidebarElement, Event>) => void;
+  onSelect?: (e: React.SyntheticEvent<SidebarElement, CustomEvent>) => void; // detail: { id (note this is early and can be wrong)
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	mode?: string; // default-value: open [conditional]
-	selected?: string;
-	unit?: string; // default-value: desktop [conditional]
-	outsidehamburger?: string; // default-value: true [conditional]
+  mode?: string; // default-value: open
+  selected?: string; // [conditional]
+  unit?: string; // default-value: desktop
+  outsidehamburger?: string; // default-value: true
   children?: React.ReactNode;
   class?: string;
 };

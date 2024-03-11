@@ -5,20 +5,20 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Accordion as AccordionElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Accordion as AccordionElement } from "../src";
 
 export type Props = {
 	open?: boolean;
-	mode?: "horizontal"|"vertical"; // default-value: vertical [conditional]
+	mode?: "horizontal"|"vertical"; // default-value: vertical
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
 	open?: string;
-	mode?: string; // default-value: vertical [conditional]
+	mode?: string; // default-value: vertical
   children?: React.ReactNode;
   class?: string;
 };

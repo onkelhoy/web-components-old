@@ -5,7 +5,7 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Steps as StepsElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Steps as StepsElement } from "../src";

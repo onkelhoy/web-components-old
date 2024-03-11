@@ -5,24 +5,24 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Canvas as CanvasElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Canvas as CanvasElement } from "../src";
 
 export type Props = {
-	width?: number; // default-value: 100 [conditional]
-	height?: number; // default-value: 100 [conditional]
+	width?: number; // default-value: 100
+	height?: number; // default-value: 100
 	paused?: boolean;
-	scope?: string;
+	scope?: string; // [conditional]
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	width?: string; // default-value: 100 [conditional]
-	height?: string; // default-value: 100 [conditional]
+	width?: string; // default-value: 100
+	height?: string; // default-value: 100
 	paused?: string;
-	scope?: string;
+	scope?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

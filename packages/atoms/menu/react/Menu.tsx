@@ -5,46 +5,46 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Menu as MenuElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Menu as MenuElement } from "../src";
 
 export type Props = {
-	buttonVariant?: "filled"|"outlined"|"clear"; // default-value: clear [conditional]
-	buttonColor?: "primary"|"secondary"|"inverse"|"danger"|"success"|"warning"; // default-value: secondary [conditional]
-	buttonRadius?: "none"|"small"|"medium"|"large"|"circular"; // default-value: medium [conditional]
+	buttonVariant?: "filled"|"outlined"|"clear"; // default-value: clear
+	buttonColor?: "primary"|"secondary"|"inverse"|"danger"|"success"|"warning"; // default-value: secondary
+	buttonRadius?: "none"|"small"|"medium"|"large"|"circular"; // default-value: medium
 	hasitems?: boolean;
 	multiple?: boolean;
 	closeonselect?: boolean;
-	dynamicwidth?: boolean; // default-value: true [conditional]
-	size?: "small"|"medium"|"large"; // default-value: medium [conditional]
-	menuheight?: string; // default-value: 15rem [conditional]
-	revealby?: "hover"|"click"; // default-value: hover [conditional]
-	placement?: "top-left"|"top-right"|"top-center"|"bottom-left"|"bottom-right"|"bottom-center"|"left-top"|"left-bottom"|"left-center"|"right-top"|"right-bottom"|"right-center"; // default-value: bottom-center [conditional]
-	hideonoutsideclick?: boolean; // default-value: true [conditional]
+	dynamicwidth?: boolean; // default-value: true
+	size?: "small"|"medium"|"large"; // default-value: medium
+	menuheight?: string; // default-value: 15rem
+	revealby?: "hover"|"click"; // default-value: hover
+	placement?: "top-left"|"top-right"|"top-center"|"bottom-left"|"bottom-right"|"bottom-center"|"left-top"|"left-bottom"|"left-center"|"right-top"|"right-bottom"|"right-center"; // default-value: bottom-center
+	hideonoutsideclick?: boolean; // default-value: true
 	open?: boolean;
-	onSelect?: (e:CustomEvent) => void; // detail: { value text (note this is early and can be wrong)
-	onPreSelect?: (e:CustomEvent) => void; // detail: {  (note this is early and can be wrong)
-	onDeselect?: (e:CustomEvent) => void; // detail: {  (note this is early and can be wrong)
-	onChange?: (e:Event) => void;
-	onShow?: (e:Event) => void;
-	onHide?: (e:Event) => void;
+	onSelect?: (e: React.SyntheticEvent<MenuElement, CustomEvent>) => void; // detail: { value text (note this is early and can be wrong)
+	onPreSelect?: (e: React.SyntheticEvent<MenuElement, CustomEvent>) => void; // detail: {  (note this is early and can be wrong)
+	onDeselect?: (e: React.SyntheticEvent<MenuElement, CustomEvent>) => void; // detail: {  (note this is early and can be wrong)
+	onChange?: (e: React.SyntheticEvent<MenuElement, Event>) => void;
+	onShow?: (e: React.SyntheticEvent<MenuElement, Event>) => void;
+	onHide?: (e: React.SyntheticEvent<MenuElement, Event>) => void;
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	buttonVariant?: string; // default-value: clear [conditional]
-	buttonColor?: string; // default-value: secondary [conditional]
-	buttonRadius?: string; // default-value: medium [conditional]
+	buttonVariant?: string; // default-value: clear
+	buttonColor?: string; // default-value: secondary
+	buttonRadius?: string; // default-value: medium
 	multiple?: string;
 	"close-on-select"?: string;
-	"dynamic-width"?: string; // default-value: true [conditional]
-	size?: string; // default-value: medium [conditional]
-	"menu-height"?: string; // default-value: 15rem [conditional]
-	revealby?: string; // default-value: hover [conditional]
-	placement?: string; // default-value: bottom-center [conditional]
-	hideonoutsideclick?: string; // default-value: true [conditional]
+	"dynamic-width"?: string; // default-value: true
+	size?: string; // default-value: medium
+	"menu-height"?: string; // default-value: 15rem
+	revealby?: string; // default-value: hover
+	placement?: string; // default-value: bottom-center
+	hideonoutsideclick?: string; // default-value: true
 	open?: string;
   children?: React.ReactNode;
   class?: string;

@@ -5,18 +5,18 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Tooltip as TooltipElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Tooltip as TooltipElement } from "../src";
 
 export type Props = {
-	placement?: "top-left"|"top-right"|"top-center"|"bottom-left"|"bottom-right"|"bottom-center"|"left-top"|"left-bottom"|"left-center"|"right-top"|"right-bottom"|"right-center"; // default-value: top-center [conditional]
+	placement?: "top-left"|"top-right"|"top-center"|"bottom-left"|"bottom-right"|"bottom-center"|"left-top"|"left-bottom"|"left-center"|"right-top"|"right-bottom"|"right-center"; // default-value: top-center
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	placement?: string; // default-value: top-center [conditional]
+	placement?: string; // default-value: top-center
   children?: React.ReactNode;
   class?: string;
 };

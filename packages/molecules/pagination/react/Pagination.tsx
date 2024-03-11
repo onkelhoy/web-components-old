@@ -5,25 +5,25 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Pagination as PaginationElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Pagination as PaginationElement } from "../src";
 
 export type Props = {
-	page?: number;
-	perpage?: number;
-	total?: number;
-	scope?: string;
-	onPage?: (e:Event) => void;
+  page?: number;
+  perpage?: number;
+  total?: number;
+  scope?: string; // [conditional]
+  onPage?: (e: React.SyntheticEvent<PaginationElement, Event>) => void;
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	page?: string;
-	perpage?: string;
-	total?: string;
-	scope?: string;
+  page?: string;
+  perpage?: string;
+  total?: string;
+  scope?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

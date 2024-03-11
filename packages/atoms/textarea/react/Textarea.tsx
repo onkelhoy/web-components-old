@@ -5,68 +5,68 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Textarea as TextareaElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Textarea as TextareaElement } from "../src";
 
 export type Props = {
-  counter?: boolean;
-  maxlength?: number;
-  minlength?: number;
-  max?: number;
-  min?: number;
-  pattern?: string;
-  rows?: number; // default-value: 2 [conditional]
-  resize?: "none" | "verical" | "auto"; // default-value: auto [conditional]
-  customDanger?: Partial<Record<keyof ValidityState, string>>;
-  customWarning?: Partial<Record<keyof ValidityState, string>>;
+  counter?: boolean; // [conditional]
+  maxlength?: number; // [conditional]
+  minlength?: number; // [conditional]
+  max?: number; // [conditional]
+  min?: number; // [conditional]
+  pattern?: string; // [conditional]
+  rows?: number; // default-value: 2
+  resize?: "none" | "verical" | "auto"; // default-value: auto
+  customDanger?: Partial<Record<keyof ValidityState, string>>; // [conditional]
+  customWarning?: Partial<Record<keyof ValidityState, string>>; // [conditional]
   customValidation?: (target: TextareaElement) => { message: string; state: "default" | "info" | "success" | "warning" | "danger" } | undefined;
-  label?: string;
-  required?: boolean;
-  readonly?: boolean;
-  placeholder?: string;
-  size?: "small" | "medium" | "large"; // default-value: medium
-  mode?: "hug" | "fill"; // default-value: fill
-  radius?: "small" | "medium" | "large" | "none" | "circular"; // default-value: medium
-  state?: "default" | "info" | "success" | "warning" | "danger"; // default-value: default
-  message?: string;
+  label?: string; // [conditional]
+  required?: boolean; // [conditional]
+  readonly?: boolean; // [conditional]
+  placeholder?: string; // [conditional]
+  size?: "small" | "medium" | "large"; // default-value: medium [conditional]
+  mode?: "hug" | "fill"; // default-value: fill [conditional]
+  radius?: "small" | "medium" | "large" | "none" | "circular"; // default-value: medium [conditional]
+  state?: "default" | "info" | "success" | "warning" | "danger"; // default-value: default [conditional]
+  message?: string; // [conditional]
   header?: boolean;
   footer?: boolean;
-  defaultValue?: string;
-  disabled?: boolean;
-  name?: string; // default-value: missing-name [conditional]
-  value?: string;
-  onChange?: (e: Event) => void;
+  defaultValue?: string; // [conditional]
+  disabled?: boolean; // [conditional]
+  name?: string; // default-value: missing-name
+  value?: string; // [conditional]
+  onChange?: (e: React.SyntheticEvent<TextareaElement, Event>) => void;
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-  counter?: string;
-  maxlength?: string;
-  minlength?: string;
-  max?: string;
-  min?: string;
-  pattern?: string;
-  rows?: string; // default-value: 2 [conditional]
-  resize?: string; // default-value: auto [conditional]
-  "custom-error"?: string;
-  "custom-warning"?: string;
-  label?: string;
-  required?: string;
-  readonly?: string;
-  placeholder?: string;
-  size?: string; // default-value: medium
-  mode?: string; // default-value: fill
-  radius?: string; // default-value: medium
-  state?: string; // default-value: default
-  message?: string;
+  counter?: string; // [conditional]
+  maxlength?: string; // [conditional]
+  minlength?: string; // [conditional]
+  max?: string; // [conditional]
+  min?: string; // [conditional]
+  pattern?: string; // [conditional]
+  rows?: string; // default-value: 2
+  resize?: string; // default-value: auto
+  "custom-error"?: string; // [conditional]
+  "custom-warning"?: string; // [conditional]
+  label?: string; // [conditional]
+  required?: string; // [conditional]
+  readonly?: string; // [conditional]
+  placeholder?: string; // [conditional]
+  size?: string; // default-value: medium [conditional]
+  mode?: string; // default-value: fill [conditional]
+  radius?: string; // default-value: medium [conditional]
+  state?: string; // default-value: default [conditional]
+  message?: string; // [conditional]
   header?: string;
   footer?: string;
-  "default-value"?: string;
-  disabled?: string;
-  name?: string; // default-value: missing-name [conditional]
-  value?: string;
+  "default-value"?: string; // [conditional]
+  disabled?: string; // [conditional]
+  name?: string; // default-value: missing-name
+  value?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

@@ -5,7 +5,7 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { TabContent as TabContentElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { TabContent as TabContentElement } from "../src";

@@ -5,18 +5,18 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Message as MessageElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Message as MessageElement } from "../src";
 
 export type MessageProps = {
-	variant?: "warning"|"error"|"success"; // default-value: success [conditional]
+	variant?: "warning"|"error"|"success"; // default-value: success
   children?: React.ReactNode;
   className?: string;
 };
 export type MessageAttributes = {
-	variant?: string; // default-value: success [conditional]
+	variant?: string; // default-value: success
   children?: React.ReactNode;
   class?: string;
 };

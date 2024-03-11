@@ -5,85 +5,85 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Select as SelectElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Select as SelectElement } from "../src";
 
 export type Props = {
   multiple?: boolean;
-  menuheight?: string; // default-value: 15rem [conditional]
-  revealby?: "hover" | "click"; // default-value: click [conditional]
-  placement?: "top-left" | "top-right" | "top-center" | "bottom-left" | "bottom-right" | "bottom-center" | "left-top" | "left-bottom" | "left-center" | "right-top" | "right-bottom" | "right-center"; // default-value: bottom-left [conditional]
-  hideonoutsideclick?: boolean; // default-value: true [conditional]
+  menuheight?: string; // default-value: 15rem
+  revealby?: "hover" | "click"; // default-value: click
+  placement?: "top-left" | "top-right" | "top-center" | "bottom-left" | "bottom-right" | "bottom-center" | "left-top" | "left-bottom" | "left-center" | "right-top" | "right-bottom" | "right-center"; // default-value: bottom-left
+  hideonoutsideclick?: boolean; // default-value: true
   open?: boolean;
   dynamicwidth?: boolean;
   text?: string;
-  inputsize?: number;
-  value?: string;
-  maxlength?: number;
-  minlength?: number;
-  max?: number;
-  min?: number;
-  search?: "additive" | "static";
-  pattern?: string;
-  options?: Array<any>;
-  customDanger?: Partial<Record<keyof ValidityState, string>>;
-  customWarning?: Partial<Record<keyof ValidityState, string>>;
+  inputsize?: number; // [conditional]
+  value?: string; // [conditional]
+  maxlength?: number; // [conditional]
+  minlength?: number; // [conditional]
+  max?: number; // [conditional]
+  min?: number; // [conditional]
+  search?: "additive" | "static"; // [conditional]
+  pattern?: string; // [conditional]
+  options?: Array<any>; // [conditional]
+  customDanger?: Partial<Record<keyof ValidityState, string>>; // [conditional]
+  customWarning?: Partial<Record<keyof ValidityState, string>>; // [conditional]
   customValidation?: (target: SelectElement) => { message: string; state: "default" | "info" | "success" | "warning" | "danger" } | undefined;
-  label?: string;
-  required?: boolean;
-  readonly?: boolean;
-  placeholder?: string;
-  size?: "small" | "medium" | "large"; // default-value: medium
-  mode?: "hug" | "fill"; // default-value: fill
-  radius?: "small" | "medium" | "large" | "none" | "circular"; // default-value: medium
-  state?: "default" | "info" | "success" | "warning" | "danger"; // default-value: default
-  message?: string;
+  label?: string; // [conditional]
+  required?: boolean; // [conditional]
+  readonly?: boolean; // [conditional]
+  placeholder?: string; // [conditional]
+  size?: "small" | "medium" | "large"; // default-value: medium [conditional]
+  mode?: "hug" | "fill"; // default-value: fill [conditional]
+  radius?: "small" | "medium" | "large" | "none" | "circular"; // default-value: medium [conditional]
+  state?: "default" | "info" | "success" | "warning" | "danger"; // default-value: default [conditional]
+  message?: string; // [conditional]
   header?: boolean;
   footer?: boolean;
-  defaultValue?: string;
-  disabled?: boolean;
-  name?: string; // default-value: missing-name [conditional]
-  onShow?: (e: Event) => void;
-  onHide?: (e: Event) => void;
-  onSearch?: (e: CustomEvent) => void; // detail: { value regexp (note this is early and can be wrong)
-  onChange?: (e: Event) => void;
+  defaultValue?: string; // [conditional]
+  disabled?: boolean; // [conditional]
+  name?: string; // default-value: missing-name
+  onShow?: (e: React.SyntheticEvent<SelectElement, Event>) => void;
+  onHide?: (e: React.SyntheticEvent<SelectElement, Event>) => void;
+  onSearch?: (e: React.SyntheticEvent<SelectElement, CustomEvent>) => void; // detail: { value regexp (note this is early and can be wrong)
+  onChange?: (e: React.SyntheticEvent<SelectElement, Event>) => void;
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
   multiple?: string;
-  "menu-height"?: string; // default-value: 15rem [conditional]
-  revealby?: string; // default-value: click [conditional]
-  placement?: string; // default-value: bottom-left [conditional]
-  hideonoutsideclick?: string; // default-value: true [conditional]
+  "menu-height"?: string; // default-value: 15rem
+  revealby?: string; // default-value: click
+  placement?: string; // default-value: bottom-left
+  hideonoutsideclick?: string; // default-value: true
   open?: string;
   "dynamic-width"?: string;
-  "input-size"?: string;
-  value?: string;
-  maxlength?: string;
-  minlength?: string;
-  max?: string;
-  min?: string;
-  search?: string;
-  pattern?: string;
-  "custom-error"?: string;
-  "custom-warning"?: string;
-  label?: string;
-  required?: string;
-  readonly?: string;
-  placeholder?: string;
-  size?: string; // default-value: medium
-  mode?: string; // default-value: fill
-  radius?: string; // default-value: medium
-  state?: string; // default-value: default
-  message?: string;
+  "input-size"?: string; // [conditional]
+  value?: string; // [conditional]
+  maxlength?: string; // [conditional]
+  minlength?: string; // [conditional]
+  max?: string; // [conditional]
+  min?: string; // [conditional]
+  search?: string; // [conditional]
+  pattern?: string; // [conditional]
+  "custom-error"?: string; // [conditional]
+  "custom-warning"?: string; // [conditional]
+  label?: string; // [conditional]
+  required?: string; // [conditional]
+  readonly?: string; // [conditional]
+  placeholder?: string; // [conditional]
+  size?: string; // default-value: medium [conditional]
+  mode?: string; // default-value: fill [conditional]
+  radius?: string; // default-value: medium [conditional]
+  state?: string; // default-value: default [conditional]
+  message?: string; // [conditional]
   header?: string;
   footer?: string;
-  "default-value"?: string;
-  disabled?: string;
-  name?: string; // default-value: missing-name [conditional]
+  "default-value"?: string; // [conditional]
+  disabled?: string; // [conditional]
+  name?: string; // default-value: missing-name
   children?: React.ReactNode;
   class?: string;
 };

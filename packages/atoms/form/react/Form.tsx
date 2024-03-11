@@ -5,24 +5,24 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Form as FormElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Form as FormElement } from "../src";
 
 export type Props = {
-	error?: string;
-	warning?: string;
-	success?: string;
-	onSubmit?: (e:SubmitEvent) => void;
-	onPapSubmit?: (e:CustomEvent) => void; // detail: { element (note this is early and can be wrong)
+	error?: string; // [conditional]
+	warning?: string; // [conditional]
+	success?: string; // [conditional]
+	onSubmit?: (e: React.SyntheticEvent<FormElement, SubmitEvent>) => void;
+	onPapSubmit?: (e: React.SyntheticEvent<FormElement, CustomEvent>) => void; // detail: { element (note this is early and can be wrong)
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	error?: string;
-	warning?: string;
-	success?: string;
+	error?: string; // [conditional]
+	warning?: string; // [conditional]
+	success?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

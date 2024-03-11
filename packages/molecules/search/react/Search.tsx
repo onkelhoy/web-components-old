@@ -5,21 +5,21 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Search as SearchElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Search as SearchElement } from "../src";
 
 export type Props = {
 	toggled?: boolean;
-	scope?: string;
-	onChange?: (e:Event) => void;
+	scope?: string; // [conditional]
+	onChange?: (e: React.SyntheticEvent<SearchElement, Event>) => void;
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
 	toggled?: string;
-	scope?: string;
+	scope?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

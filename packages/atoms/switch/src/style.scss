@@ -2,6 +2,7 @@
   display: inline-block;
   color: var(--pap-color-icon, #29292F);
   --border-color: var(--pap-color-border, #C7CBD4);
+  --circle-extra: 0px;
 
   cursor: pointer;
 
@@ -14,7 +15,6 @@
   }
 
   pap-box-template[part="switch"] {
-    position: relative;
     content: '';
     display: flex;
     align-items: center;
@@ -22,25 +22,39 @@
     background-color: var(--background);
     box-sizing: border-box;
 
+    padding: var(--padding);
+
     width: var(--width);
     height: var(--size);
 
+    transition: padding ease var(--timing-fast, 80ms);
+
+    div {
+      height: 100%;
+      width: 100%;
+      position: relative;
+    }
+
     span[part="circle"] {
-      content: '';
       position: absolute;
+      content: '';
+
+      // for icon
       display: flex;
       justify-content: center;
       align-items: center;
+
       transition:
         left ease var(--timing-fast, 80ms),
-        scale ease var(--timing-fast, 80ms);
+        width ease var(--timing-fast, 80ms),
+        height ease var(--timing-fast, 80ms);
 
       border-radius: 50%;
       background-color: var(--circle-background);
 
       box-sizing: border-box;
-      width: var(--circle);
-      height: var(--circle);
+      width: calc(var(--size) - 2px + var(--padding) * -2); // + var(--padding, 0px)
+      height: calc(var(--size) - 2px + var(--padding) * -2); // + var(--padding, 0px)
     }
 
     &:focus {
@@ -48,14 +62,13 @@
     }
 
     &:focus-visible {
-      outline: 1px solid var(--pap-color-border-strong, #29292F);
+      outline: 2px solid var(--pap-color-border-strong, #29292F);
+      outline-offset: 1px;
     }
   }
 }
 
-// :host(:hover) {
-//   --border-color: blue !important; //var(--pap-color-border-strong, #29292F);
-// }
+// colors
 :host([state="default"]:not([disabled]):not([readonly])) {
   pap-box-template:hover {
     --border-color: var(--pap-color-border, #C7CBD4);
@@ -63,7 +76,6 @@
   }
 }
 
-// colors
 :host {
   --background: var(--pap-color-bg-tertiary, #EAEBEF);
   --circle-background: var(--pap-color-icon-secondary, #6E7087);
@@ -76,41 +88,57 @@
   --border-color: var(--pap-color-bg-success, #2E701B);
 }
 
-// size
+:host([checked="true"][state="default"]:not([disabled]):not([readonly])) {
+  pap-box-template:hover {
+    --border-color: var(--pap-color-bg-success-hover, #29591B);
+    --background: var(--pap-color-bg-success-hover, #29591B);
+  }
+}
+
+:host([disabled="true"]) {
+  --circle-background: var(--pap-color-bg-disabled, #DADDE3);
+  --border-color: var(--pap-color-bg-tertiary, #EAEBEF);
+  --background: var(--pap-color-bg-tertiary, #EAEBEF);
+}
+
+// sizing
 :host([size="small"]) {
   --size: var(--unit-size3, 16px);
-  --circle: 10px;
-  --circle-left: 3px;
-  --circle-right: 2px;
+  --padding: 2px;
+  --padding-selected: 1px;
   --width: 28px;
 }
 
 :host([size="medium"]) {
   --size: var(--field-size-smaller, 24px);
-  --circle: 14px;
-  --circle-left: 5px;
-  --circle-right: 3px;
+  --padding: 4px;
+  --padding-selected: 2px;
   --width: 44px;
 }
 
 :host([size="large"]) {
   --size: var(--field-size-small, 32px);
-  --circle: 20px;
-  --circle-left: 6px;
-  --circle-right: 4px;
+  --padding: 5px;
+  --padding-selected: 3px;
   --width: 60px;
 }
 
-:host([checked="true"][size="small"]) {
-  --circle: 12px;
+:host(:not([disabled="true"]):active) {
+  --padding: 0px;
 }
 
-:host([checked="true"][size="medium"]) {
-  --circle: 18px;
+:host([checked="true"]:not(:active)) {
+  --padding: var(--padding-selected);
 }
 
-:host([checked="true"][size="large"]) {
-  --circle: 24px;
+:host([disabled="true"][checked="true"]) {
+  --padding: var(--padding-selected);
+}
+
+:host([checked="true"]) {
+  span[part="circle"] {
+    left: calc(100% - (var(--size) - 2px + var(--padding) * -2));
+  }
 }
 
 :host([mode="fill"]) {
@@ -122,20 +150,6 @@
 // checked
 :host([checked="false"]) {
   span[part="circle"] {
-    left: var(--circle-left);
-  }
-}
-
-:host(:active) {
-  span[part="circle"] {
-    scale: 1.2;
-  }
-}
-
-:host([checked="true"]) {
-  --circle: var(--circle-selected);
-
-  span[part="circle"] {
-    left: calc(100% - var(--circle) - var(--circle-right));
+    left: 0;
   }
 }

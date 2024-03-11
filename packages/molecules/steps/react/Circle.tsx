@@ -5,18 +5,18 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Circle as CircleElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Circle as CircleElement } from "../src";
 
 export type CircleProps = {
-	status?: "complete"|"active"|"incomplete"; // default-value: incomplete [conditional]
+	status?: "complete"|"active"|"incomplete"; // default-value: incomplete
   children?: React.ReactNode;
   className?: string;
 };
 export type CircleAttributes = {
-	status?: string; // default-value: incomplete [conditional]
+	status?: string; // default-value: incomplete
   children?: React.ReactNode;
   class?: string;
 };

@@ -5,18 +5,18 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Header as HeaderElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Header as HeaderElement } from "../src";
 
 export type Props = {
-	user?: object;
+  user?: object; // [conditional]
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	user?: string;
+  user?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

@@ -5,20 +5,20 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Badge as BadgeElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Badge as BadgeElement } from "../src";
 
 export type Props = {
 	count?: number;
-	size?: "small"|"medium"|"large"; // default-value: medium [conditional]
+	size?: "small"|"medium"|"large"; // default-value: medium
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
 	count?: string;
-	size?: string; // default-value: medium [conditional]
+	size?: string; // default-value: medium
   children?: React.ReactNode;
   class?: string;
 };

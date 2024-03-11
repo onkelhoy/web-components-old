@@ -5,24 +5,24 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Popup as PopupElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Popup as PopupElement } from "../src";
 
 export type Props = {
 	hideonoutsideclick?: boolean;
-	variant?: "global"|"parent"; // default-value: global [conditional]
-	state?: "show"|"hide"; // default-value: hide [conditional]
-	onPopupShow?: (e:Event) => void;
-	onPopupHide?: (e:Event) => void;
+	variant?: "global"|"parent"; // default-value: global
+	state?: "show"|"hide"; // default-value: hide
+	onPopupShow?: (e: React.SyntheticEvent<PopupElement, Event>) => void;
+	onPopupHide?: (e: React.SyntheticEvent<PopupElement, Event>) => void;
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
 	hideonoutsideclick?: string;
-	variant?: string; // default-value: global [conditional]
-	state?: string; // default-value: hide [conditional]
+	variant?: string; // default-value: global
+	state?: string; // default-value: hide
   children?: React.ReactNode;
   class?: string;
 };

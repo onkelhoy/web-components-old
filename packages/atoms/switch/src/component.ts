@@ -57,7 +57,9 @@ export class Switch extends Field {
       main: {
         content: html`
           <pap-box-template tabindex="0" part="switch">
-            <span part="circle"></span>
+            <div>
+              <span part="circle"></span>
+            </div>
           </pap-box-template>
         `
       }
