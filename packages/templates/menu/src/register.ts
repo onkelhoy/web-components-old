@@ -1,5 +1,5 @@
-import { Item } from './components/item';
-import { Menu } from './component.js';
+import { ItemTemplate } from './components/item';
+import { MenuTemplate } from './component.js';
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;
@@ -9,8 +9,8 @@ if (!cElements) {
 }
 
 if (!cElements.get('pap-menu-template')) {
-  cElements.define('pap-menu-template', Menu);
+  cElements.define('pap-menu-template', MenuTemplate);
 }
 if (!cElements.get('pap-item-template')) {
-  cElements.define('pap-item-template', Item);
+  cElements.define('pap-item-template', ItemTemplate);
 }

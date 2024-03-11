@@ -1,127 +1,166 @@
 {
-  "className": "Codeblock",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/codeblock",
-  "properties": [
-    {
-      "name": "display",
-      "type": "Display",
-      "default_value": "code",
-      "type_value": [
-        "both",
-        "code"
-      ],
-      "primitive": false,
-      "conditional": false
+  "sub": {},
+  "main": {
+    "decorators": {
+      "property": {
+        "display": true,
+        "direction": true,
+        "color": true,
+        "themetoggle": true,
+        "lang": true
+      },
+      "query": {
+        "main": true,
+        "languageElement": true,
+        "copytext": true,
+        "fieldsetElement": true
+      },
+      "context": {}
     },
-    {
-      "name": "direction",
-      "type": "alternative",
-      "default_value": "column",
-      "type_value": [
-        "row",
-        "column"
-      ],
-      "primitive": true,
-      "conditional": false
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/molecules/codeblock": [
+        {
+          "name": "style",
+          "from": "./style"
+        }
+      ]
     },
-    {
-      "name": "color",
-      "type": "alternative",
-      "default_value": "canvas",
-      "type_value": [
-        "canvas",
-        "background"
-      ],
-      "primitive": true,
-      "conditional": false
-    },
-    {
-      "name": "themetoggle",
-      "type": "boolean",
-      "default_value": true,
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
-    },
-    {
-      "name": "lang",
-      "type": "string",
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
-    }
-  ],
-  "classprop_set": {
-    "property": {
-      "display": true,
-      "direction": true,
-      "color": true,
-      "themetoggle": true,
-      "lang": true
-    },
-    "query": {
-      "main": true,
-      "languageElement": true,
-      "copytext": true,
-      "fieldsetElement": true
-    },
-    "context": {}
-  },
-  "extend_class": null,
-  "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/molecules/codeblock": [
+    "public_functions": [],
+    "events": [],
+    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/codeblock/src",
+    "className": "Codeblock",
+    "properties": [
       {
-        "name": "__decorate",
-        "from": "tslib"
+        "name": "display",
+        "type": "Display",
+        "default_value": "code",
+        "type_value": [
+          "both",
+          "code"
+        ],
+        "primitive": false,
+        "conditional": false
       },
       {
-        "name": "html",
-        "from": "@pap-it/system-utils"
+        "name": "direction",
+        "type": "alternative",
+        "default_value": "column",
+        "type_value": [
+          "row",
+          "column"
+        ],
+        "primitive": true,
+        "conditional": false
       },
       {
-        "name": "property",
-        "from": "@pap-it/system-utils"
+        "name": "color",
+        "type": "alternative",
+        "default_value": "canvas",
+        "type_value": [
+          "canvas",
+          "background"
+        ],
+        "primitive": true,
+        "conditional": false
       },
       {
-        "name": "query",
-        "from": "@pap-it/system-utils"
+        "name": "themetoggle",
+        "type": "boolean",
+        "default_value": true,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
       },
       {
-        "name": "Base",
-        "from": "@pap-it/system-base"
-      },
-      {
-        "name": "style",
-        "from": "./style"
-      }
-    ]
-  },
-  "html": {
-    "slots": [
-      {
-        "name": "default",
-        "html": ""
+        "name": "lang",
+        "type": "string",
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
       }
     ],
-    "parts": [
+    "extend_class": null,
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/molecules/codeblock/dist/src/component.js",
+    "html": {
+      "slots": [
+        {
+          "name": "default",
+          "html": ""
+        }
+      ],
+      "parts": [
+        {
+          "name": "fieldset",
+          "tag": "FIELDSET"
+        }
+      ],
+      "tagName": "pap-codeblock"
+    },
+    "allproperties": [
       {
-        "name": "fieldset",
-        "tag": "FIELDSET"
-      }
-    ]
-  },
-  "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/codeblock",
-    "sources": [],
-    "variables": {
-      "--margin-medium": {
-        "usecases": [
-          "block;margin-block"
+        "type": "Display",
+        "typeName": "String",
+        "propertyKey": "display",
+        "attribute": true,
+        "name": "display",
+        "default_value": "code",
+        "type_value": [
+          "both",
+          "code"
         ],
-        "fallbacks": [
-          "16px"
-        ]
+        "primitive": false,
+        "conditional": false
+      },
+      {
+        "type": "alternative",
+        "typeName": "String",
+        "propertyKey": "direction",
+        "attribute": true,
+        "name": "direction",
+        "default_value": "column",
+        "type_value": [
+          "row",
+          "column"
+        ],
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "alternative",
+        "typeName": "String",
+        "propertyKey": "color",
+        "attribute": true,
+        "name": "color",
+        "default_value": "canvas",
+        "type_value": [
+          "canvas",
+          "background"
+        ],
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "themetoggle",
+        "attribute": "theme-toggle",
+        "name": "themetoggle",
+        "default_value": true,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "lang",
+        "attribute": true,
+        "name": "lang",
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
       }
-    }
+    ],
+    "allevents": []
   }
 }

@@ -1,78 +1,93 @@
 {
-  "className": "Badge",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/badge",
-  "properties": [
-    {
-      "name": "count",
-      "type": "number",
-      "default_value": 0,
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
-    }
-  ],
-  "classprop_set": {
-    "property": {
-      "count": true
+  "sub": {},
+  "main": {
+    "decorators": {
+      "property": {
+        "count": true,
+        "size": true
+      },
+      "query": {},
+      "context": {}
     },
-    "query": {},
-    "context": {}
-  },
-  "extend_class": null,
-  "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/atoms/badge": [
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/atoms/badge": [
+        {
+          "name": "style",
+          "from": "./style"
+        }
+      ]
+    },
+    "public_functions": [],
+    "events": [],
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/badge/src",
+    "className": "Badge",
+    "properties": [
       {
-        "name": "__decorate",
-        "from": "tslib"
+        "name": "count",
+        "type": "number",
+        "default_value": 0,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
       },
       {
-        "name": "html",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "property",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "FormatNumber",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "Base",
-        "from": "@pap-it/system-base"
-      },
-      {
-        "name": "style",
-        "from": "./style"
-      }
-    ]
-  },
-  "html": {
-    "slots": [
-      {
-        "name": "default",
-        "html": "0"
+        "name": "size",
+        "type": "Size",
+        "default_value": "medium",
+        "type_value": [
+          "small",
+          "medium",
+          "large"
+        ],
+        "primitive": false,
+        "conditional": false
       }
     ],
-    "parts": [
+    "extend_class": null,
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/atoms/badge/dist/src/component.js",
+    "html": {
+      "slots": [
+        {
+          "name": "default",
+          "html": "0"
+        }
+      ],
+      "parts": [
+        {
+          "name": "box",
+          "tag": "PAP-BOX-TEMPLATE"
+        }
+      ],
+      "tagName": "pap-badge"
+    },
+    "allproperties": [
       {
-        "name": "box",
-        "tag": "PAP-BOX-TEMPLATE"
-      }
-    ]
-  },
-  "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/badge",
-    "sources": [],
-    "variables": {
-      "--pap-color-bg": {
-        "usecases": [
-          "host pap-box-template{background-color"
+        "type": "number",
+        "typeName": "Number",
+        "propertyKey": "count",
+        "attribute": true,
+        "name": "count",
+        "default_value": 0,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "Size",
+        "typeName": "String",
+        "propertyKey": "size",
+        "attribute": true,
+        "name": "size",
+        "default_value": "medium",
+        "type_value": [
+          "small",
+          "medium",
+          "large"
         ],
-        "fallbacks": [
-          "#FFFFFF"
-        ]
+        "primitive": false,
+        "conditional": false
       }
-    }
+    ],
+    "allevents": []
   }
 }

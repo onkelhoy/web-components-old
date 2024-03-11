@@ -62,12 +62,18 @@ else
       # npm run analyze --child &>/dev/null
 
       # npm run react --child &>/dev/null
+
+      if [ -n "$REACT" ]; then
+        npm run react &>/dev/null
+      fi 
     else 
       npm run build
 
       # npm run analyze --child
 
-      # npm run react --child
+      if [ -n "$REACT" ]; then
+        npm run react
+      fi 
     fi 
   fi
 fi

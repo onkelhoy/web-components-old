@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/textarea",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -13,7 +13,7 @@
     "combine": ".scripts/combine.sh && .scripts/start.sh combined",
     "start": ".scripts/start.sh",
     "isolate": "sh .scripts/isolate.sh",
-    "analyze": "sh .scripts/analyze.sh",
+    "analyse": "sh .scripts/analyse.sh",
     "interactive": "sh .scripts/helper/build-interactive.sh",
     "variations": "sh .scripts/helper/build-variations.sh",
     "component:add": "sh .scripts/helper/add-component.sh"
@@ -21,13 +21,12 @@
   "main": "dist/src/index.js",
   "files": [
     "asset/",
-    "dist/",
-    "react/"
+    "dist/"
   ],
   "exports": {
     ".": "./dist/src/index.js",
     "./wc": "./dist/register.bundle.mjs",
-    "./react": "./react/index.ts"
+    "./react": "./dist/react/index.ts"
   },
   "author": "Henry Pap",
   "private": false,
@@ -41,11 +40,12 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-utils": "1.0.9",
-    "@pap-it/templates-field": "1.0.10"
+    "@pap-it/system-utils": "1.0.10",
+    "@pap-it/system-react": "0.0.5",
+    "@pap-it/templates-field": "1.0.11"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.15",
+    "@pap-it/system-doc": "1.0.16",
     "esbuild": "^0.17.18",
     "eslint": "^8.53.0",
     "node-html-parser": "^6.1.5",

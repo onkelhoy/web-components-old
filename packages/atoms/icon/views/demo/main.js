@@ -17,18 +17,16 @@ const circleIcons = [
 let ticker = 1;
 let index = 0;
 
-window.onload = () => 
-{
+window.onload = () => {
 
   requestAnimationFrame(change);
-}   
+}
 
 
-function change() 
-{
-  if (ticker % 30 === 0) 
-  {
+function change() {
+  if (ticker % 30 === 0) {
     index++;
+    // console.log('tick', window.animation)
     window.animation.name = circleIcons[index % circleIcons.length];
   }
   ticker++;

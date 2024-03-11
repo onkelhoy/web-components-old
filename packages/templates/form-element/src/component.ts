@@ -96,6 +96,15 @@ export class FormElement extends Base {
     }
   }
 
+  // public setCustomValidity(message?: string) {
+  //   if (this.element && 'setCustomValidity' in this.element)
+  //   {
+  //     this.element.setCustomValidity(message);
+  //   }
+  //   if (this._internals === undefined) return "";
+  //   return this._internals.setCustomValidity();
+  // }
+
   // private functions
   protected connectElement(element: HTMLElement) {
     if (!this.element) this.element = element;

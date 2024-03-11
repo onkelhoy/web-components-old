@@ -1,214 +1,167 @@
 const fs = require('fs');
 const path = require('path');
 
-const { types_extractor } = require('./util/types');
-const { html_extractor } = require('./util/html');
-const { css_extractor } = require('./util/css');
+const { playwright_extractor } = require('./util/extractor/playwright');
+const { ts_extractor } = require('./util/extractor/typescript');
+const { html_extractor } = require('./util/extractor/html');
+// const { decorator_extractor, event_extractor } = require('./util/extractor/types');
+// const { extract_import } = require('./util/extractor/import');
+const { css_extractor } = require('./util/extractor/css');
+const { class_extractor, CLASSINFO } = require('./util/extractor/class');
+
+// helper
+const {
+  getCustomElement,
+  getLocalModule,
+  iterator,
+  IMPORTS
+} = require('./util/helper/bundle');
+
+// PROCESS ARGS
+const CLASSNAME = process.argv[2];
+const COMPONENT_PATH = process.argv[3];
+const COMPONENT_FOLDER_PATH = process.argv[4];
+const LEVEL = process.argv[5];
+const PACKAGE_DIR = process.argv[6];
+const MAINCLASSNAME = process.argv[7];
+const ATOMICTYPE = process.argv[8];
+
+// VARIABLES
+const MAINCLASSINFO_NAME = `${ATOMICTYPE}-${MAINCLASSNAME}`;
+const CLASSINFO_NAME = `${ATOMICTYPE}-${CLASSNAME}`;
+// const IMPORTS = {};
 
 // global
-function extractor(folder_path, className) {
-  // TODO check if it has prop file already generated
-  try {
-    // NOTE could probably remove this as its anyway a try-catch and next would crash if no file..
-    const prop_info_file = path.join(folder_path, 'custom-elements.json');
-    fs.accessSync(prop_info_file);
-    const details = JSON.parse(fs.readFileSync(prop_info_file));
-
-    // make sure imports is populated for css extraction
-    for (let key in details.imports) {
-      IMPORTS[key] = details[key].imports;
-    }
-
-    return details;
-  }
-  catch { }
-
-  const component_path = path.join(folder_path, 'src/component.ts');
-  const component_dist_path = path.join(folder_path, 'dist/src/component.js');
-  const componentDIST = fs.readFileSync(component_dist_path, 'utf-8');
-
-  // extracting the properties
-
-  const lines = componentDIST.split('\n');
-  const classprop_set = {
-    property: {},
-    query: {},
-    context: {}
-  };
-  let classInfo = null;
-  let imports = [];
-  const events = [];
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-
-    // check for comments
-    if (/^\s*\/\//.test(line)) continue;
-    if (/^\s*\/\*/.test(line)) continue;
-    if (/^\s*\*/.test(line)) continue;
-
-    let _imports = extract_import(line);
-    if (_imports) {
-      imports = imports.concat(_imports);
-      continue;
-    }
-
-    const classLine = line.match(/class\s(\w+)\sextends\W(\w+)/);
-    if (classLine) {
-      classInfo = { name: classLine[1], extends: classLine[2] };
-    }
-
-    if (/\.dispatchEvent\(/.test(line)) {
-      let eventtype = null;
-      let eventname = null;
-      const matches = line.match(/\.dispatchEvent\(new (\w+)\("(\w+)"(,\s?\{\sdetail:\s(.*))?/);
-      if (matches) {
-        eventtype = matches[1];
-        eventname = matches[2];
-
-        console.log(matches);
-      }
-      else {
-        console.log('[ERROR]: found a disapatchEvent but no type associated');
-        continue;
-      }
-
-      if (eventtype === "CustomEvent") {
-
-      }
-      else {
-        events.push({ type: eventtype, name: eventname });
-        continue;
-      }
-    }
-
-    if (/__decorate\(\[/.test(line)) {
-      let type = null; // property, query or context now 
-
-      while (i < lines.length) {
-        i++;
-
-        if (type === null) {
-          const trimmed = lines[i].trim();
-          if (trimmed.startsWith('property(')) {
-            // extract further info like attribute etc 
-            type = 'property';
-          }
-          if (trimmed.startsWith('context(')) {
-            type = 'context';
-          }
-          if (trimmed.startsWith('query(')) {
-            type = 'query';
-          }
-
-          if (type) {
-            i++;
-          }
-        }
-
-        const propmatch = lines[i].match(/\.prototype\,\s\"(\w+)/);
-        if (propmatch) {
-          if (type) classprop_set[type][propmatch[1]] = true;
-          break;
-        }
-      }
-    }
-  }
-
-  if (!classInfo) {
+async function extractor(package_path, className) {
+  // we need to find filepath
+  const classinfo = class_extractor(package_path, className);
+  if (!classinfo) {
     throw new Error('could not find class: ' + className);
   }
 
+  const customelement = await getCustomElement(classinfo);
+  if (customelement) {
+    return customelement;
+  }
+
+  // this is going to iterate dist and src file to extract info which it also returns 
+  const iteration_info = iterator(classinfo);
+
   let extend_class = null;
-  if (classInfo.extends && !["HTMLElement", "Base"].includes(classInfo.extends)) {
-    for (let imp of imports) {
-      if (imp.name === classInfo.extends) {
+  if (classinfo.extend && !["HTMLElement", "Base"].includes(classinfo.extend)) {
+
+    for (let imp of iteration_info.imports) {
+      if (imp.name === classinfo.extend) {
         const super_path = getLocalModule(imp.from);
 
-        if (super_path) extend_class = extractor(super_path, imp.name);
+        if (super_path) {
+          extend_class = await extractor(super_path, imp.name);
+        }
+      }
+    }
+
+    if (!extend_class) {
+      const extendpackagename = `${classinfo.atomic_type}-${classinfo.extend}`;
+      if (CLASSINFO[extendpackagename] && CLASSINFO[extendpackagename].package === classinfo.package) {
+        extend_class = await extractor(classinfo.package, classinfo.extend);
       }
     }
   }
 
-  const ts_properties = types_extractor(component_path, className);
-  const properties = ts_properties.filter(info => classprop_set.property[info.name]);
-
-  IMPORTS[folder_path] = imports;
+  const ts_properties = ts_extractor(classinfo.path, classinfo.name);
+  const properties = ts_properties
+    .filter(info => iteration_info.decorators.property[info.name]);
 
   return {
-    className,
-    folder: folder_path,
+    ...iteration_info,
+    folder: classinfo.folder,
+    className: classinfo.name,
     properties,
-    classprop_set,
     extend_class
   };
 }
-function extract_import(line) {
-  const import_match_module = line.match(/import\W+\{([^'"\}]+)\W+from\W+["']([^"']+)["']/);
-  if (import_match_module) {
-    const imports = [];
-    const [_whole, names, from] = import_match_module;
-    const namesplit = names.split(",");
-    for (const name of namesplit) {
-      if (name === "") continue;
-      imports.push({
-        name: name.trim(),
-        from, // TODO this should be cleaned
-      })
-    }
-    return imports;
-  }
-  const import_match_default = line.match(/import\W+(\w+)\W+from\W+["']([^"']+)["']/);
-  if (import_match_default) {
-    const imports = [];
-    const [_whole, name, from] = import_match_default;
-    imports.push({
-      name: name.trim(),
-      from, // TODO this should be cleaned
-    })
-    return imports;
-  }
-
-  return null;
-}
-function getLocalModule(name) {
-  const scope = LOCKFILE.name.split('/')[0];
-  if (!name.startsWith(scope)) return null;
-
-  const data = LOCKFILE.packages[`node_modules/${name}`];
-  if (!data) return null;
-  if (!data.resolved) return null;
-  if (data.resolved.startsWith('http')) return null;
-
-  return path.join(ROOT_DIR, data.resolved);
-}
-
-// PROCESS ARGS
-const ROOT_DIR = process.argv[2]
-const PACKAGE_DIR = process.argv[3]
-const SCRIPT_DIR = process.argv[4]
-const CLASSNAME = process.argv[5]
-
-const LOCKFILE = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'package-lock.json')));
-const OUTPUT = path.join(PACKAGE_DIR, "custom-elements.json");
-const IMPORTS = {};
 
 async function runner() {
-  const htmlinfo = await html_extractor(PACKAGE_DIR, CLASSNAME, SCRIPT_DIR);
-  const typeinfo = extractor(PACKAGE_DIR, CLASSNAME);
-  const cssinfo = css_extractor(PACKAGE_DIR, IMPORTS, getLocalModule)
+  const playwrightinfo = await playwright_extractor(CLASSNAME, MAINCLASSINFO_NAME);
+  const htmlinfo = html_extractor(playwrightinfo.html);
+  htmlinfo.tagName = playwrightinfo.tagName.toLowerCase();
 
-  const info = {
-    ...typeinfo,
-    imports: IMPORTS,
-    html: htmlinfo,
-    css: cssinfo,
+  let typeinfo;
+  if (CLASSINFO[CLASSINFO_NAME] && CLASSINFO[CLASSINFO_NAME].typeinfo) {
+    typeinfo = CLASSINFO[CLASSINFO_NAME].typeinfo;
+  }
+  else {
+    typeinfo = await extractor(PACKAGE_DIR, CLASSNAME);
+    if (!CLASSINFO[CLASSINFO_NAME]) {
+      if (process.env.VERBOSE) console.log('[ANALYSE] 🟨 warning - extractor has run but no classinfo generated')
+      CLASSINFO[CLASSINFO_NAME] = {};
+    }
+
+    let allproperties = [...typeinfo.properties]
+    let allevents = [...typeinfo.events];
+
+    const allproperties_map = new Set();
+    const allevents_map = new Set();
+
+    allproperties.forEach(p => allproperties_map.add(p.name));
+    allevents.forEach(e => allevents_map.add(e.name));
+
+    let extend = typeinfo.extend_class;
+    while (extend) {
+      extend.properties.forEach(p => {
+        if (!allproperties_map.has(p.name)) {
+          allproperties_map.add(p.name);
+          allproperties.push(p);
+        }
+        else if (process.env.VERBOSE) console.log('[ANALYSE] 🟨 warning - dublicate property found, ignoring', p);
+      });
+      extend.events.forEach(e => {
+        if (!allevents_map.has(e.name)) {
+          allevents_map.add(e.name);
+          allevents.push(e);
+        }
+        else if (process.env.VERBOSE) console.log('[ANALYSE] 🟨 warning - dublicate event found, ignoring', e);
+      });
+      extend = extend.extend_class;
+    }
+
+    allproperties = allproperties.map(a => {
+      return {
+        ...playwrightinfo.properties[a.name],
+        ...a,
+      }
+    })
+
+    CLASSINFO[CLASSINFO_NAME].info = {
+      ...typeinfo,
+      imports: IMPORTS,
+      dist_filepath: CLASSINFO[CLASSINFO_NAME].dist,
+      html: htmlinfo,
+      allproperties,
+      allevents,
+      // css: cssinfo,
+      // _properties: playwrightinfo.properties, // TODO need to fix issue with 
+    }
+
+    // lets also save the classinfo
+    fs.writeFileSync(path.join(process.env.SCRIPTDIR, '.temp', 'classinfo.json'), JSON.stringify(CLASSINFO), 'utf-8');
   }
 
-  // write it to file
-  fs.writeFileSync(OUTPUT, JSON.stringify(info, null, 2), "utf-8");
 
-  process.exit();
+  // .map(prop => {
+  //   console.log('prop', prop)
+  //   return prop;
+  // })
+
+  // const cssinfo = css_extractor(PACKAGE_DIR, IMPORTS, getLocalModule)
+
+  // write it to file
+  // fs.writeFileSync(OUTPUT, JSON.stringify(info, null, 2), "utf-8"); // NOTE pretty-print
+  const output_path = path.join(process.env.SCRIPTDIR, '.temp', MAINCLASSINFO_NAME, `output/${CLASSNAME}-${LEVEL}.json`);
+  const output_content = JSON.stringify(CLASSINFO[CLASSINFO_NAME].info, null, 2);
+  fs.writeFileSync(output_path, output_content, "utf-8");
+
+  // process.exit();
 }
 
 runner();

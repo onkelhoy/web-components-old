@@ -27,6 +27,35 @@
     </pap-typography>
   </doc-card>
   <doc-card>
+    <pap-typography>Special Case of Footer and Header</pap-typography>
+    <pap-codeblock display="both">
+      <button id="field-toggle-header">Toggle Header</button>
+      <button id="field-toggle-footer">Toggle Footer</button>
+      <button id="field-rerender">Rerender Field</button>
+      <pap-field-template id="field-toggle-target"></pap-field-template>
+
+      <script>
+        let fieldheadertoggled = false;
+        let fieldfootertoggled = false;
+        let targetfield;
+        document.addEventListener('DOMContentLoaded', () => {
+          targetfield = document.querySelector('#field-toggle-target');
+          document.querySelector('#field-toggle-header').addEventListener("click", () => {
+            fieldheadertoggled = !fieldheadertoggled;
+            targetfield.setAttribute('header', String(fieldheadertoggled));
+          })
+          document.querySelector('#field-toggle-footer').addEventListener("click", () => {
+            fieldfootertoggled = !fieldfootertoggled;
+            targetfield.setAttribute('footer', String(fieldfootertoggled));
+          })
+          document.querySelector('#field-rerender').addEventListener("click", () => {
+            targetfield.debouncedRequestUpdate();
+          })
+        });
+      </script>
+    </pap-codeblock>
+  </doc-card>
+  <doc-card>
     <pap-typography slot="header" variant="C1">States</pap-typography>
 
     <pap-typography>Default</pap-typography>

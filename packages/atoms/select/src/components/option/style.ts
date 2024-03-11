@@ -1,1 +1,1 @@
-export const style = `:host([hide=true]){display:none}`;
+export const style = `:host([hide=true]){display:none}:host([selected=true]) pap-box-template[part=box]{position:relative;overflow:hidden}:host([selected=true]) pap-box-template[part=box]::after{left:0;top:0;height:100%;width:var(--unit-size1, 4px);content:"";position:absolute;background:var(--pap-color-border-brand, #0177A3)}`;

@@ -8,15 +8,15 @@
 }
 
 :host([size="small"]) {
-  --icon-custom-size: var(--icon-size-small, 16px);
+  --icon-custom-size: var(--icon-size-small, 16px); // 20px
 }
 
 :host([size="medium"]) {
-  --icon-custom-size: var(--icon-size-medium, 20px);
+  --icon-custom-size: var(--icon-size-medium, 20px); // 24px
 }
 
 :host([size="large"]) {
-  --icon-custom-size: var(--icon-size-large, 40px);
+  --icon-custom-size: var(--icon-size-large, 40px); // 32px 
 }
 
 :host(:not([container])) {
@@ -36,22 +36,22 @@
 }
 
 :host([container="smaller"]) {
-  width: var(--field-size-smaller, 24px);
+  width: var(--field-size-smaller, 24px); // 16px
   height: var(--field-size-smaller, 24px);
 }
 
 :host([container="small"]) {
-  width: var(--field-size-small, 32px);
+  width: var(--field-size-small, 32px); // 20px
   height: var(--field-size-small, 32px);
 }
 
 :host([container="medium"]) {
-  width: var(--field-size-medium, 40px);
+  width: var(--field-size-medium, 40px); // 24px
   height: var(--field-size-medium, 40px);
 }
 
 :host([container="large"]) {
-  width: var(--field-size-large, 56px);
+  width: var(--field-size-large, 56px); // 28px
   height: var(--field-size-large, 56px);
 }
 

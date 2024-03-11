@@ -1,8 +1,9 @@
 // utils
-import { ExtractSlotValue, html, property } from "@pap-it/system-utils";
+import { ExtractSlotValue, html, property, query } from "@pap-it/system-utils";
 
 // templates
-import { Field } from "@pap-it/templates-field";
+import { Field, RenderArgument } from "@pap-it/templates-field";
+import "@pap-it/templates-box/wc";
 
 // local
 import { style } from "./style";
@@ -10,38 +11,78 @@ import { style } from "./style";
 export class Checkbox extends Field {
   static style = style;
 
-  @property({ rerender: false, onUpdate: "checkboxColorUpdate" }) color: string = "blue";
+  @property({ rerender: false, type: Boolean }) scale: boolean = true;
+  @property({
+    set: function (this: Checkbox, value: string) {
+      if (value === "true") return true;
+      if (value === "false") return false;
+
+      return value;
+    },
+    after: function (this: Checkbox) {
+      let value = "false";
+      if (this.checked === "intermediate") {
+        value = "intermediate";
+      }
+      else if (this.checked) {
+        value = "true";
+      }
+      this.updateform(value);
+      this.dispatchEvent(new Event('change'));
+    }
+  }) checked: boolean | "intermediate" = false;
+  @property({ type: Boolean, rerender: false }) intermediate: boolean = false;
 
   constructor() {
-    super();
-
-    this.addEventListener("click", this.handleclick, true);
+    super({ delegatesFocus: true, noblur: true, nofocus: true });
+    this.mode = "hug";
+    // this.mode = "fill"; // TODO fill case should put content on right side 
   }
 
-  // update functions
-  private checkboxColorUpdate = () => {
-    if (this.inputElement) {
-      this.inputElement.style.accentColor = this.color;
+  connectedCallback(): void {
+    super.connectedCallback();
+    this.addEventListener("click", this.handleclick);
+    this.addEventListener("keyup", this.handlekeyup);
+  }
+
+  protected override validateElement() {
+    // diabled validation
+    return;
+  }
+
+  // event handlers
+  private handlekeyup = (e: KeyboardEvent) => {
+    if ((e.key || e.code).toLowerCase() === "enter") {
+      this.handleclick();
     }
   }
-  private handleclick = (e: Event) => {
-    e.stopPropagation();
-    this.checked = !this.checked;
-  }
-  private handleslotchange = (e: Event) => {
-    if (e.target instanceof HTMLSlotElement) {
-      // console.log('slot chanfed', e.target.assignedNodes());
-      const extractedtexts = ExtractSlotValue(e.target);
-
-      this.label = extractedtexts.join(' ');
-    }
+  private handleclick = () => {
+    if (this.checked === "intermediate" || this.checked) this.checked = false;
+    else this.checked = true;
   }
 
   render() {
-    return super.render(html`
-      <input readonly type="checkbox" />
-      <slot style="display:none" @slotchange="${this.handleslotchange}"></slot>
-    `)
+    const render: RenderArgument = {
+      main: {
+        content: html`
+          <pap-box-template radius="small" tabindex="0" part="checkbox">
+            <pap-icon name="unchecked"></pap-icon>
+            <pap-icon name="intermediate"></pap-icon>
+            <pap-icon name="checked"></pap-icon>
+          </pap-box-template>
+        `
+      }
+    }
+
+    if (this.label) {
+      render.main.suffix = html`
+        <div slot="suffix" key="label">
+          ${this.label ? `<pap-typography part="label">${this.label}</pap-typography>` : ''}
+        </div>
+      `
+    }
+
+    return super.render(render);
   }
 }
 

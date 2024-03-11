@@ -67,7 +67,7 @@
 }
 
 :host([footer="true"]) pap-prefix-suffix-template[part="footer"],
-:host(:not([state="default"])) pap-prefix-suffix-template[part="footer"],
+:host([message]:not([message=""]):not([state="default"])) pap-prefix-suffix-template[part="footer"],
 :host([message]) pap-prefix-suffix-template[part="footer"] {
   display: flex;
 }

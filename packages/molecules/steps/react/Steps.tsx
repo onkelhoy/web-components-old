@@ -1,0 +1,37 @@
+
+import React from "react";
+
+import { papHOC } from "@pap-it/system-react";
+
+// web components
+import { Steps as StepsElement } from "../src";
+import "../register.bundle.mjs";
+
+// exporting
+export { Steps as StepsElement } from "../src";
+
+export type Props = {
+	steps?: Array<any>;
+  children?: React.ReactNode;
+  className?: string;
+};
+export type Attributes = {
+	steps?: string;
+  children?: React.ReactNode;
+  class?: string;
+};
+
+const Component = React.forwardRef<StepsElement, Attributes>((props, forwardref) => {
+  const { children, ...attributes } = props;
+
+  return (
+    <pap-steps
+      {...attributes}
+      ref={forwardref}
+    >
+      {children}
+    </pap-steps>
+  );
+});
+
+export const Steps = papHOC<StepsElement, Props, Attributes>(Component);

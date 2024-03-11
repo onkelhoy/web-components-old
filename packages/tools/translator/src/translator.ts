@@ -115,7 +115,7 @@ export async function change(id: string) {
     if (newpath === '/' + newlanguage) {
       newpath += '/';
     }
-    console.log('setting is what?', window.papLocalization)
+    // console.log('setting is what?', window.papLocalization)
     history.pushState(null, '', newpath);
   }
 

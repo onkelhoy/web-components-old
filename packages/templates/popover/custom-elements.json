@@ -1,99 +1,237 @@
 {
-  "className": "Popover",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/templates/popover",
-  "properties": [],
-  "classprop_set": {
-    "property": {
-      "revealby": true,
-      "placement": true,
-      "hideonoutsideclick": true,
-      "open": true
+  "sub": {},
+  "main": {
+    "decorators": {
+      "property": {
+        "revealby": true,
+        "placement": true,
+        "hideonoutsideclick": true,
+        "open": true
+      },
+      "query": {
+        "targetelement": true,
+        "wrapperelement": true
+      },
+      "context": {}
     },
-    "query": {
-      "targetelement": true,
-      "wrapperelement": true
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/templates/popover": [
+        {
+          "name": "style",
+          "from": "./style"
+        },
+        {
+          "name": "OPPOSITE",
+          "from": "./types"
+        },
+        {
+          "name": "ROTATED",
+          "from": "./types"
+        }
+      ]
     },
-    "context": {}
-  },
-  "extend_class": null,
-  "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/templates/popover": [
+    "public_functions": [],
+    "events": [
       {
-        "name": "__decorate",
-        "from": "tslib"
+        "type": "Event",
+        "name": "show"
       },
       {
-        "name": "debounce",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "html",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "property",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "query",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "Base",
-        "from": "@pap-it/system-base"
-      },
-      {
-        "name": "style",
-        "from": "./style"
-      },
-      {
-        "name": "OPPOSITE",
-        "from": "./types"
-      }
-    ]
-  },
-  "html": {
-    "slots": [
-      {
-        "name": "target",
-        "html": ""
-      },
-      {
-        "name": "default",
-        "html": ""
+        "type": "Event",
+        "name": "hide"
       }
     ],
-    "parts": [
+    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/popover/src",
+    "className": "Popover",
+    "properties": [],
+    "extend_class": {
+      "decorators": {
+        "property": {
+          "revealby": true,
+          "placement": true,
+          "hideonoutsideclick": true,
+          "open": true
+        },
+        "query": {
+          "targetelement": true,
+          "wrapperelement": true
+        },
+        "context": {}
+      },
+      "imports": [
+        {
+          "name": "style",
+          "from": "./style"
+        },
+        {
+          "name": "OPPOSITE",
+          "from": "./types"
+        },
+        {
+          "name": "ROTATED",
+          "from": "./types"
+        }
+      ],
+      "public_functions": [],
+      "events": [
+        {
+          "type": "Event",
+          "name": "show"
+        },
+        {
+          "type": "Event",
+          "name": "hide"
+        }
+      ],
+      "folder": "/Users/henry/Developer/projects/web-components/packages/templates/popover/src",
+      "className": "PopoverProperties",
+      "properties": [
+        {
+          "name": "revealby",
+          "type": "Reveal",
+          "default_value": "hover",
+          "type_value": [
+            "hover",
+            "click"
+          ],
+          "primitive": false,
+          "conditional": false
+        },
+        {
+          "name": "placement",
+          "type": "Placement",
+          "default_value": "bottom-center",
+          "type_value": [
+            "top-left",
+            "top-right",
+            "top-center",
+            "bottom-left",
+            "bottom-right",
+            "bottom-center",
+            "left-top",
+            "left-bottom",
+            "left-center",
+            "right-top",
+            "right-bottom",
+            "right-center"
+          ],
+          "primitive": false,
+          "conditional": false
+        },
+        {
+          "name": "hideonoutsideclick",
+          "type": "boolean",
+          "default_value": true,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "default_value": false,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        }
+      ],
+      "extend_class": null
+    },
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/templates/popover/dist/src/component.js",
+    "html": {
+      "slots": [
+        {
+          "name": "target",
+          "html": ""
+        },
+        {
+          "name": "default",
+          "html": ""
+        }
+      ],
+      "parts": [
+        {
+          "name": "target",
+          "tag": "DIV"
+        },
+        {
+          "name": "wrapper",
+          "tag": "DIV"
+        }
+      ],
+      "tagName": "pap-popover-template"
+    },
+    "allproperties": [
       {
-        "name": "target",
-        "tag": "DIV"
+        "type": "Reveal",
+        "typeName": "String",
+        "propertyKey": "revealby",
+        "attribute": true,
+        "name": "revealby",
+        "default_value": "hover",
+        "type_value": [
+          "hover",
+          "click"
+        ],
+        "primitive": false,
+        "conditional": false
       },
       {
-        "name": "wrapper",
-        "tag": "DIV"
+        "type": "Placement",
+        "typeName": "String",
+        "propertyKey": "placement",
+        "attribute": true,
+        "name": "placement",
+        "default_value": "bottom-center",
+        "type_value": [
+          "top-left",
+          "top-right",
+          "top-center",
+          "bottom-left",
+          "bottom-right",
+          "bottom-center",
+          "left-top",
+          "left-bottom",
+          "left-center",
+          "right-top",
+          "right-bottom",
+          "right-center"
+        ],
+        "primitive": false,
+        "conditional": false
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "hideonoutsideclick",
+        "attribute": true,
+        "name": "hideonoutsideclick",
+        "default_value": true,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "open",
+        "attribute": true,
+        "name": "open",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      }
+    ],
+    "allevents": [
+      {
+        "type": "Event",
+        "name": "show"
+      },
+      {
+        "type": "Event",
+        "name": "hide"
       }
     ]
-  },
-  "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/templates/popover",
-    "sources": [],
-    "variables": {
-      "--popover-gap": {
-        "usecases": [
-          "fit-content;--gap"
-        ],
-        "fallbacks": [
-          "var(--gap-smaller, 4px))}:host div[part=wrapper]{position:absolut"
-        ]
-      },
-      "--gap-smaller": {
-        "usecases": [
-          "fit-content;--gap"
-        ],
-        "fallbacks": [
-          "4px))}:host div[part=wrapper]{position:absolu"
-        ]
-      }
-    }
   }
 }

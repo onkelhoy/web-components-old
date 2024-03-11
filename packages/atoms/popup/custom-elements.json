@@ -1,104 +1,137 @@
 {
-  "className": "Popup",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/popup",
-  "properties": [
-    {
-      "name": "hideonoutsideclick",
-      "type": "boolean",
-      "default_value": false,
-      "type_value": null,
-      "primitive": true,
-      "conditional": false
+  "sub": {},
+  "main": {
+    "decorators": {
+      "property": {
+        "headerTitle": true,
+        "hideonoutsideclick": true,
+        "variant": true,
+        "state": true
+      },
+      "query": {
+        "cardElement": true
+      },
+      "context": {}
     },
-    {
-      "name": "variant",
-      "type": "Variant",
-      "default_value": "global",
-      "type_value": [
-        "global",
-        "parent"
-      ],
-      "primitive": false,
-      "conditional": false
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/atoms/popup": [
+        {
+          "name": "style",
+          "from": "./style"
+        }
+      ]
     },
-    {
-      "name": "state",
-      "type": "State",
-      "default_value": "hide",
-      "type_value": [
-        "show",
-        "hide"
-      ],
-      "primitive": false,
-      "conditional": false
-    }
-  ],
-  "classprop_set": {
-    "property": {
-      "headerTitle": true,
-      "hideonoutsideclick": true,
-      "variant": true,
-      "state": true
-    },
-    "query": {
-      "cardElement": true
-    },
-    "context": {}
-  },
-  "extend_class": null,
-  "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/atoms/popup": [
+    "public_functions": [],
+    "events": [
       {
-        "name": "__decorate",
-        "from": "tslib"
+        "type": "Event",
+        "name": "popup-show"
       },
       {
-        "name": "html",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "property",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "query",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "Base",
-        "from": "@pap-it/system-base"
-      },
-      {
-        "name": "style",
-        "from": "./style"
-      }
-    ]
-  },
-  "html": {
-    "slots": [
-      {
-        "name": "default",
-        "html": ""
-      },
-      {
-        "name": "footer",
-        "html": ""
+        "type": "Event",
+        "name": "popup-hide"
       }
     ],
-    "parts": []
-  },
-  "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/popup",
-    "sources": [],
-    "variables": {
-      "--popup-backdrop-background": {
-        "usecases": [
-          "0;background-color"
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/popup/src",
+    "className": "Popup",
+    "properties": [
+      {
+        "name": "hideonoutsideclick",
+        "type": "boolean",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "name": "variant",
+        "type": "Variant",
+        "default_value": "global",
+        "type_value": [
+          "global",
+          "parent"
         ],
-        "fallbacks": [
-          "rgba(0, 0, 0, 0.1)"
-        ]
+        "primitive": false,
+        "conditional": false
+      },
+      {
+        "name": "state",
+        "type": "State",
+        "default_value": "hide",
+        "type_value": [
+          "show",
+          "hide"
+        ],
+        "primitive": false,
+        "conditional": false
       }
-    }
+    ],
+    "extend_class": null,
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/atoms/popup/dist/src/component.js",
+    "html": {
+      "slots": [
+        {
+          "name": "default",
+          "html": ""
+        },
+        {
+          "name": "footer",
+          "html": ""
+        }
+      ],
+      "parts": [],
+      "tagName": "pap-popup"
+    },
+    "allproperties": [
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "hideonoutsideclick",
+        "attribute": true,
+        "name": "hideonoutsideclick",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "Variant",
+        "typeName": "String",
+        "propertyKey": "variant",
+        "attribute": true,
+        "name": "variant",
+        "default_value": "global",
+        "type_value": [
+          "global",
+          "parent"
+        ],
+        "primitive": false,
+        "conditional": false
+      },
+      {
+        "type": "State",
+        "typeName": "String",
+        "propertyKey": "state",
+        "attribute": true,
+        "name": "state",
+        "default_value": "hide",
+        "type_value": [
+          "show",
+          "hide"
+        ],
+        "primitive": false,
+        "conditional": false
+      }
+    ],
+    "allevents": [
+      {
+        "type": "Event",
+        "name": "popup-show"
+      },
+      {
+        "type": "Event",
+        "name": "popup-hide"
+      }
+    ]
   }
 }

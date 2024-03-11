@@ -1,0 +1,471 @@
+{
+  "sub": {},
+  "main": {
+    "decorators": {
+      "property": {
+        "interval": true,
+        "delay": true,
+        "clusterSpawn": true,
+        "clusterSpawnRandom": true,
+        "clusterRadius": true,
+        "clusterInterval": true,
+        "intervalrandom": true,
+        "intervalAmount": true
+      },
+      "query": {},
+      "context": {}
+    },
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/atoms/firework": [
+        {
+          "name": "Canvas",
+          "from": "@pap-it/templates-canvas"
+        },
+        {
+          "name": "style",
+          "from": "./style"
+        },
+        {
+          "name": "Rocket",
+          "from": "./rocket"
+        },
+        {
+          "name": "Explosion",
+          "from": "./explosion"
+        }
+      ],
+      "/Users/henry/Developer/projects/web-components/packages/templates/canvas": [
+        {
+          "name": "Translator",
+          "from": "@pap-it/tools-translator"
+        },
+        {
+          "name": "style",
+          "from": "./style"
+        }
+      ],
+      "/Users/henry/Developer/projects/web-components/packages/tools/translator": [
+        {
+          "name": "style",
+          "from": "./style"
+        },
+        {
+          "name": "InitTranslations",
+          "from": "./translator"
+        }
+      ]
+    },
+    "public_functions": [],
+    "events": [
+      {
+        "type": "Event",
+        "name": "dead"
+      }
+    ],
+    "folder": "/Users/henry/Developer/projects/web-components/packages/atoms/firework/src",
+    "className": "Firework",
+    "properties": [
+      {
+        "name": "interval",
+        "type": "number",
+        "default_value": 500,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "name": "delay",
+        "type": "number",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "name": "clusterSpawn",
+        "type": "number",
+        "default_value": 3,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "name": "clusterSpawnRandom",
+        "type": "number",
+        "default_value": 3,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "name": "clusterRadius",
+        "type": "number",
+        "default_value": 20,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "name": "clusterInterval",
+        "type": "number",
+        "default_value": 0,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "name": "intervalrandom",
+        "type": "number",
+        "default_value": 100,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "name": "intervalAmount",
+        "type": "number",
+        "default_value": 2,
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      }
+    ],
+    "extend_class": {
+      "decorators": {
+        "property": {
+          "width": true,
+          "height": true,
+          "paused": true
+        },
+        "query": {
+          "canvasElement": true
+        },
+        "context": {}
+      },
+      "imports": {
+        "/Users/henry/Developer/projects/web-components/packages/templates/canvas": [
+          {
+            "name": "Translator",
+            "from": "@pap-it/tools-translator"
+          },
+          {
+            "name": "style",
+            "from": "./style"
+          }
+        ],
+        "/Users/henry/Developer/projects/web-components/packages/tools/translator": [
+          {
+            "name": "style",
+            "from": "./style"
+          },
+          {
+            "name": "InitTranslations",
+            "from": "./translator"
+          }
+        ]
+      },
+      "public_functions": [],
+      "events": [],
+      "folder": "/Users/henry/Developer/projects/web-components/packages/templates/canvas/src",
+      "className": "Canvas",
+      "properties": [
+        {
+          "name": "width",
+          "type": "number",
+          "default_value": 100,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default_value": 100,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "name": "paused",
+          "type": "boolean",
+          "default_value": false,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        }
+      ],
+      "extend_class": {
+        "decorators": {
+          "property": {
+            "scope": true
+          },
+          "query": {},
+          "context": {}
+        },
+        "imports": {
+          "/Users/henry/Developer/projects/web-components/packages/tools/translator": [
+            {
+              "name": "style",
+              "from": "./style"
+            },
+            {
+              "name": "InitTranslations",
+              "from": "./translator"
+            }
+          ]
+        },
+        "public_functions": [],
+        "events": [],
+        "folder": "/Users/henry/Developer/projects/web-components/packages/tools/translator/src",
+        "className": "Translator",
+        "properties": [
+          {
+            "name": "scope",
+            "type": "string",
+            "type_value": null,
+            "primitive": true,
+            "conditional": true
+          }
+        ],
+        "extend_class": null,
+        "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/tools/translator/dist/src/component.js",
+        "html": {
+          "slots": [
+            {
+              "name": "default",
+              "html": ""
+            }
+          ],
+          "parts": [],
+          "tagName": "pap-translator"
+        },
+        "allproperties": [
+          {
+            "type": "string",
+            "typeName": "String",
+            "propertyKey": "scope",
+            "attribute": true,
+            "name": "scope",
+            "type_value": null,
+            "primitive": true,
+            "conditional": true
+          }
+        ],
+        "allevents": []
+      },
+      "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/templates/canvas/dist/src/component.js",
+      "html": {
+        "slots": [],
+        "parts": [
+          {
+            "name": "canvas",
+            "tag": "CANVAS"
+          },
+          {
+            "name": "no-support",
+            "tag": "PAP-TYPOGRAPHY"
+          }
+        ],
+        "tagName": "pap-canvas-template"
+      },
+      "allproperties": [
+        {
+          "type": "number",
+          "typeName": "Number",
+          "propertyKey": "width",
+          "attribute": true,
+          "name": "width",
+          "default_value": 100,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "type": "number",
+          "typeName": "Number",
+          "propertyKey": "height",
+          "attribute": true,
+          "name": "height",
+          "default_value": 100,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "type": "boolean",
+          "typeName": "Boolean",
+          "propertyKey": "paused",
+          "attribute": true,
+          "name": "paused",
+          "default_value": false,
+          "type_value": null,
+          "primitive": true,
+          "conditional": false
+        },
+        {
+          "type": "string",
+          "typeName": "String",
+          "propertyKey": "scope",
+          "attribute": true,
+          "name": "scope",
+          "type_value": null,
+          "primitive": true,
+          "conditional": true
+        }
+      ],
+      "allevents": []
+    },
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/atoms/firework/dist/src/component.js",
+    "html": {
+      "slots": [],
+      "parts": [
+        {
+          "name": "canvas",
+          "tag": "CANVAS"
+        },
+        {
+          "name": "no-support",
+          "tag": "PAP-TYPOGRAPHY"
+        }
+      ],
+      "tagName": "pap-firework"
+    },
+    "allproperties": [
+      {
+        "type": "number",
+        "typeName": "Number",
+        "propertyKey": "interval",
+        "attribute": true,
+        "name": "interval",
+        "default_value": 500,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "number",
+        "typeName": "Number",
+        "propertyKey": "delay",
+        "attribute": true,
+        "name": "delay",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "number",
+        "typeName": "Number",
+        "propertyKey": "clusterSpawn",
+        "attribute": "cluster-spawn",
+        "name": "clusterSpawn",
+        "default_value": 3,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "number",
+        "typeName": "Number",
+        "propertyKey": "clusterSpawnRandom",
+        "attribute": "cluster-spawn-random",
+        "name": "clusterSpawnRandom",
+        "default_value": 3,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "number",
+        "typeName": "Number",
+        "propertyKey": "clusterRadius",
+        "attribute": "cluster-radius",
+        "name": "clusterRadius",
+        "default_value": 20,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "number",
+        "typeName": "Number",
+        "propertyKey": "clusterInterval",
+        "attribute": "cluster-interval",
+        "name": "clusterInterval",
+        "default_value": 0,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "number",
+        "typeName": "Number",
+        "propertyKey": "intervalrandom",
+        "attribute": "interval-random",
+        "name": "intervalrandom",
+        "default_value": 100,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "number",
+        "typeName": "Number",
+        "propertyKey": "intervalAmount",
+        "attribute": "interval-amount",
+        "name": "intervalAmount",
+        "default_value": 2,
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "number",
+        "typeName": "Number",
+        "propertyKey": "width",
+        "attribute": true,
+        "name": "width",
+        "default_value": 100,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "number",
+        "typeName": "Number",
+        "propertyKey": "height",
+        "attribute": true,
+        "name": "height",
+        "default_value": 100,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "paused",
+        "attribute": true,
+        "name": "paused",
+        "default_value": false,
+        "type_value": null,
+        "primitive": true,
+        "conditional": false
+      },
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "scope",
+        "attribute": true,
+        "name": "scope",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      }
+    ],
+    "allevents": [
+      {
+        "type": "Event",
+        "name": "dead"
+      }
+    ]
+  }
+}

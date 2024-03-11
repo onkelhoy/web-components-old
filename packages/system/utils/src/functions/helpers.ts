@@ -114,3 +114,15 @@ export function DetectDevice(component: HTMLElement): Devices {
     return "mobile";
   }
 }
+
+// value manipulation 
+export function lerp(a: number, b: number, t: number) {
+  return a + (b - a) * t;
+}
+
+export function lerpValue(value: number, min: number, max: number, newmin: number, newmax: number) {
+  // Normalize 'value' to a [0, 1] range
+  const t = (value - min) / (max - min);
+  // Interpolate this normalized value to the new range
+  return Math.min(newmax, Math.max(lerp(newmin, newmax, t), newmin));
+}

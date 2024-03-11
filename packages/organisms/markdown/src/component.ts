@@ -14,9 +14,6 @@ import { Blockinfo } from "./types";
 export class Markdown extends Asset {
   static style = style;
 
-  @property({ onUpdate: "updateFILE" }) url?: string;
-  @property({ onUpdate: "updateFILE" }) file?: string;
-
   private content: string = "";
   private codeblocks: string[] = [];
 
@@ -28,26 +25,9 @@ export class Markdown extends Asset {
     this.assetBase = "/public/markdown"
   }
 
-  // update functions
-  private async updateFILE() {
-    try {
-      let target = this.url ? this.url : this.file;
-      if (!target) throw new Error("must have a target");
-
-      const response = await this.loadAsset(target, !!this.url);
-      if (!response) {
-        throw new Error("something went wrong");
-      }
-      if (typeof response === "string") {
-        return this.markdown(response);
-      }
-
-      const content = await response.text();
-      this.markdown(content);
-    }
-    catch (e) {
-      console.error("failed to load markdown file")
-    }
+  protected override async handleResponse(response: Response) {
+    const content = await response.text();
+    this.markdown(content);
   }
 
   // private functions

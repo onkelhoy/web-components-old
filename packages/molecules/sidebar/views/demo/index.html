@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar demo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar demo</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
+  <script defer src="main.js"></script>
 </head>
-<body>
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-sidebar selected="Home" class="mobile">
-                <pap-sidebar-item icon="home.unselected" icon_selected="home.selected" text="Home"></pap-sidebar-item>
-                <pap-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="62" text="Users"></pap-sidebar-item>
-                <pap-sidebar-item icon="pricelist.unselected" icon_selected="pricelist.selected" counter="62" text="Price-Lists"></pap-sidebar-item>
-                <pap-sidebar-item icon="priceflow.unselected" icon_selected="priceflow.selected" text="Price-Flow"></pap-sidebar-item>
-            </pap-sidebar>
-        </pap-codeblock>
-        <div class="balloon balloon1"></div>
-        <div class="balloon balloon2"></div>
-        <div class="balloon balloon3"></div>
-        <div class="balloon balloon4"></div>
-    </doc-card>
 
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-sidebar>
-                <pap-sidebar-item text="First one"></pap-sidebar-item>
-                <pap-sidebar-item text="A" counter="12"></pap-sidebar-item>
-                <pap-sidebar-item text="B" counter="123"></pap-sidebar-item>
-                <pap-sidebar-item text="C" counter="123123"></pap-sidebar-item>
-            </pap-sidebar>
-        </pap-codeblock>
-    </doc-card>
+<body>
+  <doc-card>
+    <pap-codeblock display="both">
+      <pap-sidebar selected="Home" class="mobile">
+        <pap-sidebar-item icon="home.unselected" icon_selected="home.selected" text="Home"></pap-sidebar-item>
+        <pap-sidebar-item icon="user.unselected" icon_selected="user.selected" counter="62"
+          text="Users"></pap-sidebar-item>
+        <pap-sidebar-item icon="pricelist.unselected" icon_selected="pricelist.selected" counter="62"
+          text="Price-Lists"></pap-sidebar-item>
+        <pap-sidebar-item icon="priceflow.unselected" icon_selected="priceflow.selected"
+          text="Price-Flow"></pap-sidebar-item>
+      </pap-sidebar>
+      <div class="balloon balloon1"></div>
+      <div class="balloon balloon2"></div>
+      <div class="balloon balloon3"></div>
+      <div class="balloon balloon4"></div>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-codeblock display="both">
+      <pap-sidebar>
+        <pap-sidebar-item text="First one"></pap-sidebar-item>
+        <pap-sidebar-item text="A" counter="12"></pap-sidebar-item>
+        <pap-sidebar-item text="B" counter="123"></pap-sidebar-item>
+        <pap-sidebar-item text="C" counter="123123"></pap-sidebar-item>
+      </pap-sidebar>
+    </pap-codeblock>
+  </doc-card>
 </body>
+
 </html>

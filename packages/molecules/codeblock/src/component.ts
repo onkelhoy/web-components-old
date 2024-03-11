@@ -443,8 +443,7 @@ export class Codeblock extends Base {
               <pap-typography variant="C4" slot="suffix">dark</pap-typography>
             </pap-switch>`: ''}
             <pap-button 
-              variant="clear" 
-              size="small" 
+              variant="clear"  
               radius="none" 
               @click="${this.handlecopy}" 
             >
@@ -453,7 +452,7 @@ export class Codeblock extends Base {
               <pap-typography>Copy code</pap-typography>
             </pap-button>
           </header>
-          <main></main>
+          <main render-greedy></main>
         </pap-box-template>
       </code>
       <fieldset part="fieldset">

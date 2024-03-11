@@ -1,12 +1,18 @@
-// utils 
+// system 
 import { html, property, query } from "@pap-it/system-utils";
 import { Base } from "@pap-it/system-base";
-import { TRANSLATION_ADDED, TRANSLATION_CHANGE_EVENTNAME, InitTranslations } from "@pap-it/tools-translator";
-import "@pap-it/tools-translator/wc";
+
 
 // atoms
 import "@pap-it/menu/wc";
 import { Menu } from "@pap-it/menu";
+
+// templates
+import { Placement } from "@pap-it/templates-popover";
+
+// tools
+import { TRANSLATION_ADDED, TRANSLATION_CHANGE_EVENTNAME, InitTranslations } from "@pap-it/tools-translator";
+import "@pap-it/tools-translator/wc";
 
 // local imports
 import { style } from "./style";
@@ -19,6 +25,7 @@ export class LanguageMenu extends Base {
 
   // NOTE these should be reqions !
   @property({ type: Array, attribute: false }) languages: Language[] = [];
+  @property() placement: Placement = "bottom-right";
 
   public intl?: Intl.DisplayNames;
 
@@ -78,8 +85,9 @@ export class LanguageMenu extends Base {
   }
 
   render() {
+    // would be nice to control placement.. 
     return html`
-      <pap-menu buttonRadius="circular" placement="bottom-left" @select="${this.handlelanguageselect}">
+      <pap-menu buttonRadius="circular" placement="${this.placement}" @select="${this.handlelanguageselect}">
         
         <span slot="button-prefix" class="wrapper">
           <span class="flag globe">

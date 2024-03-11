@@ -2,7 +2,7 @@
 import '@pap-it/system-doc/wc';
 
 // component
-import '@PROJECTSCOPE/TEMPLATE_PACKAGENAMETEMPLATE_NAME/wc';
+import '@TEMPLATE_PROJECTSCOPE/TEMPLATE_PACKAGENAMETEMPLATE_NAME/wc';
 
 window.onload = () => 
 {

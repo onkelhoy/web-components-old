@@ -2,7 +2,8 @@
 
 Atomic Type: molecules
 
-Version: Version: 0.0.7
+Version: Version: Version: 0.0.8
+
 
 
 ## Development

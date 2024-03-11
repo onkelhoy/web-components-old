@@ -33,8 +33,10 @@
 
     <pap-typography>Advanced case</pap-typography>
     <pap-codeblock display="both">
+      <button id="inc">increase start</button>
+      <button id="dec">decrease end</button>
       <pap-translator name="Henry">I dont exist {name}</pap-translator>
-      <pap-translator start="4" end="7" total="19">
+      <pap-translator id="paginationcase" start="4" end="7" total="19">
         {start} - {end} of {total}
       </pap-translator>
     </pap-codeblock>

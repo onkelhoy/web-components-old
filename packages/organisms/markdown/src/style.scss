@@ -1,101 +1,105 @@
 :host {
-    --background: var(--pap-markdown-background, var(--pap-color-bg, #FFFFFF));
-    --block-background: var(--pap-markdown-block-background, var(--pap-color-bg-tertiary, #EAEBEF));
-    --block-ribbon: var(--pap-markdown-block-ribbon, var(--pap-color-bg-brand, #009DD3));
-    --border: var(--pap-markdown-border, var(--pap-color-border, #C7CBD4));
-    --color: var(--pap-markdown-color, var(--pap-color-text, #29292F));
-    --link: var(--pap-markdown-link, var(--pap-color-text-link, #0177A3));
-    --link-hover: var(--pap-markdown-link-hover, var(--pap-color-text-link-oninverse, #36CEFA));
-    --table-header-background: var(--pap-markdown-table-header-background, var(--pap-color-hover-400, rgba(0,0,0,0.1)));
+  --background: var(--pap-markdown-background, var(--pap-color-bg, #FFFFFF));
+  --block-background: var(--pap-markdown-block-background, var(--pap-color-bg-tertiary, #EAEBEF));
+  --block-ribbon: var(--pap-markdown-block-ribbon, var(--pap-color-bg-brand, #009DD3));
+  --border: var(--pap-markdown-border, var(--pap-color-border, #C7CBD4));
+  --color: var(--pap-markdown-color, var(--pap-color-text, #29292F));
+  --link: var(--pap-markdown-link, var(--pap-color-text-link, #0177A3));
+  --link-hover: var(--pap-markdown-link-hover, var(--pap-color-text-link-oninverse, #36CEFA));
+  --table-header-background: var(--pap-markdown-table-header-background, var(--pap-color-hover-400, rgba(0, 0, 0, 0.1)));
 
-    display: block;
-    color: var(--color);
-    background-color: var(--background);
-    padding: 1rem 10%;
-    font-family: inherit;
+  display: block;
+  color: var(--color);
+  background-color: var(--background);
+  padding: 1rem 10%;
+  font-family: inherit;
 }
 
 @mixin table_border($type) {
-    border-#{$type}-width: 1px;
-    border-#{$type}-color: var(--border);
-    border-#{$type}-style: solid;
+  border-#{$type}-width: 1px;
+  border-#{$type}-color: var(--border);
+  border-#{$type}-style: solid;
 }
 
 table {
-    color: inherit;
-    width: 100%;
-    
-    thead {
-        @include table_border(bottom);
-        
-        th {
-            background-color: var(--table-header-background);
-            @include table_border(top);
-            @include table_border(left);
-            @include table_border(bottom);
-            padding: 0.25rem 0.75rem;
-        
-            &:first-child {
-                border-top-left-radius: var(--radius-small, 4px);
-            }
-            &:last-child {
-                @include table_border(right);
-                border-top-right-radius: var(--radius-small, 4px);
-            }
-        }
+  color: inherit;
+  width: 100%;
+  margin-block: var(--margin-small, 8px);
+
+  thead {
+    @include table_border(bottom);
+
+    th {
+      background-color: var(--table-header-background);
+      @include table_border(top);
+      @include table_border(left);
+      @include table_border(bottom);
+      padding: 0.25rem 0.75rem;
+
+      &:first-child {
+        border-top-left-radius: var(--radius-small, 4px);
+      }
+
+      &:last-child {
+        @include table_border(right);
+        border-top-right-radius: var(--radius-small, 4px);
+      }
+    }
+  }
+
+  tbody {
+    td {
+      @include table_border(left);
+      @include table_border(bottom);
+      padding: 0.25rem 0.75rem;
+
+      &:last-child {
+        @include table_border(right);
+      }
     }
 
-    tbody {
-        td {
-            @include table_border(left);
-            @include table_border(bottom);
-            padding: 0.25rem 0.75rem;
-
-            &:last-child {
-                @include table_border(right);
-            }
-        }
-
-        tr:last-child td:last-child {
-            border-bottom-right-radius: var(--radius-small, 4px);
-        }
-        tr:last-child td:first-child {
-            border-bottom-left-radius: var(--radius-small, 4px);
-        }
+    tr:last-child td:last-child {
+      border-bottom-right-radius: var(--radius-small, 4px);
     }
+
+    tr:last-child td:first-child {
+      border-bottom-left-radius: var(--radius-small, 4px);
+    }
+  }
 }
 
 a {
-    color: var(--link);
-    &:hover {
-        text-decoration-thickness: 2px;
-        color: var(--link-hover);
-    }
+  color: var(--link);
+
+  &:hover {
+    text-decoration-thickness: 2px;
+    color: var(--link-hover);
+  }
 }
 
 h1 {
-    border-bottom: var(--border) 1px solid;
+  border-bottom: var(--border) 1px solid;
 }
 
 div.blockquote {
-    background-color: var(--block-background);
-    padding: 0.6rem;
-    position: relative;
-    padding-left: 1.2rem;
+  background-color: var(--block-background);
+  padding: 0.6rem;
+  position: relative;
+  padding-left: 1.2rem;
 
-    &::after {
-        width: 0.3rem;
-        height: 100%;
-        position: absolute;
-        left: 0.3rem;
-        top: 0;
-        content: '';
-        background-color: var(--block-ribbon);
-    }
+  &::after {
+    width: 0.3rem;
+    height: 100%;
+    position: absolute;
+    left: 0.3rem;
+    top: 0;
+    content: '';
+    background-color: var(--block-ribbon);
+  }
 }
 
 @media screen and (min-width: 1024px) {
-    :host {
-        padding: 1rem 20%;
-    }
+  :host {
+    padding: 1rem 20%;
+  }
 }

@@ -4,12 +4,12 @@ import { debounce, html, ifDefined, property, query } from "@pap-it/system-utils
 // templates
 import { Placement, Reveal } from "@pap-it/templates-popover";
 import { Field, RenderArgument, PrefixSuffixRender } from "@pap-it/templates-field";
-import { Menu, Selected } from "@pap-it/templates-menu";
+import { MenuTemplate, Selected } from "@pap-it/templates-menu";
 import "@pap-it/templates-menu/wc";
 
 // local 
 import { style } from "./style";
-import { SearchType, OptionType } from "./types";
+import { SearchType, OptionType, SearchEvent } from "./types";
 
 export class Select extends Field {
   static style = style;
@@ -20,7 +20,19 @@ export class Select extends Field {
       this.connectElement(element);
     }
   }) override element!: HTMLInputElement;
-  @query<Menu>('pap-menu-template') menuelement!: Menu;
+  @query<MenuTemplate>({
+    selector: 'pap-menu-template',
+    load: function (this: Select) {
+      // TODO set the menu's value?
+      if (this.value) {
+        this.menuelement.select(this.value);
+      }
+      if (this.options && this.options?.length > 0) {
+        console.log('I do have options mtf..');
+        this.menuelement.hasitems = true;
+      }
+    }
+  }) menuelement!: MenuTemplate;
 
   @property({ type: Boolean }) multiple: boolean = false;
   @property({ attribute: 'menu-height' }) menuheight: string = "15rem";
@@ -36,9 +48,10 @@ export class Select extends Field {
     after: function (this: Select, value: string) {
       this.updateform(value);
       this.debouncedchange();
-      if (this.menuelement) {
+      if (this.menuelement && !this.internalset) {
         this.menuelement.select(value);
       }
+      this.internalset = false;
     }
   }) value?: string;
   @property({ type: Number }) maxlength?: number;
@@ -61,8 +74,17 @@ export class Select extends Field {
     },
     after: function (this: Select) {
       // NOTE should we update the selected ? 
+      if (this.options && this.options?.length > 0) {
+        if (this.menuelement) this.menuelement.hasitems = true;
+      }
+      // should have a else case, set to false? 
+      // else 
+      // {
+      // }
     }
   }) options?: Array<OptionType> = [];
+
+  private internalset = false;
 
   public searchvalue: string | undefined;
 
@@ -95,6 +117,7 @@ export class Select extends Field {
   }
   private handleselect = (e: CustomEvent<Selected>) => {
     if (e.detail) {
+      this.internalset = true;
       this.value = e.detail.value;
       this.text = e.detail.text;
       // this.dispatchEvent(new Event('change'));
@@ -107,7 +130,7 @@ export class Select extends Field {
 
   // helper function
   private dosearch = () => {
-    this.dispatchEvent(new CustomEvent('search', {
+    this.dispatchEvent(new CustomEvent<SearchEvent>('search', {
       detail: {
         value: this.searchvalue,
         regexp: new RegExp(this.searchvalue || "", "i"),

@@ -6,10 +6,13 @@
     "noEmitOnError": true,
     "lib": [
       "es2020",
-      "dom"
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
+    "jsx": "react-jsx",
     "strict": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "importHelpers": true,
@@ -23,6 +26,8 @@
     "resolveJsonModule": true
   },
   "include": [
-    "**/*.ts"
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.d.ts"
   ]
 }

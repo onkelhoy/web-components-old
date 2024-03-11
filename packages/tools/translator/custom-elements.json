@@ -1,67 +1,62 @@
 {
-  "className": "Translator",
-  "folder": "/Users/henry/Developer/projects/web-components/packages/tools/translator",
-  "properties": [
-    {
-      "name": "scope",
-      "type": "string",
-      "type_value": null,
-      "primitive": true,
-      "conditional": true
-    }
-  ],
-  "classprop_set": {
-    "property": {
-      "scope": true
+  "sub": {},
+  "main": {
+    "decorators": {
+      "property": {
+        "scope": true
+      },
+      "query": {},
+      "context": {}
     },
-    "query": {},
-    "context": {}
-  },
-  "extend_class": null,
-  "imports": {
-    "/Users/henry/Developer/projects/web-components/packages/tools/translator": [
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/tools/translator": [
+        {
+          "name": "style",
+          "from": "./style"
+        },
+        {
+          "name": "InitTranslations",
+          "from": "./translator"
+        }
+      ]
+    },
+    "public_functions": [],
+    "events": [],
+    "folder": "/Users/henry/Developer/projects/web-components/packages/tools/translator/src",
+    "className": "Translator",
+    "properties": [
       {
-        "name": "__decorate",
-        "from": "tslib"
-      },
-      {
-        "name": "ExtractSlotValue",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "html",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "property",
-        "from": "@pap-it/system-utils"
-      },
-      {
-        "name": "Base",
-        "from": "@pap-it/system-base"
-      },
-      {
-        "name": "style",
-        "from": "./style"
-      },
-      {
-        "name": "InitTranslations",
-        "from": "./translator"
-      }
-    ]
-  },
-  "html": {
-    "slots": [
-      {
-        "name": "default",
-        "html": ""
+        "name": "scope",
+        "type": "string",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
       }
     ],
-    "parts": []
-  },
-  "css": {
-    "folder": "/Users/henry/Developer/projects/web-components/packages/tools/translator",
-    "sources": [],
-    "variables": {}
+    "extend_class": null,
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/tools/translator/dist/src/component.js",
+    "html": {
+      "slots": [
+        {
+          "name": "default",
+          "html": ""
+        }
+      ],
+      "parts": [],
+      "tagName": "pap-translator"
+    },
+    "allproperties": [
+      {
+        "type": "string",
+        "typeName": "String",
+        "propertyKey": "scope",
+        "attribute": true,
+        "name": "scope",
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      }
+    ],
+    "allevents": []
   }
 }

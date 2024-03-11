@@ -217,16 +217,16 @@ const DefaultPropertyOptions: PropertyOption = {
 export function property(options?: Partial<PropertyOption>) {
   const _options = options === undefined ? DefaultPropertyOptions : { ...DefaultPropertyOptions, ...(options as PropertyOption) };
 
-  return function (target: HTMLElement, propertyKey: string) {
+  return function (target: any, propertyKey: string) {
     const attributeName = (typeof _options.attribute === "string" ? _options.attribute : propertyKey).toLowerCase();
 
     const constructor = target.constructor as any;
-    if (!constructor.__propertyOptions) constructor.__propertyOptions = {};
-
-    // if (constructor.tagName === 'PAP-MENU') console.log('setting propertyoptions', attributeName, constructor.tagName)
-    constructor.__propertyOptions[attributeName] = {
+    if (!constructor.Properties) constructor.Properties = {};
+    constructor.Properties[attributeName] = {
       type: _options.type,
+      typeName: _options.type.name,
       propertyKey,
+      attribute: _options.attribute,
     };
 
     // Observe attributes
@@ -243,22 +243,30 @@ export function property(options?: Partial<PropertyOption>) {
         return options?.get ? options.get.call(this, data) : data;
       },
       set(value: any) {
-        if (!constructor.__propertyOptions) constructor.__propertyOptions = {};
-        if (!constructor.__propertyOptions[attributeName]) {
+        if (!constructor.Properties) constructor.Properties = {};
+        if (!constructor.Properties[attributeName]) {
           // if (this.tagName === 'PAP-MENU') console.log('setting propertyoptions', attributeName, this.tagName)
-          constructor.__propertyOptions[attributeName] = {
+          constructor.Properties[attributeName] = {
             type: _options.type,
+            typeName: _options.type.name,
             propertyKey,
+            attribute: _options.attribute,
           };
         }
-        if (this[attributeName + "internal"]) {
-          delete this[attributeName + "internal"];
+        // if (this[attributeName + "internal"]) {
+        //   console.log('intenral udpate?')
+        //   delete this[attributeName + "internal"];
+        //   return;
+        // }
+
+
+        if (options?.set) value = options.set.call(this, value);
+        const valuestring = convertToString(value, _options.type);
+
+        if (this.delayedAttributes[attributeName] && this.delayedAttributes[attributeName] === valuestring) {
           return;
         }
 
-        if (options?.set) value = options.set.call(this, value);
-
-        const valuestring = convertToString(value, _options.type);
         const oldvaluestring = convertToString(this[`_${propertyKey}`], _options.type)
         if (oldvaluestring === valuestring) {
           return;
@@ -268,8 +276,11 @@ export function property(options?: Partial<PropertyOption>) {
 
         if (_options.attribute) {
           if (!this.delayedAttributes) this.delayedAttributes = {};
-          this.delayedAttributes[attributeName] = valuestring;
-          if (this.updateAttribute) this.updateAttribute();
+          if (this.delayedAttributes[attributeName] !== valuestring) {
+            // if (this.tagName === "PAP-INPUT") console.log("DECORATOR", attributeName)
+            this.delayedAttributes[attributeName] = valuestring;
+            if (this.updateAttribute) this.updateAttribute();
+          }
         }
 
         if (options?.before) options.before.call(this, value);

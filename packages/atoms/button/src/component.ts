@@ -22,8 +22,12 @@ export class Button extends FormElement {
   @property({ rerender: false, attribute: 'text-variant' }) textvariant: ButtonTextType = "B1"; // TODO attribute: 'text-variant'
   @property({ rerender: false }) mode: ButtonMode = "hug";
   @property({ rerender: false }) variant: ButtonVariant = "filled";
-  @property({ rerender: false, type: Number }) tabIndex: number = 0;
   @property({ rerender: false }) color: ButtonColorVariant = "primary";
+
+  constructor() {
+    super();
+    this.tabIndex = 0;
+  }
 
   connectedCallback(): void {
     super.connectedCallback();

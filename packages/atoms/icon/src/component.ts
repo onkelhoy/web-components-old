@@ -1,8 +1,8 @@
-import { property, html, Size } from '@pap-it/system-utils';
+import { property, html, Size, query } from '@pap-it/system-utils';
 import { Asset } from '@pap-it/templates-asset';
 
 import { style } from './style.js';
-import { ContainerTypes } from './types.js';
+import { Container } from './types.js';
 
 const CountryEmojiSet: Record<string, string> = {
   A: "🇦", B: "🇧", C: "🇨",
@@ -20,14 +20,21 @@ export class Icon extends Asset {
   static style = style;
 
   private content: string = "";
-  private svgElement!: SVGSVGElement;
   private flag?: string;
 
-  @property({ rerender: false }) container?: ContainerTypes;
+  @query({
+    selector: 'svg',
+    load: function (this: Icon) {
+      this.setSVG();
+    }
+  }) svgElement!: SVGSVGElement;
+
+  @property({ rerender: false }) container?: Container;
+  @property() viewbox = "0 96 960 960";
   @property({
     rerender: false,
-    after: function (this: Icon) {
-      this.updateName();
+    after: function (this: Icon, value: string) {
+      this.file = value + ".svg";
     }
   }) name?: string;
   @property({
@@ -62,70 +69,44 @@ export class Icon extends Asset {
   constructor() {
     super();
 
-    this.render_mode = "greedy";
+    // this.render_mode = "greedy";
     this.assetBase = "/icons";
   }
-  public firstUpdate() {
-    super.firstUpdate();
-    if (this.flag) return;
-    if (this.shadowRoot) {
-      const element = this.shadowRoot.querySelector<SVGSVGElement>("svg");
-      if (element === null) throw new Error('Could not find svg element');
-      this.svgElement = element;
 
-      if (this.content) {
-        this.setSVG();
+  protected override async handleResponse(response: Response | string) {
+    let content, viewbox = "0 96 960 960"; // default google icon's
+    if (typeof response === "string") {
+      content = response;
+    }
+    else {
+      content = await response.text();
+      const [parsed_content, parsed_viewbox] = this.extractSvgContent(content);
+
+
+      if (parsed_viewbox) {
+        viewbox = parsed_viewbox;
+      }
+      if (parsed_content) {
+        content = `SVG:${viewbox}##${parsed_content.trim()}`;
+        this.cacheData(this.file, content);
       }
     }
-  }
-
-  // update functions
-  private async updateName(): Promise<void> {
-    if (this.flag) return;
-    if (this.name === "") return;
-
-    const file = `${this.name}.svg`;
-    try {
-      const response = await this.loadAsset(file);
-
-      if (response) {
-        let content, viewbox = "0 96 960 960"; // default google icon's
-        if (typeof response === "string") {
-          content = response;
-        }
-        else {
-          content = await response.text();
-          const [parsed_content, parsed_viewbox] = this.extractSvgContent(content);
-
-          if (parsed_viewbox) {
-            viewbox = parsed_viewbox;
-          }
-          if (parsed_content) {
-            content = `SVG:${viewbox}##${parsed_content.trim()}`;
-            this.cacheData(file, content);
-          }
-        }
 
 
-        if (content.startsWith("SVG:")) {
-          this.setAttribute('data-hide-slot', 'true');
-          this.content = content;
-          if (this.getAttribute("show")) console.log(content)
-          this.setSVG();
-        }
-        else {
-          this.setAttribute('data-hide-slot', 'false');
-        }
-      }
-      else {
-        this.setAttribute('data-hide-slot', 'false');
-      }
+    if (content.startsWith("SVG:")) {
+      this.setAttribute('data-hide-slot', 'true');
+      this.content = content;
+      if (this.getAttribute("show")) console.log(content)
+      this.setSVG();
     }
-    catch {
-      console.log('im hidden')
+    else {
       this.setAttribute('data-hide-slot', 'false');
     }
   }
+  protected override handleError() {
+    this.setAttribute('data-hide-slot', 'false');
+  }
+
   private updateCountryFlag() {
     try {
       if (this.countryFlag) {
@@ -164,8 +145,9 @@ export class Icon extends Asset {
       const parsed = /SVG:(.*)##/.exec(this.content);
       if (parsed) {
         const content = this.content.split(parsed[1])[1];
-        this.svgElement.setAttribute('viewBox', parsed[1]);
-        if (this.getAttribute("show")) console.log(this.content, parsed, content)
+        this.viewbox = parsed[1];
+        // this.svgElement.setAttribute('viewBox', );
+        // if (this.getAttribute("show")) console.log(this.content, parsed, content)
         this.svgElement.innerHTML = content;
       }
     }
@@ -180,7 +162,7 @@ export class Icon extends Asset {
       <slot part="fallback"></slot>
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
-        viewBox="0 96 960 960"
+        viewBox="${this.viewbox}"
         part="svg"
       >
         ${this.content}

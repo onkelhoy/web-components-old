@@ -1,20 +1,33 @@
 // system 
 import { NextParent, html } from "@pap-it/system-utils";
 
-import { Menu, Item } from '@pap-it/templates-menu';
+import { MenuTemplate, ItemTemplate } from '@pap-it/templates-menu';
 
 // local
 import { style } from "./style";
 import { Select } from "../../component";
 
-export class Option extends Item {
+export class Option extends ItemTemplate {
   static style = style;
 
-  override init(menu: Menu) {
+  private menu!: MenuTemplate;
+
+  override init(menu: MenuTemplate) {
     super.init(menu);
+    this.menu = menu;
     const select = NextParent<Select>(menu);
     if (select) {
       select.addEventListener('search', this.handlesearch);
+    }
+  }
+
+  disconnectedCallback(): void {
+    super.disconnectedCallback();
+    if (this.menu) {
+      const select = NextParent<Select>(this.menu);
+      if (select) {
+        select.removeEventListener('search', this.handlesearch);
+      }
     }
   }
 

@@ -1,5 +1,5 @@
 // system
-import { html, property } from "@pap-it/system-utils";
+import { html, property, PropertyConfig } from "@pap-it/system-utils";
 import { Base } from "@pap-it/system-base";
 
 // local 

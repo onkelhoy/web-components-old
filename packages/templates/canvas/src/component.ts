@@ -1,7 +1,9 @@
 // system
-import { html, query, property } from "@pap-it/system-utils";
+import { html, query, property, debounce } from "@pap-it/system-utils";
 
+// tools
 import { Translator } from "@pap-it/tools-translator";
+import { IRectangle } from "@pap-it/tools-canvas";
 
 // local 
 import { style } from "./style";
@@ -10,11 +12,45 @@ import { CanvasFunction } from './types';
 export class Canvas extends Translator {
   static style = style;
 
-  @query({ selector: 'canvas[part="canvas"]', onload: 'oncanvasload' }) canvasElement!: HTMLCanvasElement;
+  @query({
+    selector: 'canvas[part="canvas"]',
+    load: function (this: Canvas) {
+      this.canvasElement.width = this.width;
+      this.canvasElement.height = this.height;
+      this.context = this.canvasElement.getContext('2d');
+      this.callfirstload();
+    }
+  }) canvasElement!: HTMLCanvasElement;
 
-  @property({ type: Number, onUpdate: 'onwidthupdate', rerender: false }) width: number = 100;
-  @property({ type: Number, onUpdate: 'onheightupdate', rerender: false }) height: number = 100;
-  @property({ type: Boolean, onUpdate: 'onpauseupdate', rerender: false }) paused: boolean = false;
+  @property({
+    type: Number,
+    rerender: false,
+    after: function (this: Canvas) {
+      if (this.canvasElement) this.canvasElement.width = this.width;
+      this.callfirstload();
+    }
+  }) width: number = 100;
+  @property({
+    type: Number,
+    rerender: false,
+    after: function (this: Canvas) {
+      if (this.canvasElement) this.canvasElement.height = this.height;
+      this.callfirstload();
+    }
+  }) height: number = 100;
+  @property({
+    type: Boolean,
+    rerender: false,
+    after: function (this: Canvas, value: boolean, old: boolean) {
+      if (value === true) {
+        if (this.timer !== null) cancelAnimationFrame(this.timer);
+        this.timer = null;
+      }
+      else if (value === false && old === true) {
+        this.loop();
+      }
+    }
+  }) paused: boolean = false;
 
   public context: CanvasRenderingContext2D | null = null;
   private timer: number | null = null;
@@ -22,6 +58,22 @@ export class Canvas extends Translator {
   private renders: CanvasFunction[] = [];
   private deltatime: number = 0;
   private beforetime: number = 0;
+  private computedStyle: CSSStyleDeclaration;
+
+  public clear: boolean = true;
+
+  constructor() {
+    super();
+
+    this.computedStyle = window.getComputedStyle(this);
+    this.callfirstload = debounce(this.init);
+  }
+
+  private callfirstload() { }
+
+  public get Viewport(): IRectangle {
+    return { x: 0, y: 0, h: this.height, w: this.width };
+  }
 
   /**
    * Represents a function that performs operations on a canvas.
@@ -58,31 +110,6 @@ export class Canvas extends Translator {
   //   window.removeEventListener("resize", this.handleresize);
   // }
 
-  // on updates
-  private onheightupdate = () => {
-    if (this.canvasElement) this.canvasElement.height = this.height;
-  }
-  private onwidthupdate = () => {
-    if (this.canvasElement) this.canvasElement.width = this.width;
-  }
-  private onpauseupdate = (value: boolean, old: boolean) => {
-    if (value === true) {
-      if (this.timer !== null) cancelAnimationFrame(this.timer);
-      this.timer = null;
-    }
-    else if (value === false && old === true) {
-      this.loop();
-    }
-  }
-
-  // on loads 
-  private oncanvasload = () => {
-    this.canvasElement.width = this.width;
-    this.canvasElement.height = this.height;
-    this.context = this.canvasElement.getContext('2d');
-    this.beforetime = performance.now();
-    this.loop();
-  }
 
   // // event handlers
   // private handleresize = () => {
@@ -91,13 +118,40 @@ export class Canvas extends Translator {
   //   this.height = rec.height;
   // }
 
+  // override functions
+  protected draw(context: CanvasRenderingContext2D, delta: number) {
+
+  }
+  protected update(context: CanvasRenderingContext2D, delta: number) {
+
+  }
+  protected async load() {
+
+  }
+
+  getColor(cssVariable: string) {
+    return this.computedStyle.getPropertyValue(cssVariable);
+  }
+
   // private functions
+  private async init() {
+    await this.load();
+    this.beforetime = performance.now();
+    this.loop();
+  }
   private canvas_render = () => {
+    if (this.clear) {
+      this.context?.clearRect(0, 0, this.width, this.height);
+    }
+    this.draw(this.context as CanvasRenderingContext2D, this.deltatime);
+
     for (let render of this.renders) {
       render(this.context as CanvasRenderingContext2D, this.deltatime);
     }
   }
   private canvas_update = () => {
+    this.update(this.context as CanvasRenderingContext2D, this.deltatime);
+
     for (let update of this.updates) {
       update(this.context as CanvasRenderingContext2D, this.deltatime);
     }

@@ -1,15 +1,14 @@
 #!/bin/bash
 
-# todo use later
-exit 0
-
 # Check if --force flag is provided
 for arg in "$@"
 do
   if [[ $arg == "--force" ]]; then
-    FORCE=true
+    export FORCE=true
   elif [[ $arg == "--child" ]]; then
-    CHILD=true
+    export CHILD=true
+  elif [[ $arg == "--verbose" ]]; then 
+    export VERBOSE=true
   fi
 done
 
@@ -22,13 +21,18 @@ if [[ $FORCE ]] || [[ ! -d ./react ]]; then
 
   # create folder 
   mkdir react  
+
+  if [[ ! $CHILD ]]; then 
+    # run the analysing
+    npm run analyse
+  fi 
+
+  # running the global react script
+  sh $ROOTDIR/scripts/react/run.sh $(pwd)
+
+  npm run build
+
+  echo "[REACT]: $NAME -- built ✅"
+else
+  echo "[REACT]: $NAME -- skipped ⏩"
 fi
-
-if [[ ! $CHILD ]]; then 
-  # run the analyzing
-  npm run analyze
-fi 
-
-# running the global react script
-# this script will look into our react folder and figure out if it should add new components or not 
-sh $ROOTDIR/scripts/react/run.sh $(pwd)

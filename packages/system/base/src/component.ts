@@ -1,6 +1,6 @@
-import { NextParent, property, debounce, convertFromString } from "@pap-it/system-utils";
+import { NextParent, property, debounce, convertFromString, PropertyConfig } from "@pap-it/system-utils";
 
-import { Config, FunctionCallback, RenderType, PropertyConfig } from "./types";
+import { Config, FunctionCallback, RenderType } from "./types";
 
 // NOTE should this be there?
 // export interface Base extends HTMLElement { }
@@ -8,7 +8,8 @@ import { Config, FunctionCallback, RenderType, PropertyConfig } from "./types";
 export class Base extends HTMLElement {
   public static style?: string;
   public static styles?: string[];
-  public static __propertyOptions: Record<string, PropertyConfig> = {};
+
+  public static Properties: Record<string, PropertyConfig> = {};
 
   protected callAfterUpdate: (Function | FunctionCallback)[] = [];
   protected render_mode: 'greedy' | 'smart' = 'smart';
@@ -22,6 +23,7 @@ export class Base extends HTMLElement {
 
   public connected: boolean = false;
   public originalHTML: string = "";
+
   @property({ rerender: false, type: Boolean }) hasFocus: boolean = false;
 
   // class functions
@@ -42,6 +44,8 @@ export class Base extends HTMLElement {
     // TODO should implement the function that calls then if fails calls later too
     this.updateAttribute = debounce(this.updateAttribute, 10);
     this.callAfterUpdate.push(this.firstUpdate);
+
+    return this;
   }
   connectedCallback() {
     this.attributeinit = false;
@@ -54,23 +58,39 @@ export class Base extends HTMLElement {
     this.dispatchEvent(new Event('disconnected'));
   }
   attributeChangedCallback(name: string, oldValue: string | null, newValue: string | null) {
-    if (oldValue === newValue) return;
+    // if (this.tagName === "PAP-INPUT") console.log(name, oldValue === newValue)
+    if (oldValue === newValue) {
+      delete this.delayedAttributes[name];
+      return;
+    }
 
     // implement something
     if (!this.delayedAttributes[name]) {
-      if (Base.__propertyOptions[name]) {
-        (this as any)[name + "internal"] = true;
-        this[Base.__propertyOptions[name].propertyKey as keyof this] = convertFromString(newValue, Base.__propertyOptions[name].type);
+      // console.log('delayed attribute found', name, Base.Properties[name])
+      if (Base.Properties[name]) {
+        // (this as any)[name + "internal"] = true;
+        this[Base.Properties[name].propertyKey as keyof this] = convertFromString(newValue, Base.Properties[name].type);
+      }
+      else {
+        console.warn("[BASE]: not delayed not prop options", name);
       }
     }
     else {
+      // this[Base.Properties[name].propertyKey as keyof this] = convertFromString(newValue, Base.Properties[name].type);
       delete this.delayedAttributes[name];
-      this[Base.__propertyOptions[name].propertyKey as keyof this] = convertFromString(newValue, Base.__propertyOptions[name].type);
     }
   }
   public firstUpdate() {
     this.hasrendered = true;
     this.updateAttribute();
+  }
+  public getProperties() {
+    const properties: Record<string, PropertyConfig> = {};
+
+    for (let attribute in Base.Properties) {
+      properties[Base.Properties[attribute].propertyKey] = Base.Properties[attribute];
+    }
+    return properties;
   }
 
   // event handlers
@@ -83,7 +103,7 @@ export class Base extends HTMLElement {
 
   protected getStyle(): string {
     // Get the constructor of the child class
-    const childConstructor = this.constructor as typeof Base & { style?: string; styles?: string[]; };
+    const childConstructor = (this.constructor as any) as typeof Base & { style?: string; styles?: string[]; };
 
     // Access the static property on the child class
     const styles = [
@@ -117,7 +137,6 @@ export class Base extends HTMLElement {
       parent = NextParent(parent);
     }
   }
-
   public requestUpdate() {
     if (!this.shadowRoot) {
       // TODO wait until shadowRoot is here ! 
@@ -149,9 +168,7 @@ export class Base extends HTMLElement {
     }
     this.callAfterUpdate = [];
   }
-
   public debouncedRequestUpdate() { }
-
   public render(config?: any): RenderType {
     return 'Hello From Base Class'
   }
@@ -165,11 +182,11 @@ export class Base extends HTMLElement {
     const a = this.attributes;
     for (let i = 0; i < a.length; i++) {
       const name = a[i].name;
-      if (Base.__propertyOptions[name]) {
+      if (Base.Properties[name]) {
         let value = a[i].value;
         if (value === "") value = "true";
 
-        this[Base.__propertyOptions[name].propertyKey as keyof this] = convertFromString(value, Base.__propertyOptions[name].type);
+        this[Base.Properties[name].propertyKey as keyof this] = convertFromString(value, Base.Properties[name].type);
       }
     }
   }
@@ -254,7 +271,6 @@ export class Base extends HTMLElement {
     // TODO figure out the reason why we clone, there was a very strong reason but I dont remember..
     // akward but it was the previous mentioned comment no? (that)
     const clone = this.templateComperator.cloneNode(true) as HTMLTemplateElement;
-    if (this.tagName === "PAP-SIDEBAR-ITEM") console.log(clone.outerHTML, clone.innerHTML);
 
     clone.querySelectorAll('*:not(style)').forEach(node => {
       const path = this.getComposedPath(clone, node);
@@ -314,7 +330,10 @@ export class Base extends HTMLElement {
           // passedAttributes.push(name);
 
           const shadowValue = shadowNode.getAttribute(name);
-          if (shadowValue !== value) shadowNode.setAttribute(name, value);
+          if (shadowValue !== value) {
+            // TODO mayby we want to keep its value? O.o
+            shadowNode.setAttribute(name, value);
+          }
         }
         // NOTE 
         // this is dangerous as many attributes are dynamically added on render 
@@ -375,8 +394,10 @@ export class Base extends HTMLElement {
       const path = this.getComposedPath(this.shadowRoot as ShadowRoot, node);
       const templateNode = this.templateComperator.querySelector(path.join(" > "));
       if (!templateNode) {
-        // needs to go!
-        node.parentNode.removeChild(node);
+        // needs to go! (if not render-greedy)
+        if (!path.some(p => /render-greedy/.test(p))) {
+          node.parentNode.removeChild(node);
+        }
       }
     });
 
@@ -416,7 +437,12 @@ export class Base extends HTMLElement {
     if (node.id) selector.push("#" + node.id);
     else if (node.hasAttribute("key")) selector.push(`[key="${node.getAttribute("key")}"]`);
     else if (node.hasAttribute("part")) selector.push(`[part="${node.getAttribute("part")}"]`);
-    else if (node.className) selector.push("." + node.className.trim().replace(/ /g, "."));
+    else if (typeof node.className === "string" && node.className) {
+      selector.push("." + node.className.trim().replace(/ /g, "."));
+    }
+
+    // we store the render greedy so we need not to traverse DOM
+    if (node.hasAttribute('render-greedy')) selector.push('[render-greedy]');
 
     // NOTE there's a big problem with class selection when a class can dynamically arrive.. 
 

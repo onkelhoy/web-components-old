@@ -1,5 +1,5 @@
 {
-  "name": "@PROJECTSCOPE/TEMPLATE_PACKAGENAMETEMPLATE_NAME",
+  "name": "@TEMPLATE_PROJECTSCOPE/TEMPLATE_PACKAGENAMETEMPLATE_NAME",
   "version": "0.0.0",
   "scripts": {
     "init": "sh .scripts/init.sh",
@@ -13,7 +13,7 @@
     "combine": ".scripts/combine.sh && .scripts/start.sh combined",
     "start": ".scripts/start.sh",
     "isolate": "sh .scripts/isolate.sh",
-    "analyze": "sh .scripts/analyze.sh",
+    "analyse": "sh .scripts/analyse.sh",
     "interactive": "sh .scripts/helper/build-interactive.sh",
     "variations": "sh .scripts/helper/build-variations.sh",
     "component:add": "sh .scripts/helper/add-component.sh"
@@ -21,13 +21,12 @@
   "main": "dist/src/index.js",
   "files": [
     "asset/",
-    "dist/",
-    "react/"
+    "dist/"
   ],
   "exports": {
     ".": "./dist/src/index.js",
     "./wc": "./dist/register.bundle.mjs",
-    "./react": "./react/index.ts"
+    "./react": "./dist/react/index.ts"
   },
   "author": "GITNAME",
   "private": false,
