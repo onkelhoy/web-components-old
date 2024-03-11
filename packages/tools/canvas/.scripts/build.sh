@@ -57,7 +57,12 @@ if [ "$DEV" = true ]; then
   tsc
 else
   tsc -p tsconfig.prod.json
-fi
 
+  # Find all .js files in the dist directory and its subdirectories
+  find ./dist -name '*.js' -type f | while read file; do
+    # Use esbuild to minify each .js file and overwrite the original file
+    esbuild "$file" --minify --allow-overwrite --outfile="$file"
+  done
+fi
 # clear the console
 echo "files successfully built"

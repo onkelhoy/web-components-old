@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/system-doc",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -33,18 +33,18 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-base": "1.0.11",
+    "@pap-it/system-base": "1.0.12",
     "@pap-it/system-utils": "1.0.10",
-    "@pap-it/system-react": "0.0.5",
-    "@pap-it/system-showcase": "1.0.11",
-    "@pap-it/button": "1.0.11",
-    "@pap-it/divider": "1.0.11",
-    "@pap-it/header": "1.0.16",
-    "@pap-it/icon": "1.0.11",
-    "@pap-it/markdown": "1.0.12",
-    "@pap-it/tabs": "1.0.11",
-    "@pap-it/templates-popover": "1.0.12",
-    "@pap-it/typography": "1.0.11"
+    "@pap-it/system-react": "0.0.6",
+    "@pap-it/system-showcase": "1.0.12",
+    "@pap-it/button": "1.0.12",
+    "@pap-it/divider": "1.0.12",
+    "@pap-it/header": "1.0.17",
+    "@pap-it/icon": "1.0.12",
+    "@pap-it/markdown": "1.0.13",
+    "@pap-it/tabs": "1.0.12",
+    "@pap-it/templates-popover": "1.0.13",
+    "@pap-it/typography": "1.0.12"
   },
   "devDependencies": {
     "eslint": "^8.53.0",
