@@ -35,6 +35,8 @@ export function papHOC<TElement extends HTMLElement, TProps = {}, TAttributes = 
 
     if (internalRef.current) {
       for (let name in props) {
+        if (name === "children") continue;
+
         if (typeof props[name as keyof Props] === "function") {
           // check if its event 
           if (name.startsWith('on')) // NOTE it would suck for functions that do in fact start with on..
