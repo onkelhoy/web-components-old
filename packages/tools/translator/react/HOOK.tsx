@@ -1,5 +1,5 @@
 import React from 'react';
-import { init } from '@pap-it/tools-translator';
+import { init } from '../src/';
 
 export type Settings = {
   scope?: string;

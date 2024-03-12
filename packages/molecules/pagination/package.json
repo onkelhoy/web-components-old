@@ -47,7 +47,7 @@
     "@pap-it/system-base": "1.0.15",
     "@pap-it/system-utils": "1.0.10",
     "@pap-it/system-react": "0.0.7",
-    "@pap-it/tools-translator": "1.0.16",
+    "@pap-it/tools-translator": "1.0.17",
     "@pap-it/typography": "1.0.16"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/tools-translator",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
