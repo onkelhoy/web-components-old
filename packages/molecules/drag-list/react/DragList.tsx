@@ -10,13 +10,13 @@ import "../src/register.js";
 // exporting
 export { DragList as DragListElement } from "../src";
 
-export type Props = {
-	dragging?: boolean;
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  dragging?: boolean;
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
-	dragging?: string;
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
+  dragging?: string;
   children?: React.ReactNode;
   class?: string;
 };

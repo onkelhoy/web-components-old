@@ -10,13 +10,13 @@ import "../src/register.js";
 // exporting
 export { Steps as StepsElement } from "../src";
 
-export type Props = {
-	steps?: Array<any>;
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  steps?: Array<any>;
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
-	steps?: string;
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
+  steps?: string;
   children?: React.ReactNode;
   class?: string;
 };

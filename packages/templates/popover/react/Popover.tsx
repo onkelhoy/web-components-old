@@ -10,21 +10,21 @@ import "../src/register.js";
 // exporting
 export { Popover as PopoverElement } from "../src";
 
-export type Props = {
-	revealby?: "hover"|"click"; // default-value: hover
-	placement?: "top-left"|"top-right"|"top-center"|"bottom-left"|"bottom-right"|"bottom-center"|"left-top"|"left-bottom"|"left-center"|"right-top"|"right-bottom"|"right-center"; // default-value: bottom-center
-	hideonoutsideclick?: boolean; // default-value: true
-	open?: boolean;
-	onShow?: (e: React.SyntheticEvent<PopoverElement, Event>) => void;
-	onHide?: (e: React.SyntheticEvent<PopoverElement, Event>) => void;
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  revealby?: "hover" | "click"; // default-value: hover
+  placement?: "top-left" | "top-right" | "top-center" | "bottom-left" | "bottom-right" | "bottom-center" | "left-top" | "left-bottom" | "left-center" | "right-top" | "right-bottom" | "right-center"; // default-value: bottom-center
+  hideonoutsideclick?: boolean; // default-value: true
+  open?: boolean;
+  onShow?: (e: React.SyntheticEvent<PopoverElement, Event>) => void;
+  onHide?: (e: React.SyntheticEvent<PopoverElement, Event>) => void;
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
-	revealby?: string; // default-value: hover
-	placement?: string; // default-value: bottom-center
-	hideonoutsideclick?: string; // default-value: true
-	open?: string;
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
+  revealby?: string; // default-value: hover
+  placement?: string; // default-value: bottom-center
+  hideonoutsideclick?: string; // default-value: true
+  open?: string;
   children?: React.ReactNode;
   class?: string;
 };

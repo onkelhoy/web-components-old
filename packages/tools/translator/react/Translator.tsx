@@ -10,13 +10,13 @@ import "../src/register.js";
 // exporting
 export { Translator as TranslatorElement } from "../src";
 
-export type Props = {
-	scope?: string; // [conditional]
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  scope?: string; // [conditional]
   children?: React.ReactNode;
   className?: string;
-};
-export type Attributes = {
-	scope?: string; // [conditional]
+} & Record<string, string>;
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
+  scope?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

@@ -10,19 +10,19 @@ import "../src/register.js";
 // exporting
 export { Canvas as CanvasElement } from "../src";
 
-export type Props = {
-	width?: number; // default-value: 100
-	height?: number; // default-value: 100
-	paused?: boolean;
-	scope?: string; // [conditional]
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  width?: number; // default-value: 100
+  height?: number; // default-value: 100
+  paused?: boolean;
+  scope?: string; // [conditional]
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
-	width?: string; // default-value: 100
-	height?: string; // default-value: 100
-	paused?: string;
-	scope?: string; // [conditional]
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
+  width?: string; // default-value: 100
+  height?: string; // default-value: 100
+  paused?: string;
+  scope?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

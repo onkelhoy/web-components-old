@@ -10,15 +10,15 @@ import "../src/register.js";
 // exporting
 export { Accordion as AccordionElement } from "../src";
 
-export type Props = {
-	open?: boolean;
-	mode?: "horizontal"|"vertical"; // default-value: vertical
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  open?: boolean;
+  mode?: "horizontal" | "vertical"; // default-value: vertical
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
-	open?: string;
-	mode?: string; // default-value: vertical
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
+  open?: string;
+  mode?: string; // default-value: vertical
   children?: React.ReactNode;
   class?: string;
 };

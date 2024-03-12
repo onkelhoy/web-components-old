@@ -10,17 +10,17 @@ import "../src/register.js";
 // exporting
 export { Box as BoxElement } from "../src";
 
-export type Props = {
-	radius?: "none"|"small"|"medium"|"large"|"circular"; // default-value: circular
-	elevation?: "none"|"small"|"medium"|"large"|"x-large"; // default-value: none
-	elevationdirection?: "vertical"|"horizontal"; // default-value: vertical
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  radius?: "none" | "small" | "medium" | "large" | "circular"; // default-value: circular
+  elevation?: "none" | "small" | "medium" | "large" | "x-large"; // default-value: none
+  elevationdirection?: "vertical" | "horizontal"; // default-value: vertical
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
-	radius?: string; // default-value: circular
-	elevation?: string; // default-value: none
-	"elevation-direction"?: string; // default-value: vertical
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
+  radius?: string; // default-value: circular
+  elevation?: string; // default-value: none
+  "elevation-direction"?: string; // default-value: vertical
   children?: React.ReactNode;
   class?: string;
 };

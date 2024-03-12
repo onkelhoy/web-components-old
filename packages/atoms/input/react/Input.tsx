@@ -10,9 +10,9 @@ import "../src/register.js";
 // exporting
 export { Input as InputElement } from "../src";
 
-export type Props = {
+export type Props = React.HTMLAttributes<HTMLElement> & {
   counter?: boolean; // [conditional]
-  type?: "number" | "email" | "tel" | "text" | "password" | "search" | "url" | "color"; // default-value: text
+  type?: "text" | "password" | "search" | "email" | "number" | "tel" | "url" | "color" | "date" | "datetime-local" | "month" | "week"; // default-value: text
   maxlength?: number; // [conditional]
   minlength?: number; // [conditional]
   max?: number; // [conditional]
@@ -39,10 +39,9 @@ export type Props = {
   onInput?: (e: React.SyntheticEvent<InputElement, Event>) => void;
   onChange?: (e: React.SyntheticEvent<InputElement, Event>) => void;
   children?: React.ReactNode;
-  className?: string;
 };
 
-export type Attributes = {
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
   counter?: string; // [conditional]
   type?: string; // default-value: text
   maxlength?: string; // [conditional]

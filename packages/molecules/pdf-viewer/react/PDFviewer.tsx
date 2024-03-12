@@ -10,19 +10,19 @@ import "../src/register.js";
 // exporting
 export { PDFviewer as PDFviewerElement } from "../src";
 
-export type Props = {
-	name?: string; // [conditional]
-	type?: "object"|"embed"|"iframe"; // default-value: object
-	height?: number; // [conditional]
-	url?: string; // [conditional]
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  name?: string; // [conditional]
+  type?: "object" | "embed" | "iframe"; // default-value: object
+  height?: number; // [conditional]
+  url?: string; // [conditional]
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
-	name?: string; // [conditional]
-	type?: string; // default-value: object
-	height?: string; // [conditional]
-	url?: string; // [conditional]
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
+  name?: string; // [conditional]
+  type?: string; // default-value: object
+  height?: string; // [conditional]
+  url?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

@@ -164,7 +164,7 @@ export function detect() {
     return navigator_lang;
   }
 }
-export function InitTranslations() {
+export function init(languages?: BasicLanguageData[]) {
   // NOTE I put or subscribe as I wish to be able to control "setURL" from outside 
   // (before init and subscribe is unlikly to be set by outside.. like extremly unlikely)
   if (!window.papLocalization || !window.papLocalization.subscribe) {
@@ -213,5 +213,9 @@ export function InitTranslations() {
         }
       }
     }, 1000));
+
+    if (languages) {
+      window.papLocalization.addAll(languages);
+    }
   }
 }

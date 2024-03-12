@@ -10,13 +10,13 @@ import "../src/register.js";
 // exporting
 export { LanguageMenu as LanguageMenuElement } from "../src";
 
-export type Props = {
+export type Props = React.HTMLAttributes<HTMLElement> & {
   languages?: Array<any>;
   placement?: "top-left" | "top-right" | "top-center" | "bottom-left" | "bottom-right" | "bottom-center" | "left-top" | "left-bottom" | "left-center" | "right-top" | "right-bottom" | "right-center"; // default-value: bottom-right
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
   placement?: string; // default-value: bottom-right
   children?: React.ReactNode;
   class?: string;

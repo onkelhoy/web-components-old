@@ -10,20 +10,20 @@ import "../src/register.js";
 // exporting
 export { FormElement as FormElementElement } from "../src";
 
-export type Props = {
-	defaultValue?: string; // [conditional]
-	disabled?: boolean; // [conditional]
-	name?: string; // default-value: missing-name
-	value?: string; // [conditional]
-	onChange?: (e: React.SyntheticEvent<FormElementElement, Event>) => void;
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  defaultValue?: string; // [conditional]
+  disabled?: boolean; // [conditional]
+  name?: string; // default-value: missing-name
+  value?: string; // [conditional]
+  onChange?: (e: React.SyntheticEvent<FormElementElement, Event>) => void;
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
-	"default-value"?: string; // [conditional]
-	disabled?: string; // [conditional]
-	name?: string; // default-value: missing-name
-	value?: string; // [conditional]
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
+  "default-value"?: string; // [conditional]
+  disabled?: string; // [conditional]
+  name?: string; // default-value: missing-name
+  value?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

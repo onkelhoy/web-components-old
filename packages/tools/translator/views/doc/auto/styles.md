@@ -14,7 +14,7 @@ import { Base } from "@pap-it/system-base";
 
 // local
 import { style } from "./style";
-import { InitTranslations } from "./translator";
+import { init } from "./translator";
 
 export class Translator extends Base {
     static style = style;
@@ -47,7 +47,7 @@ export class Translator extends Base {
     // class functions 
     connectedCallback(): void {
         super.connectedCallback();
-        InitTranslations();
+        init();
         window.papLocalization?.subscribe(this.updateText);
     }
   

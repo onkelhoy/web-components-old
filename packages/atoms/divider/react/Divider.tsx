@@ -10,15 +10,15 @@ import "../src/register.js";
 // exporting
 export { Divider as DividerElement } from "../src";
 
-export type Props = {
-	mode?: "vertical"|"horizontal"; // default-value: horizontal
-	thickness?: "thin"|"default"|"thick"; // default-value: default
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  mode?: "vertical" | "horizontal"; // default-value: horizontal
+  thickness?: "thin" | "default" | "thick"; // default-value: default
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
-	mode?: string; // default-value: horizontal
-	thickness?: string; // default-value: default
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
+  mode?: string; // default-value: horizontal
+  thickness?: string; // default-value: default
   children?: React.ReactNode;
   class?: string;
 };

@@ -10,7 +10,7 @@ import "../src/register.js";
 // exporting
 export { Switch as SwitchElement } from "../src";
 
-export type Props = {
+export type Props = React.HTMLAttributes<HTMLElement> & {
   supportlabel?: string; // [conditional]
   checked?: boolean;
   customDanger?: Partial<Record<keyof ValidityState, string>>; // [conditional]
@@ -35,7 +35,7 @@ export type Props = {
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
   "support-label"?: string; // [conditional]
   checked?: string;
   "custom-error"?: string; // [conditional]

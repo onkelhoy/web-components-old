@@ -10,7 +10,7 @@ import "../src/register.js";
 // exporting
 export { Checkbox as CheckboxElement } from "../src";
 
-export type Props = {
+export type Props = React.HTMLAttributes<HTMLElement> & {
   scale?: boolean; // default-value: true
   checked?: "null" | "intermediate";
   intermediate?: boolean;
@@ -36,7 +36,7 @@ export type Props = {
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
   scale?: string; // default-value: true
   checked?: string;
   intermediate?: string;

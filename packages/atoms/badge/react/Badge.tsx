@@ -10,15 +10,15 @@ import "../src/register.js";
 // exporting
 export { Badge as BadgeElement } from "../src";
 
-export type Props = {
-	count?: number;
-	size?: "small"|"medium"|"large"; // default-value: medium
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  count?: number;
+  size?: "small" | "medium" | "large"; // default-value: medium
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
-	count?: string;
-	size?: string; // default-value: medium
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
+  count?: string;
+  size?: string; // default-value: medium
   children?: React.ReactNode;
   class?: string;
 };

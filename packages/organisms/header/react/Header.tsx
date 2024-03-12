@@ -10,12 +10,12 @@ import "../src/register.js";
 // exporting
 export { Header as HeaderElement } from "../src";
 
-export type Props = {
+export type Props = React.HTMLAttributes<HTMLElement> & {
   user?: object; // [conditional]
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
   user?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;

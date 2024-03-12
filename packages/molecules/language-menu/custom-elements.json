@@ -22,7 +22,7 @@
           "from": "@pap-it/tools-translator"
         },
         {
-          "name": "InitTranslations",
+          "name": "init",
           "from": "@pap-it/tools-translator"
         },
         {
