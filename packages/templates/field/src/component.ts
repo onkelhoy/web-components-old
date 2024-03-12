@@ -73,7 +73,7 @@ export class Field extends FormElement {
   @property({ type: Boolean, rerender: false }) header: boolean = false;
   @property({ type: Boolean, rerender: false }) footer: boolean = false;
 
-  public customValidation?: (field: Field) => { message: string; state: State } | undefined;
+  public customValidation?: (target: Field) => { message: string; state: State } | undefined;
 
   private internalmessage = false;
   private fallbackmessage?: string;

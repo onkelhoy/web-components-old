@@ -9,7 +9,7 @@
       "imports": {
         "/Users/henry/Developer/projects/web-components/packages/atoms/select": [
           {
-            "name": "Item",
+            "name": "ItemTemplate",
             "from": "@pap-it/templates-menu"
           },
           {
@@ -81,7 +81,7 @@
           }
         ],
         "folder": "/Users/henry/Developer/projects/web-components/packages/templates/menu/src/components/item",
-        "className": "Item",
+        "className": "ItemTemplate",
         "properties": [
           {
             "name": "size",

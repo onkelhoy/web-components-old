@@ -13,7 +13,7 @@ export { Field as FieldElement } from "../src";
 export type Props = {
   customDanger?: Partial<Record<keyof ValidityState, string>>;
   customWarning?: Partial<Record<keyof ValidityState, string>>;
-  customValidation?: (field: FieldElement) => { message: string; state: "default" | "info" | "success" | "warning" | "danger" } | undefined;
+  customValidation?: (target: FieldElement) => { message: string; state: "default" | "info" | "success" | "warning" | "danger" } | undefined;
   label?: string;
   required?: boolean;
   readonly?: boolean;

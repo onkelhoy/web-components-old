@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/textarea",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -24,9 +24,9 @@
     "dist/"
   ],
   "exports": {
-    ".": "./dist/src/index.js",
-    "./wc": "./dist/register.bundle.mjs",
-    "./react": "./dist/react/index.js"
+    "./react": "./dist/react/index.js",
+    "./wc": "./dist/src/register.js",
+    ".": "./dist/src/index.js"
   },
   "author": "Henry Pap",
   "private": false,
@@ -42,10 +42,10 @@
   "dependencies": {
     "@pap-it/system-utils": "1.0.10",
     "@pap-it/system-react": "0.0.6",
-    "@pap-it/templates-field": "1.0.12"
+    "@pap-it/templates-field": "1.0.13"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.17",
+    "@pap-it/system-doc": "1.0.18",
     "esbuild": "^0.17.18",
     "eslint": "^8.53.0",
     "node-html-parser": "^6.1.5",

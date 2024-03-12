@@ -21,7 +21,7 @@ export type Props = {
   resize?: "none" | "verical" | "auto"; // default-value: auto [conditional]
   customDanger?: Partial<Record<keyof ValidityState, string>>;
   customWarning?: Partial<Record<keyof ValidityState, string>>;
-  customValidation?: (field: TextareaElement) => { message: string; state: "default" | "info" | "success" | "warning" | "danger" } | undefined;
+  customValidation?: (target: TextareaElement) => { message: string; state: "default" | "info" | "success" | "warning" | "danger" } | undefined;
   label?: string;
   required?: boolean;
   readonly?: boolean;

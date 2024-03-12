@@ -5,7 +5,7 @@ import { Base } from "@pap-it/system-base";
 // local 
 import { style } from "./style";
 
-export class Theme extends Base {
+export class ThemeContainer extends Base {
   static style = style;
 
   render() {
@@ -19,6 +19,6 @@ export class Theme extends Base {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-theme": Theme;
+    "pap-theme": ThemeContainer;
   }
 }

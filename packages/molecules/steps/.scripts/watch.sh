@@ -27,8 +27,8 @@ fi
 tsc -w --preserveWatchOutput &
 tsc_pid=$!
 
-esbuild src/register.ts --bundle --outfile=dist/register.bundle.mjs --format=esm --platform=browser --watch=forever &
-watch_esm_pid=$!
+# esbuild src/register.ts --bundle --outfile=dist/register.bundle.mjs --format=esm --platform=browser --watch=forever &
+# watch_esm_pid=$!
 
 # wait for all background processes to complete
 wait

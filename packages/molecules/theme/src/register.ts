@@ -1,6 +1,6 @@
 import { ThemeMenu } from './components/theme-menu';
 import { Lightdark } from './components/lightdark';
-import { Theme } from './component.js';
+import { ThemeContainer } from './component.js';
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;
@@ -10,7 +10,7 @@ if (!cElements) {
 }
 
 if (!cElements.get('pap-theme')) {
-  cElements.define('pap-theme', Theme);
+  cElements.define('pap-theme', ThemeContainer);
 }
 if (!cElements.get('pap-lightdark')) {
   cElements.define('pap-lightdark', Lightdark);

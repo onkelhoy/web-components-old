@@ -22,7 +22,7 @@
 
 :host([toggled="false"]) {
   &>pap-button {
-    display: inline-block;
+    display: inline-flex;
   }
 
   &>pap-input {

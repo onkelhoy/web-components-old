@@ -30,7 +30,7 @@ export type Props = {
   options?: Array<any>;
   customDanger?: Partial<Record<keyof ValidityState, string>>;
   customWarning?: Partial<Record<keyof ValidityState, string>>;
-  customValidation?: (field: SelectElement) => { message: string; state: "default" | "info" | "success" | "warning" | "danger" } | undefined;
+  customValidation?: (target: SelectElement) => { message: string; state: "default" | "info" | "success" | "warning" | "danger" } | undefined;
   label?: string;
   required?: boolean;
   readonly?: boolean;

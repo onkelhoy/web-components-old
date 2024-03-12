@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/firework",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -24,9 +24,9 @@
     "dist/"
   ],
   "exports": {
-    ".": "./dist/src/index.js",
-    "./wc": "./dist/register.bundle.mjs",
-    "./react": "./dist/react/index.js"
+    "./react": "./dist/react/index.js",
+    "./wc": "./dist/src/register.js",
+    ".": "./dist/src/index.js"
   },
   "author": "onkelhoy",
   "private": false,
@@ -40,14 +40,14 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-base": "1.0.12",
+    "@pap-it/system-base": "1.0.13",
     "@pap-it/system-utils": "1.0.10",
     "@pap-it/system-react": "0.0.6",
-    "@pap-it/templates-canvas": "1.0.12",
-    "@pap-it/tools-canvas": "0.0.1"
+    "@pap-it/templates-canvas": "1.0.13",
+    "@pap-it/tools-canvas": "0.0.2"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.17",
+    "@pap-it/system-doc": "1.0.18",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",

@@ -17,7 +17,6 @@ export type Props = {
 	outsidehamburger?: boolean; // default-value: true [conditional]
 	onChange?: (e:Event) => void;
 	onSelect?: (e:CustomEvent) => void; // detail: { id (note this is early and can be wrong)
-	onSelect?: (e:CustomEvent) => void; // detail: { id (note this is early and can be wrong)
   children?: React.ReactNode;
   className?: string;
 };

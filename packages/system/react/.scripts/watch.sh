@@ -14,7 +14,5 @@ cleanup() {
 trap cleanup SIGINT
 trap cleanup EXIT
 
-
-
 tsc -w --preserveWatchOutput &
 tsc_pid=$!

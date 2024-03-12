@@ -1,4 +1,130 @@
 {
-  "sub": {},
-  "main": null
+  "sub": {
+    "Lightdark": {
+      "decorators": {
+        "property": {
+          "mode": true
+        },
+        "query": {},
+        "context": {}
+      },
+      "imports": {
+        "/Users/henry/Developer/projects/web-components/packages/molecules/theme": [
+          {
+            "name": "style",
+            "from": "./style"
+          }
+        ]
+      },
+      "public_functions": [],
+      "events": [],
+      "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/theme/src/components/lightdark",
+      "className": "Lightdark",
+      "properties": [
+        {
+          "name": "mode",
+          "type": "LightDarkTheme",
+          "type_value": [
+            "light",
+            "dark"
+          ],
+          "primitive": false,
+          "conditional": false
+        }
+      ],
+      "extend_class": null,
+      "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/molecules/theme/dist/src/components/lightdark/index.js",
+      "html": {
+        "slots": [],
+        "parts": [],
+        "tagName": "pap-lightdark"
+      },
+      "allproperties": [
+        {
+          "type": "LightDarkTheme",
+          "typeName": "String",
+          "propertyKey": "mode",
+          "attribute": true,
+          "name": "mode",
+          "type_value": [
+            "light",
+            "dark"
+          ],
+          "primitive": false,
+          "conditional": false
+        }
+      ],
+      "allevents": []
+    },
+    "ThemeMenu": {
+      "decorators": {
+        "property": {},
+        "query": {
+          "themecolorElement": true,
+          "templateElement": true,
+          "menuElement": true
+        },
+        "context": {}
+      },
+      "imports": {
+        "/Users/henry/Developer/projects/web-components/packages/molecules/theme": [
+          {
+            "name": "THEMECHANGE_NAME",
+            "from": "@pap-it/tools-theme"
+          },
+          {
+            "name": "THEMEADD_NAME",
+            "from": "@pap-it/tools-theme"
+          },
+          {
+            "name": "style",
+            "from": "./style"
+          }
+        ]
+      },
+      "public_functions": [],
+      "events": [],
+      "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/theme/src/components/theme-menu",
+      "className": "ThemeMenu",
+      "properties": [],
+      "extend_class": null,
+      "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/molecules/theme/dist/src/components/theme-menu/index.js",
+      "html": {
+        "slots": [],
+        "parts": [],
+        "tagName": "pap-theme-menu"
+      },
+      "allproperties": [],
+      "allevents": []
+    }
+  },
+  "main": {
+    "decorators": {
+      "property": {},
+      "query": {},
+      "context": {}
+    },
+    "imports": {
+      "/Users/henry/Developer/projects/web-components/packages/molecules/theme": [
+        {
+          "name": "style",
+          "from": "./style"
+        }
+      ]
+    },
+    "public_functions": [],
+    "events": [],
+    "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/theme/src",
+    "className": "ThemeContainer",
+    "properties": [],
+    "extend_class": null,
+    "dist_filepath": "/Users/henry/Developer/projects/web-components/packages/molecules/theme/dist/src/component.js",
+    "html": {
+      "slots": [],
+      "parts": [],
+      "tagName": "pap-theme"
+    },
+    "allproperties": [],
+    "allevents": []
+  }
 }

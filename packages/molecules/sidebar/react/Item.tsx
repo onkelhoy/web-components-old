@@ -20,10 +20,8 @@ export type ItemProps = {
 	static?: boolean;
 	open?: boolean; // default-value: true [conditional]
 	onReachedMax?: (e:Event) => void;
-	onReachedMax?: (e:Event) => void;
 	onChildSelect?: (e:CustomEvent) => void; // detail: {  (note this is early and can be wrong)
 	onSelect?: (e:Event) => void;
-	onChildSelect?: (e:CustomEvent) => void; // detail: {  (note this is early and can be wrong)
   children?: React.ReactNode;
   className?: string;
 };

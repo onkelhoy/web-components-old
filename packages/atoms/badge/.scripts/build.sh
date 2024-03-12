@@ -20,8 +20,8 @@ fi
 # Check if --dev flag is provided
 for arg in "$@"
 do
-  if [[ $arg == "--dev" ]]; then
-    DEV=true
+  if [[ $arg == "--prod" ]]; then
+    PROD=true
     break
   fi
 done
@@ -32,36 +32,22 @@ rm -rf dist
 # then re-create it 
 mkdir dist
 
-# compile css
-# TODO extend style build to allow --dev flag
-# # Compile and minify css
-# if [ "$DEV" = true ]; then
-#   bash .scripts/helper/build-sass.sh --dev
-# else
-#   bash .scripts/helper/build-sass.sh
-# fi
-
 bash .scripts/helper/build-sass.sh
-
-if [ -f "src/register.ts" ]; then 
-  # Create bundles with conditional source-maps
-  if [ "$DEV" = true ]; then
-    esbuild src/register.ts --bundle --minify --outfile=dist/register.bundle.mjs --format=esm --platform=browser --external:"@pap-it/*" $conditional_flag --sourcemap &> /dev/null
-  else
-    esbuild src/register.ts --tsconfig=tsconfig.prod.json --bundle --minify --outfile=dist/register.bundle.mjs --format=esm --platform=browser --external:"@pap-it/*" $conditional_flag &> /dev/null
-  fi
-fi
-
-
-if [ "$DEV" = true ]; then
+if [ "$PROD" != true ]; then
   tsc
 else
   tsc -p tsconfig.prod.json
 
   # Find all .js files in the dist directory and its subdirectories
+  find ./dist -name 'style.d.ts' -type f | while read file; do
+    # Use esbuild to minify each .js file and overwrite the original file
+    rm "$file"
+  done
+
+  # Find all .js files in the dist directory and its subdirectories
   find ./dist -name '*.js' -type f | while read file; do
     # Use esbuild to minify each .js file and overwrite the original file
-    esbuild "$file" --minify --allow-overwrite --outfile="$file"
+    esbuild "$file" --minify --allow-overwrite --outfile="$file" &> /dev/null
   done
 fi
 
