@@ -5,23 +5,23 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Tabs as TabsElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Tabs as TabsElement } from "../src";
 
 export type Props = {
-	selected?: string;
-	indicator?: boolean; // default-value: true [conditional]
+	selected?: string; // [conditional]
+	indicator?: boolean; // default-value: true
 	scrolling?: boolean;
-	onTabSelect?: (e:CustomEvent) => void; // detail: {  (note this is early and can be wrong)
-	onChange?: (e:Event) => void;
+	onTabSelect?: (e: React.SyntheticEvent<TabsElement, CustomEvent>) => void; // detail: {  (note this is early and can be wrong)
+	onChange?: (e: React.SyntheticEvent<TabsElement, Event>) => void;
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	selected?: string;
-	indicator?: string; // default-value: true [conditional]
+	selected?: string; // [conditional]
+	indicator?: string; // default-value: true
 	scrolling?: string;
   children?: React.ReactNode;
   class?: string;

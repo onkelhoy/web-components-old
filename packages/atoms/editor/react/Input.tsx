@@ -5,7 +5,7 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Input as InputElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Input as InputElement } from "../src";

@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/editor",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -40,15 +40,15 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/button": "1.0.13",
-    "@pap-it/icon": "1.0.13",
-    "@pap-it/system-base": "1.0.13",
+    "@pap-it/button": "1.0.14",
+    "@pap-it/icon": "1.0.14",
+    "@pap-it/system-base": "1.0.14",
     "@pap-it/system-utils": "1.0.10",
     "@pap-it/system-react": "0.0.6"
   },
   "devDependencies": {
     "eslint": "^8.53.0",
-    "@pap-it/system-showcase": "1.0.13",
+    "@pap-it/system-showcase": "1.0.14",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",

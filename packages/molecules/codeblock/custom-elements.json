@@ -55,10 +55,11 @@
       {
         "name": "color",
         "type": "alternative",
-        "default_value": "canvas",
+        "default_value": "checker",
         "type_value": [
           "canvas",
-          "background"
+          "background",
+          "checker"
         ],
         "primitive": true,
         "conditional": false
@@ -131,10 +132,11 @@
         "propertyKey": "color",
         "attribute": true,
         "name": "color",
-        "default_value": "canvas",
+        "default_value": "checker",
         "type_value": [
           "canvas",
-          "background"
+          "background",
+          "checker"
         ],
         "primitive": true,
         "conditional": false

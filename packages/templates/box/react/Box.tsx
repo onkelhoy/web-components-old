@@ -5,22 +5,22 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Box as BoxElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Box as BoxElement } from "../src";
 
 export type Props = {
-	radius?: "none"|"small"|"medium"|"large"|"circular"; // default-value: circular [conditional]
-	elevation?: "none"|"small"|"medium"|"large"|"x-large"; // default-value: none [conditional]
-	elevationdirection?: "vertical"|"horizontal"; // default-value: vertical [conditional]
+	radius?: "none"|"small"|"medium"|"large"|"circular"; // default-value: circular
+	elevation?: "none"|"small"|"medium"|"large"|"x-large"; // default-value: none
+	elevationdirection?: "vertical"|"horizontal"; // default-value: vertical
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	radius?: string; // default-value: circular [conditional]
-	elevation?: string; // default-value: none [conditional]
-	"elevation-direction"?: string; // default-value: vertical [conditional]
+	radius?: string; // default-value: circular
+	elevation?: string; // default-value: none
+	"elevation-direction"?: string; // default-value: vertical
   children?: React.ReactNode;
   class?: string;
 };

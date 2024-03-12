@@ -33,7 +33,7 @@ export class Codeblock extends Base {
 
   @property() display: Display = "code";
   @property() direction: "row" | "column" = "column";
-  @property() color: "canvas" | "background" = "canvas";
+  @property() color: "canvas" | "background" | "checker" = "checker";
   @property({ type: Boolean, attribute: "theme-toggle" }) themetoggle: boolean = true;
   @property({ rerender: false, onUpdate: "setLanguage" }) lang!: string;
 
@@ -429,6 +429,12 @@ export class Codeblock extends Base {
 
   render() {
     return html`
+      <fieldset part="fieldset">
+        <legend>
+          <pap-typography>result</pap-typography>
+        </legend>
+        <slot @slotchange="${this.handleslotchange}"></slot>
+      </fieldset>
       <code>
         <pap-box-template radius="small">
           <header>
@@ -444,6 +450,7 @@ export class Codeblock extends Base {
             </pap-switch>`: ''}
             <pap-button 
               variant="clear"  
+              color="secondary"
               radius="none" 
               @click="${this.handlecopy}" 
             >
@@ -455,12 +462,6 @@ export class Codeblock extends Base {
           <main render-greedy></main>
         </pap-box-template>
       </code>
-      <fieldset part="fieldset">
-        <legend>
-          <pap-typography>result</pap-typography>
-        </legend>
-        <slot @slotchange="${this.handleslotchange}"></slot>
-      </fieldset>
     `
   }
 }

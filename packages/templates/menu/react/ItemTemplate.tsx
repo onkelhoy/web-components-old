@@ -5,32 +5,32 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { ItemTemplate as ItemTemplateElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { ItemTemplate as ItemTemplateElement } from "../src";
 
 export type ItemTemplateProps = {
-	size?: "small"|"medium"|"large"; // default-value: medium [conditional]
+	size?: "small"|"medium"|"large"; // default-value: medium
 	divider?: boolean;
 	selected?: boolean;
 	value?: string;
-	radius?: "small"|"medium"|"large"|"none"|"circular"; // default-value: small [conditional]
-	elevation?: "none"|"small"|"medium"|"large"|"x-large"; // default-value: none [conditional]
-	elevationdirection?: "vertical"|"horizontal"; // default-value: vertical [conditional]
-	onClick?: (e:Event) => void;
-	onSelect?: (e:Event) => void;
+	radius?: "small"|"medium"|"large"|"none"|"circular"; // default-value: small
+	elevation?: "none"|"small"|"medium"|"large"|"x-large"; // default-value: none
+	elevationdirection?: "vertical"|"horizontal"; // default-value: vertical
+	onClick?: (e: React.SyntheticEvent<ItemTemplateElement, Event>) => void;
+	onSelect?: (e: React.SyntheticEvent<ItemTemplateElement, Event>) => void;
   children?: React.ReactNode;
   className?: string;
 };
 export type ItemTemplateAttributes = {
-	size?: string; // default-value: medium [conditional]
+	size?: string; // default-value: medium
 	divider?: string;
 	selected?: string;
 	value?: string;
-	radius?: string; // default-value: small [conditional]
-	elevation?: string; // default-value: none [conditional]
-	"elevation-direction"?: string; // default-value: vertical [conditional]
+	radius?: string; // default-value: small
+	elevation?: string; // default-value: none
+	"elevation-direction"?: string; // default-value: vertical
   children?: React.ReactNode;
   class?: string;
 };

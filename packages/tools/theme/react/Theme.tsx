@@ -5,7 +5,7 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Theme as ThemeElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Theme as ThemeElement } from "../src";

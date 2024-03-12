@@ -28,7 +28,7 @@ function build(info, sub = false) {
       comment = `// default-value: ${prop.default_value}`
     }
 
-    if (!(prop.conditional || !prop.default_value)) {
+    if (prop.conditional) {
       // required we shall add it to comment but since everything is knda not really required we dont want to add
       if (comment === "") comment = "//";
       comment += " [conditional]"
@@ -43,7 +43,7 @@ function build(info, sub = false) {
   info.allevents.forEach(event => {
     props.push({
       name: 'on' + camelCaseEvent(event.name),
-      type: `(e:${event.type}) => void`,
+      type: `(e: React.SyntheticEvent<${info.className}Element, ${event.type}>) => void`,
       conditional: true,
       comment: event.data ? `// detail: { ${event.data.properties.join(' ')} (note this is early and can be wrong)` : undefined
     })
@@ -63,7 +63,7 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { ${info.className} as ${info.className}Element } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { ${info.className} as ${info.className}Element } from "../src";

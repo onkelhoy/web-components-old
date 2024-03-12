@@ -5,18 +5,18 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Translator as TranslatorElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Translator as TranslatorElement } from "../src";
 
 export type Props = {
-	scope?: string;
+	scope?: string; // [conditional]
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	scope?: string;
+	scope?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

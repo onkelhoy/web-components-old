@@ -76,7 +76,7 @@
   }
 }
 
-:host([state="warning"]:not([checked="false"])) {
+:host([state="warning"]:not([checked="false"]):not([disabled="true"])) {
 
   pap-icon[name="checked"],
   pap-icon[name="intermediate"] {
@@ -115,6 +115,11 @@
 :host([state="default"]:not([checked="false"]):hover) {
   --message-icon: var(--pap-color-icon-brand-hover, #0050B3);
 }
+
+:host([disabled="true"]) {
+  --message-icon: var(--pap-color-icon-disabled, #A3A9B7);
+}
+
 
 :host([checked="true"]) {
   pap-icon[name="checked"] {

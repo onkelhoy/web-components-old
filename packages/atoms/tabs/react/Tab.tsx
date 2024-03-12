@@ -5,19 +5,19 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Tab as TabElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Tab as TabElement } from "../src";
 
 export type TabProps = {
-	text?: string; // default-value: Tab [conditional]
-	onClick?: (e:Event) => void;
+	text?: string; // default-value: Tab
+	onClick?: (e: React.SyntheticEvent<TabElement, Event>) => void;
   children?: React.ReactNode;
   className?: string;
 };
 export type TabAttributes = {
-	text?: string; // default-value: Tab [conditional]
+	text?: string; // default-value: Tab
   children?: React.ReactNode;
   class?: string;
 };

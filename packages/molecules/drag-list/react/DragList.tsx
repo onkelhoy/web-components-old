@@ -5,7 +5,7 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { DragList as DragListElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { DragList as DragListElement } from "../src";

@@ -57,8 +57,8 @@ export class Checkbox extends Field {
     }
   }
   private handleclick = () => {
-    if (this.checked === "intermediate" || this.checked) this.checked = false;
-    else this.checked = true;
+    if (this.checked === "intermediate" || !this.checked) this.checked = true;
+    else this.checked = false;
   }
 
   render() {

@@ -94,6 +94,7 @@
   fieldset {
     display: flex;
     gap: var(--gap-small, 8px);
+    margin-bottom: var(--margin-small, 8px);
   }
 }
 
@@ -106,6 +107,18 @@
 :host([color="background"]) {
   fieldset {
     background-color: var(--pap-color-bg, #FFFFFF);
+  }
+}
+
+:host([color="checker"]) {
+  fieldset {
+    background-color: var(--pap-color-bg-secondary, #F6F7F8);
+    --a: var(--pap-color-bg-canvas, #EAEBEF);
+
+    background-image: linear-gradient(45deg, var(--a) 25%, transparent 25%, transparent 75%, var(--a) 75%, var(--a)),
+      linear-gradient(45deg, var(--a) 25%, transparent 25%, transparent 75%, var(--a) 75%, var(--a));
+    background-position: 0 0, 0.75rem 0.75rem;
+    background-size: 1.5rem 1.5rem;
   }
 }
 

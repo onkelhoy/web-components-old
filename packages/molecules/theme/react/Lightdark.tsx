@@ -5,18 +5,18 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Lightdark as LightdarkElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Lightdark as LightdarkElement } from "../src";
 
 export type LightdarkProps = {
-	mode?: "light"|"dark";
+  mode?: "light" | "dark";
   children?: React.ReactNode;
   className?: string;
 };
 export type LightdarkAttributes = {
-	mode?: string;
+  mode?: string;
   children?: React.ReactNode;
   class?: string;
 };

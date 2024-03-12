@@ -5,25 +5,25 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { Popover as PopoverElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { Popover as PopoverElement } from "../src";
 
 export type Props = {
-	revealby?: "hover"|"click"; // default-value: hover [conditional]
-	placement?: "top-left"|"top-right"|"top-center"|"bottom-left"|"bottom-right"|"bottom-center"|"left-top"|"left-bottom"|"left-center"|"right-top"|"right-bottom"|"right-center"; // default-value: bottom-center [conditional]
-	hideonoutsideclick?: boolean; // default-value: true [conditional]
+	revealby?: "hover"|"click"; // default-value: hover
+	placement?: "top-left"|"top-right"|"top-center"|"bottom-left"|"bottom-right"|"bottom-center"|"left-top"|"left-bottom"|"left-center"|"right-top"|"right-bottom"|"right-center"; // default-value: bottom-center
+	hideonoutsideclick?: boolean; // default-value: true
 	open?: boolean;
-	onShow?: (e:Event) => void;
-	onHide?: (e:Event) => void;
+	onShow?: (e: React.SyntheticEvent<PopoverElement, Event>) => void;
+	onHide?: (e: React.SyntheticEvent<PopoverElement, Event>) => void;
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	revealby?: string; // default-value: hover [conditional]
-	placement?: string; // default-value: bottom-center [conditional]
-	hideonoutsideclick?: string; // default-value: true [conditional]
+	revealby?: string; // default-value: hover
+	placement?: string; // default-value: bottom-center
+	hideonoutsideclick?: string; // default-value: true
 	open?: string;
   children?: React.ReactNode;
   class?: string;

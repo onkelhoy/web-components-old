@@ -5,24 +5,24 @@ import { papHOC } from "@pap-it/system-react";
 
 // web components
 import { PDFviewer as PDFviewerElement } from "../src";
-import "../register.bundle.mjs";
+import "../src/register.js";
 
 // exporting
 export { PDFviewer as PDFviewerElement } from "../src";
 
 export type Props = {
-	name?: string;
-	type?: "object"|"embed"|"iframe"; // default-value: object [conditional]
-	height?: number;
-	url?: string;
+	name?: string; // [conditional]
+	type?: "object"|"embed"|"iframe"; // default-value: object
+	height?: number; // [conditional]
+	url?: string; // [conditional]
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = {
-	name?: string;
-	type?: string; // default-value: object [conditional]
-	height?: string;
-	url?: string;
+	name?: string; // [conditional]
+	type?: string; // default-value: object
+	height?: string; // [conditional]
+	url?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };
