@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/tools-routing",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -41,11 +41,11 @@
   },
   "dependencies": {
     "@pap-it/system-utils": "1.0.10",
-    "@pap-it/system-react": "0.0.6",
-    "@pap-it/templates-asset": "1.0.14"
+    "@pap-it/system-react": "0.0.7",
+    "@pap-it/templates-asset": "1.0.15"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.19",
+    "@pap-it/system-doc": "1.0.20",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",

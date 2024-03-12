@@ -43,5 +43,10 @@ else
     esbuild "$file" --minify --allow-overwrite --outfile="$file"
   done
 fi
+
+if [ -f "./react/declerations.d.ts" ] && [ -d "./dist/react/" ]; then 
+  cp "./react/declerations.d.ts" "./dist/react/"
+fi 
+
 # clear the console
 echo "files successfully built"

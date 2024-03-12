@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/tabs",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -40,13 +40,13 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-base": "1.0.14",
+    "@pap-it/system-base": "1.0.15",
     "@pap-it/system-utils": "1.0.10",
-    "@pap-it/system-react": "0.0.6",
-    "@pap-it/templates-prefix-suffix": "1.0.14"
+    "@pap-it/system-react": "0.0.7",
+    "@pap-it/templates-prefix-suffix": "1.0.15"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.19",
+    "@pap-it/system-doc": "1.0.20",
     "esbuild": "^0.17.18",
     "eslint": "^8.53.0",
     "node-html-parser": "^6.1.5",
