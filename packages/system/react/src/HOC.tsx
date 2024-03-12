@@ -9,7 +9,7 @@ export function papHOC<TElement extends HTMLElement, TProps = {}, TAttributes = 
 
   const InternalComponent = React.forwardRef<TElement, Props>((props, forwardedRef) => {
     const internalRef = React.useRef<TElement>(null);
-    const eventsAdded = React.useRef<Set<string>>(new Set());
+    const eventsAdded = React.useRef<Map<string, Function>>(new Map());
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_loaded, setLoaded] = React.useState(false);
 
@@ -41,14 +41,15 @@ export function papHOC<TElement extends HTMLElement, TProps = {}, TAttributes = 
           // check if its event 
           if (name.startsWith('on')) // NOTE it would suck for functions that do in fact start with on..
           {
-            if (eventsAdded.current.has(name)) {
-              // we already added it !
-              continue;
-            }
             const eventname = extractEventName(name);
             if (eventname) {
+              if (eventsAdded.current.has(eventname)) {
+                // we already added it !
+                internalRef.current.removeEventListener(eventname, eventsAdded.current.get(eventname) as EventListenerOrEventListenerObject);
+              }
+
               internalRef.current.addEventListener(eventname, props[name as keyof Props] as EventListenerOrEventListenerObject);
-              eventsAdded.current.add(name);
+              eventsAdded.current.set(eventname, props[name as keyof Props]);
               continue;
             }
           }

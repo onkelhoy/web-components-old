@@ -209,7 +209,7 @@ export class Field extends FormElement {
         <slot @slotchange="${this.handleslotchange}" slot="prefix" name="footer-prefix"></slot>
         ${this.getFooterPrefixSlot()}
         <slot @slotchange="${this.handleslotchange}" name="footer"></slot>
-        ${this.message ? `<pap-typography key="message" part="message">${this.message}</pap-typography>` : ''}
+        ${this.message ? `<pap-typography variant="C4" key="message" part="message">${this.message}</pap-typography>` : ''}
         <slot @slotchange="${this.handleslotchange}" slot="suffix" name="footer-suffix"></slot>
       </pap-prefix-suffix-template>
     `

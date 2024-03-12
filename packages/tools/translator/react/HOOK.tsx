@@ -6,7 +6,7 @@ export type Settings = {
 }
 
 export function useTranslation(settings?: Settings) {
-  const [lang, setLang] = React.useState(window.papLocalization?.current?.id || "en");
+  const [lang, setLang] = React.useState<string | undefined>();
   const SCOPE = settings?.scope ? settings.scope + "." : "";
 
   React.useEffect(() => {
@@ -22,11 +22,17 @@ export function useTranslation(settings?: Settings) {
   }, []);
 
   function handletranslationchange() {
-    setLang(window.papLocalization?.current?.id);
+    if (window.papLocalization) {
+      setLang(window.papLocalization.detect());
+    }
+    else setLang(undefined);
   }
 
   const t = (key: string, args?: Record<string, string>) => {
-    let value = window.papLocalization?.current?.translations[SCOPE + key] || key;
+    let value = key;
+    if (window.papLocalization?.current?.translations) {
+      value = window.papLocalization?.current?.translations[SCOPE + key] || key;
+    }
 
     if (args) {
       for (let argname in args) {

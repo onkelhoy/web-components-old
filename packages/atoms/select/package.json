@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/select",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -40,15 +40,15 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-base": "1.0.15",
+    "@pap-it/system-base": "1.0.16",
     "@pap-it/system-utils": "1.0.10",
-    "@pap-it/system-react": "0.0.7",
-    "@pap-it/templates-field": "1.0.16",
-    "@pap-it/templates-menu": "0.0.16",
-    "@pap-it/templates-popover": "1.0.17"
+    "@pap-it/system-react": "0.0.8",
+    "@pap-it/templates-field": "1.0.17",
+    "@pap-it/templates-menu": "0.0.17",
+    "@pap-it/templates-popover": "1.0.18"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.21",
+    "@pap-it/system-doc": "1.0.22",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",
