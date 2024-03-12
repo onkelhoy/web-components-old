@@ -10,15 +10,15 @@ import "../src/register.js";
 // exporting
 export { SidebarContact as SidebarContactElement } from "../src";
 
-export type Props = {
-	open?: boolean;
-	contacts?: Array<any>;
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  open?: boolean;
+  contacts?: Array<any>;
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
-	open?: string;
-	contacts?: string;
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
+  open?: string;
+  contacts?: string;
   children?: React.ReactNode;
   class?: string;
 };

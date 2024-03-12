@@ -68,12 +68,12 @@ import "../src/register.js";
 // exporting
 export { ${info.className} as ${info.className}Element } from "../src";
 
-export type ${sub ? info.className : ""}Props = {
+export type ${sub ? info.className : ""}Props = React.HTMLAttributes<HTMLElement> & {
 ${propstring}
   children?: React.ReactNode;
   className?: string;
 };
-export type ${sub ? info.className : ""}Attributes = {
+export type ${sub ? info.className : ""}Attributes = React.HTMLAttributes<HTMLElement> & {
 ${attrstring}
   children?: React.ReactNode;
   class?: string;

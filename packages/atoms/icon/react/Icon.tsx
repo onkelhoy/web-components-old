@@ -10,31 +10,31 @@ import "../src/register.js";
 // exporting
 export { Icon as IconElement } from "../src";
 
-export type Props = {
-	container?: "small"|"medium"|"large"|"smaller"; // [conditional]
-	name?: string; // [conditional]
-	color?: string; // [conditional]
-	size?: "small"|"medium"|"large"; // default-value: medium
-	customSize?: number; // [conditional]
-	countryFlag?: string; // [conditional]
-	assetBase?: string; // default-value: /public
-	cache?: boolean;
-	file?: string;
-	url?: string; // [conditional]
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  container?: "small" | "medium" | "large" | "smaller"; // [conditional]
+  name?: string; // [conditional]
+  color?: string; // [conditional]
+  size?: "small" | "medium" | "large"; // default-value: medium
+  customSize?: number; // [conditional]
+  countryFlag?: string; // [conditional]
+  assetBase?: string; // default-value: /public
+  cache?: boolean;
+  file?: string;
+  url?: string; // [conditional]
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
-	container?: string; // [conditional]
-	name?: string; // [conditional]
-	color?: string; // [conditional]
-	size?: string; // default-value: medium
-	"custom-size"?: string; // [conditional]
-	"country-flag"?: string; // [conditional]
-	"asset-base"?: string; // default-value: /public
-	cache?: string;
-	file?: string;
-	url?: string; // [conditional]
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
+  container?: string; // [conditional]
+  name?: string; // [conditional]
+  color?: string; // [conditional]
+  size?: string; // default-value: medium
+  "custom-size"?: string; // [conditional]
+  "country-flag"?: string; // [conditional]
+  "asset-base"?: string; // default-value: /public
+  cache?: string;
+  file?: string;
+  url?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

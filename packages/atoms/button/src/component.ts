@@ -24,14 +24,10 @@ export class Button extends FormElement {
   @property({ rerender: false }) variant: ButtonVariant = "filled";
   @property({ rerender: false }) color: ButtonColorVariant = "primary";
 
-  constructor() {
-    super();
-    this.tabIndex = 0;
-  }
-
   connectedCallback(): void {
     super.connectedCallback();
     this.addEventListener("click", this.handleclick, true);
+    this.tabIndex = 0;
 
     window.addEventListener('keyup', this.handlekeyup);
     // NOTE should this be a standard?

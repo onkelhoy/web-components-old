@@ -10,19 +10,19 @@ import "../src/register.js";
 // exporting
 export { Popup as PopupElement } from "../src";
 
-export type Props = {
-	hideonoutsideclick?: boolean;
-	variant?: "global"|"parent"; // default-value: global
-	state?: "show"|"hide"; // default-value: hide
-	onPopupShow?: (e: React.SyntheticEvent<PopupElement, Event>) => void;
-	onPopupHide?: (e: React.SyntheticEvent<PopupElement, Event>) => void;
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  hideonoutsideclick?: boolean;
+  variant?: "global" | "parent"; // default-value: global
+  state?: "show" | "hide"; // default-value: hide
+  onPopupShow?: (e: React.SyntheticEvent<PopupElement, Event>) => void;
+  onPopupHide?: (e: React.SyntheticEvent<PopupElement, Event>) => void;
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
-	hideonoutsideclick?: string;
-	variant?: string; // default-value: global
-	state?: string; // default-value: hide
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
+  hideonoutsideclick?: string;
+  variant?: string; // default-value: global
+  state?: string; // default-value: hide
   children?: React.ReactNode;
   class?: string;
 };

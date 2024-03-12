@@ -1,1 +1,1 @@
-export type Type = "text"|"password"|"search"|"email"|"number"|"tel"|"url"|"color";
+export type Type = "text" | "password" | "search" | "email" | "number" | "tel" | "url" | "color" | "date" | "datetime-local" | "month" | "week";

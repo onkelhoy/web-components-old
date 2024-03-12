@@ -30,7 +30,7 @@
           "from": "./style"
         },
         {
-          "name": "InitTranslations",
+          "name": "init",
           "from": "./translator"
         }
       ]
@@ -85,7 +85,7 @@
             "from": "./style"
           },
           {
-            "name": "InitTranslations",
+            "name": "init",
             "from": "./translator"
           }
         ]

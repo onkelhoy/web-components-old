@@ -10,7 +10,7 @@ import "../src/register.js";
 // exporting
 export { Pagination as PaginationElement } from "../src";
 
-export type Props = {
+export type Props = React.HTMLAttributes<HTMLElement> & {
   page?: number;
   perpage?: number;
   total?: number;
@@ -19,7 +19,7 @@ export type Props = {
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
   page?: string;
   perpage?: string;
   total?: string;

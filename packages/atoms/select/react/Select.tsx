@@ -10,7 +10,7 @@ import "../src/register.js";
 // exporting
 export { Select as SelectElement } from "../src";
 
-export type Props = {
+export type Props = React.HTMLAttributes<HTMLElement> & {
   multiple?: boolean;
   menuheight?: string; // default-value: 15rem
   revealby?: "hover" | "click"; // default-value: click
@@ -52,7 +52,7 @@ export type Props = {
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
   multiple?: string;
   "menu-height"?: string; // default-value: 15rem
   revealby?: string; // default-value: click

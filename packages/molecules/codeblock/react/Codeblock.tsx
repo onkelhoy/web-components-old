@@ -10,21 +10,21 @@ import "../src/register.js";
 // exporting
 export { Codeblock as CodeblockElement } from "../src";
 
-export type Props = {
-	display?: "both"|"code"; // default-value: code
-	direction?: "row"|"column"; // default-value: column
-	color?: "canvas"|"background"|"checker"; // default-value: checker
-	themetoggle?: boolean; // default-value: true
-	lang?: string;
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  display?: "both" | "code"; // default-value: code
+  direction?: "row" | "column"; // default-value: column
+  color?: "canvas" | "background" | "checker"; // default-value: checker
+  themetoggle?: boolean; // default-value: true
+  lang?: string;
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
-	display?: string; // default-value: code
-	direction?: string; // default-value: column
-	color?: string; // default-value: checker
-	"theme-toggle"?: string; // default-value: true
-	lang?: string;
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
+  display?: string; // default-value: code
+  direction?: string; // default-value: column
+  color?: string; // default-value: checker
+  "theme-toggle"?: string; // default-value: true
+  lang?: string;
   children?: React.ReactNode;
   class?: string;
 };

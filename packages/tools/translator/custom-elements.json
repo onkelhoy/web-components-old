@@ -15,7 +15,7 @@
           "from": "./style"
         },
         {
-          "name": "InitTranslations",
+          "name": "init",
           "from": "./translator"
         }
       ]

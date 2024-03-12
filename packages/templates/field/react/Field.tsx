@@ -10,7 +10,7 @@ import "../src/register.js";
 // exporting
 export { Field as FieldElement } from "../src";
 
-export type Props = {
+export type Props = React.HTMLAttributes<HTMLElement> & {
   customDanger?: Partial<Record<keyof ValidityState, string>>; // [conditional]
   customWarning?: Partial<Record<keyof ValidityState, string>>; // [conditional]
   customValidation?: (target: FieldElement) => { message: string; state: "default" | "info" | "success" | "warning" | "danger" } | undefined;
@@ -33,7 +33,7 @@ export type Props = {
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
   "custom-error"?: string; // [conditional]
   "custom-warning"?: string; // [conditional]
   label?: string; // [conditional]

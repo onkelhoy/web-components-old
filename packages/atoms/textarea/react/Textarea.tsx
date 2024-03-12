@@ -10,7 +10,7 @@ import "../src/register.js";
 // exporting
 export { Textarea as TextareaElement } from "../src";
 
-export type Props = {
+export type Props = React.HTMLAttributes<HTMLElement> & {
   counter?: boolean; // [conditional]
   maxlength?: number; // [conditional]
   minlength?: number; // [conditional]
@@ -41,7 +41,7 @@ export type Props = {
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
   counter?: string; // [conditional]
   maxlength?: string; // [conditional]
   minlength?: string; // [conditional]

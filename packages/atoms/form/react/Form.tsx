@@ -10,19 +10,19 @@ import "../src/register.js";
 // exporting
 export { Form as FormElement } from "../src";
 
-export type Props = {
-	error?: string; // [conditional]
-	warning?: string; // [conditional]
-	success?: string; // [conditional]
-	onSubmit?: (e: React.SyntheticEvent<FormElement, SubmitEvent>) => void;
-	onPapSubmit?: (e: React.SyntheticEvent<FormElement, CustomEvent>) => void; // detail: { element (note this is early and can be wrong)
+export type Props = React.HTMLAttributes<HTMLElement> & {
+  error?: string; // [conditional]
+  warning?: string; // [conditional]
+  success?: string; // [conditional]
+  onSubmit?: (e: React.SyntheticEvent<FormElement, SubmitEvent>) => void;
+  onPapSubmit?: (e: React.SyntheticEvent<FormElement, CustomEvent>) => void; // detail: { element (note this is early and can be wrong)
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
-	error?: string; // [conditional]
-	warning?: string; // [conditional]
-	success?: string; // [conditional]
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
+  error?: string; // [conditional]
+  warning?: string; // [conditional]
+  success?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

@@ -10,7 +10,7 @@ import { Menu } from "@pap-it/menu";
 import { Placement } from "@pap-it/templates-popover";
 
 // tools
-import { TRANSLATION_ADDED, TRANSLATION_CHANGE_EVENTNAME, InitTranslations } from "@pap-it/tools-translator";
+import { TRANSLATION_ADDED, TRANSLATION_CHANGE_EVENTNAME, init } from "@pap-it/tools-translator";
 import "@pap-it/tools-translator/wc";
 
 // local imports
@@ -30,7 +30,7 @@ export class LanguageMenu extends Base {
 
   constructor() {
     super();
-    InitTranslations();
+    init();
   }
 
   connectedCallback(): void {

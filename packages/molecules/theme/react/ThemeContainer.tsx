@@ -10,12 +10,12 @@ import "../src/register.js";
 // exporting
 export { ThemeContainer as ThemeContainerElement } from "../src";
 
-export type Props = {
+export type Props = React.HTMLAttributes<HTMLElement> & {
 
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
 
   children?: React.ReactNode;
   class?: string;

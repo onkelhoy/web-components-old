@@ -10,7 +10,7 @@ import "../src/register.js";
 // exporting
 export { Sidebar as SidebarElement } from "../src";
 
-export type Props = {
+export type Props = React.HTMLAttributes<HTMLElement> & {
   mode?: "open" | "collapsed" | "hover"; // default-value: open
   selected?: string; // [conditional]
   unit?: "mobile" | "pad" | "laptop" | "desktop"; // default-value: desktop
@@ -20,7 +20,7 @@ export type Props = {
   children?: React.ReactNode;
   className?: string;
 };
-export type Attributes = {
+export type Attributes = React.HTMLAttributes<HTMLElement> & {
   mode?: string; // default-value: open
   selected?: string; // [conditional]
   unit?: string; // default-value: desktop
