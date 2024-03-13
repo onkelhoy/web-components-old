@@ -27,7 +27,6 @@ export class Button extends FormElement {
   connectedCallback(): void {
     super.connectedCallback();
     this.addEventListener("click", this.handleclick, true);
-    this.tabIndex = 0;
 
     window.addEventListener('keyup', this.handlekeyup);
     // NOTE should this be a standard?
@@ -36,6 +35,10 @@ export class Button extends FormElement {
   disconnectedCallback(): void {
     super.disconnectedCallback();
     window.removeEventListener('keyup', this.handlekeyup);
+  }
+  firstUpdate(): void {
+    super.firstUpdate();
+    if (!this.hasAttribute("tabindex")) this.tabIndex = 0;
   }
 
   // event handlers

@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/header",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -40,20 +40,20 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/badge": "1.0.16",
-    "@pap-it/icon": "1.0.16",
-    "@pap-it/language-menu": "0.0.17",
-    "@pap-it/menu": "1.0.20",
-    "@pap-it/system-base": "1.0.15",
+    "@pap-it/badge": "1.0.17",
+    "@pap-it/icon": "1.0.17",
+    "@pap-it/language-menu": "0.0.18",
+    "@pap-it/menu": "1.0.21",
+    "@pap-it/system-base": "1.0.16",
     "@pap-it/system-utils": "1.0.10",
-    "@pap-it/system-react": "0.0.7",
-    "@pap-it/theme": "0.0.13",
-    "@pap-it/switch": "1.0.17",
-    "@pap-it/tools-theme": "1.0.16",
-    "@pap-it/tools-translator": "1.0.17"
+    "@pap-it/system-react": "0.0.8",
+    "@pap-it/theme": "0.0.14",
+    "@pap-it/switch": "1.0.18",
+    "@pap-it/tools-theme": "1.0.17",
+    "@pap-it/tools-translator": "1.0.18"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.21",
+    "@pap-it/system-doc": "1.0.22",
     "esbuild": "^0.17.18",
     "eslint": "^8.53.0",
     "node-html-parser": "^6.1.5",
