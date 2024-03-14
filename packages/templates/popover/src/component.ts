@@ -1,11 +1,10 @@
 // system
-import { debounce, html, property, query } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { debounce, html, property, query, CustomElement } from "@pap-it/system-utils";
 
 import { style } from "./style";
 import { Reveal, Placement, PlacementInfo, TBLR, OPPOSITE, ROTATED, Scores, PLACEMENTS, TBLRC } from './types';
 
-export class PopoverProperties extends Base {
+export class PopoverProperties extends CustomElement {
   @property() revealby: Reveal = 'hover';
   @property({
     after: function (this: PopoverProperties) {
@@ -26,7 +25,7 @@ export class PopoverProperties extends Base {
     },
     after: function (this: Popover) {
       if (!this.internal) {
-        this.debouncedRequestUpdate();
+        this.requestUpdate();
       }
       this.internal = false;
     }

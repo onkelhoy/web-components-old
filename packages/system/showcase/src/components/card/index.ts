@@ -1,13 +1,12 @@
 // utils 
-import { html, property, Size } from "@pap-it/system-utils";
+import { html, property, Size, CustomElement } from "@pap-it/system-utils";
 
 // templates
-import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
 import { style } from "./style";
 
-export class Card extends Base {
+export class Card extends CustomElement {
   static style = style;
 
   @property({ rerender: false }) padding: Size = "large";

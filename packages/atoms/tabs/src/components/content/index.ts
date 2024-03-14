@@ -1,13 +1,10 @@
 // utils 
-import { html } from "@pap-it/system-utils";
-
-// templates
-import { Base } from "@pap-it/system-base";
+import { CustomElement } from "@pap-it/system-utils";
 
 // local 
 import { style } from "./style";
 
-export class TabContent extends Base {
+export class TabContent extends CustomElement {
   static style = style;
 
   connectedCallback() {

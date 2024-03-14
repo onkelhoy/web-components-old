@@ -1,9 +1,10 @@
 {
   "name": "@pap-it/system-utils",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "scripts": {
     "init": "sh .scripts/init.sh",
-    "build": "tsc",
+    "build": "sh .scripts/build.sh",
+    "start": "sh .scripts/start.sh",
     "watch": "tsc --watch",
     "manual-publish": "sh .scripts/publish.sh",
     "preversion": "sh .scripts/preversion.sh",
@@ -30,8 +31,8 @@
   },
   "devDependencies": {
     "eslint": "^8.53.0",
-    "@pap-it/system-showcase": "1.0.17",
-    "@pap-it/typography": "1.0.17",
+    "@pap-it/system-showcase": "1.0.18",
+    "@pap-it/typography": "1.0.18",
     "typescript": "^5.0.4"
   },
   "keywords": [

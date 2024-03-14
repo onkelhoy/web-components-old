@@ -1,14 +1,11 @@
 // utils 
-import { ExtractSlotValue, debounce, html, property } from "@pap-it/system-utils";
-
-// templates
-import { Base } from "@pap-it/system-base";
+import { ExtractSlotValue, CustomElement, html, property } from "@pap-it/system-utils";
 
 // local 
 import { style } from "./style";
 import { init, TRANSLATION_ADDED } from "./translator";
 
-export class Translator extends Base {
+export class Translator extends CustomElement {
   static style = style;
 
   private spanElement!: HTMLSpanElement;
@@ -70,8 +67,8 @@ export class Translator extends Base {
     }
   }
 
-  firstUpdate(): void {
-    super.firstUpdate();
+  firstRender(): void {
+    super.firstRender();
 
     if (this.shadowRoot) {
       const span = this.shadowRoot.querySelector<HTMLSpanElement>('span.pap-translation-span');
@@ -153,7 +150,7 @@ export class Translator extends Base {
       this.spanElement.innerText = text;
     }
     else if (!this.noupdate) {
-      this.debouncedRequestUpdate();
+      this.requestUpdate();
     }
 
     this.internalset = false;

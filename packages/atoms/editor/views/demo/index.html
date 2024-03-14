@@ -1,23 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editor demo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor demo</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    <script defer src="main.js"></script>
+  <script defer src="main.js"></script>
 </head>
+
 <body>
-    <doc-card>
-        <pap-codeblock display="both">
-            <pap-editor id="demo-target"></pap-editor>
-        </pap-codeblock>
-    </doc-card>
+  <doc-card>
+    <pap-codeblock display="both">
+      <pap-editor id="demo-target"></pap-editor>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-codeblock display="both">
+      <pap-editor2 id="demo-target2"></pap-editor2>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-codeblock display="both">
+      <pap-editor3 foo="something else" id="demo-target3"></pap-editor3>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-codeblock display="both">
+      <pap-editor4 id="demo-target4"></pap-editor4>
+    </pap-codeblock>
+  </doc-card>
 </body>
+
 </html>

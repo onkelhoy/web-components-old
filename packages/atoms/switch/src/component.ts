@@ -1,11 +1,10 @@
 // utils 
-import { Size, html, property, query } from "@pap-it/system-utils";
+import { html, property } from "@pap-it/system-utils";
 
 // foundations
 import "@pap-it/typography/wc";
 
 // templates
-// import { FormElement } from "@pap-it/templates-form-element";
 import { Field, RenderArgument } from "@pap-it/templates-field";
 import "@pap-it/templates-box/wc";
 
@@ -26,7 +25,8 @@ export class Switch extends Field {
   }) checked: boolean = false;
 
   constructor() {
-    super({ delegatesFocus: true, noblur: true, nofocus: true });
+    super();
+    // super({ delegatesFocus: true, noblur: true, nofocus: true });
     this.mode = "hug";
     // this.mode = "fill"; // TODO fill case should put content on right side 
   }

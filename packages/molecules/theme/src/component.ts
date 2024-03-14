@@ -1,11 +1,10 @@
 // system
-import { html, property } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { CustomElement, property } from "@pap-it/system-utils";
 
 // local 
 import { style } from "./style";
 
-export class ThemeContainer extends Base {
+export class ThemeContainer extends CustomElement {
   static style = style;
 
   @property({ type: Boolean }) mode?: boolean = true;

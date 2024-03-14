@@ -1,14 +1,11 @@
 // utils 
-import { html, property, query } from "@pap-it/system-utils";
-
-// templates
-import { Base } from "@pap-it/system-base";
+import { html, property, query, CustomElement } from "@pap-it/system-utils";
 
 // local 
 import { style } from "./style";
 import { State, Variant } from "./types";
 
-export class Popup extends Base {
+export class Popup extends CustomElement {
   static style = style;
 
   @query('iz-card') private cardElement!: HTMLDivElement;

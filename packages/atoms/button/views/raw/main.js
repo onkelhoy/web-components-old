@@ -1,0 +1,1 @@
+import "@pap-it/button/wc";

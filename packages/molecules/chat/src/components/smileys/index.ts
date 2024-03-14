@@ -1,17 +1,13 @@
 // utils 
-import { html, property, query } from "@pap-it/system-utils";
+import { html, property, query, CustomElement } from "@pap-it/system-utils";
 import '@pap-it/tools-translator/wc';
 
 // atoms
 import { Input } from "@pap-it/input";
-import { Button } from "@pap-it/button";
 import '@pap-it/button/wc';
 import '@pap-it/typography/wc';
 import '@pap-it/icon/wc';
 import '@pap-it/tooltip/wc';
-
-// templates 
-import { Base } from '@pap-it/system-base';
 
 // local 
 import { style } from "./style";
@@ -33,7 +29,7 @@ interface Emoji {
 
 export type EmojiEvent = { emoji: Emojicon }
 
-export class Smileys extends Base {
+export class Smileys extends CustomElement {
   static style = style;
 
   @property({ rerender: false }) private search: string = "";

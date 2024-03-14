@@ -1,5 +1,5 @@
 // utils 
-import { html, property, query, DetectDevice, Devices, debounce } from "@pap-it/system-utils";
+import { html, property, query, DetectDevice, Devices, debounce, CustomElement } from "@pap-it/system-utils";
 import "@pap-it/tools-translator/wc";
 
 // atoms 
@@ -10,7 +10,6 @@ import "@pap-it/typography/wc";
 
 // templates
 import { Box } from "@pap-it/templates-box";
-import { Base } from "@pap-it/system-base";
 import '@pap-it/templates-box/wc'
 
 // local 
@@ -18,7 +17,7 @@ import { style } from "./style";
 import { Mode, SelectEvent } from "./types";
 import { Item } from "./components/item";
 
-export class Sidebar extends Base {
+export class Sidebar extends CustomElement {
   static style = style;
 
   @property({ rerender: false }) mode: Mode = "open";
@@ -58,8 +57,8 @@ export class Sidebar extends Base {
     window.removeEventListener("resize", this.handlewindowresize);
     window.removeEventListener("theme-appearance-change", this.handleThemeAppearanceChange);
   }
-  firstUpdate(): void {
-    super.firstUpdate();
+  firstRender(): void {
+    super.firstRender();
     this.handlewindowresize_debounced();
   }
 

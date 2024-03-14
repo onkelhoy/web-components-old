@@ -1,10 +1,8 @@
 // utils 
-import { html, property, debounce } from "@pap-it/system-utils";
+import { html, property, CustomElement, query } from "@pap-it/system-utils";
 import "@pap-it/templates-popover/wc";
 
 // templates
-import { Base } from "@pap-it/system-base";
-// import { Color } from "@pap-it/templates-color";
 
 import { style } from "./style";
 import { ChangeEvent, Input } from "../Input";
@@ -16,42 +14,51 @@ function toHEX(value: number) {
   return h;
 }
 
-export class ColorPickerInput extends Base {
+
+export class ColorPickerInput extends CustomElement {
   static style = style;
 
-  private colorpicker_element!: ColorPicker;
   private input_element!: Input;
   private manual = false;
 
-  @property() name: string = "Color"
-  @property() label: string = ""
-  @property({ onUpdate: "onvalueupdate" }) value: string = "red";
-
-
-  // class functions 
-  constructor() {
-    super();
-
-    this.debouncedChange = debounce(this.debouncedChange, 250);
-  }
-  firstUpdate(): void {
-    super.firstUpdate();
-
-    if (this.shadowRoot && !this.colorpicker_element) {
-      const picker = this.shadowRoot.querySelector<ColorPicker>("color-picker");
-      if (picker) {
-        this.colorpicker_element = picker;
-      }
-      const input = this.shadowRoot.querySelector<Input>("doc-input");
-      if (input) {
-        this.input_element = input;
-      }
-    }
-
-    if (this.colorpicker_element && this.input_element) {
+  @query<ColorPicker>({
+    selector: 'color-picker',
+    load: function (this: ColorPickerInput) {
       this.onvalueupdate();
     }
-  }
+  }) colorpicker_element!: ColorPicker;
+
+  @property() name: string = "Color"
+  @property() label: string = ""
+  @property({
+    after: function (this: ColorPickerInput) {
+      this.onvalueupdate();
+    }
+  }) value: string = "red";
+
+
+  // // class functions 
+  // constructor() {
+  //   super();
+
+  //   this.debouncedChange = debounce(this.debouncedChange, 250);
+  // }
+  // firstRender(): void {
+  //   if (this.shadowRoot && !this.colorpicker_element) {
+  //     const picker = this.shadowRoot.querySelector<ColorPicker>("color-picker");
+  //     if (picker) {
+  //       this.colorpicker_element = picker;
+  //     }
+  //     const input = this.shadowRoot.querySelector<Input>("doc-input");
+  //     if (input) {
+  //       this.input_element = input;
+  //     }
+  //   }
+
+  //   if (this.colorpicker_element && this.input_element) {
+  //     this.onvalueupdate();
+  //   }
+  // }
 
   // update functions
   private onvalueupdate() {
@@ -59,7 +66,6 @@ export class ColorPickerInput extends Base {
       this.setColor(this.value);
     }
   }
-
   // event handlers
   private handleinputchange = (e: CustomEvent<ChangeEvent>) => {
     // const value = e.detail.value;

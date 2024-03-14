@@ -27,8 +27,8 @@ export class ItemTemplate extends Box {
     super.connectedCallback();
     this.role = "option";
   }
-  firstUpdate(): void {
-    super.firstUpdate();
+  firstRender(): void {
+    super.firstRender();
     if (!this.hasAttribute("tabindex")) this.tabIndex = 0;
   }
   private text?: string;

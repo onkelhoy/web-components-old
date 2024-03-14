@@ -1,6 +1,5 @@
 // system 
-import { html, property, query } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { html, CustomElement, query } from "@pap-it/system-utils";
 
 // atoms 
 import { Menu, Item } from '@pap-it/menu';
@@ -14,12 +13,22 @@ import "@pap-it/tools-translator/wc";
 // local
 import { style } from "./style";
 
-export class ThemeMenu extends Base {
+export class ThemeMenu extends CustomElement {
   static style = style;
 
   @query('span[slot].theme-color') themecolorElement!: HTMLSpanElement;
   @query('template') templateElement!: HTMLTemplateElement;
-  @query({ selector: 'pap-menu', onload: 'onloadmenu' }) menuElement!: Menu;
+  @query({
+    selector: 'pap-menu', load: function (this: ThemeMenu) {
+      this.handlethemeadd();
+      this.handlethemechange();
+
+      setTimeout(() => {
+        this.menuElement.value = window.papTheme.current;
+      }, 100);
+
+    }
+  }) menuElement!: Menu;
 
   // class functions
   connectedCallback() {
@@ -35,16 +44,6 @@ export class ThemeMenu extends Base {
     // remove event listener
     window.removeEventListener(THEMECHANGE_NAME, this.handlethemechange);
     window.removeEventListener(THEMEADD_NAME, this.handlethemeadd);
-  }
-
-  // onload functions
-  private onloadmenu = () => {
-    this.handlethemeadd();
-    this.handlethemechange();
-
-    setTimeout(() => {
-      this.menuElement.value = window.papTheme.current;
-    }, 100);
   }
 
   // event handlers 

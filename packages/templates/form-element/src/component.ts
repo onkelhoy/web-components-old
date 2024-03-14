@@ -1,9 +1,8 @@
 // system
-import { property, debounce } from "@pap-it/system-utils";
-import { Base, Config } from "@pap-it/system-base";
+import { property, debounce, CustomElement, RenderType, CustomElementSetting } from "@pap-it/system-utils";
 
 // local 
-export class FormElement extends Base {
+export class FormElement extends CustomElement {
   static formAssociated = true;
 
   protected _internals: ElementInternals;
@@ -36,14 +35,14 @@ export class FormElement extends Base {
     }
   }) value?: string;
 
-  constructor(config?: Partial<Config>) {
-    super(config);
+  constructor(setting?: Partial<CustomElementSetting>) {
+    super(setting);
     this._internals = this.attachInternals();
     this.debouncedchange = debounce(this.debouncedchange, 120);
   }
 
-  firstUpdate(): void {
-    super.firstUpdate();
+  firstRender(): void {
+    super.firstRender();
     if (this.defaultValue === undefined) {
       this.defaultinternal = true;
       this.defaultValue = this.value;

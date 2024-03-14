@@ -1,8 +1,7 @@
 // system
-import { Size, html, property, query } from "@pap-it/system-utils";
+import { Size, html, property, query, RenderType } from "@pap-it/system-utils";
 
 // templates
-import { RenderType } from "@pap-it/system-base";
 import { Popover, PopoverProperties, Reveal } from "@pap-it/templates-popover";
 import "@pap-it/templates-popover/wc";
 import "@pap-it/templates-box/wc";

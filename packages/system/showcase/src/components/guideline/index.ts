@@ -1,17 +1,16 @@
 // utils 
-import { html, property, Size } from "@pap-it/system-utils";
+import { html, property, Size, CustomElement } from "@pap-it/system-utils";
 
 // atoms 
 import "@pap-it/typography/wc";
 import "@pap-it/icon/wc";
 
 // templates
-import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
 import { style } from "./style";
 
-export class Guideline extends Base {
+export class Guideline extends CustomElement {
   static style = style;
 
   @property() variant: Variant = "success";

@@ -29,7 +29,7 @@ export class TableSheets extends Translator {
       name: `Sheet ${this.list.length + 1}`
     })
 
-    this.debouncedRequestUpdate();
+    this.requestUpdate();
     console.log(this.list);
     // name: this.translateKey('Sheet {index}', { index: this.list.length + 1 });
   }

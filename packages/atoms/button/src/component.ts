@@ -26,6 +26,7 @@ export class Button extends FormElement {
 
   connectedCallback(): void {
     super.connectedCallback();
+
     this.addEventListener("click", this.handleclick, true);
 
     window.addEventListener('keyup', this.handlekeyup);
@@ -34,19 +35,20 @@ export class Button extends FormElement {
   }
   disconnectedCallback(): void {
     super.disconnectedCallback();
+
     window.removeEventListener('keyup', this.handlekeyup);
   }
-  firstUpdate(): void {
-    super.firstUpdate();
+  firstRender(): void {
+    super.firstRender();
     if (!this.hasAttribute("tabindex")) this.tabIndex = 0;
   }
 
   // event handlers
   private handlekeyup = (e: KeyboardEvent) => {
     if ((e.key || e.code).toLowerCase() === "enter") {
-      if (this.hasFocus) {
-        this.dispatchEvent(new Event('click'));
-      }
+      // if ((this as any).hasFocus) {
+      //   this.dispatchEvent(new Event('click'));
+      // }
     }
   }
   private handleclick = () => {

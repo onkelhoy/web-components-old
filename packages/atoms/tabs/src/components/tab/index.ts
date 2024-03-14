@@ -1,13 +1,12 @@
 // system
-import { html, property } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { html, property, CustomElement } from "@pap-it/system-utils";
 
 // local 
 import { style } from "./style";
 
 export type ClickEvent = { sectionHeight: number };
 
-export class Tab extends Base {
+export class Tab extends CustomElement {
   static style = style;
 
   @property() text: string = "Tab";
@@ -31,8 +30,8 @@ export class Tab extends Base {
     super.connectedCallback();
     this.setAttribute('slot', 'tab');
   }
-  firstUpdate(): void {
-    super.firstUpdate();
+  firstRender(): void {
+    super.firstRender();
     if (this.classList.contains('selected')) {
       setTimeout(() => {
         this.dispatchEvent(new Event('click', {

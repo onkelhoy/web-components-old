@@ -1,7 +1,6 @@
 // system
 import { html, property } from "@pap-it/system-utils";
 
-
 // templates 
 import { Canvas } from '@pap-it/templates-canvas';
 

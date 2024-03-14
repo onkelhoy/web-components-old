@@ -1,12 +1,11 @@
 // system
-import { html, property } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { property, CustomElement } from "@pap-it/system-utils";
 
 // local 
 import { style } from "./style";
 import { Mode, Thickness } from "./types";
 
-export class Divider extends Base {
+export class Divider extends CustomElement {
   static style = style;
 
   @property({ rerender: false }) mode: Mode = "horizontal";

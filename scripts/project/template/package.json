@@ -22,7 +22,6 @@
     "packages/**/*"
   ],
   "dependencies": {
-    "@pap-it/system-base": "latest",
     "@pap-it/system-utils": "latest",
     "cookie-parser": "^1.4.6",
     "esbuild": "^0.17.18",

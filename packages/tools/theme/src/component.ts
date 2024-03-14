@@ -1,13 +1,10 @@
-// utils 
-// import { html, property } from "@pap-it/system-utils";
-
-// templates
-import { Base } from "@pap-it/system-base";
+// system
+import { CustomElement } from "@pap-it/system-utils";
 
 // local 
 import { style } from "./style";
 
-export class Theme extends Base {
+export class Theme extends CustomElement {
   static style = style;
 
   render() {

@@ -1,15 +1,12 @@
 // utils 
-import { html, property, query } from "@pap-it/system-utils";
+import { html, property, CustomElement } from "@pap-it/system-utils";
 
 // atoms
 import "@pap-it/typography/wc";
 
-// templates
-import { Base } from "@pap-it/system-base";
-
 import { style } from "./style";
 
-export class Header extends Base {
+export class Header extends CustomElement {
   static style = style;
 
   @property() title: string = "Title";

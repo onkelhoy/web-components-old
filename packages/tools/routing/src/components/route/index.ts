@@ -1,11 +1,10 @@
 // system 
-import { html, property, query } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { html, property, query, CustomElement } from "@pap-it/system-utils";
 
 // local
 import { style } from "./style";
 
-export class Route extends Base {
+export class Route extends CustomElement {
   static style = style;
 
   @property({
