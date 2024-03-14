@@ -70,10 +70,44 @@ export class Field extends FormElement {
     }
   }) message?: string;
 
-  @property({ type: Boolean, rerender: false }) header: boolean = false;
-  @property({ type: Boolean, rerender: false }) footer: boolean = false;
+  @property({
+    type: Boolean,
+    rerender: false,
+    set: function (this: Field, value: boolean) {
+      if (this.outsideheader === true) return true;
+      return value;
+    },
+    after: function (this: Field) {
+      if (!this.internalheader) {
+        this.outsideheader = this.header;
+      }
+
+      this.internalheader = false;
+    }
+  }) header: boolean = false;
+  @property({
+    type: Boolean,
+    rerender: false,
+    set: function (this: Field, value: boolean) {
+      if (this.outsidefooter === true) return true;
+      return value;
+    },
+    after: function (this: Field) {
+      if (!this.internalfooter) {
+        this.outsidefooter = this.footer;
+      }
+
+      this.internalfooter = false;
+    }
+  }) footer: boolean = false;
 
   public customValidation?: (target: Field) => { message: string; state: State } | undefined;
+
+  // footer & header flags to prevent ignore
+  private outsideheader = false;
+  private internalheader = false;
+  private outsidefooter = false;
+  private internalfooter = false;
 
   private internalmessage = false;
   private fallbackmessage?: string;
@@ -173,7 +207,9 @@ export class Field extends FormElement {
       else footer += this.slotelements[name];
     }
 
+    this.internalheader = true;
     this.header = header !== 0;
+    this.internalfooter = true;
     this.footer = footer !== 0;
   }
 

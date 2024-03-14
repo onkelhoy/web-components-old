@@ -28,7 +28,6 @@ export class Select extends Field {
         this.menuelement.select(this.value);
       }
       if (this.options && this.options?.length > 0) {
-        console.log('I do have options mtf..');
         this.menuelement.hasitems = true;
       }
     }

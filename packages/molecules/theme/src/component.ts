@@ -8,10 +8,13 @@ import { style } from "./style";
 export class ThemeContainer extends Base {
   static style = style;
 
+  @property({ type: Boolean }) mode?: boolean = true;
+  @property({ type: Boolean }) menu?: boolean = true;
+
   render() {
-    return html`
-      <pap-lightdark></pap-lightdark>
-      <pap-theme-menu></pap-theme-menu>
+    return `
+      ${this.mode ? '<pap-lightdark></pap-lightdark>' : ''}
+      ${this.menu ? '<pap-theme-menu></pap-theme-menu>' : ''}
     `
   }
 }

@@ -11,19 +11,19 @@ import "../src/register.js";
 export { Pagination as PaginationElement } from "../src";
 
 export type Props = React.HTMLAttributes<HTMLElement> & {
-  page?: number;
-  perpage?: number;
-  total?: number;
-  scope?: string; // [conditional]
-  onPage?: (e: React.SyntheticEvent<PaginationElement, Event>) => void;
+	page?: number;
+	perpage?: number;
+	total?: number;
+	scope?: string; // [conditional]
+	onChange?: (e: React.SyntheticEvent<PaginationElement, Event>) => void;
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = React.HTMLAttributes<HTMLElement> & {
-  page?: string;
-  perpage?: string;
-  total?: string;
-  scope?: string; // [conditional]
+	page?: string;
+	perpage?: string;
+	total?: string;
+	scope?: string; // [conditional]
   children?: React.ReactNode;
   class?: string;
 };

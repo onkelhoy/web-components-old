@@ -39,7 +39,7 @@
     "events": [
       {
         "type": "Event",
-        "name": "page"
+        "name": "change"
       }
     ],
     "folder": "/Users/henry/Developer/projects/web-components/packages/molecules/pagination/src",
@@ -192,7 +192,7 @@
     "allevents": [
       {
         "type": "Event",
-        "name": "page"
+        "name": "change"
       }
     ]
   }

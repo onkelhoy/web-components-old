@@ -10,7 +10,7 @@ import "../src/register.js";
 // exporting
 export { ItemTemplate as ItemTemplateElement } from "../src";
 
-export type ItemTemplateProps = {
+export type ItemTemplateProps = React.HTMLAttributes<HTMLElement> & {
 	size?: "small"|"medium"|"large"; // default-value: medium
 	divider?: boolean;
 	selected?: boolean;
@@ -23,7 +23,7 @@ export type ItemTemplateProps = {
   children?: React.ReactNode;
   className?: string;
 };
-export type ItemTemplateAttributes = {
+export type ItemTemplateAttributes = React.HTMLAttributes<HTMLElement> & {
 	size?: string; // default-value: medium
 	divider?: string;
 	selected?: string;

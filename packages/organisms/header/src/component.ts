@@ -1,5 +1,5 @@
 // system 
-import { html, property, query } from "@pap-it/system-utils";
+import { html, ifDefined, property, query } from "@pap-it/system-utils";
 import { Base } from "@pap-it/system-base";
 
 // atoms
@@ -22,6 +22,9 @@ export class Header extends Base {
   static style = style;
 
   @property({ type: Object }) user?: UserModel;
+  @property({ type: Boolean, attribute: 'theme-mode' }) themeMode?: boolean = true;
+  @property({ type: Boolean, attribute: 'theme-menu' }) themeMenu?: boolean = true;
+  @property({ type: Boolean }) language?: boolean = true;
 
   // event handlers 
 
@@ -39,8 +42,8 @@ export class Header extends Base {
         <slot></slot>
       </div>
       <div class="suffix">
-        <pap-theme></pap-theme>
-        <pap-language-menu></pap-language-menu>
+        <pap-theme mode="${ifDefined(this.themeMode)}" menu="${ifDefined(this.themeMenu)}"></pap-theme>
+        ${this.language ? '<pap-language-menu></pap-language-menu>' : ''}
 
         ${this.user ? html`<pap-menu placement="bottom-left" @select="${this.handleuserselect}">
           <img class="avatar" slot="button-prefix" src="${avatarlink}" alt="${this.user?.firstname || "no-name"} profile picture" />

@@ -5,6 +5,10 @@
 
   width: var(--icon-custom-size);
   height: var(--icon-custom-size);
+
+  span[part="flag"] {
+    font-size: 1.5rem;
+  }
 }
 
 :host([size="small"]) {
@@ -71,4 +75,21 @@ svg {
   }
 
   width: fit-content;
+}
+
+:host([country-flag]) {
+  svg {
+    display: none;
+  }
+
+  &::part(fallback) {
+    display: none;
+  }
+}
+
+:host([country-flag=""]),
+:host(:not([country-flag])) {
+  span[part="flag"] {
+    display: none;
+  }
 }

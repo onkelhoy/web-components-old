@@ -29,6 +29,7 @@ export class MenuProperties extends PopoverProperties {
       }
     }
   }) menuheight: string = "15rem";
+  @property() revealby: Reveal = "click";
 }
 
 export class MenuTemplate extends MenuProperties {
@@ -39,12 +40,6 @@ export class MenuTemplate extends MenuProperties {
 
   public selected: Record<string, string> = {};
   public lastselected?: string;
-
-  constructor() {
-    super();
-
-    this.revealby = "click";
-  }
 
   // public function
   public select(value?: string) {

@@ -1,8 +1,9 @@
 // system 
-import { html, property, query } from "@pap-it/system-utils";
+import { html, ifDefined, property, query } from "@pap-it/system-utils";
 import { Base } from "@pap-it/system-base";
 
 // atoms
+import { Icon } from "@pap-it/icon";
 import "@pap-it/menu/wc";
 import { Menu } from "@pap-it/menu";
 
@@ -21,10 +22,17 @@ export class LanguageMenu extends Base {
   static style = style;
 
   @query('pap-menu') menuElement!: Menu;
+  @query({
+    selector: 'pap-icon[part="language-icon"]',
+    load: function (this: LanguageMenu) {
+      this.setLanguageIcon();
+    }
+  }) languageIcon!: Icon;
 
   // NOTE these should be reqions !
   @property({ type: Array, attribute: false }) languages: Language[] = [];
   @property() placement: Placement = "bottom-right";
+  @property({ type: Boolean, rerender: false }) border?: boolean = false;
 
   public intl?: Intl.DisplayNames;
 
@@ -71,11 +79,27 @@ export class LanguageMenu extends Base {
       if (this.menuElement.value !== window.papLocalization.current.id) {
         this.menuElement.value = window.papLocalization.current.id;
       }
+
       if ('DisplayNames' in Intl && window.papLocalization.current.meta) {
         this.intl = new Intl.DisplayNames([window.papLocalization.current.meta.language], { type: 'language' });
       }
 
+      this.setLanguageIcon();
+
+      // country - flag="${ifDefined(region)}"
       this.handlenewlanguage();
+    }
+  }
+  private setLanguageIcon() {
+    if (!this.languageIcon) return;
+
+    if (window.papLocalization.current.meta) {
+
+      const region = window.papLocalization.current.meta.region;
+      this.languageIcon.countryFlag = region;
+    }
+    else {
+      this.languageIcon.countryFlag = undefined;
     }
   }
   private handlelanguageselect = (e: Event) => {
@@ -84,17 +108,18 @@ export class LanguageMenu extends Base {
   }
 
   render() {
+    let currentlang = undefined;
+    if (window.papLocalization && window.papLocalization.current.meta) {
+      currentlang = window.papLocalization.current.meta.language.split('-')[0];
+    }
+
     // would be nice to control placement.. 
     return html`
       <pap-menu buttonRadius="circular" placement="${this.placement}" @select="${this.handlelanguageselect}">
         
-        <span slot="button-prefix" class="wrapper">
-          <span class="flag globe">
-            <span class="display">
-              <pap-icon name="globe">g</pap-icon>
-            </span>
-          </span>
-        </span>
+        <pap-icon part="language-icon" container="smaller" slot="button-prefix" name="globe">g</pap-icon>
+
+        ${currentlang ? `<pap-typography key="current-language-text" variant="C4" slot="button-content">${currentlang.toUpperCase()}</pap-typography>` : ''}
 
         ${this.languages.map(v => html`
           <pap-menu-item key="${v.id}" value="${v.id}">
