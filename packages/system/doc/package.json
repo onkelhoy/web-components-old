@@ -6,7 +6,7 @@
     "test": ".scripts/test.sh",
     "build": ".scripts/build.sh",
     "watch": ".scripts/watch.sh",
-    "manual-publish": "sh .scripts/publish.sh",
+    "publish:manual": "sh .scripts/publish.sh",
     "preversion": "sh .scripts/preversion.sh",
     "postversion": "sh .scripts/postversion.sh",
     "combine": ".scripts/combine.sh && .scripts/start.sh combined",
