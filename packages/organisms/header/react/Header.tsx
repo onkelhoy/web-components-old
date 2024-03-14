@@ -11,12 +11,18 @@ import "../src/register.js";
 export { Header as HeaderElement } from "../src";
 
 export type Props = React.HTMLAttributes<HTMLElement> & {
-  user?: object; // [conditional]
+	user?: object; // [conditional]
+	themeMode?: boolean; // default-value: true [conditional]
+	themeMenu?: boolean; // default-value: true [conditional]
+	language?: boolean; // default-value: true [conditional]
   children?: React.ReactNode;
   className?: string;
 };
 export type Attributes = React.HTMLAttributes<HTMLElement> & {
-  user?: string; // [conditional]
+	user?: string; // [conditional]
+	"theme-mode"?: string; // default-value: true [conditional]
+	"theme-menu"?: string; // default-value: true [conditional]
+	language?: string; // default-value: true [conditional]
   children?: React.ReactNode;
   class?: string;
 };

@@ -136,7 +136,6 @@ export class Popover extends PopoverProperties {
       if (score === 1) {
         this.internal = true;
         this.placement = potential;
-        console.log('score 1', potential)
         return;
       }
     }

@@ -18,16 +18,29 @@ import { NavigationButtonType } from './types';
 export class Pagination extends Translator {
   static style = style;
 
+  @query({
+    selector: 'pap-select[part="page-selector"]',
+    load: function (this: Pagination) {
+      this.pageselector.value = this.page.toString();
+    }
+  }) pageselector!: Select;
+  @query({
+    selector: 'pap-select[part="perpage-selector"]',
+    load: function (this: Pagination) {
+      this.ontotal();
+    }
+  }) perpageselector!: Select;
+
   @property({
     type: Number,
     after: function (this: Pagination) {
-      this.dispatchEvent(new Event('page'))
+      this.dispatchEvent(new Event('change'));
     }
   }) page: number = 0;
   @property({
     type: Number,
     after: function (this: Pagination, value: number, old: number) {
-      if (!this.pageselector) return 10;
+      if (!this.pageselector) return;
 
       // calculate the row of the first item on the current page view
       if (!old) this.page = 0;
@@ -40,6 +53,7 @@ export class Pagination extends Translator {
 
       this.setpageoptions();
       this.pageselector.value = this.page.toString();
+      this.dispatchEvent(new Event('change'));
     }
   }) perpage: number = 0;
   @property({
@@ -48,14 +62,6 @@ export class Pagination extends Translator {
       this.ontotal();
     }
   }) total: number = 0;
-
-  @query('pap-select[part="page-selector"]') pageselector!: Select;
-  @query({
-    selector: 'pap-select[part="perpage-selector"]',
-    load: function (this: Pagination) {
-      this.ontotal();
-    }
-  }) perpageselector!: Select;
 
   // class functions 
   constructor() {

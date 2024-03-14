@@ -1,4 +1,4 @@
-import { property, html, Size, query } from '@pap-it/system-utils';
+import { property, html, Size, query, debounce } from '@pap-it/system-utils';
 import { Asset } from '@pap-it/templates-asset';
 
 import { style } from './style.js';
@@ -60,8 +60,10 @@ export class Icon extends Asset {
   @property({
     rerender: false,
     attribute: 'country-flag',
-    after: function (this: Icon) {
-      this.updateCountryFlag();
+    after: function (this: Icon, value: string, old: string) {
+      if (value !== old) {
+        this.setFlag();
+      }
     }
   }) countryFlag?: string;
 
@@ -107,28 +109,6 @@ export class Icon extends Asset {
     this.setAttribute('data-hide-slot', 'false');
   }
 
-  private updateCountryFlag() {
-    try {
-      if (this.countryFlag) {
-        let text = this.countryFlag;
-        if (text.toLowerCase() === 'en') text = 'gb';
-
-        this.flag = text
-          .toUpperCase()
-          .split('')
-          .map(v => {
-            if (CountryEmojiSet[v]) return CountryEmojiSet[v];
-            throw new Error('please provide valid country-region code: ' + this.countryFlag);
-          })
-          .join('');
-        this.debouncedRequestUpdate();
-      }
-    }
-    catch (e: any) {
-      console.error(e.message);
-    }
-  }
-
   // helper functions
   private extractSvgContent(svgString: string) {
     const parser = new DOMParser();
@@ -152,14 +132,34 @@ export class Icon extends Asset {
       }
     }
   }
+  private setFlag() {
+    if (this.countryFlag) {
+      let text = this.countryFlag;
+      if (text.toLowerCase() === 'en') text = 'gb';
+
+      let error = false;
+
+      this.flag = text
+        .toUpperCase()
+        .split('')
+        .map(v => {
+          if (CountryEmojiSet[v]) return CountryEmojiSet[v];
+          error = true;
+          console.error('please provide valid country-region code: ' + this.countryFlag);
+        })
+        .join('');
+
+      if (!error) {
+        this.debouncedRequestUpdate();
+        return;
+      }
+    }
+  }
 
   render() {
-    if (this.flag) {
-      return this.flag;
-    }
-
     return html`
       <slot part="fallback"></slot>
+      <span part="flag">${this.flag}</span>
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="${this.viewbox}"

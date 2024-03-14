@@ -3,7 +3,10 @@
   "main": {
     "decorators": {
       "property": {
-        "user": true
+        "user": true,
+        "themeMode": true,
+        "themeMenu": true,
+        "language": true
       },
       "query": {},
       "context": {}
@@ -30,6 +33,30 @@
           "avatar": null
         },
         "primitive": false,
+        "conditional": true
+      },
+      {
+        "name": "themeMode",
+        "type": "boolean",
+        "default_value": true,
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "name": "themeMenu",
+        "type": "boolean",
+        "default_value": true,
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "name": "language",
+        "type": "boolean",
+        "default_value": true,
+        "type_value": null,
+        "primitive": true,
         "conditional": true
       }
     ],
@@ -62,6 +89,39 @@
           "avatar": null
         },
         "primitive": false,
+        "conditional": true
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "themeMode",
+        "attribute": "theme-mode",
+        "name": "themeMode",
+        "default_value": true,
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "themeMenu",
+        "attribute": "theme-menu",
+        "name": "themeMenu",
+        "default_value": true,
+        "type_value": null,
+        "primitive": true,
+        "conditional": true
+      },
+      {
+        "type": "boolean",
+        "typeName": "Boolean",
+        "propertyKey": "language",
+        "attribute": true,
+        "name": "language",
+        "default_value": true,
+        "type_value": null,
+        "primitive": true,
         "conditional": true
       }
     ],

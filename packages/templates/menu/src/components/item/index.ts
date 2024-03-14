@@ -23,14 +23,13 @@ export class ItemTemplate extends Box {
   @property() value: string = "";
   @property() radius: Radius = "small";
 
-  constructor() {
-    super();
-    this.tabIndex = 0;
-  }
-
   connectedCallback() {
     super.connectedCallback();
     this.role = "option";
+  }
+  firstUpdate(): void {
+    super.firstUpdate();
+    if (!this.hasAttribute("tabindex")) this.tabIndex = 0;
   }
   private text?: string;
 

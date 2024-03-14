@@ -92,7 +92,6 @@ export class Tabs extends Base {
       this.dispatchEvent(new Event('change'));
 
       if (this.headerElement) {
-        console.log(e.target.offsetLeft, this.headerElement.offsetLeft, this.offsetLeft)
         const SX = e.target.offsetLeft - this.headerElement.offsetLeft;
         const SXE = SX + e.target.clientWidth;
 
