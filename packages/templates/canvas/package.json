@@ -47,7 +47,7 @@
     "@pap-it/typography": "1.0.18"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.24",
+    "@pap-it/system-doc": "1.0.25",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",

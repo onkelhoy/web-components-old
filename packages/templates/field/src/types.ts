@@ -1,4 +1,4 @@
-import { RenderType } from '@pap-it/system-base';
+import { RenderType } from '@pap-it/system-utils';
 
 export type ValidityStateObject = Record<keyof ValidityState, string>;
 export type MessageVariant = "info" | "success" | "warning" | "danger";

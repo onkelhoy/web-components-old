@@ -1,6 +1,5 @@
 // system 
 import { html, property, query } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
 
 // atoms
 import "@pap-it/menu/wc";

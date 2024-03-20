@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/system-doc",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -38,9 +38,9 @@
     "@pap-it/system-showcase": "1.0.18",
     "@pap-it/button": "1.0.18",
     "@pap-it/divider": "1.0.17",
-    "@pap-it/header": "1.0.24",
+    "@pap-it/header": "1.0.25",
     "@pap-it/icon": "1.0.19",
-    "@pap-it/markdown": "1.0.20",
+    "@pap-it/markdown": "1.0.21",
     "@pap-it/tabs": "1.0.18",
     "@pap-it/templates-popover": "1.0.20",
     "@pap-it/typography": "1.0.18"
