@@ -41,7 +41,7 @@ export class TableHeader extends Translator {
   }
   private handlemoreselect = (e: Event) => {
     if (e.target instanceof HTMLElement) {
-      this.dispatchActionClick((e.target as Menu).value);
+      // this.dispatchActionClick((e.target as Menu).value);
     }
   }
 

@@ -1,6 +1,5 @@
 // system 
-import { ExtractSlotValue, Size, Spread, context, html, property, query } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { ExtractSlotValue, Size, CustomElement, context, html, property } from "@pap-it/system-utils";
 
 // atoms
 import { Textarea } from "@pap-it/textarea";
@@ -11,7 +10,7 @@ import { style } from "./style";
 import { Column, Config, DefaultConfig, Alignment } from "../../types";
 
 // @property({ spread: Spread.BREAKOUT, type: Object, verbose: true }) settings: Cell = DefaultCell;
-export class TableCell extends Base {
+export class TableCell extends CustomElement {
   static style = style;
 
   @property() size: Size = "medium";
@@ -72,7 +71,7 @@ export class TableCell extends Base {
       // we just make sure value is not same as before
       if (value !== "" && this.value !== value) {
         console.log('value?', value)
-        this.value = value;
+        // this.value = value;
         // console.log('cgabge', value);
       }
     }

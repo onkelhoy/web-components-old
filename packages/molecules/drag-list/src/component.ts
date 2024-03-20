@@ -1,17 +1,24 @@
 // system
-import { generateUUID, html, property, query } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { generateUUID, html, property, query, CustomElement } from "@pap-it/system-utils";
 
 // local 
 import { style } from "./style";
 import { Item } from "./components/item";
 
-export class DragList extends Base {
+export class DragList extends CustomElement {
   static style = style;
 
   // queries
-  @query({ selector: 'div.copy', onload: 'handleresize' }) copyElement!: HTMLDivElement;
-  @query({ selector: 'div[part="wrapper"', onload: 'handleresize' }) wrapperElement!: HTMLDivElement;
+  @query({
+    selector: 'div.copy', load: function (this: DragList) {
+      this.handleresize();
+    }
+  }) copyElement!: HTMLDivElement;
+  @query({
+    selector: 'div[part="wrapper"', load: function (this: DragList) {
+      this.handleresize();
+    }
+  }) wrapperElement!: HTMLDivElement;
   @query('span[part="indicator"]') indicatorElement!: HTMLSpanElement;
 
   // properties
@@ -148,7 +155,7 @@ export class DragList extends Base {
 
         // NOTE a bug on the optimizer part, it removes this element as "dragging" is set and triggers the 
         // rerender and the opimizer sees a difference and "removes" this programatically added element - SHOULD NOT!
-        this.callAfterUpdate.push(() => {
+        this.callAfterRender.push(() => {
           if (this.selected) {
             const clone = this.selected.cloneNode(true) as Item;
 

@@ -1,8 +1,5 @@
 // utils 
-import { html, property, debounce } from "@pap-it/system-utils";
-
-// templates
-import { Base } from "@pap-it/system-base";
+import { html, property, debounce, CustomElement } from "@pap-it/system-utils";
 
 import { style } from "./style";
 
@@ -11,7 +8,8 @@ export type InputVariant = "input" | "textarea" | "select" | "number";
 export type Option = { text: string; value: string; }
 export type ChangeEvent = { value: string };
 
-export class Input extends Base {
+
+export class Input extends CustomElement {
   static style = style;
 
   private inputElement!: HTMLInputElement;
@@ -56,8 +54,8 @@ export class Input extends Base {
     this.dispatchEvent(new CustomEvent<ChangeEvent>("change", { detail: { value } }))
   }
 
-  firstUpdate(): void {
-    this.firstUpdate();
+  firstRender(): void {
+    this.firstRender();
     const element = this.shadowRoot?.querySelector<HTMLInputElement>('#input');
     if (element) {
       this.inputElement = element;

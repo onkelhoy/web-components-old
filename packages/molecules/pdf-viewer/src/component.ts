@@ -1,6 +1,5 @@
 // system
-import { html, property, ifDefined, query } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { html, property, ifDefined, query, CustomElement } from "@pap-it/system-utils";
 
 // atoms
 import "@pap-it/button/wc";
@@ -14,7 +13,7 @@ import "@pap-it/tools-translator/wc";
 import { style } from "./style";
 import { Type } from './types';
 
-export class PDFviewer extends Base {
+export class PDFviewer extends CustomElement {
   static style = style;
 
   @query<HTMLAnchorElement>('a.download') downloadElement!: HTMLAnchorElement;

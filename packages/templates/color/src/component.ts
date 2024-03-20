@@ -1,5 +1,5 @@
-import { Base } from '@pap-it/system-base';
-import { property } from '@pap-it/system-utils';
+// system
+import { property, CustomElement } from '@pap-it/system-utils';
 
 // locals
 import { Color } from './Color';
@@ -9,7 +9,7 @@ function padWithZeros(number: number) {
   return String(number).padStart(3, '0');
 }
 
-export class ColorTemplate extends Base {
+export class ColorTemplate extends CustomElement {
 
   @property({
     rerender: false,

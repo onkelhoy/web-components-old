@@ -1,8 +1,7 @@
 // system
-import { debounce, property } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { CustomElement, property } from "@pap-it/system-utils";
 
-export class Asset extends Base {
+export class Asset extends CustomElement {
 
   @property({
     attribute: "asset-base",
@@ -29,11 +28,11 @@ export class Asset extends Base {
   }) url?: string;
 
 
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    // this.debouncedLoadAsset = debounce(this.debouncedLoadAsset, 10);
-  }
+  //   // this.debouncedLoadAsset = debounce(this.debouncedLoadAsset, 10);
+  // }
   private debouncedLoadAsset() {
     if (this.file) {
       this.loadAsset(this.file, !!this.url);

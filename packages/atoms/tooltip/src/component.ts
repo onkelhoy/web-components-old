@@ -1,6 +1,5 @@
 // system
-import { html, property } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { html, property, CustomElement } from "@pap-it/system-utils";
 import { Placement } from "@pap-it/templates-popover";
 import "@pap-it/templates-popover/wc";
 import "@pap-it/templates-box/wc";
@@ -9,7 +8,7 @@ import "@pap-it/templates-box/wc";
 import { style } from "./style";
 // import { Foo, ClickEvent } from "./types";
 
-export class Tooltip extends Base {
+export class Tooltip extends CustomElement {
   static style = style;
 
   @property() placement: Placement = "top-center";

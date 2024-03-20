@@ -1,6 +1,5 @@
 // system 
-import { html, property, query } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { html, property, CustomElement } from "@pap-it/system-utils";
 
 // atoms 
 import { Switch } from '@pap-it/switch';
@@ -12,7 +11,7 @@ import "@pap-it/switch/wc";
 import { style } from "./style";
 import { LightDarkTheme } from '../../types';
 
-export class Lightdark extends Base {
+export class Lightdark extends CustomElement {
   static style = style;
 
   @property() mode!: LightDarkTheme;

@@ -1,14 +1,11 @@
 // utils 
-import { property, Radius } from "@pap-it/system-utils";
-
-// templates
-import { Base, RenderType } from "@pap-it/system-base";
+import { property, Radius, RenderType, CustomElement } from "@pap-it/system-utils";
 
 // local 
 import { style } from "./style";
 import { Elevation } from "./types";
 
-export class Box extends Base {
+export class Box extends CustomElement {
   static styles = [style];
 
   @property({ rerender: false }) radius: Radius = "circular";

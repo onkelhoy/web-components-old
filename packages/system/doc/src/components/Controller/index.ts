@@ -1,12 +1,10 @@
 // utils 
-import { html } from "@pap-it/system-utils";
+import { html, CustomElement } from "@pap-it/system-utils";
 
-// templates
-import { Base } from "@pap-it/system-base";
+import { style } from "./style";
 
-import { style } from "./style.js";
 
-export class Controller extends Base {
+export class Controller extends CustomElement {
   static style = style;
 
   private section!: HTMLElement;
@@ -16,13 +14,13 @@ export class Controller extends Base {
 
   disconnectedCallback(): void {
     super.disconnectedCallback();
-
     window.removeEventListener('mousemove', this.handlemousemove);
     window.removeEventListener('mouseup', this.handlemouseup);
   }
 
-  firstUpdate() {
-    this.firstUpdate();
+  firstRender() {
+    super.firstRender();
+
     if (this.shadowRoot) {
       const span = this.shadowRoot.querySelector<HTMLSpanElement>('span.resize');
       if (span) {

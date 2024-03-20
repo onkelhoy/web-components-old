@@ -1,6 +1,5 @@
 // system
-import { Radius, Size, debounce, html, ifDefined, property } from "@pap-it/system-utils";
-import { Config, RenderType } from "@pap-it/system-base";
+import { Radius, Size, debounce, html, ifDefined, property, CustomElementSetting, RenderType } from "@pap-it/system-utils";
 
 // atoms
 import "@pap-it/icon/wc";
@@ -69,7 +68,6 @@ export class Field extends FormElement {
       this.internalmessage = false;
     }
   }) message?: string;
-
   @property({
     type: Boolean,
     rerender: false,
@@ -115,8 +113,13 @@ export class Field extends FormElement {
   private fallbackstate: State = "default";
   private slotelements: Record<string, number> = {};
 
-  constructor(config?: Partial<Config>) {
+  constructor(config?: Partial<CustomElementSetting>) {
     super({ ...(config || {}), noblur: true, nofocus: true, delegatesFocus: true });
+    // TODO VERY IMPORTANT FEATURE NEEDED BUT BLOCKED BY NATURE OF DECORATOR
+    // this.attachShadow({ mode: 'open', delegatesFocus: true });
+    // console.log('attatch window');
+
+    // super({ ...(config || {}), noblur: true, nofocus: true, delegatesFocus: true });
     this.slotvisibility = debounce(this.slotvisibility, 10);
   }
 
@@ -125,10 +128,10 @@ export class Field extends FormElement {
     super.connectElement(element);
 
     element.addEventListener('focus', () => {
-      this.hasFocus = true;
+      (this as any).hasFocus = true;
     });
     element.addEventListener('blur', () => {
-      this.hasFocus = false;
+      (this as any).hasFocus = false;
     });
   }
   // NOTE this function is called inside the debouncedInput so we dont need to overload with calls
@@ -264,7 +267,7 @@ export class Field extends FormElement {
     `
   }
 
-  override render(render?: RenderArgument) {
+  render(render?: RenderArgument): RenderType {
     return html`
       ${this.renderHeader(render?.header)}
       ${this.renderMain(render?.main)}

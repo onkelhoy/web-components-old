@@ -1,10 +1,10 @@
 // system
-import { Base } from "@pap-it/system-base";
+import { CustomElement } from "@pap-it/system-utils";
 
 // local 
 import { style } from "./style";
 
-export class PrefixSuffix extends Base {
+export class PrefixSuffix extends CustomElement {
   static style = style;
 
   render() {

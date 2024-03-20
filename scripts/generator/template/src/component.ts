@@ -1,12 +1,11 @@
 // system
-import { html, property, PropertyConfig } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { html, property, CustomElement } from "@pap-it/system-utils";
 
 // local 
 import { style } from "./style";
 import { Foo, ClickEvent } from "./types";
 
-export class TEMPLATE_CLASSNAME extends Base {
+export class TEMPLATE_CLASSNAME extends CustomElement {
   static style = style;
 
   @property() foo: Foo = "bar";

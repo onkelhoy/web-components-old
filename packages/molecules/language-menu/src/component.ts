@@ -1,6 +1,5 @@
 // system 
-import { html, ifDefined, property, query } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { html, CustomElement, property, query } from "@pap-it/system-utils";
 
 // atoms
 import { Icon } from "@pap-it/icon";
@@ -18,7 +17,7 @@ import "@pap-it/tools-translator/wc";
 import { style } from "./style";
 import { Language } from './types'
 
-export class LanguageMenu extends Base {
+export class LanguageMenu extends CustomElement {
   static style = style;
 
   @query('pap-menu') menuElement!: Menu;

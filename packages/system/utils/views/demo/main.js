@@ -2,8 +2,8 @@
 import '@pap-it/system-doc/wc';
 
 // component
-import '@pap-it/system-utils/bundle-wc';
+import './component';
 
 window.onload = () => {
-    console.log('[demo]: window loaded');
+  console.log('[demo]: window loaded - Soske!');
 }

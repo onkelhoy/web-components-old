@@ -1,5 +1,5 @@
 // utils 
-import { html, property, query } from "@pap-it/system-utils";
+import { html, property, query, CustomElement } from "@pap-it/system-utils";
 
 // atoms 
 import { Typography } from "@pap-it/typography";
@@ -10,7 +10,6 @@ import "@pap-it/icon/wc";
 import "@pap-it/switch/wc";
 
 // templates
-import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
 // local 
@@ -23,10 +22,16 @@ const MAX_HTMLCONTENT = 80;
 const OPEN_BRACKETS = ["(", "[", "{"];
 const CLOSE_BRACKETS = [")", "]", "}"];
 
-export class Codeblock extends Base {
+export class Codeblock extends CustomElement {
   static style = style;
 
-  @query({ selector: 'main', onload: 'onmainload' }) main!: HTMLElement;
+  @query({
+    selector: 'main', load: function (this: Codeblock) {
+      if (this.value) {
+        this.format(this.value);
+      }
+    }
+  }) main!: HTMLElement;
   @query('#language') languageElement!: Typography;
   @query('header > pap-button > pap-typography') copytext!: Typography;
   @query('fieldset') fieldsetElement!: HTMLFieldSetElement;
@@ -48,13 +53,6 @@ export class Codeblock extends Base {
   }
   private stack: string[] = [];
   public language: string = "text";
-
-  // on loads
-  private onmainload = () => {
-    if (this.value) {
-      this.format(this.value);
-    }
-  }
 
   // event handlers
   private handlecopy = () => {
@@ -435,7 +433,7 @@ export class Codeblock extends Base {
         </legend>
         <slot @slotchange="${this.handleslotchange}"></slot>
       </fieldset>
-      <code>
+      <code part="code">
         <pap-box-template radius="small">
           <header>
             <pap-typography id="language">${this.language}</pap-typography>
@@ -449,19 +447,19 @@ export class Codeblock extends Base {
               <pap-typography variant="C4" slot="suffix">dark</pap-typography>
             </pap-switch>`: ''}
             <pap-button 
-              variant="clear"  
-              color="secondary"
-              radius="none" 
-              @click="${this.handlecopy}" 
+            variant="clear"  
+            color="secondary"
+            radius="none" 
+            @click="${this.handlecopy}" 
             >
-              <pap-icon cache name="done" slot="prefix"></pap-icon>
-              <pap-icon cache name="content_paste" slot="prefix"></pap-icon>
-              <pap-typography>Copy code</pap-typography>
-            </pap-button>
-          </header>
-          <main render-greedy></main>
-        </pap-box-template>
-      </code>
+            <pap-icon cache name="done" slot="prefix"></pap-icon>
+            <pap-icon cache name="content_paste" slot="prefix"></pap-icon>
+            <pap-typography>Copy code</pap-typography>
+          </pap-button>
+        </header>
+        <main render-greedy></main>
+      </pap-box-template>
+    </code>
     `
   }
 }

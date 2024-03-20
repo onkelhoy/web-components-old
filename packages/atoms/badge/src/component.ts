@@ -1,17 +1,16 @@
 // utils 
-import { html, property, FormatNumber, Size } from "@pap-it/system-utils";
+import { html, property, FormatNumber, Size, CustomElement } from "@pap-it/system-utils";
 
 // atoms
 import "@pap-it/typography/wc"
 
 // templates
-import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc"
 
 // local 
 import { style } from './style';
 
-export class Badge extends Base {
+export class Badge extends CustomElement {
   static style = style;
 
   @property({ type: Number }) count: number = 0;

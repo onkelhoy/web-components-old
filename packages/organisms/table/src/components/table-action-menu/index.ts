@@ -1,6 +1,5 @@
 // system 
-import { ExtractSlotValue, html, property, query } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { CustomElement, html } from "@pap-it/system-utils";
 
 // atoms
 import "@pap-it/tabs/wc";
@@ -14,7 +13,7 @@ import "@pap-it/tools-translator/wc";
 import { style } from "./style";
 import { TableMenu } from "../table-menu";
 
-export class TableActionMenu extends Base {
+export class TableActionMenu extends CustomElement {
   static style = style;
 
   private handletabchange = (e: Event) => {

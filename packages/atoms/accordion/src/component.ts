@@ -1,14 +1,11 @@
 // utils 
-import { property } from "@pap-it/system-utils";
-
-// templates
-import { Base } from "@pap-it/system-base";
+import { property, CustomElement } from "@pap-it/system-utils";
 
 // local 
 import { style } from "./style";
 import { Mode } from "./types";
 
-export class Accordion extends Base {
+export class Accordion extends CustomElement {
   static style = style;
 
   @property({ rerender: false, type: Boolean }) open: boolean = false;

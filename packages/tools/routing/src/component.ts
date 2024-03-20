@@ -13,9 +13,9 @@ export class Routing extends Asset {
 
   // class functions
   constructor() {
-    super();
-
-    this.render_mode = 'greedy';
+    super({
+      reactiveRendering: false,
+    });
     // this.debouncedFetch = debounce(this.fetchHTML, 100);
   }
 
@@ -34,7 +34,7 @@ export class Routing extends Asset {
     return safe_base + (url.startsWith('/') ? url.slice(1, url.length) : url);
   }
   private async fetchHTML() {
-    if (this.shadowRoot) {
+    if (this.shadowRoot && this.url) {
       const response = await this.loadAsset(this.url);
       if (response instanceof Response) {
 
@@ -57,7 +57,7 @@ export class Routing extends Asset {
       }
     }
     else {
-      // this.callAfterUpdate.push(this.debouncedFetch);
+      // this.callAfterRender.push(this.debouncedFetch);
     }
   }
 

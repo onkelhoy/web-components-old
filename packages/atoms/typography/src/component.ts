@@ -1,12 +1,11 @@
 // system
-import { html, property } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { html, property, CustomElement } from "@pap-it/system-utils";
 
 // local 
 import { style } from "./style";
 import { Variant, Alignment } from "./types";
 
-export class Typography extends Base {
+export class Typography extends CustomElement {
   static style = style;
 
   @property({ rerender: false }) variant: Variant = "C3";
@@ -15,9 +14,7 @@ export class Typography extends Base {
   @property({ rerender: false, type: Boolean }) truncate: boolean = false;
 
   render() {
-    return html`
-            <slot></slot>
-        `
+    return `<slot></slot>`
   }
 }
 

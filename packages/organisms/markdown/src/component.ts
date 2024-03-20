@@ -80,7 +80,7 @@ export class Markdown extends Asset {
 
     if (this.shadowRoot) {
       this.content = htmlcontent.join("");
-      // this.callAfterUpdate.push(this.updateCodeBlocks);
+      // this.callAfterRender.push(this.updateCodeBlocks);
       this.requestUpdate();
     }
   }

@@ -1,6 +1,3 @@
-// utils 
-import { html } from "@pap-it/system-utils";
-
 // templates
 import { PrefixSuffixRender, ItemTemplate } from "@pap-it/templates-menu";
 

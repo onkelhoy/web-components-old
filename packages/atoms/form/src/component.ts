@@ -1,14 +1,11 @@
 // utils 
-import { debounce, html, property, query } from "@pap-it/system-utils";
-
-// templates
-import { Base } from "@pap-it/system-base";
+import { debounce, html, property, query, CustomElement } from "@pap-it/system-utils";
 
 // local 
 import { style } from "./style";
 import { Message, Variant as MessageType } from "./components/message";
 
-export class Form extends Base {
+export class Form extends CustomElement {
   static style = style;
 
   @property({ rerender: false, onUpdate: "onerrorupdate" }) error?: string;

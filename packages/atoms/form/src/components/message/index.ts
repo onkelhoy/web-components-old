@@ -1,5 +1,5 @@
 // utils 
-import { html, property, query } from "@pap-it/system-utils";
+import { html, property, CustomElement } from "@pap-it/system-utils";
 import "@pap-it/tools-translator/wc";
 
 // atoms 
@@ -9,14 +9,13 @@ import "@pap-it/accordion/wc";
 import "@pap-it/typography/wc";
 
 // templates
-import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-box/wc";
 
 import { style } from "./style";
 
 export type Variant = "warning" | "error" | "success";
 
-export class Message extends Base {
+export class Message extends CustomElement {
   static style = style;
 
   @property({ rerender: false }) variant: Variant = "success";

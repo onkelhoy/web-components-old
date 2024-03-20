@@ -1,5 +1,5 @@
 // utils
-import { ExtractSlotValue, html, property, query } from "@pap-it/system-utils";
+import { html, property } from "@pap-it/system-utils";
 
 // templates
 import { Field, RenderArgument } from "@pap-it/templates-field";

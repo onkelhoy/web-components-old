@@ -1,4 +1,4 @@
-import { property, html, Size, query, debounce } from '@pap-it/system-utils';
+import { property, html, Size, query, CustomElement } from '@pap-it/system-utils';
 import { Asset } from '@pap-it/templates-asset';
 
 import { style } from './style.js';
@@ -150,7 +150,7 @@ export class Icon extends Asset {
         .join('');
 
       if (!error) {
-        this.debouncedRequestUpdate();
+        (this as CustomElement).requestUpdate?.();
         return;
       }
     }

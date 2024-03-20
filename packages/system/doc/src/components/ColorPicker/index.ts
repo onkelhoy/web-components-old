@@ -1,14 +1,12 @@
 // utils 
-import { html } from "@pap-it/system-utils";
-
-// templates
-import { Base } from "@pap-it/system-base";
+import { html, CustomElement } from "@pap-it/system-utils";
 
 import { style } from "./style.js";
 
 export type ColorEvent = { value: string };
 
-export class ColorPicker extends Base {
+
+export class ColorPicker extends CustomElement {
   static style = style;
 
   private sliderElement!: HTMLInputElement;
@@ -104,8 +102,8 @@ export class ColorPicker extends Base {
     window.removeEventListener('mouseup', this.handlemouseup);
   }
 
-  firstUpdate(): void {
-    super.firstUpdate();
+  firstRender(): void {
+    super.firstRender();
     if (this.shadowRoot) {
       const area = this.shadowRoot.querySelector<HTMLDivElement>('div.area');
 
@@ -130,13 +128,13 @@ export class ColorPicker extends Base {
 
   render() {
     return html`
-            <div class="area">
-                <span class="picker"></span>
-            </div>
-            <div>
-                <input value="${Math.round(this.hue)}" type="range" min="0" max="359" step="1" @input=${this.handleinput} />
-            </div>
-            <div></div>
-        `
+      <div class="area">
+        <span class="picker"></span>
+      </div>
+      <div>
+        <input value="${Math.round(this.hue)}" type="range" min="0" max="359" step="1" @input=${this.handleinput} />
+      </div>
+      <div></div>
+    `
   }
 }

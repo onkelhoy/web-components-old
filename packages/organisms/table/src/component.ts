@@ -30,19 +30,19 @@ export class Table extends Translator {
   // queries
   @query('pap-pagination') paginationElement!: Pagination;
   @query('pap-table-menu') tablemenuElement!: TableMenu;
-  @query<TableHeader>({ selector: 'pap-table-header', onload: 'ontableheaderload' }) tableheaderElement!: TableHeader;
+  @query<TableHeader>({
+    selector: 'pap-table-header', load: function (this: Table) {
+      if (this.config) {
+        this.tableheaderElement.config = this.config;
+      }
+
+    }
+  }) tableheaderElement!: TableHeader;
 
   // propterties
   @property({ attribute: 'table-title', context: true }) tableTitle?: string;
   @property({ type: Object, attribute: false, onUpdate: 'onconfigupdate', context: true }) config: Config = DefaultConfig;
   @property({ type: Array, attribute: false, context: true }) columns: Column[] = [];
-
-  // loaders
-  private ontableheaderload = () => {
-    if (this.config) {
-      this.tableheaderElement.config = this.config;
-    }
-  }
 
   // updators
   private onconfigupdate = () => {

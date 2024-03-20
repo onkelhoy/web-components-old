@@ -1,5 +1,5 @@
 // utils 
-import { html, property } from "@pap-it/system-utils";
+import { html, property, CustomElement } from "@pap-it/system-utils";
 import "@pap-it/tools-translator/wc";
 
 // atoms 
@@ -11,14 +11,13 @@ import "@pap-it/typography/wc";
 import "@pap-it/accordion/wc";
 
 // templates
-import { Base } from "@pap-it/system-base";
 import '@pap-it/templates-box/wc'
 
 import { style } from "./style";
 
 export type ChildSelectEvent = Item;
 
-export class Item extends Base {
+export class Item extends CustomElement {
   static style = style;
 
   @property() icon?: string;

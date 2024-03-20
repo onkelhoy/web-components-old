@@ -1,6 +1,5 @@
 // system 
-import { html, property, query } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
+import { CustomElement, html, property, query } from "@pap-it/system-utils";
 
 // atoms 
 import "@pap-it/icon/wc";
@@ -12,7 +11,7 @@ import "@pap-it/templates-box/wc";
 // local
 import { style } from "./style";
 
-export class Item extends Base {
+export class Item extends CustomElement {
   static style = style;
 
   @query('pap-box-template') boxElement!: HTMLElement;

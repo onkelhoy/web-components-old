@@ -1,8 +1,7 @@
 // utils 
-import { html, property, query } from "@pap-it/system-utils";
+import { html, property, query, CustomElement } from "@pap-it/system-utils";
 
 // templates
-import { Base } from "@pap-it/system-base";
 import "@pap-it/templates-prefix-suffix/wc";
 
 // local 
@@ -11,7 +10,7 @@ import { Tab } from "./components/tab";
 import { TabContent } from "./components/content";
 import { SelectEvent } from "./types";
 
-export class Tabs extends Base {
+export class Tabs extends CustomElement {
   static style = style;
 
   private tabs: Tab[] = [];
