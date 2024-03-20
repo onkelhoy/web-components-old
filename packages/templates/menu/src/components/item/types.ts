@@ -1,4 +1,4 @@
-import { RenderType } from "@pap-it/system-base";
+import { RenderType } from "@pap-it/system-utils";
 
 export type PrefixSuffixRender = Partial<{
   prefix: RenderType;

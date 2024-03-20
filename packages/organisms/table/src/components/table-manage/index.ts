@@ -1,6 +1,5 @@
 // system 
 import { context, html, ifDefined, property, query } from "@pap-it/system-utils";
-import { Base } from "@pap-it/system-base";
 
 // atoms
 import { Checkbox } from "@pap-it/checkbox";

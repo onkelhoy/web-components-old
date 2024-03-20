@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/textarea",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -42,10 +42,10 @@
   "dependencies": {
     "@pap-it/system-utils": "1.0.11",
     "@pap-it/system-react": "0.0.8",
-    "@pap-it/templates-field": "1.0.19"
+    "@pap-it/templates-field": "1.0.20"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.24",
+    "@pap-it/system-doc": "1.0.25",
     "esbuild": "^0.17.18",
     "eslint": "^8.53.0",
     "node-html-parser": "^6.1.5",

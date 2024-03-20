@@ -1,6 +1,5 @@
 // system
 import { html, property, query, CustomElement } from "../../src/";
-// import { Base } from "@pap-it/system-base";
 
 // local 
 const style = ":host {background-color: blue; color:white;}"
