@@ -46,9 +46,9 @@ export class Button extends FormElement {
   // event handlers
   private handlekeyup = (e: KeyboardEvent) => {
     if ((e.key || e.code).toLowerCase() === "enter") {
-      // if ((this as any).hasFocus) {
-      //   this.dispatchEvent(new Event('click'));
-      // }
+      if (this.hasFocus) {
+        this.dispatchEvent(new Event('click'));
+      }
     }
   }
   private handleclick = () => {
