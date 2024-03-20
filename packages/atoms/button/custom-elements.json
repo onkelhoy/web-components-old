@@ -290,10 +290,10 @@
     },
     "allproperties": [
       {
+        "attribute": "type",
+        "propertyKey": "type",
         "type": "alternative",
         "typeName": "String",
-        "propertyKey": "type",
-        "attribute": true,
         "name": "type",
         "default_value": "button",
         "type_value": [
@@ -305,10 +305,10 @@
         "conditional": false
       },
       {
+        "attribute": "size",
+        "propertyKey": "size",
         "type": "Size",
         "typeName": "String",
-        "propertyKey": "size",
-        "attribute": true,
         "name": "size",
         "default_value": "medium",
         "type_value": [
@@ -320,10 +320,10 @@
         "conditional": false
       },
       {
+        "attribute": "radius",
+        "propertyKey": "radius",
         "type": "Radius",
         "typeName": "String",
-        "propertyKey": "radius",
-        "attribute": true,
         "name": "radius",
         "default_value": "circular",
         "type_value": [
@@ -337,20 +337,20 @@
         "conditional": false
       },
       {
+        "attribute": "href",
+        "propertyKey": "href",
         "type": "string",
         "typeName": "String",
-        "propertyKey": "href",
-        "attribute": true,
         "name": "href",
         "type_value": null,
         "primitive": true,
         "conditional": true
       },
       {
+        "attribute": "circle",
+        "propertyKey": "circle",
         "type": "boolean",
         "typeName": "Boolean",
-        "propertyKey": "circle",
-        "attribute": true,
         "name": "circle",
         "default_value": false,
         "type_value": null,
@@ -358,10 +358,10 @@
         "conditional": false
       },
       {
+        "attribute": "loading",
+        "propertyKey": "loading",
         "type": "boolean",
         "typeName": "Boolean",
-        "propertyKey": "loading",
-        "attribute": true,
         "name": "loading",
         "default_value": false,
         "type_value": null,
@@ -369,10 +369,10 @@
         "conditional": false
       },
       {
+        "attribute": "text-variant",
+        "propertyKey": "textvariant",
         "type": "ButtonTextType",
         "typeName": "String",
-        "propertyKey": "textvariant",
-        "attribute": "text-variant",
         "name": "textvariant",
         "default_value": "B1",
         "type_value": [
@@ -385,10 +385,10 @@
         "conditional": false
       },
       {
+        "attribute": "mode",
+        "propertyKey": "mode",
         "type": "ButtonMode",
         "typeName": "String",
-        "propertyKey": "mode",
-        "attribute": true,
         "name": "mode",
         "default_value": "hug",
         "type_value": [
@@ -399,10 +399,10 @@
         "conditional": false
       },
       {
+        "attribute": "variant",
+        "propertyKey": "variant",
         "type": "ButtonVariant",
         "typeName": "String",
-        "propertyKey": "variant",
-        "attribute": true,
         "name": "variant",
         "default_value": "filled",
         "type_value": [
@@ -414,10 +414,10 @@
         "conditional": false
       },
       {
+        "attribute": "color",
+        "propertyKey": "color",
         "type": "ButtonColorVariant",
         "typeName": "String",
-        "propertyKey": "color",
-        "attribute": true,
         "name": "color",
         "default_value": "primary",
         "type_value": [
@@ -432,30 +432,30 @@
         "conditional": false
       },
       {
+        "attribute": "default-value",
+        "propertyKey": "defaultValue",
         "type": "string",
         "typeName": "String",
-        "propertyKey": "defaultValue",
-        "attribute": "default-value",
         "name": "defaultValue",
         "type_value": null,
         "primitive": true,
         "conditional": true
       },
       {
+        "attribute": "disabled",
+        "propertyKey": "disabled",
         "type": "boolean",
         "typeName": "Boolean",
-        "propertyKey": "disabled",
-        "attribute": true,
         "name": "disabled",
         "type_value": null,
         "primitive": true,
         "conditional": true
       },
       {
+        "attribute": "name",
+        "propertyKey": "name",
         "type": "string",
         "typeName": "String",
-        "propertyKey": "name",
-        "attribute": true,
         "name": "name",
         "default_value": "missing-name",
         "type_value": null,
@@ -463,10 +463,10 @@
         "conditional": false
       },
       {
+        "attribute": "value",
+        "propertyKey": "value",
         "type": "string",
         "typeName": "String",
-        "propertyKey": "value",
-        "attribute": true,
         "name": "value",
         "type_value": null,
         "primitive": true,

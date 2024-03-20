@@ -16,6 +16,8 @@ function build_html(component_name, MAINCLASSINFO_NAME) {
 
           window.COMPONENT_HTML_EXTRACTOR_FUNCTION = () => {
             const temp_component = new ${component_name}();
+            temp_component.connectedCallback();
+            
             const html = temp_component.render();
             const properties = temp_component.getProperties();
             const tagName = temp_component.tagName;
