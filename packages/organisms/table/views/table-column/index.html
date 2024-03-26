@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component: TableColumn</title>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+  <doc-card>
+    <pap-typography variant="C1" slot="header">Default</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table-column sub-title="Subtitle" column-title="Title" sort="none"></pap-table-column>
+    </pap-codeblock>
+  </doc-card>
+  <doc-card>
+    <pap-typography variant="C1" slot="header">Size</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table-column size="small" sub-title="Subtitle" column-title="Title" sort="none"></pap-table-column>
+      <pap-table-column size="medium" sub-title="Subtitle" column-title="Title" sort="none"></pap-table-column>
+      <pap-table-column size="large" sub-title="Subtitle" column-title="Title" sort="none"></pap-table-column>
+    </pap-codeblock>
+  </doc-card>
+</body>
+
+</html>

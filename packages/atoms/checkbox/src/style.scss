@@ -81,7 +81,7 @@
   pap-icon[name="checked"],
   pap-icon[name="intermediate"] {
     position: relative;
-    z-index: 1;
+    z-index: var(--z-index-small, 1);
 
     &::before {
       position: absolute;
@@ -95,7 +95,7 @@
     }
 
     &::part(svg) {
-      z-index: 1;
+      z-index: var(--z-index-small, 1);
     }
   }
 }

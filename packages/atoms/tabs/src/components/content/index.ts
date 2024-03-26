@@ -13,21 +13,21 @@ export class TabContent extends CustomElement {
   }
 
   public init(parent: HTMLElement) {
-    parent.addEventListener('tab-select', (e: Event) => {
-      if (e instanceof CustomEvent) {
-        if (this.getAttribute('data-tab-id') === e.detail.id) {
-          this.classList.add('selected');
+    parent.addEventListener('change', this.handlechange);
+  }
 
-          // if (e.detail.scrolling)
-          // {
-          //   this.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-          // }
-        }
-        else {
-          this.classList.remove('selected');
-        }
+  // event handlers
+  private handlechange = (e: Event) => {
+    if (e.target && 'selected_id' in e.target) {
+      const id = this.getAttribute('id') || this.getAttribute('data-tab-id');
+
+      if (id === e.target.selected_id) {
+        this.classList.add("selected");
       }
-    })
+      else {
+        this.classList.remove("selected");
+      }
+    }
   }
 
   render() {

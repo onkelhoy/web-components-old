@@ -1,3 +1,4 @@
+export * from './components/table-column';
 export * from './components/table-action-menu';
 export * from './components/table-cell';
 export * from './components/table-filter';

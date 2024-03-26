@@ -9,4 +9,5 @@ body {
 
 pap-codeblock::part(fieldset) {
   position: relative;
+  min-height: 100px;
 }

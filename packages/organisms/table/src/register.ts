@@ -1,4 +1,5 @@
-import { TableCell } from './components/table-cell';
+import { Column } from './components/table-column';
+import { Cell } from './components/table-cell';
 import { TableSheets } from './components/table-sheets';
 import { TableManage } from './components/table-manage';
 import { TableFilterIndividual } from './components/table-filter-individual';
@@ -44,5 +45,8 @@ if (!cElements.get('pap-table-sheets')) {
   cElements.define('pap-table-sheets', TableSheets);
 }
 if (!cElements.get('pap-table-cell')) {
-  cElements.define('pap-table-cell', TableCell);
+  cElements.define('pap-table-cell', Cell);
+}
+if (!cElements.get('pap-table-column')) {
+  cElements.define('pap-table-column', Column);
 }

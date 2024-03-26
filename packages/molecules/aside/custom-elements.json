@@ -269,10 +269,10 @@
     },
     "allproperties": [
       {
+        "attribute": "backdrop",
+        "propertyKey": "backdrop",
         "type": "boolean",
         "typeName": "Boolean",
-        "propertyKey": "backdrop",
-        "attribute": true,
         "name": "backdrop",
         "default_value": true,
         "type_value": null,
@@ -280,10 +280,10 @@
         "conditional": false
       },
       {
+        "attribute": "hideonoutsideclick",
+        "propertyKey": "hideonoutsideclick",
         "type": "boolean",
         "typeName": "Boolean",
-        "propertyKey": "hideonoutsideclick",
-        "attribute": true,
         "name": "hideonoutsideclick",
         "default_value": true,
         "type_value": null,
@@ -291,10 +291,10 @@
         "conditional": false
       },
       {
+        "attribute": "open",
+        "propertyKey": "open",
         "type": "boolean",
         "typeName": "Boolean",
-        "propertyKey": "open",
-        "attribute": true,
         "name": "open",
         "default_value": false,
         "type_value": null,
@@ -302,10 +302,10 @@
         "conditional": false
       },
       {
+        "attribute": "placement",
+        "propertyKey": "placement",
         "type": "Placement",
         "typeName": "String",
-        "propertyKey": "placement",
-        "attribute": true,
         "name": "placement",
         "default_value": "right",
         "type_value": [
@@ -318,10 +318,10 @@
         "conditional": false
       },
       {
+        "attribute": "radius",
+        "propertyKey": "radius",
         "type": "Radius",
         "typeName": "String",
-        "propertyKey": "radius",
-        "attribute": true,
         "name": "radius",
         "default_value": "medium",
         "type_value": [
@@ -335,10 +335,10 @@
         "conditional": false
       },
       {
+        "attribute": "mode",
+        "propertyKey": "mode",
         "type": "Mode",
         "typeName": "String",
-        "propertyKey": "mode",
-        "attribute": true,
         "name": "mode",
         "default_value": "normal",
         "type_value": [
@@ -349,20 +349,20 @@
         "conditional": false
       },
       {
+        "attribute": "width",
+        "propertyKey": "width",
         "type": "string",
         "typeName": "String",
-        "propertyKey": "width",
-        "attribute": true,
         "name": "width",
         "type_value": null,
         "primitive": true,
         "conditional": true
       },
       {
+        "attribute": "elevation",
+        "propertyKey": "elevation",
         "type": "Elevation",
         "typeName": "String",
-        "propertyKey": "elevation",
-        "attribute": true,
         "name": "elevation",
         "default_value": "none",
         "type_value": [
@@ -376,10 +376,10 @@
         "conditional": false
       },
       {
+        "attribute": "elevation-direction",
+        "propertyKey": "elevationdirection",
         "type": "alternative",
         "typeName": "String",
-        "propertyKey": "elevationdirection",
-        "attribute": "elevation-direction",
         "name": "elevationdirection",
         "default_value": "vertical",
         "type_value": [

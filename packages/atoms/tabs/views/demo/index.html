@@ -19,10 +19,10 @@
   <doc-card>
     <pap-typography variant="C1" slot="header">Pre selected</pap-typography>
     <pap-codeblock display="both">
-      <pap-tabs preselect="2">
+      <pap-tabs selected="hello">
         <pap-tab>Tab A</pap-tab>
         <pap-tab>Tab B</pap-tab>
-        <pap-tab>Tab C</pap-tab>
+        <pap-tab id="hello">Tab C</pap-tab>
         <pap-tab>Tab D</pap-tab>
 
         <pap-tab-content>
@@ -43,7 +43,7 @@
   <doc-card>
     <pap-typography variant="C1" slot="header">No pre selected</pap-typography>
     <pap-codeblock display="both">
-      <pap-tabs preselect="-1">
+      <pap-tabs selected="-1">
         <pap-tab>Tab A</pap-tab>
         <pap-tab>Tab B</pap-tab>
         <pap-tab>Tab C</pap-tab>
@@ -169,16 +169,16 @@
   <doc-card>
     <h1>Scrolling + Indicator</h1>
     <pap-codeblock display="both">
-      <pap-tabs class="tabs-scrolling-indicator" scrolling="true" indicator="true">
+      <pap-tabs class="tabs-scrolling-indicator" selected="pre" scrolling="true" indicator="true">
         <pap-tab text="Awesome Tab"></pap-tab>
         <pap-tab>
           <h2>IM SPECIAL</h2>
         </pap-tab>
-        <pap-tab>
+        <pap-tab id="special">
           <h1>I am a very long tab name</h1>
           <p>WOOOOOOOOOOW SO COOL</p>
         </pap-tab>
-        <pap-tab text="I AM THE SELECTED ONE" class="selected"></pap-tab>
+        <pap-tab text="I AM THE SELECTED ONE" id="pre"></pap-tab>
 
         <p slot="header-prefix">PREFIX</p>
         <p slot="header-suffix">SUFFIX</p>
@@ -203,7 +203,7 @@
           <p>To forget this tab would be a snub,</p>
           <p>All hail Tabby, the king of the club!</p>
         </pap-tab-content>
-        <pap-tab-content>
+        <pap-tab-content id="special">
           <p>With some extra stuff</p>
           <p>I am the extra stuff</p>
           <p>That was pretty cool</p>

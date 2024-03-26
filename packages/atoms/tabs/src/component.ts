@@ -1,5 +1,5 @@
 // utils 
-import { html, property, query, CustomElement } from "@pap-it/system-utils";
+import { html, property, query, CustomElement, debounce } from "@pap-it/system-utils";
 
 // templates
 import "@pap-it/templates-prefix-suffix/wc";
@@ -27,57 +27,80 @@ export class Tabs extends CustomElement {
   @property({
     rerender: false,
     after: function (this: Tabs) {
-      console.log('selected', this.selected);
+      if (!this.internalselect) {
+        this.dispatchEvent(new Event('pre-change'));
+      }
+      this.internalselect = false;
     }
   }) selected?: string;
   @property({ type: Boolean }) indicator: boolean = true;
   @property({ rerender: false, type: Boolean }) scrolling: boolean = false;
 
+  private internalselect = false;
+  public selected_id?: string;
+
+  constructor() {
+    super();
+    this.initselect = debounce(this.initselect);
+  }
+
   // event handlers
   private handleslotchange = (e: Event) => {
     if (e.target instanceof HTMLSlotElement) {
-      let selected: null | number = null;
-      let firsttab: Tab | null = null;
-      e.target
-        .assignedElements()
-        .forEach((element, index) => {
-          if (!element.hasAttribute('data-tabs-pass')) {
-            const isContent = element instanceof TabContent;
-            const isTab = element instanceof Tab;
+      let selected: string | null = null;
+      let firsttab: string | null = null;
 
-            let id = index.toString();
-            if (isContent) {
-              id = this.contents.length.toString();
-              this.contents.push(element);
-            }
-            if (isTab) {
-              if (!firsttab && String(index) === this.selected) firsttab = element;
-              id = this.tabs.length.toString();
-              element.addEventListener('click', this.handletabclick);
+      const elements = e.target.assignedElements();
 
-              if (element.classList.contains('selected')) selected = index;
-              this.tabs.push(element);
-            }
+      elements.forEach((element, index) => {
+        if (!element.hasAttribute('data-tabs-pass')) {
+          const isContent = element instanceof TabContent;
+          const isTab = element instanceof Tab;
 
-            if (element.hasAttribute('id')) {
-              id = element.getAttribute('id') as string;
-            }
-
-            if (isContent || isTab) {
-              element.init(this);
-              element.setAttribute('data-tab-id', id);
-              element.setAttribute('data-tabs-pass', 'true');
-            }
+          let id = index.toString();
+          if (isContent) {
+            id = this.contents.length.toString();
+            this.contents.push(element);
           }
-        });
+          if (isTab) {
+            id = this.tabs.length.toString();
+            if (!firsttab) {
+              firsttab = id;
+            }
+            if (!selected && (String(index) === this.selected || (element.id && element.id === this.selected))) {
+              selected = id;
+            }
+            element.addEventListener('click', this.handletabclick);
+            this.tabs.push(element);
+          }
 
-      if (selected === null) {
-        if (firsttab !== null) {
-          setTimeout(() => {
-            (firsttab as Tab).click();
-          }, 100)
+          // we want to make sure our system has reference id 
+          // if (element.hasAttribute('id')) {
+          //   id = element.getAttribute('id') as string;
+          // }
+
+          if (isContent || isTab) {
+            element.init(this);
+            element.setAttribute('data-tab-id', id);
+            element.setAttribute('data-tabs-pass', 'true');
+          }
         }
+      });
+
+      // NOTE remember that this method could be called after tabs have been init (so we check value exists)
+      if (selected !== null) {
+        this.initselect(selected)
       }
+      else if (firsttab !== null) {
+        this.initselect(firsttab)
+      }
+      // if (selected === null) {
+      //   if (firsttab !== null) {
+      //     setTimeout(() => {
+      //       (firsttab as Tab).click();
+      //     }, 100)
+      //   }
+      // }
     }
   }
   private handletabclick = (e: Event) => {
@@ -86,8 +109,14 @@ export class Tabs extends CustomElement {
         this.internalclick = true;
       }
 
-      const id = e.target.getAttribute('data-tab-id') as string
-      this.dispatchEvent(new CustomEvent<SelectEvent>("tab-select", { detail: { id } }));
+      const referenceid = e.target.getAttribute('data-tab-id') as string
+      let id = referenceid;
+      if (e.target.hasAttribute('id')) {
+        id = e.target.getAttribute('id') as string;
+      }
+      this.internalselect = true;
+      this.selected = id;
+      this.selected_id = referenceid;
       this.dispatchEvent(new Event('change'));
 
       if (this.headerElement) {
@@ -109,7 +138,11 @@ export class Tabs extends CustomElement {
 
 
       if (this.scrolling && this.mainElement && !this.currentlyscrolling) {
-        const content = this.contents.find(c => c.getAttribute('data-tab-id') === id);
+        const content = this.contents.find(c => {
+          if (c.getAttribute('id') === id) return true;
+          if (c.getAttribute('data-tab-id') === referenceid) return true;
+          return false;
+        });
         if (content) {
           this.mainElement.scrollTo({
             top: content.offsetTop - this.mainElement.offsetTop,
@@ -140,6 +173,17 @@ export class Tabs extends CustomElement {
     this.currentlyscrolling = false;
     this.internalclick = false;
     this.scrollclick = false;
+  }
+
+  // helper function
+  private initselect = (id: string) => {
+    if (!this.selected) {
+      this.internalselect = false;
+      this.selected = id;
+    }
+    else {
+      this.dispatchEvent(new Event('pre-change'));
+    }
   }
 
   render() {

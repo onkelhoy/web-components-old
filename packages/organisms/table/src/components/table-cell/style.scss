@@ -1,35 +1,64 @@
 :host {
-  display: flex;
-  align-items: center;
+  display: block;
+  cursor: pointer;
 
-  &>div {
-    flex: 1;
-  }
-
-  div[part="content"] {
-    display: block;
-  }
-
-  div[part="edit"] {
-    display: none;
-  }
-
-  pap-textarea {
+  div {
     width: 100%;
     height: 100%;
+    box-sizing: border-box;
+    padding-inline: var(--padding-medium, 16px);
+    display: flex;
+    align-items: center;
+
+    font-family: var(--typography-c3-fontfamily, 'Libre Franklin', helvetica, sans-serif);
+    font-size: var(--typography-c3-fontsize, 1rem);
+    font-weight: var(--typography-c3-fontweight, 400);
+    line-height: var(--typography-c3-lineheight, 140%);
+    letter-spacing: var(--typography-c3-letterspacing, 0.01rem);
+
+    // &[part="content"] {}
+
+    &[part="edit"] {
+      display: none;
+
+      input {
+        border: none;
+        resize: none;
+        padding: 0;
+        width: 100%;
+        background-color: transparent;
+        border: 0;
+        font-family: var(--typography-c3-fontfamily, 'Libre Franklin', helvetica, sans-serif);
+        font-size: var(--typography-c3-fontsize, 1rem);
+        font-weight: var(--typography-c3-fontweight, 400);
+        line-height: var(--typography-c3-lineheight, 140%);
+        letter-spacing: var(--typography-c3-letterspacing, 0.01rem);
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
   }
+}
+
+:host([hasfocus="true"]) {
+  // note later this could be controlled by the table as we wish to span over several cells
+  outline: 2px solid var(--pap-color-border-brand, #0177A3);
 }
 
 :host([mode="edit"]) {
+
   div[part="content"] {
     display: none;
   }
 
   div[part="edit"] {
-    display: block;
+    display: flex;
   }
 }
 
+// sizes
 :host([size="small"]) {
   height: var(--field-size-medium, 40px);
 }
@@ -42,14 +71,15 @@
   height: var(--field-size-larger, 56px);
 }
 
-:host([align="left"]) {
+// alignment
+:host([align="left"]) div[part="content"] {
   justify-content: flex-start;
 }
 
-:host([align="center"]) {
+:host([align="center"]) div[part="content"] {
   justify-content: center;
 }
 
-:host([align="right"]) {
+:host([align="right"]) div[part="content"] {
   justify-content: flex-end;
 }

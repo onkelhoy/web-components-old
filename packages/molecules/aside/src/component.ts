@@ -1,5 +1,5 @@
 // system
-import { Radius, html, property } from "@pap-it/system-utils";
+import { Radius, RenderType, html, property } from "@pap-it/system-utils";
 
 // atoms 
 import "@pap-it/accordion/wc";
@@ -83,7 +83,7 @@ export class Aside extends Box {
     this.dispatchEvent(new Event('show'));
   }
 
-  render() {
+  render(content?: RenderType) {
     return html`
       <pap-box-template 
         radius="${this.radius}" 
@@ -98,6 +98,7 @@ export class Aside extends Box {
           mode="${['left', 'right'].includes(this.placement) ? "horizontal" : "vertical"}"
         >
           <div part="content">
+            ${content}
             <slot></slot>
           </div>
         </pap-accordion>
