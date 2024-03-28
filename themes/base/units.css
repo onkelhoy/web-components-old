@@ -50,4 +50,11 @@
   --breakpoint-pad: 768px;
   --breakpoint-laptop: 1024px;
   --breakpoint-desktop: 1440px;
+
+  /* Z-INDEX */
+  --z-index-small: 1;
+  --z-index-medium: 2;
+  --z-index-large: 3;
+  /* should not be used */
+  --z-index-max: 1000;
 }

@@ -11,7 +11,7 @@ window.onload = () => {
   window['btn-default'].onclick = () => {
     window.default.open = !window.default.open;
   }
-  window['btn-inline'].onclick = () => {
-    window.inline.open = !window.inline.open;
+  window['btn-fixed'].onclick = () => {
+    window.fixed.open = !window.fixed.open;
   }
 }

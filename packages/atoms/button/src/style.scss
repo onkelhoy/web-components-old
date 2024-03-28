@@ -18,16 +18,26 @@
 
   pap-prefix-suffix-template {
     flex: 1;
+    gap: 0;
 
     &::part(content) {
       display: inline-flex;
       justify-content: center;
       align-items: center;
+      padding-inline: var(--padding-small, 8px);
       gap: var(--button-content-gap, var(--gap-small, 8px));
     }
   }
 
   transition: background-color ease-in 80ms;
+}
+
+:host([circle="true"]) {
+  pap-prefix-suffix-template {
+    &::part(content) {
+      padding-inline: 0;
+    }
+  }
 }
 
 :host(.content-flex-start) {
@@ -173,13 +183,7 @@ $size-map: (
     height: fit-content;
   }
 
-  :host([size="#{$name}"]:not([circle="true"])) {
-    min-width: var(--pap-button-min-width-#{$name}, #{map-get($value, min-width)});
-  }
-
   :host([circle="true"][size="#{$name}"]) {
-    min-width: auto !important;
-
     pap-prefix-suffix-template {
       justify-content: center;
     }

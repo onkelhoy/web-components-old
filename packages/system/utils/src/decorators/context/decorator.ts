@@ -86,7 +86,7 @@ export function Decorator(setting?: Setting) {
           }
 
           if (_setting.rerender) {
-            me.debouncedRequestUpdate();
+            me.requestUpdate();
           }
         }
 

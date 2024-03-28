@@ -10,7 +10,7 @@
     position: absolute;
     top: var(--gap-large, 24px);
     left: var(--gap-medium, 16px);
-    z-index: 3;
+    z-index: var(--z-index-small, 1);
     display: none;
   }
 
@@ -80,7 +80,7 @@
     height: 100vh;
     background-color: var(--pap-color-bg-overlay, #29292F);
     opacity: 0;
-    z-index: 1;
+    z-index: var(--z-index-small, 1);
     pointer-events: none;
     // transition: opacity ease-in 60ms;
   }
@@ -109,7 +109,7 @@
 :host([mode="hover"]) {
   min-width: 3.5rem;
   width: 3.5rem;
-  z-index: 1000;
+  z-index: var(--z-index-large, 3);
 
   pap-box-template {
     width: 3.5rem;

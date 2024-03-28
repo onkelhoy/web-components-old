@@ -8,14 +8,13 @@ div.wrapper {
   display: flex;
 }
 
-pap-sidebar::part(base) {
+/* NOTE when globally displayed it cannot be fixed.. it would mess up */
+/* pap-sidebar::part(base) {
   position: relative;
 }
-
 pap-sidebar[mode="hover"]::part(base) {
   position: absolute;
-}
-
+} */
 
 main {
   flex-grow: 1;

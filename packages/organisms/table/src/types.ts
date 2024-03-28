@@ -1,10 +1,12 @@
+import { OptionType } from "@pap-it/select";
 import { Size } from "@pap-it/system-utils";
 
 // Basic
 export type Alignment = "left" | "center" | "right";
+export type Sorting = "none" | "desc" | "asc";
 
 // Cell
-export type Cell = {
+export interface ICell {
   id: string;
   editable?: boolean;
   locked?: boolean;
@@ -13,11 +15,16 @@ export type Cell = {
   size?: Size;
 
   // functions
-  search?: (value: string) => boolean;
-  render?: () => void;
+  search?(value: string): boolean;
+  render?(): void;
 }
 
-export const DefaultCell: Cell = {
+export interface DataCell extends ICell {
+  value: string;
+  options?: (string | OptionType)[];
+}
+
+export const DefaultCell: ICell = {
   id: "",
   editable: false,
   locked: false,
@@ -27,10 +34,11 @@ export const DefaultCell: Cell = {
 }
 
 // Column
-export type Column = Cell & {
+export interface IColumn extends ICell {
   title?: string;
   subtitle?: string;
   order: number;
+  sort?: Sorting;
 
   // functions
   cellRender?: () => void;
@@ -47,7 +55,11 @@ export type Sheet = {
 // Config
 export type Config = {
   edit: boolean;
-  pagination: boolean;
+  pagination: boolean | {
+    total: number,
+    page?: number
+  };
+  sort: boolean;
   search: boolean;
   actions: Record<string, Action>;
 }
@@ -66,6 +78,7 @@ export const DefaultConfig: StrictConfig = {
   edit: false,
   pagination: false,
   search: false,
+  sort: false,
   actions: {},
 }
 

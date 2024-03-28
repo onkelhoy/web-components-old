@@ -11,6 +11,7 @@ window.onload = () => {
       edit: true,
       pagination: true,
       search: true,
+      sort: true,
       actions: {
         filter: true,
         manage: true,
@@ -25,5 +26,24 @@ window.onload = () => {
         }
       }
     }
+
+    element.columns = ['column A', 'column B', 'column C']
+
+    element.data = [
+      ['hej', 'bajs', 'kråkan'],
+      ['hej', 'bajs', 'kråkan'],
+      ['hej', 'bajs', 'kråkan'],
+      ['hej', 'bajs', 'kråkan'],
+      ['hej', 'bajs', 'kråkan'],
+      ['hej', 'bajs', 'kråkan'],
+      ['hej', 'bajs', 'kråkan'],
+      ['hej', 'bajs', 'kråkan'],
+      ['hej', 'bajs', 'kråkan'],
+      ['hej', 'bajs', 'kråkan'],
+      ['hej', 'bajs', 'kråkan'],
+      ['hej', 'bajs', 'kråkan'],
+      ['hej', 'bajs', 'kråkan'],
+      [{ id: 'ehh', value: 'snosk' }, 'håkan', 'bråkan']
+    ]
   });
 }

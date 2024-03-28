@@ -3,14 +3,13 @@ import { ExtractSlotValue, Size, CustomElement, context, html, property } from "
 
 // atoms
 import { Textarea } from "@pap-it/textarea";
-import "@pap-it/textarea/wc";
 
 // local
 import { style } from "./style";
-import { Column, Config, DefaultConfig, Alignment } from "../../types";
+import { IColumn, Config, DefaultConfig, Alignment } from "../../types";
 
 // @property({ spread: Spread.BREAKOUT, type: Object, verbose: true }) settings: Cell = DefaultCell;
-export class TableCell extends CustomElement {
+export class Cell extends CustomElement {
   static style = style;
 
   @property() size: Size = "medium";
@@ -21,7 +20,8 @@ export class TableCell extends CustomElement {
 
   // contexts
   @context() config: Config = DefaultConfig;
-  @context() columns: Column[] = [];
+  @context() columns: IColumn[] = [];
+  @context() edit: boolean = false;
 
   private hasdoubleclick = false;
 
@@ -35,6 +35,10 @@ export class TableCell extends CustomElement {
   disconnectedCallback(): void {
     super.disconnectedCallback();
     window.removeEventListener("click", this.handlewindowclick);
+  }
+  firstRender(): void {
+    super.firstRender();
+    if (!this.hasAttribute("tabindex")) this.tabIndex = 0;
   }
 
   // event handlers 
@@ -57,34 +61,26 @@ export class TableCell extends CustomElement {
       this.mode = "default";
     }
   }
-  private handleslotchange = (e: Event) => {
-    if (e.target instanceof HTMLSlotElement) {
-      this.value = ExtractSlotValue(e.target).join(" ");
-      console.log('set value', this.value)
-    }
-  }
   private handleinput = (e: Event) => {
-    if (e.target instanceof HTMLElement) {
-      const value = (e.target as Textarea).value;
-
-      // TODO as inputs always emit their intital value (should be fixed)
-      // we just make sure value is not same as before
-      if (value !== "" && this.value !== value) {
-        console.log('value?', value)
-        // this.value = value;
-        // console.log('cgabge', value);
-      }
+    if (e.target instanceof HTMLInputElement) {
+      this.value = e.target.value;
     }
   }
 
   render() {
     return html`
-      <div part="content" contenteditable="true">
-        <slot @slotchange="${this.handleslotchange}"></slot>
+      <div part="content">
+        ${this.value}
       </div>
       <div part="edit">
-        <pap-textarea resize="none" @input="${this.handleinput}" value="${this.value}"></pap-textarea>
+        <input @input="${this.handleinput}" value="${this.value}" />
       </div>
     `
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "pap-table-cell": Cell;
   }
 }

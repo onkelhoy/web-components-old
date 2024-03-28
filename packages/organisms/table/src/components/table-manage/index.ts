@@ -18,16 +18,16 @@ import { Translator } from "@pap-it/tools-translator";
 
 // local
 import { style } from "./style";
-import { Column, DefaultConfig, StrictConfig } from "../../types";
+import { IColumn, DefaultConfig, StrictConfig } from "../../types";
 
 export class TableManage extends Translator {
   static style = style;
 
-  @context() columns: Column[] = [];
+  @context() columns: IColumn[] = [];
   @context() config: StrictConfig = DefaultConfig;
 
   // event handlers
-  private handlecheckboxchange = (type: "visible" | "locked", column: Column) => {
+  private handlecheckboxchange = (type: "visible" | "locked", column: IColumn) => {
     return (e: Event) => {
       if (e.target instanceof HTMLElement) {
         const value = (e.target as Checkbox).checked;
@@ -35,7 +35,7 @@ export class TableManage extends Translator {
       }
     }
   }
-  private handleinput = (type: "title" | "subtitle", column: Column) => {
+  private handleinput = (type: "title" | "subtitle", column: IColumn) => {
     return (e: Event) => {
       if (e.target instanceof HTMLElement) {
         const value = (e.target as Input).value
