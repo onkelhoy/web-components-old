@@ -11,29 +11,40 @@ export class Tab extends CustomElement {
 
   @property() text: string = "Tab";
 
+  // class functions
+  connectedCallback() {
+    super.connectedCallback();
+    this.setAttribute('slot', 'tab');
+  }
+
   public init(parent: HTMLElement) {
     parent.addEventListener("pre-change", this.handleprechange);
   }
 
   // event handlers
   private handleprechange = (e: Event) => {
-    if (e.target && 'selected' in e.target) {
-      const id = this.getAttribute('id') || this.getAttribute('data-tab-id');
+    // NOTE change can be bubbled so a input inside (slotted) would trigger -> make sure currentTarget & target is same meaning its tabs 
+    if (e.target && e.currentTarget === e.target) {
+      if ('selected' in e.target) {
+        if (this.checkid('id', e.target.selected as string)) return;
+      }
 
-      if (id === e.target.selected) {
-        this.classList.add("selected");
-        this.dispatchEvent(new Event('click'));
+      if ('selected_id' in e.target) {
+        if (this.checkid('data-tab-id', e.target.selected_id as string)) return;
       }
-      else {
-        this.classList.remove("selected");
-      }
+
+      this.classList.remove("selected");
     }
   }
 
-  // class functions
-  connectedCallback() {
-    super.connectedCallback();
-    this.setAttribute('slot', 'tab');
+  // helper function 
+  private checkid(ref: string, target: string) {
+    const id = this.getAttribute(ref);
+    if (id === target) {
+      this.classList.add("selected");
+      this.dispatchEvent(new Event('click'));
+      return true;
+    }
   }
 
   render() {

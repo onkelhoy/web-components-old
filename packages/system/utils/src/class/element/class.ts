@@ -115,6 +115,13 @@ export class CustomElement extends HTMLElement {
     if (this.shadowRoot) return this.shadowRoot.querySelector<T>(selector);
     return null;
   }
+  originalQuerySelector<T extends Element>(selector: string): T | null {
+    if (!selector) {
+      console.log('empty string')
+      return null;
+    }
+    return super.querySelector<T>(selector);
+  }
   getProperties(): Record<string, PropertyInfo> {
     return this.properties || {};
   }

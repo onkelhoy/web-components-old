@@ -67,8 +67,12 @@ mv $INDEX_TEMP $PACKAGE_DIR/src/index.ts
 # update all the variable names 
 
 # src 
-sed -i '' "s/COMPONENT_CLASSNAME/${classname}/g" $src_destination/index.ts &> /dev/null
+sed -i '' "s/COMPONENT_CLASSNAME/${classname}/g" $src_destination/component.ts &> /dev/null
+sed -i '' "s/COMPONENT_PREFIXNAME/${prefixname}/g" $src_destination/component.ts &> /dev/null
 sed -i '' "s/COMPONENT_PREFIXNAME/${prefixname}/g" $src_destination/index.ts &> /dev/null
+sed -i '' "s/COMPONENT_PREFIXNAME/${prefixname}/g" $src_destination/index.ts &> /dev/null
+sed -i '' "s/COMPONENT_PREFIXNAME/${prefixname}/g" $src_destination/types.ts &> /dev/null
+sed -i '' "s/COMPONENT_PREFIXNAME/${prefixname}/g" $src_destination/types.ts &> /dev/null
 # views
 sed -i '' "s/COMPONENT_CLASSNAME/${classname}/g" $view_destination/.config &> /dev/null
 sed -i '' "s/COMPONENT_CLASSNAME/${classname}/g" $view_destination/index.html &> /dev/null

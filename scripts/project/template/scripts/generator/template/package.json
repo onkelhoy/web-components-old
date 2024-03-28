@@ -1,5 +1,5 @@
 {
-  "name": "@PROJECTSCOPE/TEMPLATE_PACKAGENAMETEMPLATE_NAME",
+  "name": "@TEMPLATE_PROJECTSCOPE/TEMPLATE_PACKAGENAMETEMPLATE_NAME",
   "version": "0.0.0",
   "scripts": {
     "init": "sh .scripts/init.sh",

@@ -1,0 +1,68 @@
+:host {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  min-height: 40rem;
+  max-height: 100vh;
+  height: 100%;
+
+  main {
+    padding: var(--padding-large, 24px);
+    padding-top: var(--unit-size5, 32px);
+    height: calc(100% - var(--field-size-medium, 40px) * 2 - var(--padding-medium, 16px) * 2 - var(--gap-small, 8px));
+    box-sizing: border-box;
+    overflow-y: auto;
+    flex: 1;
+
+    pap-input {
+      margin-bottom: var(--margin-large, 24px);
+    }
+
+    div.center {
+      display: flex;
+      justify-content: center;
+      margin-top: var(--margin-medium, 16px);
+    }
+
+    form {
+      padding: 0;
+      margin: 0;
+    }
+
+    div.filters {
+      div.filter {
+        &[hidden="true"] {
+          display: none;
+        }
+
+        pap-divider {
+          margin-block: var(--margin-medium, 16px);
+        }
+      }
+    }
+  }
+
+  footer {
+    margin-top: auto;
+    background-color: var(--pap-color-bg-secondary, #F6F7F8);
+    padding-inline: var(--padding-small, 8px);
+    padding-block: var(--padding-medium, 16px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-small, 8px);
+
+    width: 100%;
+    box-sizing: border-box;
+    // bottom: 0;
+    // position: absolute;
+  }
+}
+
+
+:host([is-custom-filter="true"]) {
+  main {
+    span.dynamic {
+      display: none;
+    }
+  }
+}

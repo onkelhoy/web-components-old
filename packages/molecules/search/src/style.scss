@@ -10,22 +10,23 @@
   }
 }
 
-:host([toggled="true"]) {
-  &>pap-button {
-    display: none;
-  }
-
-  &>pap-input {
-    display: block;
-  }
-}
-
-:host([toggled="false"]) {
+:host([toggled=false]:not([mode=fixed])) {
   &>pap-button {
     display: inline-flex;
   }
 
   &>pap-input {
     display: none;
+  }
+}
+
+:host([mode=fixed]),
+:host([toggled=true]) {
+  &>pap-button {
+    display: none;
+  }
+
+  &>pap-input {
+    display: block;
   }
 }

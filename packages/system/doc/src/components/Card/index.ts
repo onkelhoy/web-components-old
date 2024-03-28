@@ -1,5 +1,10 @@
 // utils 
-import { html, CustomElement } from "@pap-it/system-utils";
+import { html, CustomElement, property } from "@pap-it/system-utils";
+
+// atoms
+import "@pap-it/accordion/wc";
+import "@pap-it/icon/wc";
+import "@pap-it/button/wc";
 
 import { style } from "./style";
 
@@ -7,10 +12,23 @@ import { style } from "./style";
 export class Card extends CustomElement {
   static style = style;
 
+  @property({ type: Boolean }) open: boolean = true;
+
+  private handleclick = () => {
+    this.open = !this.open;
+  }
+
   render() {
     return html`
-      <slot name="header"></slot>
-      <slot></slot>
+      <header part="header">
+        <slot name="header"></slot>
+        <pap-button color="secondary" variant="clear" circle="true" @click="${this.handleclick}">
+          <pap-icon name="caret"></pap-icon>
+        </pap-button>
+      </header>
+      <pap-accordion open="${this.open}">
+        <slot></slot>
+      </pap-accordion>
     `
   }
 }

@@ -2,7 +2,8 @@
 
 Atomic Type: templates
 
-Version:Version: 0.0.22
+Version: Version: 0.0.23
+
 
 ## Use Case
 

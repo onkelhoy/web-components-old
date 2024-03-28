@@ -12,6 +12,10 @@
     background-color: transparent;
     align-items: center;
     padding: 0;
+
+    pap-prefix-suffix-template {
+      gap: var(--gap-small, 8px);
+    }
   }
 
   pap-box-template[part="checkbox"] {

@@ -105,12 +105,6 @@ export function html(strings: TemplateStringsArray, ...values: any[]) {
         const eventName = attr.name.slice(1);
         const indexValue = Number(element.getAttribute(attr.name));
         element.removeAttribute(attr.name);
-
-        // prepareElement(element);
-
-        // if (!element.eventListeners) element.eventListeners = [];
-        // element.eventListeners.push({eventName, callback: values[indexValue]});
-
         element.addEventListener(eventName, values[indexValue]);
       }
     });

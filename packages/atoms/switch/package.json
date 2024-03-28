@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/switch",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -40,16 +40,16 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-utils": "1.0.13",
+    "@pap-it/system-utils": "1.0.14",
     "@pap-it/system-react": "0.0.8",
-    "@pap-it/templates-box": "1.0.20",
-    "@pap-it/templates-field": "1.0.22",
-    "@pap-it/templates-form-element": "1.0.19",
-    "@pap-it/templates-prefix-suffix": "1.0.20",
-    "@pap-it/typography": "1.0.20"
+    "@pap-it/templates-box": "1.0.21",
+    "@pap-it/templates-field": "1.0.23",
+    "@pap-it/templates-form-element": "1.0.20",
+    "@pap-it/templates-prefix-suffix": "1.0.21",
+    "@pap-it/typography": "1.0.21"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.27",
+    "@pap-it/system-doc": "1.0.28",
     "esbuild": "^0.17.18",
     "eslint": "^8.53.0",
     "node-html-parser": "^6.1.5",

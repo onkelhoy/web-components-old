@@ -1,0 +1,41 @@
+:host {
+  div:not(.fields) {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-small, 8px);
+
+    &.center {
+      justify-content: center;
+    }
+
+    &.bottom-align {
+      align-items: flex-end;
+    }
+
+    pap-select,
+    pap-input {
+      // flex: 1;
+      width: 100%;
+      min-width: 0;
+    }
+  }
+
+  div.fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-medium, 16px);
+    padding-block: var(--padding-medium, 16px);
+
+    &:empty {
+      padding-block: var(--padding-small, 8px);
+    }
+
+    div.field:has(pap-select[value=""]),
+    div.field:has(pap-select[value="empty"]),
+    div.field:has(pap-select[value="not-empty"]) {
+      pap-input {
+        display: none;
+      }
+    }
+  }
+}

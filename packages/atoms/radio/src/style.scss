@@ -1,0 +1,64 @@
+:host {
+  display: inline-block;
+  color: var(--pap-color-icon, #29292F);
+  --color: var(--pap-color-icon-secondary, #6E7087);
+  --icon-size: 24px;
+
+  cursor: pointer;
+
+  pap-box-template[part="main"] {
+    border: none;
+    display: inline-flex;
+    background-color: transparent;
+    align-items: center;
+    padding: 0;
+
+    pap-prefix-suffix-template {
+      gap: var(--gap-small, 8px);
+    }
+
+    svg {
+      color: var(--message-icon);
+      width: var(--icon-size);
+      height: var(--icon-size);
+    }
+  }
+}
+
+:host([checked=false]) svg circle[id=inner] {
+  display: none;
+}
+
+// size
+:host([size="small"]) {
+  --icon-size: 20px;
+}
+
+:host([size="medium"]) {
+  --icon-size: 24px;
+}
+
+:host([size="large"]) {
+  --icon-size: 28px;
+}
+
+
+:host([state=default][checked=false]) {
+  --message-icon: var(--pap-color-icon-secondary, #6E7087);
+}
+
+:host([state=default][checked=false]:hover) {
+  --message-icon: var(--pap-color-icon, #29292F);
+}
+
+:host([state=default][checked=true]) {
+  --message-icon: var(--pap-color-icon-brand, #0177A3);
+}
+
+:host([state=default][checked=true]:hover) {
+  --message-icon: var(--pap-color-icon-brand-hover, #0050B3);
+}
+
+:host([disabled=true]) {
+  --message-icon: var(--pap-color-icon-disabled, #A3A9B7);
+}

@@ -2,4 +2,9 @@
   input {
     height: var(--height);
   }
+
+  pap-icon[key=clearable] {
+    color: var(--pap-color-icon-secondary, #6E7087);
+    cursor: pointer;
+  }
 }

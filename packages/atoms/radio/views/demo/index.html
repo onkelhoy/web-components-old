@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radio demo</title>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Sizes</pap-typography>
+    <pap-codeblock display="both">
+      <pap-radio label="Size small" size="small"></pap-radio>
+      <pap-radio label="Size medium" size="medium"></pap-radio>
+      <pap-radio label="Size large" size="large"></pap-radio>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Label</pap-typography>
+    <pap-codeblock display="both">
+      <pap-radio label="Hello im label"></pap-radio>
+      <pap-radio label="Hi label im dad"></pap-radio>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Test</pap-typography>
+
+    <pap-typography>Real HTML case</pap-typography>
+    <pap-codeblock display="both">
+      <input type="radio" name="alone">
+      <div>
+        <input type="radio" name="a">
+      </div>
+      <div>
+        <input type="radio" name="a">
+        <input type="radio" name="a">
+      </div>
+      <form>
+        <input type="radio" name="a">
+        <input type="radio" name="a">
+      </form>
+    </pap-codeblock>
+
+    <pap-typography>Component case</pap-typography>
+    <pap-codeblock display="both">
+      <div>
+        <pap-radio name="b"></pap-radio>
+      </div>
+      <div>
+        <pap-radio name="b"></pap-radio>
+        <pap-radio name="b"></pap-radio>
+      </div>
+      <form>
+        <pap-radio name="b"></pap-radio>
+        <pap-radio name="b"></pap-radio>
+      </form>
+    </pap-codeblock>
+
+
+    <pap-typography>Mixed case</pap-typography>
+    <pap-codeblock display="both">
+      <input type="radio" name="c">
+      <input type="radio" name="c">
+      <input type="radio" name="c">
+      <pap-radio name="c"></pap-radio>
+      <pap-radio name="c"></pap-radio>
+      <pap-radio name="c"></pap-radio>
+    </pap-codeblock>
+  </doc-card>
+</body>
+
+</html>

@@ -88,6 +88,66 @@ export class TestComponent4 extends TestComponent3 {
   }
 }
 
+export class TestComponent5 extends CustomElement {
+  static style = ':host {}';
+
+  private handleclick = (e: Event) => {
+    this.dispatchEvent(new Event('apply'));
+  }
+
+  render() {
+    return html`
+      <button @click="${this.handleclick}"><slot /></button>
+    `
+  }
+}
+
+export class TestComponent6 extends CustomElement {
+  static style = ':host {}';
+
+  render() {
+    return html`
+      <div>
+        <p>fucking shit</p>
+        <slot />
+      </div>
+    `
+  }
+}
+
+export class TestComponent7 extends CustomElement {
+  static style = ':host {}';
+
+  @property({type:Boolean}) ok: boolean = false;
+
+  private handleapply = (e: Event) => {
+    console.log('apply', (e.target as HTMLButtonElement).getAttribute('id'));
+  }
+
+  private renderarray = () => {
+    const arr = [];
+    arr.push(html`
+      <test-component-5 @apply="${this.handleapply}" id="button1">button 1</test-component-5>
+    `);
+    if (this.ok) {
+      arr.push(html`
+        <test-component-5 @apply="${this.handleapply}" id="button2">button 2</test-component-5>
+      `);
+    }
+
+    return arr;
+  }
+
+  render() {
+    return html`
+      <test-component-6>
+        hello
+        ${this.renderarray()}
+      </test-component-6>
+    `
+  }
+}
+
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;
 
@@ -112,4 +172,16 @@ if (!cElements.get('test-component-3')) {
 
 if (!cElements.get('test-component-4')) {
   cElements.define('test-component-4', TestComponent4);
+}
+
+if (!cElements.get('test-component-5')) {
+  cElements.define('test-component-5', TestComponent5);
+}
+
+if (!cElements.get('test-component-6')) {
+  cElements.define('test-component-6', TestComponent6);
+}
+
+if (!cElements.get('test-component-7')) {
+  cElements.define('test-component-7', TestComponent7);
 }
