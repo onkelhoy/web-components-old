@@ -6,7 +6,7 @@
     "build": "sh .scripts/build.sh",
     "start": "sh .scripts/start.sh",
     "watch": "tsc --watch",
-    "manual-publish": "sh .scripts/publish.sh",
+    "publish:manual": "sh .scripts/publish.sh",
     "preversion": "sh .scripts/preversion.sh",
     "postversion": "sh .scripts/postversion.sh"
   },
