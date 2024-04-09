@@ -4,6 +4,36 @@ Atomic Type: ATOMIC_TYPE
 
 Version: 0.0.0
 
+## Use Case
+
+### installation
+
+```bash
+npm install @TEMPLATE_PROJECTSCOPE/TEMPLATE_PACKAGENAMETEMPLATE_NAME
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@TEMPLATE_PROJECTSCOPE/TEMPLATE_PACKAGENAMETEMPLATE_NAME/wc"
+</script>
+
+<TEMPLATE_PREFIXNAME></TEMPLATE_PREFIXNAME>
+```
+
+### to use in **react**
+
+```jsx
+import { TEMPLATE_CLASSNAME } from "@TEMPLATE_PROJECTSCOPE/TEMPLATE_PACKAGENAMETEMPLATE_NAME/react";
+
+function Component() {
+  return (
+    <TEMPLATE_CLASSNAME /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

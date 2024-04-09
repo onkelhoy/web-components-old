@@ -4,6 +4,36 @@ Atomic Type: organisms
 
 Version: 1.0.23
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/markdown
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/markdown/wc"
+</script>
+
+<pap-markdown></pap-markdown>
+```
+
+### to use in **react**
+
+```jsx
+import { Markdown } from "@pap-it/markdown/react";
+
+function Component() {
+  return (
+    <Markdown /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

@@ -4,6 +4,36 @@ Atomic Type: organisms
 
 Version:Version: 1.0.28
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/table
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/table/wc"
+</script>
+
+<pap-table></pap-table>
+```
+
+### to use in **react**
+
+```jsx
+import { Table } from "@pap-it/table/react";
+
+function Component() {
+  return (
+    <Table /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

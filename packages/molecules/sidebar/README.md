@@ -4,6 +4,40 @@ Atomic Type: molecules
 
 Version: 1.0.21
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/sidebar
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/sidebar/wc"
+</script>
+
+<pap-sidebar>
+  <pap-sidebar-item text="hello"></pap-sidebar-item>
+</pap-sidebar>
+```
+
+### to use in **react**
+
+```jsx
+import { Sidebar, Item } from "@pap-it/sidebar/react";
+
+function Component() {
+  return (
+    <Sidebar>
+      <Item text="hello" />
+    </Sidebar> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

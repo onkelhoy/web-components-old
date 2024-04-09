@@ -4,6 +4,36 @@ Atomic Type: molecules
 
 Version:Version: 0.0.23
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/language-menu
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/language-menu/wc"
+</script>
+
+<pap-language-menu></pap-language-menu>
+```
+
+### to use in **react**
+
+```jsx
+import { LanguageMenu } from "@pap-it/language-menu/react";
+
+function Component() {
+  return (
+    <LanguageMenu /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

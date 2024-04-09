@@ -4,6 +4,36 @@ Atomic Type: templates
 
 Version: 1.0.19
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/templates-color
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/templates-color/wc"
+</script>
+
+<pap-color-template></pap-color-template>
+```
+
+### to use in **react**
+
+```jsx
+import { Color } from "@pap-it/templates-color/react";
+
+function Component() {
+  return (
+    <Color /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

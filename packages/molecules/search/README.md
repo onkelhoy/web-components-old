@@ -4,6 +4,36 @@ Atomic Type: molecules
 
 Version: 1.0.22
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/search
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/search/wc"
+</script>
+
+<pap-search></pap-search>
+```
+
+### to use in **react**
+
+```jsx
+import { Search } from "@pap-it/search/react";
+
+function Component() {
+  return (
+    <Search /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

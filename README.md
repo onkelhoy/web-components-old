@@ -6,7 +6,38 @@ Welcome to the `@pap-it` ecosystem, an innovative framework designed to revoluti
 **GitHub**: [onkelhoy](https://github.com/onkelhoy/web-components)\
 **License**: MIT
 
-**IMPORTANT NOTE** as of right now the project is only supported in the macos environment as it's using fswatch, soon there should be using the fswatch npm package which should open it up for linux but windows is left out (by heavy use of unix commands).
+## Important Compatibility Note
+
+Currently, this project is optimized for macOS, as it relies on `fswatch` for monitoring file system events. Linux support is planned with the integration of the `fswatch` npm package. Windows compatibility is limited due to the reliance on Unix commands. We are looking into expanding support for Windows in future updates.
+
+## Quick Start Guide
+
+This guide will quickly set up your development environment so you can start using the framework efficiently.
+
+### Prerequisites
+
+- **Operating System**: Designed primarily for macOS. Future updates are aimed to include Linux support.
+- **Homebrew**: The initialization script uses Homebrew to install `fswatch`. Ensure you have Homebrew installed on your macOS system. Installation instructions can be found on the [official Homebrew website](https://brew.sh/).
+
+### Getting Started
+
+1. **Navigate to the Project's Root Directory**: Open your Terminal and change to the project's root directory with `cd path/to/your/project`.
+
+2. **Run the Initialization Script**: Execute the following command. This will check for the presence of `fswatch`, prompt for its installation if necessary, and install any additional required packages.
+
+   ```bash
+   npm run init
+   ```
+
+   Follow the on-screen prompts to complete the installation process.
+
+3. **Setup Complete**: With the successful execution of the initialization script, your development environment is now ready.
+
+### Ready, Set, Code
+
+You are all set to begin developing with the framework. The setup has taken care of the necessary tooling and dependencies. Dive into creating, developing, and managing your components within our innovative ecosystem.
+
+For further guidance on developing components, managing assets, and utilizing framework commands, refer to the detailed documentation provided with the framework. Happy coding!
 
 ## Abstract
 

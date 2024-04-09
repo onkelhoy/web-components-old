@@ -4,6 +4,36 @@ Atomic Type: molecules
 
 Version: 1.0.21
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/pdf-viewer
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/pdf-viewer/wc"
+</script>
+
+<pap-pdf-viewer></pap-pdf-viewer>
+```
+
+### to use in **react**
+
+```jsx
+import { PDFviewer } from "@pap-it/pdf-viewer/react";
+
+function Component() {
+  return (
+    <PDFviewer /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

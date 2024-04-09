@@ -4,6 +4,36 @@ Atomic Type: molecules
 
 Version: 1.0.21
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/drag-list
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/drag-list/wc"
+</script>
+
+<pap-drag-list></pap-drag-list>
+```
+
+### to use in **react**
+
+```jsx
+import { DragList } from "@pap-it/drag-list/react";
+
+function Component() {
+  return (
+    <DragList /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

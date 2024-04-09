@@ -4,6 +4,36 @@ Atomic Type: molecules
 
 Version:Version: 1.0.28
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/pagination
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/pagination/wc"
+</script>
+
+<pap-pagination></pap-pagination>
+```
+
+### to use in **react**
+
+```jsx
+import { Pagination } from "@pap-it/pagination/react";
+
+function Component() {
+  return (
+    <Pagination /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

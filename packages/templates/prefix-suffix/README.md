@@ -4,6 +4,36 @@ Atomic Type: templates
 
 Version: 1.0.20
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/templates-prefix-suffix
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/templates-prefix-suffix/wc"
+</script>
+
+<pap-prefix-suffix-template></pap-prefix-suffix-template>
+```
+
+### to use in **react**
+
+```jsx
+import { PrefixSuffix } from "@pap-it/templates-prefix-suffix/react";
+
+function Component() {
+  return (
+    <PrefixSuffix /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

@@ -4,6 +4,36 @@ Atomic Type: atoms
 
 Version: 1.0.23
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/switch
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/switch/wc"
+</script>
+
+<pap-switch></pap-switch>
+```
+
+### to use in **react**
+
+```jsx
+import { Switch } from "@pap-it/switch/react";
+
+function Component() {
+  return (
+    <Switch /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

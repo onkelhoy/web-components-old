@@ -4,6 +4,36 @@ Atomic Type: molecules
 
 Version:Version: 1.0.27
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/header
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/header/wc"
+</script>
+
+<pap-header></pap-header>
+```
+
+### to use in **react**
+
+```jsx
+import { Header } from "@pap-it/header/react";
+
+function Component() {
+  return (
+    <Header /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

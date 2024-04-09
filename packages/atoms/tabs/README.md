@@ -4,6 +4,42 @@ Atomic Type: atoms
 
 Version: 1.0.20
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/tabs
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/tabs/wc"
+</script>
+
+<pap-tabs>
+  <pap-tab>im tab</pap-tab>
+  <pap-tab-content>im content</pap-tab-content>
+</pap-tabs>
+```
+
+### to use in **react**
+
+```jsx
+import { Tabs, Tab, Content } from "@pap-it/tabs/react";
+
+function Component() {
+  return (
+    <Tabs>
+      <Tab>im tab</Tab> 
+      <Content>im content</Content>
+    </Tabs>
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

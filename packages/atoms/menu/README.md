@@ -4,6 +4,40 @@ Atomic Type: atoms
 
 Version:Version: 1.0.26
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/menu
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/menu/wc"
+</script>
+
+<pap-menu>
+  <pap-menu-item></pap-menu-item>
+</pap-menu>
+```
+
+### to use in **react**
+
+```jsx
+import { Menu, Item } from "@pap-it/menu/react";
+
+function Component() {
+  return (
+    <Menu>
+      <Item />
+    </Menu>
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.
