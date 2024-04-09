@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component: TableHeader</title>
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+  <doc-card>
+    <pap-typography slot="header" variant="C2">Save</pap-typography>
+
+    <pap-typography>Normal:</pap-typography>
+    <pap-codeblock config="" table-title="Hello Table Header" display="both">
+      <pap-table-header></pap-table-header>
+      <script>
+        (function () {
+          const codeblock = document.currentScript.closest('pap-codeblock');
+          codeblock.config = {
+            edit: true,
+          }
+          codeblock.dispatchEvent(new Event('context-manual-change-banana')); // yay banana !
+        }())
+      </script>
+    </pap-codeblock>
+
+    <pap-typography>Custom save:</pap-typography>
+    <pap-codeblock config="" table-title="Hello Table Header" display="both">
+      <pap-table-header>
+        <pap-button variant="outlined" color="secondary" id="edit" slot="save">edit</pap-button>
+        <div slot="save" style="display:none">
+          <pap-button variant="filled" color="secondary">save</pap-button>
+          <pap-button variant="outlined" id="cancel" color="secondary">cancel</pap-button>
+        </div>
+      </pap-table-header>
+      <script>
+          (function () {
+            const codeblock = document.currentScript.closest('pap-codeblock');
+
+            document.addEventListener('DOMContentLoaded', () => {
+              const cancelbutton = codeblock.originalQuerySelector('#cancel');
+              const editbutton = codeblock.originalQuerySelector('#edit');
+              const savediv = codeblock.originalQuerySelector('div[slot=save]');
+
+              editbutton.onclick = () => {
+                savediv.style.display = 'block';
+                editbutton.style.display = 'none';
+              }
+              cancelbutton.onclick = () => {
+                savediv.style.display = 'none';
+                editbutton.style.display = 'flex';
+              }
+            })
+
+            codeblock.config = {
+              edit: true,
+            }
+            codeblock.dispatchEvent(new Event('context-manual-change-banana')); // yay banana !
+          }())
+      </script>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C2">Search</pap-typography>
+
+    <pap-typography>Normal:</pap-typography>
+    <pap-codeblock config="" table-title="Hello Table Header" display="both">
+      <pap-table-header></pap-table-header>
+      <script>
+          (function () {
+            const codeblock = document.currentScript.closest('pap-codeblock');
+            codeblock.config = {
+              search: true,
+            }
+            codeblock.dispatchEvent(new Event('context-manual-change-banana')); // yay banana !
+          }())
+      </script>
+    </pap-codeblock>
+
+    <pap-typography>Fixed:</pap-typography>
+    <pap-codeblock config="" table-title="Hello Table Header" display="both">
+      <pap-table-header></pap-table-header>
+      <script>
+          (function () {
+            const codeblock = document.currentScript.closest('pap-codeblock');
+            codeblock.config = {
+              search: "fixed",
+            }
+            codeblock.dispatchEvent(new Event('context-manual-change-banana')); // yay banana !
+          }())
+      </script>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography variant="C2" slot="header">All Settings</pap-typography>
+
+    <pap-typography variant="C2" slot="header">Normal</pap-typography>
+    <pap-codeblock config="" table-title="Hello Table Header" display="both">
+      <pap-table-header></pap-table-header>
+      <script>
+          (function () {
+            const codeblock = document.currentScript.closest('pap-codeblock');
+            codeblock.config = {
+              edit: true,
+              pagination: true,
+              search: true,
+              actions: {
+                filter: true,
+                manage: true,
+                export: true,
+                setting: true,
+              }
+            }
+            codeblock.dispatchEvent(new Event('context-manual-change-banana')); // yay banana !
+          }())
+      </script>
+    </pap-codeblock>
+
+    <pap-typography variant="C2" slot="header">Extended</pap-typography>
+    <pap-codeblock config="" table-title="Hello Table Header" display="both">
+      <pap-table-header></pap-table-header>
+      <script>
+          (function () {
+            const codeblock = document.currentScript.closest('pap-codeblock');
+            codeblock.config = {
+              edit: true,
+              pagination: true,
+              search: true,
+              actions: {
+                filter: true,
+                manage: true,
+                export: true,
+                setting: true,
+                custom1: true,
+                custom2: true,
+                custom3: {
+                  name: 'custom-3',
+                  icon: 'custom3',
+                  callback: () => console.log('custom 3 was clicked')
+                }
+              }
+            }
+            codeblock.dispatchEvent(new Event('context-manual-change-banana')); // yay banana !
+          }())
+      </script>
+    </pap-codeblock>
+  </doc-card>
+</body>
+
+</html>

@@ -5,10 +5,24 @@ import { Size } from "@pap-it/system-utils";
 export type Alignment = "left" | "center" | "right";
 export type Sorting = "none" | "desc" | "asc";
 
+type PrefixSuffix = {
+  content: string;
+  suffix?: string;
+  prefix?: string;
+}
+export type IEdit = {
+  slot?: string | {
+    id?: string;
+    save?: boolean | string | PrefixSuffix;
+    cancel?: boolean | string | PrefixSuffix;
+  }
+}
+
+
 // Cell
 export interface ICell {
   id: string;
-  editable?: boolean;
+  editable?: boolean | IEdit;
   locked?: boolean;
   visible?: boolean;
   align?: Alignment;
@@ -38,14 +52,20 @@ export interface IColumn extends ICell {
   title?: string;
   subtitle?: string;
   order: number;
-  sort?: Sorting;
+  sort?: Sorting | boolean;
+  width?: string;
 
   // functions
   cellRender?: () => void;
 }
 
+export type InputColumn = IColumn & {
+  width?: number | string;
+  id?: string;
+}
+
 // Sheet
-export type Sheet = {
+export type ISheet = {
   id: string;
   name: string;
   locked: boolean;
@@ -54,13 +74,13 @@ export type Sheet = {
 
 // Config
 export type Config = {
-  edit: boolean;
+  edit: boolean | "request";
   pagination: boolean | {
     total: number,
     page?: number
   };
   sort: boolean;
-  search: boolean;
+  search: boolean | "fixed";
   actions: Record<string, Action>;
 }
 export type StrictConfig = Config & {
@@ -74,23 +94,25 @@ export type CustomAction = {
 }
 export type Action = boolean | string | CustomAction;
 export type ConfigKeys = keyof Config;
-export const DefaultConfig: StrictConfig = {
-  edit: false,
-  pagination: false,
-  search: false,
-  sort: false,
-  actions: {},
+export function DefaultConfig(): StrictConfig {
+  return {
+    edit: false,
+    pagination: false,
+    search: false,
+    sort: false,
+    actions: {},
+  }
 }
 
 // Filter
 export type FilterTypes = `${"" | "not "}${"contains" | "equals" | "empty"}` | "starts with" | "ends with";
-export type Filter = {
+export type IFilter = {
   type: FilterTypes;
   value?: string;
 }
-export type FilterChangeEvent = { column: string, filters: Filter[] };
+export type FilterChangeEvent = { column: string, filters: IFilter[] };
 
-export type Manage = {
+export type IManage = {
   readonly: boolean;
 }
 

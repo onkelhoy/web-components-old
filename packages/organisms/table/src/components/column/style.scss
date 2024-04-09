@@ -1,0 +1,73 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  cursor: pointer;
+  box-sizing: border-box;
+  background-color: var(--pap-color-bg-tertiary, #EAEBEF);
+  padding-block: var(--padding-smaller, 4px);
+  padding-left: var(--padding-medium, 16px);
+  padding-right: var(--padding-small, 8px);
+
+  // div {
+  //   width: 100%;
+  //   height: 100%;
+  //   box-sizing: border-box;
+  //   padding-inline: var(--padding-medium, 16px);
+  //   display: flex;
+  //   align-items: center;
+  // }
+
+  pap-typography[key="subtitle"] {
+    color: var(--pap-color-text-secondary-ontertiary, #6E7087);
+  }
+}
+
+:host(:hover) {
+  background-color: var(--pap-color-bg-hover, #DADDE3);
+}
+
+:host([hasfocus="true"]) {
+  // note later this could be controlled by the table as we wish to span over several cells
+  outline: 2px solid var(--pap-color-border-brand, #0177A3);
+}
+
+// sort
+:host([sort="none"]) div.sort>pap-icon:not([name="sort.none"]) {
+  display: none;
+}
+
+:host([sort="asc"]) div.sort>pap-icon:not([name="sort.asc"]) {
+  display: none;
+}
+
+:host([sort="desc"]) div.sort>pap-icon:not([name="sort.desc"]) {
+  display: none;
+}
+
+// sizes
+:host([size="small"]) {
+  height: var(--field-size-medium, 40px);
+}
+
+:host([size="medium"]) {
+  height: var(--field-size-large, 48px);
+}
+
+:host([size="large"]) {
+  height: var(--field-size-larger, 56px);
+}
+
+// alignment
+// :host([align="left"]) {
+//   justify-content: flex-start;
+// }
+
+// :host([align="center"]) {
+//   justify-content: center;
+// }
+
+// :host([align="right"]) {
+//   justify-content: flex-end;
+// }

@@ -53,6 +53,10 @@ export class FormElement extends CustomElement {
     this.disabled = disabled;
   }
 
+  public formAssociatedCallback(form: HTMLFormElement) {
+    // do something
+  }
+
   public formStateRestoreCallback(state: any, mode: any) {
     console.log('[field]: formStateRestoreCallback', { state, mode })
   }
@@ -108,9 +112,9 @@ export class FormElement extends CustomElement {
   protected connectElement(element: HTMLElement) {
     if (!this.element) this.element = element;
   }
-  protected updateform(value: string) {
+  protected updateform(value?: string) {
     if (this._internals !== undefined) {
-      this._internals.setFormValue(value);
+      this._internals.setFormValue(value || null);
     }
   }
   protected validateElement() {

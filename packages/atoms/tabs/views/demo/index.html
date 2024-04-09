@@ -260,6 +260,39 @@
       </pap-tabs>
     </pap-codeblock>
   </doc-card>
+
+  <doc-card>
+    <pap-typography variant="C2" slot="header">Dynamic Content</pap-typography>
+    <pap-codeblock display="both">
+      <pap-tabs></pap-tabs>
+      <pap-button color="secondary" radius="medium">LOAD</pap-button>
+      <script>
+        const currentScript = document.currentScript;
+
+        document.addEventListener("DOMContentLoaded", () => {
+          if (currentScript) {
+            const codeblock = currentScript.closest('pap-codeblock');
+            const tabs = codeblock.originalQuerySelector('pap-tabs');
+            const btn = codeblock.originalQuerySelector('pap-button');
+
+            btn.addEventListener('click', () => {
+              tabs.innerHTML = `
+                <pap-tab>Tab 1</pap-tab>
+                <pap-tab>Tab 2</pap-tab>
+                <pap-tab-content>
+                  <form>
+                    <input name="a" />
+                    <input name="b" />
+                  </form>  
+                </pap-tab-content>
+                <pap-tab-content>Content 2</pap-tab-content>
+              `
+            });
+          }
+        });
+      </script>
+    </pap-codeblock>
+  </doc-card>
 </body>
 
 </html>

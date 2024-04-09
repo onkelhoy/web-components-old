@@ -1,6 +1,6 @@
 {
   "name": "@pap-it/templates-canvas",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "scripts": {
     "init": "sh .scripts/init.sh",
     "test": ".scripts/test.sh",
@@ -40,14 +40,14 @@
     "url": "https://github.com/onkelhoy/web-components.git"
   },
   "dependencies": {
-    "@pap-it/system-utils": "1.0.13",
+    "@pap-it/system-utils": "1.0.14",
     "@pap-it/system-react": "0.0.8",
-    "@pap-it/tools-canvas": "0.0.8",
-    "@pap-it/tools-translator": "1.0.21",
-    "@pap-it/typography": "1.0.20"
+    "@pap-it/tools-canvas": "0.0.9",
+    "@pap-it/tools-translator": "1.0.22",
+    "@pap-it/typography": "1.0.21"
   },
   "devDependencies": {
-    "@pap-it/system-doc": "1.0.27",
+    "@pap-it/system-doc": "1.0.28",
     "esbuild": "^0.17.18",
     "node-html-parser": "^6.1.5",
     "sass": "^1.70.0",

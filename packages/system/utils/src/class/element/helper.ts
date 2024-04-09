@@ -16,7 +16,6 @@ export function ConvertFromString(value: string | null, type: Function) {
       return type(value);
   }
 }
-
 export function renderStyle(setting: Setting, element: CustomElement) {
   if (!element.shadowRoot) {
     console.error('shadowroot not defined yet!')
@@ -90,7 +89,9 @@ function freshRender(element: CustomElement, content: RenderType, parent: Shadow
     parent.appendChild(content);
   }
   else if (content instanceof Array) {
-    content.forEach(child => freshRender(element, child, parent));
+    content.forEach(child => {
+      freshRender(element, child, parent)
+    });
   }
 }
 function flushHTML(node: Element | ShadowRoot) {
@@ -113,11 +114,9 @@ function diffing(element: CustomElement, content: RenderType) {
   }
 
   element.rendercomperator.appendChild(element.stylecomperator);
-
   freshRender(element, content, element.rendercomperator);
 
   clone(element);
-
   cleanup(element);
 }
 
@@ -151,6 +150,19 @@ function clone(element: CustomElement) {
 
   clone.querySelectorAll('*:not(style)').forEach(node => {
     const path = getComposedPath(element, clone, node);
+    const originalnode = element.rendercomperator.querySelector(path.join(' > '));
+    if (originalnode) {
+
+      // reapply events
+      for (const eventname in originalnode.__eventListeners) {
+        if (!node.__eventListeners[eventname]) {
+          const events = originalnode.__eventListeners[eventname];
+          const { listener, options } = events[events.length - 1]; // apply last event..
+
+          node.addEventListener(eventname, listener, options);
+        }
+      }
+    }
 
     const shadowNode = element.querySelector(path.join(" > "));
 

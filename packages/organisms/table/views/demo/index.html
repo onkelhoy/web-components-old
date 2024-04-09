@@ -16,15 +16,277 @@
 </head>
 
 <body>
-  <doc-card>
+  <!-- <doc-card>
     <pap-typography variant="C2" slot="header">Basic Table</pap-typography>
     <pap-codeblock display="both">
       <pap-table class="basic-config" table-title="Basic Table">
       </pap-table>
     </pap-codeblock>
+  </doc-card> -->
+
+  <doc-card>
+    <pap-typography variant="C2" slot="header">Simpli Control</pap-typography>
+    <pap-codeblock display="both">
+
+      <pap-table class="empty">
+        <pap-button variant="outlined" color="secondary" id="edit" slot="save">edit</pap-button>
+        <div slot="save" style="display:none">
+          <pap-button variant="filled" color="secondary">save</pap-button>
+          <pap-button variant="outlined" id="cancel" color="secondary">cancel</pap-button>
+        </div>
+
+        <form slot="special-edit" id="image-edit">
+          <input type="file" placeholder="select image" />
+        </form>
+      </pap-table>
+
+      <script>
+        (function () {
+          const codeblock = document.currentScript.closest('pap-codeblock');
+          const longdata = {
+            name: "PZ Hannover",
+            postalCode: "12345",
+            city: "Cologne",
+            users: 32,
+            leganName: "Company ABC GmbH",
+            street: "Street name 123",
+            type: "delearship",
+            ID: "012345",
+            debtor: "0234567890",
+            registered: "02.02.2023"
+          }
+
+          function convert(data) {
+            return [
+              {
+                id: "name",
+                value: data.name,
+              },
+              {
+                id: "postalCode",
+                value: data.postalCode,
+              },
+              {
+                id: "city",
+                value: data.city,
+              },
+              {
+                id: "users",
+                value: data.users,
+              },
+              {
+                id: "legalName",
+                value: data.leganName,
+              },
+              {
+                id: "street",
+                value: data.street,
+              },
+              {
+                id: "type",
+                value: data.type,
+                options: ["delearship", "head quarter", "analysis center"],
+              },
+              {
+                id: "ID",
+                value: data.ID,
+              },
+              {
+                id: "debtor",
+                value: data.debtor,
+              },
+              {
+                id: "registered",
+                value: data.registered,
+              }
+            ]
+          }
+
+          document.addEventListener("DOMContentLoaded", (event) => {
+            const table = codeblock.originalQuerySelector('pap-table');
+
+            const cancelbutton = codeblock.originalQuerySelector('#cancel');
+            const editbutton = codeblock.originalQuerySelector('#edit');
+            const savediv = codeblock.originalQuerySelector('div[slot=save]');
+
+            editbutton.onclick = () => {
+              savediv.style.display = 'block';
+              editbutton.style.display = 'none';
+            }
+            cancelbutton.onclick = () => {
+              savediv.style.display = 'none';
+              editbutton.style.display = 'flex';
+            }
+
+            table.config = {
+              actions: {
+                filter: true,
+                export: true,
+              },
+              sort: true,
+              search: "fixed",
+              pagination: true
+            }
+            table.columns = [
+              {
+                id: "name",
+                title: "Name",
+                width: 250,
+                sort: false,
+                editable: {
+                  id: "image-edit",
+                  cancel: false,
+                  save: {
+                    content: "add image",
+                    prefix: "upload-image",
+                    suffix: "download-image"
+                  }
+                }
+              },
+              {
+                id: "postalCode",
+                title: "Postal code",
+                width: 150
+              },
+              {
+                id: "city",
+                title: "City",
+                width: 250
+              },
+              {
+                id: 'users',
+                title: "Users",
+                width: 100,
+                align: 'right'
+              },
+              {
+                id: "legalName",
+                title: "Legal name",
+                width: 150
+              },
+              {
+                id: "street",
+                title: "Street name & no.",
+                width: 250
+              },
+              {
+                id: "type",
+                title: "Type",
+                width: 150
+              },
+              {
+                id: "ID",
+                title: "ID",
+                width: 150
+              },
+              {
+                id: "debtor",
+                title: "Debtor no.",
+                width: 150
+              },
+              {
+                id: 'registered',
+                title: "Registered",
+                width: 150
+              }
+            ];
+
+            table.addData(new Array(10).fill({ ...longdata }), convert);
+          });
+        }())
+      </script>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography variant="C2" slot="header">Filtering</pap-typography>
+    <pap-codeblock display="both">
+
+      <pap-table>
+        <form slot="filter">
+          <input name="a" />
+          <input name="b" />
+        </form>
+      </pap-table>
+
+      <script>
+          (function () {
+            const codeblock = document.currentScript.closest('pap-codeblock');
+
+            document.addEventListener("DOMContentLoaded", (event) => {
+              const form = codeblock.originalQuerySelector('form');
+              const table = codeblock.originalQuerySelector('pap-table');
+              table.config.edit = true;
+
+              table.addEventListener('filter-apply', () => {
+                form.requestSubmit();
+              });
+              table.addEventListener('filter-reset', () => {
+                form.reset();
+              });
+
+              form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                console.log(Array.from(new FormData(e.target)));
+              })
+            });
+          }())
+      </script>
+    </pap-codeblock>
   </doc-card>
 
   <!-- <doc-card>
+    <pap-typography variant="C2" slot="header">Title</pap-typography>
+    <pap-typography>by attribute:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table table-title="Hello World"></pap-table>
+    </pap-codeblock>
+
+    <pap-typography>by slot:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table>
+        <div slot="title">
+          <strong>Hello</strong>
+          <em>World</em>
+        </div>
+      </pap-table>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography variant="C2" slot="header">Search</pap-typography>
+    <pap-typography>normal:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table></pap-table>
+      <script>
+          (function () {
+            const codeblock = document.currentScript.closest('pap-codeblock');
+
+            document.addEventListener("DOMContentLoaded", (event) => {
+              const table = codeblock.originalQuerySelector('pap-table');
+              table.config.search = true;
+            });
+          }())
+      </script>
+    </pap-codeblock>
+
+    <pap-typography>fixed:</pap-typography>
+    <pap-codeblock display="both">
+      <pap-table></pap-table>
+      <script>
+          (function () {
+            const codeblock = document.currentScript.closest('pap-codeblock');
+
+            document.addEventListener("DOMContentLoaded", (event) => {
+              const table = codeblock.originalQuerySelector('pap-table');
+              table.config.search = "fixed";
+            });
+          }())
+      </script>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
     <pap-typography variant="C2" slot="header">Title</pap-typography>
     <pap-typography>by attribute:</pap-typography>
     <pap-codeblock display="both">
@@ -42,53 +304,113 @@
     </pap-codeblock>
   </doc-card>
 
-
   <doc-card>
-    <pap-typography variant="C2" slot="header">Config</pap-typography>
-    <pap-typography>search:</pap-typography>
-    <pap-codeblock display="both">
-      <pap-table config='{"search": true}'></pap-table>
-    </pap-codeblock>
-
-    <pap-typography>filter:</pap-typography>
-    <pap-codeblock display="both">
-      <pap-table config='{"filter": true}'></pap-table>
-    </pap-codeblock>
+    <pap-typography variant="C2" slot="header">Rest of Config</pap-typography>
 
     <pap-typography>manage:</pap-typography>
     <pap-codeblock display="both">
-      <pap-table config='{"manage": true}'></pap-table>
+      <pap-table></pap-table>
+      <script>
+          (function () {
+            const codeblock = document.currentScript.closest('pap-codeblock');
+
+            document.addEventListener("DOMContentLoaded", (event) => {
+              const table = codeblock.originalQuerySelector('pap-table');
+              table.config.actions.manage = true;
+            });
+          }())
+      </script>
     </pap-codeblock>
 
     <pap-typography>export:</pap-typography>
     <pap-codeblock display="both">
-      <pap-table config='{"export": true}'></pap-table>
+      <pap-table></pap-table>
+      <script>
+          (function () {
+            const codeblock = document.currentScript.closest('pap-codeblock');
+
+            document.addEventListener("DOMContentLoaded", (event) => {
+              const table = codeblock.originalQuerySelector('pap-table');
+              table.config.actions.export = true;
+            });
+          }())
+      </script>
     </pap-codeblock>
 
     <pap-typography>setting:</pap-typography>
     <pap-codeblock display="both">
-      <pap-table config='{"setting": true}'></pap-table>
+      <pap-table></pap-table>
+      <script>
+          (function () {
+            const codeblock = document.currentScript.closest('pap-codeblock');
+
+            document.addEventListener("DOMContentLoaded", (event) => {
+              const table = codeblock.originalQuerySelector('pap-table');
+              table.config.actions.setting = true;
+            });
+          }())
+      </script>
     </pap-codeblock>
 
 
     <pap-typography>more:</pap-typography>
     <pap-codeblock display="both">
       <pap-table config='{"more": true}'></pap-table>
+      <script>
+          (function () {
+            const codeblock = document.currentScript.closest('pap-codeblock');
+
+            document.addEventListener("DOMContentLoaded", (event) => {
+              const table = codeblock.originalQuerySelector('pap-table');
+              table.config.actions.more = true;
+            });
+          }())
+      </script>
     </pap-codeblock>
+
+    <doc-card>
+      <pap-typography variant="C2" slot="header">Pagination</pap-typography>
+      <pap-codeblock display="both">
+        <pap-table></pap-table>
+        <script>
+          (function () {
+            const codeblock = document.currentScript.closest('pap-codeblock');
+
+            document.addEventListener("DOMContentLoaded", (event) => {
+              const table = codeblock.originalQuerySelector('pap-table');
+              table.config.pagination = {
+                total: 1337,
+                page: 2
+              }
+            });
+          }())
+        </script>
+      </pap-codeblock>
+    </doc-card>
 
     <pap-typography>all:</pap-typography>
     <pap-codeblock display="both">
-      <pap-table
-        config='{"search": true, "filter": true, "manage": true, "export": true, "setting": true, "more": true}'>
-        Hello world
-      </pap-table>
-    </pap-codeblock>
-  </doc-card>
+      <pap-table></pap-table>
+      <script>
+          (function () {
+            const codeblock = document.currentScript.closest('pap-codeblock');
 
-  <doc-card>
-    <pap-typography variant="C2" slot="header">Pagination</pap-typography>
-    <pap-codeblock display="both">
-      <pap-table config='{"pagination": true}'></pap-table>
+            document.addEventListener("DOMContentLoaded", (event) => {
+              const table = codeblock.originalQuerySelector('pap-table');
+              table.config.actions = {
+                filter: true,
+                manage: true,
+                setting: true,
+                more: true,
+              }
+              table.config.search = true;
+              table.config.pagination = {
+                total: 1338,
+                page: 2
+              }
+            });
+          }())
+      </script>
     </pap-codeblock>
   </doc-card> -->
 </body>

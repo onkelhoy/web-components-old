@@ -27,6 +27,26 @@
   </doc-card>
 
   <doc-card>
+    <pap-typography slot="header" variant="C1">playground</pap-typography>
+
+    <pap-typography>prefix and suffix slot</pap-typography>
+    <pap-codeblock display="both">
+      <pap-input placeholder="hello world" label="Label" counter>
+        <pap-icon container="medium" name="prefix" slot="prefix"></pap-icon>
+        <pap-icon container="medium" name="suffix" slot="suffix"></pap-icon>
+      </pap-input>
+    </pap-codeblock>
+
+    <pap-typography>clearable</pap-typography>
+    <pap-codeblock display="both">
+      <pap-input clearable="true" placeholder="hello world" label="Label" counter>
+        <pap-icon container="medium" name="prefix" slot="prefix"></pap-icon>
+        <pap-icon container="medium" name="suffix" slot="suffix"></pap-icon>
+      </pap-input>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
     <pap-typography slot="header" variant="C1">Validation</pap-typography>
 
     <pap-typography>Default validation</pap-typography>

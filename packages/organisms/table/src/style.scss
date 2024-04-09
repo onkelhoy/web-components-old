@@ -1,6 +1,7 @@
 :host {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
   background-color: var(--pap-color-bg, #FFFFFF);
   border-radius: var(--radius-medium, 16px);
 
@@ -37,35 +38,43 @@
     margin: var(--margin-large, 24px);
     border: 1px solid var(--pap-color-border-secondary, #DADDE3);
 
-    table {
-      width: 100%;
-      border-spacing: 0;
-      border-collapse: separate;
+    display: grid;
+    grid-template-columns: 1fr;
 
-      tr[key="columns"] {
-        background-color: var(--pap-color-bg-tertiary, #EAEBEF);
-      }
+    div {
+      overflow-x: auto;
 
-      tr:nth-child(n + 2) {
-        background-color: var(--pap-color-bg, white);
-      }
+      table {
+        width: 100%;
+        border-spacing: 0;
+        border-collapse: separate;
+        // display: block;
 
-      tr:nth-child(2n + 2) {
-        background-color: var(--pap-color-bg-secondary, #F6F7F8);
-      }
-
-      td,
-      th {
-        border-left: 1px solid var(--pap-color-border-secondary, #DADDE3);
-        border-bottom: 1px solid var(--pap-color-border-secondary, #DADDE3);
-
-        &:first-of-type {
-          border-left: none;
+        tr[key="columns"] {
+          background-color: var(--pap-color-bg-tertiary, #EAEBEF);
         }
-      }
 
-      tr:last-of-type td {
-        border-bottom: none;
+        tr:nth-child(n + 2) {
+          background-color: var(--pap-color-bg, white);
+        }
+
+        tr:nth-child(2n + 2) {
+          background-color: var(--pap-color-bg-secondary, #F6F7F8);
+        }
+
+        td,
+        th {
+          border-left: 1px solid var(--pap-color-border-secondary, #DADDE3);
+          border-bottom: 1px solid var(--pap-color-border-secondary, #DADDE3);
+
+          &:first-of-type {
+            border-left: none;
+          }
+        }
+
+        tr:last-of-type td {
+          border-bottom: none;
+        }
       }
     }
 

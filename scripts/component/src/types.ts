@@ -1,0 +1,1 @@
+export type COMPONENT_CLASSNAME_TYPE = "bar" | "foo";

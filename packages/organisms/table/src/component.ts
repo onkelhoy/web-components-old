@@ -1,5 +1,5 @@
 // system
-import { html, query, property, ifDefined, debounce } from "@pap-it/system-utils";
+import { html, query, property, ifDefined, debounce, CustomElement } from "@pap-it/system-utils";
 
 // atoms 
 import "@pap-it/typography/wc";
@@ -20,33 +20,44 @@ import "@pap-it/templates-box/wc";
 
 // local 
 import { style } from "./style";
-import { DefaultConfig, Config, IColumn, CustomAction, DataCell, DefaultCell } from "./types";
-import { TableHeader } from "./components/table-header";
-import { TableMenu } from "./components/table-menu";
+import { DefaultConfig, Config, IColumn, CustomAction, DataCell, DefaultCell, InputColumn } from "./types";
+import { Header } from "./components/header";
+import { Menu } from "./components/menu";
+import { Export } from "./components/export";
 
 export class Table extends Translator {
   static style = style;
 
   // queries
   @query('pap-pagination') paginationElement!: Pagination;
-  @query('pap-table-menu') tablemenuElement!: TableMenu;
-  @query<TableHeader>({
+  @query('pap-table-menu') tablemenuElement!: Menu;
+  @query<Header>({
     selector: 'pap-table-header', load: function (this: Table) {
       if (this.config) {
         this.tableheaderElement.config = this.config;
       }
-
     }
-  }) tableheaderElement!: TableHeader;
+  }) tableheaderElement!: Header;
 
   // propterties
   @property({ attribute: 'table-title', context: true }) tableTitle?: string;
-  @property({ type: Object, attribute: false, context: true }) config: Config = DefaultConfig;
+  @property({
+    type: Object,
+    context: true,
+    attribute: false,
+    after: function (this: Table) {
+      if (!this.config.actions.filter) {
+        if (this.originalQuerySelector('[slot=filter]')) {
+          this.config.actions.filter = true;
+        }
+      }
+    }
+  }) config: Config = DefaultConfig(); // reapply attribute when spread exist..
   @property({
     type: Array,
     attribute: false,
     context: true,
-    set: function (this: Table, value: any[]) {
+    set: function (this: Table, value: (string | InputColumn)[]) {
       const ret: IColumn[] = [];
       for (let i = 0; i < value.length; i++) {
         let col: IColumn = {
@@ -54,21 +65,23 @@ export class Table extends Translator {
           order: i,
         }
 
+
         if (typeof value[i] === "string") {
-          col.title = value[i];
-          col.id = value[i];
+          const str = value[i] as string;
+          col.title = str;
+          col.id = "column" + i;
         }
         else if (value[i] instanceof Object) {
+          const obj = value[i] as InputColumn;
           col = {
             ...col,
-            ...value[i]
+            ...obj,
           }
         }
 
         ret.push(col);
       }
 
-      console.log('columns', ret);
       return ret;
     }
   }) columns: IColumn[] = [];
@@ -77,6 +90,9 @@ export class Table extends Translator {
     attribute: false,
     context: true,
     set: function (this: Table, value: any[][]) {
+      if (value.length > 0 && !this.columns) {
+        throw new Error("[TABLE] you must assign columns before assigning data!");
+      }
       const ret: DataCell[][] = [];
       let size = 0;
 
@@ -102,6 +118,11 @@ export class Table extends Translator {
             };
           }
 
+          // check if column match by id 
+          if (!this.columns.find(c => c.id === cell.id)) {
+            cell.id = this.columns[col].id;
+          }
+
           rowarray.push(cell);
         }
         ret.push(rowarray);
@@ -119,8 +140,18 @@ export class Table extends Translator {
 
   constructor() {
     super();
-
     this.initcolumns = debounce(this.initcolumns);
+
+    // const slots = this.querySelectorAll('[slot]');
+    // for (let slot of slots) {
+    //   const name = slot.getAttribute('slot');
+    //   if (name === "filter") 
+    //   {
+    //     if (!this.config.actions.filter) {
+    //       console.log('yes')
+    //     }
+    //   }
+    // }
   }
 
   get total() {
@@ -129,6 +160,10 @@ export class Table extends Translator {
     }
 
     return this.data.length;
+  }
+
+  get pagination() {
+    return this.paginationElement;
   }
 
   // event handlers
@@ -151,14 +186,65 @@ export class Table extends Translator {
     }
   }
   private handlesearch = (e: CustomEvent) => {
-    console.log('search', e.detail.value)
+    this.dispatchEvent(new CustomEvent('search', { detail: { value: e.detail.value } }));
   }
   private handlefilterapply = (e: Event) => {
-    console.log('filter', e);
+    this.dispatchEvent(new CustomEvent('filter-apply', { detail: (e instanceof CustomEvent ? e.detail : undefined) }));
+  }
+  private handlefilterreset = (e: Event) => {
+    this.dispatchEvent(new Event('filter-reset'));
+  }
+  private handlepaginationchange = (e: Event) => {
+    this.dispatchEvent(new Event('pagination'));
+  }
+  private handlesaveslotchange = (e: Event) => {
+    if (e.target instanceof HTMLSlotElement) {
+      if (e.target.assignedElements().length > 0) {
+        if (!this.config.edit) {
+          this.config.edit = true;
+        }
+      }
+    }
+  }
+  private handlefilterslot = (e: Event) => {
+    if (e.target instanceof HTMLSlotElement) {
+      if (e.target.assignedNodes().length > 0) {
+        if (!this.config.actions.filter) {
+          this.config.actions.filter = true;
+        }
+      }
+    }
+  }
+  private handlemainslot = (e: Event) => {
+    if (e.target instanceof HTMLSlotElement) {
+      const elements = e.target.assignedElements();
+      for (let element of elements) {
+        console.log('yes', element, element.getAttribute('slot'));
+      }
+    }
+  }
+  private handleexport = (e: Event) => {
+    if (e.target instanceof Export) {
+      this.dispatchEvent(new CustomEvent('export', {
+        detail: {
+          value: e.target.value
+        }
+      }));
+    }
+  }
+
+  // public functions 
+  public addData<T>(data: T[], convertor: (d: T) => DataCell[]) {
+    let _data: DataCell[][] = [];
+    for (let d of data) {
+      _data.push(convertor(d));
+    }
+
+    this.data = _data;
   }
 
   // helper functions
-  private actionMenus() {
+  private actionMenus = () => {
     const actions = [];
     if (this.config.actions) {
       for (const key in this.config.actions) {
@@ -178,9 +264,16 @@ export class Table extends Translator {
         if (key === "filter") {
           actions.push(html`
             <pap-tab-content id="${key}">
-              <pap-table-filter @apply="${this.handlefilterapply}">
-                <slot name="filter"></slot>
+              <pap-table-filter key="filter" @apply="${this.handlefilterapply}" @reset="${this.handlefilterreset}">
+                <slot @slotchange="${this.handlefilterslot}" name="filter"></slot>
               </pap-table-filter>
+            </pap-tab-content>
+          `)
+        }
+        else if (key === "export") {
+          actions.push(html`
+            <pap-tab-content id="${key}">
+              <pap-table-export @change="${this.handleexport}"></pap-table-export>
             </pap-tab-content>
           `)
         }
@@ -193,6 +286,7 @@ export class Table extends Translator {
         }
       }
     }
+
     return actions;
   }
   private initcolumns = () => {
@@ -213,45 +307,70 @@ export class Table extends Translator {
         @save="${this.handlesave}"
         @search="${this.handlesearch}"
         part="header"
-      ></pap-table-header>
+      >
+        <slot @slotchange="${this.handlesaveslotchange}" name="save" slot="save"></slot>
+        <slot slot="title" name="title"></slot>
+      </pap-table-header>
+
+      <slot style="display:none" @slotchange="${this.handlemainslot}"></slot>
 
       <pap-table-menu mode="fixed">
         <pap-tabs>
           ${this.actionMenus()}
         </pap-tabs>
       </pap-table-menu>
-
+    
       <pap-box-template radius="medium" elevation="small" part="wrapper">
-        <table cellpadding="0" border="0" part="table">
-          
-          ${this.columns ? html`<colgroup key="colgroup">${this.columns.map(this.rendercolumngroup)}</colgroup>` : ''}
-          ${this.columns ? html`<tr key="columns">${this.columns.map(this.rendercolumns)}</tr>` : ''}
-          ${this.data.map(this.renderrows)}
-        </table>  
-      
-        <slot></slot>
+        <div>
+          <table cellpadding="0" border="0" part="table">
+            ${this.columns ? html`<colgroup key="colgroup">${this.columns.map(this.rendercolumngroup)}</colgroup>` : ''}
+            ${this.columns ? html`<tr key="columns">${this.columns.map(this.rendercolumns)}</tr>` : ''}
+            ${this.data.map(this.renderrows)}
+          </table>  
+        </div>
+        
         <footer part="footer">
-          
-          ${this.config.pagination ? html`<pap-pagination part="pagination" total="${this.total}"></pap-pagination>` : ''}
+          ${this.config.pagination ? html`
+            <pap-pagination 
+              part="pagination"
+              total="${this.total}"
+              page="${this.pagination?.page}"
+              @change="${this.handlepaginationchange}"
+            >
+            </pap-pagination>
+          ` : ''}
         </footer>
       </pap-box-template>
     `
   }
 
+
+
   // render helpers 
   private rendercolumns = (column: IColumn, index: number) => {
     return html`
       <td key="col-${index}">
-        <pap-table-column
-          column-title="${ifDefined(column.title)}"
-          sub-title="${ifDefined(column.subtitle)}"
-          sort="${ifDefined(column.sort || this.config.sort ? 'none' : undefined)}"
-        ></pap-table-column>
+        <pap-table-column id="${column.id}"></pap-table-column>
       </td>
     `
   }
   private rendercolumngroup = (column: IColumn, index: number) => {
-    return html`<col key="col-group-${index}" />`
+    let width = '';
+    if (column.width !== undefined) {
+      if (typeof column.width === "number") {
+        width = column.width + "px";
+      }
+      else {
+        width = column.width;
+      }
+
+      width = `width:${width};`;
+    }
+    return html`
+      <col 
+        key="col-group-${index}"
+        style="${width}"
+      />`
   }
   private renderrows = (row: DataCell[] = [], rowindex: number) => {
     return html`
@@ -265,8 +384,8 @@ export class Table extends Translator {
       <td key="${rowindex}x${colindex}">
         <pap-table-cell 
           editable=""
-          align="${data.align || 'left'}"
           value="${data.value}"
+          column-id="${data.id}"
         >
         </pap-table-cell>
       </td>

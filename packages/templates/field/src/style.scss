@@ -32,11 +32,12 @@
 
     pap-prefix-suffix-template {
       height: 100%;
+      gap: var(--gap-smaller, 4px);
     }
 
     display: block;
     background-color: var(--background);
-    padding-inline: var(--padding-small, 8px);
+    padding-inline: var(--padding-smaller, 4px);
     border: 1px solid var(--border-color);
   }
 

@@ -6,6 +6,33 @@ import '@pap-it/table/wc';
 
 window.onload = () => {
   console.log('[demo]: window loaded');
+
+  document.querySelectorAll('pap-table').forEach(table => {
+    table.addEventListener('pagination', (e) => {
+      console.log('PAGINATION:', e.target.pagination?.page);
+    });
+    table.addEventListener('search', (e) => {
+      console.log('SEARCH:', e.detail.value);
+    });
+    table.addEventListener('export', (e) => {
+      console.log('EXPORT:', e.detail.value);
+    });
+    table.addEventListener('filter-apply', (e) => {
+      console.log('FILTER:', e.detail);
+    });
+  })
+
+  document.querySelectorAll('pap-table:not(.empty)').forEach(table => {
+
+    table.columns = [{
+      title: 'column A',
+      id: 'ddd',
+      width: 120,
+    }, 'column B', 'column C']
+
+    LoadData(table);
+  });
+
   document.querySelectorAll('pap-table.basic-config').forEach(element => {
     element.config = {
       edit: true,
@@ -27,23 +54,24 @@ window.onload = () => {
       }
     }
 
-    element.columns = ['column A', 'column B', 'column C']
-
-    element.data = [
-      ['hej', 'bajs', 'kråkan'],
-      ['hej', 'bajs', 'kråkan'],
-      ['hej', 'bajs', 'kråkan'],
-      ['hej', 'bajs', 'kråkan'],
-      ['hej', 'bajs', 'kråkan'],
-      ['hej', 'bajs', 'kråkan'],
-      ['hej', 'bajs', 'kråkan'],
-      ['hej', 'bajs', 'kråkan'],
-      ['hej', 'bajs', 'kråkan'],
-      ['hej', 'bajs', 'kråkan'],
-      ['hej', 'bajs', 'kråkan'],
-      ['hej', 'bajs', 'kråkan'],
-      ['hej', 'bajs', 'kråkan'],
-      [{ id: 'ehh', value: 'snosk' }, 'håkan', 'bråkan']
-    ]
   });
+}
+
+function LoadData(table) {
+  table.data = [
+    ['hej', 'bajs', 'kråkan'],
+    ['hej', 'bajs', 'kråkan'],
+    ['hej', 'bajs', 'kråkan'],
+    ['hej', 'bajs', 'kråkan'],
+    ['hej', 'bajs', 'kråkan'],
+    ['hej', 'bajs', 'kråkan'],
+    ['hej', 'bajs', 'kråkan'],
+    ['hej', 'bajs', 'kråkan'],
+    ['hej', 'bajs', 'kråkan'],
+    ['hej', 'bajs', 'kråkan'],
+    ['hej', 'bajs', 'kråkan'],
+    ['hej', 'bajs', 'kråkan'],
+    ['hej', 'bajs', 'kråkan'],
+    ['snosk', 'håkan', 'bråkan']
+  ]
 }

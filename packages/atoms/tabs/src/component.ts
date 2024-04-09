@@ -57,7 +57,7 @@ export class Tabs extends CustomElement {
           const isContent = element instanceof TabContent;
           const isTab = element instanceof Tab;
 
-          let id = index.toString();
+          let id = "";
           if (isContent) {
             id = this.contents.length.toString();
             this.contents.push(element);
@@ -94,13 +94,6 @@ export class Tabs extends CustomElement {
       else if (firsttab !== null) {
         this.initselect(firsttab)
       }
-      // if (selected === null) {
-      //   if (firsttab !== null) {
-      //     setTimeout(() => {
-      //       (firsttab as Tab).click();
-      //     }, 100)
-      //   }
-      // }
     }
   }
   private handletabclick = (e: Event) => {
@@ -177,13 +170,11 @@ export class Tabs extends CustomElement {
 
   // helper function
   private initselect = (id: string) => {
-    if (!this.selected) {
-      this.internalselect = false;
+    if (this.selected === undefined) {
       this.selected = id;
     }
-    else {
-      this.dispatchEvent(new Event('pre-change'));
-    }
+
+    this.dispatchEvent(new Event('pre-change'));
   }
 
   render() {

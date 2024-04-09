@@ -1,10 +1,34 @@
 :host {
-    display: inline-block;
-    background-color: var(--pap-color-bg, #FFFFFF);
-    color: var(--pap-color-text, #29292F);
-    width: 100%;
-    padding: var(--padding-large, 24px);
-    box-sizing: border-box;
-    border-radius: var(--radius-medium, 8px);
-    margin-bottom: var(--margin-medium, 16px);
+  display: inline-block;
+  background-color: var(--pap-color-bg, #FFFFFF);
+  color: var(--pap-color-text, #29292F);
+  width: 100%;
+  padding: var(--padding-large, 24px);
+  box-sizing: border-box;
+  border-radius: var(--radius-medium, 8px);
+  margin-bottom: var(--margin-medium, 16px);
+  position: relative;
+
+  header {
+    display: flex;
+    gap: var(--gap-medium, 16px);
+
+    pap-button {
+      margin-left: auto;
+
+      pap-icon {
+        transition: rotate 50ms ease;
+      }
+    }
+  }
+}
+
+:host([open=false]) {
+  header {
+    pap-button {
+      pap-icon {
+        rotate: 180deg;
+      }
+    }
+  }
 }

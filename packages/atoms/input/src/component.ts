@@ -26,6 +26,7 @@ export class Input extends Field {
   @property({ type: Number }) minlength?: number;
   @property({ type: Number }) max?: number;
   @property({ type: Number }) min?: number;
+  @property({ type: Boolean }) clearable?: boolean = false;
   @property() pattern?: string;
 
   // event handlers
@@ -37,6 +38,11 @@ export class Input extends Field {
     }
 
     this.dispatchEvent(new Event('input'));
+  }
+
+  private handleclear = () => {
+    this.element.value = "";
+    this.element.dispatchEvent(new Event('input'));
   }
 
   render() {
@@ -60,6 +66,11 @@ export class Input extends Field {
           />
         `
       }
+    }
+
+    if (this.clearable && this.value && this.value.length > 0) {
+      console.log('clearable added')
+      render.main.suffix = html`<pap-icon key="clearable" container="small" @click="${this.handleclear}" size="small" name="clear-filled" cache="true" slot="suffix"></pap-icon>`
     }
     if (this.counter && this.maxlength) {
       render.header = {
