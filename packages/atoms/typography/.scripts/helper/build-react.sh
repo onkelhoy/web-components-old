@@ -15,6 +15,9 @@ done
 # get variables
 source .env 
 
+# create rootdir (now based on relative paths)
+ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
+
 if [[ $FORCE ]] || [[ ! -d ./react ]]; then 
   # clean - (for force mode)
   rm -rf ./react

@@ -8,6 +8,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # get the package environment variables
 source $PACKAGE_PATH/.env
 
+# build ROOTDIR
+ROOTDIR=$(realpath $PACKAGE_PATH$ROOTDIR_RELATIVE)
+
 export PACKAGE_PATH
 export SCRIPT_DIR
 export PREFIXNAME

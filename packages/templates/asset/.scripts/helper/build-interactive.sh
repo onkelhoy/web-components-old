@@ -3,6 +3,9 @@
 # get variables
 source .env 
 
+# create rootdir (now based on relative paths)
+ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
+
 if [ "$1" != "--child" ]; then
   # run the analyzing
   npm run analyze

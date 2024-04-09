@@ -13,6 +13,10 @@ mkdir -p views/combined/public/icons
 
 # read variables
 source .env 
+
+# build ROOTDIR (not used but what the heck..)
+ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
+
 GLOBAL=$1
 
 if [ -z $GLOBAL ]; then 

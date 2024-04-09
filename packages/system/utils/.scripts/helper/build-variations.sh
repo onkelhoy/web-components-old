@@ -6,6 +6,9 @@
 # get variables
 source .env 
 
+# create rootdir (now based on relative paths)
+ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
+
 # extract the types 
 sh $ROOTDIR/scripts/analyse/run.sh $(pwd)
 

@@ -6,6 +6,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # read variables
 source $PACKAGE_DIR/.env
 
+# build ROOTDIR
+ROOTDIR=$(realpath $PACKAGE_DIR$ROOTDIR_RELATIVE)
+
 # get project scope
 PROJECTSCOPE=$(node -pe "require('$ROOTDIR/package.json').name")
 PROJECTSCOPE=$(echo "$PROJECTSCOPE" | cut -d'/' -f1 | awk -F'@' '{print $2}')

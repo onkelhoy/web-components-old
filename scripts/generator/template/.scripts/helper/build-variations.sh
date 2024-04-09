@@ -2,6 +2,9 @@
 
 # get variables
 source .env 
+  
+# create rootdir (now based on relative paths)
+ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
 
 if [ "$1" != "--child" ]; then
   read -p "Do you wish cleanup?: (y/n) " cleanup_ans

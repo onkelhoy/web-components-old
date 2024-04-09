@@ -2,6 +2,9 @@
 
 # read the variables
 source .env 
+  
+# create rootdir (now based on relative paths)
+ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
 
 # run the analyzing
 npm run analyze

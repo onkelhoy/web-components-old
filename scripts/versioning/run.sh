@@ -6,6 +6,10 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # get the package environment variables
 source $PACKAGE_PATH/.env
+
+# build ROOTDIR
+ROOTDIR=$(realpath $PACKAGE_PATH$ROOTDIR_RELATIVE)
+
 source $ROOTDIR/versioning.env
 
 TARGET_PACKAGE=@pap-it/$PACKAGENAME$NAME

@@ -3,6 +3,9 @@
 # read the current package env
 source .env
 
+# build ROOTDIR
+ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
+
 PACKAGE_DIR=$1
 
 # Read config.env file (in generator)
