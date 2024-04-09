@@ -2,6 +2,9 @@
 
 source .env
 SUBFOLDER=${1:-demo} # default to "demo"
+  
+# create rootdir (now based on relative paths)
+ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
 
 # build file once
 npm run build

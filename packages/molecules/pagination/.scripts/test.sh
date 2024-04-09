@@ -7,6 +7,9 @@
 # # source the env file to get name info
 # source .env 
 
+# create rootdir (now based on relative paths)
+ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
+
 # # edit the file to include loader for the custom-elements
 # content = cat dist/test/base.test.js
 # # echo 

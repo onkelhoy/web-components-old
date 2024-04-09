@@ -3,6 +3,9 @@
 source .env
 SUBFOLDER=${1:-demo} # default to "demo"
 
+# create rootdir (now based on relative paths)
+ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
+
 # Function to clean up background processes when the script is terminated
 function cleanup() {
     echo "[start] clean-up"

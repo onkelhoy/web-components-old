@@ -4,6 +4,9 @@
 if [ -z "$ROOTDIR" ]; then 
   # get environment variables
   source .env
+  
+  # create rootdir (now based on relative paths)
+  ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
 fi
 
 # Define PROJECTSCOPE variable

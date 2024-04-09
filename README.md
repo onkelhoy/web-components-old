@@ -6,6 +6,8 @@ Welcome to the `@pap-it` ecosystem, an innovative framework designed to revoluti
 **GitHub**: [onkelhoy](https://github.com/onkelhoy/web-components)\
 **License**: MIT
 
+**IMPORTANT NOTE** as of right now the project is only supported in the macos environment as it's using fswatch, soon there should be using the fswatch npm package which should open it up for linux but windows is left out (by heavy use of unix commands).
+
 ## Abstract
 
 The `@pap-it` ecosystem exemplifies the strength of community collaboration and open-source innovation. By minimizing external dependencies, it ensures lean and efficient applications while providing developers the freedom to build, customize, and extend web components effortlessly. This document aims to be your detailed guide through the `@pap-it` landscape, from understanding its structure to creating, developing, and publishing your web components.

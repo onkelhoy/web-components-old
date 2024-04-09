@@ -1,6 +1,10 @@
 #!/bin/bash
 
 source .env 
+  
+# create rootdir (now based on relative paths)
+ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
+
 source $ROOTDIR/scripts/utils/bash.sh
 if [ -f "$ROOTDIR/versioning.env" ]; then 
   source "$ROOTDIR/versioning.env"

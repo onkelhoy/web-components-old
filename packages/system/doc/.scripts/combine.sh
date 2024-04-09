@@ -6,6 +6,9 @@ npm run build
 # read the variables
 source .env 
 
+# create rootdir (now based on relative paths)
+ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
+
 # run the necessary scripts 
 # sh .scripts/helper/build-variations.sh
 # sh .scripts/helper/build-doc.sh

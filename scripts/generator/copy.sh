@@ -4,6 +4,10 @@
 source ./scripts/generator/config.env
 
 ROOTDIR=$(pwd)
+
+# source utils 
+source $ROOTDIR/scripts/utils/bash.sh
+
 GITNAME=$(git config --global user.name)
 PROJECTLICENSE=$(node -pe "require('$ROOTDIR/package.json').license")
 PROJECTSCOPE=$(node -pe "require('$ROOTDIR/package.json').name")
@@ -113,7 +117,11 @@ if [ -n $PROJECTLICENSE ]; then
   sed -i '' "s/PROJECTLICENSE/${PROJECTLICENSE}/g" $destination/package.json
 fi
 
-echo "\nROOTDIR=$ROOTDIR" >> $destination/.env
+# NO WINDOW SOLUTION (realpath)
+combinedpath=$(realpath "$ROOTDIR/$destination")
+ROOTDIR_RELATIVE=$(relative_path_to_ancestor "$combinedpath" "$ROOTDIR")
+
+echo "\ROOTDIR_RELATIVE=$ROOTDIR_RELATIVE" >> $destination/.env
 
 echo "Files copied to ${destination}."
 
