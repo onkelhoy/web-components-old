@@ -4,6 +4,36 @@ Atomic Type: templates
 
 Version:Version: 0.0.22
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/templates-menu
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/templates-menu/wc"
+</script>
+
+<pap-menu-template></pap-menu-template>
+```
+
+### to use in **react**
+
+```jsx
+import { MenuTemplate } from "@pap-it/templates-menu/react";
+
+function Component() {
+  return (
+    <MenuTemplate /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

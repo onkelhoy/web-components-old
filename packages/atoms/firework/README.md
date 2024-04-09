@@ -4,6 +4,36 @@ Atomic Type: atoms
 
 Version: 0.0.9
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/firework
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/firework/wc"
+</script>
+
+<pap-firework></pap-firework>
+```
+
+### to use in **react**
+
+```jsx
+import { Firework } from "@pap-it/firework/react";
+
+function Component() {
+  return (
+    <Firework /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

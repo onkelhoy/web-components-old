@@ -4,6 +4,36 @@ Atomic Type: atoms
 
 Version: 1.0.23
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/textarea
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/textarea/wc"
+</script>
+
+<pap-textarea></pap-textarea>
+```
+
+### to use in **react**
+
+```jsx
+import { Textarea } from "@pap-it/textarea/react";
+
+function Component() {
+  return (
+    <Textarea /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

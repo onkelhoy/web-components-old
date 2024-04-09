@@ -4,6 +4,16 @@ Atomic Type: system
 
 Version:Version: 1.0.27
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/doc
+```
+
+this is not used, its more as a showcase (which soon will be removed)
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

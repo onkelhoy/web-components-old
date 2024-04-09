@@ -4,6 +4,36 @@ Atomic Type: atoms
 
 Version: 1.0.22
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/checkbox
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/checkbox/wc"
+</script>
+
+<pap-checkbox></pap-checkbox>
+```
+
+### to use in **react**
+
+```jsx
+import { Checkbox } from "@pap-it/checkbox/react";
+
+function Component() {
+  return (
+    <Checkbox /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.

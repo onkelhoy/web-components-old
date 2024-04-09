@@ -4,6 +4,36 @@ Atomic Type: atoms
 
 Version: 1.0.20
 
+## Use Case
+
+### installation
+
+```bash
+npm install @pap-it/badge
+```
+
+### to use in **html**
+
+```html
+<script type="module" defer>
+  import "@pap-it/badge/wc"
+</script>
+
+<pap-badge></pap-badge>
+```
+
+### to use in **react**
+
+```jsx
+import { Badge } from "@pap-it/badge/react";
+
+function Component() {
+  return (
+    <Badge /> 
+  )
+}
+```
+
 ## Development
 
 Development takes place within the `src` folder. To add a new subcomponent, use the command `npm run component:add`. This command updates the `.env` file, creates a view folder, and adds a subfolder in the `components` folder (creating it if it doesn't exist) inside `src` with all the necessary files.
