@@ -17,6 +17,15 @@ window.onload = () => {
     table.addEventListener('export', (e) => {
       console.log('EXPORT:', e.detail.value);
     });
+    table.addEventListener('select', (e) => {
+      console.log('SELECT:', e.detail.value);
+    });
+    table.addEventListener('sort', (e) => {
+      console.log('SORT:', e.detail.value);
+    });
+    table.addEventListener('checklist-action', (e) => {
+      console.log('CHECKLIST-ACTION:', e.detail);
+    });
     table.addEventListener('filter-apply', (e) => {
       console.log('FILTER:', e.detail);
     });

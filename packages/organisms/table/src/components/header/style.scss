@@ -42,8 +42,17 @@
       }
 
       pap-menu {
+
+        // Hide menu by default
+        display: none;
+
         pap-menu-item:nth-child(-n+7) {
           display: none;
+        }
+
+        // Show menu only if there are more than 6 items
+        &:has(pap-menu-item:nth-child(6)) {
+          display: block;
         }
       }
     }
@@ -61,6 +70,7 @@
   }
 }
 
+// small screens 
 @container (max-width: 768px) {
   :host {
     div.actions {
@@ -78,6 +88,11 @@
         }
 
         pap-menu-item:nth-child(n+4) {
+          display: block;
+        }
+
+        // Show menu only if there are more than 4 items
+        &:has(pap-menu-item:nth-child(4)) {
           display: block;
         }
       }
@@ -98,6 +113,10 @@
         flex-direction: row-reverse;
 
         pap-button[data-name="save"] {
+          margin-right: auto;
+        }
+
+        ::slotted([slot="save"]) {
           margin-right: auto;
         }
 

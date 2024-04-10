@@ -12,6 +12,7 @@ PACKAGE_DIR=$1
 source $ROOTDIR/scripts/generator/config.env
 
 # get the data
+echo "NOTE: the prefix is based on main element, ex: sub-componet of pap-table would be pap-table-component"
 read -p "Enter the name of the component: " name
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -19,7 +20,7 @@ PROJECTSCOPE=$(node -pe "require('$ROOTDIR/package.json').name")
 PROJECTSCOPE=$(echo "$PROJECTSCOPE" | cut -d'/' -f1 | awk -F'@' '{print $2}')
 
 classname=$(echo $name | awk -F"[_-]" '{$1=toupper(substr($1,1,1))substr($1,2); for (i=2;i<=NF;i++){$i=toupper(substr($i,1,1))substr($i,2)}; print}' OFS="")
-prefixname="${prefix}-${name}"
+prefixname="${PREFIXNAME}-${name}"
 
 if [[ "$ATOMICTYPE" == "global" || "$ATOMICTYPE" == "system" || "$ATOMICTYPE" == "pages" || "$ATOMICTYPE" == "templates" || "$ATOMICTYPE" == "tools" ]]; then
   # Remove the trailing 's' from the atomic type
@@ -70,9 +71,8 @@ mv $INDEX_TEMP $PACKAGE_DIR/src/index.ts
 sed -i '' "s/COMPONENT_CLASSNAME/${classname}/g" $src_destination/component.ts &> /dev/null
 sed -i '' "s/COMPONENT_PREFIXNAME/${prefixname}/g" $src_destination/component.ts &> /dev/null
 sed -i '' "s/COMPONENT_PREFIXNAME/${prefixname}/g" $src_destination/index.ts &> /dev/null
-sed -i '' "s/COMPONENT_PREFIXNAME/${prefixname}/g" $src_destination/index.ts &> /dev/null
-sed -i '' "s/COMPONENT_PREFIXNAME/${prefixname}/g" $src_destination/types.ts &> /dev/null
-sed -i '' "s/COMPONENT_PREFIXNAME/${prefixname}/g" $src_destination/types.ts &> /dev/null
+sed -i '' "s/COMPONENT_CLASSNAME/${classname}/g" $src_destination/types.ts &> /dev/null
+
 # views
 sed -i '' "s/COMPONENT_CLASSNAME/${classname}/g" $view_destination/.config &> /dev/null
 sed -i '' "s/COMPONENT_CLASSNAME/${classname}/g" $view_destination/index.html &> /dev/null

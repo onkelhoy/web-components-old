@@ -4,10 +4,8 @@ import '@pap-it/system-doc/wc';
 // component
 import '@pap-it/table/wc';
 
-window.onload = () => 
-{
-  document.querySelectorAll('pap-table-cell').forEach(elm => 
-  {
+window.onload = () => {
+  document.querySelectorAll('pap-table-cell').forEach(elm => {
     elm.parentElement.config = {
       edit: true,
       pagination: true,
@@ -26,7 +24,24 @@ window.onload = () =>
         }
       }
     }
-    elm.parentElement.columns = ["column 1"]
-    elm.parentElement.dispatchEvent(new Event('context-manual-change-banana')); // yay banana !
+  });
+
+  document.querySelectorAll('pap-codeblock').forEach(element => {
+    if (!element.columns) {
+      element.columns = [{
+        id: "column 1",
+      }]
+    }
+    if (!element.data) {
+      element.data = [
+        [
+          {
+            id: 'column 1',
+            value: 'ok'
+          }
+        ]
+      ]
+    }
+    element.dispatchEvent(new Event('context-manual-change-banana')); // yay banana !
   })
 }

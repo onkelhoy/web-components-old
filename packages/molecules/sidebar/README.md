@@ -2,7 +2,8 @@
 
 Atomic Type: molecules
 
-Version: Version: 1.0.22
+Version: Version: Version: 1.0.23
+
 
 
 ## Use Case

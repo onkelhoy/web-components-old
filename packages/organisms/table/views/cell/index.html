@@ -18,33 +18,52 @@
 <body>
   <doc-card>
     <pap-typography slot="header" variant="C1">Sizes</pap-typography>
-    <pap-codeblock display="both">
-      <div config="" columns="">
-        <pap-table-cell size="small" value="Small"></pap-table-cell>
-        <pap-table-cell size="medium" value="Medium"></pap-table-cell>
-        <pap-table-cell size="large" value="Large"></pap-table-cell>
-      </div>
+    <pap-codeblock display="both" config="" columns="" edit="" data="">
+      <pap-table-cell column-id="column 1" size="small" value="Small"></pap-table-cell>
+      <pap-table-cell column-id="column 1" size="medium" value="Medium"></pap-table-cell>
+      <pap-table-cell column-id="column 1" size="large" value="Large"></pap-table-cell>
     </pap-codeblock>
   </doc-card>
 
   <doc-card>
     <pap-typography slot="header" variant="C1">Alignment</pap-typography>
-    <pap-codeblock display="both">
-      <div config="" columns="">
-        <pap-table-cell align="left" value="Content"></pap-table-cell>
-        <pap-table-cell align="center" value="Content"></pap-table-cell>
-        <pap-table-cell align="right" value="Content"></pap-table-cell>
-      </div>
+    <pap-codeblock display="both" config="" columns="" edit="" data="">
+      <pap-table-cell column-id="column 1" align="left" value="Content"></pap-table-cell>
+      <pap-table-cell column-id="column 1" align="center" value="Content"></pap-table-cell>
+      <pap-table-cell column-id="column 1" align="right" value="Content"></pap-table-cell>
     </pap-codeblock>
   </doc-card>
 
 
   <doc-card>
     <pap-typography slot="header" variant="C1">Editable</pap-typography>
-    <pap-codeblock display="both">
-      <div config="" columns="">
-        <pap-table-cell editable value="Editable Content"></pap-table-cell>
-      </div>
+    <pap-codeblock display="both" config="" columns="" edit="" data="">
+      <pap-table-cell column-id="column 1" editable value="Editable Content"></pap-table-cell>
+      <pap-table-cell column-id="column 1" rowindex="1" editable value="b"></pap-table-cell>
+
+      <script>
+        const currentScript = document.currentScript;
+        document.addEventListener("DOMContentLoaded", () => {
+          const block = currentScript.closest("pap-codeblock");
+          block.edit = true;
+          block.data = [
+            [
+              {
+                id: 'column 1',
+                editable: true
+              }
+            ],
+            [
+              {
+                id: 'column 1',
+                options: ['a', { value: 'b', text: 'lalalla b' }, 'c'],
+                editable: true
+              }
+            ]
+          ]
+          block.dispatchEvent(new Event('context-manual-change-banana')); // yay banana !
+        })
+      </script>
     </pap-codeblock>
   </doc-card>
 </body>

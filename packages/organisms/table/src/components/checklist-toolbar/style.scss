@@ -1,0 +1,15 @@
+:host {
+  pap-box-template {
+    display: inline-flex;
+    padding: var(--padding-smaller, 4px) var(--padding-small, 8px);
+    align-items: center;
+    height: var(--field-size-medium, 40px);
+    background-color: var(--pap-table-checklist-toolbar-background, var(--pap-color-bg-inverse, #29292F));
+    color: var(--pap-table-checklist-toolbar-color, var(--pap-color-text-inverse, #FFFFFF));
+
+
+    pap-typography {
+      padding-inline: var(--padding-smaller, 4px);
+    }
+  }
+}

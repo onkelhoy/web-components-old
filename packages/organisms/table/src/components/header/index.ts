@@ -16,15 +16,14 @@ import { Translator } from "@pap-it/tools-translator";
 
 // local
 import { style } from "./style";
-import { Config, DefaultConfig, HeaderSearch, CustomAction, HeaderActionClick } from "../../types";
-import { Menu } from "@pap-it/menu";
+import { DefaultConfig, HeaderSearch, HeaderActionClick, StrictConfig } from "../../types";
 
 export class Header extends Translator {
   static style = style;
 
   @property({ type: Boolean }) customsavebutton: boolean = false;
 
-  @context() config: Config = DefaultConfig();
+  @context() config: StrictConfig = DefaultConfig();
   @context({ attribute: "table-title" }) tableTitle: string = "";
 
   // event handlers 
@@ -57,11 +56,10 @@ export class Header extends Translator {
 
   // helper functions 
   private dispatchActionClick(type: string) {
-    if (this.config.actions[type] instanceof Object) {
-      const callback = (this.config.actions[type] as CustomAction).callback;
-      if (callback instanceof Function) {
-        callback();
-      }
+    if (this.config.actions[type].callback) {
+      const callback = this.config.actions[type].callback;
+      // keeping TS happy..
+      if (callback instanceof Function) callback();
     }
     this.dispatchEvent(new CustomEvent<HeaderActionClick>('action', { detail: { type } }))
   }
@@ -70,17 +68,7 @@ export class Header extends Translator {
     const menu = [];
 
     for (let key in this.config.actions) {
-      let name = key;
-      let icon = key;
-
-      if (this.config.actions[key] instanceof Object) {
-        name = (this.config.actions[key] as CustomAction).name || key;
-        icon = (this.config.actions[key] as CustomAction).icon || name;
-      }
-      else if (typeof this.config.actions[key] === "string") {
-        name = this.config.actions[key] as string;
-        icon = name;
-      }
+      const { name, icon } = this.config.actions[key];
 
       menu.push(html`
         <pap-menu-item value="${key}" key="${name}">

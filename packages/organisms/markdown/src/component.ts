@@ -19,9 +19,11 @@ export class Markdown extends Asset {
 
   // class functions
   constructor() {
-    super();
+    super({
+      reactiveRendering: false,
+    });
 
-    this.render_mode = "greedy";
+    // this.render_mode = "greedy";
     this.assetBase = "/public/markdown"
   }
 

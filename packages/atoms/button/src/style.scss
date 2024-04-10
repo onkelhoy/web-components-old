@@ -9,15 +9,19 @@
   /* IE 10 and IE 11 */
   user-select: none;
   /* Standard syntax */
+  min-height: var(--button-touch-target, 44px);
+  display: inline-flex;
+  align-items: center;
 
   border-style: solid;
   border-width: 2px;
   border-color: transparent;
 
   align-items: center;
+  justify-content: center;
 
   pap-prefix-suffix-template {
-    flex: 1;
+    // flex: 1;
     gap: 0;
 
     &::part(content) {
@@ -42,7 +46,7 @@
 
 :host(.content-flex-start) {
   pap-prefix-suffix-template {
-    flex: 1;
+    // flex: 1;
 
     &::part(content) {
       justify-content: flex-start;
@@ -62,9 +66,13 @@
 
 :host([mode="hug"]) {
   display: inline-flex;
+
+  display: inline-flex;
 }
 
 :host([mode="fill"]) {
+  display: flex;
+
   display: flex;
   width: 100%;
   box-sizing: border-box;
@@ -161,7 +169,9 @@ $radius-map: (
 
 @each $name, $value in $radius-map {
   :host([radius="#{$name}"]) {
+
     border-radius: var(--button-radius-#{$name}, var(--radius-#{$name}, $value));
+
   }
 }
 

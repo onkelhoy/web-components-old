@@ -13,80 +13,86 @@
 
   $state-trail: "";
 
-  @if $state != "default" {
-      $state-trail: "-#{$state}";
+  @if $state !="default" {
+    $state-trail: "-#{$state}";
   }
 
-  $output: ();
+  $output: (
+  );
 
-  @if $variant == "outlined" and $state == "default" {
-      $output: map-merge($output, (
-          border: map-get($state-map, "border") or "border-#{$default-color}#{$state-trail}",
+@if $variant =="outlined" and $state =="default" {
+  $output: map-merge($output, (border: map-get($state-map, "border") or "border-#{$default-color}#{$state-trail}",
       ));
-  }
-  
-  @if ($variant == "clear" or $variant == "outlined") and $state == "default" {
-      $output: map-merge($output, (
-          text: map-get($state-map, "text") or "text-#{$default-color}#{$state-trail}",
-          icon: map-get($state-map, "icon") or "icon-#{$default-color}#{$state-trail}",
-      ));
-  }
-  @else {
-      $output: map-merge($output, (
-          text: map-get($state-map, "text") or "text-on#{$default-color}#{$state-trail}",
-          icon: map-get($state-map, "icon") or "icon-on#{$default-color}#{$state-trail}",
-          background: map-get($state-map, "background") or "bg-#{$default-color}#{$state-trail}",
-      ));
-  }
-      
-  @return $output;
 }
+
+@if ($variant =="clear" or $variant =="outlined") and $state =="default" {
+  $output: map-merge($output, (text: map-get($state-map, "text") or "text-#{$default-color}#{$state-trail}",
+        icon: map-get($state-map, "icon") or "icon-#{$default-color}#{$state-trail}",
+      ));
+}
+
+@else {
+  $output: map-merge($output, (text: map-get($state-map, "text") or "text-on#{$default-color}#{$state-trail}",
+        icon: map-get($state-map, "icon") or "icon-on#{$default-color}#{$state-trail}",
+        background: map-get($state-map, "background") or "bg-#{$default-color}#{$state-trail}",
+      ));
+}
+
+@return $output;
+}
+
 @mixin set-color($color-name, $color-map) {
   @each $variant in (filled, outlined, clear) {
-      @each $state in (default, hover, pressed) {
-          $map: get-state-set($color-map, $variant, $state, $color-name);
+    @each $state in (default, hover, pressed) {
+      $map: get-state-set($color-map, $variant, $state, $color-name);
 
-          $text: map-get($map, "text");
-          $background: map-get($map, "background");
-          $icon: map-get($map, "icon");
-          $border: map-get($map, "border");
-      
-          $pointer-state: "";
-          $state-name: $state;
-          @if $state == "hover" {
-              $pointer-state: ":hover"
-          }
-          @else if $state == "pressed" {
-              $pointer-state: ":active"
-          }
-          @else {
-              $state-name: "default";
-          }
-      
-          :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled]).#{$state-name}),
-          :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled])#{$pointer-state}) {
-              @if $border {
-                  border-color: var(--pap-button-#{$color-name}-#{$variant}-#{$state-name}-border, $border);
-              }
-              @if $background {
-                  border-color: transparent;
-                  background-color: var(--pap-button-#{$color-name}-#{$variant}-#{$state-name}-background, $background);
-              }
-          
-              color: var(--pap-button-#{$color-name}-#{$variant}-#{$state-name}-text, $text);
-          }
-          :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled]).#{$state-name}) ::slotted(pap-icon),
-          :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled])#{$pointer-state}) ::slotted(pap-icon) {
-              color: var(--pap-button-#{$color-name}-#{$variant}-#{$state-name}-icon, $icon);
-          }
+      $text: map-get($map, "text");
+      $background: map-get($map, "background");
+      $icon: map-get($map, "icon");
+      $border: map-get($map, "border");
 
-          :host([variant="#{$variant}"][color="#{$color-name}"][loading="true"]:not([disabled]).#{$state-name}),
-          :host([variant="#{$variant}"][color="#{$color-name}"][loading="true"]:not([disabled])#{$pointer-state}) {
-              &::after {
-                  border-top: 2px solid var(--pap-button-#{$color-name}-#{$variant}-#{$state-name}-icon, $icon);
-              }
-          }
+      $pointer-state: "";
+      $state-name: $state;
+
+      @if $state =="hover" {
+        $pointer-state: ":hover"
       }
+
+      @else if $state =="pressed" {
+        $pointer-state: ":active"
+      }
+
+      @else {
+        $state-name: "default";
+      }
+
+      :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled]).#{$state-name}),
+      :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled])#{$pointer-state}) {
+        @if $border {
+          border-color: var(--pap-button-#{$color-name}-#{$variant}-#{$state-name}-border, $border);
+        }
+
+        @if $background {
+          border-color: transparent;
+          background-color: var(--pap-button-#{$color-name}-#{$variant}-#{$state-name}-background, $background);
+        }
+
+        color: var(--pap-button-#{$color-name}-#{$variant}-#{$state-name}-text, $text);
+      }
+
+      :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled]).#{$state-name}) ::slotted(pap-icon),
+      :host([variant="#{$variant}"][color="#{$color-name}"]:not([disabled])#{$pointer-state}) ::slotted(pap-icon) {
+        color: var(--pap-button-#{$color-name}-#{$variant}-#{$state-name}-icon, $icon);
+      }
+
+      :host([variant="#{$variant}"][color="#{$color-name}"][loading="true"]:not([disabled]).#{$state-name}),
+      :host([variant="#{$variant}"][color="#{$color-name}"][loading="true"]:not([disabled])#{$pointer-state}) {
+
+        &::after {
+          border-top: 2px solid var(--pap-button-#{$color-name}-#{$variant}-#{$state-name}-icon, $icon);
+        }
+      }
+    }
   }
 }
 

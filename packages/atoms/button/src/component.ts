@@ -23,6 +23,23 @@ export class Button extends FormElement {
   @property({ rerender: false }) mode: ButtonMode = "hug";
   @property({ rerender: false }) variant: ButtonVariant = "filled";
   @property({ rerender: false }) color: ButtonColorVariant = "primary";
+  @property({
+    rerender: false,
+    attribute: 'touch-target',
+    set: function (this: Button, value: string) {
+      if (value === "true") {
+        return "44px";
+      }
+      else if (value === "false") {
+        return "auto";
+      }
+
+      return value;
+    },
+    before: function (this: Button, value: string) {
+      this.style.setProperty("--button-touch-target", value);
+    }
+  }) touchtarget: string = "44px";
 
   connectedCallback(): void {
     super.connectedCallback();

@@ -8,7 +8,7 @@ import "@pap-it/icon/wc";
 
 // local
 import { style } from "./style";
-import { IColumn, Config, DefaultConfig, Alignment, Sorting } from "../../types";
+import { IColumn, Config, DefaultConfig, Alignment, Sorting, Sort } from "../../types";
 
 // @property({ spread: Spread.BREAKOUT, type: Object, verbose: true }) settings: Cell = DefaultCell;
 export class Column extends CustomElement {
@@ -23,7 +23,7 @@ export class Column extends CustomElement {
   @property({ rerender: false }) size: Size = "medium";
   @property({ rerender: false }) align: Alignment = "left";
   @property() value: string = "";
-  @property() sort?: Sorting;
+  @property() sort: Sorting = "false";
 
   @property({ attribute: 'database-icon' }) databaseicon?: string;
 
@@ -52,6 +52,8 @@ export class Column extends CustomElement {
 
   // event handlers 
   private handlesortclick = () => {
+    if (!this.config?.sort || this.sort === undefined) return;
+
     if (this.sort === "none") {
       this.sort = "asc";
     }
@@ -61,6 +63,8 @@ export class Column extends CustomElement {
     else if (this.sort === "desc") {
       this.sort = "none";
     }
+
+    this.dispatchEvent(new Event('sort'));
   }
 
   // helper functions
@@ -109,7 +113,7 @@ export class Column extends CustomElement {
 
   render() {
     return html`
-      <div>
+      ${this.info?.render ? html`<div key="main" class="rendered">${this.info.render()}</div>` : html`<div key="main">
         <div>
           ${this.info?.subtitle ? html`<pap-typography key="subtitle" variant="C4">${this.info.subtitle}</pap-typography>` : ''}
         </div>
@@ -117,8 +121,8 @@ export class Column extends CustomElement {
           ${this.info?.title ? html`<pap-typography key="column-title" variant="C2" weight="">${this.info.title}</pap-typography>` : ''}
           ${this.databaseicon ? `<pap-icon key="database"></pap-icon>` : ''}
         </div>
-      </div>
-      ${this.sort ? html`
+      </div>`}
+      ${this.config?.sort && this.sort !== "false" ? html`
         <div class="sort">
           <pap-icon name="sort.none" key="sort.none"></pap-icon>
           <pap-icon name="sort.asc" key="sort.asc"></pap-icon>
