@@ -1,6 +1,6 @@
 // utils 
 import { html, property, CustomElement, query } from "@pap-it/system-utils";
-import "@pap-it/templates-popover/wc";
+import "@pap-it/templates-popover";
 
 // templates
 

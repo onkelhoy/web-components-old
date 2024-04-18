@@ -5,7 +5,6 @@ Atomic Type: tools
 Version: Version: Version: 1.0.23
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/tools-translator
 
 ```html
 <script type="module" defer>
-  import "@pap-it/tools-translator/wc"
+  import "@pap-it/tools-translator"
 </script>
 
 <pap-translator></pap-translator>

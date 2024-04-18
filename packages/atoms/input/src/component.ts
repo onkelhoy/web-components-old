@@ -3,7 +3,7 @@ import { html, ifDefined, property, query } from "@pap-it/system-utils";
 
 // templates
 import { Field, RenderArgument } from "@pap-it/templates-field";
-import "@pap-it/templates-field/wc";
+import "@pap-it/templates-field";
 
 // local 
 import { style } from "./style";

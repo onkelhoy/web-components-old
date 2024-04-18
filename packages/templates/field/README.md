@@ -5,7 +5,6 @@ Atomic Type: templates
 Version: Version: Version: 1.0.24
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/templates-field
 
 ```html
 <script type="module" defer>
-  import "@pap-it/templates-field/wc"
+  import "@pap-it/templates-field"
 </script>
 
 <pap-field-template></pap-field-template>

@@ -3,12 +3,12 @@ import { html, CustomElement, query } from "@pap-it/system-utils";
 
 // atoms 
 import { Menu, Item } from '@pap-it/menu';
-import "@pap-it/menu/wc";
-import "@pap-it/typography/wc";
+import "@pap-it/menu";
+import "@pap-it/typography";
 
 // tools
 import { THEMECHANGE_NAME, THEMEADD_NAME } from "@pap-it/tools-theme";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // local
 import { style } from "./style";

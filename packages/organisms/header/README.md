@@ -5,7 +5,6 @@ Atomic Type: molecules
 Version: Version: Version: 1.0.29
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/header
 
 ```html
 <script type="module" defer>
-  import "@pap-it/header/wc"
+  import "@pap-it/header"
 </script>
 
 <pap-header></pap-header>

@@ -3,12 +3,12 @@ import { html, property, Size, Radius, query } from "@pap-it/system-utils";
 
 // atoms
 import { ButtonColorVariant, ButtonVariant } from "@pap-it/button";
-import "@pap-it/icon/wc";
-import "@pap-it/button/wc";
+import "@pap-it/icon";
+import "@pap-it/button";
 
 // templates
 import { MenuTemplate } from "@pap-it/templates-menu";
-import "@pap-it/templates-menu/wc";
+import "@pap-it/templates-menu";
 
 // local 
 import { style } from "./style";

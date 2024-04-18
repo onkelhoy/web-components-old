@@ -5,7 +5,6 @@ Atomic Type: atoms
 Version: Version: Version: 1.0.24
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/checkbox
 
 ```html
 <script type="module" defer>
-  import "@pap-it/checkbox/wc"
+  import "@pap-it/checkbox"
 </script>
 
 <pap-checkbox></pap-checkbox>

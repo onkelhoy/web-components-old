@@ -1,11 +1,10 @@
 // tools
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 // component
-import '@pap-it/button/wc';
+import '@pap-it/button';
 
-const windowFuncatoms_button_doc_load = () => 
-{
+const windowFuncatoms_button_doc_load = () => {
   console.log('[doc]: window loaded');
 }
 

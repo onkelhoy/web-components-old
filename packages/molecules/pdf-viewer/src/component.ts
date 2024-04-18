@@ -2,12 +2,12 @@
 import { html, property, ifDefined, query, CustomElement } from "@pap-it/system-utils";
 
 // atoms
-import "@pap-it/button/wc";
-import "@pap-it/icon/wc";
-import "@pap-it/typography/wc";
+import "@pap-it/button";
+import "@pap-it/icon";
+import "@pap-it/typography";
 
 // tools
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // local
 import { style } from "./style";

@@ -1,39 +1,33 @@
-import "@pap-it/system-doc/wc";
-import "@pap-it/sidebar/wc";
-import "@pap-it/tools-routing/wc";
+import "@pap-it/system-doc";
+import "@pap-it/sidebar";
+import "@pap-it/tools-routing";
 
-function changeSelected() 
-{
+function changeSelected() {
   // we need to pre-select something 
   const [atomic, name] = window.location.pathname.split('/').filter(v => !!v);
-  if (atomic && name)
-  {
+  if (atomic && name) {
     // select the item if exist 
     const item = document.querySelector(`#${atomic}_${name}`);
-    if (item)
-    {
+    if (item) {
       item.click();
     }
   }
 }
 
-window.onload = () => 
-{
+window.onload = () => {
   // check if we already have a url 
   const sidebar = document.querySelector('pap-sidebar.designsystem');
 
   window.addEventListener('popstate', changeSelected);
 
-  if (window.location.pathname !== "/")
-  {
+  if (window.location.pathname !== "/") {
     setTimeout(changeSelected, 100);
   }
 
-  sidebar.addEventListener('select', e => 
-  {
+  sidebar.addEventListener('select', e => {
     const [atomic, name] = e.detail.id.split('_') // used in "ecosystem/build.js"
     const router = document.querySelector('pap-routing-tool');
-      
+
     const newURL = `/${atomic}/${name}/`
     router.setAttribute('asset-base', `packages${newURL}`);
     router.setAttribute('url', 'index.html');

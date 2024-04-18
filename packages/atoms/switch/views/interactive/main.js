@@ -1,4 +1,4 @@
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 let TARGET_ELEMENT = null;
 window.onload = () => {
@@ -37,4 +37,4 @@ function update(name, value, element) {
     TARGET_ELEMENT.setAttribute(name, value);
   }
 }
-import "@pap-it/switch/wc";
+import "@pap-it/switch";

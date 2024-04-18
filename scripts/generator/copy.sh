@@ -121,7 +121,7 @@ fi
 combinedpath=$(realpath "$ROOTDIR/$destination")
 ROOTDIR_RELATIVE=$(relative_path_to_ancestor "$combinedpath" "$ROOTDIR")
 
-echo "\ROOTDIR_RELATIVE=$ROOTDIR_RELATIVE" >> $destination/.env
+echo "\nROOTDIR_RELATIVE=$ROOTDIR_RELATIVE" >> $destination/.env
 
 echo "Files copied to ${destination}."
 

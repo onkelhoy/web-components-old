@@ -3,7 +3,7 @@ import { property, Size, Radius } from '@pap-it/system-utils';
 
 // templates
 import { FormElement } from '@pap-it/templates-form-element';
-import "@pap-it/templates-prefix-suffix/wc";
+import "@pap-it/templates-prefix-suffix";
 
 import { style } from './style.js';
 

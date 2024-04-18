@@ -2,9 +2,9 @@
 import { html, CustomElement, property } from "@pap-it/system-utils";
 
 // atoms
-import "@pap-it/accordion/wc";
-import "@pap-it/icon/wc";
-import "@pap-it/button/wc";
+import "@pap-it/accordion";
+import "@pap-it/icon";
+import "@pap-it/button";
 
 import { style } from "./style";
 

@@ -3,11 +3,11 @@ import { html, property, query, context } from "@pap-it/system-utils";
 
 // atoms 
 // import { OptionType } from "@pap-it/dropdown";
-import "@pap-it/button/wc";
-import "@pap-it/input/wc";
-import "@pap-it/divider/wc";
-import "@pap-it/icon/wc";
-// import "@pap-it/dropdown/wc";
+import "@pap-it/button";
+import "@pap-it/input";
+import "@pap-it/divider";
+import "@pap-it/icon";
+// import "@pap-it/dropdown";
 
 // tools
 import { Translator } from "@pap-it/tools-translator";

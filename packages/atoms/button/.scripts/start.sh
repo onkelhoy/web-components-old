@@ -24,9 +24,6 @@ function cleanup() {
 trap cleanup SIGINT
 trap cleanup EXIT
 
-# build once
-sh .scripts/build.sh
-
 # Run the watch.sh script in the same shell
 sh .scripts/watch.sh $SUBFOLDER &
 watcher_pid=$!

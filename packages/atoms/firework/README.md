@@ -5,7 +5,6 @@ Atomic Type: atoms
 Version: Version: Version: 0.0.11
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/firework
 
 ```html
 <script type="module" defer>
-  import "@pap-it/firework/wc"
+  import "@pap-it/firework"
 </script>
 
 <pap-firework></pap-firework>

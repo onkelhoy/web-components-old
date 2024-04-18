@@ -1,9 +1,9 @@
 // tools
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 // component
-import '@pap-it/codeblock/wc';
+import '@pap-it/codeblock';
 
 window.onload = () => {
-    console.log('[demo]: window loaded');
+  console.log('[demo]: window loaded');
 }

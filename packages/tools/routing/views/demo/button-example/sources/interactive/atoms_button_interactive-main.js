@@ -1,4 +1,4 @@
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 let TARGET_ELEMENT = null;
 const windowFuncatoms_button_interactive_load = () => {
@@ -8,8 +8,7 @@ const windowFuncatoms_button_interactive_load = () => {
     const name = element.name;
     const defaultvalue = element.value;
 
-    if (defaultvalue !== "" && !element.hasAttribute('data-css-input'))
-    {
+    if (defaultvalue !== "" && !element.hasAttribute('data-css-input')) {
       update(name, defaultvalue, element);
     }
 
@@ -20,31 +19,25 @@ const windowFuncatoms_button_interactive_load = () => {
 }
 
 function update(name, value, element) {
-  if (element.hasAttribute('data-css-input'))
-  {
-    if (element.hasAttribute('data-init'))
-    {
+  if (element.hasAttribute('data-css-input')) {
+    if (element.hasAttribute('data-init')) {
       TARGET_ELEMENT.style.setProperty(name, value);
     }
-    else 
-    {
+    else {
       element.setAttribute('data-init', 'true');
     }
   }
-  else if (/slot-/i.test(name))
-  {
+  else if (/slot-/i.test(name)) {
     const targetslot = TARGET_ELEMENT.querySelector(`pap-tab-content[id="interactive"] div[data-slotname="${element.getAttribute("data-slotname")}"]`);
-    if (targetslot)
-    {
+    if (targetslot) {
       targetslot.innerHTML = value;
     }
   }
-  else 
-  {
+  else {
     TARGET_ELEMENT.setAttribute(name, value);
   }
 }
-import "@pap-it/button/wc";
+import "@pap-it/button";
 
 
 window.addEventListener("load", windowFuncatoms_button_interactive_load)

@@ -1,15 +1,15 @@
 // utils 
 import { html, property, debounce, query } from "@pap-it/system-utils";
 import { Translator } from "@pap-it/tools-translator";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // atoms 
 import { OptionType, Select } from "@pap-it/select";
-import "@pap-it/icon/wc";
-import "@pap-it/typography/wc";
-import "@pap-it/button/wc";
-import "@pap-it/divider/wc";
-import "@pap-it/select/wc";
+import "@pap-it/icon";
+import "@pap-it/typography";
+import "@pap-it/button";
+import "@pap-it/divider";
+import "@pap-it/select";
 
 // local 
 import { style } from "./style";

@@ -5,7 +5,6 @@ Atomic Type: molecules
 Version: Version: Version: 1.0.24
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/search
 
 ```html
 <script type="module" defer>
-  import "@pap-it/search/wc"
+  import "@pap-it/search"
 </script>
 
 <pap-search></pap-search>

@@ -1,10 +1,9 @@
 // tools
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 // component
-import '@pap-it/tools-routing/wc';
+import '@pap-it/tools-routing';
 
-window.onload = () => 
-{
+window.onload = () => {
   console.log('[route]: window loaded');
 }

@@ -5,7 +5,6 @@ Atomic Type: atoms
 Version: Version: Version: 0.0.26
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/select
 
 ```html
 <script type="module" defer>
-  import "@pap-it/select/wc"
+  import "@pap-it/select"
 </script>
 
 <pap-select>

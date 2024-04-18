@@ -5,7 +5,6 @@ Atomic Type: molecules
 Version: Version: Version: 0.0.18
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/aside
 
 ```html
 <script type="module" defer>
-  import "@pap-it/aside/wc"
+  import "@pap-it/aside"
 </script>
 
 <pap-aside></pap-aside>

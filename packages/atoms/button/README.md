@@ -5,7 +5,6 @@ Atomic Type: atoms
 Version: Version: Version: 1.0.22
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/button
 
 ```html
 <script type="module" defer>
-  import "@pap-it/button/wc"
+  import "@pap-it/button"
 </script>
 
 <pap-button></pap-button>

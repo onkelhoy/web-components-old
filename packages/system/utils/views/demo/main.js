@@ -1,5 +1,5 @@
 // tools
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 // component
 import './component';

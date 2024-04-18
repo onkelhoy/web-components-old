@@ -5,7 +5,6 @@ Atomic Type: atoms
 Version: Version: Version: 1.0.28
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/menu
 
 ```html
 <script type="module" defer>
-  import "@pap-it/menu/wc"
+  import "@pap-it/menu"
 </script>
 
 <pap-menu>

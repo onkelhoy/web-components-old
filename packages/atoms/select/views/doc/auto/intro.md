@@ -9,7 +9,7 @@ import { debounce, html, ifDefined, property, query } from "@pap-it/system-utils
 import { Placement, Reveal } from "@pap-it/templates-popover";
 import { Field, RenderArgument, PrefixSuffixRender } from "@pap-it/templates-field";
 import { Menu, Selected } from "@pap-it/templates-menu";
-import "@pap-it/templates-menu/wc";
+import "@pap-it/templates-menu";
 
 // local 
 import { style } from "./style";

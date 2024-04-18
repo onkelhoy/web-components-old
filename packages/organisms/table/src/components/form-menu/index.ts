@@ -2,11 +2,11 @@
 import { html, property, query } from "@pap-it/system-utils";
 
 // atoms
-import "@pap-it/button/wc";
-// import "@pap-it/form/wc"
+import "@pap-it/button";
+// import "@pap-it/form"
 
 // tools
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // local
 import { style } from "./style";

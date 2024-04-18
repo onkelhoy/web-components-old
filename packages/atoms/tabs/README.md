@@ -5,7 +5,6 @@ Atomic Type: atoms
 Version: Version: Version: 1.0.22
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/tabs
 
 ```html
 <script type="module" defer>
-  import "@pap-it/tabs/wc"
+  import "@pap-it/tabs"
 </script>
 
 <pap-tabs>

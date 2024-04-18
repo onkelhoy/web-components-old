@@ -7,7 +7,7 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { html, property } from "@pap-it/system-utils";
 
 // molecules
-import "@pap-it/codeblock/wc";
+import "@pap-it/codeblock";
 import { Codeblock } from "@pap-it/codeblock";
 
 // templates

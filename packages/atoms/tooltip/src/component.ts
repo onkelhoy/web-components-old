@@ -1,8 +1,8 @@
 // system
 import { html, property, CustomElement } from "@pap-it/system-utils";
 import { Placement } from "@pap-it/templates-popover";
-import "@pap-it/templates-popover/wc";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-popover";
+import "@pap-it/templates-box";
 
 // local 
 import { style } from "./style";

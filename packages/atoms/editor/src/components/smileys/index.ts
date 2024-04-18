@@ -1,14 +1,14 @@
 // utils 
 import { html, property, query, CustomElement } from "@pap-it/system-utils";
-import '@pap-it/tools-translator/wc';
+import '@pap-it/tools-translator';
 
 // atoms
 import { Input } from "@pap-it/input";
 import { Button } from "@pap-it/button";
-import '@pap-it/button/wc';
-import '@pap-it/typography/wc';
-import '@pap-it/icon/wc';
-import '@pap-it/tooltip/wc';
+import '@pap-it/button';
+import '@pap-it/typography';
+import '@pap-it/icon';
+import '@pap-it/tooltip';
 
 // local 
 import { style } from "./style";

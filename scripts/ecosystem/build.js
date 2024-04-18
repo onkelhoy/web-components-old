@@ -29,46 +29,35 @@ const itemmap = {};
 // setup
 initializePackages(process.env.ROOT_DIR, LOCKFILE);
 
-async function init () 
-{
-  await iterate(async list => 
-  {
-    for (let info of list)
-    {
-      await new Promise(res => 
-      {
-        exec(path.join(__dirname, `individual.sh ${info.location}`), (error, envinfo, stderr) => 
-        {
-          if (error)
-          {
-            if (error.code === 2)
-            {
+async function init() {
+  await iterate(async list => {
+    for (let info of list) {
+      await new Promise(res => {
+        exec(path.join(__dirname, `individual.sh ${info.location}`), (error, envinfo, stderr) => {
+          if (error) {
+            if (error.code === 2) {
               console.log('\t[skipped]\t', info.name);
             }
-            else 
-            {
+            else {
               console.log('\t[error]\t', info.name, error);
             }
           }
-          else if (stderr)
-          {
+          else if (stderr) {
             console.log('\t[failed]\t', info.name, stderr);
           }
-          else 
-          {
+          else {
             // update ecosystem-dependency
             ECOSYSTEMPACKAGE.dependencies[info.name] = info.version;
 
             // update javascript import 
-            // MAIN_FILE += `\nimport "${info.name}/wc";`
+            // MAIN_FILE += `\nimport "${info.name}";`
 
             // add sidebar
             const [atomictype, prefixname, classname, name] = envinfo.split('#');
-            if (!itemmap[atomictype])
-            {
+            if (!itemmap[atomictype]) {
               itemmap[atomictype] = sidebarElement.querySelector(`pap-sidebar-item#${atomictype}`);
             }
-            
+
             itemmap[atomictype].setAttribute('count', Number(itemmap[atomictype].getAttribute('count') || 0) + 1)
             itemmap[atomictype].appendChild(
               parse(`<pap-sidebar-item id="${(atomictype + "_" + name).trim()}" data-atomic-type="${atomictype}" data-name="${name}" text="${name}"></pap-navbar-item>`)
@@ -76,7 +65,7 @@ async function init ()
 
             console.log('\t[success]\t', info.name);
           }
-  
+
           res();
         })
       })

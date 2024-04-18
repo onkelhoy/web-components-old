@@ -1,2 +1,2 @@
 // component
-import '@pap-it/icon/wc';
+import '@pap-it/icon';

@@ -5,7 +5,6 @@ Atomic Type: atoms
 Version: Version: Version: 1.0.24
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/tooltip
 
 ```html
 <script type="module" defer>
-  import "@pap-it/tooltip/wc"
+  import "@pap-it/tooltip"
 </script>
 
 <pap-tooltip></pap-tooltip>

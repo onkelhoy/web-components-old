@@ -1,11 +1,11 @@
 // tools
-import '@pap-it/system-doc/wc';
-import '@pap-it/input/wc';
-import '@pap-it/button/wc';
-import '@pap-it/tabs/wc';
+import '@pap-it/system-doc';
+import '@pap-it/input';
+import '@pap-it/button';
+import '@pap-it/tabs';
 
 // component
-import '@pap-it/table/wc';
+import '@pap-it/table';
 
 window.onload = () => {
   window['btn-default'].onclick = () => {

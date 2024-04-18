@@ -5,10 +5,10 @@ import { debounce, html, property, query, context, generateUUID } from "@pap-it/
 import { Select, OptionType } from "@pap-it/select";
 import { Button } from '@pap-it/button';
 import { Input } from '@pap-it/input';
-import "@pap-it/select/wc";
-import "@pap-it/button/wc";
-import "@pap-it/icon/wc";
-import "@pap-it/icon/wc";
+import "@pap-it/select";
+import "@pap-it/button";
+import "@pap-it/icon";
+import "@pap-it/icon";
 
 // tools 
 import { Translator } from "@pap-it/tools-translator";

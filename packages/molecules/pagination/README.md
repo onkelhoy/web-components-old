@@ -5,7 +5,6 @@ Atomic Type: molecules
 Version: Version: Version: 1.0.30
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/pagination
 
 ```html
 <script type="module" defer>
-  import "@pap-it/pagination/wc"
+  import "@pap-it/pagination"
 </script>
 
 <pap-pagination></pap-pagination>

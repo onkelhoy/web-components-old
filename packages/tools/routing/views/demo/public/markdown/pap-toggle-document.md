@@ -38,7 +38,7 @@ import { html } from "@pap-it/system-utils";
 
 // templates
 import { Field } from "@pap-it/templates-field";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 // local
 import { style } from "./style";
@@ -113,7 +113,7 @@ import { html } from "@pap-it/system-utils";
 
 // templates
 import { Field } from "@pap-it/templates-field";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 // local
 import { style } from "./style";
@@ -175,7 +175,7 @@ import { html } from "@pap-it/system-utils";
 
 // templates
 import { Field } from "@pap-it/templates-field";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 // local
 import { style } from "./style";

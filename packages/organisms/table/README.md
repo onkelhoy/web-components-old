@@ -6,7 +6,6 @@ Version: Version: Version: 1.0.32
 
 
 
-
 ## Use Case
 
 ### installation
@@ -19,7 +18,7 @@ npm install @pap-it/table
 
 ```html
 <script type="module" defer>
-  import "@pap-it/table/wc"
+  import "@pap-it/table"
 </script>
 
 <pap-table></pap-table>

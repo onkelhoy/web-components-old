@@ -4,6 +4,9 @@
 if [ -z "$ROOTDIR" ]; then 
   # get environment variables
   source .env
+  
+  # create rootdir (now based on relative paths)
+  ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
 fi
 
 # Define PROJECTSCOPE variable
@@ -17,7 +20,7 @@ else
   conditional_flag=""
 fi
 
-# Check if --dev flag is provided
+# Check if --prod flag is provided
 for arg in "$@"
 do
   if [[ $arg == "--prod" ]]; then
@@ -31,6 +34,9 @@ rm -rf dist
 
 # then re-create it 
 mkdir dist
+
+# create temp index file 
+sh $ROOTDIR/scripts/build-index/run.sh $(pwd)
 
 bash .scripts/helper/build-sass.sh
 if [ "$PROD" != true ]; then
@@ -53,6 +59,11 @@ fi
 
 if [ -f "./react/declerations.d.ts" ] && [ -d "./dist/react/" ]; then 
   cp "./react/declerations.d.ts" "./dist/react/"
+fi 
+
+# remove the temp index file 
+if [ -f "./index.ts" ]; then 
+  rm index.ts 
 fi 
 
 # clear the console

@@ -18,7 +18,7 @@
     "variations": "sh .scripts/helper/build-variations.sh",
     "component:add": "sh .scripts/helper/add-component.sh"
   },
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "files": [
     "asset/",
     "dist/"
@@ -26,7 +26,7 @@
   "exports": {
     "./react": "./dist/react/index.js",
     "./wc": "./dist/src/register.js",
-    ".": "./dist/src/index.js"
+    ".": "./dist/index.js"
   },
   "author": "Henry Pap",
   "private": false,

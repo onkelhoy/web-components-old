@@ -37,11 +37,11 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { html, property } from "@pap-it/system-utils";
 
 // atoms
-import "@pap-it/typography/wc";
+import "@pap-it/typography";
 
 // templates
 import { Base } from "@pap-it/system-base";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 // local
 import { style } from "./style";
@@ -113,11 +113,11 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { html, property } from "@pap-it/system-utils";
 
 // atoms
-import "@pap-it/typography/wc";
+import "@pap-it/typography";
 
 // templates
 import { Base } from "@pap-it/system-base";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 // local
 import { style } from "./style";
@@ -174,11 +174,11 @@ slots should include columns: (name, default-value, description)
 import { html, property } from "@pap-it/system-utils";
 
 // atoms
-import "@pap-it/typography/wc";
+import "@pap-it/typography";
 
 // templates
 import { Base } from "@pap-it/system-base";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 // local
 import { style } from "./style";

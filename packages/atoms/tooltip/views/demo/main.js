@@ -1,9 +1,9 @@
 // tools
-import '@pap-it/system-doc/wc';
-// import '@pap-it/dropdown/wc';
+import '@pap-it/system-doc';
+// import '@pap-it/dropdown';
 
 // component
-import '@pap-it/tooltip/wc';
+import '@pap-it/tooltip';
 
 window.onload = () => {
   console.log('[demo]: window loaded');

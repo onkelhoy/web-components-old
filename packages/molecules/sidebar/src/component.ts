@@ -1,16 +1,16 @@
 // utils 
 import { html, property, query, DetectDevice, Devices, debounce, CustomElement } from "@pap-it/system-utils";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // atoms 
-import "@pap-it/button/wc";
-import "@pap-it/icon/wc";
-import "@pap-it/divider/wc";
-import "@pap-it/typography/wc";
+import "@pap-it/button";
+import "@pap-it/icon";
+import "@pap-it/divider";
+import "@pap-it/typography";
 
 // templates
 import { Box } from "@pap-it/templates-box";
-import '@pap-it/templates-box/wc'
+import '@pap-it/templates-box'
 
 // local 
 import { style } from "./style";

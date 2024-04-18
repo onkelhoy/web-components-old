@@ -3,7 +3,7 @@ import { html, property } from "@pap-it/system-utils";
 
 // templates
 import { Field, RenderArgument } from "@pap-it/templates-field";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 // local
 import { style } from "./style";

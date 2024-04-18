@@ -7,15 +7,15 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { html, property } from "@pap-it/system-utils";
 
 // atoms
-import "@pap-it/accordion/wc";
-import "@pap-it/button/wc";
-import "@pap-it/icon/wc";
-import "@pap-it/typography/wc";
-import "@pap-it/divider/wc";
+import "@pap-it/accordion";
+import "@pap-it/button";
+import "@pap-it/icon";
+import "@pap-it/typography";
+import "@pap-it/divider";
 
 // templates
 import { Base } from "@pap-it/system-base";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 // local
 import { style } from "./style";

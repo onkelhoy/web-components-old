@@ -1,15 +1,15 @@
 // utils 
 import { html, property, CustomElement } from "@pap-it/system-utils";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // atoms 
-import "@pap-it/icon/wc";
-import "@pap-it/button/wc";
-import "@pap-it/accordion/wc";
-import "@pap-it/typography/wc";
+import "@pap-it/icon";
+import "@pap-it/button";
+import "@pap-it/accordion";
+import "@pap-it/typography";
 
 // templates
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 import { style } from "./style";
 

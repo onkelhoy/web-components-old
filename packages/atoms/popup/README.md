@@ -5,7 +5,6 @@ Atomic Type: atoms
 Version: Version: Version: 1.0.21
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/popup
 
 ```html
 <script type="module" defer>
-  import "@pap-it/popup/wc"
+  import "@pap-it/popup"
 </script>
 
 <pap-popup></pap-popup>

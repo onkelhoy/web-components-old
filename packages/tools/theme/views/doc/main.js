@@ -1,9 +1,9 @@
 // tools
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 // component
-import '@pap-it/tools-theme/wc';
+import '@pap-it/tools-theme';
 
 window.onload = () => {
-    console.log('[doc]: window loaded');
+  console.log('[doc]: window loaded');
 }

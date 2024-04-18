@@ -1,18 +1,15 @@
 // tools
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 // component
-import '@pap-it/checkbox/wc';
+import '@pap-it/checkbox';
 
-window.onload = () => 
-{
+window.onload = () => {
   console.log('[demo]: window loaded');
-  window.checked_btn.onclick = () => 
-  {
+  window.checked_btn.onclick = () => {
     window.checkbox_readonly.checked = true;
   }
-  window.unchecked_btn.onclick = () => 
-  {
+  window.unchecked_btn.onclick = () => {
     window.checkbox_readonly.checked = false;
   }
 }

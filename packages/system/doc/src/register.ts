@@ -6,14 +6,14 @@ import { Input } from './components/Input';
 import { Radio } from './components/Radio';
 
 // include packages
-import '@pap-it/tabs/wc';
-import "@pap-it/codeblock/wc";
-import "@pap-it/markdown/wc";
-import "@pap-it/typography/wc";
-import "@pap-it/icon/wc";
-import "@pap-it/divider/wc";
-import "@pap-it/header/wc";
-import "@pap-it/system-showcase/wc";
+import '@pap-it/tabs';
+import "@pap-it/codeblock";
+import "@pap-it/markdown";
+import "@pap-it/typography";
+import "@pap-it/icon";
+import "@pap-it/divider";
+import "@pap-it/header";
+import "@pap-it/system-showcase";
 
 // Register the element with the browser
 const cElements = customElements ?? window?.customElements;

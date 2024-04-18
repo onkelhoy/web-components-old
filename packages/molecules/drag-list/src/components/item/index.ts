@@ -2,11 +2,11 @@
 import { CustomElement, html, property, query } from "@pap-it/system-utils";
 
 // atoms 
-import "@pap-it/icon/wc";
-import "@pap-it/button/wc";
+import "@pap-it/icon";
+import "@pap-it/button";
 
 // templates
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 // local
 import { style } from "./style";

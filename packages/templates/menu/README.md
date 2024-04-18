@@ -5,7 +5,6 @@ Atomic Type: templates
 Version: Version: Version: 0.0.24
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/templates-menu
 
 ```html
 <script type="module" defer>
-  import "@pap-it/templates-menu/wc"
+  import "@pap-it/templates-menu"
 </script>
 
 <pap-menu-template></pap-menu-template>

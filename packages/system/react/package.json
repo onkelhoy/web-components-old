@@ -10,12 +10,12 @@
     "postversion": "sh .scripts/postversion.sh",
     "isolate": "sh .scripts/isolate.sh"
   },
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "files": [
     "dist/"
   ],
   "exports": {
-    ".": "./dist/src/index.js"
+    ".": "./dist/index.js"
   },
   "author": "onkelhoy",
   "private": false,

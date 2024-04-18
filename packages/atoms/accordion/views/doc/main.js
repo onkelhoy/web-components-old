@@ -1,10 +1,9 @@
 // tools
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 // component
-import '@pap-it/accordion/wc';
+import '@pap-it/accordion';
 
-window.onload = () => 
-{
+window.onload = () => {
   console.log('[doc]: window loaded');
 }

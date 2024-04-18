@@ -2,21 +2,21 @@
 import { html, query, property, ifDefined, debounce, CustomElement } from "@pap-it/system-utils";
 
 // atoms 
-import "@pap-it/typography/wc";
-import "@pap-it/button/wc";
-import "@pap-it/icon/wc";
-import "@pap-it/input/wc";
+import "@pap-it/typography";
+import "@pap-it/button";
+import "@pap-it/icon";
+import "@pap-it/input";
 
 // molecules
 import { Pagination } from "@pap-it/pagination";
-import "@pap-it/pagination/wc";
+import "@pap-it/pagination";
 
 // tools
 import { Translator } from "@pap-it/tools-translator";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // templates
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 // local 
 import { style } from "./style";

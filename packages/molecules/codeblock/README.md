@@ -5,7 +5,6 @@ Atomic Type: molecules
 Version: Version: Version: 1.0.25
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/codeblock
 
 ```html
 <script type="module" defer>
-  import "@pap-it/codeblock/wc"
+  import "@pap-it/codeblock"
 </script>
 
 <pap-codeblock></pap-codeblock>

@@ -37,13 +37,13 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { html, property, query, debounce } from "@pap-it/system-utils";
 
 // atoms
-import '@pap-it/icon/wc';
+import '@pap-it/icon';
 
 // templates
 import { TextinputTemplate } from '@pap-it/templates-textinput';
 import { Placement, Popover } from "@pap-it/templates-popover";
-import '@pap-it/templates-popover/wc';
-import '@pap-it/templates-box/wc';
+import '@pap-it/templates-popover';
+import '@pap-it/templates-box';
 
 // local
 import { style } from "./style";
@@ -238,13 +238,13 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { html, property, query, debounce } from "@pap-it/system-utils";
 
 // atoms
-import '@pap-it/icon/wc';
+import '@pap-it/icon';
 
 // templates
 import { TextinputTemplate } from '@pap-it/templates-textinput';
 import { Placement, Popover } from "@pap-it/templates-popover";
-import '@pap-it/templates-popover/wc';
-import '@pap-it/templates-box/wc';
+import '@pap-it/templates-popover';
+import '@pap-it/templates-box';
 
 // local
 import { style } from "./style";
@@ -426,13 +426,13 @@ slots should include columns: (name, default-value, description)
 import { html, property, query, debounce } from "@pap-it/system-utils";
 
 // atoms
-import '@pap-it/icon/wc';
+import '@pap-it/icon';
 
 // templates
 import { TextinputTemplate } from '@pap-it/templates-textinput';
 import { Placement, Popover } from "@pap-it/templates-popover";
-import '@pap-it/templates-popover/wc';
-import '@pap-it/templates-box/wc';
+import '@pap-it/templates-popover';
+import '@pap-it/templates-box';
 
 // local
 import { style } from "./style";

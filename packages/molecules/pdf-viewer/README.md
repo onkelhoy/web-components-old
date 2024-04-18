@@ -5,7 +5,6 @@ Atomic Type: molecules
 Version: Version: Version: 1.0.23
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/pdf-viewer
 
 ```html
 <script type="module" defer>
-  import "@pap-it/pdf-viewer/wc"
+  import "@pap-it/pdf-viewer"
 </script>
 
 <pap-pdf-viewer></pap-pdf-viewer>

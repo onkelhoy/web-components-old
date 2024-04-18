@@ -5,7 +5,6 @@ Atomic Type: molecules
 Version: Version: Version: 1.0.23
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/sidebar
 
 ```html
 <script type="module" defer>
-  import "@pap-it/sidebar/wc"
+  import "@pap-it/sidebar"
 </script>
 
 <pap-sidebar>

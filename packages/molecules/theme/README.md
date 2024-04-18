@@ -5,7 +5,6 @@ Atomic Type: molecules
 Version: Version: Version: 0.0.21
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/theme
 
 ```html
 <script type="module" defer>
-  import "@pap-it/theme/wc"
+  import "@pap-it/theme"
 </script>
 
 <pap-theme></pap-theme>

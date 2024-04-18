@@ -5,7 +5,6 @@ Atomic Type: molecules
 Version: Version: Version: 0.0.25
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/language-menu
 
 ```html
 <script type="module" defer>
-  import "@pap-it/language-menu/wc"
+  import "@pap-it/language-menu"
 </script>
 
 <pap-language-menu></pap-language-menu>

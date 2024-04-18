@@ -3,8 +3,8 @@ import { html, property, CustomElement } from "@pap-it/system-utils";
 
 // atoms 
 import { Switch } from '@pap-it/switch';
-import "@pap-it/icon/wc";
-import "@pap-it/switch/wc";
+import "@pap-it/icon";
+import "@pap-it/switch";
 
 
 // local

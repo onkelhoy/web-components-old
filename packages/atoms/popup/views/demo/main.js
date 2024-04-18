@@ -1,10 +1,9 @@
 // tools
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 // component
-import '@pap-it/popup/wc';
+import '@pap-it/popup';
 
-window.onload = () => 
-{
+window.onload = () => {
   console.log('[demo]: window loaded');
 }

@@ -19,6 +19,8 @@ for arg in "$@"; do
   elif [ "$arg" == "--verbose" ]; then
     export VERBOSE=true
     echo "VERBOSE=\"true\"" >> versioning.env
+  elif [ "$arg" == "--prod" ]; then
+    export PROD=true
   elif [ "$arg" == "--react" ]; then
     export REACT=true
     echo "REACT=\"true\"" >> versioning.env

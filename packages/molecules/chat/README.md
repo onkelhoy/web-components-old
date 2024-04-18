@@ -5,7 +5,6 @@ Atomic Type: molecules
 Version: Version: Version: 1.0.26
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/chat
 
 ```html
 <script type="module" defer>
-  import "@pap-it/chat/wc"
+  import "@pap-it/chat"
 </script>
 
 <pap-chat></pap-chat>

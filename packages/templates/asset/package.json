@@ -14,7 +14,7 @@
     "start": ".scripts/start.sh",
     "types": "sh ../../../scripts/extract_types/run.sh $(pwd)"
   },
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "files": [
     "asset/",
     "dist/"
@@ -22,7 +22,7 @@
   "exports": {
     "./react": "./dist/react/index.js",
     "./wc": "./dist/src/register.js",
-    ".": "./dist/src/index.js"
+    ".": "./dist/index.js"
   },
   "author": "Henry Pap",
   "private": false,

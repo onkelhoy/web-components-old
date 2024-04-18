@@ -3,8 +3,11 @@
 # read the current package env
 source .env
 
+# build script path
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # build ROOTDIR
-ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
+ROOTDIR=$(cd $SCRIPT_DIR/../../ && pwd)
 
 PACKAGE_DIR=$1
 
@@ -15,7 +18,6 @@ source $ROOTDIR/scripts/generator/config.env
 echo "NOTE: the prefix is based on main element, ex: sub-componet of pap-table would be pap-table-component"
 read -p "Enter the name of the component: " name
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECTSCOPE=$(node -pe "require('$ROOTDIR/package.json').name")
 PROJECTSCOPE=$(echo "$PROJECTSCOPE" | cut -d'/' -f1 | awk -F'@' '{print $2}')
 

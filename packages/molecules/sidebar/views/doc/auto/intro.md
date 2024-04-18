@@ -5,18 +5,18 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 // utils
 import { html, property, query } from "@pap-it/system-utils";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // atoms
-import "@pap-it/button/wc";
-import "@pap-it/icon/wc";
-import "@pap-it/divider/wc";
-import "@pap-it/typography/wc";
+import "@pap-it/button";
+import "@pap-it/icon";
+import "@pap-it/divider";
+import "@pap-it/typography";
 
 // templates
 import { Box } from "@pap-it/templates-box";
 import { Base } from "@pap-it/system-base";
-import '@pap-it/templates-box/wc'
+import '@pap-it/templates-box'
 
 // local
 import { style } from "./style";

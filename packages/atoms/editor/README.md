@@ -5,7 +5,6 @@ Atomic Type: atoms
 Version: Version: Version: 1.0.23
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/editor
 
 ```html
 <script type="module" defer>
-  import "@pap-it/editor/wc"
+  import "@pap-it/editor"
 </script>
 
 <pap-editor></pap-editor>

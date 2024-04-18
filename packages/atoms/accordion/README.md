@@ -5,7 +5,6 @@ Atomic Type: atoms
 Version: Version: Version: 1.0.22
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/accordion
 
 ```html
 <script type="module" defer>
-  import "@pap-it/accordion/wc"
+  import "@pap-it/accordion"
 </script>
 
 <pap-accordion></pap-accordion>

@@ -5,7 +5,6 @@ Atomic Type: molecules
 Version: Version: Version: 1.0.23
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/sidebar-contact
 
 ```html
 <script type="module" defer>
-  import "@pap-it/sidebar-contact/wc"
+  import "@pap-it/sidebar-contact"
 </script>
 
 <pap-sidebar-contact></pap-sidebar-contact>

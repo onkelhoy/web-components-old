@@ -2,9 +2,9 @@
 import { html, property, query, CustomElement } from "@pap-it/system-utils";
 
 // atoms 
-import "@pap-it/typography/wc";
-import "@pap-it/button/wc";
-import "@pap-it/radio/wc";
+import "@pap-it/typography";
+import "@pap-it/button";
+import "@pap-it/radio";
 
 // tools
 import { Translator } from "@pap-it/tools-translator";

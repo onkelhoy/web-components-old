@@ -35,12 +35,12 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 // utils
 import { html, property, query } from "@pap-it/system-utils";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // atoms
-import "@pap-it/badge/wc";
-import "@pap-it/typography/wc";
-import "@pap-it/menu/wc";
+import "@pap-it/badge";
+import "@pap-it/typography";
+import "@pap-it/menu";
 import { Menu } from "@pap-it/menu";
 
 // templates
@@ -140,12 +140,12 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
  // utils
 import { html, property, query } from "@pap-it/system-utils";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // atoms
-import "@pap-it/badge/wc";
-import "@pap-it/typography/wc";
-import "@pap-it/menu/wc";
+import "@pap-it/badge";
+import "@pap-it/typography";
+import "@pap-it/menu";
 import { Menu } from "@pap-it/menu";
 
 // templates
@@ -228,12 +228,12 @@ slots should include columns: (name, default-value, description)
 
 // utils
 import { html, property, query } from "@pap-it/system-utils";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // atoms
-import "@pap-it/badge/wc";
-import "@pap-it/typography/wc";
-import "@pap-it/menu/wc";
+import "@pap-it/badge";
+import "@pap-it/typography";
+import "@pap-it/menu";
 import { Menu } from "@pap-it/menu";
 
 // templates

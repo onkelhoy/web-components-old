@@ -38,12 +38,12 @@ import { html, query, property, debounce, Radius, Size } from "@pap-it/system-ut
 
 // atoms
 import { Typography } from "@pap-it/typography";
-import "@pap-it/icon/wc";
-import "@pap-it/typography/wc";
+import "@pap-it/icon";
+import "@pap-it/typography";
 
 // templates
 import { FormElement } from "@pap-it/templates-form-element";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 // local
 import { style } from "./style";
@@ -387,12 +387,12 @@ import { html, query, property, debounce, Radius, Size } from "@pap-it/system-ut
 
 // atoms
 import { Typography } from "@pap-it/typography";
-import "@pap-it/icon/wc";
-import "@pap-it/typography/wc";
+import "@pap-it/icon";
+import "@pap-it/typography";
 
 // templates
 import { FormElement } from "@pap-it/templates-form-element";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 // local
 import { style } from "./style";
@@ -752,12 +752,12 @@ import { html, query, property, debounce, Radius, Size } from "@pap-it/system-ut
 
 // atoms
 import { Typography } from "@pap-it/typography";
-import "@pap-it/icon/wc";
-import "@pap-it/typography/wc";
+import "@pap-it/icon";
+import "@pap-it/typography";
 
 // templates
 import { FormElement } from "@pap-it/templates-form-element";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 // local
 import { style } from "./style";

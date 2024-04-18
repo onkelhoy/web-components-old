@@ -2,11 +2,11 @@
 import { RenderType, html, property, query } from "@pap-it/system-utils";
 
 // atoms 
-// import "@pap-it/accordion/wc";
-// import "@pap-it/typography/wc";
-import "@pap-it/button/wc";
-import "@pap-it/icon/wc";
-// import "@pap-it/tooltip/wc";
+// import "@pap-it/accordion";
+// import "@pap-it/typography";
+import "@pap-it/button";
+import "@pap-it/icon";
+// import "@pap-it/tooltip";
 
 // molecules
 import { Aside } from "@pap-it/aside";

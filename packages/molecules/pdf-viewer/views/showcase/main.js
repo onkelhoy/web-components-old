@@ -1,9 +1,9 @@
 // tools
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 // components
-import '@pap-it/pdf-viewer/wc';
+import '@pap-it/pdf-viewer';
 
 window.onload = () => {
-    console.log('[demo]: window loaded');
+  console.log('[demo]: window loaded');
 }

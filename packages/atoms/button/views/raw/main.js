@@ -1,1 +1,1 @@
-import "@pap-it/button/wc";
+import "@pap-it/button";

@@ -2,8 +2,8 @@
 import { html, CustomElement, query } from "@pap-it/system-utils";
 
 // atoms
-import "@pap-it/button/wc";
-import "@pap-it/icon/wc";
+import "@pap-it/button";
+import "@pap-it/icon";
 
 import { style } from "./style";
 import { GroupSelection } from "./Group";

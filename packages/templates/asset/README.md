@@ -5,7 +5,6 @@ Atomic Type: templates
 Version: Version: Version: 1.0.22
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/templates-asset
 
 ```html
 <script type="module" defer>
-  import "@pap-it/templates-asset/wc"
+  import "@pap-it/templates-asset"
 </script>
 
 <pap-asset-template></pap-asset-template>

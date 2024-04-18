@@ -1,10 +1,9 @@
 // tools
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 // component
-import '@pap-it/textarea/wc';
+import '@pap-it/textarea';
 
-window.onload = () => 
-{
+window.onload = () => {
   console.log('[demo]: window loaded');
 }

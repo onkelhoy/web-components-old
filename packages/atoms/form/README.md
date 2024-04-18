@@ -16,7 +16,7 @@ npm install @pap-it/form
 
 ```html
 <script type="module" defer>
-  import "@pap-it/form/wc"
+  import "@pap-it/form"
 </script>
 
 <pap-form></pap-form>

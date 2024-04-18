@@ -4,14 +4,14 @@ import { context, html, ifDefined, property, query } from "@pap-it/system-utils"
 // atoms
 import { Checkbox } from "@pap-it/checkbox";
 import { Input } from "@pap-it/input";
-import "@pap-it/button/wc";
-import "@pap-it/icon/wc";
-import "@pap-it/checkbox/wc";
-import "@pap-it/typography/wc";
-import "@pap-it/input/wc";
+import "@pap-it/button";
+import "@pap-it/icon";
+import "@pap-it/checkbox";
+import "@pap-it/typography";
+import "@pap-it/input";
 
 // molecules
-import "@pap-it/drag-list/wc";
+import "@pap-it/drag-list";
 
 // tools 
 import { Translator } from "@pap-it/tools-translator";

@@ -1,8 +1,8 @@
 // tools
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 // component
-import '@pap-it/select/wc';
+import '@pap-it/select';
 
 let PAGINATION_CASE_VALUE = 0;
 window.onload = () => {

@@ -1,2 +1,2 @@
-import '@pap-it/system-doc/wc';
-import "@pap-it/sidebar/wc";
+import '@pap-it/system-doc';
+import "@pap-it/sidebar";

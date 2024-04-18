@@ -2,7 +2,7 @@
 import { html, property, query } from "@pap-it/system-utils";
 
 // atoms
-import "@pap-it/menu/wc";
+import "@pap-it/menu";
 
 // tools
 import { Translator } from "@pap-it/tools-translator";

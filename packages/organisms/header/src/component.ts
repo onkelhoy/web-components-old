@@ -2,16 +2,16 @@
 import { html, ifDefined, property, CustomElement } from "@pap-it/system-utils";
 
 // atoms
-import "@pap-it/badge/wc";
-import "@pap-it/typography/wc";
-import "@pap-it/menu/wc";
+import "@pap-it/badge";
+import "@pap-it/typography";
+import "@pap-it/menu";
 
 // moldecules
-import "@pap-it/language-menu/wc";
-import "@pap-it/theme/wc";
+import "@pap-it/language-menu";
+import "@pap-it/theme";
 
 // tootls
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // local 
 import { style } from "./style";

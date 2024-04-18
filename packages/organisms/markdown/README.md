@@ -5,7 +5,6 @@ Atomic Type: organisms
 Version: Version: Version: 1.0.25
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/markdown
 
 ```html
 <script type="module" defer>
-  import "@pap-it/markdown/wc"
+  import "@pap-it/markdown"
 </script>
 
 <pap-markdown></pap-markdown>

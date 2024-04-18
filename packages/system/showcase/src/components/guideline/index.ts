@@ -2,11 +2,11 @@
 import { html, property, Size, CustomElement } from "@pap-it/system-utils";
 
 // atoms 
-import "@pap-it/typography/wc";
-import "@pap-it/icon/wc";
+import "@pap-it/typography";
+import "@pap-it/icon";
 
 // templates
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 import { style } from "./style";
 

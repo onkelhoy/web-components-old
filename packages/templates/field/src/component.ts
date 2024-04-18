@@ -2,12 +2,12 @@
 import { Radius, Size, debounce, html, ifDefined, property, CustomElementSetting, RenderType } from "@pap-it/system-utils";
 
 // atoms
-import "@pap-it/icon/wc";
-import "@pap-it/typography/wc";
+import "@pap-it/icon";
+import "@pap-it/typography";
 
 // templates
-import "@pap-it/templates-prefix-suffix/wc";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-prefix-suffix";
+import "@pap-it/templates-box";
 import { FormElement } from "@pap-it/templates-form-element";
 
 // local 

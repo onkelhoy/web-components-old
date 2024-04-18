@@ -10,8 +10,8 @@ slots should include columns: (name, default-value, description)
 import { html, property } from "@pap-it/system-utils";
 import { Base } from "@pap-it/system-base";
 import { Placement } from "@pap-it/templates-popover";
-import "@pap-it/templates-popover/wc";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-popover";
+import "@pap-it/templates-box";
 
 // local
 import { style } from "./style";

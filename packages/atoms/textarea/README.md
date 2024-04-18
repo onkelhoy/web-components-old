@@ -5,7 +5,6 @@ Atomic Type: atoms
 Version: Version: Version: 1.0.25
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/textarea
 
 ```html
 <script type="module" defer>
-  import "@pap-it/textarea/wc"
+  import "@pap-it/textarea"
 </script>
 
 <pap-textarea></pap-textarea>

@@ -1,51 +1,40 @@
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 let TARGET_ELEMENT = null;
-window.onload = () => 
-{
+window.onload = () => {
   TARGET_ELEMENT = document.querySelector('doc-controller > div > *');
 
-  document.querySelectorAll('section.control *[name]').forEach(element => 
-  {
+  document.querySelectorAll('section.control *[name]').forEach(element => {
     const name = element.name;
     const defaultvalue = element.value;
 
-    if (defaultvalue !== "" && !element.hasAttribute('data-css-input'))
-    {
+    if (defaultvalue !== "" && !element.hasAttribute('data-css-input')) {
       update(name, defaultvalue, element);
     }
 
-    element.addEventListener('change', event => 
-    {
+    element.addEventListener('change', event => {
       update(name, event.detail.value, element);
     })
   });
 }
 
-function update(name, value, element) 
-{
-  if (element.hasAttribute('data-css-input'))
-  {
-    if (element.hasAttribute('data-init'))
-    {
+function update(name, value, element) {
+  if (element.hasAttribute('data-css-input')) {
+    if (element.hasAttribute('data-init')) {
       TARGET_ELEMENT.style.setProperty(name, value);
     }
-    else 
-    {
+    else {
       element.setAttribute('data-init', 'true');
     }
   }
-  else if (/slot-/i.test(name))
-  {
+  else if (/slot-/i.test(name)) {
     const targetslot = TARGET_ELEMENT.querySelector(`div[data-slotname="${element.getAttribute("data-slotname")}"]`);
-    if (targetslot)
-    {
+    if (targetslot) {
       targetslot.innerHTML = value;
     }
   }
-  else 
-  {
+  else {
     TARGET_ELEMENT.setAttribute(name, value);
   }
 }
-import "@pap-it/typography/wc";
+import "@pap-it/typography";

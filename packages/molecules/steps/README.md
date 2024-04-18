@@ -5,7 +5,6 @@ Atomic Type: atoms
 Version: Version: Version: 1.0.22
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/steps
 
 ```html
 <script type="module" defer>
-  import "@pap-it/steps/wc"
+  import "@pap-it/steps"
 </script>
 
 <pap-steps></pap-steps>

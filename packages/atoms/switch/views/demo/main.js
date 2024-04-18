@@ -1,8 +1,8 @@
 // tools
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 // component
-import '@pap-it/switch/wc';
+import '@pap-it/switch';
 
 window.onload = () => {
   console.log('[demo]: window loaded');

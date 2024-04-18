@@ -5,7 +5,6 @@ Atomic Type: atoms
 Version: Version: Version: 1.0.25
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/switch
 
 ```html
 <script type="module" defer>
-  import "@pap-it/switch/wc"
+  import "@pap-it/switch"
 </script>
 
 <pap-switch></pap-switch>

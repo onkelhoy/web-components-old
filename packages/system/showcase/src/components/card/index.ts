@@ -2,7 +2,7 @@
 import { html, property, Size, CustomElement } from "@pap-it/system-utils";
 
 // templates
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 import { style } from "./style";
 

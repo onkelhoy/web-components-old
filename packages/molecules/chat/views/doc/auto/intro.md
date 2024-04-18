@@ -5,12 +5,12 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 // system
 import { html, property } from "@pap-it/system-utils";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // atoms
-import "@pap-it/button/wc";
-import "@pap-it/icon/wc";
-import "@pap-it/input/wc";
+import "@pap-it/button";
+import "@pap-it/icon";
+import "@pap-it/input";
 
 // templates
 import { Base } from "@pap-it/system-base";

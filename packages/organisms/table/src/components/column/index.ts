@@ -2,9 +2,9 @@
 import { ExtractSlotValue, Size, CustomElement, context, html, property } from "@pap-it/system-utils";
 
 // atoms
-import "@pap-it/typography/wc";
-import "@pap-it/button/wc";
-import "@pap-it/icon/wc";
+import "@pap-it/typography";
+import "@pap-it/button";
+import "@pap-it/icon";
 
 // local
 import { style } from "./style";

@@ -35,12 +35,12 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
 // utils
 import { html } from "@pap-it/system-utils";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // atoms
-import "@pap-it/button/wc";
-import "@pap-it/typography/wc";
-import "@pap-it/icon/wc";
+import "@pap-it/button";
+import "@pap-it/typography";
+import "@pap-it/icon";
 
 // templates
 import { Base } from "@pap-it/system-base";
@@ -110,12 +110,12 @@ PRE: just start the task given, dont include any starting lines so I can just co
 
  // utils
 import { html } from "@pap-it/system-utils";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // atoms
-import "@pap-it/button/wc";
-import "@pap-it/typography/wc";
-import "@pap-it/icon/wc";
+import "@pap-it/button";
+import "@pap-it/typography";
+import "@pap-it/icon";
 
 // templates
 import { Base } from "@pap-it/system-base";
@@ -171,12 +171,12 @@ slots should include columns: (name, default-value, description)
 
 // utils
 import { html } from "@pap-it/system-utils";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // atoms
-import "@pap-it/button/wc";
-import "@pap-it/typography/wc";
-import "@pap-it/icon/wc";
+import "@pap-it/button";
+import "@pap-it/typography";
+import "@pap-it/icon";
 
 // templates
 import { Base } from "@pap-it/system-base";

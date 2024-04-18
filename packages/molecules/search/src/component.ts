@@ -3,9 +3,9 @@ import { html, property, query } from "@pap-it/system-utils";
 
 // atoms 
 import { Input } from "@pap-it/input";
-import "@pap-it/button/wc";
-import "@pap-it/icon/wc";
-import "@pap-it/input/wc";
+import "@pap-it/button";
+import "@pap-it/icon";
+import "@pap-it/input";
 
 // tools 
 import { Translator } from "@pap-it/tools-translator";

@@ -12,14 +12,14 @@ import { html, property, Size, Radius } from "@pap-it/system-utils";
 
 // atoms
 import { ButtonVariant, ButtonColorVariant } from "@pap-it/button";
-import "@pap-it/icon/wc";
-import "@pap-it/button/wc";
+import "@pap-it/icon";
+import "@pap-it/button";
 
 // templates
 import { Base } from "@pap-it/system-base";
 import { Placement } from "@pap-it/templates-popover";
-import "@pap-it/templates-popover/wc";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-popover";
+import "@pap-it/templates-box";
 
 // local
 import { style } from "./style";

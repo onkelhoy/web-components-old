@@ -1,24 +1,21 @@
 // tools
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 // component
-import '@pap-it/button/wc';
+import '@pap-it/button';
 
-window.onload = () => 
-{
+window.onload = () => {
   console.log('[demo]: window loaded');
 
   const component_table = document.querySelector('section#component + section tbody');
 
-  for (let size of ["medium", "small", "large"])
-  {
+  for (let size of ["medium", "small", "large"]) {
     generateComponent(component_table, size, ["primary", "secondary", "inverse", "disabled"]);
     generateComponent(component_table, size, ["danger", "warning", "success"]);
   }
 }
 
-function insertComponent (tr, color, variant, size, state) 
-{
+function insertComponent(tr, color, variant, size, state) {
   const td = document.createElement("td");
   td.innerHTML = `
       <div>
@@ -47,27 +44,22 @@ function insertComponent (tr, color, variant, size, state)
 
   tr.appendChild(td);
 }
-function generateComponent (table, size, colors) 
-{
-  for (let variant of ["filled", "outlined", "clear"])
-  {
+function generateComponent(table, size, colors) {
+  for (let variant of ["filled", "outlined", "clear"]) {
     const tr = document.createElement("tr");
-        
+
     const first_column = document.createElement("td");
     first_column.innerHTML = `<pap-typography align="center" variant="C2">${variant}</pap-typography>`;
     tr.appendChild(first_column);
 
-    for (let color of colors)
-    {
-      if (color === "disabled") 
-      {
+    for (let color of colors) {
+      if (color === "disabled") {
         insertComponent(tr, color, variant, size, "normal");
         continue
       }
 
-      for (let state of ["normal", "hover", "pressed"])
-      {
-        insertComponent(tr, color, variant, size,state);
+      for (let state of ["normal", "hover", "pressed"]) {
+        insertComponent(tr, color, variant, size, state);
       }
     }
 

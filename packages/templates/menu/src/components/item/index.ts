@@ -2,12 +2,12 @@
 import { ExtractSlotValue, Radius, Size, html, property, query } from "@pap-it/system-utils";
 
 // atoms
-import "@pap-it/divider/wc";
-import "@pap-it/typography/wc";
+import "@pap-it/divider";
+import "@pap-it/typography";
 
 // templates
 import { Box } from "@pap-it/templates-box";
-import "@pap-it/templates-prefix-suffix/wc";
+import "@pap-it/templates-prefix-suffix";
 
 // local
 import { style } from "./style";

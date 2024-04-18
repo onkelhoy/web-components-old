@@ -1,10 +1,9 @@
 // tools
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 // component
-import '@pap-it/theme/wc';
+import '@pap-it/theme';
 
-window.onload = () => 
-{
+window.onload = () => {
   console.log('[lightdark]: window loaded');
 }

@@ -10,13 +10,13 @@
     "preversion": "sh .scripts/preversion.sh",
     "postversion": "sh .scripts/postversion.sh"
   },
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "files": [
     "asset/",
     "dist/"
   ],
   "exports": {
-    ".": "./dist/src/index.js"
+    ".": "./dist/index.js"
   },
   "author": "Henry Pap",
   "private": false,

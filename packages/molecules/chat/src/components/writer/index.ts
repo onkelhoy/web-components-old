@@ -3,9 +3,9 @@ import { html, property, query } from "@pap-it/system-utils";
 
 // atoms
 import { Textarea } from "@pap-it/textarea";
-import '@pap-it/textarea/wc';
-import '@pap-it/button/wc';
-import '@pap-it/icon/wc';
+import '@pap-it/textarea';
+import '@pap-it/button';
+import '@pap-it/icon';
 
 // templates 
 import { Box } from '@pap-it/templates-box';

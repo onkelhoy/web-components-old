@@ -37,7 +37,7 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { html, property, query } from "@pap-it/system-utils";
 
 // molecules
-import "@pap-it/pagination/wc";
+import "@pap-it/pagination";
 
 // templates
 import { Base } from "@pap-it/system-base";
@@ -176,7 +176,7 @@ PRE: just start the task given, dont include any starting lines so I can just co
 import { html, property, query } from "@pap-it/system-utils";
 
 // molecules
-import "@pap-it/pagination/wc";
+import "@pap-it/pagination";
 
 // templates
 import { Base } from "@pap-it/system-base";
@@ -319,7 +319,7 @@ slots should include columns: (name, default-value, description)
 import { html, property, query } from "@pap-it/system-utils";
 
 // molecules
-import "@pap-it/pagination/wc";
+import "@pap-it/pagination";
 
 // templates
 import { Base } from "@pap-it/system-base";

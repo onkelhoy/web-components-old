@@ -5,7 +5,6 @@ Atomic Type: atoms
 Version: Version: Version: 1.0.23
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/icon
 
 ```html
 <script type="module" defer>
-  import "@pap-it/icon/wc"
+  import "@pap-it/icon"
 </script>
 
 <pap-icon></pap-icon>

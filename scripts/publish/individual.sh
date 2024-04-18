@@ -57,7 +57,12 @@ else
   else 
     # run build 
     if [ -z "$VERBOSE" ]; then 
-      npm run build &>/dev/null
+
+      if [ -z "$PROD" ]; then 
+        npm run build &>/dev/null
+      else 
+        npm run build -- --prod &>/dev/null
+      fi
 
       # npm run analyze --child &>/dev/null
 
@@ -67,7 +72,11 @@ else
         npm run react &>/dev/null
       fi 
     else 
-      npm run build
+      if [ -z "$PROD" ]; then 
+        npm run build
+      else 
+        npm run build -- --prod
+      fi
 
       # npm run analyze --child
 

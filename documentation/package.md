@@ -143,7 +143,7 @@ Example of component usage in an HTML file:
 
 ```html
 <script type="module">
-  import "@pap-it/button/wc";
+  import "@pap-it/button";
 </script>
 
 <pap-button>Hello World</pap-button>

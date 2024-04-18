@@ -1,8 +1,8 @@
 // tools
-import '@pap-it/system-doc/wc';
+import '@pap-it/system-doc';
 
 // component
-import '@pap-it/aside/wc';
+import '@pap-it/aside';
 
 window.onload = () => {
   console.log('[demo]: window loaded');

@@ -2,14 +2,14 @@
 import { html, property, context, query } from "@pap-it/system-utils";
 
 // atoms 
-import "@pap-it/icon/wc";
-import "@pap-it/typography/wc";
-import "@pap-it/divider/wc";
-import "@pap-it/button/wc";
-import "@pap-it/menu/wc";
+import "@pap-it/icon";
+import "@pap-it/typography";
+import "@pap-it/divider";
+import "@pap-it/button";
+import "@pap-it/menu";
 
 // molecules
-import "@pap-it/search/wc";
+import "@pap-it/search";
 
 // tools
 import { Translator } from "@pap-it/tools-translator";

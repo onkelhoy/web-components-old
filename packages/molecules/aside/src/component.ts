@@ -2,11 +2,11 @@
 import { Radius, RenderType, html, property } from "@pap-it/system-utils";
 
 // atoms 
-import "@pap-it/accordion/wc";
+import "@pap-it/accordion";
 
 // templates
 import { Box } from "@pap-it/templates-box";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 // local 
 import { style } from "./style";

@@ -32,15 +32,19 @@ const CLASSINFO_NAME = `${ATOMICTYPE}-${CLASSNAME}`;
 // const IMPORTS = {};
 
 // global
-async function extractor(package_path, className) {
+async function extractor(package_path, className) 
+{
   // we need to find filepath
   const classinfo = class_extractor(package_path, className);
-  if (!classinfo) {
+  if (!classinfo) 
+  {
+    console.log(package_path, className);
     throw new Error('could not find class: ' + className);
   }
 
   const customelement = await getCustomElement(classinfo);
-  if (customelement) {
+  if (customelement) 
+  {
     return customelement;
   }
 
@@ -48,21 +52,27 @@ async function extractor(package_path, className) {
   const iteration_info = iterator(classinfo);
 
   let extend_class = null;
-  if (classinfo.extend && !["HTMLElement", "Base"].includes(classinfo.extend)) {
+  if (classinfo.extend && !["HTMLElement", "Base"].includes(classinfo.extend)) 
+  {
 
-    for (let imp of iteration_info.imports) {
-      if (imp.name === classinfo.extend) {
+    for (let imp of iteration_info.imports) 
+    {
+      if (imp.name === classinfo.extend) 
+      {
         const super_path = getLocalModule(imp.from);
 
-        if (super_path) {
+        if (super_path) 
+        {
           extend_class = await extractor(super_path, imp.name);
         }
       }
     }
 
-    if (!extend_class) {
+    if (!extend_class) 
+    {
       const extendpackagename = `${classinfo.atomic_type}-${classinfo.extend}`;
-      if (CLASSINFO[extendpackagename] && CLASSINFO[extendpackagename].package === classinfo.package) {
+      if (CLASSINFO[extendpackagename] && CLASSINFO[extendpackagename].package === classinfo.package) 
+      {
         extend_class = await extractor(classinfo.package, classinfo.extend);
       }
     }
@@ -81,18 +91,22 @@ async function extractor(package_path, className) {
   };
 }
 
-async function runner() {
+async function runner() 
+{
   const playwrightinfo = await playwright_extractor(CLASSNAME, MAINCLASSINFO_NAME);
   const htmlinfo = html_extractor(playwrightinfo.html);
   htmlinfo.tagName = playwrightinfo.tagName.toLowerCase();
 
   let typeinfo;
-  if (CLASSINFO[CLASSINFO_NAME] && CLASSINFO[CLASSINFO_NAME].typeinfo) {
+  if (CLASSINFO[CLASSINFO_NAME] && CLASSINFO[CLASSINFO_NAME].typeinfo) 
+  {
     typeinfo = CLASSINFO[CLASSINFO_NAME].typeinfo;
   }
-  else {
+  else 
+  {
     typeinfo = await extractor(PACKAGE_DIR, CLASSNAME);
-    if (!CLASSINFO[CLASSINFO_NAME]) {
+    if (!CLASSINFO[CLASSINFO_NAME]) 
+    {
       if (process.env.VERBOSE) console.log('[ANALYSE] 🟨 warning - extractor has run but no classinfo generated')
       CLASSINFO[CLASSINFO_NAME] = {};
     }
@@ -107,16 +121,21 @@ async function runner() {
     allevents.forEach(e => allevents_map.add(e.name));
 
     let extend = typeinfo.extend_class;
-    while (extend) {
-      extend.properties.forEach(p => {
-        if (!allproperties_map.has(p.name)) {
+    while (extend) 
+    {
+      extend.properties.forEach(p => 
+      {
+        if (!allproperties_map.has(p.name)) 
+        {
           allproperties_map.add(p.name);
           allproperties.push(p);
         }
         else if (process.env.VERBOSE) console.log('[ANALYSE] 🟨 warning - dublicate property found, ignoring', p);
       });
-      extend.events.forEach(e => {
-        if (!allevents_map.has(e.name)) {
+      extend.events.forEach(e => 
+      {
+        if (!allevents_map.has(e.name)) 
+        {
           allevents_map.add(e.name);
           allevents.push(e);
         }
@@ -125,7 +144,8 @@ async function runner() {
       extend = extend.extend_class;
     }
 
-    allproperties = allproperties.map(a => {
+    allproperties = allproperties.map(a => 
+    {
       return {
         ...playwrightinfo.properties[a.name],
         ...a,

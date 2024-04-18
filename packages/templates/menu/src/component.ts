@@ -3,11 +3,11 @@ import { Size, html, property, query, RenderType } from "@pap-it/system-utils";
 
 // templates
 import { Popover, PopoverProperties, Reveal } from "@pap-it/templates-popover";
-import "@pap-it/templates-popover/wc";
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-popover";
+import "@pap-it/templates-box";
 
 // tools
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // local 
 import { style } from "./style";

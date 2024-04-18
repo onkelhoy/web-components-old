@@ -4,13 +4,13 @@ import { html, property, query, CustomElement } from "@pap-it/system-utils";
 // atoms 
 import { Typography } from "@pap-it/typography";
 import { Switch } from "@pap-it/switch";
-import "@pap-it/typography/wc";
-import "@pap-it/button/wc";
-import "@pap-it/icon/wc";
-import "@pap-it/switch/wc";
+import "@pap-it/typography";
+import "@pap-it/button";
+import "@pap-it/icon";
+import "@pap-it/switch";
 
 // templates
-import "@pap-it/templates-box/wc";
+import "@pap-it/templates-box";
 
 // local 
 import { style } from "./style";

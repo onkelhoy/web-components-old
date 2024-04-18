@@ -5,7 +5,6 @@ Atomic Type: system
 Version: Version: Version: 1.0.22
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/tools-routing
 
 ```html
 <script type="module" defer>
-  import "@pap-it/tools-routing/wc"
+  import "@pap-it/tools-routing"
 </script>
 
 <pap-routing-tool></pap-routing-tool>

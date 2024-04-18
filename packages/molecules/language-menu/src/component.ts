@@ -3,7 +3,7 @@ import { html, CustomElement, property, query } from "@pap-it/system-utils";
 
 // atoms
 import { Icon } from "@pap-it/icon";
-import "@pap-it/menu/wc";
+import "@pap-it/menu";
 import { Menu } from "@pap-it/menu";
 
 // templates
@@ -11,7 +11,7 @@ import { Placement } from "@pap-it/templates-popover";
 
 // tools
 import { TRANSLATION_ADDED, TRANSLATION_CHANGE_EVENTNAME, init } from "@pap-it/tools-translator";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // local imports
 import { style } from "./style";

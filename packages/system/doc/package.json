@@ -12,13 +12,13 @@
     "combine": ".scripts/combine.sh && .scripts/start.sh combined",
     "start": ".scripts/start.sh"
   },
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "files": [
     "asset/",
     "dist/"
   ],
   "exports": {
-    ".": "./dist/src/index.js",
+    ".": "./dist/index.js",
     "./wc": "./dist/src/register.js"
   },
   "author": "Henry Pap",

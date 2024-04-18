@@ -2,10 +2,10 @@
 import { html, property, FormatNumber, Size, CustomElement } from "@pap-it/system-utils";
 
 // atoms
-import "@pap-it/typography/wc"
+import "@pap-it/typography"
 
 // templates
-import "@pap-it/templates-box/wc"
+import "@pap-it/templates-box"
 
 // local 
 import { style } from './style';

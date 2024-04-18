@@ -1,14 +1,14 @@
 // tools
-import '@pap-it/system-doc/wc';
-import '@pap-it/input/wc';
-import '@pap-it/checkbox/wc';
-import '@pap-it/textarea/wc';
-import '@pap-it/switch/wc';
-import '@pap-it/button/wc';
-// import '@pap-it/dropdown/wc';
+import '@pap-it/system-doc';
+import '@pap-it/input';
+import '@pap-it/checkbox';
+import '@pap-it/textarea';
+import '@pap-it/switch';
+import '@pap-it/button';
+// import '@pap-it/dropdown';
 
 // component
-import '@pap-it/form/wc';
+import '@pap-it/form';
 
 window.onload = () => {
   console.log('[demo]: window loaded');

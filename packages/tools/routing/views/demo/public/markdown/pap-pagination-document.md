@@ -36,14 +36,14 @@ PRE: just start the task given, dont include any starting lines so I can just co
 // utils
 import { html, property, query } from "@pap-it/system-utils";
 import { Translator } from "@pap-it/tools-translator";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // atoms
 import { Dropdown } from "@pap-it/dropdown";
-import "@pap-it/icon/wc";
-import "@pap-it/typography/wc";
-import "@pap-it/button/wc";
-import "@pap-it/dropdown/wc";
+import "@pap-it/icon";
+import "@pap-it/typography";
+import "@pap-it/button";
+import "@pap-it/dropdown";
 
 // templates
 // import { Base } from "@pap-it/system-base";
@@ -223,14 +223,14 @@ PRE: just start the task given, dont include any starting lines so I can just co
  // utils
 import { html, property, query } from "@pap-it/system-utils";
 import { Translator } from "@pap-it/tools-translator";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // atoms
 import { Dropdown } from "@pap-it/dropdown";
-import "@pap-it/icon/wc";
-import "@pap-it/typography/wc";
-import "@pap-it/button/wc";
-import "@pap-it/dropdown/wc";
+import "@pap-it/icon";
+import "@pap-it/typography";
+import "@pap-it/button";
+import "@pap-it/dropdown";
 
 // templates
 // import { Base } from "@pap-it/system-base";
@@ -396,14 +396,14 @@ slots should include columns: (name, default-value, description)
 // utils
 import { html, property, query } from "@pap-it/system-utils";
 import { Translator } from "@pap-it/tools-translator";
-import "@pap-it/tools-translator/wc";
+import "@pap-it/tools-translator";
 
 // atoms
 import { Dropdown } from "@pap-it/dropdown";
-import "@pap-it/icon/wc";
-import "@pap-it/typography/wc";
-import "@pap-it/button/wc";
-import "@pap-it/dropdown/wc";
+import "@pap-it/icon";
+import "@pap-it/typography";
+import "@pap-it/button";
+import "@pap-it/dropdown";
 
 // templates
 // import { Base } from "@pap-it/system-base";

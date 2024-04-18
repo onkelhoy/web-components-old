@@ -2,7 +2,7 @@
 import { html, property, CustomElement } from "@pap-it/system-utils";
 
 // atoms
-import "@pap-it/typography/wc";
+import "@pap-it/typography";
 
 import { style } from "./style";
 

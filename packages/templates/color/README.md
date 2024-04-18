@@ -5,7 +5,6 @@ Atomic Type: templates
 Version: Version: Version: 1.0.21
 
 
-
 ## Use Case
 
 ### installation
@@ -18,7 +17,7 @@ npm install @pap-it/templates-color
 
 ```html
 <script type="module" defer>
-  import "@pap-it/templates-color/wc"
+  import "@pap-it/templates-color"
 </script>
 
 <pap-color-template></pap-color-template>

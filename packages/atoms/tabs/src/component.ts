@@ -2,7 +2,7 @@
 import { html, property, query, CustomElement, debounce } from "@pap-it/system-utils";
 
 // templates
-import "@pap-it/templates-prefix-suffix/wc";
+import "@pap-it/templates-prefix-suffix";
 
 // local 
 import { style } from "./style";
