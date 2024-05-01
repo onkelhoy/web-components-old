@@ -40,5 +40,6 @@
   "Unlock": "Unlock",
   "Add column": "Add column",
   "Title": "Title",
-  "Subtitle": "Subtitle"
+  "Subtitle": "Subtitle",
+  "{count} selected": "{count} selected"
 }

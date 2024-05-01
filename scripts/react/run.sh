@@ -9,7 +9,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source $PACKAGE_PATH/.env
 
 # build ROOTDIR
-ROOTDIR=$(realpath $PACKAGE_PATH$ROOTDIR_RELATIVE)
+ROOTDIR=$(cd $SCRIPT_DIR/../../ && pwd)
 
 export PACKAGE_PATH
 export SCRIPT_DIR

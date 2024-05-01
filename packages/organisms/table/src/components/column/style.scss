@@ -28,14 +28,13 @@
   background-color: var(--pap-color-bg-hover, #DADDE3);
 }
 
-:host([hasfocus="true"]) {
-  // note later this could be controlled by the table as we wish to span over several cells
-  outline: 2px solid var(--pap-color-border-brand, #0177A3);
+// sort
+:host([sort="none"]) div.sort>pap-icon {
+  display: none;
 }
 
-// sort
-:host([sort="none"]) div.sort>pap-icon:not([name="sort.none"]) {
-  display: none;
+:host([sort="none"]:hover) div.sort>pap-icon[name="sort.none"] {
+  display: inline-flex;
 }
 
 :host([sort="asc"]) div.sort>pap-icon:not([name="sort.asc"]) {

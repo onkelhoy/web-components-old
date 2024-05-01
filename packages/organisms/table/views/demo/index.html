@@ -31,8 +31,8 @@
       <pap-table class="empty">
         <pap-button variant="outlined" color="secondary" id="edit" slot="save">edit</pap-button>
         <div slot="save" style="display:none">
-          <pap-button variant="filled" color="secondary">save</pap-button>
           <pap-button variant="outlined" id="cancel" color="secondary">cancel</pap-button>
+          <pap-button variant="filled" id="save" color="secondary">save</pap-button>
         </div>
 
         <form slot="special-edit" id="image-edit">
@@ -106,16 +106,26 @@
             const table = codeblock.originalQuerySelector('pap-table');
 
             const cancelbutton = codeblock.originalQuerySelector('#cancel');
+            const savebutton = codeblock.originalQuerySelector('#save');
             const editbutton = codeblock.originalQuerySelector('#edit');
             const savediv = codeblock.originalQuerySelector('div[slot=save]');
 
             editbutton.onclick = () => {
               savediv.style.display = 'block';
               editbutton.style.display = 'none';
+              table.edit = true;
             }
             cancelbutton.onclick = () => {
               savediv.style.display = 'none';
               editbutton.style.display = 'flex';
+              table.cancel();
+              table.edit = false;
+            }
+            savebutton.onclick = () => {
+              savediv.style.display = 'none';
+              editbutton.style.display = 'flex';
+              table.save();
+              table.edit = false;
             }
 
             table.config = {
@@ -123,7 +133,18 @@
                 filter: true,
                 export: true,
               },
-              sort: true,
+              checklist: {
+                toolbar: {
+                  delete: true,
+                  lala: {
+                    icon: "setting",
+                    mode: "both", // view, edit, both 
+                    callback: () => console.log('lala was clicked')
+                  }
+                }
+              },
+              // accordion: true,
+              sort: "multiple",
               search: "fixed",
               pagination: true
             }
@@ -134,64 +155,75 @@
                 width: 250,
                 sort: false,
                 editable: {
-                  id: "image-edit",
-                  cancel: false,
-                  save: {
-                    content: "add image",
-                    prefix: "upload-image",
-                    suffix: "download-image"
+                  slot: {
+                    id: "image-edit",
+                    cancel: false,
+                    save: {
+                      content: "add image",
+                      prefix: "upload-image",
+                      suffix: "download-image"
+                    }
                   }
                 }
               },
               {
                 id: "postalCode",
                 title: "Postal code",
-                width: 150
+                width: 150,
+                editable: true,
               },
               {
                 id: "city",
                 title: "City",
-                width: 250
+                width: 250,
+                editable: true,
               },
               {
                 id: 'users',
                 title: "Users",
                 width: 100,
-                align: 'right'
+                align: 'right',
+                editable: true,
               },
               {
                 id: "legalName",
                 title: "Legal name",
-                width: 150
+                width: 150,
+                editable: true,
               },
               {
                 id: "street",
                 title: "Street name & no.",
-                width: 250
+                width: 250,
+                editable: true,
               },
               {
                 id: "type",
                 title: "Type",
-                width: 150
+                width: 150,
+                editable: true,
               },
               {
                 id: "ID",
                 title: "ID",
-                width: 150
+                width: 150,
+                editable: true,
               },
               {
                 id: "debtor",
                 title: "Debtor no.",
-                width: 150
+                width: 150,
+                editable: true,
               },
               {
                 id: 'registered',
                 title: "Registered",
-                width: 150
+                width: 150,
+                editable: true,
               }
             ];
 
-            table.addData(new Array(10).fill({ ...longdata }), convert);
+            table.addData(new Array(30).fill({ ...longdata }), convert);
           });
         }())
       </script>
@@ -217,6 +249,7 @@
               const form = codeblock.originalQuerySelector('form');
               const table = codeblock.originalQuerySelector('pap-table');
               table.config.edit = true;
+              table.config.search = true;
 
               table.addEventListener('filter-apply', () => {
                 form.requestSubmit();

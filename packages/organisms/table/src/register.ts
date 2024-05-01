@@ -1,3 +1,4 @@
+import { ChecklistToolbar } from './components/checklist-toolbar';
 import { Export } from './components/export';
 import { Column } from './components/column';
 import { Cell } from './components/cell';
@@ -53,4 +54,7 @@ if (!cElements.get('pap-table-column')) {
 }
 if (!cElements.get('pap-table-export')) {
   cElements.define('pap-table-export', Export);
+}
+if (!cElements.get('pap-table-checklist-toolbar')) {
+  cElements.define('pap-table-checklist-toolbar', ChecklistToolbar);
 }

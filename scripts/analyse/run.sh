@@ -6,7 +6,7 @@ SCRIPTDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source $PACKAGEDIR/.env 
 
 # build ROOTDIR
-ROOTDIR=$(realpath $PACKAGEDIR$ROOTDIR_RELATIVE)
+ROOTDIR=$(cd $SCRIPTDIR/../../ && pwd)
 
 MAINCLASSNAME=$CLASSNAME
 

@@ -7,9 +7,20 @@
 
   pap-table-header {
     position: relative;
-    z-index: 2;
+    z-index: var(--z-index-small, 1);
     padding-block: var(--padding-medium, 16px);
     padding-inline: var(--padding-large, 24px);
+  }
+
+  div[part=checklist-toolbar-wrapper] {
+    position: relative;
+
+    pap-table-checklist-toolbar {
+      position: absolute;
+      bottom: calc(var(--margin-medium, 16px) * -1);
+      left: var(--margin-large, 24px);
+      z-index: var(--z-index-large, 3);
+    }
   }
 
   pap-table-menu {

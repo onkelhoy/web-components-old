@@ -170,6 +170,7 @@ export class Select extends Field {
             @input="${this.handleinput}" 
             placeholder="${ifDefined(this.placeholder)}"
             name="${this.name}"
+            part="input"
             value="${ifDefined(this.text)}"
             maxlength="${ifDefined(this.maxlength)}"
             minlength="${ifDefined(this.minlength)}"

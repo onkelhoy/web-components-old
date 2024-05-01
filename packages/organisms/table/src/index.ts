@@ -1,3 +1,4 @@
+export * from './components/checklist-toolbar';
 export * from './components/export';
 export * from './components/column';
 export * from './components/action-menu';

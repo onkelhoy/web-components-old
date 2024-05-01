@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <!-- <doc-card>
+  <doc-card>
     <pap-typography slot="header" variant="C1">Normal</pap-typography>
 
     <pap-typography>Empty</pap-typography>
@@ -45,6 +45,28 @@
         <pap-option>Option 1</pap-option>
         <pap-option>Option 2</pap-option>
         <pap-option>Option 3</pap-option>
+      </pap-select>
+    </pap-codeblock>
+  </doc-card>
+
+  <doc-card>
+    <pap-typography slot="header" variant="C1">Value</pap-typography>
+
+    <pap-typography>Single</pap-typography>
+    <pap-codeblock display="both">
+      <pap-select value="b">
+        <pap-option value="a">Option 1</pap-option>
+        <pap-option value="b">Option 2</pap-option>
+        <pap-option value="c">Option 3</pap-option>
+      </pap-select>
+    </pap-codeblock>
+
+    <pap-typography>Multiple</pap-typography>
+    <pap-codeblock display="both">
+      <pap-select value="b,c" multiple>
+        <pap-option value="a">Option 1</pap-option>
+        <pap-option value="b">Option 2</pap-option>
+        <pap-option value="c">Option 3</pap-option>
       </pap-select>
     </pap-codeblock>
   </doc-card>
@@ -165,7 +187,7 @@
     <pap-codeblock display="both">
       <pap-select label="Dynamic select" multiple name="dynamic-content"></pap-select>
     </pap-codeblock>
-  </doc-card> -->
+  </doc-card>
 
   <doc-card>
     <pap-typography slot="header" variant="C1">Pagination case</pap-typography>
