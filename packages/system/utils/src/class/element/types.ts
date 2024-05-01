@@ -10,4 +10,5 @@ export type Setting = ShadowRootInit & {
   reactiveStyling: boolean;
   nofocus: boolean;
   noblur: boolean;
+  noshadow: boolean;
 }

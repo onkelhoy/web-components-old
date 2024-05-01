@@ -55,7 +55,7 @@ export class Input extends CustomElement {
   }
 
   firstRender(): void {
-    this.firstRender();
+    super.firstRender();
     const element = this.shadowRoot?.querySelector<HTMLInputElement>('#input');
     if (element) {
       this.inputElement = element;
