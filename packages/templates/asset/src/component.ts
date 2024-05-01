@@ -12,7 +12,7 @@ export class Asset extends CustomElement {
       return value;
     },
     after: function (this: Asset) {
-      this.debouncedLoadAsset();
+      this.updateAssetBase();
     }
   }) assetBase: string = "/public";
   @property({ type: Boolean }) cache: boolean = false;
@@ -37,6 +37,13 @@ export class Asset extends CustomElement {
     if (this.file) {
       this.loadAsset(this.file, !!this.url);
     }
+    // else if (this.url)
+    // {
+    //   this.loadAsset(this.url, true);
+    // }
+  }
+  protected updateAssetBase() {
+    this.debouncedLoadAsset();
   }
   protected async loadAsset(file: string, isurl = false): Promise<string | Response | null> {
     try {

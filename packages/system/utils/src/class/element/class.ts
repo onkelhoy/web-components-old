@@ -36,9 +36,12 @@ export class CustomElement extends HTMLElement {
       nofocus: false,
       mode: 'open',
       delegatesFocus: false,
+      noshadow: false,
       ...(setting || {})
     }
-    this.attachShadow({ ...this.setting });
+    if (!this.setting.noshadow) {
+      this.attachShadow({ ...this.setting });
+    }
     this.callAfterRender.push(this.firstRender);
     this.originalHTML = this.outerHTML;
 
