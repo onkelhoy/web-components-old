@@ -18,7 +18,7 @@ done
 # get variables
 source .env 
 
-if [ ! $CHILD ]; then 
+if [[ ! $CHILD &&  "$SKIP_BUILD" != "true" ]]; then 
   # build everything
   npm run build
 fi

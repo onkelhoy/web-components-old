@@ -7,7 +7,7 @@ source .env
 ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
 
 # run the analyzing
-npm run analyze
+npm run analyse
 
 # run the necessary scripts 
 sh .scripts/helper/build-doc.sh

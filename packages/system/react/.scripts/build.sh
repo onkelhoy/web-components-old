@@ -35,7 +35,7 @@ rm -rf dist
 # then re-create it 
 mkdir dist
 
-if [ "$PROD" != true ]; then
+if [[ "$PROD" != true && "$GLOBAL_PROD" != true ]]; then
   tsc
 else
   tsc -p tsconfig.prod.json

@@ -21,7 +21,7 @@ source .env
 # create rootdir (now based on relative paths)
 ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
 
-if [ ! $CHILD ]; then 
+if [[ ! $CHILD &&  "$SKIP_BUILD" != "true" ]]; then 
   # build everything
   npm run build
 fi

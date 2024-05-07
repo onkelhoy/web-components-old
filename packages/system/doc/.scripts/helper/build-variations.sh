@@ -8,7 +8,7 @@ ROOTDIR=$(realpath $ROOTDIR_RELATIVE)
 
 if [ "$1" != "--child" ]; then
   # run the analyzing
-  npm run analyze
+  npm run analyse
 fi
 
 # build variations

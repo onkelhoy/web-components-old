@@ -33,7 +33,7 @@ rm -rf dist
 mkdir dist
 
 bash .scripts/helper/build-sass.sh
-if [ "$PROD" != true ]; then
+if [[ "$PROD" != true && "$GLOBAL_PROD" != true ]]; then
   tsc
 else
   tsc -p tsconfig.prod.json

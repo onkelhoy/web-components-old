@@ -16,7 +16,7 @@ if [ "$1" != "--child" ]; then
   fi
 
   # run the analyzing
-  npm run analyze
+  npm run analyse
 fi
 
 # build interactive
