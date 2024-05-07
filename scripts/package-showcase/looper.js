@@ -18,18 +18,19 @@ async function init() {
         console.log('\t[processing]: ', package.name)
         exec(path.join(__dirname, `individual.sh ${package.location} ${package.name}`), (error, stdout, stderr) => {
           if (error) {
-            if (error.code === 2) {
-              console.log('\t[skipped]\t', package.name);
-            }
-            else {
-              console.log('\t[error]\t', package.name, error);
+            switch (error.code) {
+              case 2:
+                console.log('\t[skipped]\t', package.name);
+                break;
+              default:
+                console.log('\t[error]\t', package.name, error);
+                break;
             }
           }
           else if (stderr) {
             console.log('\t[failed]\t', package.name, stderr);
           }
           else {
-
 
             console.log('\t[success]\t', package.name);
           }

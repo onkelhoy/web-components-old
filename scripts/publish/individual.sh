@@ -59,7 +59,7 @@ else
     if [ -z "$VERBOSE" ]; then 
       npm run build &>/dev/null
 
-      # npm run analyze --child &>/dev/null
+      # npm run analyse --child &>/dev/null
 
       # npm run react --child &>/dev/null
 
@@ -69,7 +69,7 @@ else
     else 
       npm run build
 
-      # npm run analyze --child
+      # npm run analyse --child
 
       if [ -n "$REACT" ]; then
         npm run react

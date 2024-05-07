@@ -6,10 +6,12 @@ PACKAGE_NAME=$2
 cd $PACKAGE_DIR
 source ".env"
 
-if [ $RUN_COMBINE == false ]; then 
-  npm run combine &>/dev/null
-elif [ $RUN_BUILD == false ]; then 
-  npm run build 
+# always run the build
+npm run build
+
+if [ $RUN_COMBINE = "true" ]; then 
+  # we cannot call npm run combine as its a concatinated script with start
+  sh ./scripts/combine.sh 
 fi
 
 # if [[ package_set[packagename] != 1 ]]; then 

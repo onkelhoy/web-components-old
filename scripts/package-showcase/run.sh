@@ -4,26 +4,21 @@ export SCRIPTDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 export ROOTDIR="$(dirname "$(dirname "$SCRIPTDIR")")"
 export NAME="package-showcase"
 export RUN_COMBINE=true 
-export RUN_BUILD=true
+export GLOBAL_PROD=true
+export SKIP_BUILD=true
 
 # Define PROJECTSCOPE variable
-PROJECTSCOPE=$(node -pe "require('$ROOTDIR/package.json').name")
-export PROJECTSCOPE=$(echo "$PROJECTSCOPE" | cut -d'/' -f1 | awk -F'@' '{print $2}')
+export PROJECTSCOPE=$(node -pe "require('$ROOTDIR/package.json').name" | cut -d'/' -f1 | awk -F'@' '{print $2}')
 
 # Check argument
 for arg in "$@"; do
   if [ "$arg" == "--github" ]; then
     # a flag to make sure to build into 
-    export NAME="docs"
+    NAME="docs"
   fi
   if [ "$arg" == "--nocombine" ]; then
     # a flag to make sure to build into 
-    export RUN_COMBINE=false
-  fi
-  if [ "$arg" == "--nobuild" ]; then
-    # a flag to make sure to build into 
-    export RUN_BUILD=false
-    export RUN_COMBINE=false
+    RUN_COMBINE=false
   fi
 done
 
