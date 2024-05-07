@@ -29,9 +29,10 @@ else
 fi
 echo ""
 
-# init bash script executions 
+# init bash script executions (as they are normally called from JS)
 chmod +x ./scripts/publish/individual.sh
 chmod +x ./scripts/ecosystem/individual.sh
+chmod +x ./scripts/package-showcase/individual.sh
 
 
 # check if we wish to build each packages

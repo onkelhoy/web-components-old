@@ -1,29 +1,29 @@
 #!/bin/bash
 
-SCRIPTDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOTDIR="$(dirname "$(dirname "$SCRIPTDIR")")"
-NAME="package-showcase"
-RUN_COMBINE=true 
-RUN_BUILD=true
+export SCRIPTDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export ROOTDIR="$(dirname "$(dirname "$SCRIPTDIR")")"
+export NAME="package-showcase"
+export RUN_COMBINE=true 
+export RUN_BUILD=true
 
 # Define PROJECTSCOPE variable
 PROJECTSCOPE=$(node -pe "require('$ROOTDIR/package.json').name")
-PROJECTSCOPE=$(echo "$PROJECTSCOPE" | cut -d'/' -f1 | awk -F'@' '{print $2}')
+export PROJECTSCOPE=$(echo "$PROJECTSCOPE" | cut -d'/' -f1 | awk -F'@' '{print $2}')
 
 # Check argument
 for arg in "$@"; do
   if [ "$arg" == "--github" ]; then
     # a flag to make sure to build into 
-    NAME="docs"
+    export NAME="docs"
   fi
   if [ "$arg" == "--nocombine" ]; then
     # a flag to make sure to build into 
-    RUN_COMBINE=false
+    export RUN_COMBINE=false
   fi
   if [ "$arg" == "--nobuild" ]; then
     # a flag to make sure to build into 
-    RUN_BUILD=false
-    RUN_COMBINE=false
+    export RUN_BUILD=false
+    export RUN_COMBINE=false
   fi
 done
 
@@ -41,28 +41,39 @@ fi
 # we create the folder 
 mkdir "$ROOTDIR/$NAME"
 
+# declare -A package_set
+
 # for each package we need to create a importmap reference 
 touch "$SCRIPTDIR/importmap.tmp"
-for package in $(find "$ROOTDIR/packages" -mindepth 2 -maxdepth 2 -type d); do
-  cd $package
-  source ".env"
-  echo "processing $CLASSNAME"
+node "$SCRIPTDIR/looper.js" 
 
-  if [ $RUN_COMBINE == false ]; then 
-    npm run combine &>/dev/null
-  elif [ $RUN_BUILD == false ]; then 
-    npm run build 
-  fi
+# for package in $(find "$ROOTDIR/packages" -mindepth 2 -maxdepth 2 -type d); do
+#   cd $package
+#   source ".env"
+#   echo "processing $CLASSNAME"
 
-  echo "\"@\"" >> "$SCRIPTDIR/importmap.tmp"
+#   if [ $RUN_COMBINE == false ]; then 
+#     npm run combine &>/dev/null
+#   elif [ $RUN_BUILD == false ]; then 
+#     npm run build 
+#   fi
 
-  # check if file could be generated
-  if [ -d "views/combine" ]; then 
-    echo "\tsuccess ✅"
-  else 
-    echo "\tskipped ⏩"
-  fi 
-done
+#   packagename=$(node -pe "require('package.json').name")
+
+#   if [[ package_set[packagename] != 1 ]]; then 
+#     echo "\"$packagename/wc\": \”$package/dist/src/register.js\"" >> "$SCRIPTDIR/importmap.tmp"
+#     echo "\"$packagename\": \”$package/dist/src/index.js\"" >> "$SCRIPTDIR/importmap.tmp"
+#   fi 
+
+#   package_set[packagename] = 1
+
+#   # check if file could be generated
+#   if [ -d "views/combine" ]; then 
+#     echo "\tsuccess ✅"
+#   else 
+#     echo "\tskipped ⏩"
+#   fi 
+# done
 
 # then again we need to generate each index for them so we can mimic refresh 
 # but each page should be equipped to load other with the SPA 
