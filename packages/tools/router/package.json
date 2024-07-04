@@ -1,5 +1,5 @@
 {
-  "name": "@pap-it/tools-routing",
+  "name": "@pap-it/tools-router",
   "version": "1.0.22",
   "scripts": {
     "init": "sh .scripts/init.sh",

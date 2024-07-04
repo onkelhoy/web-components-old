@@ -4,16 +4,23 @@ import { html, property, debounce, context, NextParent } from "@pap-it/system-ut
 // templates
 import { Asset } from "@pap-it/templates-asset";
 
-export class Routing extends Asset {
+export class Router extends Asset {
 
   @property({
     rerender: false,
     context: true,
-    after: function (this: Routing) {
+    after: function (this: Router) {
       this.debouncedFetch();
     }
   }) url: string = "";
+  @property({ type: Boolean }) redirect: boolean = false;
   // @context({ name: "url" }) parenturl?: string;
+  @property({ type: Object, rerender: false }) routermap: Record<string, string> = {};
+  // @property({
+  //   after: function (this: Router) {
+  //     this.assetBase = this.route;
+  //   }
+  // }) route: string = "";
 
   private outsidedom?: HTMLDivElement;
 
@@ -26,6 +33,7 @@ export class Routing extends Asset {
     this.debouncedFetch = debounce(this.fetchHTML, 100);
     this.loadwindow = debounce(this.loadwindow);
     this.assetBase = "/";
+    window.onpopstate = this.handlepopstate;
   }
   connectedCallback(): void {
     super.connectedCallback();
@@ -43,8 +51,7 @@ export class Routing extends Asset {
   override updateAssetBase() {
     super.updateAssetBase();
     this.debouncedFetch();
-
-    console.log('helo?')
+    console.log('updateAssetBase:: helo?')
   }
 
   // private functions
@@ -83,6 +90,7 @@ export class Routing extends Asset {
   }
   private combine(url: string | null) {
     if (!url) return "";
+    // why is themes here?
     if (url.startsWith("/themes") || url.startsWith("themes")) return url;
 
     let safe_base = this.assetBase;
@@ -122,6 +130,11 @@ export class Routing extends Asset {
     }
   }
 
+  // event handlers
+  private handlepopstate = (e: Event) => {
+    let path = window.location.pathname;
+    const route = this.routermap[path];
+  }
 
   render() {
     return "";
@@ -131,6 +144,6 @@ export class Routing extends Asset {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "pap-routing": Routing;
+    "pap-router": Router;
   }
 }

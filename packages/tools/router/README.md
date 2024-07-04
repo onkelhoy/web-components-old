@@ -1,4 +1,4 @@
-# Routing
+# Router
 
 Atomic Type: system
 
@@ -11,17 +11,17 @@ Version: Version: Version: 1.0.22
 ### installation
 
 ```bash
-npm install @pap-it/tools-routing
+npm install @pap-it/tools-router
 ```
 
 ### to use in **html**
 
 ```html
 <script type="module" defer>
-  import "@pap-it/tools-routing/wc"
+  import "@pap-it/tools-router/wc"
 </script>
 
-<pap-routing-tool></pap-routing-tool>
+<pap-router-tool></pap-router-tool>
 ```
 
 ## Development
