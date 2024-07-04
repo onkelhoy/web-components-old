@@ -5,13 +5,16 @@ const map = {};
 // Set to keep track of remaining packages to process
 const set = new Set();
 
+// NOTE this is used for building (html.script type=importmap)
+const importmapset = new Set();
+
 // Function to initialize the package relationships
 function initializePackages(ROOT_DIR, LOCKFILE) {
   const SCOPE = (LOCKFILE.name || '@pap-it/he').split('/')[0];
   for (const name in LOCKFILE.packages) {
     if (name.startsWith(`node_modules/${SCOPE}`) && name !== `node_modules/${SCOPE}/server`) {
       const mapname = name.split("node_modules/")[1];
-      if (!map[mapname]) map[mapname] = { dep: [], has: [] };
+      if (!map[mapname]) map[mapname] = {dep: [], has: []};
 
       set.add(mapname);
 
@@ -28,10 +31,12 @@ function initializePackages(ROOT_DIR, LOCKFILE) {
 
       for (const dep in packagejson.dependencies) {
         if (dep.startsWith(SCOPE) && dep !== mapname) {
-          if (!map[dep]) map[dep] = { dep: [], has: [] };
+          if (!map[dep]) map[dep] = {dep: [], has: []};
           map[dep].has.push(mapname);
           dependencies.push(dep);
         }
+
+        importmapset.add(dep);
       }
 
       map[mapname].dep = dependencies;
@@ -48,7 +53,13 @@ async function* batchIterator(print) {
     for (const name of arr) {
       if (map[name].dep.length === 0) {
         set.delete(name);
-        list.push({ name, location: map[name].location, version: map[name].version });
+
+        // NOTE: this is where the outgoing structure can be filled 
+        list.push({
+          name,
+          location: map[name].location,
+          version: map[name].version,
+        });
       }
     }
 
@@ -78,4 +89,5 @@ async function iterate(execute, print = true) {
 module.exports = {
   initializePackages,
   iterate,
+  importmapset,
 };

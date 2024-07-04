@@ -2,13 +2,27 @@
 
 export SCRIPTDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 export ROOTDIR="$(dirname "$(dirname "$SCRIPTDIR")")"
-export NAME="package-showcase"
-export RUN_COMBINE=true 
+export NAME="showcase"
+export RUN_COMBINE=false 
 export GLOBAL_PROD=true
 export SKIP_BUILD=true
+export DESTINATION="$ROOTDIR/$NAME"
 
 # Define PROJECTSCOPE variable
 export PROJECTSCOPE=$(node -pe "require('$ROOTDIR/package.json').name" | cut -d'/' -f1 | awk -F'@' '{print $2}')
+
+# lets trap the interrupt signal 
+interruptcb () {
+  cleanup
+  exit                          #   then exit script.
+}
+
+cleanup() {
+  # running cleanup
+  echo "cleanup complete"
+}
+
+trap "interruptcb" INT        # Set SIGINT trap to call function.
 
 # Check argument
 for arg in "$@"; do
@@ -18,34 +32,41 @@ for arg in "$@"; do
   fi
   if [ "$arg" == "--nocombine" ]; then
     # a flag to make sure to build into 
-    RUN_COMBINE=false
+    export RUN_COMBINE=false
   fi
 done
 
-if [ -d "$ROOTDIR/$NAME" ]; then 
+if [ -d "$DESTINATION" ]; then 
   echo ""
   echo "$NAME already exists, are you sure you want to continue?"
-  read -p "OBS: this would remove it (y/n):" answer
+  read -p "OBS: this would remove it (y/n): " answer
   if [ $answer == "y" ]; then 
-    rm -rf "$ROOTDIR/$NAME"
+    rm -rf "$DESTINATION"
   else 
     exit 1
   fi
 fi 
 
 # we create the folder 
-mkdir "$ROOTDIR/$NAME"
+mkdir "$DESTINATION"
+
+# create node_module folder 
+mkdir "$DESTINATION/node_modules"
+
+
 
 # declare -A package_set
 
-# for each package we need to create a importmap reference 
-touch "$SCRIPTDIR/importmap.tmp"
-node "$SCRIPTDIR/looper.js" 
+# copy over template files 
+cp "$SCRIPTDIR/template/style.css" "$DESTINATION/style.css"
+cp "$SCRIPTDIR/template/main.js" "$DESTINATION/main.js"
 
-# for package in $(find "$ROOTDIR/packages" -mindepth 2 -maxdepth 2 -type d); do
-#   cd $package
-#   source ".env"
-#   echo "processing $CLASSNAME"
+node "$SCRIPTDIR/main.js" 
+
+for package in $(find "$ROOTDIR/packages" -mindepth 2 -maxdepth 2 -type d); do
+  cd $package
+  source ".env"
+  echo "processing $CLASSNAME"
 
 #   if [ $RUN_COMBINE == false ]; then 
 #     npm run combine &>/dev/null
@@ -68,10 +89,10 @@ node "$SCRIPTDIR/looper.js"
 #   else 
 #     echo "\tskipped ⏩"
 #   fi 
-# done
+done
 
 # then again we need to generate each index for them so we can mimic refresh 
 # but each page should be equipped to load other with the SPA 
 
 # cleanup 
-rm "$SCRIPTDIR/importmap.tmp"
+cleanup
