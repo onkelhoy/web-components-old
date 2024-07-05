@@ -22,7 +22,7 @@ fi
 
 if [ $RUN_COMBINE = "true" ]; then 
   # we cannot call npm run combine as its a concatinated script with start
-  sh ./scripts/combine.sh 
+  sh .scripts/combine.sh 
 fi
 
 cp -R ./views/combined/* $DESTNAME 
