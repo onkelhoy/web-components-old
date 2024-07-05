@@ -40,10 +40,12 @@ if [ -d "$DESTINATION" ]; then
   echo ""
   echo "$NAME already exists, are you sure you want to continue?"
   read -p "OBS: this would remove it (y/n): " answer
-  if [ $answer == "y" ]; then 
-    rm -rf "$DESTINATION"
-  else 
+  if [ "$answer" == "n" ]; then 
     exit 1
+  else 
+    echo "removed"
+    echo ""
+    rm -rf "$DESTINATION"
   fi
 fi 
 
@@ -52,8 +54,6 @@ mkdir "$DESTINATION"
 
 # create node_module folder 
 mkdir "$DESTINATION/node_modules"
-
-
 
 # declare -A package_set
 

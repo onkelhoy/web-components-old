@@ -25,9 +25,11 @@ if [ $RUN_COMBINE = "true" ]; then
   sh .scripts/combine.sh 
 fi
 
-cp -R ./views/combined/* $DESTNAME 
-if [ -f "$DESTNAME/index.html" ]; then 
-  mv "$DESTNAME/index.html" "$DESTNAME/source.html"
+if [ -d ./views/combined ]; then 
+  cp -R ./views/combined/* $DESTNAME 
+  if [ -f "$DESTNAME/index.html" ]; then 
+    mv "$DESTNAME/index.html" "$DESTNAME/source.html"
+  fi
 fi 
 
 # echo out back to "main.js"

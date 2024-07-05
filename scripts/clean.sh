@@ -1,19 +1,22 @@
 #!/bin/bash
 
-read -p "Are you sure you wish to clean (it will remove all variations, interactive + doc generated files)?: (y/n) " git_ans
-git_ans=$(echo "$git_ans" | tr '[:upper:]' '[:lower:]')
-if [[ "$git_ans" != "y" && "$git_ans" != "yes" ]]; then
-  echo "you choose no, smart choice!"
-  exit 0
+read -p "Delete generated files?: (y/n) " gen
+gen=$(echo "$gen" | tr '[:upper:]' '[:lower:]')
+if [[ "$gen" != "n" && "$gen" != "no" ]]; then
+  find packages -type d -path "*/views/combined" -exec rm -rf {} +
+  find packages -type d -path "*/views/variations" -exec rm -rf {} +
+  find packages -type d -path "*/views/interactive" -exec rm -rf {} +
+  find packages -type d -path "*/views/doc" -exec rm -rf {} +
 fi
 
-find packages -type f -path "*/views/variations/index.html" -delete
-find packages -type f -path "*/views/variations/main.js" -delete
-find packages -type f -path "*/views/variations/style.css" -delete
+read -p "Delete showcase?: (y/n) " showcase
+showcase=$(echo "$showcase" | tr '[:upper:]' '[:lower:]')
+if [[ "$showcase" != "n" && "$showcase" != "no" ]]; then
+  rm -rf showcase
+fi
 
-find packages -type f -path "*/views/interactive/index.html" -delete
-find packages -type f -path "*/views/interactive/main.js" -delete
-find packages -type f -path "*/views/interactive/style.css" -delete
-
-find packages -type d -path "*/views/doc/auto" -exec rm -rf {} +
-find packages -type f -path "*/views/doc/public/markdown/*.md" -delete
+read -p "Delete analysis?: (y/n) " analysis
+analysis=$(echo "$analysis" | tr '[:upper:]' '[:lower:]')
+if [[ "$analysis" != "n" && "$analysis" != "no" ]]; then
+  find packages -type f -path "*/custom-elements.json" -delete
+fi

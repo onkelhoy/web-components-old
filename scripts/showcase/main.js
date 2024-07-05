@@ -88,25 +88,28 @@ async function init() {
   await iterate(async list => {
     for (let package of list) {
       if (!envmap[package.name]) {
-        console.log('\t[skipped - warn]\t', package.name);
+        console.log('\t[skipped]:\t', package.name, '\t... warning');
         continue;
       }
 
       await new Promise(res => {
-        console.log('\t[processing]: ', package.name)
+        process.stdout.write(`\t[processing]:\t${package.name}\t... `);
+
         exec(path.join(__dirname, `individual.sh ${package.location} ${package.name}`), (error, stdout, stderr) => {
           if (error) {
             switch (error.code) {
               case 2:
-                console.log('\t[skipped]\t', package.name);
+                process.stdout.write('[skipped]\n');
                 break;
               default:
-                console.log('\t[error]\t', package.name, error);
+                process.stdout.write('[error]\n');
+                console.log(error, '\n');
                 break;
             }
           }
           else if (stderr) {
-            console.log('\t[failed]\t', package.name, stderr);
+            process.stdout.write('[failed]\n');
+            console.log(stderr, '\n');
           }
           else {
             // NOTE at this point the "package" combined-view has been copied over
@@ -114,17 +117,14 @@ async function init() {
 
             let destname = stdout.match(/DESTNAME::(.*)/);
             let classname = stdout.match(/CLASSNAME::(.*)/);
+            const warnings = [];
 
-            if (!destname) console.lof('[failed]\t', package.name, 'could not extract destination-name');
+            // extractions
+            if (!destname) warnings.push('could not extract destination-name');
             destname = destname[1];
-            if (!classname) console.lof('[failed]\t', package.name, 'could not extract classname');
-            classname = classname[1];
 
-            // const filepath = path.join(destname[1], "index.html");
-            // const file = fs.readFileSync(filepath, 'utf-8');
-            // const document = parse(file);
-            // document.querySelector('head').appendChild(importmapscript);
-            // fs.writeFileSync(filepath, document.toString());
+            if (!classname) warnings.push('could not extract classname');
+            classname = classname[1];
 
             htmltemplate.querySelector('title').set_content(classname);
 
@@ -138,7 +138,8 @@ async function init() {
             );
             fs.writeFileSync(savepath, htmltemplate.toString());
 
-            console.log('\t[success]\t', package.name);
+            process.stdout.write('[success]\n');
+            if (warnings.length > 0) console.log('warnings', warnings.map((v, i) => `${i + 1} ${v}`).join('\n'));
           }
 
           res();
