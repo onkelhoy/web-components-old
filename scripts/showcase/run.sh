@@ -3,10 +3,9 @@
 export SCRIPTDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 export ROOTDIR="$(dirname "$(dirname "$SCRIPTDIR")")"
 export NAME="showcase"
-export RUN_COMBINE=false 
+export RUN_COMBINE=true 
 export GLOBAL_PROD=true
 export SKIP_BUILD=true
-export DESTINATION="$ROOTDIR/$NAME"
 
 # Define PROJECTSCOPE variable
 export PROJECTSCOPE=$(node -pe "require('$ROOTDIR/package.json').name" | cut -d'/' -f1 | awk -F'@' '{print $2}')
@@ -35,6 +34,9 @@ for arg in "$@"; do
     export RUN_COMBINE=false
   fi
 done
+
+# setting this after the name to "docs" in case of github
+export DESTINATION="$ROOTDIR/$NAME"
 
 if [ -d "$DESTINATION" ]; then 
   echo ""
