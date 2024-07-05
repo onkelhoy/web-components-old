@@ -67,28 +67,6 @@ for package in $(find "$ROOTDIR/packages" -mindepth 2 -maxdepth 2 -type d); do
   cd $package
   source ".env"
   echo "processing $CLASSNAME"
-
-#   if [ $RUN_COMBINE == false ]; then 
-#     npm run combine &>/dev/null
-#   elif [ $RUN_BUILD == false ]; then 
-#     npm run build 
-#   fi
-
-#   packagename=$(node -pe "require('package.json').name")
-
-#   if [[ package_set[packagename] != 1 ]]; then 
-#     echo "\"$packagename/wc\": \”$package/dist/src/register.js\"" >> "$SCRIPTDIR/importmap.tmp"
-#     echo "\"$packagename\": \”$package/dist/src/index.js\"" >> "$SCRIPTDIR/importmap.tmp"
-#   fi 
-
-#   package_set[packagename] = 1
-
-#   # check if file could be generated
-#   if [ -d "views/combine" ]; then 
-#     echo "\tsuccess ✅"
-#   else 
-#     echo "\tskipped ⏩"
-#   fi 
 done
 
 # then again we need to generate each index for them so we can mimic refresh 

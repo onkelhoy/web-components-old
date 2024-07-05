@@ -9,6 +9,11 @@ source ".env"
 # always run the build
 npm run build
 
+# init destination 
+DESTNAME="$DESTINATION/$ATOMICTYPE/$NAME"
+mkdir -p $DESTNAME
+cp -R ./dist $DESTNAME
+
 # check if package has combine script 
 if [[ ! -f ".scripts/combine.sh" || "$(node -pe "require('./package.json').scripts.combine")" == "undefined" ]]; then 
   # it did not 
@@ -20,12 +25,10 @@ if [ $RUN_COMBINE = "true" ]; then
   sh ./scripts/combine.sh 
 fi
 
-# init destination 
-DESTNAME="$DESTINATION/$ATOMICTYPE/$NAME"
-mkdir -p $DESTNAME/dist
-
-cp -R ./dist $DESTNAME/dist
-cp -R ./views/combined $DESTNAME
+cp -R ./views/combined/* $DESTNAME 
+if [ -f "$DESTNAME/index.html" ]; then 
+  mv "$DESTNAME/index.html" "$DESTNAME/source.html"
+fi 
 
 # echo out back to "main.js"
 echo "DESTNAME::$DESTNAME"

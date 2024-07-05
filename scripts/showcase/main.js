@@ -6,12 +6,14 @@ const {parse} = require('node-html-parser');
 
 // local packages
 const {iterate, initializePackages, importmapset} = require('../utils/package-list-dependency-order');
+const {envtojson} = require('../utils/env-to-json');
 
 // setup
 const LOCKFILE = JSON.parse(fs.readFileSync(path.join(process.env.ROOTDIR, "package-lock.json")));
 initializePackages(process.env.ROOTDIR, LOCKFILE);
 
 let htmltemplate = null;
+const envmap = {};
 
 function initstructure() {
   // build importmap 
@@ -24,33 +26,60 @@ function initstructure() {
     const _path = path.join(process.env.ROOTDIR, 'node_modules', dep, 'package.json');
     const packagejson = JSON.parse(fs.readFileSync(_path));
 
-    // prioritize "exports"
-    if (packagejson.exports) {
-      for (let key in packagejson.exports) {
-        if (key === '.') {
-          importmap.imports[dep] = `/node_modules/${path.join(dep, packagejson.exports[key])}`;
-        }
-        else {
-          importmap.imports[path.join(dep, key)] = `/node_modules/${path.join(dep, packagejson.exports[key])}`;
+    if (dep.startsWith("@" + process.env.PROJECTSCOPE)) {
+      // we are coping over its dist anyway so we should only fix importmap
+      const jsonenv = envtojson(path.join(process.env.ROOTDIR, 'node_modules', dep, '.env'));
+      envmap[dep] = jsonenv; // store into envmap for later use
+
+      // prioritize "exports"
+      if (packagejson.exports) {
+        for (let key in packagejson.exports) {
+          if (key === '.') {
+            importmap.imports[dep] = path.resolve(`/${jsonenv.ATOMICTYPE}/${jsonenv.NAME}/${packagejson.exports[key]}`);
+          }
+          else {
+            importmap.imports[path.join(dep, key)] = path.resolve(`/${jsonenv.ATOMICTYPE}/${jsonenv.NAME}/${packagejson.exports[key]}`);
+          }
         }
       }
-    }
-    // no "exports" found try "main"
-    else if (packagejson.main) {
-      importmap.imports[dep] = `/node_modules/${path.join(dep, packagejson.main)}`;
+      // no "exports" found try "main"
+      else if (packagejson.main) {
+        importmap.imports[dep] = path.resolve(`/${jsonenv.ATOMICTYPE}/${jsonenv.NAME}/${packagejson.main}`);
+      }
+      else {
+        // NOTE should not happen really, so we warn future us
+        console.log(`[WARNING]: package ${dep} could not be determined`);
+      }
     }
     else {
-      // NOTE should not happen really, so we warn future us
-      console.log(`[WARNING]: package ${dep} could not be determined`);
+      // prioritize "exports"
+      if (packagejson.exports) {
+        for (let key in packagejson.exports) {
+          if (key === '.') {
+            importmap.imports[dep] = `/node_modules/${path.join(dep, packagejson.exports[key])}`;
+          }
+          else {
+            importmap.imports[path.join(dep, key)] = `/node_modules/${path.join(dep, packagejson.exports[key])}`;
+          }
+        }
+      }
+      // no "exports" found try "main"
+      else if (packagejson.main) {
+        importmap.imports[dep] = `/node_modules/${path.join(dep, packagejson.main)}`;
+      }
+      else {
+        // NOTE should not happen really, so we warn future us
+        console.log(`[WARNING]: package ${dep} could not be determined`);
+      }
     }
   });
 
-  const importmapscript = parse(`<script type="importmap">${JSON.stringify(importmap)}</script>`);
+  const importmapscript = parse(`<script type="importmap">${JSON.stringify(importmap, null, 4)}</script>`);
 
   // load & fix template index.html file 
   const file = fs.readFileSync(path.join(process.env.SCRIPTDIR, 'template/index.html'), 'utf-8');
   htmltemplate = parse(file);
-  htmltemplate.querySelector('head').appendChild(importmapscript);
+  htmltemplate.querySelector('head').insertAdjacentHTML('afterbegin', importmapscript);
 }
 
 async function init() {
@@ -58,6 +87,11 @@ async function init() {
 
   await iterate(async list => {
     for (let package of list) {
+      if (!envmap[package.name]) {
+        console.log('\t[skipped - warn]\t', package.name);
+        continue;
+      }
+
       await new Promise(res => {
         console.log('\t[processing]: ', package.name)
         exec(path.join(__dirname, `individual.sh ${package.location} ${package.name}`), (error, stdout, stderr) => {
@@ -95,7 +129,14 @@ async function init() {
             htmltemplate.querySelector('title').set_content(classname);
 
             // TODO append the necessary info for the router (starting file)
-            fs.writeFileSync(path.join(process.env.DESTINATION, classname + ".html"), htmltemplate.toString());
+
+            const savepath = path.join(
+              process.env.DESTINATION,
+              envmap[package.name].ATOMICTYPE,
+              envmap[package.name].NAME,
+              "index.html",
+            );
+            fs.writeFileSync(savepath, htmltemplate.toString());
 
             console.log('\t[success]\t', package.name);
           }
