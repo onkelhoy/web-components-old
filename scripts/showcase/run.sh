@@ -33,12 +33,16 @@ for arg in "$@"; do
     # a flag to make sure to build into 
     export RUN_COMBINE=false
   fi
+  if [ "$arg" == "--ci" ]; then
+    # a flag to make sure to build into 
+    export CI=true
+  fi
 done
 
 # setting this after the name to "docs" in case of github
 export DESTINATION="$ROOTDIR/$NAME"
 
-if [ -d "$DESTINATION" ]; then 
+if [[ -d "$DESTINATION" && -z "$CI" ]]; then 
   echo ""
   echo "$NAME already exists, are you sure you want to continue?"
   read -p "OBS: this would remove it (y/n): " answer
@@ -49,6 +53,8 @@ if [ -d "$DESTINATION" ]; then
     echo ""
     rm -rf "$DESTINATION"
   fi
+elif [ -n "$CI" ]; then 
+  rm -rf "$DESTINATION"
 fi 
 
 # we create the folder 
@@ -57,22 +63,12 @@ mkdir "$DESTINATION"
 # create node_module folder 
 mkdir "$DESTINATION/node_modules"
 
-# declare -A package_set
-
 # copy over template files 
 cp "$SCRIPTDIR/template/style.css" "$DESTINATION/style.css"
 cp "$SCRIPTDIR/template/main.js" "$DESTINATION/main.js"
+cp "$SCRIPTDIR/template/index.html" "$DESTINATION/index.html"
 
 node "$SCRIPTDIR/main.js" 
-
-for package in $(find "$ROOTDIR/packages" -mindepth 2 -maxdepth 2 -type d); do
-  cd $package
-  source ".env"
-  echo "processing $CLASSNAME"
-done
-
-# then again we need to generate each index for them so we can mimic refresh 
-# but each page should be equipped to load other with the SPA 
 
 # cleanup 
 cleanup
