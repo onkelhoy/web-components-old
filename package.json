@@ -20,7 +20,7 @@
     "start": "npm run ecosystem:build & npm run ecosystem:start",
     "theme:build": "sh ./scripts/theme/run.sh",
     "project": "sh ./scripts/project/run.sh",
-    "package-showcase": "sh ./scripts/package-showcase/run.sh",
+    "showcase": "sh ./scripts/showcase/run.sh",
     "document": ""
   },
   "keywords": [
